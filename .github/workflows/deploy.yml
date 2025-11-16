@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -32,8 +35,43 @@ jobs:
         ls -la dist/.nojekyll || echo "WARNING: .nojekyll not found!"
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist
-        force_orphan: true
+      run: |
+        set -e
+
+        # Configure git
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+
+        # Prepare gh-pages deployment
+        DEPLOY_DIR="./dist"
+        TEMP_DEPLOY="$(mktemp -d)"
+
+        # Copy built files to temp directory
+        cp -r "$DEPLOY_DIR"/* "$TEMP_DEPLOY/" || {
+          echo "ERROR: Failed to copy build artifacts"
+          exit 1
+        }
+
+        # Initialize git in temp directory
+        cd "$TEMP_DEPLOY"
+        git init
+        git add -A
+        git commit -m "Deploy to GitHub Pages"
+
+        # Tolerant remote removal: avoids failing when 'origin'
+        # is missing in CI checkouts
+        if git remote | grep -q '^origin$'; then
+          git remote remove origin
+        fi
+
+        # Add remote and force push
+        REPO_URL="https://x-access-token:${{ secrets.GITHUB_TOKEN }}"
+        REPO_URL="${REPO_URL}@github.com/${{ github.repository }}.git"
+        git remote add origin "$REPO_URL"
+        git push --force origin HEAD:gh-pages
+
+        # Cleanup: guarded rm to prevent failure with empty variable
+        cd -
+        if [ -n "$TEMP_DEPLOY" ]; then
+          rm -rf -- "$TEMP_DEPLOY"
+        fi
