@@ -1,0 +1,14 @@
+{
+  "title": "اتصل بنا",
+  "getInTouch": "تواصل معنا",
+  "address": "375 شارع ميدويست، تورونتو، أونتاريو",
+  "phone": "(416) 757-9495",
+  "fax": "(416) 752-9248",
+  "email": "info@shehirian.com",
+  "form": {
+    "labelName": "الاسم",
+    "labelEmail": "البريد الإلكتروني",
+    "labelMessage": "رسالة",
+    "buttonSend": "إرسال الرسالة"
+  }
+}

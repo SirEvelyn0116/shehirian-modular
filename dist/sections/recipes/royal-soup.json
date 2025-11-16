@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Royal Soup",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Soup",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "6 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT30M",
+  "totalTime": "PT45M",
+  "recipeIngredient": [
+    "1/2 gallon chicken broth",
+    "1/2 lb. ground beef (not too lean)",
+    "1/4 cup raw rice",
+    "1/4 cup very finely chopped onion",
+    "1/4 cup parsley",
+    "1/4 cup lemon juice",
+    "1/4 cup finely chopped celery",
+    "1/4 tsp. salt",
+    "Slice of 2 lemons"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls." },
+    { "@type": "HowToStep", "text": "Add rice to the meat balls mixture." },
+    { "@type": "HowToStep", "text": "Add meat balls to hot chicken broth and simmer until cooked through." },
+    { "@type": "HowToStep", "text": "Add lemon juice and celery. Simmer for 10 minutes." },
+    { "@type": "HowToStep", "text": "Add salt and lemon slices. Simmer for 5 minutes." },
+    { "@type": "HowToStep", "text": "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed." },
+    { "@type": "HowToStep", "text": "Pour broth over meatballs and serve." }
+  ],
+  "keywords": "royal soup, lemon meatball soup, bulghur soup"
+}
