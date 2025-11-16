@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{title}}</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="alternate" hreflang="x-default" href="index.en.html" />
   <link rel="alternate" hreflang="en" href="index.en.html" />
   <link rel="alternate" hreflang="fr" href="index.fr.html" />
   <link rel="alternate" hreflang="ar" href="index.ar.html" />
   {{jsonld}}
 </head>
-<body>
+<body dir="{{dir}}">
   <div id="language-switcher" class="lang-switcher-nav">
     <a href="index.en.html">EN</a>
     <a href="index.fr.html">FR</a>
@@ -19,7 +20,16 @@
 
   <div id="preview"></div>
 
+  <!-- Load all section render functions -->
+  <script src="sections/hero/render.js"></script>
+  <script src="sections/aboutUs/render.js"></script>
+  <script src="sections/ourCompanies/render.js"></script>
+  <script src="sections/recipes/render.js"></script>
+  <script src="sections/certifications/render.js"></script>
+  <script src="sections/contactUs/render.js"></script>
+  
+  <!-- Set language and load preview -->
   <script>localStorage.setItem('lang', '{{lang}}');</script>
-  <script src="preview/preview.js"></script>
+  <script src="preview.js"></script>
 </body>
 </html>

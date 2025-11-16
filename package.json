@@ -1,0 +1,13 @@
+{
+  "name": "shehirian-modular",
+  "version": "1.0.0",
+  "description": "Modular multilingual static site for Shehirian Family",
+  "scripts": {
+    "build": "node generate-index.js",
+    "preview": "npx http-server dist -p 8080 -o"
+  },
+  "keywords": ["multilingual", "static-site", "modular"],
+  "author": "Shehirian Family",
+  "license": "MIT",
+  "devDependencies": {}
+}

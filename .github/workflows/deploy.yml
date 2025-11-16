@@ -17,14 +17,23 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+    - name: Install dependencies (if needed)
+      run: |
+        if [ -f package.json ]; then npm ci || npm install; fi
 
     - name: Run build script
       run: node generate-index.js
+
+    - name: Verify build output
+      run: |
+        echo "Build artifacts:"
+        ls -la dist/
+        echo "Checking for .nojekyll:"
+        ls -la dist/.nojekyll || echo "WARNING: .nojekyll not found!"
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
+        force_orphan: true

@@ -2,35 +2,94 @@ const fs = require('fs');
 const path = require('path');
 
 const langs = {
-  en: "Shehirian Family Kitchen",
-  fr: "Cuisine familiale Shehirian",
-  ar: "مطبخ عائلة شيهريان"
+  en: { title: "Shehirian Family Kitchen", dir: "ltr" },
+  fr: { title: "Cuisine familiale Shehirian", dir: "ltr" },
+  ar: { title: "مطبخ عائلة شيهريان", dir: "rtl" }
 };
 
 const template = fs.readFileSync('template.html', 'utf8');
 
 // Load JSON-LD blocks if available
 function loadJSONLD(lang) {
-  const sections = ['hero', 'aboutUs', 'certifications', 'recipes'];
+  const sectionsDir = path.join(__dirname, 'sections');
+  const sections = fs.readdirSync(sectionsDir)
+    .filter(item => fs.statSync(path.join(sectionsDir, item)).isDirectory());
+  
   return sections
     .map(section => {
-      const file = `sections/${section}/${section}.${lang}.jsonld`;
+      const file = path.join(sectionsDir, section, `${section}.${lang}.jsonld`);
       return fs.existsSync(file)
         ? `<script type="application/ld+json">${fs.readFileSync(file, 'utf8')}</script>`
         : '';
     })
-    .join('\n');
+    .filter(Boolean)
+    .join('\n  ');
+}
+
+// Copy assets to dist
+function copyAssets() {
+  const distDir = path.join(__dirname, 'dist');
+  const assetsDir = path.join(__dirname, 'assets');
+  const sectionsDir = path.join(__dirname, 'sections');
+  const previewJsSource = path.join(__dirname, 'preview.js');
+  
+  // Copy assets folder
+  if (fs.existsSync(assetsDir)) {
+    const distAssets = path.join(distDir, 'assets');
+    if (!fs.existsSync(distAssets)) {
+      fs.mkdirSync(distAssets, { recursive: true });
+    }
+    copyRecursive(assetsDir, distAssets);
+  }
+  
+  // Copy sections folder
+  const distSections = path.join(distDir, 'sections');
+  if (!fs.existsSync(distSections)) {
+    fs.mkdirSync(distSections, { recursive: true });
+  }
+  copyRecursive(sectionsDir, distSections);
+  
+  // Copy preview.js
+  fs.copyFileSync(previewJsSource, path.join(distDir, 'preview.js'));
+  
+  // Create .nojekyll
+  fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
+}
+
+function copyRecursive(src, dest) {
+  if (!fs.existsSync(src)) return;
+  
+  const stats = fs.statSync(src);
+  if (stats.isDirectory()) {
+    if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+    fs.readdirSync(src).forEach(child => {
+      copyRecursive(path.join(src, child), path.join(dest, child));
+    });
+  } else {
+    fs.copyFileSync(src, dest);
+  }
 }
 
 // Build each language page
-Object.entries(langs).forEach(([lang, title]) => {
+console.log('🔨 Building multilingual static site...\n');
+
+const distDir = path.join(__dirname, 'dist');
+if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
+
+Object.entries(langs).forEach(([lang, config]) => {
   const html = template
     .replace(/{{lang}}/g, lang)
-    .replace(/{{title}}/g, title)
+    .replace(/{{dir}}/g, config.dir)
+    .replace(/{{title}}/g, config.title)
     .replace(/{{jsonld}}/g, loadJSONLD(lang));
 
-  const distDir = path.join(__dirname, 'dist');
-  if (!fs.existsSync(distDir)) fs.mkdirSync(distDir);
-
-  fs.writeFileSync(path.join(distDir, `index.${lang}.html`), html);
+  const outputFile = path.join(distDir, `index.${lang}.html`);
+  fs.writeFileSync(outputFile, html);
+  console.log(`✓ Generated ${lang}: index.${lang}.html`);
 });
+
+copyAssets();
+console.log('✓ Copied assets, sections, and preview.js');
+console.log('✓ Created .nojekyll file');
+console.log('\n✅ Build complete! Output in dist/');
+console.log(`   Pages: ${Object.keys(langs).map(l => `index.${l}.html`).join(', ')}`);
