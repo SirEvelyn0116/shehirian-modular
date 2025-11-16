@@ -1,27 +1,51 @@
 const fs = require('fs');
 const path = require('path');
 
-const sections = ['hero', 'recipes'];
-const langs = ['en', 'fr', 'ar'];
+// Supported languages and page title per language
+const langs = {
+  en: "Shehirian Bulgor Inc.",
+  fr: "Shehirian Bulgor Inc.",
+  ar: "مطبخ عائلة شيهريان"
+};
 
-langs.forEach(lang => {
-  let output = '<!DOCTYPE html><html lang="' + lang + '"><head>';
-  output += '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">';
-  output += '<link rel="stylesheet" href="assets/css/style.css">';
+// Load base template
+const templatePath = path.join(__dirname, 'template.html');
+const baseTemplate = fs.readFileSync(templatePath, 'utf8');
 
-  // Inject JSON-LD from hero and recipes
-  sections.forEach(section => {
-    const schemaPath = `sections/${section}/${section}.${lang}.jsonld`;
-    if (fs.existsSync(schemaPath)) {
-      const schema = fs.readFileSync(schemaPath, 'utf8');
-      output += `<script type="application/ld+json">${schema}</script>`;
-    }
-  });
+// Load rendered HTML fragments from each section
+function loadSectionHTML(section, lang) {
+  const htmlPath = path.join(__dirname, `sections/${section}/${section}.${lang}.html`);
+  return fs.existsSync(htmlPath) ? fs.readFileSync(htmlPath, 'utf8') : '';
+}
 
-  output += '</head><body><div id="preview"></div>';
-  output += `<script>localStorage.setItem('lang', '${lang}');</script>`;
-  output += '<script src="preview/preview.js"></script>';
-  output += '</body></html>';
+// Load JSON-LD if available
+function loadJSONLD(section, lang) {
+  const ldPath = path.join(__dirname, `sections/${section}/${section}.${lang}.jsonld`);
+  return fs.existsSync(ldPath) ? `<script type="application/ld+json">${fs.readFileSync(ldPath, 'utf8')}</script>` : '';
+}
 
-  fs.writeFileSync(`dist/index.${lang}.html`, output);
+// Build each language page
+Object.keys(langs).forEach(lang => {
+  let output = baseTemplate;
+
+  // Replace placeholders
+  output = output.replace(/{{lang}}/g, lang);
+  output = output.replace(/{{title}}/g, langs[lang]);
+
+  // Inject JSON-LD
+  const jsonldBlocks = [
+    loadJSONLD('hero', lang),
+    loadJSONLD('aboutUs', lang),
+    loadJSONLD('certifications', lang),
+    loadJSONLD('recipes', lang)
+  ].join('\n');
+  output = output.replace('</head>', `${jsonldBlocks}\n</head>`);
+
+  // Inject language context script
+  output = output.replace('</body>', `<script>localStorage.setItem('lang', '${lang}');</script>\n</body>`);
+
+  // Write to dist
+  const distPath = path.join(__dirname, 'dist');
+  if (!fs.existsSync(distPath)) fs.mkdirSync(distPath);
+  fs.writeFileSync(path.join(distPath, `index.${lang}.html`), output);
 });

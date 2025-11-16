@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="alternate" hreflang="en" href="index.en.html" />
+  <link rel="alternate" hreflang="fr" href="index.fr.html" />
+  <link rel="alternate" hreflang="ar" href="index.ar.html" />
+  {{jsonld}}
+</head>
+<body>
+  <div id="language-switcher" class="lang-switcher-nav">
+    <a href="index.en.html">EN</a>
+    <a href="index.fr.html">FR</a>
+    <a href="index.ar.html">AR</a>
+  </div>
+
+  <div id="preview"></div>
+
+  <script>localStorage.setItem('lang', '{{lang}}');</script>
+  <script src="preview/preview.js"></script>
+</body>
+</html>
