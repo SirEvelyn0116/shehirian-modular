@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mockup Website</title>
+  <link rel="stylesheet" href="mockup-4.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
+</head>
+<body>
+  <div class="background">
+    <!-- Language Switcher styled as nav bar -->
+    <div id="language-switcher" class="lang-switcher-nav">
+      <button onclick="setLanguage('en')" id="lang-en" aria-label="English" title="English">EN</button>
+      <button onclick="setLanguage('fr')" id="lang-fr" aria-label="Français" title="Français">FR</button>
+      <button onclick="setLanguage('ar')" id="lang-ar" aria-label="العربية" title="العربية">AR</button>
+    </div>
+    <div class="home">
+      <!-- 
+      // Extract this "title" block into modular section
+      // Target: sections/hero/hero.en.json and render.js
+      -->
+      <div class="title" data-i18n="company">shehirian bulgor inc.</div>
+      
+      <!-- Certifications Preview - Left Aligned at Bottom -->
+      <div class="certifications-preview">
+        <a href="certifications.html" class="cert-badge-small" title="BRC Global Standard">
+          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="Safe Quality Food">
+          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="FSSC 22000">
+          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+        </a>
+        <a href="certifications.html" class="cert-badge-small" title="IFS Food Standard">
+          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+        </a>
+      </div>
+      
+      <div class="mid-spacer"></div>
+      <div class="nav">
+        <h2 data-i18n="nav_home">Home</h2>
+        <h2><a href="#about-us" data-i18n="nav_about">About</a></h2>
+        <h2><a href="#products-carousel" data-i18n="nav_products">Products</a></h2>
+        <h2><a href="#recipes" data-i18n="nav_recipes">Recipes</a></h2>
+        <h2><a href="#certifications" data-i18n="nav_certifications">Certifications</a></h2>
+        <h2><a href="#contact" data-i18n="nav_contact">Contact us</a></h2>
+      </div>
+    </div>
+    <!-- Spacer to offset fixed nav -->
+    <div class="spacer"></div>
+    <!-- About US - Modular Section -->
+    <div id="about-us-container"></div>
+    <section id="products-carousel" class="page-section">
+      <h2 data-i18n="products_title">Our Products</h2>
+      <div class="carousel">
+        <div class="swath icon" data-tooltip="fine soft wheat">
+          <div class="image-container">
+            <img src='img/fine-bulgor-soft-wheat.jpg' alt='fine soft wheat bulgor'>
+          </div>
+          <span data-i18n="product_soft_fine">soft wheat fine</span>
+        </div>
+        <div class="swath icon" data-tooltip="medium soft wheat">
+          <div class="image-container">
+            <img src="img/medium-bulgor-soft-wheat.jpg" alt="medium soft wheat bulgor">
+          </div>
+          <span data-i18n="product_soft_medium">soft wheat medium</span>
+        </div>
+        <div class="swath icon" data-tooltip="coarse soft wheat">
+          <div class="image-container">
+            <img src="img/coarse-bulgor-soft-wheat.jpg" alt="coarse soft wheat bulgor">
+          </div>
+          <span data-i18n="product_soft_coarse">soft wheat coarse</span>
+        </div>
+        <div class="swath icon" data-tooltip="extra coarse soft wheat">
+          <div class="image-container">
+            <img src="img/extra-coarse-bulgor-soft-wheat.jpg" alt="extra coarse soft wheat bulgor">
+          </div>
+          <span data-i18n="product_soft_xcoarse">soft wheat extra coarse</span>
+        </div>
+        <div class="swath carousel-bg bg-fine-red" data-tooltip="fine red wheat">
+          <!-- img src="img/fine-bulgor-red-wheat.jpg" -->
+          <span data-i18n="product_red_fine">red wheat fine</span>
+        </div>
+        <div class="swath carousel-bg bg-medium-red" data-tooltip="medium red wheat">
+          <!-- img src="img/medium-bulgor-red-wheat.jpg" alt="medium red wheat bulgor" -->
+          <span data-i18n="product_red_medium">red wheat medium</span>
+        </div>
+        <div class="swath carousel-bg bg-coarse-red" data-tooltip="coarse red wheat">
+          <!-- img src="img/coarse-bulgor-red-wheat.jpg" alt="coarse red wheat bulgor" -->
+          <span data-i18n="product_red_coarse">red wheat coarse</span>
+        </div>
+      </div>
+    </section>
+    <!-- RECIPE SECTION 4 (Added) -->
+    <section id="recipes" class="section-recipes">
+      <h2>Featured Recipes</h2>
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <h3>Bulgur Wheat Salad</h3>
+          <p>Fresh herbs, lemon dressing, and hearty bulgur.</p>
+          <ul>
+            <li>1 cup bulgur wheat</li>
+            <li>1/2 cup chopped parsley</li>
+            <li>1/4 cup chopped mint</li>
+            <li>1/2 cup diced cucumber</li>
+            <li>2 tbsp olive oil</li>
+            <li>1 tbsp lemon juice</li>
+          </ul>
+        </div>
+        <div class="recipe-card">
+          <h3>Spiced Lentil Soup</h3>
+          <p>Comforting, protein-rich, and perfect for fall.</p>
+          <ul>
+            <li>1 cup red lentils</li>
+            <li>1 onion</li>
+            <li>2 carrots</li>
+            <li>1 tsp cumin</li>
+            <li>1 tbsp olive oil</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- END RECIPE SECTION -->
+
+    <!-- CERTIFICATIONS SECTION -->
+    <section id="certifications" class="certifications-section">
+      <h2 data-i18n="certifications_title">Our Certifications</h2>
+      <p class="certifications-intro" data-i18n="certifications_intro">GFSI-Recognized Food Safety Standards</p>
+      <div class="certifications-container">
+        <a href="certifications.html" class="cert-badge" title="BRC Global Standard">
+          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+          <span data-i18n="cert_brc">BRC</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="Safe Quality Food">
+          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+          <span data-i18n="cert_sqf">SQF</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="FSSC 22000">
+          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+          <span data-i18n="cert_fssc">FSSC 22000</span>
+        </a>
+        <a href="certifications.html" class="cert-badge" title="IFS Food Standard">
+          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+          <span data-i18n="cert_ifs">IFS</span>
+        </a>
+      </div>
+    </section>
+    <!-- END CERTIFICATIONS SECTION -->
+
+    <section id="contact" class="contact-section">
+      <h2 data-i18n="contact_title">Contact Us</h2>
+      <div class="contact-container">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3 data-i18n="contact_get_in_touch">Get in Touch</h3>
+          <p><strong data-i18n="contact_address_label">Address:</strong> 375 Midwest Rd., Toronto, ON</p>
+          <p><strong data-i18n="contact_phone_label">Phone:</strong> (416) 757-9495</p>
+          <p><strong data-i18n="contact_fax_label">Fax:</strong> (416) 752-9248</p>
+          <p><strong data-i18n="contact_email_label">Email:</strong> info@shehirian.com</p>
+        </div>
+
+        <!-- Contact Form -->
+        <form class="contact-form">
+          <label for="name" data-i18n="label_name">Name</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email" data-i18n="label_email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message" data-i18n="label_message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit" data-i18n="button_send">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+  <script src="sections/aboutUs/render.js"></script>
+  <script>
+    const translations = {
+      en: {
+        company: "shehirian bulgor inc.",
+        nav_home: "Home",
+        nav_about: "About",
+        nav_products: "Products",
+        nav_recipes: "Recipes",
+        nav_certifications: "Certifications",
+        nav_contact: "Contact us",
+        products_title: "Our Products",
+        product_soft_fine: "soft wheat fine",
+        product_soft_medium: "soft wheat medium",
+        product_soft_coarse: "soft wheat coarse",
+        product_soft_xcoarse: "soft wheat extra coarse",
+        product_red_fine: "red wheat fine",
+        product_red_medium: "red wheat medium",
+        product_red_coarse: "red wheat coarse",
+        certifications_title: "Our Certifications",
+        certifications_intro: "GFSI-Recognized Food Safety Standards",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
+        contact_title: "Contact Us",
+        contact_get_in_touch: "Get in Touch",
+        contact_address_label: "Address:",
+        contact_phone_label: "Phone:",
+        contact_fax_label: "Fax:",
+        contact_email_label: "Email:",
+        label_name: "Name",
+        label_email: "Email",
+        label_message: "Message",
+        button_send: "Send Message"
+      },
+      fr: {
+        company: "shehirian bulgor inc.",
+        nav_home: "Accueil",
+        nav_about: "À propos",
+        nav_products: "Produits",
+        nav_recipes: "Recettes",
+        nav_certifications: "Certifications",
+        nav_contact: "Contactez-nous",
+        products_title: "Nos Produits",
+        product_soft_fine: "blé tendre fin",
+        product_soft_medium: "blé tendre moyen",
+        product_soft_coarse: "blé tendre grossier",
+        product_soft_xcoarse: "blé tendre extra grossier",
+        product_red_fine: "blé rouge fin",
+        product_red_medium: "blé rouge moyen",
+        product_red_coarse: "blé rouge grossier",
+        certifications_title: "Nos Certifications",
+        certifications_intro: "Normes de sécurité alimentaire reconnues par GFSI",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
+        contact_title: "Contactez-nous",
+        contact_get_in_touch: "Entrer en contact",
+        contact_address_label: "Adresse :",
+        contact_phone_label: "Téléphone :",
+        contact_fax_label: "Fax :",
+        contact_email_label: "Email :",
+        label_name: "Nom",
+        label_email: "Email",
+        label_message: "Message",
+        button_send: "Envoyer le message"
+      },
+      ar: {
+        company: "شهيريان بلغور ش.م.",
+        nav_home: "الرئيسية",
+        nav_about: "حول",
+        nav_products: "المنتجات",
+        nav_recipes: "الوصفات",
+        nav_certifications: "الشهادات",
+        nav_contact: "اتصل بنا",
+        products_title: "منتجاتنا",
+        product_soft_fine: "برغل قمح ناعم",
+        product_soft_medium: "برغل قمح متوسط",
+        product_soft_coarse: "برغل قمح خشن",
+        product_soft_xcoarse: "برغل قمح خشن جداً",
+        product_red_fine: "برغل أحمر ناعم",
+        product_red_medium: "برغل أحمر متوسط",
+        product_red_coarse: "برغل أحمر خشن",
+        certifications_title: "شهاداتنا",
+        certifications_intro: "معايير سلامة الغذاء المعتمدة من GFSI",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
+        contact_title: "اتصل بنا",
+        contact_get_in_touch: "تواصل معنا",
+        contact_address_label: "العنوان:",
+        contact_phone_label: "الهاتف:",
+        contact_fax_label: "فاكس:",
+        contact_email_label: "البريد الإلكتروني:",
+        label_name: "الاسم",
+        label_email: "البريد الإلكتروني",
+        label_message: "رسالة",
+        button_send: "إرسال الرسالة"
+      }
+    };
+
+    // Language switcher with highlight
+    let currentLang = 'en';
+    
+    function loadAboutUs(lang) {
+      renderAboutUs(lang).then(section => {
+        const container = document.getElementById('about-us-container');
+        container.innerHTML = '';
+        container.appendChild(section);
+      });
+    }
+    
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(translations[lang][key]) el.textContent = translations[lang][key];
+      });
+      document.body.dir = lang === "ar" ? "rtl" : "ltr";
+      // Highlight current language
+      document.getElementById('lang-en').classList.remove('active-lang');
+      document.getElementById('lang-fr').classList.remove('active-lang');
+      document.getElementById('lang-ar').classList.remove('active-lang');
+      document.getElementById('lang-' + lang).classList.add('active-lang');
+      // Reload modular sections
+      loadAboutUs(lang);
+    }
+    window.onload = function() { setLanguage('en'); }
+  </script>
+</body>
+</html>

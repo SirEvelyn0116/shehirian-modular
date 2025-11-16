@@ -1,0 +1,508 @@
+
+/* All CSS copied from styles.css, including Section 4 Recipe Grid styles */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Elgar', 'BayerTypeArchiType', 'Poppins', 'PP Neue Montreal', sans-serif;
+  color: black;
+  scroll-behavior: smooth;
+}
+@font-face {
+    font-family: 'BayerTypeArchiType';
+    src: url('./fonts/bayer-typearchitype.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Elgar';
+    src: url('./fonts/elgar.ttf') format('TrueType');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.background {
+  background-image: url('img/bulgur-wheat-pile.png'); /* Replace with your image URL */
+  background-size: 200%;
+  background-position: top right;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+.home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    position: relative;
+}
+.title {
+  font-size: 10vh;
+  font-family: 'Elgar';
+  color: black;
+  background-color: wheat;
+  padding: 0 5vh 0 5vh;
+  border-radius: 0 5vh 5vh 0;
+  left: 0;
+}
+.section {
+    height: 100vh;
+}
+.page-section {
+    min-height: 100vh;
+}
+.mid-spacer {
+    width: 33%;
+}
+.lang-switcher-nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 100;
+}
+
+.lang-switcher-nav button {
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 30px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  border: 2px solid #e0c97f;
+  opacity: 0.95;
+  outline: none;
+  border-style: solid;
+}
+
+.lang-switcher-nav button.active-lang,
+.lang-switcher-nav button:hover {
+  background-color: wheat;
+  color: #111;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* ... rest of your existing CSS ... */
+.nav {
+  color: wheat;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: right;
+}
+
+.nav h2 {
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border-radius: 30px 0 0 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 300px;
+  opacity: 0.75;
+  font-weight: 300;
+  color: black;
+
+}
+
+.nav h2:hover {
+  color: white;
+  background-color: wheat;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* Spacer to offset fixed nav */
+.spacer {
+    height: 100%;
+    width: 30%;
+}
+/* Carousel section */
+#products-carousel {
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  opacity: 0.75;
+}
+
+.carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.swath {
+  flex: 1;
+  background-color: #ccc;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.3s ease, background-color 0.3s ease;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.icon {
+    display: flex;
+    flex-direction:column;
+}
+.swath.icon .image-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+.swath.icon .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.5s ease;
+  transform: scale(1.5);
+  transform-origin: center center;
+}
+.swath.icon:hover .image-container img, .swath.icon:focus-within .image-container img {
+  transform: scale(2);
+}
+.swath:hover {
+  flex: 2;
+  background-color: wheat;
+  font-weight: bold;
+}
+.image-container {
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+.image-container img {
+    /* width: 500%; */
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 40%;
+}
+.swath {
+    margin-bottom: 10px;
+}
+/* Tooltip styling */
+.swath::after {
+content: attr(data-tooltip);
+position: absolute;
+bottom: 100%;
+left: 50%;
+transform: translateX(-50%);
+background-color: #333;
+color: black;
+padding: 6px 10px;
+border-radius: 5px;
+white-space: nowrap;
+font-size: 0.8rem;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+z-index: 10;
+}
+
+.swath:hover::after {
+opacity: 1;
+}
+
+.carousel-bg {
+  background-size: 520%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.carousel-bg > span {
+  color: black;
+  background-color: wheat;
+  padding: 1vh 2vh 1vh 2vh;
+}
+/* Background images for each swath */
+.bg-fine     { background-image: url('img/fine-bulgor-soft-wheat.jpg'); }
+.bg-medium       { background-image: url('img/medium-bulgor-soft-wheat.jpg'); }
+.bg-coarse        { background-image: url('img/coarse-bulgor-soft-wheat.jpg'); }
+.bg-extra-coarse   { background-image: url('bg-branding.jpg'); }
+.bg-fine-red  { 
+    background-image: url('img/fine-bulgor-red-wheat.jpg'); 
+}
+.bg-medium-red { background-image: url('img/medium-bulgor-red-wheat.jpg'); }
+.bg-coarse-red    { background-image: url('img/coarse-bulgor-red-wheat.jpg'); }
+
+.contact-section {
+  padding: 60px 30px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.contact-form button {
+  padding: 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+/* === SECTION 4: RECIPE GRID === */
+.section-recipes {
+  padding: 60px 0;
+  background: #f8f6f2;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-recipes h2 {
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: #55422c;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 900px;
+}
+.recipe-card {
+  background-color: #5a6345;
+  color: #2a241b;
+  padding: 24px 20px 20px 20px;
+  border-radius: 30px;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.recipe-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+.recipe-card h3 {
+  font-size: 1.35rem;
+  margin: 0 0 8px 0;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  color: #a36b1b;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.recipe-card p {
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+@media (max-width: 600px) {
+  .section-recipes {
+    padding: 32px 0;
+  }
+  .recipe-grid {
+    padding: 0;
+    gap: 14px;
+}
+  .recipe-card {
+    padding: 16px 10px 12px 10px;
+  }
+}
+
+/* Certifications Section */
+.certifications-section {
+  background-color: #f5f5f0;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+}
+
+.certifications-section h2 {
+  font-size: 2.5rem;
+  color: #5a6345;
+  margin-bottom: 10px;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-weight: 600;
+}
+
+.certifications-intro {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.certifications-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge span {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a6345;
+}
+
+.cert-badge:hover img {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cert-badge:hover span {
+  color: #a36b1b;
+}
+
+@media (max-width: 600px) {
+  .certifications-section {
+    padding: 40px 15px;
+  }
+  
+  .certifications-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .certifications-intro {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .certifications-container {
+    gap: 20px;
+  }
+  
+  .cert-badge img {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .cert-badge span {
+    font-size: 0.85rem;
+  }
+}
+
+/* Certifications Preview in Home Section */
+.certifications-preview {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 10;
+}
+
+.cert-badge-small {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.cert-badge-small img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge-small:hover img {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .certifications-preview {
+    bottom: 20px;
+    left: 20px;
+    gap: 10px;
+  }
+  
+  .cert-badge-small img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+

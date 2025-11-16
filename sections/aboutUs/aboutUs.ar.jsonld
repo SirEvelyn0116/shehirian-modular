@@ -1,23 +1,20 @@
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "عن عائلة شيهريان",
-  "description": "بدأت رحلتنا في الطهي منذ أجيال في أرمينيا. اليوم، نشارك تراثنا من خلال الوصفات والقصص والمجتمع.",
-  "url": "https://shehirian-modular.github.io/about",
+  "name": "معلومات عنا",
+  "description": "تأسست وتدار عائلياً منذ 1958. قم بالتمرير للأسفل لاستكشاف منتجاتنا",
+  "url": "https://shehirian.com/about",
   "mainEntity": {
     "@type": "Organization",
-    "name": "عائلة شيهريان",
-    "description": "مبادرة عائلية للحفاظ على التقاليد الأرمنية والشرق أوسطية من خلال الطهي والثقافة.",
-    "url": "https://shehirian-modular.github.io",
+    "name": "Shehirian Bulgor Inc.",
+    "description": "تأسست وتدار عائلياً منذ 1958",
+    "foundingDate": "1958",
+    "url": "https://shehirian.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://shehirian-modular.github.io/assets/images/logo.png",
+      "url": "https://shehirian.com/assets/images/logo.png",
       "width": 300,
       "height": 100
-    },
-    "sameAs": [
-      "https://www.facebook.com/shehirianfamily",
-      "https://www.instagram.com/shehirianfamily"
-    ]
+    }
   }
 }
