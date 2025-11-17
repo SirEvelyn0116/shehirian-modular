@@ -44,19 +44,16 @@ jobs:
           echo "Checking for .nojekyll:"
           ls -la dist/.nojekyll || echo "WARNING: .nojekyll not found!"
 
-      - name: Prepare for deploy (tolerant removal of origin, guard rm)
+      - name: Verify build output
         run: |
-          # Make removing origin tolerant. Some checkouts in Actions may not have origin, and
-          # `git remote remove origin || true` ensures the workflow does not fail if origin is missing.
-          git remote remove origin || true
-
-          # Guard any rm against empty variables to avoid 'rm: no paths given'
-          # Only remove PUBLISH_DIR if it's set and non-empty.
-          if [ -n "${PUBLISH_DIR:-}" ]; then
-            rm -rf -- "${PUBLISH_DIR}"
-          else
-            echo "PUBLISH_DIR is empty or unset; skipping rm"
+          publish_dir="${PUBLISH_DIR:-dist}"
+          if [ ! -d "$publish_dir" ]; then
+            echo "ERROR: Publish directory '$publish_dir' does not exist after build"
+            exit 1
           fi
+          echo "✓ Build directory verified: $publish_dir"
+          echo "Contents:"
+          ls -la "$publish_dir"
 
       - name: Commit built site to gh-pages (manual git push approach, minimal change)
         env:
