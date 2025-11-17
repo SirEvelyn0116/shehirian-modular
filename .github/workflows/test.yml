@@ -1,0 +1,81 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run weekly on Sunday at midnight UTC
+    - cron: '0 0 * * 0'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+      
+      - name: Run Playwright tests
+        env:
+          BASE_URL: https://sirevelyn0116.github.io/shehirian-modular
+        run: npx playwright test --project=${{ matrix.browser }}
+      
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report-${{ matrix.browser }}
+          path: test-results/
+          retention-days: 30
+      
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-html-report-${{ matrix.browser }}
+          path: test-results/html/
+          retention-days: 30
+
+  # Optional: Publish test results as GitHub Pages
+  publish-report:
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: all-reports
+      
+      - name: Merge reports
+        run: |
+          mkdir -p merged-reports
+          find all-reports -name "*.json" -exec cp {} merged-reports/ \;
+      
+      - name: Upload merged reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: merged-test-reports
+          path: merged-reports/
+          retention-days: 30

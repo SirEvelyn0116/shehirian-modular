@@ -4,10 +4,19 @@
   "description": "Modular multilingual static site for Shehirian Family",
   "scripts": {
     "build": "node generate-index.js",
-    "preview": "npx http-server dist -p 8080 -o"
+    "preview": "npx http-server dist -p 8080 -o",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:report": "playwright show-report test-results/html"
   },
   "keywords": ["multilingual", "static-site", "modular"],
   "author": "Shehirian Family",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
 }

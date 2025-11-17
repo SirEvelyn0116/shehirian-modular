@@ -1,0 +1,9 @@
+# Playwright Test Results
+test-results/
+
+# Playwright browsers cache
+.cache/ms-playwright/
+
+# Test artifacts
+playwright-report/
+playwright/.auth/
