@@ -93,3 +93,8 @@ console.log('✓ Copied assets, sections, and preview.js');
 console.log('✓ Created .nojekyll file');
 console.log('\n✅ Build complete! Output in dist/');
 console.log(`   Pages: ${Object.keys(langs).map(l => `index.${l}.html`).join(', ')}`);
+
+// Copy redirect.html to dist/index.html
+const redirectSource = path.join(__dirname, 'redirect.html');
+const redirectTarget = path.join(distDir, 'index.html');
+fs.copyFileSync(redirectSource, redirectTarget);
