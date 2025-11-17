@@ -29,7 +29,7 @@ module.exports = defineConfig({
   
   // Reporter to use
   reporter: [
-    ['html', { outputFolder: 'test-results/html' }],
+    ['html', { outputFolder: 'playwright-report' }],
     ['json', { outputFile: 'test-results/results.json' }],
     ['list']
   ],

@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report-${{ matrix.browser }}
-          path: test-results/html/
+          path: playwright-report/
           retention-days: 30
 
   # Optional: Publish test results as GitHub Pages
