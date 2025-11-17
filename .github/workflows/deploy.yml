@@ -55,31 +55,10 @@ jobs:
           echo "Contents:"
           ls -la "$publish_dir"
 
-      - name: Commit built site to gh-pages (manual git push approach, minimal change)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Configure git (use GITHUB_TOKEN for auth)
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Initialize a new repo in the publish dir and push the site to gh-pages branch
-          publish_branch="gh-pages"
-          publish_dir="${PUBLISH_DIR:-dist}"
-
-          # Ensure build has produced files
-          if [ ! -d "$publish_dir" ]; then
-            echo "Publish directory '$publish_dir' does not exist; nothing to deploy"
-            exit 1
-          fi
-
-          # Create an orphan branch and push
-          pushd "$publish_dir"
-          git init
-          git checkout -b "$publish_branch"
-          git add --all
-          git commit -m "Deploy site from workflow at $GITHUB_SHA" || true
-          # Use token-authenticated URL to push; keep push tolerant
-          remote_repo="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
-          git push --force "$remote_repo" "$publish_branch"
-          popd
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          force_orphan: true
