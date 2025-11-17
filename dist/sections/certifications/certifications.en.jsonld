@@ -1,0 +1,36 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalCredential",
+    "name": "Certified Organic",
+    "credentialCategory": "certificate",
+    "educationalLevel": "advanced",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Canadian Food Inspection Agency",
+      "url": "https://inspection.canada.ca"
+    },
+    "validIn": {
+      "@type": "AdministrativeArea",
+      "name": "Canada"
+    },
+    "dateIssued": "2022-01-01"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalCredential",
+    "name": "Halal Certified",
+    "credentialCategory": "certificate",
+    "educationalLevel": "intermediate",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Islamic Food Council of Canada",
+      "url": "https://ifcc.ca"
+    },
+    "validIn": {
+      "@type": "AdministrativeArea",
+      "name": "Canada"
+    },
+    "dateIssued": "2023-01-01"
+  }
+]
