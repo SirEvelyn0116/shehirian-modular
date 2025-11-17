@@ -9,9 +9,9 @@ function renderHero(lang = 'en') {
       const section = document.createElement('section');
       section.className = 'hero';
       section.innerHTML = `
-        <h1>${data.headline}</h1>
-        <p>${data.subheadline}</p>
-        <a href="#recipes" class="cta">${data.cta}</a>
+        <h1>${data.headline || 'Welcome'}</h1>
+        <p>${data.subheadline || ''}</p>
+        ${data.cta ? `<a href="#recipes" class="cta">${data.cta}</a>` : ''}
       `;
 
       // Optional JSON-LD for WebPage

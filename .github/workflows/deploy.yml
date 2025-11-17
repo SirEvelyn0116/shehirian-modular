@@ -21,13 +21,28 @@ jobs:
           # Build outputs to ./dist in this repository
           echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
 
-      # (example) Build step - keep your existing build steps here
-      - name: Build
+      # Build step
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
         run: |
           if [ -f package.json ]; then
-            npm ci
-            npm run build --if-present
+            npm ci || npm install
           fi
+      
+      - name: Build site
+        run: |
+          node generate-index.js
+          echo "Build artifacts:"
+          ls -la dist/
+          echo "Checking for index.html (redirect):"
+          ls -la dist/index.html || echo "WARNING: index.html not found!"
+          echo "Checking for .nojekyll:"
+          ls -la dist/.nojekyll || echo "WARNING: .nojekyll not found!"
 
       - name: Prepare for deploy (tolerant removal of origin, guard rm)
         run: |

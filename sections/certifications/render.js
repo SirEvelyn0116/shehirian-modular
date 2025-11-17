@@ -7,10 +7,17 @@ function renderCertifications(lang = 'en') {
       section.className = 'certifications';
       section.innerHTML = '<h2>Certifications</h2>';
 
+      if (!Array.isArray(certs) || certs.length === 0) {
+        const placeholder = document.createElement('p');
+        placeholder.textContent = 'No certifications available.';
+        section.appendChild(placeholder);
+        return section;
+      }
+
       certs.forEach(cert => {
         const item = document.createElement('div');
         item.className = 'cert-item';
-        item.innerHTML = `<strong>${cert.title}</strong> — ${cert.issuer} (${cert.year})`;
+        item.innerHTML = `<strong>${cert.title || 'Untitled'}</strong> — ${cert.issuer || 'Unknown'} (${cert.year || 'N/A'})`;
         section.appendChild(item);
       });
 

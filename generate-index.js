@@ -91,10 +91,17 @@ Object.entries(langs).forEach(([lang, config]) => {
 copyAssets();
 console.log('✓ Copied assets, sections, and preview.js');
 console.log('✓ Created .nojekyll file');
-console.log('\n✅ Build complete! Output in dist/');
-console.log(`   Pages: ${Object.keys(langs).map(l => `index.${l}.html`).join(', ')}`);
 
-// Copy redirect.html to dist/index.html
+// Copy redirect.html to dist/index.html (root redirect)
 const redirectSource = path.join(__dirname, 'redirect.html');
 const redirectTarget = path.join(distDir, 'index.html');
-fs.copyFileSync(redirectSource, redirectTarget);
+if (fs.existsSync(redirectSource)) {
+  fs.copyFileSync(redirectSource, redirectTarget);
+  console.log('✓ Copied redirect.html → dist/index.html');
+} else {
+  console.warn('⚠ Warning: redirect.html not found, skipping root redirect');
+}
+
+console.log('\n✅ Build complete! Output in dist/');
+console.log(`   Pages: ${Object.keys(langs).map(l => `index.${l}.html`).join(', ')}`);
+console.log('   Root:  index.html (redirect)');

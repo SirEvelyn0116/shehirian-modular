@@ -7,9 +7,9 @@ function renderAboutUs(lang = 'en') {
       section.id = 'about-us';
       section.className = 'page-section';
       section.innerHTML = `
-        <h2>${data.title}</h2>
-        <p>${data.line1}</p>
-        <p>${data.line2}</p>
+        <h2>${data.title || 'About Us'}</h2>
+        ${data.line1 ? `<p>${data.line1}</p>` : ''}
+        ${data.line2 ? `<p>${data.line2}</p>` : ''}
       `;
 
       // Inject JSON-LD for SEO
