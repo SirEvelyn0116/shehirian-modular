@@ -170,6 +170,14 @@ body[dir="rtl"] .lang-switcher-nav {
   padding: 0;
 }
 
+/* === HERO SECTION === */
+.hero h1 {
+  font-family: 'Elgar', serif;
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
 /* === SECTION STYLING === */
 section {
   margin: 0;
