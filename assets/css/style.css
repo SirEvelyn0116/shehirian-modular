@@ -1,19 +1,37 @@
 /* 
  * Shehirian Multilingual Site - Main Stylesheet
- * Auto-generated placeholder for modular site
+ * Integrated from mockup-4.css and certifications-home-index.html
  */
 
+/* === FONTS === */
+@font-face {
+  font-family: 'BayerTypeArchiType';
+  src: url('../fonts/bayer-typearchitype.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Elgar';
+  src: url('../fonts/elgar.ttf') format('TrueType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* === RESET & BASE STYLES === */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f5f5f5;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Elgar', 'BayerTypeArchiType', 'Poppins', 'PP Neue Montreal', sans-serif;
+  color: black;
+  scroll-behavior: smooth;
 }
 
 /* RTL Support */
@@ -21,18 +39,60 @@ body[dir="rtl"] {
   text-align: right;
 }
 
-/* Language Switcher */
+/* === BACKGROUND & LAYOUT === */
+.background {
+  background-image: url('../img/bulgur-wheat-pile.png');
+  background-size: 200%;
+  background-position: top right;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  position: relative;
+}
+
+.title {
+  font-size: 10vh;
+  font-family: 'Elgar';
+  color: black;
+  background-color: wheat;
+  padding: 0 5vh 0 5vh;
+  border-radius: 0 5vh 5vh 0;
+  left: 0;
+}
+
+.mid-spacer {
+  width: 33%;
+}
+
+.spacer {
+  height: 100%;
+  width: 30%;
+}
+
+.section {
+  height: 100vh;
+}
+
+.page-section {
+  min-height: 100vh;
+}
+
+/* === LANGUAGE SWITCHER === */
 .lang-switcher-nav {
   position: fixed;
   top: 20px;
   right: 20px;
   display: flex;
+  flex-direction: row;
   gap: 10px;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 body[dir="rtl"] .lang-switcher-nav {
@@ -40,34 +100,80 @@ body[dir="rtl"] .lang-switcher-nav {
   left: 20px;
 }
 
+.lang-switcher-nav button,
 .lang-switcher-nav a {
-  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #f9f9f9;
   color: #333;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: all 0.3s;
-  font-weight: 600;
+  border-radius: 30px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  border: 2px solid #e0c97f;
+  opacity: 0.95;
+  outline: none;
+  text-decoration: none;
 }
 
+.lang-switcher-nav button.active-lang,
+.lang-switcher-nav button:hover,
 .lang-switcher-nav a:hover {
-  background: #007bff;
+  background-color: wheat;
+  color: #111;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* === NAVIGATION === */
+.nav {
+  color: wheat;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: right;
+}
+
+.nav h2 {
+  margin: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  border-radius: 30px 0 0 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 300px;
+  opacity: 0.75;
+  font-weight: 300;
+  color: black;
+}
+
+.nav h2 a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav h2:hover {
   color: white;
+  background-color: wheat;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Main Container */
+/* === MAIN CONTAINER === */
 #preview {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 80px 20px 20px;
+  padding: 0;
 }
 
-/* Section Styling */
+/* === SECTION STYLING === */
 section {
-  background: white;
-  margin: 20px 0;
+  margin: 0;
   padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 section h1, section h2 {
@@ -80,77 +186,181 @@ section p {
   color: #555;
 }
 
-/* Hero Section */
-.hero {
+/* === PRODUCTS CAROUSEL === */
+#products-carousel {
+  padding: 40px 0;
+  background-color: #f5f5f5;
+  opacity: 0.75;
+}
+
+.carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.swath {
+  flex: 1;
+  background-color: #ccc;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.3s ease, background-color 0.3s ease;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.swath.icon {
+  display: flex;
+  flex-direction: column;
+}
+
+.swath.icon .image-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.swath.icon .image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.5s ease;
+  transform: scale(1.5);
+  transform-origin: center center;
+}
+
+.swath.icon:hover .image-container img,
+.swath.icon:focus-within .image-container img {
+  transform: scale(2);
+}
+
+.swath:hover {
+  flex: 2;
+  background-color: wheat;
+  font-weight: bold;
+}
+
+.image-container {
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+
+.image-container img {
+  height: auto;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+/* Tooltip styling */
+.swath::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: black;
+  padding: 6px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.swath:hover::after {
+  opacity: 1;
+}
+
+.carousel-bg {
+  background-size: 520%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-bg > span {
+  color: black;
+  background-color: wheat;
+  padding: 1vh 2vh 1vh 2vh;
+}
+
+/* Background images for each swath */
+.bg-fine { background-image: url('../img/fine-bulgor-soft-wheat.jpg'); }
+.bg-medium { background-image: url('../img/medium-bulgor-soft-wheat.jpg'); }
+.bg-coarse { background-image: url('../img/coarse-bulgor-soft-wheat.jpg'); }
+.bg-extra-coarse { background-image: url('../img/bg-branding.jpg'); }
+.bg-fine-red { background-image: url('../img/fine-bulgor-red-wheat.jpg'); }
+.bg-medium-red { background-image: url('../img/medium-bulgor-red-wheat.jpg'); }
+.bg-coarse-red { background-image: url('../img/coarse-bulgor-red-wheat.jpg'); }
+
+/* === RECIPE SECTION === */
+.section-recipes {
+  padding: 60px 0;
+  background: #f8f6f2;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-recipes h2 {
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  color: #55422c;
   text-align: center;
-  padding: 60px 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+  letter-spacing: 0.03em;
 }
 
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: white;
-}
-
-.hero p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.hero .cta {
-  display: inline-block;
-  padding: 15px 30px;
-  background: white;
-  color: #667eea;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: 600;
-  transition: transform 0.3s;
-}
-
-.hero .cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* About Section */
-.page-section {
-  padding: 40px;
-}
-
-/* Recipes Section */
-.recipes h2 {
-  text-align: center;
-  margin-bottom: 30px;
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 900px;
 }
 
 .recipe-card {
-  background: #f9f9f9;
-  padding: 20px;
-  margin: 15px 0;
-  border-radius: 6px;
-  border-left: 4px solid #667eea;
+  background-color: #5a6345;
+  color: #2a241b;
+  padding: 24px 20px 20px 20px;
+  border-radius: 30px;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+  transition: transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.recipe-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.13);
 }
 
 .recipe-card h3 {
-  color: #667eea;
-  margin-bottom: 10px;
-}
-
-.recipe-card details {
-  margin: 10px 0;
-}
-
-.recipe-card summary {
-  cursor: pointer;
+  font-size: 1.35rem;
+  margin: 0 0 8px 0;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  color: #a36b1b;
   font-weight: 600;
-  padding: 10px;
-  background: white;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  letter-spacing: 0.01em;
+}
+
+.recipe-card p {
+  font-size: 1rem;
+  margin: 0 0 8px 0;
 }
 
 .recipe-card ul, .recipe-card ol {
@@ -168,14 +378,83 @@ body[dir="rtl"] .recipe-card ol {
   margin: 5px 0;
 }
 
-/* Certifications Section */
-.certifications {
-  padding: 40px;
+.recipe-card details {
+  margin: 10px 0;
 }
 
-.certifications h2 {
+.recipe-card summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* === CERTIFICATIONS SECTION === */
+.certifications-section {
+  background-color: #f5f5f0;
+  padding: 60px 20px;
   text-align: center;
-  margin-bottom: 30px;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+}
+
+.certifications-section h2 {
+  font-size: 2.5rem;
+  color: #5a6345;
+  margin-bottom: 10px;
+  font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-weight: 600;
+}
+
+.certifications-intro {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.certifications-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cert-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: white;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge span {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #5a6345;
+}
+
+.cert-badge:hover img {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cert-badge:hover span {
+  color: #a36b1b;
 }
 
 .cert-item {
@@ -191,7 +470,125 @@ body[dir="rtl"] .cert-item {
   border-right: 3px solid #007bff;
 }
 
-/* Our Companies Section */
+/* Certifications Preview in Home Section */
+.certifications-preview {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 10;
+}
+
+.cert-badge-small {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.cert-badge-small img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  padding: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-badge-small:hover img {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* === CONTACT SECTION === */
+.contact-section {
+  padding: 60px 30px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+}
+
+.contact-info h3 {
+  margin-bottom: 20px;
+  color: #5a6345;
+}
+
+.contact-info p {
+  margin: 10px 0;
+}
+
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: bold;
+  text-align: left;
+  display: block;
+  margin: 15px 0 5px;
+  color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #5a6345;
+  box-shadow: 0 0 0 3px rgba(90, 99, 69, 0.1);
+}
+
+.contact-form button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.contact-form button:hover {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+/* === OUR COMPANIES SECTION === */
 .our-companies h2 {
   text-align: center;
   margin-bottom: 30px;
@@ -205,7 +602,7 @@ body[dir="rtl"] .cert-item {
 }
 
 .company-card h3 {
-  color: #667eea;
+  color: #5a6345;
   margin-bottom: 10px;
 }
 
@@ -218,93 +615,40 @@ body[dir="rtl"] .cert-item {
   text-decoration: underline;
 }
 
-/* Contact Section */
-.contact-section {
-  padding: 40px;
-}
-
-.contact-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 30px;
-}
-
-@media (max-width: 768px) {
-  .contact-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-.contact-info h3 {
-  margin-bottom: 20px;
-  color: #667eea;
-}
-
-.contact-info p {
-  margin: 10px 0;
-}
-
-.contact-form label {
-  display: block;
-  margin: 15px 0 5px;
-  font-weight: 600;
-  color: #555;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 14px;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.contact-form button {
-  margin-top: 20px;
-  padding: 12px 30px;
-  background: #667eea;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.contact-form button:hover {
-  background: #5568d3;
-}
-
-/* Loading State */
+/* === LOADING STATE === */
 .loading {
   text-align: center;
   padding: 40px;
   color: #999;
 }
 
-/* Responsive Design */
+/* === RESPONSIVE DESIGN === */
 @media (max-width: 768px) {
   .lang-switcher-nav {
     top: 10px;
     right: 10px;
-    padding: 8px;
   }
   
   body[dir="rtl"] .lang-switcher-nav {
     right: auto;
     left: 10px;
   }
+
+  .certifications-preview {
+    bottom: 20px;
+    left: 20px;
+    gap: 10px;
+  }
   
+  .cert-badge-small img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
   #preview {
     padding: 60px 15px 15px;
   }
@@ -312,12 +656,61 @@ body[dir="rtl"] .cert-item {
   section {
     padding: 30px 20px;
   }
-  
-  .hero h1 {
-    font-size: 2em;
+
+  .title {
+    font-size: 6vh;
+    padding: 0 3vh 0 3vh;
   }
-  
-  .hero p {
-    font-size: 1em;
+
+  .nav {
+    gap: 10px;
+  }
+
+  .nav h2 {
+    width: 200px;
+    padding: 15px;
+    font-size: 1.2rem;
   }
 }
+
+@media (max-width: 600px) {
+  .section-recipes {
+    padding: 32px 0;
+  }
+
+  .recipe-grid {
+    padding: 0;
+    gap: 14px;
+  }
+
+  .recipe-card {
+    padding: 16px 10px 12px 10px;
+  }
+
+  .certifications-section {
+    padding: 40px 15px;
+  }
+  
+  .certifications-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .certifications-intro {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  
+  .certifications-container {
+    gap: 20px;
+  }
+  
+  .cert-badge img {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .cert-badge span {
+    font-size: 0.85rem;
+  }
+}
+
