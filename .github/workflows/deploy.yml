@@ -1,64 +1,79 @@
-# Minimal Deploy to GitHub Pages workflow with tolerant git remote removal and guarded rm
+# Unified Deploy to GitHub Pages workflow
+# Supports both styled (main) and unstyled (modular-v1-unstyled) builds
+# To add more variants, extend the conditional logic in the "Set environment variables" step
+
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
+      - modular-v1-unstyled
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Set publish dir variable
+      - name: Set environment variables based on branch
         run: |
-          # Build outputs to ./dist in this repository
-          echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
+          if [[ "${GITHUB_REF##*/}" == "modular-v1-unstyled" ]]; then
+            echo "BUILD_SUBPATH=unstyled" >> $GITHUB_ENV
+            echo "PUBLISH_DIR=dist/unstyled" >> $GITHUB_ENV
+            echo "DEST_DIR=unstyled" >> $GITHUB_ENV
+          else
+            echo "BUILD_SUBPATH=" >> $GITHUB_ENV
+            echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
+            echo "DEST_DIR=" >> $GITHUB_ENV
+          fi
 
-      # Build step
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
-      
+
       - name: Install dependencies
         run: |
           if [ -f package.json ]; then
             npm ci || npm install
           fi
-      
+
       - name: Build site
         run: |
-          node generate-index.js
+          if [ -n "$BUILD_SUBPATH" ]; then
+            BUILD_SUBPATH=$BUILD_SUBPATH node generate-index.js
+          else
+            node generate-index.js
+          fi
           echo "Build artifacts:"
           ls -la dist/
-          echo "Checking for index.html (redirect):"
+          echo "Checking for index.html:"
           ls -la dist/index.html || echo "WARNING: index.html not found!"
           echo "Checking for .nojekyll:"
           ls -la dist/.nojekyll || echo "WARNING: .nojekyll not found!"
 
       - name: Verify build output
         run: |
-          publish_dir="${PUBLISH_DIR:-dist}"
-          if [ ! -d "$publish_dir" ]; then
-            echo "ERROR: Publish directory '$publish_dir' does not exist after build"
+          if [ ! -d "$PUBLISH_DIR" ]; then
+            echo "ERROR: Publish directory '$PUBLISH_DIR' does not exist after build"
             exit 1
           fi
-          echo "✓ Build directory verified: $publish_dir"
+          echo "✓ Build directory verified: $PUBLISH_DIR"
           echo "Contents:"
-          ls -la "$publish_dir"
+          ls -la "$PUBLISH_DIR"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ${{ env.PUBLISH_DIR }}
           publish_branch: gh-pages
+          destination_dir: ${{ env.DEST_DIR }}
           force_orphan: true

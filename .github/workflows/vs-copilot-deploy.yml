@@ -1,0 +1,135 @@
+# ============================================================================
+# Reusable Multi-Branch Deploy to GitHub Pages
+# ============================================================================
+# 
+# This workflow handles deployment for multiple branches to GitHub Pages:
+# 
+# Branch Mapping:
+#   - main                    → deploy to root (/)
+#   - modular-v1-unstyled     → deploy to /unstyled/
+# 
+# How It Works:
+#   1. Detects the current branch name
+#   2. Sets BUILD_SUBPATH environment variable for unstyled builds
+#   3. Determines publish_dir (where build outputs to)
+#   4. Determines destination_dir (where to deploy on gh-pages)
+#   5. Builds with generate-index.js (respects BUILD_SUBPATH if set)
+#   6. Deploys to gh-pages branch using peaceiris/actions-gh-pages
+# 
+# To Add More Branches:
+#   1. Add branch name to the 'on.push.branches' list
+#   2. Add a condition in 'Configure deployment paths' step
+#   3. Set appropriate BUILD_SUBPATH, PUBLISH_DIR, and DESTINATION_DIR
+# 
+# Example for a new 'experimental' branch deploying to /experimental/:
+#   elif [[ "$BRANCH" == "experimental" ]]; then
+#     echo "BUILD_SUBPATH=experimental" >> $GITHUB_ENV
+#     echo "PUBLISH_DIR=dist/experimental" >> $GITHUB_ENV
+#     echo "DESTINATION_DIR=experimental" >> $GITHUB_ENV
+# 
+# ============================================================================
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - modular-v1-unstyled
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configure deployment paths
+        id: config
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          echo "🌿 Deploying from branch: $BRANCH"
+          
+          if [[ "$BRANCH" == "main" ]]; then
+            # Main branch: styled version at root
+            echo "BUILD_SUBPATH=" >> $GITHUB_ENV
+            echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
+            echo "DESTINATION_DIR=." >> $GITHUB_ENV
+            echo "publish_dir=dist" >> $GITHUB_OUTPUT
+            echo "destination_dir=." >> $GITHUB_OUTPUT
+            echo "📍 Deploy target: root (/)"
+            
+          elif [[ "$BRANCH" == "modular-v1-unstyled" ]]; then
+            # Unstyled branch: deploy to /unstyled/
+            echo "BUILD_SUBPATH=unstyled" >> $GITHUB_ENV
+            echo "PUBLISH_DIR=dist/unstyled" >> $GITHUB_ENV
+            echo "DESTINATION_DIR=unstyled" >> $GITHUB_ENV
+            echo "publish_dir=dist/unstyled" >> $GITHUB_OUTPUT
+            echo "destination_dir=unstyled" >> $GITHUB_OUTPUT
+            echo "📍 Deploy target: /unstyled/"
+            
+          else
+            # Unknown branch - fail with clear message
+            echo "❌ ERROR: Branch '$BRANCH' is not configured for deployment"
+            echo "Please add deployment configuration in deploy.yml"
+            exit 1
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          if [ -f package.json ]; then
+            npm ci || npm install
+          fi
+      
+      - name: Build site
+        run: |
+          echo "🔨 Building site..."
+          if [ -n "$BUILD_SUBPATH" ]; then
+            echo "Using BUILD_SUBPATH=$BUILD_SUBPATH"
+            export BUILD_SUBPATH
+          fi
+          
+          node generate-index.js
+          
+          echo ""
+          echo "📦 Build artifacts in $PUBLISH_DIR:"
+          ls -la "$PUBLISH_DIR" || { echo "❌ ERROR: Build directory not found!"; exit 1; }
+          
+          echo ""
+          echo "🔍 Verifying critical files:"
+          ls -la "$PUBLISH_DIR/index.html" && echo "  ✅ index.html" || echo "  ⚠️  index.html missing"
+          ls -la "$PUBLISH_DIR/.nojekyll" && echo "  ✅ .nojekyll" || echo "  ⚠️  .nojekyll missing"
+          ls -la "$PUBLISH_DIR/index.en.html" && echo "  ✅ index.en.html" || echo "  ⚠️  index.en.html missing"
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "$PUBLISH_DIR" ]; then
+            echo "❌ ERROR: Publish directory '$PUBLISH_DIR' does not exist after build"
+            exit 1
+          fi
+          
+          echo "✅ Build directory verified: $PUBLISH_DIR"
+          echo ""
+          echo "📋 Contents:"
+          ls -la "$PUBLISH_DIR"
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ steps.config.outputs.publish_dir }}
+          destination_dir: ${{ steps.config.outputs.destination_dir }}
+          publish_branch: gh-pages
+          force_orphan: false
+          keep_files: true
+          enable_jekyll: false
+          commit_message: "Deploy ${{ github.ref_name }} @ ${{ github.sha }}"
