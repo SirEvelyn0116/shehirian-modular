@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="95" fill="#FF6B00" stroke="#CC5500" stroke-width="3"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="100" y="90" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF" text-anchor="middle">IFS</text>
+  <text x="100" y="113" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle">INTERNATIONAL</text>
+  <text x="100" y="127" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle">FEATURED STANDARDS</text>
+  <path d="M 85 50 L 100 40 L 115 50 L 115 60 L 85 60 Z" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <circle cx="100" cy="145" r="5" fill="#FFFFFF"/>
+</svg>

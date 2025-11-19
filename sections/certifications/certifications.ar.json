@@ -1,12 +1,26 @@
-[
-  {
-    "title": "شهادة عضوية",
-    "issuer": "وكالة فحص الأغذية الكندية",
-    "year": "2022"
-  },
-  {
-    "title": "شهادة حلال",
-    "issuer": "مجلس الغذاء الإسلامي في كندا",
-    "year": "2023"
-  }
-]
+{
+  "title": "شهاداتنا",
+  "intro": "معايير سلامة الغذاء المعتمدة من GFSI",
+  "certifications": [
+    {
+      "name": "BRC",
+      "fullName": "BRC Global Standard",
+      "logo": "assets/img/cert-brc.svg"
+    },
+    {
+      "name": "SQF",
+      "fullName": "Safe Quality Food",
+      "logo": "assets/img/cert-sqf.svg"
+    },
+    {
+      "name": "FSSC 22000",
+      "fullName": "FSSC 22000",
+      "logo": "assets/img/cert-fssc.svg"
+    },
+    {
+      "name": "IFS",
+      "fullName": "IFS Food Standard",
+      "logo": "assets/img/cert-ifs.svg"
+    }
+  ]
+}
