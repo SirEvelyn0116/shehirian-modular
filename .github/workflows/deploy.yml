@@ -1,7 +1,5 @@
 # Unified Deploy to GitHub Pages workflow
-# Supports both styled (main) and unstyled (modular-v1-unstyled) builds
-# To add more variants, extend the conditional logic in the "Set environment variables" step
-
+# Supports styled (main, styled-v1) and unstyled (modular-v1-unstyled) builds
 name: Deploy to GitHub Pages
 
 on:
@@ -9,12 +7,12 @@ on:
     branches:
       - main
       - modular-v1-unstyled
+      - styled-v1
   workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -25,26 +23,31 @@ jobs:
         run: |
           if [[ "${GITHUB_REF##*/}" == "modular-v1-unstyled" ]]; then
             echo "BUILD_SUBPATH=unstyled" >> $GITHUB_ENV
-            echo "PUBLISH_DIR=dist/unstyled" >> $GITHUB_ENV
+            echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
             echo "DEST_DIR=unstyled" >> $GITHUB_ENV
+          elif [[ "${GITHUB_REF##*/}" == "styled-v1" ]]; then
+            echo "BUILD_SUBPATH=" >> $GITHUB_ENV
+            echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
+            echo "DEST_DIR=styled" >> $GITHUB_ENV
           else
             echo "BUILD_SUBPATH=" >> $GITHUB_ENV
             echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
             echo "DEST_DIR=" >> $GITHUB_ENV
           fi
 
+      # Build step
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
           cache: 'npm'
-
+      
       - name: Install dependencies
         run: |
           if [ -f package.json ]; then
             npm ci || npm install
           fi
-
+      
       - name: Build site
         run: |
           if [ -n "$BUILD_SUBPATH" ]; then
@@ -54,7 +57,7 @@ jobs:
           fi
           echo "Build artifacts:"
           ls -la dist/
-          echo "Checking for index.html:"
+          echo "Checking for index.html (redirect):"
           ls -la dist/index.html || echo "WARNING: index.html not found!"
           echo "Checking for .nojekyll:"
           ls -la dist/.nojekyll || echo "WARNING: .nojekyll not found!"
@@ -76,4 +79,5 @@ jobs:
           publish_dir: ${{ env.PUBLISH_DIR }}
           publish_branch: gh-pages
           destination_dir: ${{ env.DEST_DIR }}
-          force_orphan: true
+          keep_files: true
+
