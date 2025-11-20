@@ -4,13 +4,13 @@
     {
       "name": "علامة شيراغ",
       "description": "منتجات برغل قمح متميزة للطبخ التقليدي والحديث",
-      "image": "img/Shirag-2.png",
+      "image": "assets/img/Shirag-2.png",
       "link": "shirag-products.html"
     },
     {
       "name": "Mr. Falafel",
       "description": "مكونات عالية الجودة لأطباق الشرق الأوسط الأصيلة",
-      "image": "img/Mr-Falafel-3.png",
+      "image": "assets/img/Mr-Falafel-3.png",
       "link": "mr-falafel-products.html"
     }
   ]
