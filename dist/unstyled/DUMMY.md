@@ -5,7 +5,7 @@ This is a placeholder file to ensure the directory structure is maintained in ve
 ## Purpose
 
 Git does not track empty directories. This file exists to:
-- Ensure the `dist` directory is created
+- Ensure the `dist/unstyled` directory is created
 - Allow the directory to be committed and pushed to the repository
 
 ## Note
