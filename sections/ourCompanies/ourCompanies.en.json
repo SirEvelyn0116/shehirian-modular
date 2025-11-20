@@ -4,13 +4,13 @@
     {
       "name": "Shirag Brand",
       "description": "Premium bulgur wheat products for traditional and modern cuisine",
-      "image": "img/Shirag-2.png",
+      "image": "assets/img/Shirag-2.png",
       "link": "shirag-products.html"
     },
     {
       "name": "Mr. Falafel",
       "description": "Quality ingredients for authentic Middle Eastern dishes",
-      "image": "img/Mr-Falafel-3.png",
+      "image": "assets/img/Mr-Falafel-3.png",
       "link": "mr-falafel-products.html"
     }
   ]
