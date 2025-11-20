@@ -1,5 +1,5 @@
-# Unified Deploy to GitHub Pages workflow
-# Supports styled (main, styled-v1) and unstyled (modular-v1-unstyled) builds
+# Deploy to GitHub Pages workflow
+# styled-v1 deploys to root, modular-v1-unstyled deploys to /unstyled/
 name: Deploy to GitHub Pages
 
 on:
@@ -25,10 +25,10 @@ jobs:
             echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
             echo "DEST_DIR=unstyled" >> $GITHUB_ENV
           else
-            # styled-v1 branch
+            # styled-v1 deploys to root
             echo "BUILD_SUBPATH=" >> $GITHUB_ENV
             echo "PUBLISH_DIR=dist" >> $GITHUB_ENV
-            echo "DEST_DIR=styled" >> $GITHUB_ENV
+            echo "DEST_DIR=" >> $GITHUB_ENV
           fi
 
       # Build step
