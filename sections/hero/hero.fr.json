@@ -1,5 +1,11 @@
 {
-  "headline": "Shehirian Bulgor Inc.",
-  "subheadline": "Préserver la tradition à travers les recettes, les histoires et les repas partagés.",
-  "cta": "Explorez notre héritage"
+  "title": "shehirian bulgor inc.",
+  "navigation": [
+    { "label": "Accueil", "section": "home" },
+    { "label": "À propos", "section": "about-us" },
+    { "label": "Produits", "section": "products-carousel" },
+    { "label": "Recettes", "section": "recipes" },
+    { "label": "Certifications", "section": "certifications" },
+    { "label": "Contactez-nous", "section": "contact" }
+  ]
 }
