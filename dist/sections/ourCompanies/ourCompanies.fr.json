@@ -1,12 +1,17 @@
-[
-  {
-    "name": "Shehirian Foods",
-    "description": "Une entreprise familiale spécialisée dans les ingrédients traditionnels arméniens et moyen-orientaux.",
-    "website": "https://shehirianfoods.com"
-  },
-  {
-    "name": "Shehirian Imports",
-    "description": "Importation d'épices, de céréales et d'huiles fines de toute la Méditerranée.",
-    "website": "https://shehirianimports.com"
-  }
-]
+{
+  "title": "Nos Entreprises",
+  "companies": [
+    {
+      "name": "Marque Shirag",
+      "description": "Produits de blé boulghour premium pour une cuisine traditionnelle et moderne",
+      "image": "img/Shirag-2.png",
+      "link": "shirag-products.html"
+    },
+    {
+      "name": "Mr. Falafel",
+      "description": "Ingrédients de qualité pour des plats authentiques du Moyen-Orient",
+      "image": "img/Mr-Falafel-3.png",
+      "link": "mr-falafel-products.html"
+    }
+  ]
+}

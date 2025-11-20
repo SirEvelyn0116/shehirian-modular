@@ -1,12 +1,17 @@
-[
-  {
-    "name": "شيهريان فودز",
-    "description": "شركة عائلية متخصصة في المكونات التقليدية الأرمنية والشرق أوسطية.",
-    "website": "https://shehirianfoods.com"
-  },
-  {
-    "name": "شيهريان للاستيراد",
-    "description": "استيراد التوابل والحبوب والزيوت الفاخرة من جميع أنحاء البحر الأبيض المتوسط.",
-    "website": "https://shehirianimports.com"
-  }
-]
+{
+  "title": "شركاتنا",
+  "companies": [
+    {
+      "name": "علامة شيراغ",
+      "description": "منتجات برغل قمح متميزة للطبخ التقليدي والحديث",
+      "image": "img/Shirag-2.png",
+      "link": "shirag-products.html"
+    },
+    {
+      "name": "Mr. Falafel",
+      "description": "مكونات عالية الجودة لأطباق الشرق الأوسط الأصيلة",
+      "image": "img/Mr-Falafel-3.png",
+      "link": "mr-falafel-products.html"
+    }
+  ]
+}

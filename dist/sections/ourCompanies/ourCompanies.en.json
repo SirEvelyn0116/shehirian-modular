@@ -1,12 +1,17 @@
-[
-  {
-    "name": "Shehirian Foods",
-    "description": "A family-run business specializing in traditional Armenian and Middle Eastern ingredients.",
-    "website": "https://shehirianfoods.com"
-  },
-  {
-    "name": "Shehirian Imports",
-    "description": "Importing fine spices, grains, and oils from across the Mediterranean.",
-    "website": "https://shehirianimports.com"
-  }
-]
+{
+  "title": "Our Companies",
+  "companies": [
+    {
+      "name": "Shirag Brand",
+      "description": "Premium bulgur wheat products for traditional and modern cuisine",
+      "image": "img/Shirag-2.png",
+      "link": "shirag-products.html"
+    },
+    {
+      "name": "Mr. Falafel",
+      "description": "Quality ingredients for authentic Middle Eastern dishes",
+      "image": "img/Mr-Falafel-3.png",
+      "link": "mr-falafel-products.html"
+    }
+  ]
+}
