@@ -1,0 +1,33 @@
+name: Deploy Root Index to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'root-index.html'
+      - '.github/workflows/deploy-root.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy-root:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Prepare root files
+        run: |
+          mkdir -p root-deploy
+          cp root-index.html root-deploy/index.html
+          echo "" > root-deploy/.nojekyll
+
+      - name: Deploy root index to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./root-deploy
+          publish_branch: gh-pages
+          keep_files: true
+          destination_dir: ""
