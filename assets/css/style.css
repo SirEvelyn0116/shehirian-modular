@@ -32,6 +32,8 @@ body, html {
   font-family: 'Elgar', 'BayerTypeArchiType', 'Poppins', 'PP Neue Montreal', sans-serif;
   color: black;
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 /* RTL Support */
@@ -54,7 +56,9 @@ body[dir="rtl"] {
   align-items: center;
   justify-content: space-between;
   min-height: 100vh;
+  height: 100vh;
   position: relative;
+  scroll-snap-align: start;
 }
 
 .title {
@@ -78,10 +82,13 @@ body[dir="rtl"] {
 
 .section {
   height: 100vh;
+  scroll-snap-align: start;
 }
 
 .page-section {
   min-height: 100vh;
+  height: 100vh;
+  scroll-snap-align: start;
 }
 
 /* === LANGUAGE SWITCHER === */
@@ -601,11 +608,13 @@ body[dir="rtl"] .cert-item {
 .companies-section {
   padding: 60px 20px;
   background-color: #f8f6f2;
-  min-height: 80vh;
+  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  scroll-snap-align: start;
 }
 
 .companies-section h2 {
