@@ -1,12 +1,26 @@
-[
-  {
-    "title": "Certifié biologique",
-    "issuer": "Agence canadienne d'inspection des aliments",
-    "year": "2022"
-  },
-  {
-    "title": "Certifié Halal",
-    "issuer": "Conseil islamique de l'alimentation du Canada",
-    "year": "2023"
-  }
-]
+{
+  "title": "Nos Certifications",
+  "intro": "Normes de sécurité alimentaire reconnues par GFSI",
+  "certifications": [
+    {
+      "name": "BRC",
+      "fullName": "BRC Global Standard",
+      "logo": "assets/img/cert-brc.svg"
+    },
+    {
+      "name": "SQF",
+      "fullName": "Safe Quality Food",
+      "logo": "assets/img/cert-sqf.svg"
+    },
+    {
+      "name": "FSSC 22000",
+      "fullName": "FSSC 22000",
+      "logo": "assets/img/cert-fssc.svg"
+    },
+    {
+      "name": "IFS",
+      "fullName": "IFS Food Standard",
+      "logo": "assets/img/cert-ifs.svg"
+    }
+  ]
+}

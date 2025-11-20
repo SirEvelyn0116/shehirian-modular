@@ -1,12 +1,26 @@
-[
-  {
-    "title": "Certified Organic",
-    "issuer": "Canadian Food Inspection Agency",
-    "year": "2022"
-  },
-  {
-    "title": "Halal Certified",
-    "issuer": "Islamic Food Council of Canada",
-    "year": "2023"
-  }
-]
+{
+  "title": "Our Certifications",
+  "intro": "GFSI-Recognized Food Safety Standards",
+  "certifications": [
+    {
+      "name": "BRC",
+      "fullName": "BRC Global Standard",
+      "logo": "assets/img/cert-brc.svg"
+    },
+    {
+      "name": "SQF",
+      "fullName": "Safe Quality Food",
+      "logo": "assets/img/cert-sqf.svg"
+    },
+    {
+      "name": "FSSC 22000",
+      "fullName": "FSSC 22000",
+      "logo": "assets/img/cert-fssc.svg"
+    },
+    {
+      "name": "IFS",
+      "fullName": "IFS Food Standard",
+      "logo": "assets/img/cert-ifs.svg"
+    }
+  ]
+}
