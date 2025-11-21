@@ -1,70 +1,88 @@
 function renderRecipes(lang = 'en') {
   return fetch(`sections/recipes/recipes.${lang}.json`)
-    .then(res => res.ok ? res.json() : [])
-    .catch(() => [])
-    .then(recipes => {
+    .then(res => res.ok ? res.json() : {})
+    .catch(() => ({}))
+    .then(data => {
       const section = document.createElement('section');
-      section.className = 'recipes';
-      section.innerHTML = '<h2>Recipes</h2>';
-
-      recipes.forEach(recipe => {
-        const card = document.createElement('div');
+      section.id = 'recipes';
+      section.className = 'section-recipes section';
+      
+      // Section title
+      const title = document.createElement('h2');
+      title.textContent = data.title || 'Featured Recipes';
+      section.appendChild(title);
+      
+      // Recipe grid
+      const grid = document.createElement('div');
+      grid.className = 'recipe-grid';
+      
+      const featuredRecipes = data.featured || [];
+      
+      featuredRecipes.forEach(recipe => {
+        const card = document.createElement('a');
+        card.href = `recipes/${recipe.id}.${lang}.html`;
         card.className = 'recipe-card';
-        card.innerHTML = `
-          <h3>${recipe.title}</h3>
-          <p>${recipe.description}</p>
-          <details>
-            <summary>Ingredients</summary>
-            <ul>${recipe.ingredients.map(i => `<li>${i}</li>`).join('')}</ul>
-          </details>
-          <details>
-            <summary>Steps</summary>
-            <ol>${recipe.steps.map(s => `<li>${s}</li>`).join('')}</ol>
-          </details>
-        `;
-
-        // Inject JSON-LD for SEO
-        const schema = {
-          "@context": "https://schema.org",
-          "@type": "Recipe",
-          "name": recipe.title,
-          "author": {
-            "@type": "Person",
-            "name": "Shehirian Family"
-          },
-          "recipeCategory": "Soup",
-          "recipeCuisine": recipe.id === "armenian-lentil-soup" ? "Armenian" :
-                           recipe.id === "royal-soup" ? "Middle Eastern" :
-                           recipe.id === "scotch-broth" ? "Scottish" : "International",
-          "recipeYield": recipe.id === "armenian-lentil-soup" ? "4 servings" :
-                         recipe.id === "royal-soup" ? "6 servings" :
-                         recipe.id === "scotch-broth" ? "6 to 8 servings" : "N/A",
-          "prepTime": recipe.id === "armenian-lentil-soup" ? "PT15M" :
-                      recipe.id === "royal-soup" ? "PT15M" :
-                      recipe.id === "scotch-broth" ? "PT20M" : "PT0M",
-          "cookTime": recipe.id === "armenian-lentil-soup" ? "PT60M" :
-                      recipe.id === "royal-soup" ? "PT30M" :
-                      recipe.id === "scotch-broth" ? "PT45M" : "PT0M",
-          "totalTime": recipe.id === "armenian-lentil-soup" ? "PT75M" :
-                       recipe.id === "royal-soup" ? "PT45M" :
-                       recipe.id === "scotch-broth" ? "PT65M" : "PT0M",
-          "recipeIngredient": recipe.ingredients,
-          "recipeInstructions": recipe.steps.map(step => ({
-            "@type": "HowToStep",
-            "text": step
-          })),
-          "keywords": recipe.id === "armenian-lentil-soup" ? "lentil soup, Armenian recipe, mint soup" :
-                      recipe.id === "royal-soup" ? "royal soup, lemon meatball soup, bulghur soup" :
-                      recipe.id === "scotch-broth" ? "lamb soup, barley broth, Scottish soup" : ""
-        };
-
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(schema);
-        card.appendChild(script);
-
-        section.appendChild(card);
+        
+        // Recipe title (Elgar font, white)
+        const recipeTitle = document.createElement('h3');
+        recipeTitle.textContent = recipe.title;
+        card.appendChild(recipeTitle);
+        
+        // Recipe description
+        const description = document.createElement('p');
+        description.textContent = recipe.description;
+        card.appendChild(description);
+        
+        // Ingredients dropdown (black text on white bg)
+        const ingredientsDetails = document.createElement('details');
+        const ingredientsSummary = document.createElement('summary');
+        ingredientsSummary.textContent = recipe.ingredientsLabel || 'Ingredients';
+        ingredientsDetails.appendChild(ingredientsSummary);
+        
+        const ingredientsList = document.createElement('ul');
+        ingredientsList.className = 'ingredients-list';
+        recipe.ingredients.forEach(ingredient => {
+          const li = document.createElement('li');
+          li.textContent = ingredient;
+          ingredientsList.appendChild(li);
+        });
+        ingredientsDetails.appendChild(ingredientsList);
+        card.appendChild(ingredientsDetails);
+        
+        // Steps dropdown (black text on white bg)
+        const stepsDetails = document.createElement('details');
+        const stepsSummary = document.createElement('summary');
+        stepsSummary.textContent = recipe.stepsLabel || 'Steps';
+        stepsDetails.appendChild(stepsSummary);
+        
+        const stepsList = document.createElement('ol');
+        stepsList.className = 'steps-list';
+        recipe.steps.forEach(step => {
+          const li = document.createElement('li');
+          li.textContent = step;
+          stepsList.appendChild(li);
+        });
+        stepsDetails.appendChild(stepsList);
+        card.appendChild(stepsDetails);
+        
+        grid.appendChild(card);
       });
+      
+      section.appendChild(grid);
+      
+      // View All Recipes link
+      if (data.viewAllLink) {
+        const viewAllContainer = document.createElement('div');
+        viewAllContainer.className = 'view-all-recipes';
+        
+        const viewAllLink = document.createElement('a');
+        viewAllLink.href = `recipes/all-recipes.${lang}.html`;
+        viewAllLink.textContent = data.viewAllText || 'View All Recipes';
+        viewAllLink.className = 'view-all-btn';
+        
+        viewAllContainer.appendChild(viewAllLink);
+        section.appendChild(viewAllContainer);
+      }
 
       return section;
     });

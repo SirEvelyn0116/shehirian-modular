@@ -1,73 +1,85 @@
-[
-  {
-    "id": "armenian-lentil-soup",
-    "title": "Armenian Style Lentil Soup",
-    "description": "A hearty soup with lentils, mint, and parsley — a Shehirian family classic.",
-    "ingredients": [
-      "1/2 cup water",
-      "1/2 cup lentils",
-      "1/2 cup chopped onion",
-      "1/2 cup chopped parsley",
-      "1/2 tsp. salt",
-      "1/2 tsp. pepper",
-      "1/2 cup butter or margarine",
-      "1/2 cup chopped mint"
-    ],
-    "steps": [
-      "Boil lentils in water for 15 minutes.",
-      "Add onion, parsley, salt, and pepper. Simmer for 45 minutes.",
-      "Add mint and butter. Simmer for 15 minutes.",
-      "Add 1/4 tsp. pepper and cook for 5 minutes.",
-      "Optional: Fry butter until light brown and pour over soup."
-    ]
-  },
-  {
-    "id": "royal-soup",
-    "title": "Royal Soup",
-    "description": "A lemony meatball soup with rice and parsley, inspired by Middle Eastern flavors.",
-    "ingredients": [
-      "1/2 gallon chicken broth",
-      "1/2 lb. ground beef (not too lean)",
-      "1/4 cup raw rice",
-      "1/4 cup very finely chopped onion",
-      "1/4 cup parsley",
-      "1/4 cup lemon juice",
-      "1/4 cup finely chopped celery",
-      "1/4 tsp. salt",
-      "Slice of 2 lemons"
-    ],
-    "steps": [
-      "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
-      "Add rice to the meat balls mixture.",
-      "Add meat balls to hot chicken broth and simmer until cooked through.",
-      "Add lemon juice and celery. Simmer for 10 minutes.",
-      "Add salt and lemon slices. Simmer for 5 minutes.",
-      "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
-      "Pour broth over meatballs and serve."
-    ]
-  },
-  {
-    "id": "scotch-broth",
-    "title": "Scotch Broth",
-    "description": "A traditional Scottish soup made with lamb, root vegetables, and barley — warm and filling.",
-    "ingredients": [
-      "2 quarts lamb or beef stock",
-      "1 lb lamb neck or shank",
-      "1/2 cup pearl barley",
-      "1/2 cup chopped carrots",
-      "1/2 cup chopped leeks",
-      "1/2 cup chopped turnips",
-      "1/2 cup chopped celery",
-      "1/2 cup chopped onion",
-      "1/4 cup chopped parsley",
-      "Salt and pepper to taste"
-    ],
-    "steps": [
-      "Simmer lamb in stock for 1 hour, skimming off any foam.",
-      "Add barley and cook for 30 minutes.",
-      "Add chopped vegetables and simmer until tender, about 30 minutes.",
-      "Remove lamb, shred meat, and return to pot.",
-      "Season with salt and pepper. Garnish with parsley and serve hot."
-    ]
-  }
-]
+{
+  "title": "Featured Recipes",
+  "viewAllLink": true,
+  "viewAllText": "View All Recipes →",
+  "featured": [
+    {
+      "id": "armenian-lentil-soup",
+      "title": "Armenian Style Lentil Soup",
+      "description": "A hearty soup with lentils, mint, and parsley — a Shehirian family classic.",
+      "ingredientsLabel": "Ingredients",
+      "stepsLabel": "Steps",
+      "ingredients": [
+        "1/2 cup water",
+        "1/2 cup lentils",
+        "1/2 cup chopped onion",
+        "1/2 cup chopped parsley",
+        "1/2 tsp. salt",
+        "1/2 tsp. pepper",
+        "1/2 cup butter or margarine",
+        "1/2 cup chopped mint"
+      ],
+      "steps": [
+        "Boil lentils in water for 15 minutes.",
+        "Add onion, parsley, salt, and pepper. Simmer for 45 minutes.",
+        "Add mint and butter. Simmer for 15 minutes.",
+        "Add 1/4 tsp. pepper and cook for 5 minutes.",
+        "Optional: Fry butter until light brown and pour over soup."
+      ]
+    },
+    {
+      "id": "royal-soup",
+      "title": "Royal Soup",
+      "description": "A lemony meatball soup with rice and parsley, inspired by Middle Eastern flavors.",
+      "ingredientsLabel": "Ingredients",
+      "stepsLabel": "Steps",
+      "ingredients": [
+        "1/2 gallon chicken broth",
+        "1/2 lb. ground beef (not too lean)",
+        "1/4 cup raw rice",
+        "1/4 cup very finely chopped onion",
+        "1/4 cup parsley",
+        "1/4 cup lemon juice",
+        "1/4 cup finely chopped celery",
+        "1/4 tsp. salt",
+        "Slice of 2 lemons"
+      ],
+      "steps": [
+        "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
+        "Add rice to the meat balls mixture.",
+        "Add meat balls to hot chicken broth and simmer until cooked through.",
+        "Add lemon juice and celery. Simmer for 10 minutes.",
+        "Add salt and lemon slices. Simmer for 5 minutes.",
+        "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
+        "Pour broth over meatballs and serve."
+      ]
+    },
+    {
+      "id": "scotch-broth",
+      "title": "Scotch Broth with Bulgur Wheat",
+      "description": "A traditional Scottish soup transformed with hearty bulgur wheat and lamb.",
+      "ingredientsLabel": "Ingredients",
+      "stepsLabel": "Steps",
+      "ingredients": [
+        "2 lbs. lamb shoulder",
+        "8 cups water",
+        "1/2 cup bulgur wheat",
+        "1 cup diced carrots",
+        "1 cup diced turnip",
+        "1 cup chopped leeks",
+        "1/2 cup pearl barley",
+        "Salt and pepper to taste",
+        "Fresh parsley for garnish"
+      ],
+      "steps": [
+        "In a large pot, add lamb and water. Bring to a boil and skim off any foam.",
+        "Reduce heat and simmer for 1 hour until lamb is tender.",
+        "Remove lamb, shred meat, and return to pot.",
+        "Add bulgur wheat, barley, carrots, turnip, and leeks.",
+        "Simmer for 45 minutes until grains and vegetables are tender.",
+        "Season with salt and pepper.",
+        "Serve hot, garnished with fresh parsley."
+      ]
+    }
+  ]
+}
