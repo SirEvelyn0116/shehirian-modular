@@ -32,6 +32,7 @@ function copyAssets() {
   const assetsDir = path.join(__dirname, 'assets');
   const sectionsDir = path.join(__dirname, 'sections');
   const recipesDir = path.join(__dirname, 'recipes');
+  const certificationsDir = path.join(__dirname, 'certifications');
   const previewJsSource = path.join(__dirname, 'preview.js');
   
   // Copy assets folder
@@ -57,6 +58,15 @@ function copyAssets() {
       fs.mkdirSync(distRecipes, { recursive: true });
     }
     copyRecursive(recipesDir, distRecipes);
+  }
+  
+  // Copy certifications folder
+  if (fs.existsSync(certificationsDir)) {
+    const distCertifications = path.join(distDir, 'certifications');
+    if (!fs.existsSync(distCertifications)) {
+      fs.mkdirSync(distCertifications, { recursive: true });
+    }
+    copyRecursive(certificationsDir, distCertifications);
   }
   
   // Copy preview.js
@@ -99,7 +109,7 @@ Object.entries(langs).forEach(([lang, config]) => {
 });
 
 copyAssets();
-console.log('✓ Copied assets, sections, recipes, and preview.js');
+console.log('✓ Copied assets, sections, recipes, certifications, and preview.js');
 console.log('✓ Created .nojekyll file');
 
 // Copy redirect.html to dist/index.html (root redirect)
