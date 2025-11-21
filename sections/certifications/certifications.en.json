@@ -3,21 +3,25 @@
   "intro": "GFSI-Recognized Food Safety Standards",
   "certifications": [
     {
+      "id": "brc",
       "name": "BRC",
       "fullName": "BRC Global Standard",
       "logo": "assets/img/cert-brc.svg"
     },
     {
+      "id": "sqf",
       "name": "SQF",
       "fullName": "Safe Quality Food",
       "logo": "assets/img/cert-sqf.svg"
     },
     {
+      "id": "fssc-22000",
       "name": "FSSC 22000",
       "fullName": "FSSC 22000",
       "logo": "assets/img/cert-fssc.svg"
     },
     {
+      "id": "ifs",
       "name": "IFS",
       "fullName": "IFS Food Standard",
       "logo": "assets/img/cert-ifs.svg"

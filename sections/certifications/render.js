@@ -31,7 +31,7 @@ function renderCertifications(lang = 'en') {
       } else {
         certs.forEach(cert => {
           const badge = document.createElement('a');
-          badge.href = 'certifications.html';
+          badge.href = `certifications/${cert.id}.${lang}.html`;
           badge.className = 'cert-badge';
           badge.title = cert.fullName || cert.name;
           
