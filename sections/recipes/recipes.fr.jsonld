@@ -1,0 +1,147 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Recettes en vedette",
+  "description": "Recettes en vedette de Shehirian avec du blé bulgur",
+  "numberOfItems": 3,
+  "itemListElement": [
+    {
+      "@type": "Recipe",
+      "position": 1,
+      "name": "Soupe aux lentilles à l'arménienne",
+      "description": "Une soupe copieuse aux lentilles, menthe et persil — un classique de la famille Shehirian.",
+      "recipeIngredient": [
+        "1/2 tasse d'eau",
+        "1/2 tasse de lentilles",
+        "1/2 tasse d'oignon haché",
+        "1/2 tasse de persil haché",
+        "1/2 c. à thé de sel",
+        "1/2 c. à thé de poivre",
+        "1/2 tasse de beurre ou margarine",
+        "1/2 tasse de menthe hachée"
+      ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "text": "Faire bouillir les lentilles dans l'eau pendant 15 minutes."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter l'oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter la menthe et le beurre. Laisser mijoter 15 minutes."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Optionnel: Faire frire le beurre jusqu'à ce qu'il soit brun clair et verser sur la soupe."
+        }
+      ],
+      "recipeCategory": "Soupe",
+      "recipeCuisine": "Arménienne"
+    },
+    {
+      "@type": "Recipe",
+      "position": 2,
+      "name": "Soupe royale",
+      "description": "Une soupe de boulettes de viande citronnée avec du riz et du persil, inspirée des saveurs du Moyen-Orient.",
+      "recipeIngredient": [
+        "1/2 gallon de bouillon de poulet",
+        "1/2 lb de bœuf haché (pas trop maigre)",
+        "1/4 tasse de riz cru",
+        "1/4 tasse d'oignon très finement haché",
+        "1/4 tasse de persil",
+        "1/4 tasse de jus de citron",
+        "1/4 tasse de céleri finement haché",
+        "1/4 c. à thé de sel",
+        "Tranches de 2 citrons"
+      ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "text": "Mélanger la viande crue, le blé bulgur, l'oignon, le persil et l'assaisonnement ensemble et façonner en boules de 1\" de diamètre."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter le riz au mélange de boulettes de viande."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter les boulettes de viande au bouillon de poulet chaud et laisser mijoter jusqu'à cuisson complète."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter le jus de citron et le céleri. Laisser mijoter 10 minutes."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter le sel et les tranches de citron. Laisser mijoter 5 minutes."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajuster l'acidité, la salinité ou l'épaisseur avec du sucre, de l'eau ou du riz au besoin."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Verser le bouillon sur les boulettes de viande et servir."
+        }
+      ],
+      "recipeCategory": "Soupe",
+      "recipeCuisine": "Moyen-orientale"
+    },
+    {
+      "@type": "Recipe",
+      "position": 3,
+      "name": "Bouillon écossais au blé bulgur",
+      "description": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.",
+      "recipeIngredient": [
+        "2 lbs d'épaule d'agneau",
+        "8 tasses d'eau",
+        "1/2 tasse de blé bulgur",
+        "1 tasse de carottes en dés",
+        "1 tasse de navet en dés",
+        "1 tasse de poireaux hachés",
+        "1/2 tasse d'orge perlé",
+        "Sel et poivre au goût",
+        "Persil frais pour la garniture"
+      ],
+      "recipeInstructions": [
+        {
+          "@type": "HowToStep",
+          "text": "Dans une grande casserole, ajouter l'agneau et l'eau. Porter à ébullition et écumer toute mousse."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Réduire le feu et laisser mijoter 1 heure jusqu'à ce que l'agneau soit tendre."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Retirer l'agneau, effilocher la viande et remettre dans la casserole."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Ajouter le blé bulgur, l'orge, les carottes, le navet et les poireaux."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Laisser mijoter 45 minutes jusqu'à ce que les céréales et les légumes soient tendres."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Assaisonner de sel et de poivre."
+        },
+        {
+          "@type": "HowToStep",
+          "text": "Servir chaud, garni de persil frais."
+        }
+      ],
+      "recipeCategory": "Soupe",
+      "recipeCuisine": "Écossaise"
+    }
+  ]
+}
