@@ -67,6 +67,12 @@ body[dir="rtl"] {
   left: 0;
 }
 
+body[dir="rtl"] .title {
+  border-radius: 5vh 0 0 5vh;
+  right: 0;
+  left: auto;
+}
+
 .mid-spacer {
   width: 33%;
 }
@@ -571,9 +577,9 @@ body[dir="rtl"] .cert-item {
 .recipe-card h3 {
   font-size: 1.35rem;
   margin: 0 0 8px 0;
-  font-family: 'Elgar', 'Poppins', 'PP Neue Montreal', sans-serif;
+  font-family: 'Elgar', serif;
   color: white;
-  font-weight: 600;
+  font-weight: normal;
   letter-spacing: 0.01em;
 }
 
@@ -581,6 +587,7 @@ body[dir="rtl"] .cert-item {
   font-size: 1rem;
   margin: 0 0 12px 0;
   color: #f8f6f2;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
 }
 
 .recipe-card details {
@@ -602,6 +609,7 @@ body[dir="rtl"] .cert-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
 }
 
 .recipe-card summary::-webkit-details-marker {
@@ -629,6 +637,7 @@ body[dir="rtl"] .cert-item {
   padding: 14px 20px;
   color: #333;
   background-color: white;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
 }
 
 .recipe-card .ingredients-list li,
@@ -636,6 +645,7 @@ body[dir="rtl"] .cert-item {
   margin: 6px 0;
   color: #333;
   line-height: 1.5;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
 }
 
 .view-all-recipes {
@@ -1103,17 +1113,21 @@ body[dir="rtl"] .back-home-button {
 
 .recipe-footer .view-all-btn {
   display: inline-block;
-  background: #5a6345;
-  color: white;
+  background: wheat;
+  color: black;
   padding: 12px 30px;
-  border-radius: 5px;
+  border-radius: 30px;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: background 0.3s;
+  font-family: 'Elgar', serif;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .recipe-footer .view-all-btn:hover {
-  background: #4a5335;
+  background: #f5deb3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 768px) {
@@ -1229,17 +1243,21 @@ body[dir="rtl"] .back-home-button {
 
 .back-to-featured {
   display: inline-block;
-  background: #5a6345;
-  color: white;
+  background: wheat;
+  color: black;
   padding: 12px 30px;
-  border-radius: 5px;
+  border-radius: 30px;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: background 0.3s;
+  font-family: 'Elgar', serif;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .back-to-featured:hover {
-  background: #4a5335;
+  background: #f5deb3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 768px) {
@@ -1367,18 +1385,21 @@ body[dir="rtl"] .back-home-button {
 
 .back-to-certs {
   display: inline-block;
-  background: #5a6345;
-  color: white;
+  background: wheat;
+  color: black;
   padding: 14px 35px;
-  border-radius: 5px;
+  border-radius: 30px;
   text-decoration: none;
   font-size: 1.1rem;
+  font-family: 'Elgar', serif;
   transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .back-to-certs:hover {
-  background: #4a5335;
+  background: #f5deb3;
   transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 768px) {
