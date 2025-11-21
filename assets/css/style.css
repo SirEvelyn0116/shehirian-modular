@@ -1269,3 +1269,151 @@ body[dir="rtl"] .back-home-button {
   }
 }
 
+/* === CERTIFICATION PAGE STYLES === */
+.cert-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px 40px;
+}
+
+.cert-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  border-bottom: 3px solid #f5deb3;
+}
+
+.cert-logo-large {
+  margin-bottom: 30px;
+}
+
+.cert-logo-large img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.cert-header h1 {
+  font-family: 'Elgar', serif;
+  font-size: 3rem;
+  color: #5a6345;
+  margin-bottom: 15px;
+}
+
+.cert-tagline {
+  font-size: 1.4rem;
+  color: #666;
+  font-style: italic;
+}
+
+.cert-content {
+  line-height: 1.8;
+}
+
+.cert-section {
+  margin-bottom: 50px;
+}
+
+.cert-section h2 {
+  font-family: 'Elgar', serif;
+  font-size: 2rem;
+  color: #5a6345;
+  margin-bottom: 20px;
+}
+
+.cert-section p {
+  font-size: 1.15rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cert-list {
+  list-style-position: outside;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+
+.cert-list li {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
+.cert-list strong {
+  color: #5a6345;
+}
+
+.cert-impact {
+  background: linear-gradient(135deg, #f5deb3 0%, #e8d5a8 100%);
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 5px solid #5a6345;
+}
+
+.cert-impact p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.cert-footer {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 3px solid #f5deb3;
+  margin-top: 60px;
+}
+
+.back-to-certs {
+  display: inline-block;
+  background: #5a6345;
+  color: white;
+  padding: 14px 35px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.back-to-certs:hover {
+  background: #4a5335;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .cert-page {
+    padding: 40px 15px 30px;
+  }
+
+  .cert-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .cert-tagline {
+    font-size: 1.2rem;
+  }
+
+  .cert-logo-large img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .cert-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .cert-section p,
+  .cert-list li {
+    font-size: 1rem;
+  }
+
+  .cert-impact {
+    padding: 20px;
+  }
+
+  .cert-impact p {
+    font-size: 1.1rem;
+  }
+}
+
