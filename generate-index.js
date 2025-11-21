@@ -69,6 +69,15 @@ function copyAssets() {
     copyRecursive(certificationsDir, distCertifications);
   }
   
+  // Copy product pages
+  const productPages = ['shirag-products.html', 'mr-falafel-products.html'];
+  productPages.forEach(page => {
+    const sourcePath = path.join(__dirname, page);
+    if (fs.existsSync(sourcePath)) {
+      fs.copyFileSync(sourcePath, path.join(distDir, page));
+    }
+  });
+  
   // Copy preview.js
   fs.copyFileSync(previewJsSource, path.join(distDir, 'preview.js'));
   
@@ -109,7 +118,7 @@ Object.entries(langs).forEach(([lang, config]) => {
 });
 
 copyAssets();
-console.log('✓ Copied assets, sections, recipes, certifications, and preview.js');
+console.log('✓ Copied assets, sections, recipes, certifications, product pages, and preview.js');
 console.log('✓ Created .nojekyll file');
 
 // Copy redirect.html to dist/index.html (root redirect)
