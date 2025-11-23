@@ -23,47 +23,35 @@ function renderRecipes(lang = 'en') {
         card.href = `recipes/${recipe.id}.${lang}.html`;
         card.className = 'recipe-card';
         
+        // Top div: Title and Description (green background)
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'recipe-info';
+        
         // Recipe title (Elgar font, white)
         const recipeTitle = document.createElement('h3');
         recipeTitle.textContent = recipe.title;
-        card.appendChild(recipeTitle);
+        infoDiv.appendChild(recipeTitle);
         
-        // Recipe description
+        // Recipe description (PP Neue Montreal, white)
         const description = document.createElement('p');
         description.textContent = recipe.description;
-        card.appendChild(description);
+        infoDiv.appendChild(description);
         
-        // Ingredients dropdown (black text on white bg)
-        const ingredientsDetails = document.createElement('details');
-        const ingredientsSummary = document.createElement('summary');
-        ingredientsSummary.textContent = recipe.ingredientsLabel || 'Ingredients';
-        ingredientsDetails.appendChild(ingredientsSummary);
+        card.appendChild(infoDiv);
         
-        const ingredientsList = document.createElement('ul');
-        ingredientsList.className = 'ingredients-list';
-        recipe.ingredients.forEach(ingredient => {
-          const li = document.createElement('li');
-          li.textContent = ingredient;
-          ingredientsList.appendChild(li);
-        });
-        ingredientsDetails.appendChild(ingredientsList);
-        card.appendChild(ingredientsDetails);
+        // Bottom div: Meta Information (white background, black text)
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'recipe-meta';
         
-        // Steps dropdown (black text on white bg)
-        const stepsDetails = document.createElement('details');
-        const stepsSummary = document.createElement('summary');
-        stepsSummary.textContent = recipe.stepsLabel || 'Steps';
-        stepsDetails.appendChild(stepsSummary);
+        const metaItems = [];
+        if (recipe.category) metaItems.push(`Category: ${recipe.category}`);
+        if (recipe.cuisine) metaItems.push(`Cuisine: ${recipe.cuisine}`);
+        if (recipe.prepTime) metaItems.push(`Prep: ${recipe.prepTime}`);
+        if (recipe.cookTime) metaItems.push(`Cook: ${recipe.cookTime}`);
+        if (recipe.yield) metaItems.push(`Yield: ${recipe.yield}`);
         
-        const stepsList = document.createElement('ol');
-        stepsList.className = 'steps-list';
-        recipe.steps.forEach(step => {
-          const li = document.createElement('li');
-          li.textContent = step;
-          stepsList.appendChild(li);
-        });
-        stepsDetails.appendChild(stepsList);
-        card.appendChild(stepsDetails);
+        metaDiv.textContent = metaItems.join(' | ');
+        card.appendChild(metaDiv);
         
         grid.appendChild(card);
       });

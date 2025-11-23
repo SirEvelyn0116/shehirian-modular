@@ -563,7 +563,7 @@ body[dir="rtl"] .cert-item {
 .recipe-card {
   background-color: #5a6345;
   color: #f8f6f2;
-  padding: 24px 20px 20px 20px;
+  padding: 0;
   border-radius: 30px;
   font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
@@ -571,11 +571,18 @@ body[dir="rtl"] .cert-item {
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  overflow: hidden;
 }
 
 .recipe-card:hover {
   transform: translateY(-4px) scale(1.02);
   box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+}
+
+.recipe-card .recipe-info {
+  background-color: #5a6345;
+  padding: 24px 20px;
+  color: white;
 }
 
 .recipe-card h3 {
@@ -589,9 +596,18 @@ body[dir="rtl"] .cert-item {
 
 .recipe-card p {
   font-size: 1rem;
-  margin: 0 0 12px 0;
-  color: #f8f6f2;
+  margin: 0;
+  color: white;
   font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+}
+
+.recipe-card .recipe-meta {
+  background-color: white;
+  padding: 16px 20px;
+  color: #333;
+  font-size: 0.9rem;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  line-height: 1.6;
 }
 
 .recipe-card details {
@@ -1195,49 +1211,7 @@ body[dir="rtl"] .back-home-button {
   margin-bottom: 50px;
 }
 
-.all-recipe-card {
-  background: #5a6345;
-  border-radius: 10px;
-  padding: 30px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.all-recipe-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.all-recipe-card a {
-  text-decoration: none;
-  color: white;
-  display: block;
-}
-
-.all-recipe-card h2 {
-  font-family: 'Elgar', serif;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: white;
-}
-
-.all-recipe-card .recipe-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 20px;
-}
-
-.all-recipe-card .read-more {
-  display: inline-block;
-  color: #f5deb3;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: color 0.3s;
-}
-
-.all-recipe-card:hover .read-more {
-  color: white;
-}
+/* All recipes page uses the same .recipe-card styles as featured recipes */
 
 .all-recipes-footer {
   text-align: center;
@@ -1280,14 +1254,6 @@ body[dir="rtl"] .back-home-button {
   .all-recipes-grid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-
-  .all-recipe-card {
-    padding: 20px;
-  }
-
-  .all-recipe-card h2 {
-    font-size: 1.5rem;
   }
 }
 
