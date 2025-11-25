@@ -584,6 +584,7 @@ body[dir="rtl"] .cert-item {
   padding: 20px;
   transition: background-color 0.3s, color 0.3s;
   text-align: center;
+  width: 100%;
 }
 
 .recipe-card:hover .recipe-info {
