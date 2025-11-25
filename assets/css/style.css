@@ -690,9 +690,9 @@ body[dir="rtl"] .cert-item {
 
 .view-all-btn {
   display: inline-block;
-  padding: 14px 28px;
-  background-color: #5a6345;
-  color: white;
+  padding: 12px 28px;
+  background-color: wheat;
+  color: #333;
   text-decoration: none;
   border-radius: 30px;
   font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
@@ -700,10 +700,12 @@ body[dir="rtl"] .cert-item {
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e0c97f;
 }
 
 .view-all-btn:hover {
-  background-color: #a36b1b;
+  background-color: #5a6345;
+  color: #f8f6f2;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
@@ -1236,21 +1238,24 @@ body[dir="rtl"] .back-home-button {
 
 .back-to-featured {
   display: inline-block;
-  background: wheat;
-  color: black;
-  padding: 12px 30px;
+  background-color: wheat;
+  color: #333;
+  padding: 12px 28px;
   border-radius: 30px;
   text-decoration: none;
-  font-size: 1.1rem;
-  font-family: 'Elgar', serif;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 1rem;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #e0c97f;
 }
 
 .back-to-featured:hover {
-  background: #f5deb3;
+  background-color: #5a6345;
+  color: #f8f6f2;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 768px) {
