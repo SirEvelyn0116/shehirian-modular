@@ -23,34 +23,40 @@ function renderRecipes(lang = 'en') {
         card.href = `recipes/${recipe.id}.${lang}.html`;
         card.className = 'recipe-card';
         
-        // Top div: Title and Description (green background)
+        // Top div: Title only (wheat background)
         const infoDiv = document.createElement('div');
         infoDiv.className = 'recipe-info';
         
-        // Recipe title (Elgar font, white)
+        // Recipe title (Elgar font)
         const recipeTitle = document.createElement('h3');
         recipeTitle.textContent = recipe.title;
         infoDiv.appendChild(recipeTitle);
         
-        // Recipe description (PP Neue Montreal, white)
-        const description = document.createElement('p');
-        description.textContent = recipe.description;
-        infoDiv.appendChild(description);
-        
         card.appendChild(infoDiv);
         
-        // Bottom div: Meta Information (white background, black text)
+        // Bottom div: Description and Meta Information (white background, black text)
         const metaDiv = document.createElement('div');
         metaDiv.className = 'recipe-meta';
         
-        const metaItems = [];
-        if (recipe.category) metaItems.push(`Category: ${recipe.category}`);
-        if (recipe.cuisine) metaItems.push(`Cuisine: ${recipe.cuisine}`);
-        if (recipe.prepTime) metaItems.push(`Prep: ${recipe.prepTime}`);
-        if (recipe.cookTime) metaItems.push(`Cook: ${recipe.cookTime}`);
-        if (recipe.yield) metaItems.push(`Yield: ${recipe.yield}`);
+        // Recipe description
+        const description = document.createElement('p');
+        description.className = 'recipe-description';
+        description.textContent = recipe.description;
+        metaDiv.appendChild(description);
         
-        metaDiv.textContent = metaItems.join(' | ');
+        // Meta information with bold keys
+        const metaItems = [];
+        if (recipe.category) metaItems.push(`<strong>Category:</strong> ${recipe.category}`);
+        if (recipe.cuisine) metaItems.push(`<strong>Cuisine:</strong> ${recipe.cuisine}`);
+        if (recipe.prepTime) metaItems.push(`<strong>Prep:</strong> ${recipe.prepTime}`);
+        if (recipe.cookTime) metaItems.push(`<strong>Cook:</strong> ${recipe.cookTime}`);
+        if (recipe.yield) metaItems.push(`<strong>Yield:</strong> ${recipe.yield}`);
+        
+        const metaInfo = document.createElement('div');
+        metaInfo.className = 'recipe-meta-info';
+        metaInfo.innerHTML = metaItems.join(' | ');
+        metaDiv.appendChild(metaInfo);
+        
         card.appendChild(metaDiv);
         
         grid.appendChild(card);

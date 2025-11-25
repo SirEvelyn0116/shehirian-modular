@@ -561,13 +561,13 @@ body[dir="rtl"] .cert-item {
 }
 
 .recipe-card {
-  background-color: #5a6345;
-  color: #f8f6f2;
+  background-color: white;
+  color: #333;
   padding: 0;
   border-radius: 30px;
   font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
   box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -580,25 +580,28 @@ body[dir="rtl"] .cert-item {
 }
 
 .recipe-card .recipe-info {
+  background-color: wheat;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.recipe-card:hover .recipe-info {
   background-color: #5a6345;
-  padding: 24px 20px;
-  color: white;
 }
 
 .recipe-card h3 {
   font-size: 1.35rem;
-  margin: 0 0 8px 0;
+  margin: 0;
   font-family: 'Elgar', serif;
-  color: white;
+  color: #5a6345;
   font-weight: normal;
   letter-spacing: 0.01em;
+  transition: color 0.3s;
 }
 
-.recipe-card p {
-  font-size: 1rem;
-  margin: 0;
+.recipe-card:hover h3 {
   color: white;
-  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
 }
 
 .recipe-card .recipe-meta {
@@ -608,6 +611,18 @@ body[dir="rtl"] .cert-item {
   font-size: 0.9rem;
   font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
   line-height: 1.6;
+}
+
+.recipe-card .recipe-description {
+  font-size: 1rem;
+  margin: 0 0 12px 0;
+  color: #333;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+}
+
+.recipe-card .recipe-meta-info {
+  font-size: 0.85rem;
+  color: #666;
 }
 
 .recipe-card details {
