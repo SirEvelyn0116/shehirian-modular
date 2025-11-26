@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes les recettes | Shehirian</title>
+    <meta name="description" content="Parcourez toutes les recettes de Shehirian mettant en vedette le blé bulgur et les recettes familiales traditionnelles.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="back-home-button" style="display: none;">
+        <a href="../index.fr.html">← Retour à l'accueil</a>
+    </div>
+
+    <section class="all-recipes-page">
+        <div class="all-recipes-header">
+            <h1>Toutes les recettes</h1>
+            <p class="all-recipes-intro">Découvrez notre collection de recettes traditionnelles mettant en vedette le blé bulgur Shehirian.</p>
+        </div>
+
+        <div class="all-recipes-grid">
+            <!-- Soupe aux lentilles à l'arménienne -->
+            <a href="armenian-lentil-soup.fr.html" class="recipe-card">
+                <div class="recipe-info">
+                    <h3>Soupe aux lentilles à l'arménienne</h3>
+                </div>
+                <div class="recipe-meta">
+                    <p class="recipe-description">Une soupe copieuse aux lentilles, menthe et persil — un classique de la famille Shehirian.</p>
+                    <div class="recipe-meta-info"><strong>Catégorie:</strong> Soupe | <strong>Cuisine:</strong> Arménienne | <strong>Préparation:</strong> 10 minutes | <strong>Cuisson:</strong> 1 heure 15 minutes | <strong>Portions:</strong> 4 portions</div>
+                </div>
+            </a>
+
+            <!-- Soupe royale -->
+            <a href="royal-soup.fr.html" class="recipe-card">
+                <div class="recipe-info">
+                    <h3>Soupe royale</h3>
+                </div>
+                <div class="recipe-meta">
+                    <p class="recipe-description">Une soupe de boulettes de viande citronnée avec du riz et du persil, inspirée des saveurs du Moyen-Orient.</p>
+                    <div class="recipe-meta-info"><strong>Catégorie:</strong> Soupe | <strong>Cuisine:</strong> Moyen-orientale | <strong>Préparation:</strong> 20 minutes | <strong>Cuisson:</strong> 45 minutes | <strong>Portions:</strong> 6 portions</div>
+                </div>
+            </a>
+
+            <!-- Bouillon écossais au blé bulgur -->
+            <a href="scotch-broth.fr.html" class="recipe-card">
+                <div class="recipe-info">
+                    <h3>Bouillon écossais au blé bulgur</h3>
+                </div>
+                <div class="recipe-meta">
+                    <p class="recipe-description">Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.</p>
+                    <div class="recipe-meta-info"><strong>Catégorie:</strong> Soupe | <strong>Cuisine:</strong> Écossaise | <strong>Préparation:</strong> 15 minutes | <strong>Cuisson:</strong> 1 heure 45 minutes | <strong>Portions:</strong> 6-8 portions</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="all-recipes-footer">
+            <a href="../index.fr.html#recipes" class="back-to-featured">← Retour aux recettes vedettes</a>
+        </div>
+    </section>
+
+    <script src="../assets/js/lang-switcher.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const backBtn = document.querySelector('.back-home-button');
+            if (window.scrollY > 100) {
+                backBtn.style.display = 'block';
+            } else {
+                backBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
