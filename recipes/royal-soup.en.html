@@ -55,6 +55,10 @@
       ],
       "recipeCategory": "Soup",
       "recipeCuisine": "Middle Eastern",
+      "prepTime": "PT20M",
+      "cookTime": "PT45M",
+      "totalTime": "PT65M",
+      "recipeYield": "6 servings",
       "keywords": "royal soup, meatball soup, Middle Eastern recipe, bulgur wheat, Shehirian"
     }
     </script>
@@ -64,14 +68,26 @@
         <a href="../index.en.html">← Back to Home</a>
     </div>
 
+    <nav class="breadcrumb-nav">
+        <a href="../index.en.html">Home</a> / <a href="all-recipes.en.html">Recipes</a> / <span>Royal Soup</span>
+    </nav>
+
     <section class="recipe-page">
         <div class="recipe-header">
             <h1>Royal Soup</h1>
-            <p class="recipe-description">A lemony meatball soup with rice and parsley, inspired by Middle Eastern flavors.</p>
+            <p><strong>Category:</strong> Soup</p>
+            <p><strong>Cuisine:</strong> Middle Eastern</p>
+            <p><strong>Servings:</strong> 6 servings</p>
+            <p><strong>Prep Time:</strong> 20 minutes | <strong>Cook Time:</strong> 45 minutes | <strong>Total:</strong> 1 hour 5 minutes</p>
         </div>
 
+        <section class="recipe-section">
+            <h2>Description</h2>
+            <p>A lemony meatball soup with rice and parsley, inspired by Middle Eastern flavors.</p>
+        </section>
+
         <div class="recipe-content">
-            <div class="recipe-ingredients">
+            <section class="recipe-section">
                 <h2>Ingredients</h2>
                 <ul>
                     <li>1/2 gallon chicken broth</li>
@@ -84,10 +100,10 @@
                     <li>1/4 tsp. salt</li>
                     <li>Slice of 2 lemons</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="recipe-steps">
-                <h2>Steps</h2>
+            <section class="recipe-section">
+                <h2>Instructions</h2>
                 <ol>
                     <li>Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1" diameter balls.</li>
                     <li>Add rice to the meat balls mixture.</li>
@@ -97,7 +113,7 @@
                     <li>Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.</li>
                     <li>Pour broth over meatballs and serve.</li>
                 </ol>
-            </div>
+            </section>
         </div>
 
         <div class="recipe-footer">
@@ -105,7 +121,8 @@
         </div>
     </section>
 
-    <script src="../assets/js/lang-switcher.js"></script>    <script>
+    <script src="../assets/js/lang-switcher.js"></script>
+    <script>
         window.addEventListener('scroll', () => {
             const backBtn = document.querySelector('.back-home-button');
             if (window.scrollY > 100) {

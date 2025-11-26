@@ -1086,11 +1086,37 @@ body[dir="rtl"] .back-home-button {
   }
 }
 
+/* === BREADCRUMB NAVIGATION === */
+.breadcrumb-nav {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 20px 10px;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.breadcrumb-nav a {
+  color: #5a6345;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb-nav a:hover {
+  color: #a36b1b;
+  text-decoration: underline;
+}
+
+.breadcrumb-nav span {
+  color: #333;
+  font-weight: 600;
+}
+
 /* === RECIPE PAGE STYLES === */
 .recipe-page {
   max-width: 900px;
   margin: 0 auto;
-  padding: 60px 20px 40px;
+  padding: 20px 20px 40px;
 }
 
 .recipe-header {
@@ -1107,17 +1133,46 @@ body[dir="rtl"] .back-home-button {
   margin-bottom: 20px;
 }
 
-.recipe-description {
-  font-size: 1.3rem;
+.recipe-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 8px 0;
+}
+
+.recipe-header p strong {
   color: #333;
-  font-style: italic;
-  line-height: 1.6;
+}
+
+.recipe-section {
+  margin-bottom: 40px;
+}
+
+.recipe-section h2 {
+  font-family: 'Elgar', serif;
+  font-size: 2rem;
+  color: #5a6345;
+  margin-bottom: 20px;
+}
+
+.recipe-section p {
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.8;
+}
+
+.recipe-section ul,
+.recipe-section ol {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.8;
+  padding-left: 30px;
+}
+
+.recipe-section li {
+  margin-bottom: 10px;
 }
 
 .recipe-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
   margin-bottom: 50px;
 }
 
