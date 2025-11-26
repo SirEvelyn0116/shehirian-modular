@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جميع الوصفات | شهيريان</title>
+    <meta name="description" content="تصفح جميع الوصفات من شهيريان التي تحتوي على البرغل والوصفات العائلية التقليدية.">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="back-home-button" style="display: none;">
+        <a href="../index.ar.html">← العودة إلى الرئيسية</a>
+    </div>
+
+    <section class="all-recipes-page">
+        <div class="all-recipes-header">
+            <h1>جميع الوصفات</h1>
+            <p class="all-recipes-intro">اكتشف مجموعتنا من الوصفات التقليدية التي تحتوي على برغل شهيريان.</p>
+        </div>
+
+        <div class="all-recipes-grid">
+            <!-- حساء العدس على الطريقة الأرمنية -->
+            <a href="armenian-lentil-soup.ar.html" class="recipe-card">
+                <div class="recipe-info">
+                    <h3>حساء العدس على الطريقة الأرمنية</h3>
+                </div>
+                <div class="recipe-meta">
+                    <p class="recipe-description">حساء شهي مع العدس والنعناع والبقدونس — كلاسيكية من عائلة شهيريان.</p>
+                    <div class="recipe-meta-info"><strong>الفئة:</strong> حساء | <strong>المطبخ:</strong> أرمنية | <strong>التحضير:</strong> 10 دقائق | <strong>الطهي:</strong> ساعة و 15 دقيقة | <strong>الحصص:</strong> 4 حصص</div>
+                </div>
+            </a>
+
+            <!-- الشوربة الملكية -->
+            <a href="royal-soup.ar.html" class="recipe-card">
+                <div class="recipe-info">
+                    <h3>الشوربة الملكية</h3>
+                </div>
+                <div class="recipe-meta">
+                    <p class="recipe-description">حساء كرات اللحم بالليمون مع الأرز والبقدونس، مستوحى من نكهات الشرق الأوسط.</p>
+                    <div class="recipe-meta-info"><strong>الفئة:</strong> حساء | <strong>المطبخ:</strong> شرق أوسطية | <strong>التحضير:</strong> 20 دقيقة | <strong>الطهي:</strong> 45 دقيقة | <strong>الحصص:</strong> 6 حصص</div>
+                </div>
+            </a>
+
+            <!-- مرق اسكتلندي بالبرغل -->
+            <a href="scotch-broth.ar.html" class="recipe-card">
+                <div class="recipe-info">
+                    <h3>مرق اسكتلندي بالبرغل</h3>
+                </div>
+                <div class="recipe-meta">
+                    <p class="recipe-description">حساء اسكتلندي تقليدي معدّل بالبرغل الشهي ولحم الخروف.</p>
+                    <div class="recipe-meta-info"><strong>الفئة:</strong> حساء | <strong>المطبخ:</strong> اسكتلندية | <strong>التحضير:</strong> 15 دقيقة | <strong>الطهي:</strong> ساعة و 45 دقيقة | <strong>الحصص:</strong> 6-8 حصص</div>
+                </div>
+            </a>
+        </div>
+
+        <div class="all-recipes-footer">
+            <a href="../index.ar.html#recipes" class="back-to-featured">← العودة إلى الوصفات المميزة</a>
+        </div>
+    </section>
+
+    <script src="../assets/js/lang-switcher.js"></script>
+    <script>
+        window.addEventListener('scroll', () => {
+            const backBtn = document.querySelector('.back-home-button');
+            if (window.scrollY > 100) {
+                backBtn.style.display = 'block';
+            } else {
+                backBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
