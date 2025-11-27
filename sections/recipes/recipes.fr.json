@@ -95,6 +95,209 @@
         "Assaisonner de sel et de poivre.",
         "Servir chaud, garni de persil frais."
       ]
+    },
+    {
+      "id": "tabbouleh-salad",
+      "title": "Salade de taboulé",
+      "description": "Une salade du Moyen-Orient rafraîchissante avec du blé bulgur, des légumes frais et des herbes.",
+      "category": "Salade",
+      "cuisine": "Moyen-orientale",
+      "prepTime": "1 heure 15 minutes",
+      "cookTime": "5 minutes",
+      "yield": "6 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1 tasse de blé bulgur (fin)",
+        "2 tasses d'eau bouillante",
+        "3 tomates moyennes, coupées en dés",
+        "1 concombre, coupé en dés",
+        "1 botte de persil frais, haché finement",
+        "1/4 tasse de menthe fraîche, hachée",
+        "1/4 tasse de jus de citron frais",
+        "1/4 tasse d'huile d'olive",
+        "Sel et poivre au goût"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 1 heure jusqu'à ce qu'il soit tendre et refroidi.",
+        "Égoutter l'excès d'eau du bulgur et transférer dans un grand bol.",
+        "Ajouter les tomates, le concombre, le persil et la menthe au bulgur.",
+        "Dans un petit bol, fouetter ensemble le jus de citron, l'huile d'olive, le sel et le poivre.",
+        "Verser la vinaigrette sur la salade et mélanger jusqu'à ce qu'elle soit bien enrobée.",
+        "Réfrigérer au moins 30 minutes avant de servir pour laisser les saveurs se mélanger."
+      ]
+    },
+    {
+      "id": "bulgur-carrot-pineapple-salad",
+      "title": "Salade de bulgur aux carottes et ananas",
+      "description": "Une salade sucrée et salée combinant du blé bulgur avec des carottes râpées et de l'ananas tropical.",
+      "category": "Salade",
+      "cuisine": "Américaine",
+      "prepTime": "10 minutes",
+      "cookTime": "15 minutes",
+      "yield": "8-10 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1 tasse de blé bulgur (fin ou moyen)",
+        "2 tasses d'eau bouillante",
+        "2 tasses de carottes râpées",
+        "1 tasse d'ananas broyé, égoutté",
+        "1/2 tasse de mayonnaise",
+        "1/4 tasse de sucre",
+        "1 cuillère à soupe de jus de citron"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 15 minutes jusqu'à ce qu'il soit tendre. Égoutter l'excès d'eau et refroidir.",
+        "Dans un grand bol, combiner le bulgur refroidi, les carottes râpées et l'ananas broyé égoutté.",
+        "Dans un petit bol, fouetter ensemble la mayonnaise, le sucre et le jus de citron jusqu'à consistance lisse.",
+        "Verser la vinaigrette sur le mélange de bulgur et mélanger jusqu'à ce qu'il soit bien enrobé. Réfrigérer avant de servir."
+      ]
+    },
+    {
+      "id": "cole-slaw-bulgur",
+      "title": "Salade de chou au bulgur",
+      "description": "Une version copieuse de la salade de chou classique avec l'ajout de blé bulgur nutritif.",
+      "category": "Salade",
+      "cuisine": "Américaine",
+      "prepTime": "15 minutes",
+      "cookTime": "10 minutes",
+      "yield": "8-10 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1 tasse de blé bulgur (fin ou moyen)",
+        "2 tasses d'eau bouillante",
+        "4 tasses de chou râpé",
+        "1 tasse de carottes râpées",
+        "1/2 tasse de mayonnaise",
+        "2 cuillères à soupe de vinaigre de cidre",
+        "1 cuillère à soupe de sucre",
+        "1/2 cuillère à café de sel",
+        "1/4 cuillère à café de poivre noir"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 10 minutes jusqu'à ce qu'il soit tendre. Égoutter l'excès d'eau et refroidir.",
+        "Dans un grand bol, combiner le bulgur refroidi, le chou râpé et les carottes râpées.",
+        "Dans un petit bol, fouetter ensemble la mayonnaise, le vinaigre de cidre, le sucre, le sel et le poivre noir.",
+        "Verser la vinaigrette sur le mélange de chou et mélanger jusqu'à ce qu'il soit bien enrobé. Réfrigérer au moins 1 heure avant de servir."
+      ]
+    },
+    {
+      "id": "bulgur-carrot-raisin-salad",
+      "title": "Salade de bulgur aux carottes et raisins secs",
+      "description": "Une variation avec des raisins secs et une vinaigrette française pour une saveur sucrée et acidulée délicieuse.",
+      "category": "Salade",
+      "cuisine": "Américaine",
+      "prepTime": "10 minutes",
+      "cookTime": "15 minutes",
+      "yield": "8-10 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1 tasse de blé bulgur (fin ou moyen)",
+        "2 tasses d'eau bouillante",
+        "2 tasses de carottes râpées",
+        "1 tasse de raisins secs",
+        "1/2 tasse de vinaigrette française",
+        "1/4 cuillère à café de sel"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 15 minutes jusqu'à ce qu'il soit tendre. Égoutter l'excès d'eau et refroidir.",
+        "Dans un grand bol, combiner le bulgur refroidi, les carottes râpées et les raisins secs.",
+        "Verser la vinaigrette française sur le mélange et mélanger jusqu'à ce qu'il soit bien combiné.",
+        "Assaisonner de sel au goût. Réfrigérer avant de servir pour une meilleure saveur."
+      ]
+    },
+    {
+      "id": "chefs-bulgur-salad",
+      "title": "Salade du chef au bulgur",
+      "description": "Une salade principale copieuse mettant en vedette du blé bulgur, des légumes frais et votre choix de viandes froides et de fromage.",
+      "category": "Salade",
+      "cuisine": "Américaine",
+      "prepTime": "20 minutes",
+      "cookTime": "15 minutes",
+      "yield": "8 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "2 tasses de blé bulgur (moyen)",
+        "4 tasses d'eau bouillante",
+        "1 laitue, déchirée en morceaux",
+        "2 tasses de tomates cerises, coupées en deux",
+        "1 tasse de concombres tranchés",
+        "1 tasse de radis tranchés",
+        "2 tasses de jambon ou dinde cuits en dés",
+        "1 tasse de fromage en dés (cheddar ou suisse)",
+        "4 œufs durs, coupés en quartiers",
+        "1 tasse de vinaigrette ranch ou italienne"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 15 minutes jusqu'à ce qu'il soit tendre. Égoutter l'excès d'eau et refroidir complètement.",
+        "Dans un grand bol de service, disposer la laitue comme base. Garnir de blé bulgur refroidi.",
+        "Disposer les tomates cerises, les concombres, les radis, le jambon ou la dinde en dés et le fromage en dés sur le bulgur.",
+        "Garnir d'œufs durs coupés en quartiers. Servir avec votre vinaigrette préférée à côté."
+      ]
+    },
+    {
+      "id": "bulgur-dutch-cucumber-salad",
+      "title": "Salade de concombres hollandaise au bulgur",
+      "description": "Une salade crémeuse et rafraîchissante avec du bulgur, des concombres, des radis et une vinaigrette acidulée à la crème sure.",
+      "category": "Salade",
+      "cuisine": "Hollandaise",
+      "prepTime": "15 minutes",
+      "cookTime": "15 minutes",
+      "yield": "6-8 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1 tasse de blé bulgur (fin ou moyen)",
+        "2 tasses d'eau bouillante",
+        "2 gros concombres, tranchés finement",
+        "1 tasse de radis tranchés",
+        "1/2 tasse de crème sure",
+        "1/4 tasse de vinaigre blanc",
+        "2 cuillères à soupe de sucre",
+        "1 cuillère à café de sel",
+        "1/2 cuillère à café d'aneth",
+        "1/4 cuillère à café de poivre noir"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 15 minutes jusqu'à ce qu'il soit tendre. Égoutter l'excès d'eau et refroidir.",
+        "Dans un grand bol, combiner le bulgur refroidi, les concombres tranchés et les radis tranchés.",
+        "Dans un petit bol, fouetter ensemble la crème sure, le vinaigre blanc, le sucre, le sel, l'aneth et le poivre noir jusqu'à consistance lisse.",
+        "Verser la vinaigrette sur le mélange de bulgur et mélanger délicatement. Réfrigérer au moins 1 heure avant de servir."
+      ]
+    },
+    {
+      "id": "bulgur-garden-salad",
+      "title": "Salade jardinière au bulgur",
+      "description": "Une salade de jardin polyvalente avec du blé bulgur, des légumes frais et des œufs durs — parfaite comme accompagnement ou plat principal.",
+      "category": "Salade",
+      "cuisine": "Américaine",
+      "prepTime": "15 minutes",
+      "cookTime": "15 minutes",
+      "yield": "8 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1½ tasses de blé bulgur (moyen)",
+        "3 tasses d'eau bouillante",
+        "1 laitue, déchirée en morceaux",
+        "2 grosses tomates, coupées en dés",
+        "1 concombre, coupé en dés",
+        "1 poivron, coupé en dés",
+        "1 tasse de radis tranchés",
+        "1 tasse de carottes râpées",
+        "4 œufs durs, tranchés",
+        "1 tasse de vinaigrette italienne ou vinaigrette"
+      ],
+      "steps": [
+        "Verser l'eau bouillante sur le blé bulgur et laisser reposer 15 minutes jusqu'à ce qu'il soit tendre. Égoutter l'excès d'eau et refroidir complètement.",
+        "Dans un grand bol de service, combiner la laitue, les tomates en dés, le concombre, le poivron, les radis et les carottes râpées.",
+        "Ajouter le blé bulgur refroidi au mélange de légumes et mélanger pour combiner.",
+        "Garnir d'œufs durs tranchés et servir avec votre vinaigrette préférée."
+      ]
     }
   ]
 }
