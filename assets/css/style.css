@@ -343,11 +343,35 @@ section p {
 
 .recipe-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   padding: 20px 0;
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
+}
+
+
+/* For category pages we want a 3-column centered layout */
+.recipes-category-section .recipe-grid,
+.recipe-category .recipe-grid {
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  margin: 0 auto 40px;
+  justify-items: center;
+}
+
+.recipes-category-heading,
+.recipe-category h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #55422c;
+  margin: 0 0 8px 0;
+}
+
+.category-sep {
+  border: 0;
+  height: 2px;
+  background: #f5deb3;
+  width: 60%;
+  margin: 16px auto 24px;
 }
 
 .recipe-card {
@@ -1330,6 +1354,10 @@ body[dir="rtl"] .back-home-button {
   .all-recipes-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .recipes-category-section .recipe-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 

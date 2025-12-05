@@ -1,5 +1,12 @@
+function _sectionsJsonPath(lang) {
+  // When pages live under /recipes/ the JSON is one level up
+  const inRecipesFolder = window && window.location && window.location.pathname && window.location.pathname.includes('/recipes/');
+  const prefix = inRecipesFolder ? '../' : '';
+  return `${prefix}sections/recipes/recipes.${lang}.json`;
+}
+
 function renderRecipes(lang = 'en') {
-  return fetch(`sections/recipes/recipes.${lang}.json`)
+  return fetch(_sectionsJsonPath(lang))
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {
@@ -46,7 +53,11 @@ function renderRecipes(lang = 'en') {
 // Helper to build a recipe card anchor element from a recipe summary
 function buildRecipeCard(recipe, lang = 'en') {
   const card = document.createElement('a');
-  card.href = `recipes/${recipe.id}.${lang}.html`;
+  // If the current page lives under /recipes/ (e.g. recipes/all-recipes.en.html),
+  // links to individual recipe pages should be relative to that folder.
+  const inRecipesFolder = window.location.pathname.includes('/recipes/');
+  const linkRoot = inRecipesFolder ? '' : 'recipes/';
+  card.href = `${linkRoot}${recipe.id}.${lang}.html`;
   card.className = 'recipe-card';
 
   // Top div: Title only (wheat background)
@@ -87,7 +98,7 @@ function buildRecipeCard(recipe, lang = 'en') {
 
 // Render the All Recipes page grouped by category
 function renderAllRecipes(lang = 'en') {
-  return fetch(`sections/recipes/recipes.${lang}.json`)
+  return fetch(_sectionsJsonPath(lang))
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {
@@ -116,6 +127,11 @@ function renderAllRecipes(lang = 'en') {
         heading.className = 'recipes-category-heading';
         heading.textContent = cat;
         section.appendChild(heading);
+
+        // Add a horizontal separator similar to the one used above view-all buttons
+        const sep = document.createElement('hr');
+        sep.className = 'category-sep';
+        section.appendChild(sep);
 
         const grid = document.createElement('div');
         grid.className = 'recipe-grid';
