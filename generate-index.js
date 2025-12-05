@@ -121,6 +121,113 @@ copyAssets();
 console.log('✓ Copied assets, sections, recipes, certifications, product pages, and preview.js');
 console.log('✓ Created .nojekyll file');
 
+// Generate build-time all-recipes pages from sections/recipes/recipes.<lang>.json
+function buildRecipeCardHTML(recipe, lang) {
+  const href = `${recipe.id}.${lang}.html`;
+  const desc = recipe.description ? `<p class="recipe-description">${recipe.description}</p>` : '';
+  const meta = [];
+  if (recipe.category) meta.push(`<strong>Category:</strong> ${recipe.category}`);
+  if (recipe.cuisine) meta.push(`<strong>Cuisine:</strong> ${recipe.cuisine}`);
+  if (recipe.prepTime) meta.push(`<strong>Prep:</strong> ${recipe.prepTime}`);
+  if (recipe.cookTime) meta.push(`<strong>Cook:</strong> ${recipe.cookTime}`);
+  if (recipe.yield) meta.push(`<strong>Yield:</strong> ${recipe.yield}`);
+
+  return `
+    <a href="${href}" class="recipe-card">
+      <div class="recipe-info">
+        <h3>${recipe.title}</h3>
+      </div>
+      <div class="recipe-meta">
+        ${desc}
+        <div class="recipe-meta-info">${meta.join(' | ')}</div>
+      </div>
+    </a>`;
+}
+
+function buildAllRecipesHTML(allRecipes, lang) {
+  // group by category
+  const groups = allRecipes.reduce((acc, r) => {
+    const k = r.category || 'Other';
+    if (!acc[k]) acc[k] = [];
+    acc[k].push(r);
+    return acc;
+  }, {});
+
+  return Object.entries(groups).map(([category, items]) => {
+    const cards = items.map(it => buildRecipeCardHTML(it, lang)).join('\n');
+    return `<section class="recipe-category">
+      <h2>${category}</h2>
+      <div class="all-recipes-grid">
+        ${cards}
+      </div>
+    </section>`;
+  }).join('\n');
+}
+
+function writeAllRecipesPages() {
+  const recipesDir = path.join(__dirname, 'recipes');
+  const distRecipesDir = path.join(distDir, 'recipes');
+  if (!fs.existsSync(distRecipesDir)) fs.mkdirSync(distRecipesDir, { recursive: true });
+
+  Object.keys(langs).forEach(lang => {
+    const srcJson = path.join(__dirname, 'sections', 'recipes', `recipes.${lang}.json`);
+    if (!fs.existsSync(srcJson)) {
+      console.warn(`⚠ recipes json missing for ${lang}, skipping all-recipes generation`);
+      return;
+    }
+
+    let data;
+    try {
+      data = JSON.parse(fs.readFileSync(srcJson, 'utf8'));
+    } catch (e) {
+      console.error(`✖ Failed to parse ${srcJson}:`, e.message);
+      return;
+    }
+
+    if (!data.allRecipes || !Array.isArray(data.allRecipes)) {
+      console.warn(`⚠ no allRecipes array in ${srcJson}, skipping ${lang}`);
+      return;
+    }
+
+    const gridHtml = buildAllRecipesHTML(data.allRecipes, lang);
+
+    // Use source page as template if available, otherwise build a minimal page
+    const srcPage = path.join(recipesDir, `all-recipes.${lang}.html`);
+    let pageHtml = '';
+    if (fs.existsSync(srcPage)) {
+      pageHtml = fs.readFileSync(srcPage, 'utf8');
+    } else {
+      pageHtml = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All Recipes</title><link rel="stylesheet" href="../assets/css/style.css"></head><body><section class="all-recipes-page"><div class="all-recipes-header"><h1>All Recipes</h1></div><div class="all-recipes-grid"></div></section></body></html>`;
+    }
+
+    // Replace placeholder container or the first .all-recipes-grid block
+    let out = pageHtml;
+    const idContainerRegex = /<div[^>]*id="all-recipes-container"[^>]*>[\s\S]*?<\/div>/i;
+    const classGridRegex = /<div[^>]*class="all-recipes-grid"[^>]*>[\s\S]*?<\/div>/i;
+
+    if (idContainerRegex.test(pageHtml)) {
+      out = pageHtml.replace(idContainerRegex, `<div id="all-recipes-container" class="all-recipes-grid">${gridHtml}</div>`);
+    } else if (classGridRegex.test(pageHtml)) {
+      out = pageHtml.replace(classGridRegex, `<div class="all-recipes-grid">${gridHtml}</div>`);
+    } else {
+      // fallback: insert before footer link if present
+      const footerRegex = /<div class="all-recipes-footer">/i;
+      if (footerRegex.test(pageHtml)) {
+        out = pageHtml.replace(footerRegex, `${gridHtml}\n$&`);
+      } else {
+        // append to body
+        out = pageHtml.replace(/<\/body>/i, `${gridHtml}\n</body>`);
+      }
+    }
+
+    const outPath = path.join(distRecipesDir, `all-recipes.${lang}.html`);
+    fs.writeFileSync(outPath, out, 'utf8');
+    console.log(`✓ Generated recipes page: recipes/all-recipes.${lang}.html`);
+  });
+}
+
+writeAllRecipesPages();
+
 // Copy redirect.html to dist/index.html (root redirect)
 const redirectSource = path.join(__dirname, 'redirect.html');
 const redirectTarget = path.join(distDir, 'index.html');
