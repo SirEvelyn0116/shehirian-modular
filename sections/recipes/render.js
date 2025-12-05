@@ -153,3 +153,37 @@ function renderAllRecipes(lang = 'en') {
 window.renderRecipes = renderRecipes;
 window.renderAllRecipes = renderAllRecipes;
 window.buildRecipeCard = buildRecipeCard;
+
+// Update positioning of the floating back button so it locks above the footer
+window.updateBackButtonLock = function() {
+  try {
+    const backBtn = document.querySelector('.back-home-button');
+    const page = document.querySelector('.all-recipes-page');
+    const footer = document.querySelector('.all-recipes-footer');
+    if (!backBtn || !page || !footer) return;
+
+    const footerRect = footer.getBoundingClientRect();
+    // If footer visible in viewport, lock the button above it
+    if (footerRect.top < window.innerHeight) {
+      backBtn.classList.add('locked');
+      backBtn.style.position = 'absolute';
+      const footerHeight = footer.offsetHeight || 60;
+      backBtn.style.bottom = `${footerHeight + 20}px`;
+      if (document.dir === 'rtl' || document.body.dir === 'rtl') {
+        backBtn.style.left = '24px';
+        backBtn.style.right = 'auto';
+      } else {
+        backBtn.style.right = '24px';
+        backBtn.style.left = 'auto';
+      }
+    } else {
+      backBtn.classList.remove('locked');
+      backBtn.style.position = '';
+      backBtn.style.bottom = '';
+      backBtn.style.left = '';
+      backBtn.style.right = '';
+    }
+  } catch (e) {
+    // ignore errors during preview
+  }
+};

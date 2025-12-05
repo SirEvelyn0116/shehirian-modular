@@ -1281,6 +1281,7 @@ body[dir="rtl"] .back-home-button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px 20px 40px;
+  position: relative;
 }
 
 .all-recipes-header {
@@ -1336,6 +1337,24 @@ body[dir="rtl"] .back-home-button {
   color: #f8f6f2;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating back-home button that locks above the footer */
+.back-home-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 80;
+  transition: all 0.18s ease;
+}
+
+body[dir="rtl"] .back-home-button {
+  left: 24px;
+  right: auto;
+}
+
+.back-home-button.locked {
+  position: absolute;
 }
 
 @media (max-width: 768px) {
