@@ -1,0 +1,52 @@
+[
+  {
+    "id": "baba-ganoush",
+    "title": "Baba Ganoush",
+    "description": "Smoky eggplant dip with tahini, garlic, and lemon.",
+    "ingredients": [
+      "2 large eggplants",
+      "3 tbsp tahini",
+      "2 cloves garlic, minced",
+      "3 tbsp lemon juice",
+      "2 tbsp olive oil",
+      "1/2 tsp salt",
+      "1/4 tsp cumin",
+      "Paprika for garnish",
+      "Fresh parsley for garnish"
+    ],
+    "steps": [
+      "Roast eggplants over open flame or in oven at 450°F until skin is charred.",
+      "Let cool, then peel off skin and remove seeds.",
+      "Mash eggplant flesh with a fork.",
+      "Mix in tahini, garlic, lemon juice, and salt.",
+      "Blend until smooth or leave slightly chunky.",
+      "Drizzle with olive oil and sprinkle with paprika.",
+      "Garnish with parsley and serve with pita bread."
+    ]
+  },
+  {
+    "id": "tabbouleh",
+    "title": "Tabbouleh",
+    "description": "Fresh parsley salad with bulgur, tomatoes, and lemon dressing.",
+    "ingredients": [
+      "3 cups finely chopped parsley",
+      "1/2 cup bulgur wheat, soaked",
+      "3 tomatoes, finely diced",
+      "1/4 cup chopped mint",
+      "4 green onions, finely chopped",
+      "1/4 cup lemon juice",
+      "1/4 cup olive oil",
+      "1 tsp salt",
+      "1/2 tsp allspice"
+    ],
+    "steps": [
+      "Soak bulgur in water for 15 minutes, then drain and squeeze dry.",
+      "Finely chop all vegetables and herbs.",
+      "Mix parsley, bulgur, tomatoes, mint, and onions.",
+      "Whisk together lemon juice, olive oil, salt, and allspice.",
+      "Pour dressing over salad and toss well.",
+      "Chill for 30 minutes before serving.",
+      "Serve with romaine lettuce leaves as scoops."
+    ]
+  }
+]

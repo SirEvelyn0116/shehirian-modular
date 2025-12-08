@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Stuffed Grape Leaves (Warak Enab)",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Appetizer",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "60 pieces",
+  "prepTime": "PT45M",
+  "cookTime": "PT45M",
+  "totalTime": "PT90M",
+  "recipeIngredient": [
+    "1 jar grape leaves (about 60 leaves)",
+    "1 cup short grain rice",
+    "1/2 lb ground lamb (optional)",
+    "1 tomato, finely diced",
+    "1/4 cup chopped parsley",
+    "1/4 cup chopped mint",
+    "1/4 cup lemon juice",
+    "2 tbsp olive oil",
+    "1 tsp salt",
+    "1/2 tsp allspice",
+    "2 cups water or broth"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Rinse grape leaves and remove stems." },
+    { "@type": "HowToStep", "text": "Mix rice, meat (if using), tomato, herbs, and spices." },
+    { "@type": "HowToStep", "text": "Place a spoonful of filling on each leaf and roll tightly." },
+    { "@type": "HowToStep", "text": "Layer rolls in a pot, seam side down." },
+    { "@type": "HowToStep", "text": "Add lemon juice, oil, and water to cover." },
+    { "@type": "HowToStep", "text": "Place a plate on top to keep rolls in place." },
+    { "@type": "HowToStep", "text": "Simmer for 45 minutes until rice is cooked." },
+    { "@type": "HowToStep", "text": "Serve warm or cold with yogurt." }
+  ],
+  "keywords": "stuffed grape leaves, warak enab, dolma, Middle Eastern appetizer"
+}

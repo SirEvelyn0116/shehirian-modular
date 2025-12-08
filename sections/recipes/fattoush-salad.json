@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Fattoush Salad",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Salad",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "4 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT5M",
+  "totalTime": "PT20M",
+  "recipeIngredient": [
+    "2 pita breads, toasted and broken",
+    "3 tomatoes, diced",
+    "2 cucumbers, diced",
+    "1 cup chopped romaine lettuce",
+    "4 radishes, sliced",
+    "1/4 cup chopped mint",
+    "1/4 cup chopped parsley",
+    "2 green onions, chopped",
+    "1/4 cup lemon juice",
+    "1/4 cup olive oil",
+    "2 tbsp sumac",
+    "1 tsp salt"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Toast pita bread until crispy, then break into bite-sized pieces." },
+    { "@type": "HowToStep", "text": "Combine all vegetables and herbs in a large bowl." },
+    { "@type": "HowToStep", "text": "Whisk together lemon juice, olive oil, sumac, and salt." },
+    { "@type": "HowToStep", "text": "Add pita chips just before serving." },
+    { "@type": "HowToStep", "text": "Toss with dressing and serve immediately." }
+  ],
+  "keywords": "fattoush, pita salad, sumac, Middle Eastern salad"
+}

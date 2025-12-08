@@ -1,0 +1,54 @@
+[
+  {
+    "id": "chicken-shawarma",
+    "title": "Chicken Shawarma",
+    "description": "Marinated chicken with Middle Eastern spices, perfect for wraps.",
+    "ingredients": [
+      "2 lbs chicken thighs, sliced",
+      "1/4 cup olive oil",
+      "3 tbsp lemon juice",
+      "4 cloves garlic, minced",
+      "2 tsp cumin",
+      "2 tsp paprika",
+      "1 tsp turmeric",
+      "1 tsp cinnamon",
+      "1/2 tsp cayenne pepper",
+      "1 tsp salt",
+      "Pita bread and tahini sauce for serving"
+    ],
+    "steps": [
+      "Mix all spices with oil, lemon juice, and garlic to make marinade.",
+      "Add chicken and marinate for at least 2 hours or overnight.",
+      "Heat a large skillet over high heat.",
+      "Cook chicken in batches until golden and cooked through.",
+      "Let rest for 5 minutes, then slice thinly.",
+      "Serve in pita bread with tomatoes, onions, and tahini sauce."
+    ]
+  },
+  {
+    "id": "hummus-with-meat",
+    "title": "Hummus with Spiced Meat",
+    "description": "Creamy hummus topped with seasoned ground meat and pine nuts.",
+    "ingredients": [
+      "2 cups cooked chickpeas",
+      "1/4 cup tahini",
+      "3 tbsp lemon juice",
+      "2 cloves garlic",
+      "1/4 cup olive oil",
+      "1/2 lb ground lamb or beef",
+      "1/4 cup pine nuts",
+      "1 tsp allspice",
+      "1/2 tsp cinnamon",
+      "Salt to taste"
+    ],
+    "steps": [
+      "Blend chickpeas, tahini, lemon juice, garlic, and 2 tbsp olive oil until smooth.",
+      "Add water if needed for desired consistency.",
+      "Season with salt and spread on a serving plate.",
+      "Toast pine nuts in a dry pan until golden.",
+      "Brown meat with remaining oil, allspice, and cinnamon.",
+      "Spoon meat mixture over hummus.",
+      "Top with pine nuts and serve with warm pita."
+    ]
+  }
+]
