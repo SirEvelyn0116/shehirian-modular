@@ -1,0 +1,150 @@
+[
+  {
+    "id": "recipe_p2_1",
+    "name": "Bulgor Wheat Pizza",
+    "yield": "2 pizzas (12-in. in diameter)",
+    "components": [
+      {
+        "name": "Pizza Sauce",
+        "ingredients": [
+          [cite_start]"2 tablespoons oil [cite: 82]",
+          [cite_start]"1/4 cup chopped green bell pepper [cite: 83, 84]",
+          [cite_start]"1/4 cup chopped onion [cite: 85, 86]",
+          [cite_start]"1/4 cup sliced mushrooms (drained, if canned) [cite: 87, 88, 89]",
+          [cite_start]"1/4 teaspoon minced garlic [cite: 90]",
+          [cite_start]"1/4 pound Italian sausage, thinly sliced [cite: 91, 92]",
+          [cite_start]"3/4 pound lean ground beef [cite: 93, 94]",
+          [cite_start]"1 can (6-oz.) tomato purée [cite: 96, 97]",
+          [cite_start]"3 cups tomato sauce [cite: 98, 99]",
+          [cite_start]"3 cups water [cite: 100, 101]",
+          [cite_start]"2 tablespoons grated Parmesan cheese [cite: 102, 103]",
+          [cite_start]"Snip of bay leaf [cite: 104]",
+          [cite_start]"1/4 teaspoon pepper [cite: 105]",
+          [cite_start]"1 teaspoon salt [cite: 106]",
+          [cite_start]"3/4 teaspoon oregano [cite: 106, 107]"
+        ],
+        "instructions": [
+          [cite_start]"Heat oil and sauté vegetables and meats over moderate heat until onions are straw-coloured[cite: 79, 82, 95].",
+          [cite_start]"Add tomato purée, tomato sauce, water, cheese, bay leaf, pepper, salt, and oregano[cite: 95, 96, 99, 101, 103, 104, 105, 106, 107].",
+          [cite_start]"Cover and simmer slowly 45 minutes[cite: 108].",
+          [cite_start]"Uncover and continue to simmer slowly 45 minutes[cite: 108]."
+        ]
+      },
+      {
+        "name": "Pizza Dough",
+        "ingredients": [
+          [cite_start]"1/2 cup Bulgor [cite: 110]",
+          [cite_start]"1-3/4 cups water [cite: 110]",
+          [cite_start]"1 package (1/4 oz.) active dry yeast [cite: 153, 154]",
+          [cite_start]"1/4 cup lukewarm water [cite: 152]",
+          [cite_start]"2-1/2 cups flour [cite: 155]",
+          [cite_start]"1 teaspoon salt [cite: 156, 158]",
+          [cite_start]"1 tablespoon oil [cite: 157, 158]"
+        ],
+        "instructions": [
+          "Combine Bulgor and 1-3/4 cups water. Cover and bring to simmer. Simmer 15 minutes or until most of liquid is absorbed. [cite_start]Cool to lukewarm[cite: 109, 110, 148].",
+          [cite_start]"Dissolve yeast in 1/4 cup lukewarm water[cite: 151, 152, 153, 154].",
+          [cite_start]"Sift together flour and salt[cite: 149, 155, 156].",
+          [cite_start]"Stir in cooked Bulgor and yeast mixture to the flour[cite: 159].",
+          [cite_start]"Add oil and mix thoroughly until dough leaves sides of bowl[cite: 157, 159].",
+          [cite_start]"Lightly oil surface of dough, cover and let rise in warm place (about 85°F) until doubled in volume, about 1-1/2 hours[cite: 160].",
+          "Divide dough in half. [cite_start]Roll each half into circle to fit 12-inch pizza pan[cite: 161, 166].",
+          "Brush surface lightly with oil. [cite_start]Let rise in warm place about 20 minutes[cite: 161, 166]."
+        ]
+      },
+      {
+        "name": "Assembly",
+        "ingredients": [
+          [cite_start]"Slices of mozzarella cheese [cite: 167]",
+          [cite_start]"Grated Parmesan cheese [cite: 168]"
+        ],
+        "instructions": [
+          [cite_start]"Arrange slices of mozzarella cheese on surface of pizza crust[cite: 163, 167].",
+          [cite_start]"Top with layer of sauce[cite: 163].",
+          [cite_start]"Sprinkle with grated Parmesan cheese[cite: 163, 168].",
+          [cite_start]"Bake in moderately hot oven, 375°F, 35 to 40 minutes[cite: 164, 169]."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "recipe_p2_2",
+    "name": "Persian Pilaf",
+    [cite_start]"yield": "8 to 10 servings [cite: 112]",
+    "ingredients": [
+      [cite_start]"1 lb. shoulder of lamb [cite: 113]",
+      [cite_start]"2/3 cup chopped onion [cite: 114]",
+      [cite_start]"1/2 cup chopped fresh tomatoes or canned tomatoes [cite: 115, 116, 117]",
+      [cite_start]"2 cups Bulgor wheat [cite: 118]",
+      [cite_start]"2 tablespoons butter (2 ozs.) [cite: 119]",
+      [cite_start]"Broth or water [cite: 119]",
+      [cite_start]"Salt and pepper to taste [cite: 120]"
+    ],
+    "instructions": [
+      "Have butcher cut shoulder of lamb into inch cubes. [cite_start]Braise well in pot[cite: 121].",
+      "Add chopped onions and brown lightly with the meat. [cite_start]Add tomatoes and cook for 15 minutes[cite: 122].",
+      [cite_start]"Meanwhile put Bulgor in boiling broth and cook for 7 minutes[cite: 123].",
+      [cite_start]"Drain and put over top of meat in the pot[cite: 124].",
+      [cite_start]"In centre of Bulgor, place the butter[cite: 124].",
+      [cite_start]"Pour 1 cup of broth around the edges of the meat[cite: 125].",
+      [cite_start]"Bake in a moderate oven for about one hour[cite: 125].",
+      [cite_start]"Turn onto platter and serve unmixed and very hot[cite: 126]."
+    ]
+  },
+  {
+    "id": "recipe_p2_3",
+    "name": "India Lamb Pilaf",
+    [cite_start]"yield": "5 to 6 servings [cite: 129]",
+    "ingredients": [
+      [cite_start]"3 tablespoons oil [cite: 128]",
+      [cite_start]"3 cups cooked lamb cut in cubes [cite: 130]",
+      [cite_start]"1/3 cup chopped onion [cite: 131]",
+      [cite_start]"1/2 cup chopped tart apple [cite: 132]",
+      [cite_start]"1 clove garlic, minced [cite: 133]",
+      [cite_start]"1/2 teaspoon celery seed [cite: 134]",
+      [cite_start]"1-1/2 teaspoons curry powder [cite: 135]",
+      [cite_start]"1/8 teaspoon ginger [cite: 136, 137]",
+      [cite_start]"1 teaspoon salt [cite: 138, 139]",
+      [cite_start]"1/4 teaspoon pepper [cite: 140, 141]",
+      [cite_start]"5 to 6 drops Tabasco sauce [cite: 142]",
+      [cite_start]"1 can (10 oz.) tomato purée [cite: 142]",
+      [cite_start]"3-1/2 cups canned consommé or water [cite: 142, 143]",
+      [cite_start]"1 cup Bulgor wheat [cite: 144]"
+    ],
+    "instructions": [
+      "Heat oil in heavy skillet. [cite_start]Add cooked lamb, onion, tart apple, and garlic[cite: 145].",
+      [cite_start]"Sauté over moderate heat until meat and onions are lightly browned[cite: 146].",
+      [cite_start]"Blend in the rest of ingredients[cite: 146].",
+      "Cover and bring to boil. [cite_start]Reduce heat and simmer slowly until thickened, about 40 minutes[cite: 147]."
+    ]
+  },
+  {
+    "id": "recipe_p2_4",
+    "name": "India Chicken Curry Pilaf",
+    [cite_start]"yield": "5 to 6 servings [cite: 174]",
+    "ingredients": [
+      [cite_start]"1/4 cup butter or chicken fat [cite: 175]",
+      [cite_start]"1/2 cup chopped onion [cite: 175]",
+      [cite_start]"1 medium-sized tart apple, peeled, cored and chopped [cite: 176, 177, 178]",
+      [cite_start]"1 cup thinly sliced celery [cite: 179]",
+      [cite_start]"1-1/2 to 2 teaspoons curry powder [cite: 181]",
+      [cite_start]"1/8 teaspoon ginger [cite: 182]",
+      [cite_start]"2 tablespoons flour [cite: 183]",
+      [cite_start]"1-1/2 teaspoons salt [cite: 184]",
+      [cite_start]"1/4 teaspoon pepper [cite: 185]",
+      [cite_start]"4-1/2 cups chicken stock [cite: 186]",
+      [cite_start]"1/2 cup cream or milk [cite: 187]",
+      [cite_start]"2 to 3 cups cooked diced chicken [cite: 190]",
+      [cite_start]"1 cup Bulgor [cite: 190]"
+    ],
+    "instructions": [
+      "Heat butter or fat in heavy skillet. [cite_start]Add onion, apple, and celery[cite: 171, 175, 176, 179].",
+      [cite_start]"Sauté over moderate heat until onions are straw-coloured[cite: 172, 180].",
+      [cite_start]"Blend in curry powder, ginger, flour, salt, and pepper[cite: 172, 181, 182, 183, 184, 185].",
+      [cite_start]"Remove from heat and stir in chicken stock and cream or milk[cite: 173, 186, 187].",
+      [cite_start]"Return to heat and stir constantly until mixture thickens and comes to a boil[cite: 188, 189].",
+      [cite_start]"Add cooked diced chicken and Bulgor[cite: 189, 190].",
+      [cite_start]"Cover and simmer over low heat 25 minutes[cite: 191]."
+    ]
+  }
+]
