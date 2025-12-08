@@ -1,0 +1,8 @@
+{
+  "soup": { "en": "Soup", "fr": "Soupe", "ar": "شوربة" },
+  "salad": { "en": "Salad", "fr": "Salade", "ar": "سلطة" },
+  "main": { "en": "Main Dish", "fr": "Plat Principal", "ar": "طبق رئيسي" },
+  "starter": { "en": "Starter", "fr": "Entrée", "ar": "مقبلات" },
+  "dessert": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+  "other": { "en": "Other", "fr": "Autre", "ar": "أخرى" }
+}

@@ -50,6 +50,34 @@ function renderRecipes(lang = 'en') {
     });
 }
 
+// Helper: format ISO 8601 durations (PT#H#M) to human-friendly localized strings
+function formatDuration(iso, lang) {
+  if (!iso) return '';
+  const m = String(iso).match(/PT(?:(\d+)H)?(?:(\d+)M)?/);
+  if (!m) return iso;
+  const hrs = parseInt(m[1] || '0', 10);
+  const mins = parseInt(m[2] || '0', 10);
+  if (lang === 'fr') {
+    if (hrs && mins) return `${hrs} h ${mins} min`;
+    if (hrs) return `${hrs} h`;
+    return `${mins} minutes`;
+  }
+  if (lang === 'ar') {
+    if (hrs && mins) return `${hrs} ساعة ${mins} دقيقة`;
+    if (hrs) return `${hrs} ساعة`;
+    return `${mins} دقيقة`;
+  }
+  if (hrs && mins) return `${hrs} hr ${mins} min`;
+  if (hrs) return `${hrs} hr`;
+  return `${mins} minutes`;
+}
+
+const localizedLabels = {
+  en: { category: 'Category', cuisine: 'Cuisine', prep: 'Prep', cook: 'Cook', yield: 'Yield' },
+  fr: { category: 'Catégorie', cuisine: 'Cuisine', prep: 'Préparation', cook: 'Cuisson', yield: 'Portions' },
+  ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' }
+};
+
 // Helper to build a recipe card anchor element from a recipe summary
 function buildRecipeCard(recipe, lang = 'en') {
   const card = document.createElement('a');
@@ -57,7 +85,8 @@ function buildRecipeCard(recipe, lang = 'en') {
   // links to individual recipe pages should be relative to that folder.
   const inRecipesFolder = window.location.pathname.includes('/recipes/');
   const linkRoot = inRecipesFolder ? '' : 'recipes/';
-  card.href = `${linkRoot}${recipe.id}.${lang}.html`;
+  const slug = recipe.slug || recipe.id || recipe.name || 'recipe';
+  card.href = `${linkRoot}${slug}.${lang}.html`;
   card.className = 'recipe-card';
 
   // Top div: Title only (wheat background)
@@ -79,12 +108,13 @@ function buildRecipeCard(recipe, lang = 'en') {
     metaDiv.appendChild(description);
   }
 
+  const labels = localizedLabels[lang] || localizedLabels.en;
   const metaItems = [];
-  if (recipe.category) metaItems.push(`<strong>Category:</strong> ${recipe.category}`);
-  if (recipe.cuisine) metaItems.push(`<strong>Cuisine:</strong> ${recipe.cuisine}`);
-  if (recipe.prepTime) metaItems.push(`<strong>Prep:</strong> ${recipe.prepTime}`);
-  if (recipe.cookTime) metaItems.push(`<strong>Cook:</strong> ${recipe.cookTime}`);
-  if (recipe.yield) metaItems.push(`<strong>Yield:</strong> ${recipe.yield}`);
+  if (recipe.category) metaItems.push(`<strong>${labels.category}:</strong> ${recipe.category}`);
+  if (recipe.cuisine) metaItems.push(`<strong>${labels.cuisine}:</strong> ${recipe.cuisine}`);
+  if (recipe.prepTime) metaItems.push(`<strong>${labels.prep}:</strong> ${formatDuration(recipe.prepTime, lang)}`);
+  if (recipe.cookTime) metaItems.push(`<strong>${labels.cook}:</strong> ${formatDuration(recipe.cookTime, lang)}`);
+  if (recipe.yield) metaItems.push(`<strong>${labels.yield}:</strong> ${recipe.yield}`);
 
   const metaInfo = document.createElement('div');
   metaInfo.className = 'recipe-meta-info';
@@ -98,6 +128,11 @@ function buildRecipeCard(recipe, lang = 'en') {
 
 // Render the All Recipes page grouped by category
 function renderAllRecipes(lang = 'en') {
+  // If the build already injected an `.all-recipes-container` with content, don't re-render.
+  const existing = document.querySelector('.all-recipes-container');
+  if (existing && existing.childElementCount) {
+    return Promise.resolve(existing);
+  }
   return fetch(_sectionsJsonPath(lang))
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
