@@ -1457,6 +1457,373 @@
         ]
       },
       "categoryId": "soup"
+    },
+    {
+      "slug": "bulgur-cherry-custard",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Cherry Custard",
+        "fr": "Crème au boulghour et cerises",
+        "ar": "بودينغ البرغل بالكرز"
+      },
+      "description": {
+        "en": "A layered bulgur dessert with a cherry compote and baked custard.",
+        "fr": "Un dessert en couches à base de boulghour avec compote de cerises et crème cuite.",
+        "ar": "حلوى بطبقات من البرغل وطبقة كرز وكاسترد مخبوز"
+      },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "6-8 servings", "fr": "6-8 portions", "ar": "6-8 حصص" },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H20M",
+      "ingredients": {
+        "en": [
+          "2 cups hot cooked bulgur",
+          "2 tablespoons butter or margarine",
+          "1/4 cup brown sugar",
+          "1/2 teaspoon cinnamon",
+          "1-1/2 tablespoons cornstarch",
+          "1/4 cup sugar",
+          "Juice from 1 can (1 lb.) red sour pitted cherries",
+          "1 tablespoon lemon juice",
+          "Drained cherries",
+          "2 eggs, slightly beaten",
+          "1 cup milk",
+          "3 tablespoons sugar",
+          "1/2 teaspoon vanilla"
+        ],
+        "fr": [
+          "2 tasses de boulghour cuit chaud",
+          "2 cuillères à soupe de beurre ou margarine",
+          "1/4 tasse de cassonade",
+          "1/2 cuillère à café de cannelle",
+          "1-1/2 cuillères à soupe de fécule de maïs",
+          "1/4 tasse de sucre",
+          "Jus d'une boîte (450 g) de cerises rouges dénoyautées",
+          "1 cuillère à soupe de jus de citron",
+          "Cerises égouttées",
+          "2 œufs légèrement battus",
+          "1 tasse de lait",
+          "3 cuillères à soupe de sucre",
+          "1/2 cuillère à café de vanille"
+        ],
+        "ar": [
+          "2 كوب برغل مطبوخ ساخن",
+          "2 ملعقة طعام زبدة أو مارجرين",
+          "1/4 كوب سكر بني",
+          "1/2 ملعقة صغيرة قرفة",
+          "1-1/2 ملعقة طعام نشا الذرة",
+          "1/4 كوب سكر",
+          "عصير من علبة (450 جرام) كرز أحمر منزوع النوى",
+          "1 ملعقة طعام عصير ليمون",
+          "كرز مصفّى",
+          "2 بيضات مخفوقة قليلاً",
+          "1 كوب حليب",
+          "3 ملعقة طعام سكر",
+          "1/2 ملعقة صغيرة فانيلا"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Prepare the bulgur base by combining hot cooked bulgur, butter, brown sugar and cinnamon in a baking dish.",
+          "In a saucepan, mix cornstarch and sugar, stir in drained cherry juice and cook until thickened. Stir in lemon juice and layer drained cherries over the bulgur.",
+          "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F (175°C) for 1 hour or until custard is set."
+        ],
+        "fr": [
+          "Préparer la base de boulghour en mélangeant le boulghour chaud, le beurre, la cassonade et la cannelle dans un plat à four.",
+          "Dans une casserole, mélanger la fécule et le sucre, incorporer le jus de cerise égoutté et cuire jusqu'à épaississement. Ajouter le jus de citron et disposer les cerises égouttées sur le boulghour.",
+          "Mélanger les œufs, le lait, le sucre et la vanille; verser sur la couche de cerises et cuire à 175°C pendant 1 heure ou jusqu'à ce que le flan soit pris."
+        ],
+        "ar": [
+          "حضّر قاعدة البرغل بخلط البرغل المطبوخ الساخن مع الزبدة والسكر البني والقرفة في صينية خبز.",
+          "في قدر صغير، اخلط النشا والسكر، أضف عصير الكرز المصفّى واطبخ حتى يتثخن. أضف عصير الليمون ووزع الكرز المصفّى فوق البرغل.",
+          "اخفق البيض والحليب والسكر والفانيلا؛ اسكب فوق طبقة الكرز واخبز على حرارة 175°C لمدة ساعة أو حتى يتماسك الكاسترد."
+        ]
+      },
+      "keywords": { "en": ["cherry custard","bulgur dessert"], "fr": ["crème cerise","dessert boulghour"], "ar": ["كاسترد الكرز","حلوى البرغل"] },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "bulgur-indian-pudding",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgur Indian Pudding", "fr": "Pouding indien au boulghour", "ar": "بودينغ برغل على الطريقة الهندية" },
+      "description": { "en": "A molasses-sweet bulgur pudding spiced with cinnamon and ginger.", "fr": "Un pouding de boulghour au mélasse et épices.", "ar": "بودينغ برغل بالدبس والبهارات" },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "6 servings", "fr": "6 portions", "ar": "6 حصص" },
+      "prepTime": "PT15M",
+      "cookTime": "PT1H30M",
+      "totalTime": "PT1H45M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1/2 teaspoon salt",
+          "1/2 teaspoon cinnamon",
+          "1/4 teaspoon ginger",
+          "1/8 teaspoon cloves",
+          "1/3 cup sugar",
+          "1/2 cup molasses",
+          "3 tablespoons butter",
+          "1/2 cup raisins (optional)",
+          "1 large can evaporated milk",
+          "1-1/4 cups water"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1/2 c. à thé de sel",
+          "1/2 c. à thé de cannelle",
+          "1/4 c. à thé de gingembre",
+          "1/8 c. à thé de clous de girofle",
+          "1/3 tasse de sucre",
+          "1/2 tasse de mélasse",
+          "3 c. à soupe de beurre",
+          "1/2 tasse de raisins secs (optionnel)",
+          "1 boîte grande de lait évaporé",
+          "1 1/4 tasse d'eau"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1/2 ملعقة صغيرة ملح",
+          "1/2 ملعقة صغيرة قرفة",
+          "1/4 ملعقة صغيرة زنجبيل",
+          "1/8 ملعقة صغيرة قرنفل",
+          "1/3 كوب سكر",
+          "1/2 كوب دبس",
+          "3 ملعقة كبيرة زبدة",
+          "1/2 كوب زبيب (اختياري)",
+          "1 علبة كبيرة لبن مبخر",
+          "1 1/4 كوب ماء"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Mix all ingredients in a 2-quart casserole.",
+          "Cover and bake in a slow oven (325°F / 160°C) for 45 minutes.",
+          "Remove cover and continue baking about 45 minutes until set.",
+          "Serve warm with whipped cream or ice cream."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients dans un plat allant au four de 2 litres.",
+          "Couvrir et cuire à four doux (160°C) pendant 45 minutes.",
+          "Retirer le couvercle et continuer la cuisson environ 45 minutes.",
+          "Servir chaud avec de la crème fouettée ou de la glace."
+        ],
+        "ar": [
+          "اخلط جميع المكونات في طبق خبز سعة 2 لتر.",
+          "غطِّ واخبز في فرن منخفض الحرارة (160°C) لمدة 45 دقيقة.",
+          "أزل الغطاء واستمر في الخبز حوالي 45 دقيقة حتى يتماسك.",
+          "قدّمه دافئًا مع كريمة مخفوقة أو آيس كريم."
+        ]
+      },
+      "keywords": { "en": ["indian pudding","bulgur pudding"], "fr": ["pouding indien","pouding boulghour"], "ar": ["بودينغ هندي","بودينغ برغل"] },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "bulgur-raisin-pudding",
+      "featuredRecipe": false,
+      "title": { "en": "Old-Fashioned Bulgur-Raisin Pudding", "fr": "Pouding ancien au boulghour et raisins", "ar": "بودينغ البرغل والزبيب التقليدي" },
+      "description": { "en": "A baked bulgur pudding studded with raisins.", "fr": "Un pouding de boulghour aux raisins.", "ar": "بودينغ برغل مع الزبيب" },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "5-6 servings", "fr": "5-6 portions", "ar": "5-6 حصص" },
+      "prepTime": "PT10M",
+      "cookTime": "PT1H30M",
+      "totalTime": "PT1H40M",
+      "ingredients": {
+        "en": [
+          "1-1/2 cups water",
+          "2-1/2 cups cooked bulgur",
+          "1-1/2 cups evaporated milk",
+          "1/3 cup sugar",
+          "1/2 teaspoon salt",
+          "1/4 teaspoon mace",
+          "1/2 cup seedless raisins"
+        ],
+        "fr": [
+          "1 1/2 tasse d'eau",
+          "2 1/2 tasse de boulghour cuit",
+          "1 1/2 tasse de lait évaporé",
+          "1/3 tasse de sucre",
+          "1/2 c. à thé de sel",
+          "1/4 c. à thé de macis",
+          "1/2 tasse de raisins sans pépins"
+        ],
+        "ar": [
+          "1 1/2 كوب ماء",
+          "2 1/2 كوب برغل مطبوخ",
+          "1 1/2 كوب حليب مبخر",
+          "1/3 كوب سكر",
+          "1/2 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة مايس",
+          "1/2 كوب زبيب بدون بذور"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine all ingredients in a baking dish.",
+          "Cover and bake in moderate oven, 325°F (160°C), 45 minutes.",
+          "Remove cover, stir, and continue baking uncovered about 45 minutes or until browned."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients dans un plat à four.",
+          "Couvrir et cuire à four moyen 160°C pendant 45 minutes.",
+          "Retirer le couvercle, remuer et continuer la cuisson à découvert environ 45 minutes jusqu'à ce qu'il soit doré."
+        ],
+        "ar": [
+          "اخلط جميع المكونات في طبق خبز.",
+          "غطِّ واخبز في فرن متوسط الحرارة 160°C لمدة 45 دقيقة.",
+          "أزل الغطاء، حرك، واستمر في الخبز بدون غطاء حوالي 45 دقيقة أو حتى يتحمر."
+        ]
+      },
+      "keywords": { "en": ["raisin pudding","bulgur dessert"], "fr": ["pouding raisins","dessert boulghour"], "ar": ["بودينغ الزبيب","حلوى البرغل"] },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "chocolate-bulgur-bavarian",
+      "featuredRecipe": false,
+      "title": { "en": "Chocolate Bulgur Bavarian", "fr": "Bavarois chocolat au boulghour", "ar": "بافاريا الشوكولاتة بالبرغل" },
+      "description": { "en": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.", "fr": "Un dessert chocolaté au boulghour, pris à la gélatine et à la crème fouettée.", "ar": "حلوى شوكولاتة وبرغل مبردة مع الجيلاتين والكريم" },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "6-8 servings", "fr": "6-8 portions", "ar": "6-8 حصص" },
+      "prepTime": "PT30M",
+      "cookTime": "PT0M",
+      "totalTime": "PT2H30M",
+      "ingredients": {
+        "en": [
+          "1 package gelatin",
+          "2 tablespoons water",
+          "2-1/2 tablespoons cocoa",
+          "3/4 cup sugar",
+          "1-1/2 cups milk",
+          "1-1/2 cups cooked bulgur",
+          "1 teaspoon vanilla",
+          "1/2 cup heavy cream, whipped"
+        ],
+        "fr": [
+          "1 sachet de gélatine",
+          "2 cuillères à soupe d'eau",
+          "2 1/2 cuillères à soupe de cacao",
+          "3/4 tasse de sucre",
+          "1 1/2 tasse de lait",
+          "1 1/2 tasse de boulghour cuit",
+          "1 cuillère à café de vanille",
+          "1/2 tasse de crème épaisse, fouettée"
+        ],
+        "ar": [
+          "1 عبوة جيلاتين",
+          "2 ملعقة طعام ماء",
+          "2.5 ملعقة طعام كاكاو",
+          "3/4 كوب سكر",
+          "1.5 كوب حليب",
+          "1.5 كوب برغل مطبوخ",
+          "1 ملعقة صغيرة فانيلا",
+          "1/2 كوب كريمة ثقيلة مخفوقة"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil).",
+          "Stir in cooked bulgur and vanilla, chill until thick but not firm.",
+          "Fold in whipped cream, turn into a greased mould and chill until firm."
+        ],
+        "fr": [
+          "Dissoudre la gélatine dans l'eau et chauffer avec le cacao, le sucre et le lait jusqu'à dissolution (ne pas bouillir).",
+          "Ajouter le boulghour cuit et la vanille, refroidir jusqu'à épaississement sans prise complète.",
+          "Incorporer la crème fouettée, verser dans un moule graissé et réfrigérer jusqu'à ce que ça prenne."
+        ],
+        "ar": [
+          "اذب الجيلاتين في الماء وسخّن مع الكاكاو والسكر والحليب حتى يذوب (لا تغلِ).",
+          "أضف البرغل المطبوخ والفانيلا، برد حتى يثخن ولكن ليس جامداً.",
+          "اطوِّ الكريمة المخفوقة، اسكب في قالب مدهون بالزيت وبرّده حتى يتماسك."
+        ]
+      },
+      "keywords": { "en": ["chocolate bavarian","bulgur dessert"], "fr": ["bavarois chocolat","dessert boulghour"], "ar": ["بافاريا الشوكولاتة","حلوى البرغل"] },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "steamed-bulgur-fruit-pudding",
+      "featuredRecipe": false,
+      "title": { "en": "Steamed Bulgur Fruit Pudding", "fr": "Pouding aux fruits et boulghour à la vapeur", "ar": "بودينغ البرغل المطهو على البخار مع الفواكه" },
+      "description": { "en": "A steamed loaf-style fruit pudding with bulgur and dried fruits.", "fr": "Un pouding aux fruits cuit à la vapeur, style cake, avec du boulghour.", "ar": "بودينغ فاكهة بالبرغل مطهو على البخار على شكل رغيف" },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "about 12 servings", "fr": "environ 12 portions", "ar": "حوالي 12 حصة" },
+      "prepTime": "PT30M",
+      "cookTime": "PT2H",
+      "totalTime": "PT2H30M",
+      "ingredients": {
+        "en": [
+          "1-1/4 cups sifted all-purpose flour",
+          "2 teaspoons baking powder",
+          "1/2 teaspoon salt",
+          "1/2 cup butter or shortening",
+          "1-1/4 cups sugar",
+          "2 eggs",
+          "1-1/2 cups cooked bulgur",
+          "1 teaspoon vanilla",
+          "1/2 cup dried prunes (pitted), ground",
+          "1/2 cup raisins, ground",
+          "1/4 cup dried apricots, ground",
+          "1 cup milk"
+        ],
+        "fr": [
+          "1 1/4 tasse de farine tout usage tamisée",
+          "2 c. à thé de levure chimique",
+          "1/2 c. à thé de sel",
+          "1/2 tasse de beurre ou de shortening",
+          "1 1/4 tasse de sucre",
+          "2 œufs",
+          "1 1/2 tasse de boulghour cuit",
+          "1 c. à thé de vanille",
+          "1/2 tasse de pruneaux secs (dénoyautés), moulus",
+          "1/2 tasse de raisins secs, moulus",
+          "1/4 tasse d'abricots secs, moulus",
+          "1 tasse de lait"
+        ],
+        "ar": [
+          "1-1/4 كوب طحين متعدد الاستخدامات منخول",
+          "2 ملعقة صغيرة بيكنج بودر",
+          "1/2 ملعقة صغيرة ملح",
+          "1/2 كوب زبدة أو سمن",
+          "1-1/4 كوب سكر",
+          "2 بيض",
+          "1-1/2 كوب برغل مطبوخ",
+          "1 ملعقة صغيرة فانيلا",
+          "1/2 كوب برقوق مجفف (منزوع النوى) مطحون",
+          "1/2 كوب زبيب مطحون",
+          "1/4 كوب مشمش مجفف مطحون",
+          "1 كوب حليب"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sift together flour, baking powder and salt.",
+          "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
+          "Stir in cooked bulgur and vanilla; add ground fruit and milk alternately with dry ingredients.",
+          "Fill greased loaf pan or mould three-fourths full, cover tightly and steam for 2 hours. Serve with whipped cream."
+        ],
+        "fr": [
+          "Tamiser la farine, la levure et le sel.",
+          "Crémer le beurre et le sucre jusqu'à obtenir une texture légère; ajouter les œufs et battre.",
+          "Ajouter le boulghour cuit et la vanille; incorporer les fruits moulus et le lait alternativement avec les ingrédients secs.",
+          "Verser dans un moule graissé aux 3/4, couvrir hermétiquement et cuire à la vapeur 2 heures. Servir avec de la crème fouettée."
+        ],
+        "ar": [
+          "نخل الطحين والبيكنج بودر والملح.",
+          "اخلط الزبدة والسكر حتى يصبح الخليط فاتح وهش؛ أضف البيض واخفق حتى يصبح كثيفًا.",
+          "أضف البرغل المطبوخ والفانيلا؛ أضف الفواكه المطحونة والحليب بالتناوب مع المكونات الجافة.",
+          "املأ قالب مدهون بالزيت حتى ثلاثة أرباعه، غطيه بإحكام واطبخه على البخار لمدة ساعتين. قدّمه مع كريمة مخفوقة."
+        ]
+      },
+      "keywords": { "en": ["steamed pudding","bulgur fruit pudding"], "fr": ["pouding vapeur","pouding fruits boulghour"], "ar": ["بودينغ مطهو على البخار","بودينغ فواكه بالبرغل"] },
+      "categoryId": "dessert"
     }
   ]
 }

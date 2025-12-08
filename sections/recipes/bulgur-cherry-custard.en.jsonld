@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Cherry Custard",
+  "author": "Laurence Evelyn",
+  "description": "A layered bulgur dessert with a cherry compote and baked custard.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "International",
+  "recipeYield": "6-8 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H20M",
+  "recipeIngredient": [
+    "2 cups hot cooked bulgur",
+    "2 tablespoons butter or margarine",
+    "1/4 cup brown sugar",
+    "1/2 teaspoon cinnamon",
+    "1-1/2 tablespoons cornstarch",
+    "1/4 cup sugar",
+    "Juice from 1 can (1 lb.) red sour pitted cherries",
+    "1 tablespoon lemon juice",
+    "Drained cherries",
+    "2 eggs, slightly beaten",
+    "1 cup milk",
+    "3 tablespoons sugar",
+    "1/2 teaspoon vanilla"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Prepare the bulgur base by combining hot cooked bulgur, butter, brown sugar and cinnamon in a baking dish." },
+    { "@type": "HowToStep", "text": "In a saucepan, mix cornstarch and sugar, stir in drained cherry juice and cook until thickened. Stir in lemon juice and layer drained cherries over the bulgur." },
+    { "@type": "HowToStep", "text": "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F (175°C) for 1 hour or until custard is set." }
+  ]
+}

@@ -1,0 +1,148 @@
+[
+  {
+    "id": "recipe_p5_1",
+    "name": "Bulgor Cherry Custard",
+    "yield": "6 to 8 servings",
+    "components": [
+      {
+        "name": "Bulgor Base",
+        "ingredients": [
+          "2 cups hot cooked Bulgor",
+          "2 tablespoons butter or margarine",
+          "1/4 cup brown sugar",
+          "1/2 teaspoon cinnamon"
+        ],
+        "instructions": [
+          "Blend all ingredients in a baking or pie dish."
+        ]
+      },
+      {
+        "name": "Cherry Layer",
+        "ingredients": [
+          "1-1/2 tablespoons cornstarch",
+          "1/4 cup sugar",
+          "Juice drained from 1 can (1 lb.) red sour pitted cherries",
+          "1 tablespoon lemon juice",
+          "Drained cherries"
+        ],
+        "instructions": [
+          "Blend cornstarch and sugar in a saucepan.",
+          "Stir in the drained cherry juice. Cook (stir constantly) until thickened.",
+          "Stir in lemon juice.",
+          "Layer the drained cherries over the Bulgor mixture."
+        ]
+      },
+      {
+        "name": "Custard",
+        "ingredients": [
+          "2 eggs, slightly beaten",
+          "1 cup milk",
+          "3 tablespoons sugar",
+          "1/2 teaspoon vanilla"
+        ],
+        "instructions": [
+          "Blend all ingredients.",
+          "Pour egg mixture over the cherry mixture.",
+          "Bake in a moderate oven, 350°F, for 1 hour, or until custard is set."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "recipe_p5_2",
+    "name": "Bulgor Indian Pudding",
+    "yield": "6 servings",
+    "ingredients": [
+      "2-1/2 cups cooked Bulgor",
+      "1/2 teaspoon salt",
+      "1/2 teaspoon cinnamon",
+      "1/4 teaspoon ginger",
+      "1/8 teaspoon cloves",
+      "1/3 cup sugar",
+      "1/2 cup molasses",
+      "3 tablespoons butter or margarine",
+      "1/2 cup raisins (optional)",
+      "1 large can (13-1/2 oz.) evaporated milk",
+      "1-1/4 cups water"
+    ],
+    "instructions": [
+      "Mix all ingredients in a 2-quart casserole.",
+      "Cover and bake in slow oven, 325°F, 45 minutes.",
+      "Remove cover and continue baking about 45 minutes.",
+      "Serve with whipped cream or ice cream."
+    ]
+  },
+  {
+    "id": "recipe_p5_3",
+    "name": "Old-Fashioned Bulgor-Raisin Pudding",
+    "yield": "5 to 6 servings",
+    "ingredients": [
+      "1-1/2 cups water",
+      "2-1/2 cups cooked Bulgor",
+      "1-1/2 cups evaporated milk",
+      "1/3 cup sugar",
+      "1/2 teaspoon salt",
+      "1/4 teaspoon mace",
+      "1/2 cup seedless raisins"
+    ],
+    "instructions": [
+      "Combine all ingredients in a baking dish.",
+      "Cover and bake in moderate oven, 325°F, 45 minutes.",
+      "Remove cover, stir, and continue baking uncovered about 45 minutes or until browned."
+    ]
+  },
+  {
+    "id": "recipe_p5_4",
+    "name": "Chocolate Bulgor Bavarian",
+    "yield": "Unspecified",
+    "ingredients": [
+      "1 package (1 tbsp.) gelatin",
+      "2 tablespoons water",
+      "2-1/2 tablespoons cocoa",
+      "3/4 cup sugar",
+      "1-1/2 cups milk",
+      "1-1/2 cups cooked Bulgor",
+      "1 teaspoon vanilla",
+      "1/2 cup heavy cream, whipped"
+    ],
+    "instructions": [
+      "Blend gelatin in a saucepan.",
+      "Blend water, cocoa, and sugar and add to gelatin mixture.",
+      "Stir in milk. Heat until gelatin and sugar dissolve. Stir frequently. Do not boil.",
+      "Remove from heat and add cooked Bulgor and vanilla.",
+      "Chill until thick but not firm.",
+      "Fold in the whipped heavy cream.",
+      "Turn into a mould which has been brushed with salad oil. Chill until firm.",
+      "Unmould and garnish, if you wish, with whipped cream and candied cherries."
+    ]
+  },
+  {
+    "id": "recipe_p5_5",
+    "name": "Steamed Bulgor Fruit Pudding",
+    "yield": "about 12 servings",
+    "ingredients": [
+      "1-1/4 cups sifted all-purpose flour",
+      "2 teaspoons baking powder",
+      "1/2 teaspoon salt",
+      "1/2 cup butter or shortening",
+      "1-1/4 cups sugar",
+      "2 eggs",
+      "1-1/2 cups cooked Bulgor",
+      "1 teaspoon vanilla",
+      "1/2 cup dried prunes (pitted), ground",
+      "1/2 cup raisins, ground",
+      "1/4 cup dried apricots, ground",
+      "1 cup milk"
+    ],
+    "instructions": [
+      "Sift together flour, baking powder, and salt.",
+      "Cream butter and sugar until light and fluffy.",
+      "Add eggs; beat until thick and creamy.",
+      "Stir in cooked Bulgor and vanilla.",
+      "Grind prunes, raisins, and apricots together. Stir into Bulgor mixture.",
+      "Add milk alternately with dry ingredients. Blend well after each addition.",
+      "Fill greased loaf pan or mould three-fourths full. Cover tightly.",
+      "Steam 2 hours. Serve with whipped cream."
+    ]
+  }
+]

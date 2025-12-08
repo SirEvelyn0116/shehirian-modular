@@ -1,0 +1,33 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Steamed Bulgur Fruit Pudding",
+  "author": "Laurence Evelyn",
+  "description": "A steamed loaf-style fruit pudding with bulgur and dried fruits.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "International",
+  "recipeYield": "about 12 servings",
+  "prepTime": "PT30M",
+  "cookTime": "PT2H",
+  "totalTime": "PT2H30M",
+  "recipeIngredient": [
+    "1-1/4 cups sifted all-purpose flour",
+    "2 teaspoons baking powder",
+    "1/2 teaspoon salt",
+    "1/2 cup butter or shortening",
+    "1-1/4 cups sugar",
+    "2 eggs",
+    "1-1/2 cups cooked bulgur",
+    "1 teaspoon vanilla",
+    "1/2 cup dried prunes (pitted), ground",
+    "1/2 cup raisins, ground",
+    "1/4 cup dried apricots, ground",
+    "1 cup milk"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Sift together flour, baking powder and salt." },
+    { "@type": "HowToStep", "text": "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy." },
+    { "@type": "HowToStep", "text": "Stir in cooked bulgur and vanilla; add ground fruit and milk alternately with dry ingredients." },
+    { "@type": "HowToStep", "text": "Fill greased loaf pan or mould three-fourths full, cover tightly and steam for 2 hours. Serve with whipped cream." }
+  ]
+}

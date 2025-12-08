@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Old-Fashioned Bulgur-Raisin Pudding",
+  "author": "Laurence Evelyn",
+  "description": "A baked bulgur pudding studded with raisins.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "International",
+  "recipeYield": "5-6 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT1H30M",
+  "totalTime": "PT1H40M",
+  "recipeIngredient": [
+    "1-1/2 cups water",
+    "2-1/2 cups cooked bulgur",
+    "1-1/2 cups evaporated milk",
+    "1/3 cup sugar",
+    "1/2 teaspoon salt",
+    "1/4 teaspoon mace",
+    "1/2 cup seedless raisins"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Combine all ingredients in a baking dish." },
+    { "@type": "HowToStep", "text": "Cover and bake in moderate oven, 325°F (160°C), 45 minutes." },
+    { "@type": "HowToStep", "text": "Remove cover, stir, and continue baking uncovered about 45 minutes or until browned." }
+  ]
+}
