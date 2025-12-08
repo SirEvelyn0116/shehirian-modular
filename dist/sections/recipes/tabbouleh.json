@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Tabbouleh",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Salad",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "4-6 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT0M",
+  "totalTime": "PT50M",
+  "recipeIngredient": [
+    "3 cups finely chopped parsley",
+    "1/2 cup bulgur wheat, soaked",
+    "3 tomatoes, finely diced",
+    "1/4 cup chopped mint",
+    "4 green onions, finely chopped",
+    "1/4 cup lemon juice",
+    "1/4 cup olive oil",
+    "1 tsp salt",
+    "1/2 tsp allspice"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Soak bulgur in water for 15 minutes, then drain and squeeze dry." },
+    { "@type": "HowToStep", "text": "Finely chop all vegetables and herbs." },
+    { "@type": "HowToStep", "text": "Mix parsley, bulgur, tomatoes, mint, and onions." },
+    { "@type": "HowToStep", "text": "Whisk together lemon juice, olive oil, salt, and allspice." },
+    { "@type": "HowToStep", "text": "Pour dressing over salad and toss well." },
+    { "@type": "HowToStep", "text": "Chill for 30 minutes before serving." },
+    { "@type": "HowToStep", "text": "Serve with romaine lettuce leaves as scoops." }
+  ],
+  "keywords": "tabbouleh, parsley salad, bulgur wheat, Lebanese salad"
+}

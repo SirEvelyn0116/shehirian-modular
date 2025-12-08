@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Baba Ganoush",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Appetizer",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "4-6 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT20M",
+  "totalTime": "PT30M",
+  "recipeIngredient": [
+    "2 large eggplants",
+    "3 tbsp tahini",
+    "2 cloves garlic, minced",
+    "3 tbsp lemon juice",
+    "2 tbsp olive oil",
+    "1/2 tsp salt",
+    "1/4 tsp cumin",
+    "Paprika for garnish",
+    "Fresh parsley for garnish"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Roast eggplants over open flame or in oven at 450°F until skin is charred." },
+    { "@type": "HowToStep", "text": "Let cool, then peel off skin and remove seeds." },
+    { "@type": "HowToStep", "text": "Mash eggplant flesh with a fork." },
+    { "@type": "HowToStep", "text": "Mix in tahini, garlic, lemon juice, and salt." },
+    { "@type": "HowToStep", "text": "Blend until smooth or leave slightly chunky." },
+    { "@type": "HowToStep", "text": "Drizzle with olive oil and sprinkle with paprika." },
+    { "@type": "HowToStep", "text": "Garnish with parsley and serve with pita bread." }
+  ],
+  "keywords": "baba ganoush, eggplant dip, tahini, smoky eggplant"
+}

@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Knafeh",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "8-10 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT40M",
+  "totalTime": "PT60M",
+  "recipeIngredient": [
+    "1 lb shredded phyllo dough (kataifi)",
+    "1 cup melted butter",
+    "1 lb fresh mozzarella or akkawi cheese",
+    "1 cup sugar",
+    "1/2 cup water",
+    "1 tbsp lemon juice",
+    "1 tbsp orange blossom water",
+    "1/4 cup crushed pistachios"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Preheat oven to 350°F." },
+    { "@type": "HowToStep", "text": "Mix shredded phyllo with melted butter." },
+    { "@type": "HowToStep", "text": "Press half the phyllo mixture into a buttered baking pan." },
+    { "@type": "HowToStep", "text": "Layer cheese evenly over phyllo." },
+    { "@type": "HowToStep", "text": "Top with remaining phyllo mixture and press down." },
+    { "@type": "HowToStep", "text": "Bake for 30-40 minutes until golden and crispy." },
+    { "@type": "HowToStep", "text": "Meanwhile, boil sugar, water, and lemon juice for 5 minutes." },
+    { "@type": "HowToStep", "text": "Add orange blossom water to syrup." },
+    { "@type": "HowToStep", "text": "Pour syrup over hot knafeh and top with pistachios." }
+  ],
+  "keywords": "knafeh, kunafa, cheese pastry, Middle Eastern dessert, phyllo"
+}

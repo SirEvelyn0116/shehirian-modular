@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Kibbeh Labanieh",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "Lebanese",
+  "recipeYield": "6 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT30M",
+  "totalTime": "PT50M",
+  "recipeIngredient": [
+    "1 lb ground lamb or beef",
+    "1 cup fine bulgur wheat",
+    "1 onion, finely chopped",
+    "1 tsp salt",
+    "1/2 tsp black pepper",
+    "1/2 tsp allspice",
+    "4 cups plain yogurt",
+    "2 tbsp cornstarch",
+    "3 cloves garlic, minced",
+    "2 tbsp dried mint",
+    "2 tbsp butter"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Soak bulgur in water for 10 minutes, then drain well." },
+    { "@type": "HowToStep", "text": "Mix ground meat, bulgur, half the onion, salt, pepper, and allspice. Knead well." },
+    { "@type": "HowToStep", "text": "Shape mixture into small oval balls." },
+    { "@type": "HowToStep", "text": "Whisk yogurt with cornstarch until smooth." },
+    { "@type": "HowToStep", "text": "Bring yogurt mixture to a boil, stirring constantly." },
+    { "@type": "HowToStep", "text": "Add kibbeh balls and simmer for 20 minutes." },
+    { "@type": "HowToStep", "text": "In a pan, sauté garlic, remaining onion, and mint in butter." },
+    { "@type": "HowToStep", "text": "Pour garlic mixture over kibbeh and serve with rice." }
+  ],
+  "keywords": "kibbeh, yogurt soup, Lebanese cuisine, bulgur"
+}
