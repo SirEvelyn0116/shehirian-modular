@@ -2710,5 +2710,107 @@
       "keywords": { "en": ["biscuits","bulgur","baked"], "fr": ["biscuits","bulghour","cuit"], "ar": ["بسكويت","برغل","مخبوز"] },
       "categoryId": "side"
     }
+    ,
+    {
+      "slug": "white-bread-with-bulgor",
+      "featuredRecipe": false,
+      "title": { "en": "White Bread with Bulgor", "fr": "Pain Blanc au Bulgor", "ar": "خبز أبيض بالبرغل" },
+      "description": { "en": "A soft white loaf made by incorporating cooked bulgur into the dough.", "fr": "Un pain blanc moelleux préparé en incorporant du boulghour cuit dans la pâte.", "ar": "رغيف أبيض طري محضّر بإدخال البرغل المطبوخ في العجين." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Other", "fr": "Autre", "ar": "أخرى" },
+      "recipeCuisine": { "en": "Baked", "fr": "Cuit au four", "ar": "مخبوز" },
+      "recipeYield": { "en": "2 (1 lb.) Loaves", "fr": "2 pains (450 g)", "ar": "رغيفان (1 رطل)" },
+      "prepTime": "PT30M",
+      "cookTime": "PT35M",
+      "totalTime": "PT1H5M",
+      "ingredients": {
+        "en": ["1 cup water","1/4 cup Bulgor wheat","1/8 teaspoon salt (for Bulgor mixture)","3/4 cup milk","1 package (1/4 oz.) activated dry yeast","1/2 cup lukewarm water","4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)","2 teaspoons salt (for flour mixture)","3 tablespoons sugar","3 tablespoons shortening or oil"],
+        "fr": ["1 cup water","1/4 cup Bulgor wheat","1/8 teaspoon salt (for Bulgor mixture)","3/4 cup milk","1 package (1/4 oz.) activated dry yeast","1/2 cup lukewarm water","4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)","2 teaspoons salt (for flour mixture)","3 tablespoons sugar","3 tablespoons shortening or oil"],
+        "ar": ["1 cup water","1/4 cup Bulgor wheat","1/8 teaspoon salt (for Bulgor mixture)","3/4 cup milk","1 package (1/4 oz.) activated dry yeast","1/2 cup lukewarm water","4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)","2 teaspoons salt (for flour mixture)","3 tablespoons sugar","3 tablespoons shortening or oil"]
+      },
+      "instructions": {
+        "en": ["Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.","Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.","Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.","Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).","Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."],
+        "fr": ["Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.","Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.","Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.","Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).","Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."],
+        "ar": ["Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.","Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.","Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.","Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).","Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."]
+      },
+      "keywords": { "en": ["bread","bulgur","loaf"], "fr": ["pain","bulghour","rôti"], "ar": ["خبز","برغل","رغيف"] },
+      "categoryId": "other"
+    },
+    {
+      "slug": "baked-banana-bulgor-custard",
+      "featuredRecipe": false,
+      "title": { "en": "Baked Banana Bulgor Custard", "fr": "Crème Au Bananes Et Bulghour", "ar": "بودينغ الموز والبرغل" },
+      "description": { "en": "A baked custard-style dessert made with cooked bulgur and mashed banana.", "fr": "Un dessert en style crème pâtissière préparé avec du boulghour cuit et de la banane écrasée.", "ar": "حلوى كاسترد مخبوزة بالبرغل والموز المهروس." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "Baked", "fr": "Cuit au four", "ar": "مخبوز" },
+      "recipeYield": { "en": "6 servings", "fr": "6 portions", "ar": "6 حصص" },
+      "prepTime": "PT10M",
+      "cookTime": "PT45M",
+      "totalTime": "PT55M",
+      "ingredients": {
+        "en": ["1-1/2 cups cooked Bulgor","1/2 cup mashed banana","1 tablespoon lemon juice","1 teaspoon grated lemon rind","1 teaspoon vanilla","1/3 cup sugar","1/8 teaspoon salt","2 cups milk","2 eggs, slightly beaten","1 tablespoon melted butter"],
+        "fr": ["1-1/2 cups cooked Bulgor","1/2 cup mashed banana","1 tablespoon lemon juice","1 teaspoon grated lemon rind","1 teaspoon vanilla","1/3 cup sugar","1/8 teaspoon salt","2 cups milk","2 eggs, slightly beaten","1 tablespoon melted butter"],
+        "ar": ["1-1/2 cups cooked Bulgor","1/2 cup mashed banana","1 tablespoon lemon juice","1 teaspoon grated lemon rind","1 teaspoon vanilla","1/3 cup sugar","1/8 teaspoon salt","2 cups milk","2 eggs, slightly beaten","1 tablespoon melted butter"]
+      },
+      "instructions": {
+        "en": ["Blend all ingredients in a baking dish.","Sprinkle lightly with cinnamon.","Bake in moderate oven for 40 to 45 minutes or until set."],
+        "fr": ["Blend all ingredients in a baking dish.","Sprinkle lightly with cinnamon.","Bake in moderate oven for 40 to 45 minutes or until set."],
+        "ar": ["Blend all ingredients in a baking dish.","Sprinkle lightly with cinnamon.","Bake in moderate oven for 40 to 45 minutes or until set."]
+      },
+      "keywords": { "en": ["banana","custard","bulgur"], "fr": ["banane","crème","boulghour"], "ar": ["موز","كاسترد","برغل"] },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "banana-bulgor-cake",
+      "featuredRecipe": false,
+      "title": { "en": "Banana Bulgor Cake", "fr": "Gâteau Bananes Et Bulghour", "ar": "كعكة البرغل بالموز" },
+      "description": { "en": "A banana loaf-style cake that includes cooked bulgur for texture and flavor.", "fr": "Un gâteau en forme de pain contenant du boulghour cuit pour la texture.", "ar": "كعكة على شكل رغيف تحتوي على برغل مطبوخ لإضافة القوام والنكهة." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "Baked", "fr": "Cuit au four", "ar": "مخبوز" },
+      "recipeYield": { "en": "10 to 12 servings", "fr": "10 à 12 portions", "ar": "10 إلى 12 حصص" },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H15M",
+      "totalTime": "PT1H35M",
+      "ingredients": {
+        "en": ["1/3 cup Bulgor Wheat","1-1/3 cups water (for Bulgor)","2 cups sifted all-purpose flour","3 teaspoons baking powder","1/2 teaspoon salt","1/2 cup butter","1 cup sugar","2 eggs","1 teaspoon vanilla","3/4 cup mashed banana","1 teaspoon lemon juice","1/4 cup milk"],
+        "fr": ["1/3 cup Bulgor Wheat","1-1/3 cups water (for Bulgor)","2 cups sifted all-purpose flour","3 teaspoons baking powder","1/2 teaspoon salt","1/2 cup butter","1 cup sugar","2 eggs","1 teaspoon vanilla","3/4 cup mashed banana","1 teaspoon lemon juice","1/4 cup milk"],
+        "ar": ["1/3 cup Bulgor Wheat","1-1/3 cups water (for Bulgor)","2 cups sifted all-purpose flour","3 teaspoons baking powder","1/2 teaspoon salt","1/2 cup butter","1 cup sugar","2 eggs","1 teaspoon vanilla","3/4 cup mashed banana","1 teaspoon lemon juice","1/4 cup milk"]
+      },
+      "instructions": {
+        "en": ["Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, and salt.","Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.","Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.","Turn into greased loaf pan and bake at 350°F about 1¼ hours."],
+        "fr": ["Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, and salt.","Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.","Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.","Turn into greased loaf pan and bake at 350°F about 1¼ hours."],
+        "ar": ["Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, and salt.","Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.","Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.","Turn into greased loaf pan and bake at 350°F about 1¼ hours."]
+      },
+      "keywords": { "en": ["banana","cake","bulgur"], "fr": ["banane","gâteau","bulghour"], "ar": ["موز","كعكة","برغل"] },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "bulgor-apricot-delight",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgor Apricot Delight with Eggnog Sauce", "fr": "Délice Abricot au Bulghour et Sauce Eggnog", "ar": "متعة البرغل بالمشمش مع صلصة ايجنوج" },
+      "description": { "en": "A chilled apricot-flavored bulgur dessert topped with a rich eggnog-style sauce.", "fr": "Un dessert au boulghour parfumé à l'abricot, servi frais avec une sauce type eggnog.", "ar": "حلوى برغل بنكهة المشمش تُقدّم باردة مع صلصة البيض الغنية." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "متنوع" },
+      "recipeYield": { "en": "6 servings", "fr": "6 portions", "ar": "6 حصص" },
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "totalTime": "PT25M",
+      "ingredients": {
+        "en": ["1 cup apricot nectar (or juice)","1-1/2 cups water","1/4 teaspoon salt","1 cup Bulgor wheat","3 tablespoons sugar (for Bulgor)","1 tablespoon lemon juice","Apricot halves (for garnish)","Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"],
+        "fr": ["1 cup apricot nectar (or juice)","1-1/2 cups water","1/4 teaspoon salt","1 cup Bulgor wheat","3 tablespoons sugar (for Bulgor)","1 tablespoon lemon juice","Apricot halves (for garnish)","Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"],
+        "ar": ["1 cup apricot nectar (or juice)","1-1/2 cups water","1/4 teaspoon salt","1 cup Bulgor wheat","3 tablespoons sugar (for Bulgor)","1 tablespoon lemon juice","Apricot halves (for garnish)","Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"]
+      },
+      "instructions": {
+        "en": ["Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.","Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.","Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."],
+        "fr": ["Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.","Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.","Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."],
+        "ar": ["Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.","Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.","Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."]
+      },
+      "keywords": { "en": ["apricot","dessert","eggnog"], "fr": ["abricot","dessert","eggnog"], "ar": ["مشمش","حلوى","ايجنوج"] },
+      "categoryId": "dessert"
+    }
   ]
 }
+

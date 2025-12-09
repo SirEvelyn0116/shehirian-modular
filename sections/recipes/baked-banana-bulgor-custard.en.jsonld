@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Baked Banana Bulgor Custard",
+  "description": "A baked custard-style dessert made with cooked bulgur and mashed banana.",
+  "recipeYield": "6 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT45M",
+  "totalTime": "PT55M",
+  "recipeIngredient": [
+    "1-1/2 cups cooked Bulgor",
+    "1/2 cup mashed banana",
+    "1 tablespoon lemon juice",
+    "1 teaspoon grated lemon rind",
+    "1 teaspoon vanilla",
+    "1/3 cup sugar",
+    "1/8 teaspoon salt",
+    "2 cups milk",
+    "2 eggs, slightly beaten",
+    "1 tablespoon melted butter"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Blend all ingredients in a baking dish." },
+    { "@type": "HowToStep", "text": "Sprinkle lightly with cinnamon." },
+    { "@type": "HowToStep", "text": "Bake in moderate oven for 40 to 45 minutes or until set." }
+  ]
+}
