@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf persan",
+  "description": "Un pilaf de style persan avec de l'agneau et du boulghour.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Persan",
+  "recipeCategory": "Plat principal",
+  "recipeYield": "8-10 portions",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H20M",
+  "recipeIngredient": [
+    "Épaule d'agneau en dés",
+    "Oignon haché",
+    "Tomates hachées",
+    "Boulghour",
+    "Beurre",
+    "Bouillon ou eau",
+    "Sel et poivre"
+  ],
+  "recipeInstructions": [
+    "Faire braiser l'agneau jusqu'à ce qu'il soit bien doré; ajouter les oignons et les tomates et cuire 15 minutes.",
+    "Cuire le boulghour brièvement dans du bouillon bouillant, égoutter et déposer sur la viande; mettre le beurre au centre et verser le bouillon autour.",
+    "Cuire au four modéré environ 1 heure; retourner sur un plat et servir chaud sans mélanger."
+  ],
+  "keywords": "persan,pilaf,boulghour"
+}

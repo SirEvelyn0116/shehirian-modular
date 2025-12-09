@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pizza au boulghour",
+  "description": "Une variante de pizza utilisant du boulghour dans la pâte et une sauce riche à la viande et légumes.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Internationale",
+  "recipeCategory": "Plat principal",
+  "recipeYield": "2 pizzas (30 cm)",
+  "prepTime": "PT1H15M",
+  "cookTime": "PT40M",
+  "totalTime": "PT1H55M",
+  "recipeIngredient": [
+    "Ingrédients pour la sauce, la pâte et l'assemblage : boulghour, viandes, légumes, purée de tomate, sauce tomate, mozzarella, Parmesan, farine, levure, eau, huile, sel, origan"
+  ],
+  "recipeInstructions": [
+    "Préparer la sauce viande-légumes et laisser mijoter jusqu'à réduction et parfum.",
+    "Préparer la pâte au boulghour, laisser lever et former deux cercles de 30 cm.",
+    "Garnir de sauce et de fromages et cuire à 190°C pendant 35–40 minutes."
+  ],
+  "keywords": "pizza,boulghour"
+}

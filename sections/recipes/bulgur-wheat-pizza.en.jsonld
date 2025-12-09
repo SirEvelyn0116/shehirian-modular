@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Wheat Pizza",
+  "description": "A pizza variation using bulgur in the dough and a hearty meat-and-vegetable sauce.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "International",
+  "recipeCategory": "Main Dish",
+  "recipeYield": "2 pizzas (12-in.)",
+  "prepTime": "PT1H15M",
+  "cookTime": "PT40M",
+  "totalTime": "PT1H55M",
+  "recipeIngredient": [
+    "Ingredients for sauce, dough and assembly as listed in recipe: bulgur, meats, vegetables, tomato purée, tomato sauce, mozzarella, Parmesan, flour, yeast, water, oil, salt, oregano"
+  ],
+  "recipeInstructions": [
+    "Prepare the meat-and-vegetable sauce and simmer until reduced and flavorful.",
+    "Prepare the bulgur dough, let rise, shape into two 12-inch rounds.",
+    "Top with sauce and cheeses and bake at 375°F (190°C) for 35–40 minutes."
+  ],
+  "keywords": "pizza,bulgur"
+}

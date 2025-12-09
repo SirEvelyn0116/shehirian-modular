@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf au poulet et curry",
+  "description": "Un pilaf crémeux au poulet et curry avec du boulghour et des pommes.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Inspiré indien",
+  "recipeCategory": "Plat principal",
+  "recipeYield": "5-6 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT25M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "Beurre ou graisse de poulet, oignon haché, pomme acidulée, céleri, curry, gingembre, farine, sel, poivre, bouillon de poulet, crème ou lait, poulet cuit en dés, boulghour"
+  ],
+  "recipeInstructions": [
+    "Faire revenir l'oignon, la pomme et le céleri dans le beurre; ajouter les épices et la farine puis incorporer le bouillon et la crème jusqu'à épaississement.",
+    "Ajouter le poulet cuit et le boulghour, couvrir et laisser mijoter à feu doux 25 minutes."
+  ],
+  "keywords": "curry poulet,pilaf,boulghour"
+}

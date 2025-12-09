@@ -2234,5 +2234,204 @@
       "keywords": { "en": ["fish pilaf","bulgur"], "fr": ["pilaf de poisson","boulghour"], "ar": ["بيلاف سمك","برغل"] },
       "categoryId": "main"
     }
+  ,
+    {
+      "slug": "bulgur-wheat-pizza",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Wheat Pizza",
+        "fr": "Pizza au boulghour",
+        "ar": "بيتزا بالبرغل"
+      },
+      "description": {
+        "en": "A pizza variation using bulgur in the dough and a hearty meat-and-vegetable sauce.",
+        "fr": "Une variante de pizza utilisant du boulghour dans la pâte et une sauce riche à la viande et légumes.",
+        "ar": "نسخة من البيتزا تستخدم البرغل في العجين وصلصة غنية باللحم والخضار."
+      },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "2 pizzas (12-in.)", "fr": "2 pizzas (30 cm)", "ar": "2 بيتزا (30 سم)" },
+      "prepTime": "PT1H15M",
+      "cookTime": "PT40M",
+      "totalTime": "PT1H55M",
+      "ingredients": {
+        "en": [
+          "Pizza Sauce: oil, green bell pepper, onion, mushrooms, garlic, Italian sausage, lean ground beef, tomato purée, tomato sauce, water, Parmesan, bay leaf, pepper, salt, oregano",
+          "Pizza Dough: 1/2 cup bulgur, 1-3/4 cups water, active dry yeast, flour, salt, oil",
+          "Assembly: slices of mozzarella, grated Parmesan"
+        ],
+        "fr": [
+          "Sauce: huile, poivron vert, oignon, champignons, ail, saucisse italienne, viande hachée, purée de tomate, sauce tomate, eau, Parmesan, feuille de laurier, poivre, sel, origan",
+          "Pâte: 1/2 tasse de boulghour, 1-3/4 tasse d'eau, levure sèche active, farine, sel, huile",
+          "Assemblage: tranches de mozzarella, Parmesan râpé"
+        ],
+        "ar": [
+          "صلصة: زيت، فلفل أخضر، بصل، فطر، ثوم، سجق إيطالي، لحم مفروم، معجون طماطم، صلصة طماطم، ماء، بارميزان، ورق غار، فلفل، ملح، زعتر",
+          "العجين: 1/2 كوب برغل، 1-3/4 كوب ماء، خميرة جافة، دقيق، ملح، زيت",
+          "التركيب: شرائح موزاريلا، جبن بارميزان مبشور"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Prepare the sauce: sauté vegetables and meats, add tomato purée, sauce, water, cheese and seasonings; simmer 90 minutes total.",
+          "Prepare the dough: cook bulgur in water until absorbed, cool; dissolve yeast and mix with flour, bulgur, oil; let rise, divide, roll to 12-inch rounds.",
+          "Assemble with mozzarella and sauce and bake at 375°F (190°C) for 35–40 minutes."
+        ],
+        "fr": [
+          "Préparer la sauce : faire revenir légumes et viandes, ajouter purée et sauce tomate, eau, fromage et assaisonnements ; mijoter 90 minutes.",
+          "Préparer la pâte : cuire le boulghour dans l'eau jusqu'à absorption, refroidir; dissoudre la levure et mélanger avec la farine, le boulghour, l'huile ; laisser lever, diviser, étaler en cercles de 30 cm.",
+          "Assembler avec mozzarella et sauce et cuire à 190°C pendant 35–40 minutes."
+        ],
+        "ar": [
+          "حضّر الصلصة: اقلي الخضار واللحوم، أضف معجون الطماطم والصلصة والماء والجبن والتوابل؛ اتركها تنضج 90 دقيقة.",
+          "حضّر العجين: اطبخ البرغل في الماء حتى يمتص، اتركه يبرد؛ اذب الخميرة وامزج مع الدقيق والبرغل والزيت؛ اتركه يختمر، قسمه وافرده لدوائر 30 سم.",
+          "ركّب بالجبن والصلصة واخبز على 190°C لمدة 35–40 دقيقة."
+        ]
+      },
+      "keywords": { "en": ["pizza","bulgur"], "fr": ["pizza","boulghour"], "ar": ["بيتزا","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "persian-pilaf",
+      "featuredRecipe": false,
+      "title": { "en": "Persian Pilaf", "fr": "Pilaf persan", "ar": "بيلاف فارسي" },
+      "description": { "en": "A traditional Persian-style pilaf with lamb and bulgur.", "fr": "Un pilaf de style persan avec de l'agneau et du boulghour.", "ar": "بيلاف على الطراز الفارسي باللحم والبرغل." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "Persian", "fr": "Persan", "ar": "فارسية" },
+      "recipeYield": { "en": "8-10 servings", "fr": "8-10 portions", "ar": "8-10 حصص" },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H20M",
+      "ingredients": {
+        "en": [
+          "Shoulder of lamb, cubed",
+          "Chopped onion",
+          "Chopped tomatoes",
+          "2 cups bulgur",
+          "Butter",
+          "Broth or water",
+          "Salt and pepper"
+        ],
+        "fr": [
+          "Épaule d'agneau en dés",
+          "Oignon haché",
+          "Tomates hachées",
+          "2 tasses de boulghour",
+          "Beurre",
+          "Bouillon ou eau",
+          "Sel et poivre"
+        ],
+        "ar": [
+          "كتف ضأن مقطع مكعبات",
+          "بصل مفروم",
+          "طماطم مفرومة",
+          "2 كوب برغل",
+          "زبدة",
+          "مرق أو ماء",
+          "ملح وفلفل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Braise lamb cubes until well browned; add onions and tomatoes and cook 15 minutes.",
+          "Cook bulgur briefly in boiling broth, drain and place over meat; put butter in center and pour broth around edges.",
+          "Bake in moderate oven about 1 hour; turn onto platter and serve hot unmixed."
+        ],
+        "fr": [
+          "Faites braiser l'agneau jusqu'à ce qu'il soit bien doré; ajoutez les oignons et les tomates et cuisez 15 minutes.",
+          "Cuire le boulghour brièvement dans du bouillon bouillant, égoutter et déposer sur la viande; mettre le beurre au centre et verser le bouillon autour.",
+          "Cuire au four modéré environ 1 heure; retourner sur un plat et servir chaud sans mélanger."
+        ],
+        "ar": [
+          "اقلي مكعبات اللحم حتى تتحمر جيدًا؛ أضف البصل والطماطم واطبخ 15 دقيقة.",
+          "اسلق البرغل قليلاً في المرق المغلي، صفّه وضعه فوق اللحم؛ ضع الزبدة في الوسط واسكب المرق حول الحواف.",
+          "اخبز في فرن معتدل حوالي ساعة؛ اقلبه على صينية وقدمه ساخنًا دون خلط."
+        ]
+      },
+      "keywords": { "en": ["persian","pilaf","bulgur"], "fr": ["persan","pilaf","boulghour"], "ar": ["فارسي","بيلاف","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "india-lamb-pilaf",
+      "featuredRecipe": false,
+      "title": { "en": "India Lamb Pilaf", "fr": "Pilaf d'agneau à l'indienne", "ar": "بيلاف لحم على الطريقة الهندية" },
+      "description": { "en": "A spiced lamb pilaf with curry and apples, using bulgur.", "fr": "Un pilaf d'agneau épicé au curry et aux pommes, avec du boulghour.", "ar": "بيلاف لحم متبّل بالكاري والتفاح مع البرغل." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "Indian-Inspired", "fr": "Inspiré indien", "ar": "من الطراز الهندي" },
+      "recipeYield": { "en": "5-6 servings", "fr": "5-6 portions", "ar": "5-6 حصص" },
+      "prepTime": "PT15M",
+      "cookTime": "PT40M",
+      "totalTime": "PT55M",
+      "ingredients": {
+        "en": [
+          "Oil, cooked lamb cubes, chopped onion, tart apple, garlic, celery seed, curry powder, ginger, salt, pepper, Tabasco, tomato purée, consommé or water, 1 cup bulgur"
+        ],
+        "fr": [
+          "Huile, cubes d'agneau cuits, oignon haché, pomme acidulée, ail, graines de céleri, curry, gingembre, sel, poivre, Tabasco, purée de tomate, consommé ou eau, 1 tasse de boulghour"
+        ],
+        "ar": [
+          "زيت، مكعبات لحم مطبوخة، بصل مفروم، تفاح حامض، ثوم، بذور كرفس، مسحوق كاري، زنجبيل، ملح، فلفل، تاباسكو، معجون طماطم، مرق أو ماء، 1 كوب برغل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sauté lamb with onion, apple and garlic; brown lightly.",
+          "Blend in remaining ingredients, bring to boil then simmer about 40 minutes until thickened."
+        ],
+        "fr": [
+          "Faire revenir l'agneau avec l'oignon, la pomme et l'ail; dorer légèrement.",
+          "Incorporez le reste des ingrédients, portez à ébullition puis laissez mijoter environ 40 minutes jusqu'à épaississement."
+        ],
+        "ar": [
+          "اقلِّ اللحم مع البصل والتفاح والثوم؛ حمّر قليلًا.",
+          "اخلط بقية المكونات، اغلي ثم اتركها تغلي بهدوء حوالي 40 دقيقة حتى تتكثف."
+        ]
+      },
+      "keywords": { "en": ["lamb pilaf","curry","bulgur"], "fr": ["pilaf d'agneau","curry","boulghour"], "ar": ["بيلاف لحم","كاري","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "india-chicken-curry-pilaf",
+      "featuredRecipe": false,
+      "title": { "en": "India Chicken Curry Pilaf", "fr": "Pilaf au poulet et curry", "ar": "بيلاف دجاج بالكاري" },
+      "description": { "en": "A creamy curried chicken pilaf with bulgur and apples.", "fr": "Un pilaf crémeux au poulet et curry avec du boulghour et des pommes.", "ar": "بيلاف دجاج كريمي بالكاري مع البرغل والتفاح." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "Indian-Inspired", "fr": "Inspiré indien", "ar": "من الطراز الهندي" },
+      "recipeYield": { "en": "5-6 servings", "fr": "5-6 portions", "ar": "5-6 حصص" },
+      "prepTime": "PT15M",
+      "cookTime": "PT25M",
+      "totalTime": "PT40M",
+      "ingredients": {
+        "en": [
+          "Butter or chicken fat, chopped onion, tart apple, celery, curry powder, ginger, flour, salt, pepper, chicken stock, cream or milk, cooked diced chicken, bulgur"
+        ],
+        "fr": [
+          "Beurre ou graisse de poulet, oignon haché, pomme acidulée, céleri, poudre de curry, gingembre, farine, sel, poivre, bouillon de poulet, crème ou lait, poulet cuit en dés, boulghour"
+        ],
+        "ar": [
+          "زبدة أو دهن دجاج، بصل مفروم، تفاح حامض، كرفس، مسحوق كاري، زنجبيل، دقيق، ملح، فلفل، مرق دجاج، كريمة أو حليب، دجاج مطبوخ مقطع، برغل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sauté onion, apple and celery in butter; add spices and flour then stir in stock and cream until thickened.",
+          "Add cooked chicken and bulgur, cover and simmer over low heat 25 minutes."
+        ],
+        "fr": [
+          "Faire revenir l'oignon, la pomme et le céleri dans le beurre; ajouter les épices et la farine puis incorporer le bouillon et la crème jusqu'à épaississement.",
+          "Ajouter le poulet cuit et le boulghour, couvrir et laisser mijoter à feu doux 25 minutes."
+        ],
+        "ar": [
+          "اقلِّ البصل والتفاح والكرفس في الزبدة؛ أضف التوابل والدقيق ثم حرك المرق والكريمة حتى تتكاثف.",
+          "أضف الدجاج المطبوخ والبرغل، غطّ واتركه يغلي ببطء 25 دقيقة."
+        ]
+      },
+      "keywords": { "en": ["chicken curry","pilaf","bulgur"], "fr": ["curry poulet","pilaf","boulghour"], "ar": ["دجاج بالكاري","بيلاف","برغل"] },
+      "categoryId": "main"
+    }
   ]
 }
