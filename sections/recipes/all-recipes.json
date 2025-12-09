@@ -1825,5 +1825,414 @@
       "keywords": { "en": ["steamed pudding","bulgur fruit pudding"], "fr": ["pouding vapeur","pouding fruits boulghour"], "ar": ["بودينغ مطهو على البخار","بودينغ فواكه بالبرغل"] },
       "categoryId": "dessert"
     }
+,
+    {
+      "slug": "raw-meat-platter",
+      "featuredRecipe": false,
+      "title": { "en": "Raw Meat Platter", "fr": "Plateau de viande crue", "ar": "طبق اللحم النيء" },
+      "description": { "en": "A traditional seasoned raw lamb and bulgur mixture served as patties.", "fr": "Un mélange traditionnel d'agneau cru et de boulghour servi en galettes.", "ar": "خليط لحم ضأن نيء متبّل مع برغل يُقدّم على شكل قطع." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Starter", "fr": "Entrée", "ar": "مقبلات" },
+      "recipeCuisine": { "en": "Middle Eastern", "fr": "Moyen-Orientale", "ar": "شرق أوسطية" },
+      "recipeYield": { "en": "5-6 servings", "fr": "5-6 portions", "ar": "5-6 حصص" },
+      "prepTime": "PT20M",
+      "cookTime": "PT0M",
+      "totalTime": "PT20M",
+      "ingredients": {
+        "en": [
+          "1 cup (about 1 lb.) lean lamb, ground twice",
+          "Green pepper, chopped fine",
+          "Parsley, chopped fine",
+          "Green onions, chopped fine",
+          "1 cup bulgur wheat (fine)",
+          "1 small onion, chopped fine",
+          "Cayenne pepper (optional)",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "1 tasse (environ 450 g) d'agneau maigre haché deux fois",
+          "Poivron vert, haché fin",
+          "Persil, haché fin",
+          "Oignons verts, hachés fin",
+          "1 tasse de boulghour (fin)",
+          "1 petit oignon, haché fin",
+          "Piment de Cayenne (optionnel)",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "1 كوب (حوالي 450 جم) لحم ضأن خالي من الدهن مفروم مرتين",
+          "فلفل أخضر مفروم ناعماً",
+          "بقدونس مفروم ناعماً",
+          "بصل أخضر مفروم ناعماً",
+          "1 كوب برغل ناعم",
+          "1 بصلة صغيرة مفرومة ناعماً",
+          "فلفل حريف (اختياري)",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Use lamb only (leg preferred) and serve the same day it is ground.",
+          "Salt the meat and blend together.",
+          "Add bulgur, chopped onions and vegetables and knead with a little water until mixture holds together.",
+          "Shape into 2 inch patties and serve immediately, garnished with chopped vegetables."
+        ],
+        "fr": [
+          "Utilisez uniquement de l'agneau (morceau de gigot recommandé) et servez le jour même de la préparation.",
+          "Salez la viande et mélangez.",
+          "Ajoutez le boulghour, les oignons et les légumes hachés et pétrissez avec un peu d'eau jusqu'à obtenir une pâte homogène.",
+          "Formez des galettes de 5 cm et servez immédiatement, garnies de légumes hachés."
+        ],
+        "ar": [
+          "استخدم لحم الضأن فقط (يفضل الفخذ) وقدّمه في نفس اليوم الذي تمّ فيه طحنه.",
+          "ملّح اللحم وامزجه.",
+          "أضف البرغل والبصل والخضروات المفرومة واعجن بقليل من الماء حتى تتماسك المكونات.",
+          "شكّل أقراصًا بقطر 2 انش وقدّم فوراً مع تزيين بالخضروات المفرومة."
+        ]
+      },
+      "keywords": { "en": ["raw meat","kibbeh-style","bulgur"], "fr": ["viande crue","kibbeh","boulghour"], "ar": ["لحم نيء","كبة","برغل"] },
+      "categoryId": "starter"
+    },
+    {
+      "slug": "bulgur-stuffed-peppers",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgur Stuffed Peppers", "fr": "Poivrons farcis au boulghour", "ar": "فلفل محشو بالبرغل" },
+      "description": { "en": "Bell peppers stuffed with a bulgur and meat mixture, baked in tomato sauce.", "fr": "Poivrons farcis d'un mélange de boulghour et viande, cuits au four dans une sauce tomate.", "ar": "فلفل محشو بخليط البرغل واللحم ومخبوز بصلصة الطماطم." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "5-6 servings", "fr": "5-6 portions", "ar": "5-6 حصص" },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H10M",
+      "totalTime": "PT1H30M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1/2 pound ground meat or sausage",
+          "1 cup meat or chicken stock",
+          "1/2 teaspoon salt",
+          "1/4 teaspoon seasoned salt",
+          "1 teaspoon Worcestershire sauce",
+          "1/4 teaspoon pepper",
+          "3/4 cup tomato purée",
+          "Green or red bell peppers"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1/2 livre de viande hachée ou saucisse",
+          "1 tasse de bouillon de poulet ou de viande",
+          "1/2 c. à thé de sel",
+          "1/4 c. à thé de sel assaisonné",
+          "1 c. à thé de sauce Worcestershire",
+          "1/4 c. à thé de poivre",
+          "3/4 tasse de purée de tomate",
+          "Poivrons verts ou rouges"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "نصف رطل لحم مفروم أو سجق",
+          "1 كوب مرق دجاج أو لحم",
+          "1/2 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة ملح متبل",
+          "1 ملعقة صغيرة صلصة ورشستر",
+          "1/4 ملعقة صغيرة فلفل",
+          "3/4 كوب محضّر طماطم",
+          "فلفل أخضر أو أحمر"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend bulgur, meat, stock, salt, seasoned salt, Worcestershire sauce and pepper.",
+          "Cut peppers in halves lengthwise and remove seeds.",
+          "Fill pepper halves with bulgur mixture and place in baking dish.",
+          "Pour tomato purée mixed with stock over peppers, cover and bake at 375°F for 30 minutes, then uncover and bake an additional 40 minutes."
+        ],
+        "fr": [
+          "Mélanger le boulghour, la viande, le bouillon, le sel, la sauce Worcestershire et le poivre.",
+          "Couper les poivrons en deux dans le sens de la longueur et retirer les graines.",
+          "Remplir les moitiés de poivron et placer dans un plat à four.",
+          "Verser la purée de tomate mélangée au bouillon, couvrir et cuire à 190°C pendant 30 minutes, puis découvrir et poursuivre 40 minutes."
+        ],
+        "ar": [
+          "اخلط البرغل واللحم والمرق والملح والصلصة والفلفل.",
+          "اقطع الفلفل إلى نصفين بالطول وأزل البذور.",
+          "احشِ أنصاف الفلفل بخليط البرغل وضعها في طبق خبز.",
+          "اسكب خليط صلصة الطماطم والمرق فوق الفلفل، غطِّ واخبز على 190°C لمدة 30 دقيقة ثم اكشف واخبز 40 دقيقة إضافية."
+        ]
+      },
+      "keywords": { "en": ["stuffed peppers","bulgur"], "fr": ["poivrons farcis","boulghour"], "ar": ["فلفل محشو","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-meat-loaf",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgur Meat Loaf", "fr": "Pain de viande au boulghour", "ar": "رغيف لحم بالبرغل" },
+      "description": { "en": "A meatloaf enriched with bulgur wheat and baked until browned.", "fr": "Un pain de viande enrichi au boulghour et cuit au four jusqu'à dorure.", "ar": "رغيف لحم مخلوط بالبرغل ومخبوز حتى يتحمر." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "10-12 servings", "fr": "10-12 portions", "ar": "10-12 حصص" },
+      "prepTime": "PT15M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H15M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1 egg",
+          "1-1/4 cups milk",
+          "2 teaspoons salt",
+          "1/4 teaspoon pepper",
+          "1/4 to 1/2 cup chopped onion",
+          "1/4 cup ketchup",
+          "2 pounds ground beef"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1 œuf",
+          "1 1/4 tasse de lait",
+          "2 c. à thé de sel",
+          "1/4 c. à thé de poivre",
+          "1/4 à 1/2 tasse d'oignon haché",
+          "1/4 tasse de ketchup",
+          "2 livres de bœuf haché"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1 بيضة",
+          "1.25 كوب حليب",
+          "2 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة فلفل",
+          "1/4 إلى 1/2 كوب بصل مفروم",
+          "1/4 كوب كاتشب",
+          "2 رطل لحم بقري مفروم"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients together.",
+          "Turn into loaf pan and bake at 325°F (160°C) about 1 hour or until browned.",
+          "Optionally spread a thin layer of ketchup on top before baking."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients.",
+          "Mettre dans un moule à pain et cuire à 160°C pendant environ 1 heure ou jusqu'à ce qu'il soit doré.",
+          "Optionnel: étaler une fine couche de ketchup sur le dessus avant la cuisson."
+        ],
+        "ar": [
+          "اخلط جميع المكونات معًا.",
+          "ضع في قالب رغيف واخبز عند 160°C لمدة ساعة تقريبًا أو حتى يتحمر.",
+          "اختياري: ضع طبقة رقيقة من الكاتشب على السطح قبل الخبز."
+        ]
+      },
+      "keywords": { "en": ["meatloaf","bulgur"], "fr": ["pain de viande","boulghour"], "ar": ["رغيف لحم","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-salmon-loaf",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgur Salmon Loaf", "fr": "Pain de saumon au boulghour", "ar": "رغيف السلمون بالبرغل" },
+      "description": { "en": "A salmon loaf combined with bulgur and baked until set.", "fr": "Un pain de saumon mélangé au boulghour et cuit au four.", "ar": "رغيف سلمون ممزوج بالبرغل ومخبوز حتى يستوي." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "6-8 servings", "fr": "6-8 portions", "ar": "6-8 حصص" },
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "totalTime": "PT1H",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1 can (16 oz.) salmon, drained",
+          "2 eggs",
+          "1/2 cup liquid (salmon liquid plus milk)",
+          "1/4 cup chopped onion",
+          "2 tablespoons lemon juice",
+          "2 tablespoons pickle relish",
+          "1/4 teaspoon salt",
+          "1/4 teaspoon pepper"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1 boîte (450 g) de saumon, égoutté",
+          "2 œufs",
+          "1/2 tasse de liquide (jus de saumon + lait)",
+          "1/4 tasse d'oignon haché",
+          "2 c. à soupe de jus de citron",
+          "2 c. à soupe de relish (cornichon)",
+          "1/4 c. à thé de sel",
+          "1/4 c. à thé de poivre"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1 علبة (450 جم) سلمون، مصفّى",
+          "2 بيض",
+          "1/2 كوب سائل (عصارة السلمون + حليب)",
+          "1/4 كوب بصل مفروم",
+          "2 ملعقة طعام عصير ليمون",
+          "2 ملعقة طعام مخلل مفروم",
+          "1/4 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة فلفل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients and turn into a loaf pan.",
+          "Bake in moderate oven, 350°F (175°C), for 45 minutes until set."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients et mettre dans un moule à cake.",
+          "Cuire au four à 175°C pendant 45 minutes jusqu'à ce que le pain soit pris."
+        ],
+        "ar": [
+          "اخلط جميع المكونات واسكبها في قالب رغيف.",
+          "اخبز في فرن معتدل 175°C لمدة 45 دقيقة حتى ينضج."
+        ]
+      },
+      "keywords": { "en": ["salmon loaf","bulgur"], "fr": ["pain de saumon","boulghour"], "ar": ["رغيف سلمون","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "cabbage-rolls",
+      "featuredRecipe": false,
+      "title": { "en": "Cabbage Rolls", "fr": "Choux farcis", "ar": "محشي الكرنب" },
+      "description": { "en": "Cabbage leaves stuffed with a bulgur and lamb filling, simmered until tender.", "fr": "Feuilles de chou farcies d'une préparation de boulghour et d'agneau, mijotées jusqu'à tendreté.", "ar": "أوراق الكرنب المحشوة بخليط البرغل واللحم المطهو حتى النعومة." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "Middle Eastern", "fr": "Moyen-Orientale", "ar": "شرق أوسطية" },
+      "recipeYield": { "en": "Serves many", "fr": "Pour plusieurs personnes", "ar": "تكفي عدة حصص" },
+      "prepTime": "PT30M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H30M",
+      "ingredients": {
+        "en": [
+          "Cabbage leaves",
+          "1-1/2 cups ground lamb",
+          "2 small onions, chopped fine",
+          "1-1/2 cups bulgur",
+          "3 tablespoons tomato paste",
+          "2 tablespoons chopped parsley",
+          "1/2 teaspoon dried mint",
+          "Salt and pepper to taste",
+          "3 cups meat broth or water",
+          "Juice of 1/2 lemon"
+        ],
+        "fr": [
+          "Feuilles de chou",
+          "1 1/2 tasse d'agneau haché",
+          "2 petits oignons hachés",
+          "1 1/2 tasse de boulghour",
+          "3 c. à soupe de concentré de tomate",
+          "2 c. à soupe de persil haché",
+          "1/2 c. à thé de menthe séchée",
+          "Sel et poivre au goût",
+          "3 tasses de bouillon de viande ou d'eau",
+          "Jus d'1/2 citron"
+        ],
+        "ar": [
+          "أوراق كرنب",
+          "1.5 كوب لحم ضأن مفروم",
+          "2 بصلات صغيرة مفرومة ناعماً",
+          "1.5 كوب برغل",
+          "3 ملعقة طعام معجون طماطم",
+          "2 ملعقة طعام بقدونس مفروم",
+          "1/2 ملعقة صغيرة نعناع مجفف",
+          "ملح وفلفل حسب الذوق",
+          "3 كوب مرق لحم أو ماء",
+          "عصير نصف ليمونة"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Soften cabbage leaves in boiling water and trim ribs.",
+          "Mix bulgur with lamb, onions, tomato paste, parsley, mint, salt and pepper.",
+          "Place filling on cabbage leaves, roll and arrange in pan; add broth and lemon juice.",
+          "Cover and cook or bake at moderate heat for 1 hour."
+        ],
+        "fr": [
+          "Ramollir les feuilles de chou dans l'eau bouillante et couper les nervures.",
+          "Mélanger le boulghour avec l'agneau, les oignons, le concentré de tomate, le persil, la menthe, le sel et le poivre.",
+          "Déposer la farce sur les feuilles, rouler et arranger dans la poêle; ajouter le bouillon et le jus de citron.",
+          "Couvrir et cuire à feu modéré ou au four pendant 1 heure."
+        ],
+        "ar": [
+          "نقّع أوراق الكرنب في ماء مغلي وقلّم الأعناق.",
+          "اخلط البرغل مع اللحم والبصل ومعجون الطماطم والبقدونس والنعناع والملح والفلفل.",
+          "ضع الحشوة على الأوراق، لفّها ورتبها في القدر؛ أضف المرق وعصير الليمون.",
+          "غطّ واطبخ أو اخبز على حرارة معتدلة لمدة ساعة." 
+        ]
+      },
+      "keywords": { "en": ["cabbage rolls","dolma","bulgur"], "fr": ["choux farcis","dolma","boulghour"], "ar": ["محاشي","محشي الكرنب","برغل"] },
+      "categoryId": "main"
+    },
+    {
+      "slug": "fish-and-bulgur-pilaf",
+      "featuredRecipe": false,
+      "title": { "en": "Fish and Bulgur Pilaf", "fr": "Pilaf de poisson et boulghour", "ar": "بيلاف السمك والبرغل" },
+      "description": { "en": "A bulgur pilaf flavored with sautéed vegetables and chunks of salmon.", "fr": "Un pilaf de boulghour parfumé aux légumes sautés et morceaux de saumon.", "ar": "بيلاف برغل بنكهة الخضار والسلمون." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "عالمي" },
+      "recipeYield": { "en": "6-8 servings", "fr": "6-8 portions", "ar": "6-8 حصص" },
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "totalTime": "PT40M",
+      "ingredients": {
+        "en": [
+          "3 tablespoons butter or margarine",
+          "1 pound fresh salmon, cubed",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped celery",
+          "1 cup bulgur wheat",
+          "2 cups water",
+          "1-2 tablespoons lemon juice",
+          "1 teaspoon salt",
+          "1/8 teaspoon fine herbs",
+          "1/8 teaspoon thyme"
+        ],
+        "fr": [
+          "3 c. à soupe de beurre ou margarine",
+          "450 g de saumon frais, coupé en dés",
+          "1/2 tasse d'oignon haché",
+          "1/2 tasse de céleri haché",
+          "1 tasse de boulghour",
+          "2 tasses d'eau",
+          "1-2 c. à soupe de jus de citron",
+          "1 c. à thé de sel",
+          "1/8 c. à thé d'herbes fines",
+          "1/8 c. à thé de thym"
+        ],
+        "ar": [
+          "3 ملعقة طعام زبدة أو سمن",
+          "1 رطل سلمون طازج، مقطع مكعبات",
+          "1/2 كوب بصل مفروم",
+          "1/2 كوب كرفس مفروم",
+          "1 كوب برغل",
+          "2 كوب ماء",
+          "1-2 ملعقة طعام عصير ليمون",
+          "1 ملعقة صغيرة ملح",
+          "1/8 ملعقة صغيرة أعشاب ناعمة",
+          "1/8 ملعقة صغيرة زعتر"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Heat butter in skillet, add onion and celery and sauté until translucent.",
+          "Add salmon and cook briefly, then add bulgur and water.",
+          "Cover and simmer 25-30 minutes until bulgur is tender. Season with lemon juice and salt."
+        ],
+        "fr": [
+          "Faire fondre le beurre dans une poêle, ajouter l'oignon et le céleri et faire revenir jusqu'à transparence.",
+          "Ajouter le saumon et cuire brièvement, puis ajouter le boulghour et l'eau.",
+          "Couvrir et laisser mijoter 25-30 minutes jusqu'à tendreté. Assaisonner avec du jus de citron et du sel."
+        ],
+        "ar": [
+          "سخّن الزبدة في مقلاة، أضف البصل والكرفس وقلِّب حتى يذبلا.",
+          "أضف السلمون واطبخ قليلاً، ثم أضف البرغل والماء.",
+          "غطِّ واتركه على نار هادئة 25-30 دقيقة حتى ينضج البرغل. تبّل بعصير الليمون والملح."
+        ]
+      },
+      "keywords": { "en": ["fish pilaf","bulgur"], "fr": ["pilaf de poisson","boulghour"], "ar": ["بيلاف سمك","برغل"] },
+      "categoryId": "main"
+    }
   ]
 }

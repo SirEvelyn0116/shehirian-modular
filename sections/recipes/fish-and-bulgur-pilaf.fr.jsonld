@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf de poisson et boulghour",
+  "description": "Un pilaf de boulghour parfumé aux légumes sautés et morceaux de saumon.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Internationale",
+  "recipeCategory": "Plat principal",
+  "recipeYield": "6-8 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "3 c. à soupe de beurre ou margarine",
+    "450 g de saumon frais, coupé en dés",
+    "1/2 tasse d'oignon haché",
+    "1/2 tasse de céleri haché",
+    "1 tasse de boulghour",
+    "2 tasses d'eau",
+    "1-2 c. à soupe de jus de citron",
+    "1 c. à thé de sel",
+    "1/8 c. à thé d'herbes fines",
+    "1/8 c. à thé de thym"
+  ],
+  "recipeInstructions": [
+    "Faire fondre le beurre dans une poêle, ajouter l'oignon et le céleri et faire revenir jusqu'à transparence.",
+    "Ajouter le saumon et cuire brièvement, puis ajouter le boulghour et l'eau.",
+    "Couvrir et laisser mijoter 25-30 minutes jusqu'à tendreté. Assaisonner avec du jus de citron et du sel."
+  ],
+  "keywords": "pilaf de poisson,boulghour"
+}

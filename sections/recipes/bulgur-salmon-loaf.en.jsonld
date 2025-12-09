@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Salmon Loaf",
+  "description": "A salmon loaf combined with bulgur and baked until set.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "International",
+  "recipeCategory": "Main Dish",
+  "recipeYield": "6-8 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT45M",
+  "totalTime": "PT1H",
+  "recipeIngredient": [
+    "2-1/2 cups cooked bulgur",
+    "1 can (16 oz.) salmon, drained",
+    "2 eggs",
+    "1/2 cup liquid (salmon liquid plus milk)",
+    "1/4 cup chopped onion",
+    "2 tablespoons lemon juice",
+    "2 tablespoons pickle relish",
+    "1/4 teaspoon salt",
+    "1/4 teaspoon pepper"
+  ],
+  "recipeInstructions": [
+    "Blend all ingredients and turn into a loaf pan.",
+    "Bake in moderate oven, 350°F (175°C), for 45 minutes until set."
+  ],
+  "keywords": "salmon loaf,bulgur"
+}

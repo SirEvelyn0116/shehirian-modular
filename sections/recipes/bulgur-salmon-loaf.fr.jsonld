@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pain de saumon au boulghour",
+  "description": "Un pain de saumon mélangé au boulghour et cuit au four.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Internationale",
+  "recipeCategory": "Plat principal",
+  "recipeYield": "6-8 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT45M",
+  "totalTime": "PT1H",
+  "recipeIngredient": [
+    "2 1/2 tasses de boulghour cuit",
+    "1 boîte (450 g) de saumon, égoutté",
+    "2 œufs",
+    "1/2 tasse de liquide (jus de saumon + lait)",
+    "1/4 tasse d'oignon haché",
+    "2 c. à soupe de jus de citron",
+    "2 c. à soupe de relish (cornichon)",
+    "1/4 c. à thé de sel",
+    "1/4 c. à thé de poivre"
+  ],
+  "recipeInstructions": [
+    "Mélanger tous les ingrédients et mettre dans un moule à cake.",
+    "Cuire au four à 175°C pendant 45 minutes jusqu'à ce que le pain soit pris."
+  ],
+  "keywords": "pain de saumon,boulghour"
+}
