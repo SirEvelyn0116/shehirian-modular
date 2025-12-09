@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Bulgor Wheat Biscuits",
+  "description": "Tender biscuits made with cooked bulgur mixed into the dough.",
+  "recipeYield": "10 to 12 (2 inch) biscuits",
+  "prepTime": "PT15M",
+  "cookTime": "PT50M",
+  "totalTime": "PT65M",
+  "recipeIngredient": [
+    "1 cup water",
+    "1/4 cup Bulgor wheat",
+    "2 cups sifted flour",
+    "3-1/2 teaspoons baking powder",
+    "1 teaspoon salt",
+    "1/4 cup shortening",
+    "3/4 cup milk",
+    "3/4 cup cooked Bulgor"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed." },
+    { "@type": "HowToStep", "text": "Sift together flour, baking powder, and salt; cut in shortening." },
+    { "@type": "HowToStep", "text": "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits." },
+    { "@type": "HowToStep", "text": "Bake at 400°F until lightly browned, about 25 to 30 minutes." }
+  ]
+}

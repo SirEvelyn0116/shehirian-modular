@@ -4,5 +4,6 @@
   "main": { "en": "Main Dish", "fr": "Plat Principal", "ar": "طبق رئيسي" },
   "starter": { "en": "Starter", "fr": "Entrée", "ar": "مقبلات" },
   "dessert": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
-  "other": { "en": "Other", "fr": "Autre", "ar": "أخرى" }
+  "other": { "en": "Other", "fr": "Autre", "ar": "أخرى" },
+  "side": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" }
 }

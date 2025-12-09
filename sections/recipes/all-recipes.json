@@ -2584,5 +2584,131 @@
       "keywords": { "en": ["baked","bulgur","boston"], "fr": ["baked","boulghour","boston"], "ar": ["مخبوز","برغل","بوسطن"] },
       "categoryId": "main"
     }
+    ,
+    {
+      "slug": "pilaf-almondine",
+      "featuredRecipe": false,
+      "title": { "en": "Pilaf Almondine", "fr": "Pilaf Almondine", "ar": "Pilaf Almondine" },
+      "description": { "en": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.", "fr": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.", "ar": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "متنوع" },
+      "recipeYield": { "en": "4 to 5 servings", "fr": "4 à 5 portions", "ar": "4 إلى 5 حصص" },
+      "prepTime": "PT5M",
+      "cookTime": "PT25M",
+      "totalTime": "PT35M",
+      "ingredients": {
+        "en": ["1 cup Bulgor Wheat","2 cups water","1/2 cup butter or margarine","1/4 teaspoon salt","Chopped toasted almonds (for garnish)","Poppy seeds (for garnish)"],
+        "fr": ["1 cup Bulgor Wheat","2 cups water","1/2 cup butter or margarine","1/4 teaspoon salt","Chopped toasted almonds (for garnish)","Poppy seeds (for garnish)"],
+        "ar": ["1 cup Bulgor Wheat","2 cups water","1/2 cup butter or margarine","1/4 teaspoon salt","Chopped toasted almonds (for garnish)","Poppy seeds (for garnish)"]
+      },
+      "instructions": {
+        "en": ["Combine Bulgor, salt, and water in a saucepan.","Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes).","Let it stand 10 minutes.","Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."],
+        "fr": ["Combine Bulgor, salt, and water in a saucepan.","Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes).","Let it stand 10 minutes.","Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."],
+        "ar": ["Combine Bulgor, salt, and water in a saucepan.","Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes).","Let it stand 10 minutes.","Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."]
+      },
+      "keywords": { "en": ["pilaf","almondine","bulgur"], "fr": ["pilaf","almondine","bulghour"], "ar": ["بلاف","لوز","برغل"] },
+      "categoryId": "side"
+    },
+    {
+      "slug": "pilaf-romanoff",
+      "featuredRecipe": false,
+      "title": { "en": "Pilaf Romanoff", "fr": "Pilaf Romanoff", "ar": "Pilaf Romanoff" },
+      "description": { "en": "A creamy bulgur pilaf with cottage cheese and sour cream.", "fr": "A creamy bulgur pilaf with cottage cheese and sour cream.", "ar": "A creamy bulgur pilaf with cottage cheese and sour cream." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" },
+      "recipeCuisine": { "en": "International", "fr": "Internationale", "ar": "متنوع" },
+      "recipeYield": { "en": "4 to 6 servings", "fr": "4 à 6 portions", "ar": "4 إلى 6 حصص" },
+      "prepTime": "PT5M",
+      "cookTime": "PT10M",
+      "totalTime": "PT15M",
+      "ingredients": {
+        "en": ["2-1/2 cups cooked or soaked Bulgor Wheat","1 cup sour cream","1 cup cottage cheese","1 teaspoon grated onion","3/4 teaspoon salt","Dash Tabasco Sauce","1/4 teaspoon Worcestershire sauce"],
+        "fr": ["2-1/2 cups cooked or soaked Bulgor Wheat","1 cup sour cream","1 cup cottage cheese","1 teaspoon grated onion","3/4 teaspoon salt","Dash Tabasco Sauce","1/4 teaspoon Worcestershire sauce"],
+        "ar": ["2-1/2 cups cooked or soaked Bulgor Wheat","1 cup sour cream","1 cup cottage cheese","1 teaspoon grated onion","3/4 teaspoon salt","Dash Tabasco Sauce","1/4 teaspoon Worcestershire sauce"]
+      },
+      "instructions": {
+        "en": ["Blend all ingredients in a saucepan.","Cover and cook low heat about 10 minutes.","Stir several times while heating."],
+        "fr": ["Blend all ingredients in a saucepan.","Cover and cook low heat about 10 minutes.","Stir several times while heating."],
+        "ar": ["Blend all ingredients in a saucepan.","Cover and cook low heat about 10 minutes.","Stir several times while heating."]
+      },
+      "keywords": { "en": ["pilaf","Romanoff","creamy"], "fr": ["pilaf","Romanoff","crémeux"], "ar": ["بلاف","رومانوف","كريمي"] },
+      "categoryId": "side"
+    },
+    {
+      "slug": "spanish-bulgor",
+      "featuredRecipe": false,
+      "title": { "en": "Spanish Bulgor", "fr": "Spanish Bulgor", "ar": "Spanish Bulgor" },
+      "description": { "en": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.", "fr": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.", "ar": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" },
+      "recipeCuisine": { "en": "Spanish-inspired", "fr": "Inspiré espagnol", "ar": "بطابع إسباني" },
+      "recipeYield": { "en": "5 to 6 servings", "fr": "5 à 6 portions", "ar": "5 إلى 6 حصص" },
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "totalTime": "PT35M",
+      "ingredients": {
+        "en": ["4 slices bacon cut in 1/2-inch strips","1/2 to 3/4 cup chopped onion","1/2 cup chopped celery","1/2 cup chopped green bell pepper","1 clove garlic, finely minced","1 can (10 oz.) tomatoes","2 cups water","1/2 teaspoon salt","1 teaspoon seasoned salt","1/4 teaspoon pepper","1 teaspoon sugar","1 teaspoon Worcestershire Sauce","1 cup Bulgor Wheat"],
+        "fr": ["4 slices bacon cut in 1/2-inch strips","1/2 to 3/4 cup chopped onion","1/2 cup chopped celery","1/2 cup chopped green bell pepper","1 clove garlic, finely minced","1 can (10 oz.) tomatoes","2 cups water","1/2 teaspoon salt","1 teaspoon seasoned salt","1/4 teaspoon pepper","1 teaspoon sugar","1 teaspoon Worcestershire Sauce","1 cup Bulgor Wheat"],
+        "ar": ["4 slices bacon cut in 1/2-inch strips","1/2 to 3/4 cup chopped onion","1/2 cup chopped celery","1/2 cup chopped green bell pepper","1 clove garlic, finely minced","1 can (10 oz.) tomatoes","2 cups water","1/2 teaspoon salt","1 teaspoon seasoned salt","1/4 teaspoon pepper","1 teaspoon sugar","1 teaspoon Worcestershire Sauce","1 cup Bulgor Wheat"]
+      },
+      "instructions": {
+        "en": ["Sauté bacon strips in a heavy skillet until they begin to brown.","Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured.","Blend in the tomatoes, water, seasonings, and Bulgor Wheat.","Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."],
+        "fr": ["Sauté bacon strips in a heavy skillet until they begin to brown.","Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured.","Blend in the tomatoes, water, seasonings, and Bulgor Wheat.","Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."],
+        "ar": ["Sauté bacon strips in a heavy skillet until they begin to brown.","Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured.","Blend in the tomatoes, water, seasonings, and Bulgor Wheat.","Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."]
+      },
+      "keywords": { "en": ["spanish","bulgur","skillet"], "fr": ["spanish","bulghour","poêle"], "ar": ["إسباني","برغل","مقلاة"] },
+      "categoryId": "side"
+    },
+    {
+      "slug": "bulgor-wheat-shortcake",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgor Wheat Shortcake", "fr": "Bulgor Wheat Shortcake", "ar": "Bulgor Wheat Shortcake" },
+      "description": { "en": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.", "fr": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.", "ar": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" },
+      "recipeCuisine": { "en": "Baked", "fr": "Cuit au four", "ar": "مخبوز" },
+      "recipeYield": { "en": "6 to 8 servings", "fr": "6 à 8 portions", "ar": "6 إلى 8 حصص" },
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "totalTime": "PT65M",
+      "ingredients": {
+        "en": ["1 cup water","1/4 cup Bulgor wheat","2 cups sifted flour","3-1/2 teaspoons baking powder","3/4 teaspoon salt","1/3 cup sugar","1/4 cup shortening","3/4 cup milk"],
+        "fr": ["1 cup water","1/4 cup Bulgor wheat","2 cups sifted flour","3-1/2 teaspoons baking powder","3/4 teaspoon salt","1/3 cup sugar","1/4 cup shortening","3/4 cup milk"],
+        "ar": ["1 cup water","1/4 cup Bulgor wheat","2 cups sifted flour","3-1/2 teaspoons baking powder","3/4 teaspoon salt","1/3 cup sugar","1/4 cup shortening","3/4 cup milk"]
+      },
+      "instructions": {
+        "en": ["Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, salt, and sugar.","Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.","Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."],
+        "fr": ["Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, salt, and sugar.","Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.","Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."],
+        "ar": ["Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, salt, and sugar.","Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.","Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."]
+      },
+      "keywords": { "en": ["shortcake","bulgur","baked"], "fr": ["shortcake","bulghour","cuit"], "ar": ["شورت كيك","برغل","مخبوز"] },
+      "categoryId": "side"
+    },
+    {
+      "slug": "bulgor-wheat-biscuits",
+      "featuredRecipe": false,
+      "title": { "en": "Bulgor Wheat Biscuits", "fr": "Bulgor Wheat Biscuits", "ar": "Bulgor Wheat Biscuits" },
+      "description": { "en": "Tender biscuits made with cooked bulgur mixed into the dough.", "fr": "Tender biscuits made with cooked bulgur mixed into the dough.", "ar": "Tender biscuits made with cooked bulgur mixed into the dough." },
+      "author": { "en": "Laurence Evelyn", "fr": "Laurence Evelyn", "ar": "لورنس إيفلين" },
+      "recipeCategory": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" },
+      "recipeCuisine": { "en": "Baked", "fr": "Cuit au four", "ar": "مخبوز" },
+      "recipeYield": { "en": "10 to 12 (2 inch) biscuits", "fr": "10 à 12 biscuits (5 cm)", "ar": "10 إلى 12 بسكويت (2 بوصة)" },
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "totalTime": "PT65M",
+      "ingredients": {
+        "en": ["1 cup water","1/4 cup Bulgor wheat","2 cups sifted flour","3-1/2 teaspoons baking powder","1 teaspoon salt","1/4 cup shortening","3/4 cup milk","3/4 cup cooked Bulgor"],
+        "fr": ["1 cup water","1/4 cup Bulgor wheat","2 cups sifted flour","3-1/2 teaspoons baking powder","1 teaspoon salt","1/4 cup shortening","3/4 cup milk","3/4 cup cooked Bulgor"],
+        "ar": ["1 cup water","1/4 cup Bulgor wheat","2 cups sifted flour","3-1/2 teaspoons baking powder","1 teaspoon salt","1/4 cup shortening","3/4 cup milk","3/4 cup cooked Bulgor"]
+      },
+      "instructions": {
+        "en": ["Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, and salt; cut in shortening.","Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.","Bake at 400°F until lightly browned, about 25 to 30 minutes."],
+        "fr": ["Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, and salt; cut in shortening.","Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.","Bake at 400°F until lightly browned, about 25 to 30 minutes."],
+        "ar": ["Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.","Sift together flour, baking powder, and salt; cut in shortening.","Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.","Bake at 400°F until lightly browned, about 25 to 30 minutes."]
+      },
+      "keywords": { "en": ["biscuits","bulgur","baked"], "fr": ["biscuits","bulghour","cuit"], "ar": ["بسكويت","برغل","مخبوز"] },
+      "categoryId": "side"
+    }
   ]
 }
