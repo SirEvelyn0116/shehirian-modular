@@ -2,7 +2,7 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Pouding indien au boulghour",
-  "author": "Laurence Evelyn",
+  "author": "Shehirian family",
   "description": "Un pouding de boulghour au mélasse et épices.",
   "recipeCategory": "Dessert",
   "recipeCuisine": "Internationale",
@@ -24,9 +24,21 @@
     "1 1/4 tasse d'eau"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Mélanger tous les ingrédients dans un plat allant au four de 2 litres." },
-    { "@type": "HowToStep", "text": "Couvrir et cuire à four doux (160°C) pendant 45 minutes." },
-    { "@type": "HowToStep", "text": "Retirer le couvercle et continuer la cuisson environ 45 minutes." },
-    { "@type": "HowToStep", "text": "Servir chaud avec de la crème fouettée ou de la glace." }
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger tous les ingrédients dans un plat allant au four de 2 litres."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Couvrir et cuire à four doux (160°C) pendant 45 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Retirer le couvercle et continuer la cuisson environ 45 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Servir chaud avec de la crème fouettée ou de la glace."
+    }
   ]
 }

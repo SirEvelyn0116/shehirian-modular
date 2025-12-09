@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Cole Slaw with Bulgur",
+  "author": "Shehirian family",
+  "description": "A hearty twist on classic coleslaw with the addition of nutritious bulgur wheat.",
+  "recipeCategory": "Salad",
+  "recipeCuisine": "American",
+  "recipeYield": "8-10 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "4 cups shredded cabbage",
+    "1 cup shredded carrots",
+    "1 cup cooked and cooled bulgur wheat",
+    "1/2 cup mayonnaise",
+    "2 tbsp apple cider vinegar",
+    "1 tbsp sugar",
+    "Salt and pepper to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Cook bulgur according to package and cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a large bowl combine shredded cabbage and carrots."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add cooled bulgur."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk together mayonnaise, vinegar, sugar, salt and pepper; toss with vegetables."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Chill before serving."
+    }
+  ]
+}

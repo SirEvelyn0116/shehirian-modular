@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Bulgur Stuffed Peppers",
+  "author": "Shehirian family",
   "description": "Bell peppers stuffed with a bulgur and meat mixture, baked in tomato sauce.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "International",
   "recipeCategory": "Main Dish",
+  "recipeCuisine": "International",
   "recipeYield": "5-6 servings",
   "prepTime": "PT20M",
   "cookTime": "PT1H10M",
@@ -22,10 +22,21 @@
     "Green or red bell peppers"
   ],
   "recipeInstructions": [
-    "Blend bulgur, meat, stock, salt, seasoned salt, Worcestershire sauce and pepper.",
-    "Cut peppers in halves lengthwise and remove seeds.",
-    "Fill pepper halves with bulgur mixture and place in baking dish.",
-    "Pour tomato purée mixed with stock over peppers, cover and bake at 375°F for 30 minutes, then uncover and bake an additional 40 minutes."
-  ],
-  "keywords": "stuffed peppers,bulgur"
+    {
+      "@type": "HowToStep",
+      "text": "Blend bulgur, meat, stock, salt, seasoned salt, Worcestershire sauce and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut peppers in halves lengthwise and remove seeds."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fill pepper halves with bulgur mixture and place in baking dish."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Pour tomato purée mixed with stock over peppers, cover and bake at 375°F for 30 minutes, then uncover and bake an additional 40 minutes."
+    }
+  ]
 }

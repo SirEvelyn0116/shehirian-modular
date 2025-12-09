@@ -2,16 +2,16 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Plateau de viande crue",
+  "author": "Shehirian family",
   "description": "Un mélange traditionnel d'agneau cru et de boulghour servi en galettes.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Moyen-Orientale",
   "recipeCategory": "Entrée",
+  "recipeCuisine": "Moyen-Orientale",
   "recipeYield": "5-6 portions",
   "prepTime": "PT20M",
   "cookTime": "PT0M",
   "totalTime": "PT20M",
   "recipeIngredient": [
-    "1 tasse d'agneau maigre haché deux fois",
+    "1 tasse (environ 450 g) d'agneau maigre haché deux fois",
     "Poivron vert, haché fin",
     "Persil, haché fin",
     "Oignons verts, hachés fin",
@@ -21,10 +21,21 @@
     "Sel et poivre au goût"
   ],
   "recipeInstructions": [
-    "Utilisez uniquement de l'agneau (morceau de gigot recommandé) et servez le jour même de la préparation.",
-    "Salez la viande et mélangez.",
-    "Ajoutez le boulghour, les oignons et les légumes hachés et pétrissez avec un peu d'eau jusqu'à obtenir une pâte homogène.",
-    "Formez des galettes de 5 cm et servez immédiatement, garnies de légumes hachés."
-  ],
-  "keywords": "viande crue,kibbeh,boulghour"
+    {
+      "@type": "HowToStep",
+      "text": "Utilisez uniquement de l'agneau (morceau de gigot recommandé) et servez le jour même de la préparation."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Salez la viande et mélangez."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajoutez le boulghour, les oignons et les légumes hachés et pétrissez avec un peu d'eau jusqu'à obtenir une pâte homogène."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Formez des galettes de 5 cm et servez immédiatement, garnies de légumes hachés."
+    }
+  ]
 }

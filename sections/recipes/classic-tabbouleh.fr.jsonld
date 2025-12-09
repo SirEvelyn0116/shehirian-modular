@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Classic Tabbouleh",
+  "author": "Shehirian family",
+  "description": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+  "recipeCategory": "Salade",
+  "recipeCuisine": "Moyen-Orientale",
+  "recipeYield": "6 portions",
+  "prepTime": "PT20M",
+  "cookTime": "PT5M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1/2 tasse de boulghour fin",
+    "2 tasses de persil finement haché",
+    "1/2 tasse de menthe finement hachée",
+    "3 tomates moyennes, en dés",
+    "1/4 tasse d'oignon finement haché",
+    "1/4 tasse de jus de citron frais",
+    "1/4 tasse d'huile d'olive",
+    "Sel et poivre au goût"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Rincer le boulghour et le faire tremper dans de l'eau froide pendant 5 minutes, puis bien égoutter."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dans un grand bol, mélanger le persil, la menthe, les tomates et l'oignon."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le boulghour égoutté et bien mélanger."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dans un petit bol, fouetter le jus de citron, l'huile d'olive, le sel et le poivre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verser la vinaigrette sur la salade et mélanger."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Réfrigérer au moins 1 heure avant de servir pour laisser les saveurs se développer."
+    }
+  ]
+}

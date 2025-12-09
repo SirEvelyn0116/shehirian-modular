@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "India Chicken Curry Pilaf",
+  "author": "Shehirian family",
   "description": "A creamy curried chicken pilaf with bulgur and apples.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Indian-Inspired",
   "recipeCategory": "Main Dish",
+  "recipeCuisine": "Indian-Inspired",
   "recipeYield": "5-6 servings",
   "prepTime": "PT15M",
   "cookTime": "PT25M",
@@ -14,8 +14,13 @@
     "Butter or chicken fat, chopped onion, tart apple, celery, curry powder, ginger, flour, salt, pepper, chicken stock, cream or milk, cooked diced chicken, bulgur"
   ],
   "recipeInstructions": [
-    "Sauté onion, apple and celery in butter; add spices and flour then stir in stock and cream until thickened.",
-    "Add cooked chicken and bulgur, cover and simmer over low heat 25 minutes."
-  ],
-  "keywords": "chicken curry,pilaf,bulgur"
+    {
+      "@type": "HowToStep",
+      "text": "Sauté onion, apple and celery in butter; add spices and flour then stir in stock and cream until thickened."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add cooked chicken and bulgur, cover and simmer over low heat 25 minutes."
+    }
+  ]
 }

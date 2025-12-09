@@ -2,16 +2,16 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Raw Meat Platter",
+  "author": "Shehirian family",
   "description": "A traditional seasoned raw lamb and bulgur mixture served as patties.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Middle Eastern",
   "recipeCategory": "Starter",
+  "recipeCuisine": "Middle Eastern",
   "recipeYield": "5-6 servings",
   "prepTime": "PT20M",
   "cookTime": "PT0M",
   "totalTime": "PT20M",
   "recipeIngredient": [
-    "1 cup lean lamb, ground twice",
+    "1 cup (about 1 lb.) lean lamb, ground twice",
     "Green pepper, chopped fine",
     "Parsley, chopped fine",
     "Green onions, chopped fine",
@@ -21,10 +21,21 @@
     "Salt and pepper to taste"
   ],
   "recipeInstructions": [
-    "Use lamb only (leg preferred) and serve the same day it is ground.",
-    "Salt the meat and blend together.",
-    "Add bulgur, chopped onions and vegetables and knead with a little water until mixture holds together.",
-    "Shape into patties and serve immediately, garnished with chopped vegetables."
-  ],
-  "keywords": "raw meat,kibbeh-style,bulgur"
+    {
+      "@type": "HowToStep",
+      "text": "Use lamb only (leg preferred) and serve the same day it is ground."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Salt the meat and blend together."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add bulgur, chopped onions and vegetables and knead with a little water until mixture holds together."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Shape into 2 inch patties and serve immediately, garnished with chopped vegetables."
+    }
+  ]
 }

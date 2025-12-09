@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Fish and Bulgur Pilaf",
+  "author": "Shehirian family",
   "description": "A bulgur pilaf flavored with sautéed vegetables and chunks of salmon.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "International",
   "recipeCategory": "Main Dish",
+  "recipeCuisine": "International",
   "recipeYield": "6-8 servings",
   "prepTime": "PT10M",
   "cookTime": "PT30M",
@@ -23,9 +23,17 @@
     "1/8 teaspoon thyme"
   ],
   "recipeInstructions": [
-    "Heat butter in skillet, add onion and celery and sauté until translucent.",
-    "Add salmon and cook briefly, then add bulgur and water.",
-    "Cover and simmer 25-30 minutes until bulgur is tender. Season with lemon juice and salt."
-  ],
-  "keywords": "fish pilaf,bulgur"
+    {
+      "@type": "HowToStep",
+      "text": "Heat butter in skillet, add onion and celery and sauté until translucent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add salmon and cook briefly, then add bulgur and water."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and simmer 25-30 minutes until bulgur is tender. Season with lemon juice and salt."
+    }
+  ]
 }

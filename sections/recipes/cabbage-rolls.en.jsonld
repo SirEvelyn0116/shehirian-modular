@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Cabbage Rolls",
+  "author": "Shehirian family",
   "description": "Cabbage leaves stuffed with a bulgur and lamb filling, simmered until tender.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Middle Eastern",
   "recipeCategory": "Main Dish",
+  "recipeCuisine": "Middle Eastern",
   "recipeYield": "Serves many",
   "prepTime": "PT30M",
   "cookTime": "PT1H",
@@ -23,10 +23,21 @@
     "Juice of 1/2 lemon"
   ],
   "recipeInstructions": [
-    "Soften cabbage leaves in boiling water and trim ribs.",
-    "Mix bulgur with lamb, onions, tomato paste, parsley, mint, salt and pepper.",
-    "Place filling on cabbage leaves, roll and arrange in pan; add broth and lemon juice.",
-    "Cover and cook or bake at moderate heat for 1 hour."
-  ],
-  "keywords": "cabbage rolls,dolma,bulgur"
+    {
+      "@type": "HowToStep",
+      "text": "Soften cabbage leaves in boiling water and trim ribs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mix bulgur with lamb, onions, tomato paste, parsley, mint, salt and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Place filling on cabbage leaves, roll and arrange in pan; add broth and lemon juice."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and cook or bake at moderate heat for 1 hour."
+    }
+  ]
 }

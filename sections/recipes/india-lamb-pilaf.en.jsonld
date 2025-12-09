@@ -2,20 +2,25 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "India Lamb Pilaf",
+  "author": "Shehirian family",
   "description": "A spiced lamb pilaf with curry and apples, using bulgur.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Indian-Inspired",
   "recipeCategory": "Main Dish",
+  "recipeCuisine": "Indian-Inspired",
   "recipeYield": "5-6 servings",
   "prepTime": "PT15M",
   "cookTime": "PT40M",
   "totalTime": "PT55M",
   "recipeIngredient": [
-    "Oil, cooked lamb cubes, chopped onion, tart apple, garlic, celery seed, curry powder, ginger, salt, pepper, Tabasco, tomato purée, consommé or water, bulgur"
+    "Oil, cooked lamb cubes, chopped onion, tart apple, garlic, celery seed, curry powder, ginger, salt, pepper, Tabasco, tomato purée, consommé or water, 1 cup bulgur"
   ],
   "recipeInstructions": [
-    "Sauté lamb with onion, apple and garlic; brown lightly.",
-    "Blend in remaining ingredients, bring to boil then simmer about 40 minutes until thickened."
-  ],
-  "keywords": "lamb pilaf,curry,bulgur"
+    {
+      "@type": "HowToStep",
+      "text": "Sauté lamb with onion, apple and garlic; brown lightly."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Blend in remaining ingredients, bring to boil then simmer about 40 minutes until thickened."
+    }
+  ]
 }

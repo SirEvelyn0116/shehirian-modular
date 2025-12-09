@@ -2,7 +2,7 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Bavarois chocolat au boulghour",
-  "author": "Laurence Evelyn",
+  "author": "Shehirian family",
   "description": "Un dessert chocolaté au boulghour, pris à la gélatine et à la crème fouettée.",
   "recipeCategory": "Dessert",
   "recipeCuisine": "Internationale",
@@ -21,8 +21,17 @@
     "1/2 tasse de crème épaisse, fouettée"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Dissoudre la gélatine dans l'eau et chauffer avec le cacao, le sucre et le lait jusqu'à dissolution (ne pas bouillir)." },
-    { "@type": "HowToStep", "text": "Ajouter le boulghour cuit et la vanille, refroidir jusqu'à épaississement sans prise complète." },
-    { "@type": "HowToStep", "text": "Incorporer la crème fouettée, verser dans un moule graissé et réfrigérer jusqu'à ce que ça prenne." }
+    {
+      "@type": "HowToStep",
+      "text": "Dissoudre la gélatine dans l'eau et chauffer avec le cacao, le sucre et le lait jusqu'à dissolution (ne pas bouillir)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le boulghour cuit et la vanille, refroidir jusqu'à épaississement sans prise complète."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Incorporer la crème fouettée, verser dans un moule graissé et réfrigérer jusqu'à ce que ça prenne."
+    }
   ]
 }

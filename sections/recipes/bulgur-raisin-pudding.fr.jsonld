@@ -2,7 +2,7 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Pouding ancien au boulghour et raisins",
-  "author": "Laurence Evelyn",
+  "author": "Shehirian family",
   "description": "Un pouding de boulghour aux raisins.",
   "recipeCategory": "Dessert",
   "recipeCuisine": "Internationale",
@@ -20,8 +20,17 @@
     "1/2 tasse de raisins sans pépins"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Mélanger tous les ingrédients dans un plat à four." },
-    { "@type": "HowToStep", "text": "Couvrir et cuire à four moyen 160°C pendant 45 minutes." },
-    { "@type": "HowToStep", "text": "Retirer le couvercle, remuer et continuer la cuisson à découvert environ 45 minutes jusqu'à ce qu'il soit doré." }
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger tous les ingrédients dans un plat à four."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Couvrir et cuire à four moyen 160°C pendant 45 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Retirer le couvercle, remuer et continuer la cuisson à découvert environ 45 minutes jusqu'à ce qu'il soit doré."
+    }
   ]
 }

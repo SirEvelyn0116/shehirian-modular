@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Soupe Arménienne aux Lentilles",
+  "author": "Shehirian family",
+  "description": "Une soupe arménienne consistante aux lentilles, persil, menthe et beurre.",
+  "recipeCategory": "Soupe",
+  "recipeCuisine": "Arménienne",
+  "recipeYield": "4 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT60M",
+  "totalTime": "PT75M",
+  "recipeIngredient": [
+    "125 ml d’eau",
+    "125 ml de lentilles",
+    "125 ml d’oignon haché",
+    "125 ml de persil haché",
+    "1/2 c. à thé de sel",
+    "1/2 c. à thé de poivre",
+    "125 ml de beurre ou margarine",
+    "125 ml de menthe hachée"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Faire bouillir les lentilles dans l’eau pendant 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter l’oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter la menthe et le beurre. Laisser mijoter 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Optionnel : Faire frire le beurre jusqu’à ce qu’il soit doré et le verser sur la soupe."
+    }
+  ]
+}

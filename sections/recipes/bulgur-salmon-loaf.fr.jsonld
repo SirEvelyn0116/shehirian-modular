@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Pain de saumon au boulghour",
+  "author": "Shehirian family",
   "description": "Un pain de saumon mélangé au boulghour et cuit au four.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Internationale",
   "recipeCategory": "Plat principal",
+  "recipeCuisine": "Internationale",
   "recipeYield": "6-8 portions",
   "prepTime": "PT15M",
   "cookTime": "PT45M",
@@ -22,8 +22,13 @@
     "1/4 c. à thé de poivre"
   ],
   "recipeInstructions": [
-    "Mélanger tous les ingrédients et mettre dans un moule à cake.",
-    "Cuire au four à 175°C pendant 45 minutes jusqu'à ce que le pain soit pris."
-  ],
-  "keywords": "pain de saumon,boulghour"
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger tous les ingrédients et mettre dans un moule à cake."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cuire au four à 175°C pendant 45 minutes jusqu'à ce que le pain soit pris."
+    }
+  ]
 }

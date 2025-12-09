@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Hearty Bulgur Pilaf",
+  "author": "Shehirian family",
+  "description": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+  "recipeCategory": "Plat Principal",
+  "recipeCuisine": "Moyen-Orientale",
+  "recipeYield": "4 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT25M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "1 1/2 tasse de boulghour grossier",
+    "2 c. à soupe de beurre ou d'huile d'olive",
+    "1 oignon moyen, en dés",
+    "2 gousses d'ail, hachées",
+    "1 poivron rouge, en dés",
+    "1 carotte, en dés",
+    "3 tasses de bouillon de légumes",
+    "1 c. à thé de cumin",
+    "1/2 c. à thé de paprika",
+    "Sel et poivre au goût",
+    "Herbes fraîches pour garnir"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Dans une grande casserole, faites chauffer le beurre ou l'huile à feu moyen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter l'oignon et l'ail, faire sauter jusqu'à ce qu'ils soient parfumés et translucides."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le poivron et la carotte, cuire 5 minutes jusqu'à ce qu'ils ramollissent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Incorporer le boulghour, le cumin et le paprika, en enrobant les grains d'huile."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verser le bouillon de légumes, porter à ébullition, puis réduire le feu."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Couvrir et laisser mijoter 15-20 minutes jusqu'à ce que le boulghour soit tendre et que le liquide soit absorbé."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Retirer du feu, laisser reposer 5 minutes couvert, puis aérer à la fourchette."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Assaisonner, garnir d'herbes fraîches et servir."
+    }
+  ]
+}

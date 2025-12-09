@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Classic Tabbouleh",
+  "author": "Shehirian family",
+  "description": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+  "recipeCategory": "سلطة",
+  "recipeCuisine": "شرق أوسطية",
+  "recipeYield": "6 حصص",
+  "prepTime": "PT20M",
+  "cookTime": "PT5M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1/2 كوب برغل ناعم",
+    "2 كوب بقدونس مفروم ناعم",
+    "1/2 كوب نعناع مفروم ناعم",
+    "3 طماطم متوسطة مقطعة",
+    "1/4 كوب بصل مفروم ناعم",
+    "1/4 كوب عصير ليمون طازج",
+    "1/4 كوب زيت زيتون",
+    "ملح وفلفل حسب الذوق"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "اغسل البرغل وانقعه في ماء بارد لمدة 5 دقائق ثم صفّه جيدًا."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "في وعاء كبير، اخلط البقدونس والنعناع والطماطم والبصل."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "أضف البرغل المصفي وامزج جيدًا."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "في وعاء صغير، اخفق عصير الليمون وزيت الزيتون والملح والفلفل."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اسكب التتبيلة على السلطة وقلِّب."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "ضعها في الثلاجة لمدة ساعة على الأقل قبل التقديم لتندمج النكهات."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Salade de concombres hollandaise au bulgur",
+  "author": "Shehirian family",
+  "description": "Une salade crémeuse et rafraîchissante avec du bulgur, des concombres, des radis et une vinaigrette acidulée à la crème sure.",
+  "recipeCategory": "Salade",
+  "recipeCuisine": "Hollandaise",
+  "recipeYield": "6-8 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT15M",
+  "totalTime": "PT30M",
+  "recipeIngredient": [
+    "1 tasse de boulghour cuit, refroidi",
+    "2 tasses de concombre en tranches",
+    "1/2 tasse de radis en tranches",
+    "1/2 tasse de crème sure",
+    "2 c. à soupe de mayonnaise",
+    "1 c. à soupe de vinaigre blanc",
+    "Sel et poivre au goût",
+    "Aneth frais ou ciboulette pour garnir"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Préparer le boulghour et laisser refroidir."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger le boulghour, les tranches de concombre et les radis dans un bol."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fouetter la crème sure, la mayonnaise, le vinaigre, le sel et le poivre; incorporer à la salade."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Garnir d'aneth ou de ciboulette et réfrigérer avant de servir."
+    }
+  ]
+}

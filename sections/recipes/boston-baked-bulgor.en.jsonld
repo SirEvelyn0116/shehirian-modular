@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Boston Baked Bulgur",
+  "author": "Shehirian family",
   "description": "A sweet-and-savory baked bulgur dish finished with bacon or salt pork.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "American",
   "recipeCategory": "Casserole",
+  "recipeCuisine": "American",
   "recipeYield": "4-5 servings",
   "prepTime": "PT10M",
   "cookTime": "PT1H25M",
@@ -13,19 +13,27 @@
   "recipeIngredient": [
     "2-1/2 cups cooked bulgur wheat",
     "2/3 cup condensed tomato soup",
-    "3 tbsp molasses",
+    "3 tablespoons molasses",
     "3/4 cup water or consommé",
-    "3 tbsp brown sugar",
-    "1/2 tsp dry mustard",
-    "1/2 tsp salt",
-    "1-2 tbsp minced onion",
-    "1 tsp Worcestershire sauce",
-    "2 oz salt pork or bacon"
+    "3 tablespoons brown sugar",
+    "1/2 teaspoon dry mustard",
+    "1/2 teaspoon salt",
+    "1 to 2 tablespoons minced onion",
+    "1 teaspoon Worcestershire sauce",
+    "2 ounces salt pork or bacon"
   ],
   "recipeInstructions": [
-    "Blend all ingredients except salt pork in a casserole.",
-    "Press strips of salt pork or bacon into the surface.",
-    "Cover and bake at 325°F (160°C) 45 minutes, remove cover and continue baking ~40 minutes."
-  ],
-  "keywords": "baked,bulgur,boston"
+    {
+      "@type": "HowToStep",
+      "text": "Blend all ingredients except salt pork or bacon in a casserole."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut salt pork or bacon into strips and press into surface of bulgur mixture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and bake at 325°F (160°C) for 45 minutes; remove cover and continue baking about 40 minutes."
+    }
+  ]
 }

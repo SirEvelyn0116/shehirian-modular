@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Salade de bulgur aux carottes et ananas",
+  "author": "Shehirian family",
+  "description": "Une salade sucrée et salée combinant du blé bulgur avec des carottes râpées et de l'ananas tropical.",
+  "recipeCategory": "Salade",
+  "recipeCuisine": "Américaine",
+  "recipeYield": "8-10 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 tasses de boulghour cuit et refroidi",
+    "2 tasses de carottes râpées",
+    "1 tasse de morceaux d'ananas (frais ou en conserve)",
+    "1/4 tasse de mayonnaise",
+    "1 c. à soupe de jus de citron",
+    "1 c. à soupe de sucre (facultatif)",
+    "Sel et poivre au goût"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Cuire le boulghour selon les instructions, laisser refroidir à température ambiante."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dans un grand bol, mélanger le boulghour, les carottes râpées et l'ananas."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger la mayonnaise, le jus de citron, le sucre, le sel et le poivre; incorporer à la salade."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Réfrigérer avant de servir."
+    }
+  ]
+}

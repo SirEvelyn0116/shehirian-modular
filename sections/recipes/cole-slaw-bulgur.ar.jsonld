@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "سلطة ملفوف بالبرغل",
+  "author": "Shehirian family",
+  "description": "نسخة شهية من سلطة الكول سلو الكلاسيكية مع إضافة البرغل المغذي.",
+  "recipeCategory": "سلطة",
+  "recipeCuisine": "أمريكية",
+  "recipeYield": "8-10 حصص",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "4 أكواب ملفوف مبشور",
+    "1 كوب جزر مبشور",
+    "1 كوب برغل مطبوخ ومبرد",
+    "1/2 كوب مايونيز",
+    "2 ملعقة طعام خل التفاح",
+    "1 ملعقة طعام سكر",
+    "ملح وفلفل حسب الذوق"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "اطبخ البرغل حسب التعليمات ثم اتركه يبرد."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "في وعاء كبير اخلط الملفوف المبشور والجزر."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "أضف البرغل المبرد."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اخلط المايونيز والخل والسكر والملح والفلفل ثم امزجها مع الخضار."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "ضعها في الثلاجة قبل التقديم."
+    }
+  ]
+}

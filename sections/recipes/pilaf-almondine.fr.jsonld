@@ -1,8 +1,11 @@
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Pilaf Almondine",
+  "author": "Shehirian family",
   "description": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
+  "recipeCategory": "Accompagnement",
+  "recipeCuisine": "Internationale",
   "recipeYield": "4 à 5 portions",
   "prepTime": "PT5M",
   "cookTime": "PT25M",
@@ -16,9 +19,21 @@
     "Poppy seeds (for garnish)"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Combine Bulgor, salt, and water in a saucepan." },
-    { "@type": "HowToStep", "text": "Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes)." },
-    { "@type": "HowToStep", "text": "Let it stand 10 minutes." },
-    { "@type": "HowToStep", "text": "Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds." }
+    {
+      "@type": "HowToStep",
+      "text": "Combine Bulgor, salt, and water in a saucepan."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Let it stand 10 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."
+    }
   ]
 }

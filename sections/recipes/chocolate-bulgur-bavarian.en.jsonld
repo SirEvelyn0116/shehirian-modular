@@ -2,7 +2,7 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Chocolate Bulgur Bavarian",
-  "author": "Laurence Evelyn",
+  "author": "Shehirian family",
   "description": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.",
   "recipeCategory": "Dessert",
   "recipeCuisine": "International",
@@ -21,8 +21,17 @@
     "1/2 cup heavy cream, whipped"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil)." },
-    { "@type": "HowToStep", "text": "Stir in cooked bulgur and vanilla, chill until thick but not firm." },
-    { "@type": "HowToStep", "text": "Fold in whipped cream, turn into a greased mould and chill until firm." }
+    {
+      "@type": "HowToStep",
+      "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in cooked bulgur and vanilla, chill until thick but not firm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fold in whipped cream, turn into a greased mould and chill until firm."
+    }
   ]
 }

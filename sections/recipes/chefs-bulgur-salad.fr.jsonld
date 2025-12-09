@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Salade du chef au bulgur",
+  "author": "Shehirian family",
+  "description": "Une salade principale copieuse mettant en vedette du blé bulgur, des légumes frais et votre choix de viandes froides et de fromage.",
+  "recipeCategory": "Plat Principal",
+  "recipeCuisine": "Américaine",
+  "recipeYield": "8 portions",
+  "prepTime": "PT20M",
+  "cookTime": "PT15M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "2 tasses de boulghour cuit",
+    "2 tasses de jeunes pousses mélangées",
+    "1 tasse de tomates en dés",
+    "1 tasse de concombre en dés",
+    "1 tasse de charcuteries, tranchées (facultatif)",
+    "1 tasse de fromage en cubes (facultatif)",
+    "1/4 tasse d'huile d'olive",
+    "2 c. à soupe de jus de citron",
+    "Sel et poivre au goût"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Préparer le boulghour et laisser refroidir."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dans un grand bol, mélanger le boulghour, les jeunes pousses, les tomates et le concombre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter les charcuteries et le fromage si utilisés."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger l'huile d'olive, le jus de citron, le sel et le poivre; arroser la salade."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Servir froid ou à température ambiante."
+    }
+  ]
+}

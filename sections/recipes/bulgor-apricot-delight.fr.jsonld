@@ -1,8 +1,11 @@
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Délice Abricot au Bulghour et Sauce Eggnog",
+  "author": "Shehirian family",
   "description": "Un dessert au boulghour parfumé à l'abricot, servi frais avec une sauce type eggnog.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "Internationale",
   "recipeYield": "6 portions",
   "prepTime": "PT10M",
   "cookTime": "PT15M",
@@ -18,8 +21,17 @@
     "Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Mix apricot nectar, water, salt, and Bulgor; cover and simmer until juice is absorbed, stirring occasionally." },
-    { "@type": "HowToStep", "text": "Stir in sugar, cover and cook 5 more minutes; chill and stir in lemon juice." },
-    { "@type": "HowToStep", "text": "Prepare eggnog sauce by beating egg, gradually adding sugar and vanilla, add sherry if using, then fold in whipped cream; top each serving with sauce and an apricot half." }
+    {
+      "@type": "HowToStep",
+      "text": "Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."
+    }
   ]
 }

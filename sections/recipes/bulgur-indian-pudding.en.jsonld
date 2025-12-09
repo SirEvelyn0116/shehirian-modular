@@ -2,7 +2,7 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Bulgur Indian Pudding",
-  "author": "Laurence Evelyn",
+  "author": "Shehirian family",
   "description": "A molasses-sweet bulgur pudding spiced with cinnamon and ginger.",
   "recipeCategory": "Dessert",
   "recipeCuisine": "International",
@@ -24,9 +24,21 @@
     "1-1/4 cups water"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Mix all ingredients in a 2-quart casserole." },
-    { "@type": "HowToStep", "text": "Cover and bake in a slow oven (325°F / 160°C) for 45 minutes." },
-    { "@type": "HowToStep", "text": "Remove cover and continue baking about 45 minutes until set." },
-    { "@type": "HowToStep", "text": "Serve warm with whipped cream or ice cream." }
+    {
+      "@type": "HowToStep",
+      "text": "Mix all ingredients in a 2-quart casserole."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and bake in a slow oven (325°F / 160°C) for 45 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove cover and continue baking about 45 minutes until set."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Serve warm with whipped cream or ice cream."
+    }
   ]
 }

@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Chef's Bulgur Salad",
+  "author": "Shehirian family",
+  "description": "A hearty main course salad featuring bulgur wheat, fresh vegetables, and your choice of cold meats and cheese.",
+  "recipeCategory": "Main Course",
+  "recipeCuisine": "American",
+  "recipeYield": "8 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT15M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "2 cups cooked bulgur wheat",
+    "2 cups mixed salad greens",
+    "1 cup diced tomatoes",
+    "1 cup diced cucumber",
+    "1 cup cold meats, sliced (optional)",
+    "1 cup cubed cheese (optional)",
+    "1/4 cup olive oil",
+    "2 tbsp lemon juice",
+    "Salt and pepper to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Prepare bulgur and let cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a large bowl combine bulgur, salad greens, tomatoes and cucumber."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add cold meats and cheese if using."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk olive oil, lemon juice, salt and pepper; toss with salad."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Serve chilled or at room temperature."
+    }
+  ]
+}

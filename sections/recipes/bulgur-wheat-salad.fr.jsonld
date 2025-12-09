@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Wheat Salad",
+  "author": "Shehirian family",
+  "description": "Fresh herbs, lemon dressing, and hearty bulgur.",
+  "recipeCategory": "Salade",
+  "recipeCuisine": "Méditerranéenne",
+  "recipeYield": "4 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1 tasse de boulghour",
+    "1/2 tasse de persil haché",
+    "1/4 tasse de menthe hachée",
+    "1/2 tasse de concombre en dés",
+    "2 c. à soupe d'huile d'olive",
+    "1 c. à soupe de jus de citron"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Faire tremper le boulghour dans de l'eau bouillante pendant 10 minutes jusqu'à ce qu'il soit tendre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Égoutter l'excès d'eau et aérer à la fourchette."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger avec le persil, la menthe et le concombre en dés."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Arroser d'huile d'olive et de jus de citron."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger, refroidir et servir."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Scotch Broth with Bulgur Wheat",
+  "author": "Shehirian family",
+  "description": "A traditional Scottish soup transformed with hearty bulgur wheat and lamb.",
+  "recipeCategory": "Soup",
+  "recipeCuisine": "Scottish",
+  "recipeYield": "6-8 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT105M",
+  "totalTime": "PT120M",
+  "recipeIngredient": [
+    "2 lbs. lamb shoulder",
+    "8 cups water",
+    "1/2 cup bulgur wheat",
+    "1 cup diced carrots",
+    "1 cup diced turnip",
+    "1 cup chopped leeks",
+    "1/2 cup pearl barley",
+    "Salt and pepper to taste",
+    "Fresh parsley for garnish",
+    "2 quarts chicken broth",
+    "2 pounds lamb shank",
+    "1 cup chopped parsley",
+    "1/2 cup chopped onion",
+    "1/2 cup chopped carrots",
+    "1/2 cup chopped celery",
+    "1/2 cup chopped green pepper (optional)",
+    "1/2 cup chopped tomato",
+    "1/2 cup chopped mint",
+    "1/2 cup chopped leeks",
+    "1/2 cup chopped bulghur wheat",
+    "1/2 tsp. salt",
+    "1/2 tsp. pepper"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a large pot, add lamb and water. Bring to a boil and skim off any foam."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Reduce heat and simmer for 1 hour until lamb is tender."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove lamb, shred meat, and return to pot."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add bulgur wheat, barley, carrots, turnip, and leeks."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Simmer for 45 minutes until grains and vegetables are tender."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Season with salt and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Serve hot, garnished with fresh parsley."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Boil lamb shank in chicken broth until tender. Remove meat and bones."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut meat into small pieces and return to broth."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add all vegetables and herbs. Simmer for 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add bulghur wheat. Simmer for 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Slowly stir in 8 cups of soup mixture, then add remaining soup."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Continue cooking until thickened, about 3 minutes."
+    }
+  ]
+}

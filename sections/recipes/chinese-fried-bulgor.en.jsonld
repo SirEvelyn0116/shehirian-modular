@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Chinese Fried Bulgur",
+  "author": "Shehirian family",
   "description": "A quick fried bulgur with soy sauce and vegetables, served as a side or main.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Chinese-Inspired",
   "recipeCategory": "Main/Side",
+  "recipeCuisine": "Chinese-Inspired",
   "recipeYield": "4-5 servings",
   "prepTime": "PT5M",
   "cookTime": "PT15M",
@@ -15,12 +15,17 @@
     "3/4 cup finely minced onion",
     "1/2 cup finely minced green bell pepper",
     "1/2 cup finely minced celery",
-    "2-1/2 cups cooked bulgur wheat",
+    "2-1/2 cups cooked bulgur",
     "2 tbsp soy sauce"
   ],
   "recipeInstructions": [
-    "Heat oil in a skillet and sauté onion, bell pepper and celery until translucent.",
-    "Stir in cooked bulgur and soy sauce; cover and cook over low heat 15 minutes, stirring occasionally."
-  ],
-  "keywords": "fried bulgur,soy,vegetables"
+    {
+      "@type": "HowToStep",
+      "text": "Heat oil in skillet, sauté onion, bell pepper and celery until translucent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in cooked bulgur and soy sauce; cover and cook over low heat 15 minutes, stirring occasionally."
+    }
+  ]
 }

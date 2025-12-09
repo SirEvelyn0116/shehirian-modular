@@ -1,9 +1,12 @@
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Bulgor Wheat Biscuits",
+  "author": "Shehirian family",
   "description": "Tender biscuits made with cooked bulgur mixed into the dough.",
-  "recipeYield": "10 to 12 (2 inch) biscuits",
+  "recipeCategory": "طبق جانبي",
+  "recipeCuisine": "مخبوز",
+  "recipeYield": "10 إلى 12 بسكويت (2 بوصة)",
   "prepTime": "PT15M",
   "cookTime": "PT50M",
   "totalTime": "PT65M",
@@ -18,9 +21,21 @@
     "3/4 cup cooked Bulgor"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed." },
-    { "@type": "HowToStep", "text": "Sift together flour, baking powder, and salt; cut in shortening." },
-    { "@type": "HowToStep", "text": "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits." },
-    { "@type": "HowToStep", "text": "Bake at 400°F until lightly browned, about 25 to 30 minutes." }
+    {
+      "@type": "HowToStep",
+      "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together flour, baking powder, and salt; cut in shortening."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bake at 400°F until lightly browned, about 25 to 30 minutes."
+    }
   ]
 }

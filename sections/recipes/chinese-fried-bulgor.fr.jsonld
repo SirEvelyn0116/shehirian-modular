@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Boulghour frit à la chinoise",
+  "author": "Shehirian family",
   "description": "Un boulghour sauté rapide à la sauce soja et légumes, servi en accompagnement ou plat principal.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Inspiré chinois",
   "recipeCategory": "Plat/Accompagnement",
+  "recipeCuisine": "Inspiré chinois",
   "recipeYield": "4-5 portions",
   "prepTime": "PT5M",
   "cookTime": "PT15M",
@@ -19,8 +19,13 @@
     "2 c. à soupe de sauce soja"
   ],
   "recipeInstructions": [
-    "Chauffer l'huile et faire revenir l'oignon, le poivron et le céleri jusqu'à transparence.",
-    "Ajouter le boulghour et la sauce soja; couvrir et cuire 15 minutes à feu doux en remuant de temps en temps."
-  ],
-  "keywords": "boulghour frit,soja,légumes"
+    {
+      "@type": "HowToStep",
+      "text": "Chauffer l'huile, faire revenir oignon, poivron et céleri jusqu'à transparence."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Incorporer le boulghour cuit et la sauce soja; couvrir et cuire à feu doux 15 minutes en remuant occasionnellement."
+    }
+  ]
 }

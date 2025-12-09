@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "رغيف السلمون بالبرغل",
+  "author": "Shehirian family",
   "description": "رغيف سلمون ممزوج بالبرغل ومخبوز حتى يستوي.",
-  "author": { "@type": "Person", "name": "لورنس إيفلين" },
-  "recipeCuisine": "عالمي",
   "recipeCategory": "طبق رئيسي",
+  "recipeCuisine": "عالمي",
   "recipeYield": "6-8 حصص",
   "prepTime": "PT15M",
   "cookTime": "PT45M",
@@ -22,8 +22,13 @@
     "1/4 ملعقة صغيرة فلفل"
   ],
   "recipeInstructions": [
-    "اخلط جميع المكونات واسكبها في قالب رغيف.",
-    "اخبز في فرن معتدل 175°C لمدة 45 دقيقة حتى ينضج."
-  ],
-  "keywords": "رغيف سلمون,برغل"
+    {
+      "@type": "HowToStep",
+      "text": "اخلط جميع المكونات واسكبها في قالب رغيف."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اخبز في فرن معتدل 175°C لمدة 45 دقيقة حتى ينضج."
+    }
+  ]
 }

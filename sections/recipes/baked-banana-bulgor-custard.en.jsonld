@@ -1,8 +1,11 @@
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Baked Banana Bulgor Custard",
+  "author": "Shehirian family",
   "description": "A baked custard-style dessert made with cooked bulgur and mashed banana.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "Baked",
   "recipeYield": "6 servings",
   "prepTime": "PT10M",
   "cookTime": "PT45M",
@@ -20,8 +23,17 @@
     "1 tablespoon melted butter"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Blend all ingredients in a baking dish." },
-    { "@type": "HowToStep", "text": "Sprinkle lightly with cinnamon." },
-    { "@type": "HowToStep", "text": "Bake in moderate oven for 40 to 45 minutes or until set." }
+    {
+      "@type": "HowToStep",
+      "text": "Blend all ingredients in a baking dish."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sprinkle lightly with cinnamon."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bake in moderate oven for 40 to 45 minutes or until set."
+    }
   ]
 }

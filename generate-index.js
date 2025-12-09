@@ -38,6 +38,13 @@ const localizedLabels = {
   ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' }
 };
 
+// Override author for all recipes at build time (canonicalized across locales)
+const AUTHOR_OVERRIDE = {
+  en: 'Shehirian family',
+  fr: 'Shehirian family',
+  ar: 'Shehirian family'
+};
+
 // Canonical category definitions — try to load from `sections/categories.json`
 const defaultCategoryDefs = {
   soup: { en: 'Soup', fr: 'Soupe', ar: 'شوربة' },
@@ -422,7 +429,8 @@ function writeAllRecipesPages() {
         '@context': 'https://schema.org/',
         '@type': 'Recipe',
         name: title,
-        author: (recipe.author && recipe.author[lang]) || recipe.author && recipe.author.en || '',
+        // normalize author to canonical build-time name
+        author: AUTHOR_OVERRIDE[lang] || 'Shehirian family',
         description: description,
         recipeCategory: (recipe.recipeCategory && recipe.recipeCategory[lang]) || '',
         recipeCuisine: (recipe.recipeCuisine && recipe.recipeCuisine[lang]) || '',
@@ -433,6 +441,17 @@ function writeAllRecipesPages() {
         recipeIngredient: ingredients,
         recipeInstructions: instructions.map(s => ({ '@type': 'HowToStep', text: s }))
       };
+
+      // Write localized JSON-LD into `sections/recipes/` so source JSON-LD files
+      // are updated to reflect the canonical author at build-time.
+      try {
+        const sectionsRecipesDir = path.join(__dirname, 'sections', 'recipes');
+        if (!fs.existsSync(sectionsRecipesDir)) fs.mkdirSync(sectionsRecipesDir, { recursive: true });
+        const jsonldPath = path.join(sectionsRecipesDir, `${recipe.slug}.${lang}.jsonld`);
+        fs.writeFileSync(jsonldPath, JSON.stringify(jsonld, null, 2), 'utf8');
+      } catch (e) {
+        console.warn('⚠ Failed to write JSON-LD for', recipe.slug, e && e.message);
+      }
 
       // Localized recipe page using the pre-refactor layout (nav + header)
       const page = `<!doctype html>

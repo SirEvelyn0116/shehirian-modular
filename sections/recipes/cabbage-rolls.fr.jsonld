@@ -2,10 +2,10 @@
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Choux farcis",
+  "author": "Shehirian family",
   "description": "Feuilles de chou farcies d'une préparation de boulghour et d'agneau, mijotées jusqu'à tendreté.",
-  "author": { "@type": "Person", "name": "Laurence Evelyn" },
-  "recipeCuisine": "Moyen-Orientale",
   "recipeCategory": "Plat principal",
+  "recipeCuisine": "Moyen-Orientale",
   "recipeYield": "Pour plusieurs personnes",
   "prepTime": "PT30M",
   "cookTime": "PT1H",
@@ -23,10 +23,21 @@
     "Jus d'1/2 citron"
   ],
   "recipeInstructions": [
-    "Ramollir les feuilles de chou dans l'eau bouillante et couper les nervures.",
-    "Mélanger le boulghour avec l'agneau, les oignons, le concentré de tomate, le persil, la menthe, le sel et le poivre.",
-    "Déposer la farce sur les feuilles, rouler et arranger dans la poêle; ajouter le bouillon et le jus de citron.",
-    "Couvrir et cuire à feu modéré ou au four pendant 1 heure."
-  ],
-  "keywords": "choux farcis,dolma,boulghour"
+    {
+      "@type": "HowToStep",
+      "text": "Ramollir les feuilles de chou dans l'eau bouillante et couper les nervures."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger le boulghour avec l'agneau, les oignons, le concentré de tomate, le persil, la menthe, le sel et le poivre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Déposer la farce sur les feuilles, rouler et arranger dans la poêle; ajouter le bouillon et le jus de citron."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Couvrir et cuire à feu modéré ou au four pendant 1 heure."
+    }
+  ]
 }

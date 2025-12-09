@@ -1,8 +1,11 @@
 {
-  "@context": "https://schema.org",
+  "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": "Spanish Bulgor",
+  "author": "Shehirian family",
   "description": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
+  "recipeCategory": "Accompagnement",
+  "recipeCuisine": "Inspiré espagnol",
   "recipeYield": "5 à 6 portions",
   "prepTime": "PT10M",
   "cookTime": "PT25M",
@@ -23,9 +26,21 @@
     "1 cup Bulgor Wheat"
   ],
   "recipeInstructions": [
-    { "@type": "HowToStep", "text": "Sauté bacon strips in a heavy skillet until they begin to brown." },
-    { "@type": "HowToStep", "text": "Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured." },
-    { "@type": "HowToStep", "text": "Blend in the tomatoes, water, seasonings, and Bulgor Wheat." },
-    { "@type": "HowToStep", "text": "Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes." }
+    {
+      "@type": "HowToStep",
+      "text": "Sauté bacon strips in a heavy skillet until they begin to brown."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Blend in the tomatoes, water, seasonings, and Bulgor Wheat."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."
+    }
   ]
 }
