@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Haggis écossais au boulghour",
+  "description": "Un pudding traditionnel de type haggis mélangé au boulghour.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Écossaise",
+  "recipeCategory": "Pudding",
+  "recipeYield": "Grand (pour plusieurs)",
+  "prepTime": "PT30M",
+  "cookTime": "PT3H",
+  "totalTime": "PT3H30M",
+  "recipeIngredient": [
+    "3 cœurs d'agneau",
+    "450 g de foie",
+    "1/2 lb de suet haché",
+    "1/2 tasse d'oignon haché",
+    "1 tasse de boulghour",
+    "3 c. à thé de sel",
+    "2 tasses de bouillon de viande"
+  ],
+  "recipeInstructions": [
+    "Faire mijoter les cœurs et le foie d'agneau 1,5 heure; refroidir et hacher.",
+    "Ajouter le suet, les oignons, le boulghour, le sel et le bouillon; bien mélanger et cuire à la vapeur 3 heures dans un moule à pudding couvert."
+  ],
+  "keywords": "haggis,écossais,boulghour"
+}

@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Boulghour cuit à la Boston",
+  "description": "Un plat de boulghour sucré-salé cuit au four et garni de bacon ou lard salé.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Américaine",
+  "recipeCategory": "Gratin",
+  "recipeYield": "4-5 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT1H25M",
+  "totalTime": "PT1H35M",
+  "recipeIngredient": [
+    "2 1/2 tasses de boulghour cuit",
+    "2/3 tasse de soupe tomate concentrée",
+    "3 c. à soupe de mélasse",
+    "3/4 tasse d'eau ou consommé",
+    "3 c. à soupe de cassonade",
+    "1/2 c. à thé moutarde sèche",
+    "1/2 c. à thé sel",
+    "1-2 c. à soupe d'oignon haché",
+    "1 c. à thé sauce Worcestershire",
+    "2 oz lard ou bacon"
+  ],
+  "recipeInstructions": [
+    "Mélanger tous les ingrédients sauf le lard dans un plat.",
+    "Appuyer des bandes de lard sur la surface.",
+    "Couvrir et cuire à 160°C 45 minutes, retirer le couvercle et poursuivre 40 minutes environ."
+  ],
+  "keywords": "baked,bulghour,boston"
+}

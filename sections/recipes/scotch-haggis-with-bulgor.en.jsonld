@@ -1,0 +1,27 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Scotch Haggis with Bulgur",
+  "description": "A traditional haggis-style pudding where lamb offal is mixed with bulgur and steamed.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Scottish",
+  "recipeCategory": "Pudding",
+  "recipeYield": "Large (serves several)",
+  "prepTime": "PT30M",
+  "cookTime": "PT3H",
+  "totalTime": "PT3H30M",
+  "recipeIngredient": [
+    "3 lamb hearts",
+    "1 lb liver",
+    "1/2 lb minced suet",
+    "1/2 cup chopped onions",
+    "1 cup bulgur wheat",
+    "3 tsp salt",
+    "2 cups meat broth or bouillon"
+  ],
+  "recipeInstructions": [
+    "Simmer lamb hearts and liver in water 1.5 hours; cool and grind.",
+    "Add suet, onions, bulgur, salt and broth; mix well and steam in a covered pudding mold for 3 hours."
+  ],
+  "keywords": "haggis,scotch,bulgur"
+}

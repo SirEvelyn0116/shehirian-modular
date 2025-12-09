@@ -1,0 +1,28 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf arménien",
+  "description": "Un pilaf léger avec vermicelles et boulghour cuits au bouillon de poulet.",
+  "author": { "@type": "Person", "name": "Laurence Evelyn" },
+  "recipeCuisine": "Arménienne",
+  "recipeCategory": "Accompagnement",
+  "recipeYield": "4-6 portions",
+  "prepTime": "PT5M",
+  "cookTime": "PT20M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 c. à soupe de beurre ou margarine",
+    "3 c. à soupe d'oignon haché",
+    "1/2 tasse de vermicelles ou nouilles",
+    "1 tasse de boulghour",
+    "2 tasses de bouillon de poulet",
+    "3/4 c. à thé sel",
+    "1/8 c. à thé poivre"
+  ],
+  "recipeInstructions": [
+    "Faire fondre le beurre, faire revenir l'oignon et les vermicelles jusqu'à légère coloration.",
+    "Ajouter le boulghour, le bouillon, le sel et le poivre; couvrir et laisser mijoter 20 minutes.",
+    "Laisser reposer 15-20 minutes avant de servir."
+  ],
+  "keywords": "arménien,pilaf,boulghour"
+}
