@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Tracking Integration Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .recipe-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 15px 0;
+      transition: box-shadow 0.3s;
+    }
+    .recipe-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .featured {
+      border-color: #596E47;
+      background: #f9fff6;
+    }
+    .featured::before {
+      content: "⭐ Featured";
+      color: #596E47;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    h3 {
+      margin: 0 0 10px 0;
+      color: #333;
+    }
+    p {
+      color: #666;
+      line-height: 1.6;
+    }
+    .category {
+      display: inline-block;
+      background: #596E47;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 0.85em;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Recipe Tracking Integration Example</h1>
+  <p>This page demonstrates how the click tracking system works. Click on any recipe card to simulate tracking.</p>
+
+  <!-- Example recipe cards -->
+  <a href="recipes/royal-soup.en.html" class="recipe-card featured">
+    <h3>Royal Soup</h3>
+    <p>A hearty and nutritious soup with bulgur wheat, lentils, and aromatic spices. Perfect for cold winter days.</p>
+    <span class="category">Soup</span>
+  </a>
+
+  <a href="recipes/hearty-bulgur-pilaf.en.html" class="recipe-card featured">
+    <h3>Hearty Bulgur Pilaf</h3>
+    <p>A flavorful main dish combining bulgur wheat with vegetables and aromatic herbs.</p>
+    <span class="category">Main</span>
+  </a>
+
+  <a href="recipes/chocolate-bulgur-bavarian.en.html" class="recipe-card featured">
+    <h3>Chocolate Bulgur Bavarian</h3>
+    <p>An elegant dessert that combines rich chocolate with the unique texture of bulgur wheat.</p>
+    <span class="category">Dessert</span>
+  </a>
+
+  <a href="recipes/classic-tabbouleh.en.html" class="recipe-card">
+    <h3>Classic Tabbouleh</h3>
+    <p>A refreshing Mediterranean salad with fine bulgur, fresh herbs, tomatoes, and lemon.</p>
+    <span class="category">Salad</span>
+  </a>
+
+  <!-- Include the click tracking script -->
+  <script src="assets/js/recipe-click-tracker.js"></script>
+
+  <div style="margin-top: 40px; padding: 20px; background: #f5f5f5; border-radius: 8px;">
+    <h2>How it works:</h2>
+    <ol>
+      <li><strong>User clicks recipe card</strong> → Click event captured by recipe-click-tracker.js</li>
+      <li><strong>Tracker extracts slug</strong> → From href pattern (e.g., "royal-soup" from "royal-soup.en.html")</li>
+      <li><strong>Sends to serverless endpoint</strong> → POST to your deployed Lambda/Azure/Firebase function</li>
+      <li><strong>Counter incremented</strong> → serverless/data/counters.json updated with click count</li>
+      <li><strong>Run updateFeatured.js</strong> → Marks top recipe per category (soup/main/dessert) as featured</li>
+      <li><strong>Rebuild site</strong> → Featured recipes now highlighted automatically</li>
+    </ol>
+    
+    <h3>Current Click Counts (from test data):</h3>
+    <ul>
+      <li>Hearty Bulgur Pilaf: <strong>30 clicks</strong> (Top Main)</li>
+      <li>Royal Soup: <strong>25 clicks</strong> (Top Soup)</li>
+      <li>Chocolate Bulgur Bavarian: <strong>20 clicks</strong> (Top Dessert)</li>
+      <li>Classic Tabbouleh: <strong>15 clicks</strong></li>
+      <li>Bulgur Cherry Custard: <strong>12 clicks</strong></li>
+      <li>Spiced Lentil Soup: <strong>8 clicks</strong></li>
+    </ul>
+    
+    <h3>NPM Scripts Available:</h3>
+    <ul>
+      <li><code>npm run track:test</code> - Start local test server (port 3000)</li>
+      <li><code>npm run track:update-featured</code> - Update featured recipes based on clicks</li>
+      <li><code>npm run track:view-counters</code> - View current click counts</li>
+      <li><code>npm run track:backup</code> - Create backup of all-recipes.json</li>
+    </ul>
+  </div>
+</body>
+</html>

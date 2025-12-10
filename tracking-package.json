@@ -1,0 +1,14 @@
+{
+  "name": "shehirian-recipe-tracking",
+  "version": "1.0.0",
+  "description": "Lightweight recipe click tracking system",
+  "scripts": {
+    "update-featured": "node updateFeatured.js",
+    "test-endpoint": "node serverless/track-recipe.js",
+    "backup-recipes": "node -e \"const fs=require('fs');const path=require('path');const d=new Date().toISOString().replace(/[:.]/g,'-');fs.mkdirSync('.backups',{recursive:true});fs.copyFileSync('sections/recipes/all-recipes.json',path.join('.backups',`all-recipes.json.${d}.backup`));console.log('Backup created')\"",
+    "view-stats": "node -e \"const c=require('./serverless/data/counters.json');const total=Object.values(c).reduce((s,x)=>s+x.count,0);const top=Object.entries(c).sort((a,b)=>b[1].count-a[1].count).slice(0,10);console.log('Total clicks:',total);console.log('\\nTop 10:');top.forEach(([s,d],i)=>console.log(`${i+1}. ${s} (${d.count})`));\""
+  },
+  "devDependencies": {
+    "express": "^4.18.0"
+  }
+}

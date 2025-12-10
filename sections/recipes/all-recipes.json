@@ -431,7 +431,7 @@
     },
     {
       "slug": "hearty-bulgur-pilaf",
-      "featuredRecipe": false,
+      "featuredRecipe": true,
       "title": {
         "en": "Hearty Bulgur Pilaf",
         "fr": "Hearty Bulgur Pilaf",
@@ -1742,7 +1742,7 @@
     },
     {
       "slug": "chocolate-bulgur-bavarian",
-      "featuredRecipe": false,
+      "featuredRecipe": true,
       "title": {
         "en": "Chocolate Bulgur Bavarian",
         "fr": "Bavarois chocolat au boulghour",

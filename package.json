@@ -11,12 +11,21 @@
     "test:chromium": "playwright test --project=chromium",
     "test:firefox": "playwright test --project=firefox",
     "test:webkit": "playwright test --project=webkit",
-    "test:report": "playwright show-report test-results/html"
+    "test:report": "playwright show-report test-results/html",
+    "track:test": "node serverless/track-recipe.js",
+    "track:update-featured": "node updateFeatured.js",
+    "track:view-counters": "node -e \"console.log(JSON.stringify(require('./serverless/data/counters.json'), null, 2))\"",
+    "track:backup": "node -e \"const fs=require('fs');const src='sections/recipes/all-recipes.json';const dest='.backups/all-recipes.json.'+new Date().toISOString().replace(/:/g,'-')+'.backup';fs.mkdirSync('.backups',{recursive:true});fs.copyFileSync(src,dest);console.log('Backup created:',dest);\""
   },
-  "keywords": ["multilingual", "static-site", "modular"],
+  "keywords": [
+    "multilingual",
+    "static-site",
+    "modular"
+  ],
   "author": "Shehirian Family",
   "license": "MIT",
   "devDependencies": {
-    "@playwright/test": "^1.40.0"
+    "@playwright/test": "^1.40.0",
+    "express": "^5.2.1"
   }
 }

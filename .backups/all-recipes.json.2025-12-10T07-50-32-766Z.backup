@@ -1,0 +1,4405 @@
+{
+  "recipes": [
+    {
+      "slug": "royal-soup",
+      "featuredRecipe": true,
+      "title": {
+        "en": "Royal Soup",
+        "fr": "Soupe Royale",
+        "ar": "حساء ملكي"
+      },
+      "description": {
+        "en": "A Middle Eastern lemon meatball soup with rice and parsley.",
+        "fr": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
+        "ar": "حساء شرق أوسطي بكرات اللحم والليمون مع الأرز والبقدونس."
+      },
+      "recipeCategory": {
+        "en": "Soup",
+        "fr": "Soupe",
+        "ar": "شوربة"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "ست حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "totalTime": "PT45M",
+      "ingredients": {
+        "en": [
+          "1/2 gallon chicken broth",
+          "1/2 lb. ground beef (not too lean)",
+          "1/4 cup raw rice",
+          "1/4 cup very finely chopped onion",
+          "1/4 cup parsley",
+          "1/4 cup lemon juice",
+          "1/4 cup finely chopped celery",
+          "1/4 tsp. salt",
+          "Slice of 2 lemons"
+        ],
+        "fr": [
+          "2 litres de bouillon de poulet",
+          "225 g de bœuf haché (pas trop maigre)",
+          "60 ml de riz cru",
+          "60 ml d’oignon très finement haché",
+          "60 ml de persil",
+          "60 ml de jus de citron",
+          "60 ml de céleri finement haché",
+          "1/4 c. à thé de sel",
+          "Tranches de 2 citrons"
+        ],
+        "ar": [
+          "نصف جالون مرق دجاج",
+          "نصف رطل لحم بقري مفروم (غير قليل الدهن)",
+          "ربع كوب أرز نيء",
+          "ربع كوب بصل مفروم ناعم جدًا",
+          "ربع كوب بقدونس",
+          "ربع كوب عصير ليمون",
+          "ربع كوب كرفس مفروم ناعم",
+          "ربع ملعقة صغيرة ملح",
+          "شرائح من 2 ليمون"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
+          "Add rice to the meat balls mixture.",
+          "Add meat balls to hot chicken broth and simmer until cooked through.",
+          "Add lemon juice and celery. Simmer for 10 minutes.",
+          "Add salt and lemon slices. Simmer for 5 minutes.",
+          "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
+          "Pour broth over meatballs and serve."
+        ],
+        "fr": [
+          "Mélanger la viande crue, le boulghour, l’oignon, le persil et l’assaisonnement, puis former des boulettes de 2,5 cm de diamètre.",
+          "Ajouter le riz au mélange de boulettes.",
+          "Ajouter les boulettes au bouillon de poulet chaud et laisser mijoter jusqu’à cuisson complète.",
+          "Ajouter le jus de citron et le céleri. Laisser mijoter 10 minutes.",
+          "Ajouter le sel et les tranches de citron. Laisser mijoter 5 minutes.",
+          "Ajuster l’acidité, le sel ou l’épaisseur avec du sucre, de l’eau ou du riz au besoin.",
+          "Verser le bouillon sur les boulettes et servir."
+        ],
+        "ar": [
+          "اخلط اللحم النيء والبرغل والبصل والبقدونس والتوابل معًا وشكّل كرات بقطر 2.5 سم.",
+          "أضف الأرز إلى خليط كرات اللحم.",
+          "أضف كرات اللحم إلى مرق الدجاج الساخن واتركها تغلي حتى تنضج.",
+          "أضف عصير الليمون والكرفس واتركه يغلي لمدة 10 دقائق.",
+          "أضف الملح وشرائح الليمون واتركه يغلي لمدة 5 دقائق.",
+          "اضبط الحموضة أو الملوحة أو السماكة باستخدام السكر أو الماء أو الأرز حسب الحاجة.",
+          "اسكب المرق فوق كرات اللحم وقدّم."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "royal soup",
+          "lemon meatball soup",
+          "bulghur soup"
+        ],
+        "fr": [
+          "soupe royale",
+          "soupe aux boulettes de citron",
+          "soupe au boulghour"
+        ],
+        "ar": [
+          "حساء ملكي",
+          "حساء كرات اللحم بالليمون",
+          "حساء البرغل"
+        ]
+      },
+      "categoryId": "soup"
+    },
+    {
+      "slug": "armenian-style-lentil-soup",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Armenian Style Lentil Soup",
+        "fr": "Soupe Arménienne aux Lentilles",
+        "ar": "حساء العدس على الطريقة الأرمنية"
+      },
+      "description": {
+        "en": "A hearty Armenian soup with lentils, parsley, mint, and butter.",
+        "fr": "Une soupe arménienne consistante aux lentilles, persil, menthe et beurre.",
+        "ar": "حساء أرمني غني بالعدس والبقدونس والنعناع والزبدة."
+      },
+      "recipeCategory": {
+        "en": "Soup",
+        "fr": "Soupe",
+        "ar": "شوربة"
+      },
+      "recipeCuisine": {
+        "en": "Armenian",
+        "fr": "Arménienne",
+        "ar": "أرمنية"
+      },
+      "recipeYield": {
+        "en": "4 servings",
+        "fr": "4 portions",
+        "ar": "أربع حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT60M",
+      "totalTime": "PT75M",
+      "ingredients": {
+        "en": [
+          "1/2 cup water",
+          "1/2 cup lentils",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped parsley",
+          "1/2 tsp. salt",
+          "1/2 tsp. pepper",
+          "1/2 cup butter or margarine",
+          "1/2 cup chopped mint"
+        ],
+        "fr": [
+          "125 ml d’eau",
+          "125 ml de lentilles",
+          "125 ml d’oignon haché",
+          "125 ml de persil haché",
+          "1/2 c. à thé de sel",
+          "1/2 c. à thé de poivre",
+          "125 ml de beurre ou margarine",
+          "125 ml de menthe hachée"
+        ],
+        "ar": [
+          "نصف كوب ماء",
+          "نصف كوب عدس",
+          "نصف كوب بصل مفروم",
+          "نصف كوب بقدونس مفروم",
+          "نصف ملعقة صغيرة ملح",
+          "نصف ملعقة صغيرة فلفل",
+          "نصف كوب زبدة أو سمن",
+          "نصف كوب نعناع مفروم"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Boil lentils in water for 15 minutes.",
+          "Add onion, parsley, salt, and pepper. Simmer for 45 minutes.",
+          "Add mint and butter. Simmer for 15 minutes.",
+          "Add 1/4 tsp. pepper and cook for 5 minutes.",
+          "Optional: Fry butter until light brown and pour over soup."
+        ],
+        "fr": [
+          "Faire bouillir les lentilles dans l’eau pendant 15 minutes.",
+          "Ajouter l’oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes.",
+          "Ajouter la menthe et le beurre. Laisser mijoter 15 minutes.",
+          "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes.",
+          "Optionnel : Faire frire le beurre jusqu’à ce qu’il soit doré et le verser sur la soupe."
+        ],
+        "ar": [
+          "اغلِ العدس في الماء لمدة 15 دقيقة.",
+          "أضف البصل والبقدونس والملح والفلفل واتركه يغلي لمدة 45 دقيقة.",
+          "أضف النعناع والزبدة واتركه يغلي لمدة 15 دقيقة.",
+          "أضف ربع ملعقة صغيرة فلفل واطهِ لمدة 5 دقائق.",
+          "اختياري: اقْلِ الزبدة حتى تصبح بنية فاتحة ثم اسكبها فوق الحساء."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "lentil soup",
+          "Armenian recipe",
+          "mint soup"
+        ],
+        "fr": [
+          "soupe aux lentilles",
+          "recette arménienne",
+          "soupe à la menthe"
+        ],
+        "ar": [
+          "حساء العدس",
+          "وصفة أرمنية",
+          "حساء النعناع"
+        ]
+      },
+      "categoryId": "soup"
+    },
+    {
+      "slug": "bulgur-wheat-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Wheat Salad",
+        "fr": "Bulgur Wheat Salad",
+        "ar": "Bulgur Wheat Salad"
+      },
+      "description": {
+        "en": "Fresh herbs, lemon dressing, and hearty bulgur.",
+        "fr": "Fresh herbs, lemon dressing, and hearty bulgur.",
+        "ar": "Fresh herbs, lemon dressing, and hearty bulgur."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "Mediterranean",
+        "fr": "Méditerranéenne",
+        "ar": "متوسطي"
+      },
+      "recipeYield": {
+        "en": "4 servings",
+        "fr": "4 portions",
+        "ar": "4 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "totalTime": "PT25M",
+      "ingredients": {
+        "en": [
+          "1 cup bulgur wheat",
+          "1/2 cup chopped parsley",
+          "1/4 cup chopped mint",
+          "1/2 cup diced cucumber",
+          "2 tbsp olive oil",
+          "1 tbsp lemon juice"
+        ],
+        "fr": [
+          "1 tasse de boulghour",
+          "1/2 tasse de persil haché",
+          "1/4 tasse de menthe hachée",
+          "1/2 tasse de concombre en dés",
+          "2 c. à soupe d'huile d'olive",
+          "1 c. à soupe de jus de citron"
+        ],
+        "ar": [
+          "1 كوب برغل",
+          "1/2 كوب بقدونس مفروم",
+          "1/4 كوب نعناع مفروم",
+          "1/2 كوب خيار مقطع",
+          "2 ملعقة طعام زيت زيتون",
+          "1 ملعقة طعام عصير ليمون"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Soak bulgur in boiling water for 10 minutes until tender.",
+          "Drain excess water and fluff with a fork.",
+          "Mix with chopped parsley, mint, and diced cucumber.",
+          "Drizzle with olive oil and lemon juice.",
+          "Toss well and chill before serving."
+        ],
+        "fr": [
+          "Faire tremper le boulghour dans de l'eau bouillante pendant 10 minutes jusqu'à ce qu'il soit tendre.",
+          "Égoutter l'excès d'eau et aérer à la fourchette.",
+          "Mélanger avec le persil, la menthe et le concombre en dés.",
+          "Arroser d'huile d'olive et de jus de citron.",
+          "Mélanger, refroidir et servir."
+        ],
+        "ar": [
+          "انقع البرغل في ماء مغلي لمدة 10 دقائق حتى يصبح طريًا.",
+          "صفّ الماء الزائد وهرّسه بالشوكة.",
+          "اخلط مع البقدونس والنعناع والخيار المقطع.",
+          "رُشّ زيت الزيتون وعصير الليمون.",
+          "اخلط جيدًا وضعه في الثلاجة قبل التقديم."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "bulgur salad",
+          "Mediterranean salad",
+          "healthy grain salad"
+        ],
+        "fr": [
+          "bulgur salad",
+          "Mediterranean salad",
+          "healthy grain salad"
+        ],
+        "ar": [
+          "bulgur salad",
+          "Mediterranean salad",
+          "healthy grain salad"
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "classic-tabbouleh",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Classic Tabbouleh",
+        "fr": "Classic Tabbouleh",
+        "ar": "Classic Tabbouleh"
+      },
+      "description": {
+        "en": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+        "fr": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+        "ar": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "6 حصص"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT5M",
+      "totalTime": "PT25M",
+      "ingredients": {
+        "en": [
+          "1/2 cup fine bulgur wheat",
+          "2 cups finely chopped parsley",
+          "1/2 cup finely chopped mint",
+          "3 medium tomatoes, diced",
+          "1/4 cup finely chopped onion",
+          "1/4 cup fresh lemon juice",
+          "1/4 cup olive oil",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "1/2 tasse de boulghour fin",
+          "2 tasses de persil finement haché",
+          "1/2 tasse de menthe finement hachée",
+          "3 tomates moyennes, en dés",
+          "1/4 tasse d'oignon finement haché",
+          "1/4 tasse de jus de citron frais",
+          "1/4 tasse d'huile d'olive",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "1/2 كوب برغل ناعم",
+          "2 كوب بقدونس مفروم ناعم",
+          "1/2 كوب نعناع مفروم ناعم",
+          "3 طماطم متوسطة مقطعة",
+          "1/4 كوب بصل مفروم ناعم",
+          "1/4 كوب عصير ليمون طازج",
+          "1/4 كوب زيت زيتون",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Rinse bulgur wheat and soak in cold water for 5 minutes, then drain well.",
+          "In a large bowl, combine parsley, mint, tomatoes, and onion.",
+          "Add the drained bulgur wheat and mix well.",
+          "In a small bowl, whisk together lemon juice, olive oil, salt, and pepper.",
+          "Pour dressing over the salad and toss to combine.",
+          "Refrigerate for at least 1 hour before serving to allow flavors to meld."
+        ],
+        "fr": [
+          "Rincer le boulghour et le faire tremper dans de l'eau froide pendant 5 minutes, puis bien égoutter.",
+          "Dans un grand bol, mélanger le persil, la menthe, les tomates et l'oignon.",
+          "Ajouter le boulghour égoutté et bien mélanger.",
+          "Dans un petit bol, fouetter le jus de citron, l'huile d'olive, le sel et le poivre.",
+          "Verser la vinaigrette sur la salade et mélanger.",
+          "Réfrigérer au moins 1 heure avant de servir pour laisser les saveurs se développer."
+        ],
+        "ar": [
+          "اغسل البرغل وانقعه في ماء بارد لمدة 5 دقائق ثم صفّه جيدًا.",
+          "في وعاء كبير، اخلط البقدونس والنعناع والطماطم والبصل.",
+          "أضف البرغل المصفي وامزج جيدًا.",
+          "في وعاء صغير، اخفق عصير الليمون وزيت الزيتون والملح والفلفل.",
+          "اسكب التتبيلة على السلطة وقلِّب.",
+          "ضعها في الثلاجة لمدة ساعة على الأقل قبل التقديم لتندمج النكهات."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "tabbouleh",
+          "parsley salad",
+          "Lebanese salad",
+          "bulgur wheat"
+        ],
+        "fr": [
+          "tabbouleh",
+          "parsley salad",
+          "Lebanese salad",
+          "bulgur wheat"
+        ],
+        "ar": [
+          "tabbouleh",
+          "parsley salad",
+          "Lebanese salad",
+          "bulgur wheat"
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "hearty-bulgur-pilaf",
+      "featuredRecipe": true,
+      "title": {
+        "en": "Hearty Bulgur Pilaf",
+        "fr": "Hearty Bulgur Pilaf",
+        "ar": "Hearty Bulgur Pilaf"
+      },
+      "description": {
+        "en": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+        "fr": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+        "ar": "Coarse bulgur simmered with vegetables and spices for a comforting meal."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat Principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "4 servings",
+        "fr": "4 portions",
+        "ar": "4 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "totalTime": "PT35M",
+      "ingredients": {
+        "en": [
+          "1 1/2 cups coarse bulgur wheat",
+          "2 tbsp butter or olive oil",
+          "1 medium onion, diced",
+          "2 cloves garlic, minced",
+          "1 red bell pepper, diced",
+          "1 carrot, diced",
+          "3 cups vegetable broth",
+          "1 tsp cumin",
+          "1/2 tsp paprika",
+          "Salt and pepper to taste",
+          "Fresh herbs for garnish"
+        ],
+        "fr": [
+          "1 1/2 tasse de boulghour grossier",
+          "2 c. à soupe de beurre ou d'huile d'olive",
+          "1 oignon moyen, en dés",
+          "2 gousses d'ail, hachées",
+          "1 poivron rouge, en dés",
+          "1 carotte, en dés",
+          "3 tasses de bouillon de légumes",
+          "1 c. à thé de cumin",
+          "1/2 c. à thé de paprika",
+          "Sel et poivre au goût",
+          "Herbes fraîches pour garnir"
+        ],
+        "ar": [
+          "1 1/2 كوب برغل خشن",
+          "2 ملعقة كبيرة زبدة أو زيت زيتون",
+          "1 بصلة متوسطة، مقطعة",
+          "2 فص ثوم، مفروم",
+          "1 فلفل أحمر، مقطع",
+          "1 جزرة، مقطعة",
+          "3 أكواب مرق خضار",
+          "1 ملعقة صغيرة كمون",
+          "1/2 ملعقة صغيرة بابريكا",
+          "ملح وفلفل حسب الذوق",
+          "أعشاب طازجة للتزيين"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "In a large pot, heat butter or oil over medium heat.",
+          "Add onion and garlic, sauté until fragrant and translucent.",
+          "Add bell pepper and carrot, cook for 5 minutes until softened.",
+          "Stir in bulgur wheat, cumin, and paprika, coating the grains with oil.",
+          "Pour in vegetable broth, bring to a boil, then reduce heat to low.",
+          "Cover and simmer for 15-20 minutes until bulgur is tender and liquid is absorbed.",
+          "Remove from heat, let stand covered for 5 minutes, then fluff with a fork.",
+          "Season with salt and pepper, garnish with fresh herbs, and serve."
+        ],
+        "fr": [
+          "Dans une grande casserole, faites chauffer le beurre ou l'huile à feu moyen.",
+          "Ajouter l'oignon et l'ail, faire sauter jusqu'à ce qu'ils soient parfumés et translucides.",
+          "Ajouter le poivron et la carotte, cuire 5 minutes jusqu'à ce qu'ils ramollissent.",
+          "Incorporer le boulghour, le cumin et le paprika, en enrobant les grains d'huile.",
+          "Verser le bouillon de légumes, porter à ébullition, puis réduire le feu.",
+          "Couvrir et laisser mijoter 15-20 minutes jusqu'à ce que le boulghour soit tendre et que le liquide soit absorbé.",
+          "Retirer du feu, laisser reposer 5 minutes couvert, puis aérer à la fourchette.",
+          "Assaisonner, garnir d'herbes fraîches et servir."
+        ],
+        "ar": [
+          "في وعاء كبير، سخّن الزبدة أو الزيت على نار متوسطة.",
+          "أضف البصل والثوم، وقلّب حتى تفوح رائحتهما ويصبحان شفافين.",
+          "أضف الفلفل والجزر، واطبخ 5 دقائق حتى يطروا.",
+          "أضف البرغل والكمون والبابريكا وقلّب لتتغطى الحبوب بالزيت.",
+          "أضف مرق الخضار، اغله ثم خفف النار.",
+          "غطِّ القدر واتركه ينضج 15-20 دقيقة حتى ينضج البرغل ويمتص السائل.",
+          "ارفَع عن النار، اتركه مغطى 5 دقائق ثم فرّكه بالشوكة.",
+          "تبّل وزيّنه بالأعشاب الطازجة وقدّمه."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "bulgur pilaf",
+          "vegetarian main dish",
+          "healthy grain dish"
+        ],
+        "fr": [
+          "bulgur pilaf",
+          "vegetarian main dish",
+          "healthy grain dish"
+        ],
+        "ar": [
+          "bulgur pilaf",
+          "vegetarian main dish",
+          "healthy grain dish"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "spiced-lentil-soup",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Spiced Lentil Soup",
+        "fr": "Spiced Lentil Soup",
+        "ar": "Spiced Lentil Soup"
+      },
+      "description": {
+        "en": "Comforting, protein-rich, and perfect for fall.",
+        "fr": "Comforting, protein-rich, and perfect for fall.",
+        "ar": "Comforting, protein-rich, and perfect for fall."
+      },
+      "recipeCategory": {
+        "en": "Soup",
+        "fr": "Soupe",
+        "ar": "شوربة"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "4 servings",
+        "fr": "4 portions",
+        "ar": "4 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "totalTime": "PT40M",
+      "ingredients": {
+        "en": [
+          "1 cup red lentils",
+          "1 onion",
+          "2 carrots",
+          "1 tsp cumin",
+          "1 tbsp olive oil"
+        ],
+        "fr": [
+          "1 tasse de lentilles rouges",
+          "1 oignon",
+          "2 carottes",
+          "1 c. à thé de cumin",
+          "1 c. à soupe d'huile d'olive"
+        ],
+        "ar": [
+          "1 كوب عدس أحمر",
+          "1 بصلة",
+          "2 جزرات",
+          "1 ملعقة صغيرة كمون",
+          "1 ملعقة طعام زيت زيتون"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Heat olive oil in a large pot over medium heat.",
+          "Sauté chopped onion and diced carrots with cumin until softened.",
+          "Add red lentils and enough water to cover by 2 inches.",
+          "Bring to a boil, then reduce heat and simmer for 25-30 minutes until lentils are soft.",
+          "Season with salt and pepper to taste. Serve hot."
+        ],
+        "fr": [
+          "Chauffer l'huile d'olive dans une grande casserole à feu moyen.",
+          "Faire sauter l'oignon haché et les carottes en dés avec le cumin jusqu'à ce qu'ils soient tendres.",
+          "Ajouter les lentilles rouges et suffisamment d'eau pour les couvrir de 5 cm.",
+          "Porter à ébullition, réduire le feu et laisser mijoter 25-30 minutes jusqu'à tendreté.",
+          "Assaisonner de sel et de poivre selon le goût. Servir chaud."
+        ],
+        "ar": [
+          "سخّن زيت الزيتون في قدر كبير على نار متوسطة.",
+          "اقلِّ البصل المفروم والجزر المقطع مع الكمون حتى يلينان.",
+          "أضف العدس الأحمر ومقدارًا من الماء ليغطيه بحوالي 5 سم.",
+          "اغله ثم خفف النار واتركه ينضج 25-30 دقيقة حتى يطرى العدس.",
+          "تبّل بالملح والفلفل وقدمه ساخنًا."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "lentil soup",
+          "spiced soup",
+          "healthy comfort food"
+        ],
+        "fr": [
+          "lentil soup",
+          "spiced soup",
+          "healthy comfort food"
+        ],
+        "ar": [
+          "lentil soup",
+          "spiced soup",
+          "healthy comfort food"
+        ]
+      },
+      "categoryId": "soup"
+    },
+    {
+      "slug": "tabbouleh-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Tabbouleh Salad",
+        "fr": "Salade de taboulé",
+        "ar": "سلطة التبولة"
+      },
+      "description": {
+        "en": "A refreshing Middle Eastern salad with bulgur wheat, fresh vegetables, and herbs.",
+        "fr": "Une salade du Moyen-Orient rafraîchissante avec du blé bulgur, des légumes frais et des herbes.",
+        "ar": "سلطة شرق أوسطية منعشة مع البرغل والخضروات الطازجة والأعشاب."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-orientale",
+        "ar": "شرق أوسطية"
+      },
+      "prepTime": "PT1H15M",
+      "cookTime": "PT5M",
+      "totalTime": "PT1H20M",
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "6 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "1/2 cup fine bulgur wheat",
+          "2 cups finely chopped parsley",
+          "1/2 cup finely chopped mint",
+          "3 medium tomatoes, diced",
+          "1/4 cup finely chopped onion",
+          "1/4 cup fresh lemon juice",
+          "1/4 cup olive oil",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "1/2 tasse de boulghour fin",
+          "2 tasses de persil finement haché",
+          "1/2 tasse de menthe finement hachée",
+          "3 tomates moyennes, en dés",
+          "1/4 tasse d'oignon finement haché",
+          "1/4 tasse de jus de citron frais",
+          "1/4 tasse d'huile d'olive",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "1/2 كوب برغل ناعم",
+          "2 كوب بقدونس مفروم ناعم",
+          "1/2 كوب نعناع مفروم ناعم",
+          "3 طماطم متوسطة مقطعة",
+          "1/4 كوب بصل مفروم ناعم",
+          "1/4 كوب عصير ليمون طازج",
+          "1/4 كوب زيت زيتون",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Rinse bulgur and soak in cold water for 5 minutes then drain well.",
+          "In a large bowl combine parsley, mint, tomatoes and onion.",
+          "Add the drained bulgur and mix well.",
+          "Whisk together lemon juice, olive oil, salt and pepper; pour over salad and toss to combine.",
+          "Chill for at least 1 hour before serving to allow flavors to meld."
+        ],
+        "fr": [
+          "Rincer le boulghour et le faire tremper dans de l'eau froide pendant 5 minutes puis bien égoutter.",
+          "Dans un grand bol, mélanger le persil, la menthe, les tomates et l'oignon.",
+          "Ajouter le boulghour égoutté et bien mélanger.",
+          "Fouetter le jus de citron, l'huile d'olive, le sel et le poivre; verser sur la salade et mélanger.",
+          "Réfrigérer au moins 1 heure avant de servir pour laisser les saveurs se développer."
+        ],
+        "ar": [
+          "اغسل البرغل وانقعه في ماء بارد لمدة 5 دقائق ثم صفّه جيدًا.",
+          "في وعاء كبير اخلط البقدونس والنعناع والطماطم والبصل.",
+          "أضف البرغل المصفي وامزج جيدًا.",
+          "اخلط عصير الليمون وزيت الزيتون والملح والفلفل واسكب التتبيلة على السلطة واخلط.",
+          "ضعها في الثلاجة لمدة ساعة على الأقل قبل التقديم لتندمج النكهات."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "tabbouleh",
+          "parsley salad",
+          "Lebanese salad",
+          "bulgur wheat"
+        ],
+        "fr": [
+          "taboulé",
+          "salade de persil",
+          "salade libanaise",
+          "blé bulgur"
+        ],
+        "ar": [
+          "تبولة",
+          "سلطة البقدونس",
+          "سلطة لبنانية",
+          "برغل"
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "bulgur-carrot-pineapple-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Carrot Pineapple Salad",
+        "fr": "Salade de bulgur aux carottes et ananas",
+        "ar": "سلطة البرغل بالجزر والأناناس"
+      },
+      "description": {
+        "en": "A sweet and savory salad combining bulgur wheat with shredded carrots and tropical pineapple.",
+        "fr": "Une salade sucrée et salée combinant du blé bulgur avec des carottes râpées et de l'ananas tropical.",
+        "ar": "سلطة حلوة ومالحة تجمع بين البرغل والجزر المبشور والأناناس الاستوائي."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "American",
+        "fr": "Américaine",
+        "ar": "أمريكية"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "totalTime": "PT25M",
+      "recipeYield": {
+        "en": "8-10 servings",
+        "fr": "8-10 portions",
+        "ar": "8-10 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "2 cups cooked and cooled bulgur wheat",
+          "2 cups shredded carrots",
+          "1 cup pineapple chunks (fresh or canned)",
+          "1/4 cup mayonnaise",
+          "1 tbsp lemon juice",
+          "1 tbsp sugar (optional)",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "2 tasses de boulghour cuit et refroidi",
+          "2 tasses de carottes râpées",
+          "1 tasse de morceaux d'ananas (frais ou en conserve)",
+          "1/4 tasse de mayonnaise",
+          "1 c. à soupe de jus de citron",
+          "1 c. à soupe de sucre (facultatif)",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "2 كوب برغل مطبوخ ومبرد",
+          "2 كوب جزر مبشور",
+          "1 كوب قطع أناناس (طازج أو معلب)",
+          "1/4 كوب مايونيز",
+          "1 ملعقة طعام عصير ليمون",
+          "1 ملعقة طعام سكر (اختياري)",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Cook bulgur according to package, cool to room temperature.",
+          "In a large bowl combine bulgur, shredded carrots and pineapple.",
+          "Whisk together mayonnaise, lemon juice, sugar, salt and pepper; fold into salad.",
+          "Chill before serving."
+        ],
+        "fr": [
+          "Cuire le boulghour selon les instructions, laisser refroidir à température ambiante.",
+          "Dans un grand bol, mélanger le boulghour, les carottes râpées et l'ananas.",
+          "Mélanger la mayonnaise, le jus de citron, le sucre, le sel et le poivre; incorporer à la salade.",
+          "Réfrigérer avant de servir."
+        ],
+        "ar": [
+          "اطبخ البرغل حسب التعليمات، ودعه يبرد إلى درجة حرارة الغرفة.",
+          "في وعاء كبير اخلط البرغل والجزر المبشور والأناناس.",
+          "اخلط المايونيز وعصير الليمون والسكر والملح والفلفل ثم اخلطها مع السلطة.",
+          "ضعها في الثلاجة قبل التقديم."
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "cole-slaw-bulgur",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Cole Slaw with Bulgur",
+        "fr": "Salade de chou au bulgur",
+        "ar": "سلطة ملفوف بالبرغل"
+      },
+      "description": {
+        "en": "A hearty twist on classic coleslaw with the addition of nutritious bulgur wheat.",
+        "fr": "Une version copieuse de la salade de chou classique avec l'ajout de blé bulgur nutritif.",
+        "ar": "نسخة شهية من سلطة الكول سلو الكلاسيكية مع إضافة البرغل المغذي."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "American",
+        "fr": "Américaine",
+        "ar": "أمريكية"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "totalTime": "PT25M",
+      "recipeYield": {
+        "en": "8-10 servings",
+        "fr": "8-10 portions",
+        "ar": "8-10 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "4 cups shredded cabbage",
+          "1 cup shredded carrots",
+          "1 cup cooked and cooled bulgur wheat",
+          "1/2 cup mayonnaise",
+          "2 tbsp apple cider vinegar",
+          "1 tbsp sugar",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "4 tasses de chou râpé",
+          "1 tasse de carottes râpées",
+          "1 tasse de boulghour cuit et refroidi",
+          "1/2 tasse de mayonnaise",
+          "2 c. à soupe de vinaigre de cidre",
+          "1 c. à soupe de sucre",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "4 أكواب ملفوف مبشور",
+          "1 كوب جزر مبشور",
+          "1 كوب برغل مطبوخ ومبرد",
+          "1/2 كوب مايونيز",
+          "2 ملعقة طعام خل التفاح",
+          "1 ملعقة طعام سكر",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Cook bulgur according to package and cool.",
+          "In a large bowl combine shredded cabbage and carrots.",
+          "Add cooled bulgur.",
+          "Whisk together mayonnaise, vinegar, sugar, salt and pepper; toss with vegetables.",
+          "Chill before serving."
+        ],
+        "fr": [
+          "Cuire le boulghour selon les instructions et laisser refroidir.",
+          "Dans un grand bol, mélanger le chou râpé et les carottes.",
+          "Ajouter le boulghour refroidi.",
+          "Mélanger la mayonnaise, le vinaigre, le sucre, le sel et le poivre; verser sur les légumes.",
+          "Réfrigérer avant de servir."
+        ],
+        "ar": [
+          "اطبخ البرغل حسب التعليمات ثم اتركه يبرد.",
+          "في وعاء كبير اخلط الملفوف المبشور والجزر.",
+          "أضف البرغل المبرد.",
+          "اخلط المايونيز والخل والسكر والملح والفلفل ثم امزجها مع الخضار.",
+          "ضعها في الثلاجة قبل التقديم."
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "bulgur-carrot-raisin-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Carrot Raisin Salad",
+        "fr": "Salade de bulgur aux carottes et raisins secs",
+        "ar": "سلطة البرغل بالجزر والزبيب"
+      },
+      "description": {
+        "en": "A variation with raisins and French dressing for a delightful sweet and tangy flavor.",
+        "fr": "Une variation avec des raisins secs et une vinaigrette française pour une saveur sucrée et acidulée délicieuse.",
+        "ar": "نسخة مع الزبيب وصلصة فرنسية لنكهة حلوة وحامضة لذيذة."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "American",
+        "fr": "Américaine",
+        "ar": "أمريكية"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "totalTime": "PT25M",
+      "recipeYield": {
+        "en": "8-10 servings",
+        "fr": "8-10 portions",
+        "ar": "8-10 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "2 cups cooked bulgur wheat",
+          "1 1/2 cups shredded carrots",
+          "1/2 cup raisins",
+          "1/2 cup French dressing (or vinaigrette)",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "2 tasses de boulghour cuit",
+          "1 1/2 tasse de carottes râpées",
+          "1/2 tasse de raisins secs",
+          "1/2 tasse de vinaigrette (ou sauce française)",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "2 كوب برغل مطبوخ",
+          "1 1/2 كوب جزر مبشور",
+          "1/2 كوب زبيب",
+          "1/2 كوب صلصة فرنسية (أو صلصة vinaigrette)",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine cooked bulgur, shredded carrots, and raisins in a bowl.",
+          "Add French dressing and toss to coat.",
+          "Chill before serving."
+        ],
+        "fr": [
+          "Mélanger le boulghour cuit, les carottes râpées et les raisins secs dans un bol.",
+          "Ajouter la vinaigrette et mélanger.",
+          "Réfrigérer avant de servir."
+        ],
+        "ar": [
+          "اخلط البرغل المطبوخ والجزر المبشور والزبيب في وعاء.",
+          "أضف الصلصة الفرنسية وامزج لتغليف المكونات.",
+          "ضعها في الثلاجة قبل التقديم."
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "chefs-bulgur-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Chef's Bulgur Salad",
+        "fr": "Salade du chef au bulgur",
+        "ar": "سلطة الشيف بالبرغل"
+      },
+      "description": {
+        "en": "A hearty main course salad featuring bulgur wheat, fresh vegetables, and your choice of cold meats and cheese.",
+        "fr": "Une salade principale copieuse mettant en vedette du blé bulgur, des légumes frais et votre choix de viandes froides et de fromage.",
+        "ar": "سلطة رئيسية شهية تتضمن البرغل والخضروات الطازجة واختيارك من اللحوم الباردة والجبن."
+      },
+      "recipeCategory": {
+        "en": "Main Course",
+        "fr": "Plat Principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "American",
+        "fr": "Américaine",
+        "ar": "أمريكية"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT15M",
+      "totalTime": "PT35M",
+      "recipeYield": {
+        "en": "8 servings",
+        "fr": "8 portions",
+        "ar": "8 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "2 cups cooked bulgur wheat",
+          "2 cups mixed salad greens",
+          "1 cup diced tomatoes",
+          "1 cup diced cucumber",
+          "1 cup cold meats, sliced (optional)",
+          "1 cup cubed cheese (optional)",
+          "1/4 cup olive oil",
+          "2 tbsp lemon juice",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "2 tasses de boulghour cuit",
+          "2 tasses de jeunes pousses mélangées",
+          "1 tasse de tomates en dés",
+          "1 tasse de concombre en dés",
+          "1 tasse de charcuteries, tranchées (facultatif)",
+          "1 tasse de fromage en cubes (facultatif)",
+          "1/4 tasse d'huile d'olive",
+          "2 c. à soupe de jus de citron",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "2 كوب برغل مطبوخ",
+          "2 كوب خضروات سلطة مشكلة",
+          "1 كوب طماطم مقطعة",
+          "1 كوب خيار مقطع",
+          "1 كوب لحوم باردة مقطعة (اختياري)",
+          "1 كوب جبن مكعب (اختياري)",
+          "1/4 كوب زيت زيتون",
+          "2 ملعقة طعام عصير ليمون",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Prepare bulgur and let cool.",
+          "In a large bowl combine bulgur, salad greens, tomatoes and cucumber.",
+          "Add cold meats and cheese if using.",
+          "Whisk olive oil, lemon juice, salt and pepper; toss with salad.",
+          "Serve chilled or at room temperature."
+        ],
+        "fr": [
+          "Préparer le boulghour et laisser refroidir.",
+          "Dans un grand bol, mélanger le boulghour, les jeunes pousses, les tomates et le concombre.",
+          "Ajouter les charcuteries et le fromage si utilisés.",
+          "Mélanger l'huile d'olive, le jus de citron, le sel et le poivre; arroser la salade.",
+          "Servir froid ou à température ambiante."
+        ],
+        "ar": [
+          "حضّر البرغل واتركه يبرد.",
+          "في وعاء كبير اخلط البرغل وخضروات السلطة والطماطم والخيار.",
+          "أضف اللحوم الباردة والجبن إن وُجد.",
+          "اخلط زيت الزيتون وعصير الليمون والملح والفلفل ثم امزج مع السلطة.",
+          "قدّمها باردة أو في درجة حرارة الغرفة."
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-dutch-cucumber-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Dutch Cucumber Salad",
+        "fr": "Salade de concombres hollandaise au bulgur",
+        "ar": "سلطة الخيار الهولندية بالبرغل"
+      },
+      "description": {
+        "en": "A creamy and refreshing salad with bulgur, cucumbers, radishes, and a tangy sour cream dressing.",
+        "fr": "Une salade crémeuse et rafraîchissante avec du bulgur, des concombres, des radis et une vinaigrette acidulée à la crème sure.",
+        "ar": "سلطة كريمية ومنعشة مع البرغل والخيار والفجل وصلصة حامضة بالقشطة الحامضة."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "Dutch",
+        "fr": "Hollandaise",
+        "ar": "هولندية"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "totalTime": "PT30M",
+      "recipeYield": {
+        "en": "6-8 servings",
+        "fr": "6-8 portions",
+        "ar": "6-8 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "1 cup cooked bulgur, cooled",
+          "2 cups sliced cucumber",
+          "1/2 cup sliced radishes",
+          "1/2 cup sour cream",
+          "2 tbsp mayonnaise",
+          "1 tbsp white vinegar",
+          "Salt and pepper to taste",
+          "Fresh dill or chives for garnish"
+        ],
+        "fr": [
+          "1 tasse de boulghour cuit, refroidi",
+          "2 tasses de concombre en tranches",
+          "1/2 tasse de radis en tranches",
+          "1/2 tasse de crème sure",
+          "2 c. à soupe de mayonnaise",
+          "1 c. à soupe de vinaigre blanc",
+          "Sel et poivre au goût",
+          "Aneth frais ou ciboulette pour garnir"
+        ],
+        "ar": [
+          "1 كوب برغل مطبوخ ومبرد",
+          "2 كوب خيار مقطع شرائح",
+          "1/2 كوب فجل مقطع شرائح",
+          "1/2 كوب قشطة حامضة",
+          "2 ملعقة طعام مايونيز",
+          "1 ملعقة طعام خل أبيض",
+          "ملح وفلفل حسب الذوق",
+          "شبت طازج أو ثوم معمر للتزيين"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Prepare bulgur and cool.",
+          "Combine bulgur, cucumber slices and radishes in a bowl.",
+          "Whisk together sour cream, mayonnaise, vinegar, salt and pepper; fold into salad.",
+          "Garnish with dill or chives and chill before serving."
+        ],
+        "fr": [
+          "Préparer le boulghour et laisser refroidir.",
+          "Mélanger le boulghour, les tranches de concombre et les radis dans un bol.",
+          "Fouetter la crème sure, la mayonnaise, le vinaigre, le sel et le poivre; incorporer à la salade.",
+          "Garnir d'aneth ou de ciboulette et réfrigérer avant de servir."
+        ],
+        "ar": [
+          "حضّر البرغل واتركه يبرد.",
+          "اخلط البرغل وشرائح الخيار والفجل في وعاء.",
+          "اخلط القشطة الحامضة والمايونيز والخل والملح والفلفل ثم اخلطها مع السلطة.",
+          "زَين بالشبت أو الثوم المعمر وضعها في الثلاجة قبل التقديم."
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "bulgur-garden-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Garden Salad",
+        "fr": "Salade jardinière au bulgur",
+        "ar": "سلطة الحديقة بالبرغل"
+      },
+      "description": {
+        "en": "A versatile garden salad with bulgur wheat, fresh vegetables, and hard-boiled eggs — perfect as a side or main dish.",
+        "fr": "Une salade de jardin polyvalente avec du blé bulgur, des légumes frais et des œufs durs — parfaite comme accompagnement ou plat principal.",
+        "ar": "سلطة حديقة متعددة الاستخدامات مع البرغل والخضروات الطازجة والبيض المسلوق — مثالية كطبق جانبي أو رئيسي."
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "Salade",
+        "ar": "سلطة"
+      },
+      "recipeCuisine": {
+        "en": "American",
+        "fr": "Américaine",
+        "ar": "أمريكية"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "totalTime": "PT30M",
+      "recipeYield": {
+        "en": "8 servings",
+        "fr": "8 portions",
+        "ar": "8 حصص"
+      },
+      "ingredients": {
+        "en": [
+          "2 cups cooked bulgur wheat",
+          "1 cup mixed chopped vegetables (tomato, cucumber, bell pepper)",
+          "2 hard-boiled eggs, sliced",
+          "1/4 cup olive oil",
+          "2 tbsp lemon juice",
+          "Salt and pepper to taste",
+          "Fresh parsley for garnish"
+        ],
+        "fr": [
+          "2 tasses de boulghour cuit",
+          "1 tasse de légumes hachés mélangés (tomate, concombre, poivron)",
+          "2 œufs durs, tranchés",
+          "1/4 tasse d'huile d'olive",
+          "2 c. à soupe de jus de citron",
+          "Sel et poivre au goût",
+          "Persil frais pour garnir"
+        ],
+        "ar": [
+          "2 كوب برغل مطبوخ",
+          "1 كوب خضروات مفرومة متنوعة (طماطم، خيار، فلفل)",
+          "2 بيض مسلوق، مقطع شرائح",
+          "1/4 كوب زيت زيتون",
+          "2 ملعقة طعام عصير ليمون",
+          "ملح وفلفل حسب الذوق",
+          "بقدونس طازج للتزيين"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Cook bulgur and allow to cool.",
+          "Combine chopped vegetables and sliced eggs in a bowl.",
+          "Add bulgur and toss gently.",
+          "Whisk olive oil, lemon juice, salt and pepper; pour over salad and toss to coat.",
+          "Chill briefly before serving."
+        ],
+        "fr": [
+          "Cuire le boulghour et laisser refroidir.",
+          "Mélanger les légumes hachés et les œufs tranchés dans un bol.",
+          "Ajouter le boulghour et mélanger délicatement.",
+          "Fouetter l'huile d'olive, le jus de citron, le sel et le poivre; verser sur la salade et mélanger.",
+          "Réfrigérer brièvement avant de servir."
+        ],
+        "ar": [
+          "اطبخ البرغل واتركه يبرد.",
+          "اخلط الخضروات المفرومة وشرائح البيض في وعاء.",
+          "أضف البرغل وقلّب بلطف.",
+          "اخلط زيت الزيتون وعصير الليمون والملح والفلفل واسكبها على السلطة وقلّب.",
+          "ضعها في الثلاجة لفترة قصيرة قبل التقديم."
+        ]
+      },
+      "categoryId": "salad"
+    },
+    {
+      "slug": "scotch-broth",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Scotch Broth with Bulgur Wheat",
+        "fr": "Bouillon écossais au blé bulgur",
+        "ar": "مرق اسكتلندي بالبرغل"
+      },
+      "description": {
+        "en": "A traditional Scottish soup transformed with hearty bulgur wheat and lamb.",
+        "fr": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.",
+        "ar": "حساء اسكتلندي تقليدي معدّل بالبرغل الشهي ولحم الخروف."
+      },
+      "recipeCategory": {
+        "en": "Soup",
+        "fr": "Soupe",
+        "ar": "حساء"
+      },
+      "recipeCuisine": {
+        "en": "Scottish",
+        "fr": "Écossaise",
+        "ar": "اسكتلندية"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT105M",
+      "totalTime": "PT120M",
+      "ingredients": {
+        "en": [
+          "2 lbs. lamb shoulder",
+          "8 cups water",
+          "1/2 cup bulgur wheat",
+          "1 cup diced carrots",
+          "1 cup diced turnip",
+          "1 cup chopped leeks",
+          "1/2 cup pearl barley",
+          "Salt and pepper to taste",
+          "Fresh parsley for garnish",
+          "2 quarts chicken broth",
+          "2 pounds lamb shank",
+          "1 cup chopped parsley",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped carrots",
+          "1/2 cup chopped celery",
+          "1/2 cup chopped green pepper (optional)",
+          "1/2 cup chopped tomato",
+          "1/2 cup chopped mint",
+          "1/2 cup chopped leeks",
+          "1/2 cup chopped bulghur wheat",
+          "1/2 tsp. salt",
+          "1/2 tsp. pepper"
+        ],
+        "fr": [
+          "2 lbs. lamb shoulder",
+          "8 cups water",
+          "1/2 cup bulgur wheat",
+          "1 cup diced carrots",
+          "1 cup diced turnip",
+          "1 cup chopped leeks",
+          "1/2 cup pearl barley",
+          "Salt and pepper to taste",
+          "Fresh parsley for garnish",
+          "2 quarts chicken broth",
+          "2 pounds lamb shank",
+          "1 cup chopped parsley",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped carrots",
+          "1/2 cup chopped celery",
+          "1/2 cup chopped green pepper (optional)",
+          "1/2 cup chopped tomato",
+          "1/2 cup chopped mint",
+          "1/2 cup chopped leeks",
+          "1/2 cup chopped bulghur wheat",
+          "1/2 tsp. salt",
+          "1/2 tsp. pepper"
+        ],
+        "ar": [
+          "2 lbs. lamb shoulder",
+          "8 cups water",
+          "1/2 cup bulgur wheat",
+          "1 cup diced carrots",
+          "1 cup diced turnip",
+          "1 cup chopped leeks",
+          "1/2 cup pearl barley",
+          "Salt and pepper to taste",
+          "Fresh parsley for garnish",
+          "2 quarts chicken broth",
+          "2 pounds lamb shank",
+          "1 cup chopped parsley",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped carrots",
+          "1/2 cup chopped celery",
+          "1/2 cup chopped green pepper (optional)",
+          "1/2 cup chopped tomato",
+          "1/2 cup chopped mint",
+          "1/2 cup chopped leeks",
+          "1/2 cup chopped bulghur wheat",
+          "1/2 tsp. salt",
+          "1/2 tsp. pepper"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "In a large pot, add lamb and water. Bring to a boil and skim off any foam.",
+          "Reduce heat and simmer for 1 hour until lamb is tender.",
+          "Remove lamb, shred meat, and return to pot.",
+          "Add bulgur wheat, barley, carrots, turnip, and leeks.",
+          "Simmer for 45 minutes until grains and vegetables are tender.",
+          "Season with salt and pepper.",
+          "Serve hot, garnished with fresh parsley.",
+          "Boil lamb shank in chicken broth until tender. Remove meat and bones.",
+          "Cut meat into small pieces and return to broth.",
+          "Add all vegetables and herbs. Simmer for 15 minutes.",
+          "Add bulghur wheat. Simmer for 15 minutes.",
+          "Slowly stir in 8 cups of soup mixture, then add remaining soup.",
+          "Continue cooking until thickened, about 3 minutes."
+        ],
+        "fr": [
+          "Dans une grande casserole, ajouter l'agneau et l'eau. Porter à ébullition et écumer toute mousse.",
+          "Réduire le feu et laisser mijoter 1 heure jusqu'à ce que l'agneau soit tendre.",
+          "Retirer l'agneau, effilocher la viande et remettre dans la casserole.",
+          "Ajouter le blé bulghour, l'orge, les carottes, le navet et les poireaux.",
+          "Laisser mijoter 45 minutes jusqu'à ce que les céréales et les légumes soient tendres.",
+          "Assaisonner de sel et de poivre.",
+          "Servir chaud, garni de persil frais.",
+          "Boil lamb shank in chicken broth until tender. Remove meat and bones.",
+          "Cut meat into small pieces and return to broth.",
+          "Add all vegetables and herbs. Simmer for 15 minutes.",
+          "Add bulghur wheat. Simmer for 15 minutes.",
+          "Slowly stir in 8 cups of soup mixture, then add remaining soup.",
+          "Continue cooking until thickened, about 3 minutes."
+        ],
+        "ar": [
+          "في قدر كبير، أضف الخروف والماء. اغلي وأزل أي رغوة.",
+          "خفّف النار واطهي على نار هادئة لمدة ساعة حتى ينضج الخروف.",
+          "أخرج الخروف، قطّع اللحم، وأعده إلى القدر.",
+          "أضف البرغل والشعير والجزر واللفت والكراث.",
+          "اطهي على نار هادئة لمدة 45 دقيقة حتى تنضج الحبوب والخضروات.",
+          "تبّل بالملح والفلفل.",
+          "قدّم ساخنًا مزيّنًا بالبقدونس الطازج.",
+          "Boil lamb shank in chicken broth until tender. Remove meat and bones.",
+          "Cut meat into small pieces and return to broth.",
+          "Add all vegetables and herbs. Simmer for 15 minutes.",
+          "Add bulghur wheat. Simmer for 15 minutes.",
+          "Slowly stir in 8 cups of soup mixture, then add remaining soup.",
+          "Continue cooking until thickened, about 3 minutes."
+        ]
+      },
+      "recipeYield": {
+        "en": "6-8 servings",
+        "fr": "6-8 portions",
+        "ar": "6-8 حصص"
+      },
+      "keywords": {
+        "en": [
+          "lamb soup",
+          "bulghur broth",
+          "Middle Eastern soup"
+        ],
+        "fr": [
+          "lamb soup",
+          "bulghur broth",
+          "Middle Eastern soup"
+        ],
+        "ar": [
+          "lamb soup",
+          "bulghur broth",
+          "Middle Eastern soup"
+        ]
+      },
+      "categoryId": "soup"
+    },
+    {
+      "slug": "bulgur-cherry-custard",
+      "featuredRecipe": true,
+      "title": {
+        "en": "Bulgur Cherry Custard",
+        "fr": "Crème au boulghour et cerises",
+        "ar": "بودينغ البرغل بالكرز"
+      },
+      "description": {
+        "en": "A layered bulgur dessert with a cherry compote and baked custard.",
+        "fr": "Un dessert en couches à base de boulghour avec compote de cerises et crème cuite.",
+        "ar": "حلوى بطبقات من البرغل وطبقة كرز وكاسترد مخبوز"
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "6-8 servings",
+        "fr": "6-8 portions",
+        "ar": "6-8 حصص"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H20M",
+      "ingredients": {
+        "en": [
+          "2 cups hot cooked bulgur",
+          "2 tablespoons butter or margarine",
+          "1/4 cup brown sugar",
+          "1/2 teaspoon cinnamon",
+          "1-1/2 tablespoons cornstarch",
+          "1/4 cup sugar",
+          "Juice from 1 can (1 lb.) red sour pitted cherries",
+          "1 tablespoon lemon juice",
+          "Drained cherries",
+          "2 eggs, slightly beaten",
+          "1 cup milk",
+          "3 tablespoons sugar",
+          "1/2 teaspoon vanilla"
+        ],
+        "fr": [
+          "2 tasses de boulghour cuit chaud",
+          "2 cuillères à soupe de beurre ou margarine",
+          "1/4 tasse de cassonade",
+          "1/2 cuillère à café de cannelle",
+          "1-1/2 cuillères à soupe de fécule de maïs",
+          "1/4 tasse de sucre",
+          "Jus d'une boîte (450 g) de cerises rouges dénoyautées",
+          "1 cuillère à soupe de jus de citron",
+          "Cerises égouttées",
+          "2 œufs légèrement battus",
+          "1 tasse de lait",
+          "3 cuillères à soupe de sucre",
+          "1/2 cuillère à café de vanille"
+        ],
+        "ar": [
+          "2 كوب برغل مطبوخ ساخن",
+          "2 ملعقة طعام زبدة أو مارجرين",
+          "1/4 كوب سكر بني",
+          "1/2 ملعقة صغيرة قرفة",
+          "1-1/2 ملعقة طعام نشا الذرة",
+          "1/4 كوب سكر",
+          "عصير من علبة (450 جرام) كرز أحمر منزوع النوى",
+          "1 ملعقة طعام عصير ليمون",
+          "كرز مصفّى",
+          "2 بيضات مخفوقة قليلاً",
+          "1 كوب حليب",
+          "3 ملعقة طعام سكر",
+          "1/2 ملعقة صغيرة فانيلا"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Prepare the bulgur base by combining hot cooked bulgur, butter, brown sugar and cinnamon in a baking dish.",
+          "In a saucepan, mix cornstarch and sugar, stir in drained cherry juice and cook until thickened. Stir in lemon juice and layer drained cherries over the bulgur.",
+          "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F (175°C) for 1 hour or until custard is set."
+        ],
+        "fr": [
+          "Préparer la base de boulghour en mélangeant le boulghour chaud, le beurre, la cassonade et la cannelle dans un plat à four.",
+          "Dans une casserole, mélanger la fécule et le sucre, incorporer le jus de cerise égoutté et cuire jusqu'à épaississement. Ajouter le jus de citron et disposer les cerises égouttées sur le boulghour.",
+          "Mélanger les œufs, le lait, le sucre et la vanille; verser sur la couche de cerises et cuire à 175°C pendant 1 heure ou jusqu'à ce que le flan soit pris."
+        ],
+        "ar": [
+          "حضّر قاعدة البرغل بخلط البرغل المطبوخ الساخن مع الزبدة والسكر البني والقرفة في صينية خبز.",
+          "في قدر صغير، اخلط النشا والسكر، أضف عصير الكرز المصفّى واطبخ حتى يتثخن. أضف عصير الليمون ووزع الكرز المصفّى فوق البرغل.",
+          "اخفق البيض والحليب والسكر والفانيلا؛ اسكب فوق طبقة الكرز واخبز على حرارة 175°C لمدة ساعة أو حتى يتماسك الكاسترد."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "cherry custard",
+          "bulgur dessert"
+        ],
+        "fr": [
+          "crème cerise",
+          "dessert boulghour"
+        ],
+        "ar": [
+          "كاسترد الكرز",
+          "حلوى البرغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "bulgur-indian-pudding",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Indian Pudding",
+        "fr": "Pouding indien au boulghour",
+        "ar": "بودينغ برغل على الطريقة الهندية"
+      },
+      "description": {
+        "en": "A molasses-sweet bulgur pudding spiced with cinnamon and ginger.",
+        "fr": "Un pouding de boulghour au mélasse et épices.",
+        "ar": "بودينغ برغل بالدبس والبهارات"
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "6 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT1H30M",
+      "totalTime": "PT1H45M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1/2 teaspoon salt",
+          "1/2 teaspoon cinnamon",
+          "1/4 teaspoon ginger",
+          "1/8 teaspoon cloves",
+          "1/3 cup sugar",
+          "1/2 cup molasses",
+          "3 tablespoons butter",
+          "1/2 cup raisins (optional)",
+          "1 large can evaporated milk",
+          "1-1/4 cups water"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1/2 c. à thé de sel",
+          "1/2 c. à thé de cannelle",
+          "1/4 c. à thé de gingembre",
+          "1/8 c. à thé de clous de girofle",
+          "1/3 tasse de sucre",
+          "1/2 tasse de mélasse",
+          "3 c. à soupe de beurre",
+          "1/2 tasse de raisins secs (optionnel)",
+          "1 boîte grande de lait évaporé",
+          "1 1/4 tasse d'eau"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1/2 ملعقة صغيرة ملح",
+          "1/2 ملعقة صغيرة قرفة",
+          "1/4 ملعقة صغيرة زنجبيل",
+          "1/8 ملعقة صغيرة قرنفل",
+          "1/3 كوب سكر",
+          "1/2 كوب دبس",
+          "3 ملعقة كبيرة زبدة",
+          "1/2 كوب زبيب (اختياري)",
+          "1 علبة كبيرة لبن مبخر",
+          "1 1/4 كوب ماء"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Mix all ingredients in a 2-quart casserole.",
+          "Cover and bake in a slow oven (325°F / 160°C) for 45 minutes.",
+          "Remove cover and continue baking about 45 minutes until set.",
+          "Serve warm with whipped cream or ice cream."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients dans un plat allant au four de 2 litres.",
+          "Couvrir et cuire à four doux (160°C) pendant 45 minutes.",
+          "Retirer le couvercle et continuer la cuisson environ 45 minutes.",
+          "Servir chaud avec de la crème fouettée ou de la glace."
+        ],
+        "ar": [
+          "اخلط جميع المكونات في طبق خبز سعة 2 لتر.",
+          "غطِّ واخبز في فرن منخفض الحرارة (160°C) لمدة 45 دقيقة.",
+          "أزل الغطاء واستمر في الخبز حوالي 45 دقيقة حتى يتماسك.",
+          "قدّمه دافئًا مع كريمة مخفوقة أو آيس كريم."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "indian pudding",
+          "bulgur pudding"
+        ],
+        "fr": [
+          "pouding indien",
+          "pouding boulghour"
+        ],
+        "ar": [
+          "بودينغ هندي",
+          "بودينغ برغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "bulgur-raisin-pudding",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Old-Fashioned Bulgur-Raisin Pudding",
+        "fr": "Pouding ancien au boulghour et raisins",
+        "ar": "بودينغ البرغل والزبيب التقليدي"
+      },
+      "description": {
+        "en": "A baked bulgur pudding studded with raisins.",
+        "fr": "Un pouding de boulghour aux raisins.",
+        "ar": "بودينغ برغل مع الزبيب"
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "5-6 servings",
+        "fr": "5-6 portions",
+        "ar": "5-6 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT1H30M",
+      "totalTime": "PT1H40M",
+      "ingredients": {
+        "en": [
+          "1-1/2 cups water",
+          "2-1/2 cups cooked bulgur",
+          "1-1/2 cups evaporated milk",
+          "1/3 cup sugar",
+          "1/2 teaspoon salt",
+          "1/4 teaspoon mace",
+          "1/2 cup seedless raisins"
+        ],
+        "fr": [
+          "1 1/2 tasse d'eau",
+          "2 1/2 tasse de boulghour cuit",
+          "1 1/2 tasse de lait évaporé",
+          "1/3 tasse de sucre",
+          "1/2 c. à thé de sel",
+          "1/4 c. à thé de macis",
+          "1/2 tasse de raisins sans pépins"
+        ],
+        "ar": [
+          "1 1/2 كوب ماء",
+          "2 1/2 كوب برغل مطبوخ",
+          "1 1/2 كوب حليب مبخر",
+          "1/3 كوب سكر",
+          "1/2 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة مايس",
+          "1/2 كوب زبيب بدون بذور"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine all ingredients in a baking dish.",
+          "Cover and bake in moderate oven, 325°F (160°C), 45 minutes.",
+          "Remove cover, stir, and continue baking uncovered about 45 minutes or until browned."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients dans un plat à four.",
+          "Couvrir et cuire à four moyen 160°C pendant 45 minutes.",
+          "Retirer le couvercle, remuer et continuer la cuisson à découvert environ 45 minutes jusqu'à ce qu'il soit doré."
+        ],
+        "ar": [
+          "اخلط جميع المكونات في طبق خبز.",
+          "غطِّ واخبز في فرن متوسط الحرارة 160°C لمدة 45 دقيقة.",
+          "أزل الغطاء، حرك، واستمر في الخبز بدون غطاء حوالي 45 دقيقة أو حتى يتحمر."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "raisin pudding",
+          "bulgur dessert"
+        ],
+        "fr": [
+          "pouding raisins",
+          "dessert boulghour"
+        ],
+        "ar": [
+          "بودينغ الزبيب",
+          "حلوى البرغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "chocolate-bulgur-bavarian",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Chocolate Bulgur Bavarian",
+        "fr": "Bavarois chocolat au boulghour",
+        "ar": "بافاريا الشوكولاتة بالبرغل"
+      },
+      "description": {
+        "en": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.",
+        "fr": "Un dessert chocolaté au boulghour, pris à la gélatine et à la crème fouettée.",
+        "ar": "حلوى شوكولاتة وبرغل مبردة مع الجيلاتين والكريم"
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "6-8 servings",
+        "fr": "6-8 portions",
+        "ar": "6-8 حصص"
+      },
+      "prepTime": "PT30M",
+      "cookTime": "PT0M",
+      "totalTime": "PT2H30M",
+      "ingredients": {
+        "en": [
+          "1 package gelatin",
+          "2 tablespoons water",
+          "2-1/2 tablespoons cocoa",
+          "3/4 cup sugar",
+          "1-1/2 cups milk",
+          "1-1/2 cups cooked bulgur",
+          "1 teaspoon vanilla",
+          "1/2 cup heavy cream, whipped"
+        ],
+        "fr": [
+          "1 sachet de gélatine",
+          "2 cuillères à soupe d'eau",
+          "2 1/2 cuillères à soupe de cacao",
+          "3/4 tasse de sucre",
+          "1 1/2 tasse de lait",
+          "1 1/2 tasse de boulghour cuit",
+          "1 cuillère à café de vanille",
+          "1/2 tasse de crème épaisse, fouettée"
+        ],
+        "ar": [
+          "1 عبوة جيلاتين",
+          "2 ملعقة طعام ماء",
+          "2.5 ملعقة طعام كاكاو",
+          "3/4 كوب سكر",
+          "1.5 كوب حليب",
+          "1.5 كوب برغل مطبوخ",
+          "1 ملعقة صغيرة فانيلا",
+          "1/2 كوب كريمة ثقيلة مخفوقة"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil).",
+          "Stir in cooked bulgur and vanilla, chill until thick but not firm.",
+          "Fold in whipped cream, turn into a greased mould and chill until firm."
+        ],
+        "fr": [
+          "Dissoudre la gélatine dans l'eau et chauffer avec le cacao, le sucre et le lait jusqu'à dissolution (ne pas bouillir).",
+          "Ajouter le boulghour cuit et la vanille, refroidir jusqu'à épaississement sans prise complète.",
+          "Incorporer la crème fouettée, verser dans un moule graissé et réfrigérer jusqu'à ce que ça prenne."
+        ],
+        "ar": [
+          "اذب الجيلاتين في الماء وسخّن مع الكاكاو والسكر والحليب حتى يذوب (لا تغلِ).",
+          "أضف البرغل المطبوخ والفانيلا، برد حتى يثخن ولكن ليس جامداً.",
+          "اطوِّ الكريمة المخفوقة، اسكب في قالب مدهون بالزيت وبرّده حتى يتماسك."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "chocolate bavarian",
+          "bulgur dessert"
+        ],
+        "fr": [
+          "bavarois chocolat",
+          "dessert boulghour"
+        ],
+        "ar": [
+          "بافاريا الشوكولاتة",
+          "حلوى البرغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "steamed-bulgur-fruit-pudding",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Steamed Bulgur Fruit Pudding",
+        "fr": "Pouding aux fruits et boulghour à la vapeur",
+        "ar": "بودينغ البرغل المطهو على البخار مع الفواكه"
+      },
+      "description": {
+        "en": "A steamed loaf-style fruit pudding with bulgur and dried fruits.",
+        "fr": "Un pouding aux fruits cuit à la vapeur, style cake, avec du boulghour.",
+        "ar": "بودينغ فاكهة بالبرغل مطهو على البخار على شكل رغيف"
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "about 12 servings",
+        "fr": "environ 12 portions",
+        "ar": "حوالي 12 حصة"
+      },
+      "prepTime": "PT30M",
+      "cookTime": "PT2H",
+      "totalTime": "PT2H30M",
+      "ingredients": {
+        "en": [
+          "1-1/4 cups sifted all-purpose flour",
+          "2 teaspoons baking powder",
+          "1/2 teaspoon salt",
+          "1/2 cup butter or shortening",
+          "1-1/4 cups sugar",
+          "2 eggs",
+          "1-1/2 cups cooked bulgur",
+          "1 teaspoon vanilla",
+          "1/2 cup dried prunes (pitted), ground",
+          "1/2 cup raisins, ground",
+          "1/4 cup dried apricots, ground",
+          "1 cup milk"
+        ],
+        "fr": [
+          "1 1/4 tasse de farine tout usage tamisée",
+          "2 c. à thé de levure chimique",
+          "1/2 c. à thé de sel",
+          "1/2 tasse de beurre ou de shortening",
+          "1 1/4 tasse de sucre",
+          "2 œufs",
+          "1 1/2 tasse de boulghour cuit",
+          "1 c. à thé de vanille",
+          "1/2 tasse de pruneaux secs (dénoyautés), moulus",
+          "1/2 tasse de raisins secs, moulus",
+          "1/4 tasse d'abricots secs, moulus",
+          "1 tasse de lait"
+        ],
+        "ar": [
+          "1-1/4 كوب طحين متعدد الاستخدامات منخول",
+          "2 ملعقة صغيرة بيكنج بودر",
+          "1/2 ملعقة صغيرة ملح",
+          "1/2 كوب زبدة أو سمن",
+          "1-1/4 كوب سكر",
+          "2 بيض",
+          "1-1/2 كوب برغل مطبوخ",
+          "1 ملعقة صغيرة فانيلا",
+          "1/2 كوب برقوق مجفف (منزوع النوى) مطحون",
+          "1/2 كوب زبيب مطحون",
+          "1/4 كوب مشمش مجفف مطحون",
+          "1 كوب حليب"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sift together flour, baking powder and salt.",
+          "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
+          "Stir in cooked bulgur and vanilla; add ground fruit and milk alternately with dry ingredients.",
+          "Fill greased loaf pan or mould three-fourths full, cover tightly and steam for 2 hours. Serve with whipped cream."
+        ],
+        "fr": [
+          "Tamiser la farine, la levure et le sel.",
+          "Crémer le beurre et le sucre jusqu'à obtenir une texture légère; ajouter les œufs et battre.",
+          "Ajouter le boulghour cuit et la vanille; incorporer les fruits moulus et le lait alternativement avec les ingrédients secs.",
+          "Verser dans un moule graissé aux 3/4, couvrir hermétiquement et cuire à la vapeur 2 heures. Servir avec de la crème fouettée."
+        ],
+        "ar": [
+          "نخل الطحين والبيكنج بودر والملح.",
+          "اخلط الزبدة والسكر حتى يصبح الخليط فاتح وهش؛ أضف البيض واخفق حتى يصبح كثيفًا.",
+          "أضف البرغل المطبوخ والفانيلا؛ أضف الفواكه المطحونة والحليب بالتناوب مع المكونات الجافة.",
+          "املأ قالب مدهون بالزيت حتى ثلاثة أرباعه، غطيه بإحكام واطبخه على البخار لمدة ساعتين. قدّمه مع كريمة مخفوقة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "steamed pudding",
+          "bulgur fruit pudding"
+        ],
+        "fr": [
+          "pouding vapeur",
+          "pouding fruits boulghour"
+        ],
+        "ar": [
+          "بودينغ مطهو على البخار",
+          "بودينغ فواكه بالبرغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "raw-meat-platter",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Raw Meat Platter",
+        "fr": "Plateau de viande crue",
+        "ar": "طبق اللحم النيء"
+      },
+      "description": {
+        "en": "A traditional seasoned raw lamb and bulgur mixture served as patties.",
+        "fr": "Un mélange traditionnel d'agneau cru et de boulghour servi en galettes.",
+        "ar": "خليط لحم ضأن نيء متبّل مع برغل يُقدّم على شكل قطع."
+      },
+      "recipeCategory": {
+        "en": "Starter",
+        "fr": "Entrée",
+        "ar": "مقبلات"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "5-6 servings",
+        "fr": "5-6 portions",
+        "ar": "5-6 حصص"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT0M",
+      "totalTime": "PT20M",
+      "ingredients": {
+        "en": [
+          "1 cup (about 1 lb.) lean lamb, ground twice",
+          "Green pepper, chopped fine",
+          "Parsley, chopped fine",
+          "Green onions, chopped fine",
+          "1 cup bulgur wheat (fine)",
+          "1 small onion, chopped fine",
+          "Cayenne pepper (optional)",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "1 tasse (environ 450 g) d'agneau maigre haché deux fois",
+          "Poivron vert, haché fin",
+          "Persil, haché fin",
+          "Oignons verts, hachés fin",
+          "1 tasse de boulghour (fin)",
+          "1 petit oignon, haché fin",
+          "Piment de Cayenne (optionnel)",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "1 كوب (حوالي 450 جم) لحم ضأن خالي من الدهن مفروم مرتين",
+          "فلفل أخضر مفروم ناعماً",
+          "بقدونس مفروم ناعماً",
+          "بصل أخضر مفروم ناعماً",
+          "1 كوب برغل ناعم",
+          "1 بصلة صغيرة مفرومة ناعماً",
+          "فلفل حريف (اختياري)",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Use lamb only (leg preferred) and serve the same day it is ground.",
+          "Salt the meat and blend together.",
+          "Add bulgur, chopped onions and vegetables and knead with a little water until mixture holds together.",
+          "Shape into 2 inch patties and serve immediately, garnished with chopped vegetables."
+        ],
+        "fr": [
+          "Utilisez uniquement de l'agneau (morceau de gigot recommandé) et servez le jour même de la préparation.",
+          "Salez la viande et mélangez.",
+          "Ajoutez le boulghour, les oignons et les légumes hachés et pétrissez avec un peu d'eau jusqu'à obtenir une pâte homogène.",
+          "Formez des galettes de 5 cm et servez immédiatement, garnies de légumes hachés."
+        ],
+        "ar": [
+          "استخدم لحم الضأن فقط (يفضل الفخذ) وقدّمه في نفس اليوم الذي تمّ فيه طحنه.",
+          "ملّح اللحم وامزجه.",
+          "أضف البرغل والبصل والخضروات المفرومة واعجن بقليل من الماء حتى تتماسك المكونات.",
+          "شكّل أقراصًا بقطر 2 انش وقدّم فوراً مع تزيين بالخضروات المفرومة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "raw meat",
+          "kibbeh-style",
+          "bulgur"
+        ],
+        "fr": [
+          "viande crue",
+          "kibbeh",
+          "boulghour"
+        ],
+        "ar": [
+          "لحم نيء",
+          "كبة",
+          "برغل"
+        ]
+      },
+      "categoryId": "starter"
+    },
+    {
+      "slug": "bulgur-stuffed-peppers",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Stuffed Peppers",
+        "fr": "Poivrons farcis au boulghour",
+        "ar": "فلفل محشو بالبرغل"
+      },
+      "description": {
+        "en": "Bell peppers stuffed with a bulgur and meat mixture, baked in tomato sauce.",
+        "fr": "Poivrons farcis d'un mélange de boulghour et viande, cuits au four dans une sauce tomate.",
+        "ar": "فلفل محشو بخليط البرغل واللحم ومخبوز بصلصة الطماطم."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "5-6 servings",
+        "fr": "5-6 portions",
+        "ar": "5-6 حصص"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H10M",
+      "totalTime": "PT1H30M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1/2 pound ground meat or sausage",
+          "1 cup meat or chicken stock",
+          "1/2 teaspoon salt",
+          "1/4 teaspoon seasoned salt",
+          "1 teaspoon Worcestershire sauce",
+          "1/4 teaspoon pepper",
+          "3/4 cup tomato purée",
+          "Green or red bell peppers"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1/2 livre de viande hachée ou saucisse",
+          "1 tasse de bouillon de poulet ou de viande",
+          "1/2 c. à thé de sel",
+          "1/4 c. à thé de sel assaisonné",
+          "1 c. à thé de sauce Worcestershire",
+          "1/4 c. à thé de poivre",
+          "3/4 tasse de purée de tomate",
+          "Poivrons verts ou rouges"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "نصف رطل لحم مفروم أو سجق",
+          "1 كوب مرق دجاج أو لحم",
+          "1/2 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة ملح متبل",
+          "1 ملعقة صغيرة صلصة ورشستر",
+          "1/4 ملعقة صغيرة فلفل",
+          "3/4 كوب محضّر طماطم",
+          "فلفل أخضر أو أحمر"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend bulgur, meat, stock, salt, seasoned salt, Worcestershire sauce and pepper.",
+          "Cut peppers in halves lengthwise and remove seeds.",
+          "Fill pepper halves with bulgur mixture and place in baking dish.",
+          "Pour tomato purée mixed with stock over peppers, cover and bake at 375°F for 30 minutes, then uncover and bake an additional 40 minutes."
+        ],
+        "fr": [
+          "Mélanger le boulghour, la viande, le bouillon, le sel, la sauce Worcestershire et le poivre.",
+          "Couper les poivrons en deux dans le sens de la longueur et retirer les graines.",
+          "Remplir les moitiés de poivron et placer dans un plat à four.",
+          "Verser la purée de tomate mélangée au bouillon, couvrir et cuire à 190°C pendant 30 minutes, puis découvrir et poursuivre 40 minutes."
+        ],
+        "ar": [
+          "اخلط البرغل واللحم والمرق والملح والصلصة والفلفل.",
+          "اقطع الفلفل إلى نصفين بالطول وأزل البذور.",
+          "احشِ أنصاف الفلفل بخليط البرغل وضعها في طبق خبز.",
+          "اسكب خليط صلصة الطماطم والمرق فوق الفلفل، غطِّ واخبز على 190°C لمدة 30 دقيقة ثم اكشف واخبز 40 دقيقة إضافية."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "stuffed peppers",
+          "bulgur"
+        ],
+        "fr": [
+          "poivrons farcis",
+          "boulghour"
+        ],
+        "ar": [
+          "فلفل محشو",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-meat-loaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Meat Loaf",
+        "fr": "Pain de viande au boulghour",
+        "ar": "رغيف لحم بالبرغل"
+      },
+      "description": {
+        "en": "A meatloaf enriched with bulgur wheat and baked until browned.",
+        "fr": "Un pain de viande enrichi au boulghour et cuit au four jusqu'à dorure.",
+        "ar": "رغيف لحم مخلوط بالبرغل ومخبوز حتى يتحمر."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "10-12 servings",
+        "fr": "10-12 portions",
+        "ar": "10-12 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H15M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1 egg",
+          "1-1/4 cups milk",
+          "2 teaspoons salt",
+          "1/4 teaspoon pepper",
+          "1/4 to 1/2 cup chopped onion",
+          "1/4 cup ketchup",
+          "2 pounds ground beef"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1 œuf",
+          "1 1/4 tasse de lait",
+          "2 c. à thé de sel",
+          "1/4 c. à thé de poivre",
+          "1/4 à 1/2 tasse d'oignon haché",
+          "1/4 tasse de ketchup",
+          "2 livres de bœuf haché"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1 بيضة",
+          "1.25 كوب حليب",
+          "2 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة فلفل",
+          "1/4 إلى 1/2 كوب بصل مفروم",
+          "1/4 كوب كاتشب",
+          "2 رطل لحم بقري مفروم"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients together.",
+          "Turn into loaf pan and bake at 325°F (160°C) about 1 hour or until browned.",
+          "Optionally spread a thin layer of ketchup on top before baking."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients.",
+          "Mettre dans un moule à pain et cuire à 160°C pendant environ 1 heure ou jusqu'à ce qu'il soit doré.",
+          "Optionnel: étaler une fine couche de ketchup sur le dessus avant la cuisson."
+        ],
+        "ar": [
+          "اخلط جميع المكونات معًا.",
+          "ضع في قالب رغيف واخبز عند 160°C لمدة ساعة تقريبًا أو حتى يتحمر.",
+          "اختياري: ضع طبقة رقيقة من الكاتشب على السطح قبل الخبز."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "meatloaf",
+          "bulgur"
+        ],
+        "fr": [
+          "pain de viande",
+          "boulghour"
+        ],
+        "ar": [
+          "رغيف لحم",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-salmon-loaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Salmon Loaf",
+        "fr": "Pain de saumon au boulghour",
+        "ar": "رغيف السلمون بالبرغل"
+      },
+      "description": {
+        "en": "A salmon loaf combined with bulgur and baked until set.",
+        "fr": "Un pain de saumon mélangé au boulghour et cuit au four.",
+        "ar": "رغيف سلمون ممزوج بالبرغل ومخبوز حتى يستوي."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "6-8 servings",
+        "fr": "6-8 portions",
+        "ar": "6-8 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "totalTime": "PT1H",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1 can (16 oz.) salmon, drained",
+          "2 eggs",
+          "1/2 cup liquid (salmon liquid plus milk)",
+          "1/4 cup chopped onion",
+          "2 tablespoons lemon juice",
+          "2 tablespoons pickle relish",
+          "1/4 teaspoon salt",
+          "1/4 teaspoon pepper"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1 boîte (450 g) de saumon, égoutté",
+          "2 œufs",
+          "1/2 tasse de liquide (jus de saumon + lait)",
+          "1/4 tasse d'oignon haché",
+          "2 c. à soupe de jus de citron",
+          "2 c. à soupe de relish (cornichon)",
+          "1/4 c. à thé de sel",
+          "1/4 c. à thé de poivre"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1 علبة (450 جم) سلمون، مصفّى",
+          "2 بيض",
+          "1/2 كوب سائل (عصارة السلمون + حليب)",
+          "1/4 كوب بصل مفروم",
+          "2 ملعقة طعام عصير ليمون",
+          "2 ملعقة طعام مخلل مفروم",
+          "1/4 ملعقة صغيرة ملح",
+          "1/4 ملعقة صغيرة فلفل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients and turn into a loaf pan.",
+          "Bake in moderate oven, 350°F (175°C), for 45 minutes until set."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients et mettre dans un moule à cake.",
+          "Cuire au four à 175°C pendant 45 minutes jusqu'à ce que le pain soit pris."
+        ],
+        "ar": [
+          "اخلط جميع المكونات واسكبها في قالب رغيف.",
+          "اخبز في فرن معتدل 175°C لمدة 45 دقيقة حتى ينضج."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "salmon loaf",
+          "bulgur"
+        ],
+        "fr": [
+          "pain de saumon",
+          "boulghour"
+        ],
+        "ar": [
+          "رغيف سلمون",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "cabbage-rolls",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Cabbage Rolls",
+        "fr": "Choux farcis",
+        "ar": "محشي الكرنب"
+      },
+      "description": {
+        "en": "Cabbage leaves stuffed with a bulgur and lamb filling, simmered until tender.",
+        "fr": "Feuilles de chou farcies d'une préparation de boulghour et d'agneau, mijotées jusqu'à tendreté.",
+        "ar": "أوراق الكرنب المحشوة بخليط البرغل واللحم المطهو حتى النعومة."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "Serves many",
+        "fr": "Pour plusieurs personnes",
+        "ar": "تكفي عدة حصص"
+      },
+      "prepTime": "PT30M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H30M",
+      "ingredients": {
+        "en": [
+          "Cabbage leaves",
+          "1-1/2 cups ground lamb",
+          "2 small onions, chopped fine",
+          "1-1/2 cups bulgur",
+          "3 tablespoons tomato paste",
+          "2 tablespoons chopped parsley",
+          "1/2 teaspoon dried mint",
+          "Salt and pepper to taste",
+          "3 cups meat broth or water",
+          "Juice of 1/2 lemon"
+        ],
+        "fr": [
+          "Feuilles de chou",
+          "1 1/2 tasse d'agneau haché",
+          "2 petits oignons hachés",
+          "1 1/2 tasse de boulghour",
+          "3 c. à soupe de concentré de tomate",
+          "2 c. à soupe de persil haché",
+          "1/2 c. à thé de menthe séchée",
+          "Sel et poivre au goût",
+          "3 tasses de bouillon de viande ou d'eau",
+          "Jus d'1/2 citron"
+        ],
+        "ar": [
+          "أوراق كرنب",
+          "1.5 كوب لحم ضأن مفروم",
+          "2 بصلات صغيرة مفرومة ناعماً",
+          "1.5 كوب برغل",
+          "3 ملعقة طعام معجون طماطم",
+          "2 ملعقة طعام بقدونس مفروم",
+          "1/2 ملعقة صغيرة نعناع مجفف",
+          "ملح وفلفل حسب الذوق",
+          "3 كوب مرق لحم أو ماء",
+          "عصير نصف ليمونة"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Soften cabbage leaves in boiling water and trim ribs.",
+          "Mix bulgur with lamb, onions, tomato paste, parsley, mint, salt and pepper.",
+          "Place filling on cabbage leaves, roll and arrange in pan; add broth and lemon juice.",
+          "Cover and cook or bake at moderate heat for 1 hour."
+        ],
+        "fr": [
+          "Ramollir les feuilles de chou dans l'eau bouillante et couper les nervures.",
+          "Mélanger le boulghour avec l'agneau, les oignons, le concentré de tomate, le persil, la menthe, le sel et le poivre.",
+          "Déposer la farce sur les feuilles, rouler et arranger dans la poêle; ajouter le bouillon et le jus de citron.",
+          "Couvrir et cuire à feu modéré ou au four pendant 1 heure."
+        ],
+        "ar": [
+          "نقّع أوراق الكرنب في ماء مغلي وقلّم الأعناق.",
+          "اخلط البرغل مع اللحم والبصل ومعجون الطماطم والبقدونس والنعناع والملح والفلفل.",
+          "ضع الحشوة على الأوراق، لفّها ورتبها في القدر؛ أضف المرق وعصير الليمون.",
+          "غطّ واطبخ أو اخبز على حرارة معتدلة لمدة ساعة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "cabbage rolls",
+          "dolma",
+          "bulgur"
+        ],
+        "fr": [
+          "choux farcis",
+          "dolma",
+          "boulghour"
+        ],
+        "ar": [
+          "محاشي",
+          "محشي الكرنب",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "fish-and-bulgur-pilaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Fish and Bulgur Pilaf",
+        "fr": "Pilaf de poisson et boulghour",
+        "ar": "بيلاف السمك والبرغل"
+      },
+      "description": {
+        "en": "A bulgur pilaf flavored with sautéed vegetables and chunks of salmon.",
+        "fr": "Un pilaf de boulghour parfumé aux légumes sautés et morceaux de saumon.",
+        "ar": "بيلاف برغل بنكهة الخضار والسلمون."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "6-8 servings",
+        "fr": "6-8 portions",
+        "ar": "6-8 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "totalTime": "PT40M",
+      "ingredients": {
+        "en": [
+          "3 tablespoons butter or margarine",
+          "1 pound fresh salmon, cubed",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped celery",
+          "1 cup bulgur wheat",
+          "2 cups water",
+          "1-2 tablespoons lemon juice",
+          "1 teaspoon salt",
+          "1/8 teaspoon fine herbs",
+          "1/8 teaspoon thyme"
+        ],
+        "fr": [
+          "3 c. à soupe de beurre ou margarine",
+          "450 g de saumon frais, coupé en dés",
+          "1/2 tasse d'oignon haché",
+          "1/2 tasse de céleri haché",
+          "1 tasse de boulghour",
+          "2 tasses d'eau",
+          "1-2 c. à soupe de jus de citron",
+          "1 c. à thé de sel",
+          "1/8 c. à thé d'herbes fines",
+          "1/8 c. à thé de thym"
+        ],
+        "ar": [
+          "3 ملعقة طعام زبدة أو سمن",
+          "1 رطل سلمون طازج، مقطع مكعبات",
+          "1/2 كوب بصل مفروم",
+          "1/2 كوب كرفس مفروم",
+          "1 كوب برغل",
+          "2 كوب ماء",
+          "1-2 ملعقة طعام عصير ليمون",
+          "1 ملعقة صغيرة ملح",
+          "1/8 ملعقة صغيرة أعشاب ناعمة",
+          "1/8 ملعقة صغيرة زعتر"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Heat butter in skillet, add onion and celery and sauté until translucent.",
+          "Add salmon and cook briefly, then add bulgur and water.",
+          "Cover and simmer 25-30 minutes until bulgur is tender. Season with lemon juice and salt."
+        ],
+        "fr": [
+          "Faire fondre le beurre dans une poêle, ajouter l'oignon et le céleri et faire revenir jusqu'à transparence.",
+          "Ajouter le saumon et cuire brièvement, puis ajouter le boulghour et l'eau.",
+          "Couvrir et laisser mijoter 25-30 minutes jusqu'à tendreté. Assaisonner avec du jus de citron et du sel."
+        ],
+        "ar": [
+          "سخّن الزبدة في مقلاة، أضف البصل والكرفس وقلِّب حتى يذبلا.",
+          "أضف السلمون واطبخ قليلاً، ثم أضف البرغل والماء.",
+          "غطِّ واتركه على نار هادئة 25-30 دقيقة حتى ينضج البرغل. تبّل بعصير الليمون والملح."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "fish pilaf",
+          "bulgur"
+        ],
+        "fr": [
+          "pilaf de poisson",
+          "boulghour"
+        ],
+        "ar": [
+          "بيلاف سمك",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-wheat-pizza",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Wheat Pizza",
+        "fr": "Pizza au boulghour",
+        "ar": "بيتزا بالبرغل"
+      },
+      "description": {
+        "en": "A pizza variation using bulgur in the dough and a hearty meat-and-vegetable sauce.",
+        "fr": "Une variante de pizza utilisant du boulghour dans la pâte et une sauce riche à la viande et légumes.",
+        "ar": "نسخة من البيتزا تستخدم البرغل في العجين وصلصة غنية باللحم والخضار."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "2 pizzas (12-in.)",
+        "fr": "2 pizzas (30 cm)",
+        "ar": "2 بيتزا (30 سم)"
+      },
+      "prepTime": "PT1H15M",
+      "cookTime": "PT40M",
+      "totalTime": "PT1H55M",
+      "ingredients": {
+        "en": [
+          "Pizza Sauce: oil, green bell pepper, onion, mushrooms, garlic, Italian sausage, lean ground beef, tomato purée, tomato sauce, water, Parmesan, bay leaf, pepper, salt, oregano",
+          "Pizza Dough: 1/2 cup bulgur, 1-3/4 cups water, active dry yeast, flour, salt, oil",
+          "Assembly: slices of mozzarella, grated Parmesan"
+        ],
+        "fr": [
+          "Sauce: huile, poivron vert, oignon, champignons, ail, saucisse italienne, viande hachée, purée de tomate, sauce tomate, eau, Parmesan, feuille de laurier, poivre, sel, origan",
+          "Pâte: 1/2 tasse de boulghour, 1-3/4 tasse d'eau, levure sèche active, farine, sel, huile",
+          "Assemblage: tranches de mozzarella, Parmesan râpé"
+        ],
+        "ar": [
+          "صلصة: زيت، فلفل أخضر، بصل، فطر، ثوم، سجق إيطالي، لحم مفروم، معجون طماطم، صلصة طماطم، ماء، بارميزان، ورق غار، فلفل، ملح، زعتر",
+          "العجين: 1/2 كوب برغل، 1-3/4 كوب ماء، خميرة جافة، دقيق، ملح، زيت",
+          "التركيب: شرائح موزاريلا، جبن بارميزان مبشور"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Prepare the sauce: sauté vegetables and meats, add tomato purée, sauce, water, cheese and seasonings; simmer 90 minutes total.",
+          "Prepare the dough: cook bulgur in water until absorbed, cool; dissolve yeast and mix with flour, bulgur, oil; let rise, divide, roll to 12-inch rounds.",
+          "Assemble with mozzarella and sauce and bake at 375°F (190°C) for 35–40 minutes."
+        ],
+        "fr": [
+          "Préparer la sauce : faire revenir légumes et viandes, ajouter purée et sauce tomate, eau, fromage et assaisonnements ; mijoter 90 minutes.",
+          "Préparer la pâte : cuire le boulghour dans l'eau jusqu'à absorption, refroidir; dissoudre la levure et mélanger avec la farine, le boulghour, l'huile ; laisser lever, diviser, étaler en cercles de 30 cm.",
+          "Assembler avec mozzarella et sauce et cuire à 190°C pendant 35–40 minutes."
+        ],
+        "ar": [
+          "حضّر الصلصة: اقلي الخضار واللحوم، أضف معجون الطماطم والصلصة والماء والجبن والتوابل؛ اتركها تنضج 90 دقيقة.",
+          "حضّر العجين: اطبخ البرغل في الماء حتى يمتص، اتركه يبرد؛ اذب الخميرة وامزج مع الدقيق والبرغل والزيت؛ اتركه يختمر، قسمه وافرده لدوائر 30 سم.",
+          "ركّب بالجبن والصلصة واخبز على 190°C لمدة 35–40 دقيقة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "pizza",
+          "bulgur"
+        ],
+        "fr": [
+          "pizza",
+          "boulghour"
+        ],
+        "ar": [
+          "بيتزا",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "persian-pilaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Persian Pilaf",
+        "fr": "Pilaf persan",
+        "ar": "بيلاف فارسي"
+      },
+      "description": {
+        "en": "A traditional Persian-style pilaf with lamb and bulgur.",
+        "fr": "Un pilaf de style persan avec de l'agneau et du boulghour.",
+        "ar": "بيلاف على الطراز الفارسي باللحم والبرغل."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "Persian",
+        "fr": "Persan",
+        "ar": "فارسية"
+      },
+      "recipeYield": {
+        "en": "8-10 servings",
+        "fr": "8-10 portions",
+        "ar": "8-10 حصص"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "totalTime": "PT1H20M",
+      "ingredients": {
+        "en": [
+          "Shoulder of lamb, cubed",
+          "Chopped onion",
+          "Chopped tomatoes",
+          "2 cups bulgur",
+          "Butter",
+          "Broth or water",
+          "Salt and pepper"
+        ],
+        "fr": [
+          "Épaule d'agneau en dés",
+          "Oignon haché",
+          "Tomates hachées",
+          "2 tasses de boulghour",
+          "Beurre",
+          "Bouillon ou eau",
+          "Sel et poivre"
+        ],
+        "ar": [
+          "كتف ضأن مقطع مكعبات",
+          "بصل مفروم",
+          "طماطم مفرومة",
+          "2 كوب برغل",
+          "زبدة",
+          "مرق أو ماء",
+          "ملح وفلفل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Braise lamb cubes until well browned; add onions and tomatoes and cook 15 minutes.",
+          "Cook bulgur briefly in boiling broth, drain and place over meat; put butter in center and pour broth around edges.",
+          "Bake in moderate oven about 1 hour; turn onto platter and serve hot unmixed."
+        ],
+        "fr": [
+          "Faites braiser l'agneau jusqu'à ce qu'il soit bien doré; ajoutez les oignons et les tomates et cuisez 15 minutes.",
+          "Cuire le boulghour brièvement dans du bouillon bouillant, égoutter et déposer sur la viande; mettre le beurre au centre et verser le bouillon autour.",
+          "Cuire au four modéré environ 1 heure; retourner sur un plat et servir chaud sans mélanger."
+        ],
+        "ar": [
+          "اقلي مكعبات اللحم حتى تتحمر جيدًا؛ أضف البصل والطماطم واطبخ 15 دقيقة.",
+          "اسلق البرغل قليلاً في المرق المغلي، صفّه وضعه فوق اللحم؛ ضع الزبدة في الوسط واسكب المرق حول الحواف.",
+          "اخبز في فرن معتدل حوالي ساعة؛ اقلبه على صينية وقدمه ساخنًا دون خلط."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "persian",
+          "pilaf",
+          "bulgur"
+        ],
+        "fr": [
+          "persan",
+          "pilaf",
+          "boulghour"
+        ],
+        "ar": [
+          "فارسي",
+          "بيلاف",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "india-lamb-pilaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "India Lamb Pilaf",
+        "fr": "Pilaf d'agneau à l'indienne",
+        "ar": "بيلاف لحم على الطريقة الهندية"
+      },
+      "description": {
+        "en": "A spiced lamb pilaf with curry and apples, using bulgur.",
+        "fr": "Un pilaf d'agneau épicé au curry et aux pommes, avec du boulghour.",
+        "ar": "بيلاف لحم متبّل بالكاري والتفاح مع البرغل."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "Indian-Inspired",
+        "fr": "Inspiré indien",
+        "ar": "من الطراز الهندي"
+      },
+      "recipeYield": {
+        "en": "5-6 servings",
+        "fr": "5-6 portions",
+        "ar": "5-6 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT40M",
+      "totalTime": "PT55M",
+      "ingredients": {
+        "en": [
+          "Oil, cooked lamb cubes, chopped onion, tart apple, garlic, celery seed, curry powder, ginger, salt, pepper, Tabasco, tomato purée, consommé or water, 1 cup bulgur"
+        ],
+        "fr": [
+          "Huile, cubes d'agneau cuits, oignon haché, pomme acidulée, ail, graines de céleri, curry, gingembre, sel, poivre, Tabasco, purée de tomate, consommé ou eau, 1 tasse de boulghour"
+        ],
+        "ar": [
+          "زيت، مكعبات لحم مطبوخة، بصل مفروم، تفاح حامض، ثوم، بذور كرفس، مسحوق كاري، زنجبيل، ملح، فلفل، تاباسكو، معجون طماطم، مرق أو ماء، 1 كوب برغل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sauté lamb with onion, apple and garlic; brown lightly.",
+          "Blend in remaining ingredients, bring to boil then simmer about 40 minutes until thickened."
+        ],
+        "fr": [
+          "Faire revenir l'agneau avec l'oignon, la pomme et l'ail; dorer légèrement.",
+          "Incorporez le reste des ingrédients, portez à ébullition puis laissez mijoter environ 40 minutes jusqu'à épaississement."
+        ],
+        "ar": [
+          "اقلِّ اللحم مع البصل والتفاح والثوم؛ حمّر قليلًا.",
+          "اخلط بقية المكونات، اغلي ثم اتركها تغلي بهدوء حوالي 40 دقيقة حتى تتكثف."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "lamb pilaf",
+          "curry",
+          "bulgur"
+        ],
+        "fr": [
+          "pilaf d'agneau",
+          "curry",
+          "boulghour"
+        ],
+        "ar": [
+          "بيلاف لحم",
+          "كاري",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "india-chicken-curry-pilaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "India Chicken Curry Pilaf",
+        "fr": "Pilaf au poulet et curry",
+        "ar": "بيلاف دجاج بالكاري"
+      },
+      "description": {
+        "en": "A creamy curried chicken pilaf with bulgur and apples.",
+        "fr": "Un pilaf crémeux au poulet et curry avec du boulghour et des pommes.",
+        "ar": "بيلاف دجاج كريمي بالكاري مع البرغل والتفاح."
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "Plat principal",
+        "ar": "طبق رئيسي"
+      },
+      "recipeCuisine": {
+        "en": "Indian-Inspired",
+        "fr": "Inspiré indien",
+        "ar": "من الطراز الهندي"
+      },
+      "recipeYield": {
+        "en": "5-6 servings",
+        "fr": "5-6 portions",
+        "ar": "5-6 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT25M",
+      "totalTime": "PT40M",
+      "ingredients": {
+        "en": [
+          "Butter or chicken fat, chopped onion, tart apple, celery, curry powder, ginger, flour, salt, pepper, chicken stock, cream or milk, cooked diced chicken, bulgur"
+        ],
+        "fr": [
+          "Beurre ou graisse de poulet, oignon haché, pomme acidulée, céleri, poudre de curry, gingembre, farine, sel, poivre, bouillon de poulet, crème ou lait, poulet cuit en dés, boulghour"
+        ],
+        "ar": [
+          "زبدة أو دهن دجاج، بصل مفروم، تفاح حامض، كرفس، مسحوق كاري، زنجبيل، دقيق، ملح، فلفل، مرق دجاج، كريمة أو حليب، دجاج مطبوخ مقطع، برغل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sauté onion, apple and celery in butter; add spices and flour then stir in stock and cream until thickened.",
+          "Add cooked chicken and bulgur, cover and simmer over low heat 25 minutes."
+        ],
+        "fr": [
+          "Faire revenir l'oignon, la pomme et le céleri dans le beurre; ajouter les épices et la farine puis incorporer le bouillon et la crème jusqu'à épaississement.",
+          "Ajouter le poulet cuit et le boulghour, couvrir et laisser mijoter à feu doux 25 minutes."
+        ],
+        "ar": [
+          "اقلِّ البصل والتفاح والكرفس في الزبدة؛ أضف التوابل والدقيق ثم حرك المرق والكريمة حتى تتكاثف.",
+          "أضف الدجاج المطبوخ والبرغل، غطّ واتركه يغلي ببطء 25 دقيقة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "chicken curry",
+          "pilaf",
+          "bulgur"
+        ],
+        "fr": [
+          "curry poulet",
+          "pilaf",
+          "boulghour"
+        ],
+        "ar": [
+          "دجاج بالكاري",
+          "بيلاف",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "bulgur-cheese-casserole",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgur Cheese Casserole",
+        "fr": "Gratin de boulghour au fromage",
+        "ar": "طاجن البرغل بالجبن"
+      },
+      "description": {
+        "en": "A simple baked casserole mixing cooked bulgur with cheese and tomatoes.",
+        "fr": "Un gratin au four mélangeant du boulghour cuit avec du fromage et des tomates.",
+        "ar": "طاجن بسيط مخبوز يخلط البرغل المطبوخ مع الجبن والطماطم."
+      },
+      "recipeCategory": {
+        "en": "Casserole",
+        "fr": "Gratin",
+        "ar": "طاجن"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "عالمي"
+      },
+      "recipeYield": {
+        "en": "4-6 servings",
+        "fr": "4-6 portions",
+        "ar": "4-6 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "totalTime": "PT40M",
+      "ingredients": {
+        "en": [
+          "3 cups cooked bulgur",
+          "1 15-oz can tomatoes",
+          "1/3 cup sliced mushrooms",
+          "1/2 lb pasteurized process cheese, sliced",
+          "2 tbsp chopped green pepper",
+          "2 tbsp chopped onion",
+          "Salt and pepper to taste"
+        ],
+        "fr": [
+          "3 tasses de boulghour cuit",
+          "1 boîte de 425 g de tomates",
+          "1/3 tasse de champignons tranchés",
+          "225 g de fromage pasteurisé en tranche",
+          "2 c. à soupe de poivron vert haché",
+          "2 c. à soupe d'oignon haché",
+          "Sel et poivre au goût"
+        ],
+        "ar": [
+          "3 أكواب برغل مطبوخ",
+          "1 علبة طماطم 425 جم",
+          "1/3 كوب مشروم مقطع",
+          "1/2 رطل جبن مصنّع شرائح",
+          "2 ملعقة طعام فلفل أخضر مفروم",
+          "2 ملعقة طعام بصل مفروم",
+          "ملح وفلفل حسب الذوق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend cooked bulgur, mushrooms, green peppers, onion, salt and pepper.",
+          "Place half of the mixture in a shallow casserole, cover with half the cheese slices.",
+          "Add the rest of the bulgur mixture, arrange remaining cheese and bake at 350°F (175°C) for 30 minutes."
+        ],
+        "fr": [
+          "Mélanger le boulghour cuit, les champignons, le poivron, l'oignon, le sel et le poivre.",
+          "Déposer la moitié du mélange dans un plat, couvrir de la moitié des tranches de fromage.",
+          "Ajouter le reste, disposer le fromage restant et cuire à 175°C pendant 30 minutes."
+        ],
+        "ar": [
+          "اخلط البرغل المطبوخ والمشروم والفلفل الأخضر والبصل والملح والفلفل.",
+          "ضع نصف الخليط في طاجن سطحي وغطّ بنصف شرائح الجبن.",
+          "أضف بقية الخليط، رتب شرائح الجبن المتبقية واخبز على 175°C لمدة 30 دقيقة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "casserole",
+          "cheese",
+          "bulgur"
+        ],
+        "fr": [
+          "gratin",
+          "fromage",
+          "boulghour"
+        ],
+        "ar": [
+          "طاجن",
+          "جبن",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "scalloped-bulgor-with-wieners",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Scalloped Bulgur with Wieners",
+        "fr": "Boulghour gratiné aux saucisses",
+        "ar": "برغل بالواينرز"
+      },
+      "description": {
+        "en": "A creamy baked bulgur dish topped with wieners.",
+        "fr": "Un plat gratiné crémeux de boulghour garni de saucisses.",
+        "ar": "طبق برغل كريمي مخبوز يعلوه سجق (واينرز)."
+      },
+      "recipeCategory": {
+        "en": "Casserole",
+        "fr": "Gratin",
+        "ar": "طاجن"
+      },
+      "recipeCuisine": {
+        "en": "Comfort Food",
+        "fr": "Confort alimentaire",
+        "ar": "طعام مريح"
+      },
+      "recipeYield": {
+        "en": "5-6 servings",
+        "fr": "5-6 portions",
+        "ar": "5-6 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT50M",
+      "totalTime": "PT1H",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur",
+          "1 egg slightly beaten",
+          "2 tbsp chopped onion",
+          "1 can condensed cream of mushroom soup",
+          "1/2 tsp salt",
+          "3/4 cup milk",
+          "5-6 wieners"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "1 œuf battu",
+          "2 c. à soupe d'oignon haché",
+          "1 boîte soupe crème de champignons concentrée",
+          "1/2 c. à thé sel",
+          "3/4 tasse lait",
+          "5-6 saucisses"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "1 بيضة مخفوقة قليلاً",
+          "2 ملعقة طعام بصل مفروم",
+          "1 علبة حساء كريمي بالفطر مركز",
+          "1/2 ملعقة صغيرة ملح",
+          "3/4 كوب حليب",
+          "5-6 نقانق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend bulgur, egg, onion, condensed soup, salt and milk in shallow baking dish.",
+          "Bake at 350°F (175°C) until partially set (~30 minutes).",
+          "Top with wieners, brush with margarine and continue baking 15–20 minutes until browned."
+        ],
+        "fr": [
+          "Mélanger boulghour, œuf, oignon, soupe concentrée, sel et lait dans un plat.",
+          "Cuire à 175°C jusqu'à prise partielle (~30 minutes).",
+          "Ajouter les saucisses, badigeonner de margarine et poursuivre la cuisson 15–20 minutes jusqu'à brunissement."
+        ],
+        "ar": [
+          "اخلط البرغل والبيضة والبصل والحساء المركز والملح والحليب في طبق خبز سطحي.",
+          "اخبز على 175°C حتى يتماسك جزئياً (~30 دقيقة).",
+          "ضع النقانق، ادهنها بالمارغرين واستمر في الخبز 15-20 دقيقة حتى تتحمر."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "scalloped",
+          "wieners",
+          "bulgur"
+        ],
+        "fr": [
+          "gratin",
+          "saucisses",
+          "boulghour"
+        ],
+        "ar": [
+          "مشوي",
+          "نقانق",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "scotch-haggis-with-bulgor",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Scotch Haggis with Bulgur",
+        "fr": "Haggis écossais au boulghour",
+        "ar": "هاجيس اسكتلندي مع البرغل"
+      },
+      "description": {
+        "en": "A traditional haggis-style pudding mixed with bulgur.",
+        "fr": "Un pudding traditionnel de type haggis mélangé au boulghour.",
+        "ar": "بودنغ هاجيس تقليدي ممزوج بالبرغل."
+      },
+      "recipeCategory": {
+        "en": "Pudding",
+        "fr": "Pudding",
+        "ar": "بودنغ"
+      },
+      "recipeCuisine": {
+        "en": "Scottish",
+        "fr": "Écossaise",
+        "ar": "أسكتلندية"
+      },
+      "recipeYield": {
+        "en": "Large (serves several)",
+        "fr": "Grand (pour plusieurs)",
+        "ar": "كبير (يكفي عدة أشخاص)"
+      },
+      "prepTime": "PT30M",
+      "cookTime": "PT3H",
+      "totalTime": "PT3H30M",
+      "ingredients": {
+        "en": [
+          "3 lamb hearts",
+          "1 lb liver",
+          "1/2 lb minced suet",
+          "1/2 cup chopped onions",
+          "1 cup bulgur wheat",
+          "3 tsp salt",
+          "2 cups meat broth or bouillon"
+        ],
+        "fr": [
+          "3 cœurs d'agneau",
+          "450 g de foie",
+          "1/2 lb de suet haché",
+          "1/2 tasse d'oignon haché",
+          "1 tasse de boulghour",
+          "3 c. à thé de sel",
+          "2 tasses de bouillon de viande"
+        ],
+        "ar": [
+          "3 قلوب ضأن",
+          "1 رطل كبد",
+          "1/2 رطل سوت مفروم",
+          "1/2 كوب بصل مفروم",
+          "1 كوب برغل",
+          "3 ملعقة صغيرة ملح",
+          "2 كوب مرق لحم أو مرق"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Simmer lamb hearts and liver in water 1.5 hours; cool and grind.",
+          "Add suet, onions, bulgur, salt and broth; mix well and steam in covered pudding mold 3 hours."
+        ],
+        "fr": [
+          "Faire mijoter les cœurs et le foie d'agneau 1,5 heure; refroidir et hacher.",
+          "Ajouter le suet, les oignons, le boulghour, le sel et le bouillon; bien mélanger et cuire à la vapeur 3 heures dans un moule à pudding couvert."
+        ],
+        "ar": [
+          "اسلق قلوب وكبد الضأن في الماء لمدة 1.5 ساعة؛ اتركها لتبرد واطحنها.",
+          "أضف السوت والبصل والبرغل والملح والمرق؛ اخلط جيداً وبخره في قالب بودنغ مغطى لمدة 3 ساعات."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "haggis",
+          "scotch",
+          "bulgur"
+        ],
+        "fr": [
+          "haggis",
+          "écossais",
+          "boulghour"
+        ],
+        "ar": [
+          "هاجيس",
+          "اسكتلندي",
+          "برغل"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "armenian-pilaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Armenian Pilaf",
+        "fr": "Pilaf arménien",
+        "ar": "بيلاف أرمني"
+      },
+      "description": {
+        "en": "A light pilaf with vermicelli and bulgur cooked in chicken stock.",
+        "fr": "Un pilaf léger avec vermicelles et boulghour cuits au bouillon de poulet.",
+        "ar": "بيلاف خفيف مع شعيرية وبرغل مطبوخ في مرق الدجاج."
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "Accompagnement",
+        "ar": "طبق جانبي"
+      },
+      "recipeCuisine": {
+        "en": "Armenian",
+        "fr": "Arménienne",
+        "ar": "أرمينية"
+      },
+      "recipeYield": {
+        "en": "4-6 servings",
+        "fr": "4-6 portions",
+        "ar": "4-6 حصص"
+      },
+      "prepTime": "PT5M",
+      "cookTime": "PT20M",
+      "totalTime": "PT25M",
+      "ingredients": {
+        "en": [
+          "2 tbsp butter or margarine",
+          "3 tbsp chopped onion",
+          "1/2 cup vermicelli or noodles",
+          "1 cup bulgur wheat",
+          "2 cups chicken stock",
+          "3/4 tsp salt",
+          "1/8 tsp pepper"
+        ],
+        "fr": [
+          "2 c. à soupe de beurre ou margarine",
+          "3 c. à soupe d'oignon haché",
+          "1/2 tasse de vermicelles ou nouilles",
+          "1 tasse de boulghour",
+          "2 tasses de bouillon de poulet",
+          "3/4 c. à thé sel",
+          "1/8 c. à thé poivre"
+        ],
+        "ar": [
+          "2 ملعقة طعام زبدة أو مارجرين",
+          "3 ملعقة طعام بصل مفروم",
+          "1/2 كوب شعيرية أو نودلز",
+          "1 كوب برغل",
+          "2 كوب مرق دجاج",
+          "3/4 ملعقة صغيرة ملح",
+          "1/8 ملعقة صغيرة فلفل"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Heat butter, sauté onion and vermicelli until lightly browned.",
+          "Add bulgur, chicken stock, salt and pepper; cover and simmer 20 minutes until liquid absorbed.",
+          "Let stand 15-20 minutes before serving."
+        ],
+        "fr": [
+          "Faire fondre le beurre, faire revenir l'oignon et les vermicelles jusqu'à légère coloration.",
+          "Ajouter le boulghour, le bouillon, le sel et le poivre; couvrir et laisser mijoter 20 minutes.",
+          "Laisser reposer 15-20 minutes avant de servir."
+        ],
+        "ar": [
+          "سخّن الزبدة، قلي البصل والشعيرية حتى تحمر قليلاً.",
+          "أضف البرغل ومرق الدجاج والملح والفلفل؛ غط واتركه ينضج 20 دقيقة حتى يمتص السائل.",
+          "اتركه 15-20 دقيقة قبل التقديم."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "armenian",
+          "pilaf",
+          "bulgur"
+        ],
+        "fr": [
+          "arménien",
+          "pilaf",
+          "boulghour"
+        ],
+        "ar": [
+          "أرميني",
+          "بيلاف",
+          "برغل"
+        ]
+      },
+      "categoryId": "side"
+    },
+    {
+      "slug": "chinese-fried-bulgor",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Chinese Fried Bulgur",
+        "fr": "Boulghour frit à la chinoise",
+        "ar": "البرغل المقلي على الطريقة الصينية"
+      },
+      "description": {
+        "en": "A quick fried bulgur with soy sauce and vegetables, served as a side or main.",
+        "fr": "Un boulghour sauté rapide à la sauce soja et légumes, servi en accompagnement ou plat principal.",
+        "ar": "برغل مقلي سريع مع صلصة الصويا والخضار، يُقدّم كطبق جانبي أو رئيسي."
+      },
+      "recipeCategory": {
+        "en": "Main/Side",
+        "fr": "Plat/Accompagnement",
+        "ar": "طبق رئيسي/جانبي"
+      },
+      "recipeCuisine": {
+        "en": "Chinese-Inspired",
+        "fr": "Inspiré chinois",
+        "ar": "من الطراز الصيني"
+      },
+      "recipeYield": {
+        "en": "4-5 servings",
+        "fr": "4-5 portions",
+        "ar": "4-5 حصص"
+      },
+      "prepTime": "PT5M",
+      "cookTime": "PT15M",
+      "totalTime": "PT20M",
+      "ingredients": {
+        "en": [
+          "2 tbsp oil",
+          "3/4 cup finely minced onion",
+          "1/2 cup finely minced green bell pepper",
+          "1/2 cup finely minced celery",
+          "2-1/2 cups cooked bulgur",
+          "2 tbsp soy sauce"
+        ],
+        "fr": [
+          "2 c. à soupe d'huile",
+          "3/4 tasse d'oignon finement haché",
+          "1/2 tasse de poivron vert finement haché",
+          "1/2 tasse de céleri finement haché",
+          "2 1/2 tasses de boulghour cuit",
+          "2 c. à soupe de sauce soja"
+        ],
+        "ar": [
+          "2 ملعقة طعام زيت",
+          "3/4 كوب بصل مفروم ناعماً",
+          "1/2 كوب فلفل أخضر مفروم ناعماً",
+          "1/2 كوب كرفس مفروم ناعماً",
+          "2.5 كوب برغل مطبوخ",
+          "2 ملعقة طعام صويا"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Heat oil in skillet, sauté onion, bell pepper and celery until translucent.",
+          "Stir in cooked bulgur and soy sauce; cover and cook over low heat 15 minutes, stirring occasionally."
+        ],
+        "fr": [
+          "Chauffer l'huile, faire revenir oignon, poivron et céleri jusqu'à transparence.",
+          "Incorporer le boulghour cuit et la sauce soja; couvrir et cuire à feu doux 15 minutes en remuant occasionnellement."
+        ],
+        "ar": [
+          "سخّن الزيت في مقلاة، قلّب البصل والفلفل والكرفس حتى يذبلا.",
+          "أضف البرغل المطبوخ والصويا؛ غطِ واتركه على نار هادئة 15 دقيقة مع التحريك من وقت لآخر."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "fried bulgur",
+          "soy",
+          "vegetables"
+        ],
+        "fr": [
+          "boulghour frit",
+          "soja",
+          "légumes"
+        ],
+        "ar": [
+          "برغل مقلي",
+          "صويا",
+          "خضار"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "boston-baked-bulgor",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Boston Baked Bulgur",
+        "fr": "Boulghour cuit à la Boston",
+        "ar": "بروغل مخبوز على طريقة بوسطن"
+      },
+      "description": {
+        "en": "A sweet-and-savory baked bulgur dish finished with bacon or salt pork.",
+        "fr": "Un plat de boulghour sucré-salé cuit au four et garni de bacon ou lard salé.",
+        "ar": "طبق برغل مخبوز حلو-مالح يُغطّى بالبيكون أو اللحم المملح."
+      },
+      "recipeCategory": {
+        "en": "Casserole",
+        "fr": "Gratin",
+        "ar": "طاجن"
+      },
+      "recipeCuisine": {
+        "en": "American",
+        "fr": "Américaine",
+        "ar": "أمريكي"
+      },
+      "recipeYield": {
+        "en": "4-5 servings",
+        "fr": "4-5 portions",
+        "ar": "4-5 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT1H25M",
+      "totalTime": "PT1H35M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked bulgur wheat",
+          "2/3 cup condensed tomato soup",
+          "3 tablespoons molasses",
+          "3/4 cup water or consommé",
+          "3 tablespoons brown sugar",
+          "1/2 teaspoon dry mustard",
+          "1/2 teaspoon salt",
+          "1 to 2 tablespoons minced onion",
+          "1 teaspoon Worcestershire sauce",
+          "2 ounces salt pork or bacon"
+        ],
+        "fr": [
+          "2 1/2 tasses de boulghour cuit",
+          "2/3 tasse de soupe tomate concentrée",
+          "3 c. à soupe de mélasse",
+          "3/4 tasse d'eau ou consommé",
+          "3 c. à soupe de sucre brun",
+          "1/2 c. à thé moutarde sèche",
+          "1/2 c. à thé sel",
+          "1 à 2 c. à soupe d'oignon haché",
+          "1 c. à thé sauce Worcestershire",
+          "2 oz lard ou bacon"
+        ],
+        "ar": [
+          "2.5 كوب برغل مطبوخ",
+          "2/3 كوب حساء طماطم مركز",
+          "3 ملعقة طعام دبس السكر",
+          "3/4 كوب ماء أو مرق",
+          "3 ملعقة طعام سكر بني",
+          "1/2 ملعقة صغيرة خردل جاف",
+          "1/2 ملعقة صغيرة ملح",
+          "1-2 ملعقة طعام بصل مفروم",
+          "1 ملعقة طعام صلصة ورشستر",
+          "2 أونصة لحم مملح أو بيكون"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients except salt pork or bacon in a casserole.",
+          "Cut salt pork or bacon into strips and press into surface of bulgur mixture.",
+          "Cover and bake at 325°F (160°C) for 45 minutes; remove cover and continue baking about 40 minutes."
+        ],
+        "fr": [
+          "Mélanger tous les ingrédients sauf le lard dans un plat.",
+          "Couper le lard en bandes et les presser sur la surface.",
+          "Couvrir et cuire à 160°C pendant 45 minutes; retirer le couvercle et poursuivre la cuisson environ 40 minutes."
+        ],
+        "ar": [
+          "اخلط جميع المكونات باستثناء اللحم المملح في طاجن.",
+          "قطع اللحم المملح أو البيكون إلى شرائح واضغطها على سطح الخليط.",
+          "غط وخبز على 160°C لمدة 45 دقيقة؛ اكشف واستمر في الخبز حوالي 40 دقيقة."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "baked",
+          "bulgur",
+          "boston"
+        ],
+        "fr": [
+          "baked",
+          "boulghour",
+          "boston"
+        ],
+        "ar": [
+          "مخبوز",
+          "برغل",
+          "بوسطن"
+        ]
+      },
+      "categoryId": "main"
+    },
+    {
+      "slug": "pilaf-almondine",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Pilaf Almondine",
+        "fr": "Pilaf Almondine",
+        "ar": "Pilaf Almondine"
+      },
+      "description": {
+        "en": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
+        "fr": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
+        "ar": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds."
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "Accompagnement",
+        "ar": "طبق جانبي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "متنوع"
+      },
+      "recipeYield": {
+        "en": "4 to 5 servings",
+        "fr": "4 à 5 portions",
+        "ar": "4 إلى 5 حصص"
+      },
+      "prepTime": "PT5M",
+      "cookTime": "PT25M",
+      "totalTime": "PT35M",
+      "ingredients": {
+        "en": [
+          "1 cup Bulgor Wheat",
+          "2 cups water",
+          "1/2 cup butter or margarine",
+          "1/4 teaspoon salt",
+          "Chopped toasted almonds (for garnish)",
+          "Poppy seeds (for garnish)"
+        ],
+        "fr": [
+          "1 cup Bulgor Wheat",
+          "2 cups water",
+          "1/2 cup butter or margarine",
+          "1/4 teaspoon salt",
+          "Chopped toasted almonds (for garnish)",
+          "Poppy seeds (for garnish)"
+        ],
+        "ar": [
+          "1 cup Bulgor Wheat",
+          "2 cups water",
+          "1/2 cup butter or margarine",
+          "1/4 teaspoon salt",
+          "Chopped toasted almonds (for garnish)",
+          "Poppy seeds (for garnish)"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine Bulgor, salt, and water in a saucepan.",
+          "Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes).",
+          "Let it stand 10 minutes.",
+          "Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."
+        ],
+        "fr": [
+          "Combine Bulgor, salt, and water in a saucepan.",
+          "Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes).",
+          "Let it stand 10 minutes.",
+          "Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."
+        ],
+        "ar": [
+          "Combine Bulgor, salt, and water in a saucepan.",
+          "Bring to boil, add butter or margarine, cover, reduce heat and simmer until water is absorbed (15 to 20 minutes).",
+          "Let it stand 10 minutes.",
+          "Sprinkle each serving lightly with poppy seeds and 1 to 2 teaspoons chopped toasted almonds."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "pilaf",
+          "almondine",
+          "bulgur"
+        ],
+        "fr": [
+          "pilaf",
+          "almondine",
+          "bulghour"
+        ],
+        "ar": [
+          "بلاف",
+          "لوز",
+          "برغل"
+        ]
+      },
+      "categoryId": "side"
+    },
+    {
+      "slug": "pilaf-romanoff",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Pilaf Romanoff",
+        "fr": "Pilaf Romanoff",
+        "ar": "Pilaf Romanoff"
+      },
+      "description": {
+        "en": "A creamy bulgur pilaf with cottage cheese and sour cream.",
+        "fr": "A creamy bulgur pilaf with cottage cheese and sour cream.",
+        "ar": "A creamy bulgur pilaf with cottage cheese and sour cream."
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "Accompagnement",
+        "ar": "طبق جانبي"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "متنوع"
+      },
+      "recipeYield": {
+        "en": "4 to 6 servings",
+        "fr": "4 à 6 portions",
+        "ar": "4 إلى 6 حصص"
+      },
+      "prepTime": "PT5M",
+      "cookTime": "PT10M",
+      "totalTime": "PT15M",
+      "ingredients": {
+        "en": [
+          "2-1/2 cups cooked or soaked Bulgor Wheat",
+          "1 cup sour cream",
+          "1 cup cottage cheese",
+          "1 teaspoon grated onion",
+          "3/4 teaspoon salt",
+          "Dash Tabasco Sauce",
+          "1/4 teaspoon Worcestershire sauce"
+        ],
+        "fr": [
+          "2-1/2 cups cooked or soaked Bulgor Wheat",
+          "1 cup sour cream",
+          "1 cup cottage cheese",
+          "1 teaspoon grated onion",
+          "3/4 teaspoon salt",
+          "Dash Tabasco Sauce",
+          "1/4 teaspoon Worcestershire sauce"
+        ],
+        "ar": [
+          "2-1/2 cups cooked or soaked Bulgor Wheat",
+          "1 cup sour cream",
+          "1 cup cottage cheese",
+          "1 teaspoon grated onion",
+          "3/4 teaspoon salt",
+          "Dash Tabasco Sauce",
+          "1/4 teaspoon Worcestershire sauce"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients in a saucepan.",
+          "Cover and cook low heat about 10 minutes.",
+          "Stir several times while heating."
+        ],
+        "fr": [
+          "Blend all ingredients in a saucepan.",
+          "Cover and cook low heat about 10 minutes.",
+          "Stir several times while heating."
+        ],
+        "ar": [
+          "Blend all ingredients in a saucepan.",
+          "Cover and cook low heat about 10 minutes.",
+          "Stir several times while heating."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "pilaf",
+          "Romanoff",
+          "creamy"
+        ],
+        "fr": [
+          "pilaf",
+          "Romanoff",
+          "crémeux"
+        ],
+        "ar": [
+          "بلاف",
+          "رومانوف",
+          "كريمي"
+        ]
+      },
+      "categoryId": "side"
+    },
+    {
+      "slug": "spanish-bulgor",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Spanish Bulgor",
+        "fr": "Spanish Bulgor",
+        "ar": "Spanish Bulgor"
+      },
+      "description": {
+        "en": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
+        "fr": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
+        "ar": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings."
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "Accompagnement",
+        "ar": "طبق جانبي"
+      },
+      "recipeCuisine": {
+        "en": "Spanish-inspired",
+        "fr": "Inspiré espagnol",
+        "ar": "بطابع إسباني"
+      },
+      "recipeYield": {
+        "en": "5 to 6 servings",
+        "fr": "5 à 6 portions",
+        "ar": "5 إلى 6 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "totalTime": "PT35M",
+      "ingredients": {
+        "en": [
+          "4 slices bacon cut in 1/2-inch strips",
+          "1/2 to 3/4 cup chopped onion",
+          "1/2 cup chopped celery",
+          "1/2 cup chopped green bell pepper",
+          "1 clove garlic, finely minced",
+          "1 can (10 oz.) tomatoes",
+          "2 cups water",
+          "1/2 teaspoon salt",
+          "1 teaspoon seasoned salt",
+          "1/4 teaspoon pepper",
+          "1 teaspoon sugar",
+          "1 teaspoon Worcestershire Sauce",
+          "1 cup Bulgor Wheat"
+        ],
+        "fr": [
+          "4 slices bacon cut in 1/2-inch strips",
+          "1/2 to 3/4 cup chopped onion",
+          "1/2 cup chopped celery",
+          "1/2 cup chopped green bell pepper",
+          "1 clove garlic, finely minced",
+          "1 can (10 oz.) tomatoes",
+          "2 cups water",
+          "1/2 teaspoon salt",
+          "1 teaspoon seasoned salt",
+          "1/4 teaspoon pepper",
+          "1 teaspoon sugar",
+          "1 teaspoon Worcestershire Sauce",
+          "1 cup Bulgor Wheat"
+        ],
+        "ar": [
+          "4 slices bacon cut in 1/2-inch strips",
+          "1/2 to 3/4 cup chopped onion",
+          "1/2 cup chopped celery",
+          "1/2 cup chopped green bell pepper",
+          "1 clove garlic, finely minced",
+          "1 can (10 oz.) tomatoes",
+          "2 cups water",
+          "1/2 teaspoon salt",
+          "1 teaspoon seasoned salt",
+          "1/4 teaspoon pepper",
+          "1 teaspoon sugar",
+          "1 teaspoon Worcestershire Sauce",
+          "1 cup Bulgor Wheat"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Sauté bacon strips in a heavy skillet until they begin to brown.",
+          "Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured.",
+          "Blend in the tomatoes, water, seasonings, and Bulgor Wheat.",
+          "Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."
+        ],
+        "fr": [
+          "Sauté bacon strips in a heavy skillet until they begin to brown.",
+          "Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured.",
+          "Blend in the tomatoes, water, seasonings, and Bulgor Wheat.",
+          "Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."
+        ],
+        "ar": [
+          "Sauté bacon strips in a heavy skillet until they begin to brown.",
+          "Add onion, celery, green bell pepper, and garlic and cook until onion is straw-coloured.",
+          "Blend in the tomatoes, water, seasonings, and Bulgor Wheat.",
+          "Cover and simmer over low heat until most of liquid is absorbed, 20 to 25 minutes."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "spanish",
+          "bulgur",
+          "skillet"
+        ],
+        "fr": [
+          "spanish",
+          "bulghour",
+          "poêle"
+        ],
+        "ar": [
+          "إسباني",
+          "برغل",
+          "مقلاة"
+        ]
+      },
+      "categoryId": "side"
+    },
+    {
+      "slug": "bulgor-wheat-shortcake",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgor Wheat Shortcake",
+        "fr": "Bulgor Wheat Shortcake",
+        "ar": "Bulgor Wheat Shortcake"
+      },
+      "description": {
+        "en": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.",
+        "fr": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.",
+        "ar": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough."
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "Accompagnement",
+        "ar": "طبق جانبي"
+      },
+      "recipeCuisine": {
+        "en": "Baked",
+        "fr": "Cuit au four",
+        "ar": "مخبوز"
+      },
+      "recipeYield": {
+        "en": "6 to 8 servings",
+        "fr": "6 à 8 portions",
+        "ar": "6 إلى 8 حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "totalTime": "PT65M",
+      "ingredients": {
+        "en": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "2 cups sifted flour",
+          "3-1/2 teaspoons baking powder",
+          "3/4 teaspoon salt",
+          "1/3 cup sugar",
+          "1/4 cup shortening",
+          "3/4 cup milk"
+        ],
+        "fr": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "2 cups sifted flour",
+          "3-1/2 teaspoons baking powder",
+          "3/4 teaspoon salt",
+          "1/3 cup sugar",
+          "1/4 cup shortening",
+          "3/4 cup milk"
+        ],
+        "ar": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "2 cups sifted flour",
+          "3-1/2 teaspoons baking powder",
+          "3/4 teaspoon salt",
+          "1/3 cup sugar",
+          "1/4 cup shortening",
+          "3/4 cup milk"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, salt, and sugar.",
+          "Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.",
+          "Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."
+        ],
+        "fr": [
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, salt, and sugar.",
+          "Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.",
+          "Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."
+        ],
+        "ar": [
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, salt, and sugar.",
+          "Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.",
+          "Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "shortcake",
+          "bulgur",
+          "baked"
+        ],
+        "fr": [
+          "shortcake",
+          "bulghour",
+          "cuit"
+        ],
+        "ar": [
+          "شورت كيك",
+          "برغل",
+          "مخبوز"
+        ]
+      },
+      "categoryId": "side"
+    },
+    {
+      "slug": "bulgor-wheat-biscuits",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgor Wheat Biscuits",
+        "fr": "Bulgor Wheat Biscuits",
+        "ar": "Bulgor Wheat Biscuits"
+      },
+      "description": {
+        "en": "Tender biscuits made with cooked bulgur mixed into the dough.",
+        "fr": "Tender biscuits made with cooked bulgur mixed into the dough.",
+        "ar": "Tender biscuits made with cooked bulgur mixed into the dough."
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "Accompagnement",
+        "ar": "طبق جانبي"
+      },
+      "recipeCuisine": {
+        "en": "Baked",
+        "fr": "Cuit au four",
+        "ar": "مخبوز"
+      },
+      "recipeYield": {
+        "en": "10 to 12 (2 inch) biscuits",
+        "fr": "10 à 12 biscuits (5 cm)",
+        "ar": "10 إلى 12 بسكويت (2 بوصة)"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "totalTime": "PT65M",
+      "ingredients": {
+        "en": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "2 cups sifted flour",
+          "3-1/2 teaspoons baking powder",
+          "1 teaspoon salt",
+          "1/4 cup shortening",
+          "3/4 cup milk",
+          "3/4 cup cooked Bulgor"
+        ],
+        "fr": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "2 cups sifted flour",
+          "3-1/2 teaspoons baking powder",
+          "1 teaspoon salt",
+          "1/4 cup shortening",
+          "3/4 cup milk",
+          "3/4 cup cooked Bulgor"
+        ],
+        "ar": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "2 cups sifted flour",
+          "3-1/2 teaspoons baking powder",
+          "1 teaspoon salt",
+          "1/4 cup shortening",
+          "3/4 cup milk",
+          "3/4 cup cooked Bulgor"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, and salt; cut in shortening.",
+          "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.",
+          "Bake at 400°F until lightly browned, about 25 to 30 minutes."
+        ],
+        "fr": [
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, and salt; cut in shortening.",
+          "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.",
+          "Bake at 400°F until lightly browned, about 25 to 30 minutes."
+        ],
+        "ar": [
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, and salt; cut in shortening.",
+          "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.",
+          "Bake at 400°F until lightly browned, about 25 to 30 minutes."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "biscuits",
+          "bulgur",
+          "baked"
+        ],
+        "fr": [
+          "biscuits",
+          "bulghour",
+          "cuit"
+        ],
+        "ar": [
+          "بسكويت",
+          "برغل",
+          "مخبوز"
+        ]
+      },
+      "categoryId": "side"
+    },
+    {
+      "slug": "white-bread-with-bulgor",
+      "featuredRecipe": false,
+      "title": {
+        "en": "White Bread with Bulgor",
+        "fr": "Pain Blanc au Bulgor",
+        "ar": "خبز أبيض بالبرغل"
+      },
+      "description": {
+        "en": "A soft white loaf made by incorporating cooked bulgur into the dough.",
+        "fr": "Un pain blanc moelleux préparé en incorporant du boulghour cuit dans la pâte.",
+        "ar": "رغيف أبيض طري محضّر بإدخال البرغل المطبوخ في العجين."
+      },
+      "recipeCategory": {
+        "en": "Other",
+        "fr": "Autre",
+        "ar": "أخرى"
+      },
+      "recipeCuisine": {
+        "en": "Baked",
+        "fr": "Cuit au four",
+        "ar": "مخبوز"
+      },
+      "recipeYield": {
+        "en": "2 (1 lb.) Loaves",
+        "fr": "2 pains (450 g)",
+        "ar": "رغيفان (1 رطل)"
+      },
+      "prepTime": "PT30M",
+      "cookTime": "PT35M",
+      "totalTime": "PT1H5M",
+      "ingredients": {
+        "en": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "1/8 teaspoon salt (for Bulgor mixture)",
+          "3/4 cup milk",
+          "1 package (1/4 oz.) activated dry yeast",
+          "1/2 cup lukewarm water",
+          "4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)",
+          "2 teaspoons salt (for flour mixture)",
+          "3 tablespoons sugar",
+          "3 tablespoons shortening or oil"
+        ],
+        "fr": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "1/8 teaspoon salt (for Bulgor mixture)",
+          "3/4 cup milk",
+          "1 package (1/4 oz.) activated dry yeast",
+          "1/2 cup lukewarm water",
+          "4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)",
+          "2 teaspoons salt (for flour mixture)",
+          "3 tablespoons sugar",
+          "3 tablespoons shortening or oil"
+        ],
+        "ar": [
+          "1 cup water",
+          "1/4 cup Bulgor wheat",
+          "1/8 teaspoon salt (for Bulgor mixture)",
+          "3/4 cup milk",
+          "1 package (1/4 oz.) activated dry yeast",
+          "1/2 cup lukewarm water",
+          "4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)",
+          "2 teaspoons salt (for flour mixture)",
+          "3 tablespoons sugar",
+          "3 tablespoons shortening or oil"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.",
+          "Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.",
+          "Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.",
+          "Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).",
+          "Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."
+        ],
+        "fr": [
+          "Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.",
+          "Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.",
+          "Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.",
+          "Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).",
+          "Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."
+        ],
+        "ar": [
+          "Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.",
+          "Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.",
+          "Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.",
+          "Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).",
+          "Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "bread",
+          "bulgur",
+          "loaf"
+        ],
+        "fr": [
+          "pain",
+          "bulghour",
+          "rôti"
+        ],
+        "ar": [
+          "خبز",
+          "برغل",
+          "رغيف"
+        ]
+      },
+      "categoryId": "other"
+    },
+    {
+      "slug": "baked-banana-bulgor-custard",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Baked Banana Bulgor Custard",
+        "fr": "Crème Au Bananes Et Bulghour",
+        "ar": "بودينغ الموز والبرغل"
+      },
+      "description": {
+        "en": "A baked custard-style dessert made with cooked bulgur and mashed banana.",
+        "fr": "Un dessert en style crème pâtissière préparé avec du boulghour cuit et de la banane écrasée.",
+        "ar": "حلوى كاسترد مخبوزة بالبرغل والموز المهروس."
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "Baked",
+        "fr": "Cuit au four",
+        "ar": "مخبوز"
+      },
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "6 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT45M",
+      "totalTime": "PT55M",
+      "ingredients": {
+        "en": [
+          "1-1/2 cups cooked Bulgor",
+          "1/2 cup mashed banana",
+          "1 tablespoon lemon juice",
+          "1 teaspoon grated lemon rind",
+          "1 teaspoon vanilla",
+          "1/3 cup sugar",
+          "1/8 teaspoon salt",
+          "2 cups milk",
+          "2 eggs, slightly beaten",
+          "1 tablespoon melted butter"
+        ],
+        "fr": [
+          "1-1/2 cups cooked Bulgor",
+          "1/2 cup mashed banana",
+          "1 tablespoon lemon juice",
+          "1 teaspoon grated lemon rind",
+          "1 teaspoon vanilla",
+          "1/3 cup sugar",
+          "1/8 teaspoon salt",
+          "2 cups milk",
+          "2 eggs, slightly beaten",
+          "1 tablespoon melted butter"
+        ],
+        "ar": [
+          "1-1/2 cups cooked Bulgor",
+          "1/2 cup mashed banana",
+          "1 tablespoon lemon juice",
+          "1 teaspoon grated lemon rind",
+          "1 teaspoon vanilla",
+          "1/3 cup sugar",
+          "1/8 teaspoon salt",
+          "2 cups milk",
+          "2 eggs, slightly beaten",
+          "1 tablespoon melted butter"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Blend all ingredients in a baking dish.",
+          "Sprinkle lightly with cinnamon.",
+          "Bake in moderate oven for 40 to 45 minutes or until set."
+        ],
+        "fr": [
+          "Blend all ingredients in a baking dish.",
+          "Sprinkle lightly with cinnamon.",
+          "Bake in moderate oven for 40 to 45 minutes or until set."
+        ],
+        "ar": [
+          "Blend all ingredients in a baking dish.",
+          "Sprinkle lightly with cinnamon.",
+          "Bake in moderate oven for 40 to 45 minutes or until set."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "banana",
+          "custard",
+          "bulgur"
+        ],
+        "fr": [
+          "banane",
+          "crème",
+          "boulghour"
+        ],
+        "ar": [
+          "موز",
+          "كاسترد",
+          "برغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "banana-bulgor-cake",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Banana Bulgor Cake",
+        "fr": "Gâteau Bananes Et Bulghour",
+        "ar": "كعكة البرغل بالموز"
+      },
+      "description": {
+        "en": "A banana loaf-style cake that includes cooked bulgur for texture and flavor.",
+        "fr": "Un gâteau en forme de pain contenant du boulghour cuit pour la texture.",
+        "ar": "كعكة على شكل رغيف تحتوي على برغل مطبوخ لإضافة القوام والنكهة."
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "Baked",
+        "fr": "Cuit au four",
+        "ar": "مخبوز"
+      },
+      "recipeYield": {
+        "en": "10 to 12 servings",
+        "fr": "10 à 12 portions",
+        "ar": "10 إلى 12 حصص"
+      },
+      "prepTime": "PT20M",
+      "cookTime": "PT1H15M",
+      "totalTime": "PT1H35M",
+      "ingredients": {
+        "en": [
+          "1/3 cup Bulgor Wheat",
+          "1-1/3 cups water (for Bulgor)",
+          "2 cups sifted all-purpose flour",
+          "3 teaspoons baking powder",
+          "1/2 teaspoon salt",
+          "1/2 cup butter",
+          "1 cup sugar",
+          "2 eggs",
+          "1 teaspoon vanilla",
+          "3/4 cup mashed banana",
+          "1 teaspoon lemon juice",
+          "1/4 cup milk"
+        ],
+        "fr": [
+          "1/3 cup Bulgor Wheat",
+          "1-1/3 cups water (for Bulgor)",
+          "2 cups sifted all-purpose flour",
+          "3 teaspoons baking powder",
+          "1/2 teaspoon salt",
+          "1/2 cup butter",
+          "1 cup sugar",
+          "2 eggs",
+          "1 teaspoon vanilla",
+          "3/4 cup mashed banana",
+          "1 teaspoon lemon juice",
+          "1/4 cup milk"
+        ],
+        "ar": [
+          "1/3 cup Bulgor Wheat",
+          "1-1/3 cups water (for Bulgor)",
+          "2 cups sifted all-purpose flour",
+          "3 teaspoons baking powder",
+          "1/2 teaspoon salt",
+          "1/2 cup butter",
+          "1 cup sugar",
+          "2 eggs",
+          "1 teaspoon vanilla",
+          "3/4 cup mashed banana",
+          "1 teaspoon lemon juice",
+          "1/4 cup milk"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, and salt.",
+          "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
+          "Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.",
+          "Turn into greased loaf pan and bake at 350°F about 1¼ hours."
+        ],
+        "fr": [
+          "Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, and salt.",
+          "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
+          "Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.",
+          "Turn into greased loaf pan and bake at 350°F about 1¼ hours."
+        ],
+        "ar": [
+          "Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.",
+          "Sift together flour, baking powder, and salt.",
+          "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
+          "Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.",
+          "Turn into greased loaf pan and bake at 350°F about 1¼ hours."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "banana",
+          "cake",
+          "bulgur"
+        ],
+        "fr": [
+          "banane",
+          "gâteau",
+          "bulghour"
+        ],
+        "ar": [
+          "موز",
+          "كعكة",
+          "برغل"
+        ]
+      },
+      "categoryId": "dessert"
+    },
+    {
+      "slug": "bulgor-apricot-delight",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Bulgor Apricot Delight with Eggnog Sauce",
+        "fr": "Délice Abricot au Bulghour et Sauce Eggnog",
+        "ar": "متعة البرغل بالمشمش مع صلصة ايجنوج"
+      },
+      "description": {
+        "en": "A chilled apricot-flavored bulgur dessert topped with a rich eggnog-style sauce.",
+        "fr": "Un dessert au boulghour parfumé à l'abricot, servi frais avec une sauce type eggnog.",
+        "ar": "حلوى برغل بنكهة المشمش تُقدّم باردة مع صلصة البيض الغنية."
+      },
+      "recipeCategory": {
+        "en": "Dessert",
+        "fr": "Dessert",
+        "ar": "حلوى"
+      },
+      "recipeCuisine": {
+        "en": "International",
+        "fr": "Internationale",
+        "ar": "متنوع"
+      },
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "6 حصص"
+      },
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "totalTime": "PT25M",
+      "ingredients": {
+        "en": [
+          "1 cup apricot nectar (or juice)",
+          "1-1/2 cups water",
+          "1/4 teaspoon salt",
+          "1 cup Bulgor wheat",
+          "3 tablespoons sugar (for Bulgor)",
+          "1 tablespoon lemon juice",
+          "Apricot halves (for garnish)",
+          "Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"
+        ],
+        "fr": [
+          "1 cup apricot nectar (or juice)",
+          "1-1/2 cups water",
+          "1/4 teaspoon salt",
+          "1 cup Bulgor wheat",
+          "3 tablespoons sugar (for Bulgor)",
+          "1 tablespoon lemon juice",
+          "Apricot halves (for garnish)",
+          "Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"
+        ],
+        "ar": [
+          "1 cup apricot nectar (or juice)",
+          "1-1/2 cups water",
+          "1/4 teaspoon salt",
+          "1 cup Bulgor wheat",
+          "3 tablespoons sugar (for Bulgor)",
+          "1 tablespoon lemon juice",
+          "Apricot halves (for garnish)",
+          "Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.",
+          "Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.",
+          "Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."
+        ],
+        "fr": [
+          "Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.",
+          "Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.",
+          "Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."
+        ],
+        "ar": [
+          "Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.",
+          "Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.",
+          "Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."
+        ]
+      },
+      "keywords": {
+        "en": [
+          "apricot",
+          "dessert",
+          "eggnog"
+        ],
+        "fr": [
+          "abricot",
+          "dessert",
+          "eggnog"
+        ],
+        "ar": [
+          "مشمش",
+          "حلوى",
+          "ايجنوج"
+        ]
+      },
+      "categoryId": "dessert"
+    }
+  ]
+}
