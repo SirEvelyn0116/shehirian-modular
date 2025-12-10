@@ -38,11 +38,11 @@ const localizedLabels = {
   ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' }
 };
 
-// Override author for all recipes at build time (canonicalized across locales)
+// Localized author strings to use for all recipes at build time
 const AUTHOR_OVERRIDE = {
   en: 'Shehirian family',
-  fr: 'Shehirian family',
-  ar: 'Shehirian family'
+  fr: 'Famille Shehirian',
+  ar: 'عائلة شيهريان'
 };
 
 // Canonical category definitions — try to load from `sections/categories.json`
@@ -313,6 +313,9 @@ function writeAllRecipesPages() {
       r.categoryId = 'other';
     }
   });
+
+  // Note: 'author' is NOT stored in all-recipes.json — it's injected at build time
+  // from AUTHOR_OVERRIDE to avoid redundancy and ensure consistency.
 
   const recipesDir = path.join(__dirname, 'recipes');
   const distRecipesDir = path.join(distDir, 'recipes');

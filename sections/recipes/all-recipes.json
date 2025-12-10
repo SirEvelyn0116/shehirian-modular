@@ -13,11 +13,6 @@
         "fr": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
         "ar": "حساء شرق أوسطي بكرات اللحم والليمون مع الأرز والبقدونس."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Soup",
         "fr": "Soupe",
@@ -132,11 +127,6 @@
         "fr": "Une soupe arménienne consistante aux lentilles, persil, menthe et beurre.",
         "ar": "حساء أرمني غني بالعدس والبقدونس والنعناع والزبدة."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Soup",
         "fr": "Soupe",
@@ -242,11 +232,6 @@
         "fr": "Fresh herbs, lemon dressing, and hearty bulgur.",
         "ar": "Fresh herbs, lemon dressing, and hearty bulgur."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Salad",
         "fr": "Salade",
@@ -345,11 +330,6 @@
         "en": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
         "fr": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
         "ar": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Salad",
@@ -461,11 +441,6 @@
         "en": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
         "fr": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
         "ar": "Coarse bulgur simmered with vegetables and spices for a comforting meal."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Main Dish",
@@ -589,11 +564,6 @@
         "en": "Comforting, protein-rich, and perfect for fall.",
         "fr": "Comforting, protein-rich, and perfect for fall.",
         "ar": "Comforting, protein-rich, and perfect for fall."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Soup",
@@ -784,12 +754,7 @@
           "برغل"
         ]
       },
-      "categoryId": "salad",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "salad"
     },
     {
       "slug": "bulgur-carrot-pineapple-salad",
@@ -871,12 +836,7 @@
           "ضعها في الثلاجة قبل التقديم."
         ]
       },
-      "categoryId": "salad",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "salad"
     },
     {
       "slug": "cole-slaw-bulgur",
@@ -961,12 +921,7 @@
           "ضعها في الثلاجة قبل التقديم."
         ]
       },
-      "categoryId": "salad",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "salad"
     },
     {
       "slug": "bulgur-carrot-raisin-salad",
@@ -1039,12 +994,7 @@
           "ضعها في الثلاجة قبل التقديم."
         ]
       },
-      "categoryId": "salad",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "salad"
     },
     {
       "slug": "chefs-bulgur-salad",
@@ -1135,12 +1085,7 @@
           "قدّمها باردة أو في درجة حرارة الغرفة."
         ]
       },
-      "categoryId": "main",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "main"
     },
     {
       "slug": "bulgur-dutch-cucumber-salad",
@@ -1225,12 +1170,7 @@
           "زَين بالشبت أو الثوم المعمر وضعها في الثلاجة قبل التقديم."
         ]
       },
-      "categoryId": "salad",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "salad"
     },
     {
       "slug": "bulgur-garden-salad",
@@ -1315,12 +1255,7 @@
           "ضعها في الثلاجة لفترة قصيرة قبل التقديم."
         ]
       },
-      "categoryId": "salad",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "salad"
     },
     {
       "slug": "scotch-broth",
@@ -1491,12 +1426,7 @@
           "Middle Eastern soup"
         ]
       },
-      "categoryId": "soup",
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      }
+      "categoryId": "soup"
     },
     {
       "slug": "bulgur-cherry-custard",
@@ -1510,11 +1440,6 @@
         "en": "A layered bulgur dessert with a cherry compote and baked custard.",
         "fr": "Un dessert en couches à base de boulghour avec compote de cerises et crème cuite.",
         "ar": "حلوى بطبقات من البرغل وطبقة كرز وكاسترد مخبوز"
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Dessert",
@@ -1627,11 +1552,6 @@
         "fr": "Un pouding de boulghour au mélasse et épices.",
         "ar": "بودينغ برغل بالدبس والبهارات"
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Dessert",
         "fr": "Dessert",
@@ -1740,11 +1660,6 @@
         "fr": "Un pouding de boulghour aux raisins.",
         "ar": "بودينغ برغل مع الزبيب"
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Dessert",
         "fr": "Dessert",
@@ -1837,11 +1752,6 @@
         "en": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.",
         "fr": "Un dessert chocolaté au boulghour, pris à la gélatine et à la crème fouettée.",
         "ar": "حلوى شوكولاتة وبرغل مبردة مع الجيلاتين والكريم"
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Dessert",
@@ -1938,11 +1848,6 @@
         "en": "A steamed loaf-style fruit pudding with bulgur and dried fruits.",
         "fr": "Un pouding aux fruits cuit à la vapeur, style cake, avec du boulghour.",
         "ar": "بودينغ فاكهة بالبرغل مطهو على البخار على شكل رغيف"
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Dessert",
@@ -2055,11 +1960,6 @@
         "fr": "Un mélange traditionnel d'agneau cru et de boulghour servi en galettes.",
         "ar": "خليط لحم ضأن نيء متبّل مع برغل يُقدّم على شكل قطع."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Starter",
         "fr": "Entrée",
@@ -2161,11 +2061,6 @@
         "en": "Bell peppers stuffed with a bulgur and meat mixture, baked in tomato sauce.",
         "fr": "Poivrons farcis d'un mélange de boulghour et viande, cuits au four dans une sauce tomate.",
         "ar": "فلفل محشو بخليط البرغل واللحم ومخبوز بصلصة الطماطم."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Main Dish",
@@ -2269,11 +2164,6 @@
         "fr": "Un pain de viande enrichi au boulghour et cuit au four jusqu'à dorure.",
         "ar": "رغيف لحم مخلوط بالبرغل ومخبوز حتى يتحمر."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main Dish",
         "fr": "Plat principal",
@@ -2370,11 +2260,6 @@
         "fr": "Un pain de saumon mélangé au boulghour et cuit au four.",
         "ar": "رغيف سلمون ممزوج بالبرغل ومخبوز حتى يستوي."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main Dish",
         "fr": "Plat principal",
@@ -2470,11 +2355,6 @@
         "en": "Cabbage leaves stuffed with a bulgur and lamb filling, simmered until tender.",
         "fr": "Feuilles de chou farcies d'une préparation de boulghour et d'agneau, mijotées jusqu'à tendreté.",
         "ar": "أوراق الكرنب المحشوة بخليط البرغل واللحم المطهو حتى النعومة."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Main Dish",
@@ -2584,11 +2464,6 @@
         "fr": "Un pilaf de boulghour parfumé aux légumes sautés et morceaux de saumon.",
         "ar": "بيلاف برغل بنكهة الخضار والسلمون."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main Dish",
         "fr": "Plat principal",
@@ -2691,11 +2566,6 @@
         "fr": "Une variante de pizza utilisant du boulghour dans la pâte et une sauce riche à la viande et légumes.",
         "ar": "نسخة من البيتزا تستخدم البرغل في العجين وصلصة غنية باللحم والخضار."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main Dish",
         "fr": "Plat principal",
@@ -2776,11 +2646,6 @@
         "en": "A traditional Persian-style pilaf with lamb and bulgur.",
         "fr": "Un pilaf de style persan avec de l'agneau et du boulghour.",
         "ar": "بيلاف على الطراز الفارسي باللحم والبرغل."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Main Dish",
@@ -2878,11 +2743,6 @@
         "fr": "Un pilaf d'agneau épicé au curry et aux pommes, avec du boulghour.",
         "ar": "بيلاف لحم متبّل بالكاري والتفاح مع البرغل."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main Dish",
         "fr": "Plat principal",
@@ -2958,11 +2818,6 @@
         "fr": "Un pilaf crémeux au poulet et curry avec du boulghour et des pommes.",
         "ar": "بيلاف دجاج كريمي بالكاري مع البرغل والتفاح."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main Dish",
         "fr": "Plat principal",
@@ -3037,11 +2892,6 @@
         "en": "A simple baked casserole mixing cooked bulgur with cheese and tomatoes.",
         "fr": "Un gratin au four mélangeant du boulghour cuit avec du fromage et des tomates.",
         "ar": "طاجن بسيط مخبوز يخلط البرغل المطبوخ مع الجبن والطماطم."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Casserole",
@@ -3139,11 +2989,6 @@
         "fr": "Un plat gratiné crémeux de boulghour garni de saucisses.",
         "ar": "طبق برغل كريمي مخبوز يعلوه سجق (واينرز)."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Casserole",
         "fr": "Gratin",
@@ -3240,11 +3085,6 @@
         "fr": "Un pudding traditionnel de type haggis mélangé au boulghour.",
         "ar": "بودنغ هاجيس تقليدي ممزوج بالبرغل."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Pudding",
         "fr": "Pudding",
@@ -3337,11 +3177,6 @@
         "en": "A light pilaf with vermicelli and bulgur cooked in chicken stock.",
         "fr": "Un pilaf léger avec vermicelles et boulghour cuits au bouillon de poulet.",
         "ar": "بيلاف خفيف مع شعيرية وبرغل مطبوخ في مرق الدجاج."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Side Dish",
@@ -3439,11 +3274,6 @@
         "fr": "Un boulghour sauté rapide à la sauce soja et légumes, servi en accompagnement ou plat principal.",
         "ar": "برغل مقلي سريع مع صلصة الصويا والخضار، يُقدّم كطبق جانبي أو رئيسي."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Main/Side",
         "fr": "Plat/Accompagnement",
@@ -3533,11 +3363,6 @@
         "en": "A sweet-and-savory baked bulgur dish finished with bacon or salt pork.",
         "fr": "Un plat de boulghour sucré-salé cuit au four et garni de bacon ou lard salé.",
         "ar": "طبق برغل مخبوز حلو-مالح يُغطّى بالبيكون أو اللحم المملح."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Casserole",
@@ -3644,11 +3469,6 @@
         "fr": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
         "ar": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Side Dish",
         "fr": "Accompagnement",
@@ -3745,11 +3565,6 @@
         "fr": "A creamy bulgur pilaf with cottage cheese and sour cream.",
         "ar": "A creamy bulgur pilaf with cottage cheese and sour cream."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Side Dish",
         "fr": "Accompagnement",
@@ -3845,11 +3660,6 @@
         "en": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
         "fr": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
         "ar": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Side Dish",
@@ -3968,11 +3778,6 @@
         "fr": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.",
         "ar": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Side Dish",
         "fr": "Accompagnement",
@@ -4075,11 +3880,6 @@
         "fr": "Tender biscuits made with cooked bulgur mixed into the dough.",
         "ar": "Tender biscuits made with cooked bulgur mixed into the dough."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Side Dish",
         "fr": "Accompagnement",
@@ -4181,11 +3981,6 @@
         "en": "A soft white loaf made by incorporating cooked bulgur into the dough.",
         "fr": "Un pain blanc moelleux préparé en incorporant du boulghour cuit dans la pâte.",
         "ar": "رغيف أبيض طري محضّر بإدخال البرغل المطبوخ في العجين."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Other",
@@ -4298,11 +4093,6 @@
         "fr": "Un dessert en style crème pâtissière préparé avec du boulghour cuit et de la banane écrasée.",
         "ar": "حلوى كاسترد مخبوزة بالبرغل والموز المهروس."
       },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
-      },
       "recipeCategory": {
         "en": "Dessert",
         "fr": "Dessert",
@@ -4407,11 +4197,6 @@
         "en": "A banana loaf-style cake that includes cooked bulgur for texture and flavor.",
         "fr": "Un gâteau en forme de pain contenant du boulghour cuit pour la texture.",
         "ar": "كعكة على شكل رغيف تحتوي على برغل مطبوخ لإضافة القوام والنكهة."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Dessert",
@@ -4529,11 +4314,6 @@
         "en": "A chilled apricot-flavored bulgur dessert topped with a rich eggnog-style sauce.",
         "fr": "Un dessert au boulghour parfumé à l'abricot, servi frais avec une sauce type eggnog.",
         "ar": "حلوى برغل بنكهة المشمش تُقدّم باردة مع صلصة البيض الغنية."
-      },
-      "author": {
-        "en": "Shehirian family",
-        "fr": "Famille Shehirian",
-        "ar": "عائلة شيهريان"
       },
       "recipeCategory": {
         "en": "Dessert",
