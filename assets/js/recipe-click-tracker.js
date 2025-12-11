@@ -5,7 +5,7 @@
   'use strict';
 
   // Configuration - update this URL to your deployed serverless endpoint
-  const TRACKING_ENDPOINT = 'https://your-function-url.com/api/track-recipe';
+  const TRACKING_ENDPOINT = 'https://gleeful-sfogliatella-82181f.netlify.app/api/track-recipe';
   
   // Debounce to prevent duplicate tracking on double-clicks
   const trackedClicks = new Set();

@@ -8,3 +8,6 @@ test-results/
 playwright-report/
 playwright/.auth/
 dist/
+
+# Local Netlify folder
+.netlify

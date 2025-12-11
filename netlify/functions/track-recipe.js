@@ -37,7 +37,7 @@ function loadCounters() {
 exports.handler = async (event, context) => {
   // CORS headers
   const headers = {
-    'Access-Control-Allow-Origin': '*', // Update with your domain
+    'Access-Control-Allow-Origin': 'https://gleeful-sfogliatella-82181f.netlify.app'  
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Content-Type': 'application/json'
