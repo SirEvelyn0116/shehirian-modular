@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
+// Make sure dist exists
+fs.mkdirSync('dist', { recursive: true });
+
 const langs = {
   en: { title: "Shehirian Family Kitchen", dir: "ltr" },
   fr: { title: "Cuisine familiale Shehirian", dir: "ltr" },
