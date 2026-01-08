@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+export const dynamic = 'force-dynamic';
+
 interface Product {
   id: string;
   name: string;
