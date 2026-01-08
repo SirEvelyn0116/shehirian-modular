@@ -3,7 +3,14 @@ import Link from "next/link";
 // Import the Clover service directly instead of calling the API route
 import { cloverService } from "@/lib/clover";
 
-async function getInventory() {
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+async function getInventory(): Promise<Product[]> {
   try {
     // Try to get real inventory from Clover
     const merchantId = process.env.CLOVER_MERCHANT_ID;
@@ -44,7 +51,7 @@ async function getInventory() {
     const data = await response.json();
     const items = data.elements || [];
 
-    return items.map((item: any) => ({
+    return items.map((item: { id: string; name: string; price: number; stockCount?: number }) => ({
       id: item.id,
       name: item.name,
       price: item.price ? item.price / 100 : 0,
