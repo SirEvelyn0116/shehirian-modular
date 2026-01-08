@@ -153,7 +153,7 @@ export default function ConfirmationPage() {
                 </p>
                 <p className="flex items-center">
                   <span className="mr-2">✓</span>
-                  Amazon's return policy applies
+                  Amazon&apos;s return policy applies
                 </p>
               </div>
             </>

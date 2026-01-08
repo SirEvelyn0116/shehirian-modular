@@ -58,7 +58,7 @@ export default function CheckoutPage() {
     if (fulfillmentOption === "shopify") {
       setSelectedRate(`${shopifyRates[0].carrier}-${shopifyRates[0].service}`);
     }
-  }, [fulfillmentOption]);
+  }, [fulfillmentOption, shopifyRates]);
 
   const getShippingCost = () => {
     if (fulfillmentOption === "amazon") {

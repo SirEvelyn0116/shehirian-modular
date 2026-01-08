@@ -1,0 +1,36 @@
+functionsDirectory = "C:\\Users\\adria\\GitHub\\shehirian-modular\\payment-integration-prototype\\netlify\\functions"
+functionsDirectoryOrigin = "ui"
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/plugin-nextjs"
+
+[plugins.inputs]
+
+[build]
+publish = "C:\\Users\\adria\\GitHub\\shehirian-modular\\payment-integration-prototype\\.next"
+publishOrigin = "ui"
+commandOrigin = "ui"
+base = "C:\\Users\\adria\\GitHub\\shehirian-modular\\payment-integration-prototype"
+command = "npm run build"
+functions = "C:\\Users\\adria\\GitHub\\shehirian-modular\\payment-integration-prototype\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
