@@ -11,8 +11,64 @@ on:
   workflow_dispatch:  # Allow manual trigger
 
 jobs:
+  # Build verification job - ensures site can be built before testing
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build site
+        run: node generate-index.js
+      
+      - name: Verify build output
+        run: |
+          # Check that all language index files were generated
+          test -f dist/index.en.html || exit 1
+          test -f dist/index.fr.html || exit 1
+          test -f dist/index.ar.html || exit 1
+          test -f dist/index.hy.html || exit 1
+          
+          # Check that all-recipes pages exist
+          test -f dist/recipes/all-recipes.en.html || exit 1
+          test -f dist/recipes/all-recipes.fr.html || exit 1
+          test -f dist/recipes/all-recipes.ar.html || exit 1
+          test -f dist/recipes/all-recipes.hy.html || exit 1
+          
+          # Check that recipe JSON files exist
+          test -f dist/sections/recipes/recipes.en.json || exit 1
+          test -f dist/sections/recipes/recipes.fr.json || exit 1
+          test -f dist/sections/recipes/recipes.ar.json || exit 1
+          test -f dist/sections/recipes/recipes.hy.json || exit 1
+          
+          echo "✅ All expected build outputs verified"
+      
+      - name: Validate JSON files
+        run: |
+          # Validate all JSON files are valid
+          find dist/sections -name "*.json" -exec node -e "JSON.parse(require('fs').readFileSync('{}', 'utf8'))" \;
+          echo "✅ All JSON files are valid"
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+          retention-days: 7
+
   test:
     runs-on: ubuntu-latest
+    needs: build
     
     strategy:
       fail-fast: false
@@ -21,10 +77,10 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
@@ -56,9 +112,43 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  # Optional: Publish test results as GitHub Pages
+  # Test Armenian language specifically
+  test-armenian:
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+      
+      - name: Run Armenian-specific tests
+        env:
+          BASE_URL: https://sirevelyn0116.github.io/shehirian-modular
+        run: npx playwright test --project=chromium --grep "Armenian|hy"
+      
+      - name: Upload Armenian test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: armenian-test-results
+          path: test-results/
+          retention-days: 30
+
+  # Publish test results as GitHub Pages
   publish-report:
-    needs: test
+    needs: [test, test-armenian]
     if: always()
     runs-on: ubuntu-latest
     
@@ -71,7 +161,7 @@ jobs:
       - name: Merge reports
         run: |
           mkdir -p merged-reports
-          find all-reports -name "*.json" -exec cp {} merged-reports/ \;
+          find all-reports -name "*.json" -exec cp {} merged-reports/ \; || true
       
       - name: Upload merged reports
         uses: actions/upload-artifact@v4
