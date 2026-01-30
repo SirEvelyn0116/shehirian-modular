@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Armenian Pilaf",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A light pilaf with vermicelli and ձավարի ցորեն cooked in հավ stock.",
+  "recipeCategory": "Կողային ուտեստ",
+  "recipeCuisine": "Հայկական",
+  "recipeYield": "4-6 պորցիա",
+  "prepTime": "PT5M",
+  "cookTime": "PT20M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 tbsp կարագ or margarine",
+    "3 tbsp chopped սոխ",
+    "1/2 բաժակ vermicelli or noodles",
+    "1 բաժակ ձավարի ցորեն wheat",
+    "2 բաժակs հավ stock",
+    "3/4 tsp աղ",
+    "1/8 tsp պղպեղ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Heat կարագ, sauté սոխ and vermicelli until lightly browned."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add ձավարի ցորեն, հավ stock, աղ and պղպեղ; cover and simmer 20 minutes until liquid absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Let stand 15-20 minutes before serving."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Cherry Custard",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A layered ձավարի ցորեն dessert with a cherry compote and baked custard.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "6-8 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H20M",
+  "recipeIngredient": [
+    "2 բաժակ hot եփած ձավար",
+    "2 ճաշի գդալ կարագ or margarine",
+    "1/4 բաժակ brown շաքար",
+    "1/2 թեյի գդալ cinnamon",
+    "1-1/2 ճաշի գդալ cornstarch",
+    "1/4 բաժակ շաքար",
+    "Juice from 1 can (1 lb.) կարմիր sour pitted cherries",
+    "1 ճաշի գդալ կիտրոն juice",
+    "Հեղուկը թափելed cherries",
+    "2 ձու, slightly beaten",
+    "1 բաժակ կաթ",
+    "3 ճաշի գդալ շաքար",
+    "1/2 թեյի գդալ vanilla"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Prepare the ձավար base by combining hot եփած ձավար, կարագ, brown շաքար and cinnamon in a baking dish."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a saucepan, խառնել cornstarch and շաքար, խառնել in հեղուկը թափելed բալ juice and եփել until thickened. խառնել in կիտրոն juice and layer հեղուկը թափելed cherries over the ձավար."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk ձու, կաթ, շաքար and vanilla; pour over the բալ layer and թխել at 350°f (175°c) for 1 ժամ or until քրեմ is set."
+    }
+  ]
+}

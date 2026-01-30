@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Cole Slaw with ձավարի ցորեն",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A hearty twist on classic coleslaw with the addition of nutritious ձավարի ցորեն wheat.",
+  "recipeCategory": "Աղցան",
+  "recipeCuisine": "Ամերիկյան",
+  "recipeYield": "8-10 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "4 բաժակ shկարմիրded կաղամբ",
+    "1 բաժակ shկարմիրded գազարs",
+    "1 բաժակ եփած and cooled ձավար ցորեն",
+    "1/2 բաժակ mayonnaise",
+    "2 ճաշի գդալ apple cider քացախ",
+    "1 ճաշի գդալ շաքար",
+    "Աղ and պղպեղ to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Եփել ձավար according to package and cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a մեծ bowl խառնել shկարմիրded կաղամբ and գազարs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել cooled ձավար."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk together mayonnaise, քացախ, շաքար, աղ and պղպեղ; toss with vegetables."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Chill before պորցիա."
+    }
+  ]
+}

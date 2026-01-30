@@ -67,6 +67,11 @@ function formatDuration(iso, lang) {
     if (hrs) return `${hrs} ساعة`;
     return `${mins} دقيقة`;
   }
+  if (lang === 'hy') {
+    if (hrs && mins) return `${hrs} ժամ ${mins} րոպե`;
+    if (hrs) return `${hrs} ժամ`;
+    return `${mins} րոպե`;
+  }
   if (hrs && mins) return `${hrs} hr ${mins} min`;
   if (hrs) return `${hrs} hr`;
   return `${mins} minutes`;
@@ -75,7 +80,8 @@ function formatDuration(iso, lang) {
 const localizedLabels = {
   en: { category: 'Category', cuisine: 'Cuisine', prep: 'Prep', cook: 'Cook', yield: 'Yield' },
   fr: { category: 'Catégorie', cuisine: 'Cuisine', prep: 'Préparation', cook: 'Cuisson', yield: 'Portions' },
-  ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' }
+  ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' },
+  hy: { category: 'Կատեգորիա', cuisine: 'Խոհանոց', prep: 'Պատրաստում', cook: 'Եփում', yield: 'Պորցիաներ' }
 };
 
 // Helper to build a recipe card anchor element from a recipe summary

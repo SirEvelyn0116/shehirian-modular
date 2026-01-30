@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Wheat Biscuits",
+  "author": "Շահիրյան ընտանիք",
+  "description": "Tender biscuits made with cooked ձավարի ցորեն mixed into the dough.",
+  "recipeCategory": "Կողային ուտեստ",
+  "recipeCuisine": "Baked",
+  "recipeYield": "10 to 12 (2 inch) biscuits",
+  "prepTime": "PT15M",
+  "cookTime": "PT50M",
+  "totalTime": "PT65M",
+  "recipeIngredient": [
+    "1 բաժակ ջուր",
+    "1/4 բաժակ ձավար ցորեն",
+    "2 բաժակ sifted ալյուր",
+    "3-1/2 թեյի գդալ հացի փոշի",
+    "1 թեյի գդալ աղ",
+    "1/4 բաժակ shortening",
+    "3/4 բաժակ կաթ",
+    "3/4 բաժակ եփած ձավար"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ջուր and ձավար ցորեն; ծածկել and եփել դանդաղ կրակով about 20 րոպե until most ջուր is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together ալյուր, հացի փոշի, and աղ; cut in shortening."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ներս կաթ and եփած ձավար, հունցել lightly, pat or գլորել out 1/2-դյույմ thick and cut into կարկանդակներ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Թխել at 400°f until lightly շագանակագույն դարձնելed, about 25 to 30 րոպե."
+    }
+  ]
+}

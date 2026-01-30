@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Raw Meat Platter",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A traditional seasoned raw գառի միս and ձավարի ցորեն mixture served as patties.",
+  "recipeCategory": "Starter",
+  "recipeCuisine": "Մերձավոր Արևելյան",
+  "recipeYield": "5-6 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT0M",
+  "totalTime": "PT20M",
+  "recipeIngredient": [
+    "1 բաժակ (about 1 lb.) lean գառի միս, ground twice",
+    "Green պղպեղ, chopped fine",
+    "մաղադանոս, chopped fine",
+    "Green սոխs, chopped fine",
+    "1 բաժակ ձավարի ցորեն wheat (fine)",
+    "1 small սոխ, chopped fine",
+    "Cayenne պղպեղ (optional)",
+    "աղ and պղպեղ to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Use գառի միս only (leg preferred) and serve the same day it is ground."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "աղ the meat and blend together."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add ձավարի ցորեն, chopped սոխs and vegetables and knead with a little ջուր until mixture holds together."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Shape into 2 inch patties and serve immediately, garnished with chopped vegetables."
+    }
+  ]
+}

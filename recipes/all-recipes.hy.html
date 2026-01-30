@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Բոլոր բաղադրատոմսերը | Շահիրյան</title>
+    <meta name="description" content="Դիտեք Շահիրյանի բոլոր բաղադրատոմսերը՝ ձավարի ցորենով և ավանդական ընտանեկան բաղադրատոմսերով։">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div class="back-home-button" style="display: none;">
+        <a href="../index.hy.html">← Վերադառնալ գլխավոր</a>
+    </div>
+
+    <section class="all-recipes-page">
+        <div class="all-recipes-header">
+            <h1>Բոլոր բաղադրատոմսերը</h1>
+            <p class="all-recipes-intro">Բացահայտեք մեր ավանդական բաղադրատոմսերի հավաքածուն՝ Շահիրյանի ձավարի ցորենով։</p>
+        </div>
+
+        <div id="all-recipes-container" class="all-recipes-grid">
+            <!-- all-recipes will be rendered here from sections/recipes/recipes.hy.json -->
+        </div>
+
+        <div class="all-recipes-footer">
+            <a href="../index.hy.html#recipes" class="back-to-featured">← Վերադառնալ առանձնահատուկ բաղադրատոմսեր</a>
+        </div>
+    </section>
+
+    <script src="../assets/js/lang-switcher.js"></script>
+    <script src="../sections/recipes/render.js"></script>
+    <script>
+        // Render all recipes into the placeholder container and keep footer link in place
+        (function(){
+            window.addEventListener('load', () => {
+                const page = document.querySelector('.all-recipes-page');
+                const footer = document.querySelector('.all-recipes-footer');
+                renderAllRecipes('hy').then(container => {
+                    const placeholder = document.getElementById('all-recipes-container');
+                    if (placeholder && container) {
+                        // Replace placeholder with rendered grouped sections
+                        placeholder.parentNode.replaceChild(container, placeholder);
+                    } else if (page && container) {
+                        page.insertBefore(container, footer);
+                    }
+                    if (window.updateBackButtonLock) window.updateBackButtonLock();
+                }).catch(err => {
+                    console.error('Failed to render all recipes', err);
+                });
+            });
+
+            window.addEventListener('scroll', () => {
+                const backBtn = document.querySelector('.back-home-button');
+                if (!backBtn) return;
+                if (window.scrollY > 100) {
+                    backBtn.style.display = 'block';
+                } else {
+                    backBtn.style.display = 'none';
+                }
+                if (window.updateBackButtonLock) window.updateBackButtonLock();
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.updateBackButtonLock) window.updateBackButtonLock();
+            });
+        })();
+    </script>
+</body>
+</html>

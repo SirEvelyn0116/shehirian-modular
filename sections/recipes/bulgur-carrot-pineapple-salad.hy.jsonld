@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն գազար Pineapple Salad",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A sweet and savory salad combining ձավարի ցորեն wheat with shredded գազարs and tropical pineapple.",
+  "recipeCategory": "Աղցան",
+  "recipeCuisine": "Ամերիկյան",
+  "recipeYield": "8-10 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 բաժակ եփած and cooled ձավար ցորեն",
+    "2 բաժակ shկարմիրded գազարs",
+    "1 բաժակ արքայախնձոր chunks (թարմ or պահածոյացված)",
+    "1/4 բաժակ mayonnaise",
+    "1 ճաշի գդալ կիտրոն juice",
+    "1 ճաշի գդալ շաքար (optional)",
+    "Աղ and պղպեղ to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Եփել ձավար according to package, cool to room temperature."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a մեծ bowl խառնել ձավար, shկարմիրded գազարs and արքայախնձոր."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk together mayonnaise, կիտրոն juice, շաքար, աղ and պղպեղ; fold into աղցան."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Chill before պորցիա."
+    }
+  ]
+}

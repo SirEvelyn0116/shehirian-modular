@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Classic Tabbouleh",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A refreshing salad with մաղադանոս, անանուխ, լոլիկes, and fine ձավարի ցորեն.",
+  "recipeCategory": "Աղցան",
+  "recipeCuisine": "Մերձավոր Արևելյան",
+  "recipeYield": "6 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT5M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1/2 բաժակ fine ձավարի ցորեն wheat",
+    "2 բաժակs finely chopped մաղադանոս",
+    "1/2 բաժակ finely chopped անանուխ",
+    "3 medium լոլիկes, diced",
+    "1/4 բաժակ finely chopped սոխ",
+    "1/4 բաժակ fresh կիտրոն juice",
+    "1/4 բաժակ olive ձեթ",
+    "աղ and պղպեղ to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Rinse ձավարի ցորեն wheat and soak in cold ջուր for 5 minutes, then drain well."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a large bowl, combine մաղադանոս, անանուխ, լոլիկes, and սոխ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the drained ձավարի ցորեն wheat and mix well."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a small bowl, whisk together կիտրոն juice, olive ձեթ, աղ, and պղպեղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Pour dressing over the salad and toss to combine."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Refrigerate for at least 1 hour before serving to allow flavors to meld."
+    }
+  ]
+}

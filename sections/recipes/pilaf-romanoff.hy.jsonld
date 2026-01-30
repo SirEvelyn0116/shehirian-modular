@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf Romanoff",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A creamy ձավարի ցորեն pilaf with cottage պանիր and sour cream.",
+  "recipeCategory": "Կողային ուտեստ",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "4 to 6 պորցիա",
+  "prepTime": "PT5M",
+  "cookTime": "PT10M",
+  "totalTime": "PT15M",
+  "recipeIngredient": [
+    "2-1/2 բաժակs cooked or soaked ձավարի ցորեն Wheat",
+    "1 բաժակ sour cream",
+    "1 բաժակ cottage պանիր",
+    "1 թեյի գդալ grated սոխ",
+    "3/4 թեյի գդալ աղ",
+    "Dash Tabasco Sauce",
+    "1/4 թեյի գդալ Worcestershire sauce"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Blend all ingredients in a saucepan."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and cook low heat about 10 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir several times while heating."
+    }
+  ]
+}

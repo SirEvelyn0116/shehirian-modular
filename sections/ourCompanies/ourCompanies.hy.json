@@ -1,0 +1,17 @@
+{
+  "title": "Մեր ընկերությունները",
+  "companies": [
+    {
+      "name": "Շիրագ բրենդ",
+      "description": "Պրեմիում ձավարի ցորենի արտադրանք ավանդական և ժամանակակից խոհանոցի համար",
+      "image": "assets/img/Shirag-2.png",
+      "link": "shirag-products.html"
+    },
+    {
+      "name": "Պարոն Ֆալաֆել",
+      "description": "Որակյալ բաղադրիչներ իսկական Մերձավոր Արևելյան ուտեստների համար",
+      "image": "assets/img/Mr-Falafel-3.png",
+      "link": "mr-falafel-products.html"
+    }
+  ]
+}

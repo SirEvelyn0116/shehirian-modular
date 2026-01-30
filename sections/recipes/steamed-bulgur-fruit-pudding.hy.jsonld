@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Steamed ձավարի ցորեն Fruit Pudding",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A steamed loaf-style fruit pudding with ձավարի ցորեն and dried fruits.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "about 12 պորցիա",
+  "prepTime": "PT30M",
+  "cookTime": "PT2H",
+  "totalTime": "PT2H30M",
+  "recipeIngredient": [
+    "1-1/4 բաժակ sifted all-purpose ալյուր",
+    "2 թեյի գդալ հացի սոդա",
+    "1/2 թեյի գդալ աղ",
+    "1/2 բաժակ կարագ or shortening",
+    "1-1/4 բաժակ շաքար",
+    "2 ձու",
+    "1-1/2 բաժակ եփած ձավար",
+    "1 թեյի գդալ վանիլ",
+    "1/2 բաժակ չորացված prunes (pitted), ground",
+    "1/2 բաժակ չամիչ, ground",
+    "1/4 բաժակ չորացված apricots, ground",
+    "1 բաժակ կաթ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Sift together ալյուր, հացի սոդա and աղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Սերուցք կարագ and շաքար until light and fluffy; ավելացնել ձու and beat until thick and քրեմանման."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել in եփած ձավար and վանիլ; ավելացնել ground մրգային and կաթ alternately with dry ingկարմիրients."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fill յուղելd պիրոգ տապակ or mould three-fourths full, ծածկել tightly and steam for 2 ժամ. մատուցել with whipped սերուցք."
+    }
+  ]
+}

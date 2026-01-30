@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Stuffed պղպեղs",
+  "author": "Շահիրյան ընտանիք",
+  "description": "Bell պղպեղs stuffed with a ձավարի ցորեն and meat mixture, baked in լոլիկ sauce.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "5-6 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H10M",
+  "totalTime": "PT1H30M",
+  "recipeIngredient": [
+    "2-1/2 բաժակ եփած ձավար",
+    "1/2 ֆունտ աղացած միս or sausage",
+    "1 բաժակ միս or հավի միս stock",
+    "1/2 թեյի գդալ աղ",
+    "1/4 թեյի գդալ համեմելed աղ",
+    "1 թեյի գդալ worcestershire sauce",
+    "1/4 թեյի գդալ պղպեղ",
+    "3/4 բաժակ լոլիկ purée",
+    "Կանաչ or կարմիր bell պղպեղներ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Blend ձավար, միս, stock, աղ, համեմելed աղ, worcestershire sauce and պղպեղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut պղպեղներ in halves lengthwise and հանել seeds."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fill պղպեղ halves with ձավար խառնելture and դնել in թխման աման."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Լցնել լոլիկ purée խառնելed with stock over պղպեղներ, ծածկել and թխել at 375°f for 30 րոպե, then բացել and թխել an ավելացնելitional 40 րոպե."
+    }
+  ]
+}

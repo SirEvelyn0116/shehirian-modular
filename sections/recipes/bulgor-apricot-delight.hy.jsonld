@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Apricot Delight with ձուnog Sauce",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A chilled apricot-flavored ձավարի ցորեն dessert topped with a rich ձուnog-style sauce.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "6 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1 բաժակ ծիրան nectar (or juice)",
+    "1-1/2 բաժակ ջուր",
+    "1/4 թեյի գդալ աղ",
+    "1 բաժակ ձավար ցորեն",
+    "3 ճաշի գդալ շաքար (for ձավար)",
+    "1 ճաշի գդալ կիտրոնի հյութ",
+    "Ծիրան halves (for garnish)",
+    "Ձուnog sauce: 1 ձու, 1/2 բաժակ շաքար, 1 թեյի գդալ վանիլ, 2 ճաշի գդալ sherry or rum (optional), 1/2 բաժակ թանձր սերուցք, whipped"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ծիրան nectar, ջուր, աղ, and ձավար in կաթսա. ծածկել and եփել դանդաղ կրակով (do not եփել) over low տաքացնել until all juice is absorbed; խառնել several times."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ներս 3 ճաշի գդալ շաքար, ծածկել and continue եփելing over low տաքացնել for 5 րոպե; chill the խառնելture and խառնել ներս կիտրոնի հյութ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Prepare ձուnog sauce by ծեծելing the ձու, gradually ավելացնելing շաքար and վանիլ, ավելացնել sherry/rum if using, then ծալել in whipped սերուցք. top each պորցիա with ձուnog sauce and half an ծիրան."
+    }
+  ]
+}

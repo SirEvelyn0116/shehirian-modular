@@ -1,0 +1,30 @@
+{
+  "title": "Մեր սերտիֆիկացումները",
+  "intro": "GFSI-ի կողմից ճանաչված սննդի անվտանգության ստանդարտներ",
+  "certifications": [
+    {
+      "id": "brc",
+      "name": "BRC",
+      "fullName": "BRC Համաշխարհային Ստանդարտ",
+      "logo": "assets/img/cert-brc.svg"
+    },
+    {
+      "id": "sqf",
+      "name": "SQF",
+      "fullName": "Անվտանգ Որակյալ Սնունդ",
+      "logo": "assets/img/cert-sqf.svg"
+    },
+    {
+      "id": "fssc-22000",
+      "name": "FSSC 22000",
+      "fullName": "FSSC 22000",
+      "logo": "assets/img/cert-fssc.svg"
+    },
+    {
+      "id": "ifs",
+      "name": "IFS",
+      "fullName": "IFS Սննդի Ստանդարտ",
+      "logo": "assets/img/cert-ifs.svg"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն պանիր Casserole",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A simple baked casserole mixing cooked ձավարի ցորեն with պանիր and լոլիկes.",
+  "recipeCategory": "Casserole",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "4-6 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "3 բաժակ եփած ձավար",
+    "1 15-oz can լոլիկներ",
+    "1/3 բաժակ կտրատված mushrooms",
+    "1/2 lb pasteurized process պանիր, կտրատված",
+    "2 ճաշի գդալ մանրացված կանաչ պղպեղ",
+    "2 ճաշի գդալ մանրացված սոխ",
+    "Աղ and պղպեղ to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել եփած ձավար, mushrooms, կանաչ պղպեղներ, սոխ, աղ and պղպեղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Դնել half of the խառնելture in a shallow տապակած ուտեստ, ծածկել with half the պանիր կտրատելs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել the rest of the ձավար խառնելture, arrange remaining պանիր and թխել at 350°f (175°c) for 30 րոպե."
+    }
+  ]
+}

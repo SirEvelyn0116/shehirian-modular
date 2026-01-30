@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Chocolate ձավարի ցորեն Bavarian",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A chilled chocolate and ձավարի ցորեն dessert set with gelatin and folded cream.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "6-8 պորցիա",
+  "prepTime": "PT30M",
+  "cookTime": "PT0M",
+  "totalTime": "PT2H30M",
+  "recipeIngredient": [
+    "1 package gelatin",
+    "2 ճաշի գդալ ջուր",
+    "2-1/2 ճաշի գդալ cocoa",
+    "3/4 բաժակ շաքար",
+    "1-1/2 բաժակ կաթ",
+    "1-1/2 բաժակ եփած ձավար",
+    "1 թեյի գդալ վանիլ",
+    "1/2 բաժակ թանձր սերուցք, whipped"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Dissolve gelatin in ջուր and տաքացնել with cocoa, շաքար and կաթ until dissolved (do not եփել)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել in եփած ձավար and վանիլ, chill until thick but not firm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fold in whipped սերուցք, turn into a յուղելd mould and chill until firm."
+    }
+  ]
+}

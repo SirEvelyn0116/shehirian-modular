@@ -1,9 +1,9 @@
 {
-  "soup": { "en": "Soup", "fr": "Soupe", "ar": "شوربة" },
-  "salad": { "en": "Salad", "fr": "Salade", "ar": "سلطة" },
-  "main": { "en": "Main Dish", "fr": "Plat Principal", "ar": "طبق رئيسي" },
-  "starter": { "en": "Starter", "fr": "Entrée", "ar": "مقبلات" },
-  "dessert": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى" },
-  "other": { "en": "Other", "fr": "Autre", "ar": "أخرى" },
-  "side": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي" }
+  "soup": { "en": "Soup", "fr": "Soupe", "ar": "شوربة", "hy": "Ապուր" },
+  "salad": { "en": "Salad", "fr": "Salade", "ar": "سلطة", "hy": "Աղցան" },
+  "main": { "en": "Main Dish", "fr": "Plat Principal", "ar": "طبق رئيسي", "hy": "Հիմնական ուտեստ" },
+  "starter": { "en": "Starter", "fr": "Entrée", "ar": "مقبلات", "hy": "Ախորժակ" },
+  "dessert": { "en": "Dessert", "fr": "Dessert", "ar": "حلوى", "hy": "Կրկեսային" },
+  "other": { "en": "Other", "fr": "Autre", "ar": "أخرى", "hy": "Այլ" },
+  "side": { "en": "Side Dish", "fr": "Accompagnement", "ar": "طبق جانبي", "hy": "Կողային ուտեստ" }
 }

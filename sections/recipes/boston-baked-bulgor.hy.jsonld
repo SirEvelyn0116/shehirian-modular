@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Boston Baked ձավարի ցորեն",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A sweet-and-savory baked ձավարի ցորեն dish finished with bacon or աղ pork.",
+  "recipeCategory": "Casserole",
+  "recipeCuisine": "Ամերիկյան",
+  "recipeYield": "4-5 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT1H25M",
+  "totalTime": "PT1H35M",
+  "recipeIngredient": [
+    "2-1/2 բաժակ եփած ձավար ցորեն",
+    "2/3 բաժակ condensed լոլիկ ապուր",
+    "3 ճաշի գդալ մելաս",
+    "3/4 բաժակ ջուր or consommé",
+    "3 ճաշի գդալ շագանակագույն շաքար",
+    "1/2 թեյի գդալ dry մանանեխ",
+    "1/2 թեյի գդալ աղ",
+    "1 to 2 ճաշի գդալ մանրացված սոխ",
+    "1 թեյի գդալ Վորչեստերշայրի սոուս",
+    "2 ունցիա աղ pork or bacon"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել all ingկարմիրients except աղ pork or bacon in a տապակած ուտեստ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut աղ pork or bacon into strips and press into surface of ձավար խառնելture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ծածկել and թխել at 325°f (160°c) for 45 րոպե; հանել ծածկել and continue baking about 40 րոպե."
+    }
+  ]
+}

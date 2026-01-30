@@ -2,9 +2,10 @@ const fs = require('fs');
 const path = require('path');
 
 const langs = {
-  en: { title: "Shehirian Family Kitchen", dir: "ltr" },
-  fr: { title: "Cuisine familiale Shehirian", dir: "ltr" },
-  ar: { title: "مطبخ عائلة شيهريان", dir: "rtl" }
+  en: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Back / Home" },
+  fr: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Retour / Accueil" },
+  ar: { title: "Shehirian Bulgor Inc", dir: "rtl", backHomeText: "العودة / الرئيسية" },
+  hy: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Վերադառնալ / Գլխավոր" }
 };
 
 const template = fs.readFileSync('template.html', 'utf8');
@@ -26,6 +27,11 @@ function formatDuration(iso, lang) {
     if (hrs) return `${hrs} ساعة`;
     return `${mins} دقيقة`;
   }
+  if (lang === 'hy') {
+    if (hrs && mins) return `${hrs} ժամ ${mins} րոպե`;
+    if (hrs) return `${hrs} ժամ`;
+    return `${mins} րոպե`;
+  }
   // default English
   if (hrs && mins) return `${hrs} hr ${mins} min`;
   if (hrs) return `${hrs} hr`;
@@ -35,24 +41,26 @@ function formatDuration(iso, lang) {
 const localizedLabels = {
   en: { category: 'Category', cuisine: 'Cuisine', prep: 'Prep', cook: 'Cook', yield: 'Yield' },
   fr: { category: 'Catégorie', cuisine: 'Cuisine', prep: 'Préparation', cook: 'Cuisson', yield: 'Portions' },
-  ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' }
+  ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' },
+  hy: { category: 'Կատեգորիա', cuisine: 'Խոհանոց', prep: 'Պատրաստում', cook: 'Եփում', yield: 'Պորցիաներ' }
 };
 
 // Localized author strings to use for all recipes at build time
 const AUTHOR_OVERRIDE = {
   en: 'Shehirian family',
   fr: 'Famille Shehirian',
-  ar: 'عائلة شيهريان'
+  ar: 'عائلة شيهريان',
+  hy: 'Շահիրյան ընտանիք'
 };
 
 // Canonical category definitions — try to load from `sections/categories.json`
 const defaultCategoryDefs = {
-  soup: { en: 'Soup', fr: 'Soupe', ar: 'شوربة' },
-  salad: { en: 'Salad', fr: 'Salade', ar: 'سلطة' },
-  main: { en: 'Main Dish', fr: 'Plat Principal', ar: 'طبق رئيسي' },
-  starter: { en: 'Starter', fr: 'Entrée', ar: 'مقبلات' },
-  dessert: { en: 'Dessert', fr: 'Dessert', ar: 'حلوى' },
-  other: { en: 'Other', fr: 'Autre', ar: 'أخرى' }
+  soup: { en: 'Soup', fr: 'Soupe', ar: 'شوربة', hy: 'Ապուր' },
+  salad: { en: 'Salad', fr: 'Salade', ar: 'سلطة', hy: 'Աղցան' },
+  main: { en: 'Main Dish', fr: 'Plat Principal', ar: 'طبق رئيسي', hy: 'Հիմնական ուտեստ' },
+  starter: { en: 'Starter', fr: 'Entrée', ar: 'مقبلات', hy: 'Ախորժակ' },
+  dessert: { en: 'Dessert', fr: 'Dessert', ar: 'حلوى', hy: 'Կրկեսային' },
+  other: { en: 'Other', fr: 'Autre', ar: 'أخرى', hy: 'Այլ' }
 };
 
 let categoriesLookup = defaultCategoryDefs;
@@ -218,6 +226,7 @@ Object.entries(langs).forEach(([lang, config]) => {
     .replace(/{{lang}}/g, lang)
     .replace(/{{dir}}/g, config.dir)
     .replace(/{{title}}/g, config.title)
+    .replace(/{{backHomeText}}/g, config.backHomeText)
     .replace(/{{jsonld}}/g, loadJSONLD(lang));
 
   const outputFile = path.join(distDir, `index.${lang}.html`);
@@ -376,7 +385,7 @@ function writeAllRecipesPages() {
     const recipesJson = {
       title: 'Recipes',
       viewAllLink: '/recipes/all-recipes.' + lang + '.html',
-      viewAllText: lang === 'fr' ? 'Voir toutes les recettes →' : (lang === 'ar' ? 'عرض جميع الوصفات →' : 'View all recipes →'),
+      viewAllText: lang === 'fr' ? 'Voir toutes les recettes →' : (lang === 'ar' ? 'عرض جميع الوصفات →' : (lang === 'hy' ? 'Դիտել բոլոր բաղադրատոմսերը →' : 'View all recipes →')),
       featured: featured,
       allRecipes: localizedAll
     };
@@ -469,9 +478,9 @@ function writeAllRecipesPages() {
 <body>
     <nav class="back-nav">
     <div class="breadcrumb-nav">
-      <a href="../index.${lang}.html">${lang === 'fr' ? 'Accueil' : (lang === 'ar' ? 'الرئيسية' : 'Home')}</a>
+      <a href="../index.${lang}.html">${lang === 'fr' ? 'Accueil' : (lang === 'ar' ? 'الرئيسية' : (lang === 'hy' ? 'Գլխավոր' : 'Home'))}</a>
       <span>›</span>
-      <a href="all-recipes.${lang}.html">${lang === 'fr' ? 'Toutes les recettes' : (lang === 'ar' ? 'كل الوصفات' : 'All Recipes')}</a>
+      <a href="all-recipes.${lang}.html">${lang === 'fr' ? 'Toutes les recettes' : (lang === 'ar' ? 'كل الوصفات' : (lang === 'hy' ? 'Բոլոր բաղադրատոմսերը' : 'All Recipes'))}</a>
       <span>›</span>
       <span>${title}</span>
     </div>
@@ -479,6 +488,7 @@ function writeAllRecipesPages() {
       <a href="${recipe.slug}.en.html" title="English">EN</a>
       <a href="${recipe.slug}.fr.html" title="Français">FR</a>
       <a href="${recipe.slug}.ar.html" title="العربية">AR</a>
+      <a href="${recipe.slug}.hy.html" title="Հայերեն">HY</a>
     </div>
   </nav>
 
@@ -487,35 +497,35 @@ function writeAllRecipesPages() {
       <h1>${title}</h1>
       <p class="recipe-description">${description}</p>
       <p>
-        <strong>${lang === 'fr' ? 'Catégorie' : (lang === 'ar' ? 'الفئة' : 'Category')}:</strong> ${(recipe.recipeCategory && recipe.recipeCategory[lang]) || ''}
+        <strong>${lang === 'fr' ? 'Catégorie' : (lang === 'ar' ? 'الفئة' : (lang === 'hy' ? 'Կատեգորիա' : 'Category'))}:</strong> ${(recipe.recipeCategory && recipe.recipeCategory[lang]) || ''}
         &nbsp; | &nbsp;
-        <strong>${lang === 'fr' ? 'Cuisine' : (lang === 'ar' ? 'المطبخ' : 'Cuisine')}:</strong> ${(recipe.recipeCuisine && recipe.recipeCuisine[lang]) || ''}
+        <strong>${lang === 'fr' ? 'Cuisine' : (lang === 'ar' ? 'المطبخ' : (lang === 'hy' ? 'Խոհանոց' : 'Cuisine'))}:</strong> ${(recipe.recipeCuisine && recipe.recipeCuisine[lang]) || ''}
       </p>
       <p>
-        <strong>${lang === 'fr' ? 'Temps de préparation' : (lang === 'ar' ? 'وقت التحضير' : 'Prep Time')}:</strong> ${formatDuration(recipe.prepTime, lang) || ''}
+        <strong>${lang === 'fr' ? 'Temps de préparation' : (lang === 'ar' ? 'وقت التحضير' : (lang === 'hy' ? 'Պատրաստման ժամանակ' : 'Prep Time'))}:</strong> ${formatDuration(recipe.prepTime, lang) || ''}
         &nbsp; | &nbsp;
-        <strong>${lang === 'fr' ? 'Temps de cuisson' : (lang === 'ar' ? 'وقت الطهي' : 'Cook Time')}:</strong> ${formatDuration(recipe.cookTime, lang) || ''}
+        <strong>${lang === 'fr' ? 'Temps de cuisson' : (lang === 'ar' ? 'وقت الطهي' : (lang === 'hy' ? 'Եփման ժամանակ' : 'Cook Time'))}:</strong> ${formatDuration(recipe.cookTime, lang) || ''}
         &nbsp; | &nbsp;
-        <strong>${lang === 'fr' ? 'Total' : (lang === 'ar' ? 'الإجمالي' : 'Total')}:</strong> ${formatDuration(recipe.totalTime, lang) || ''}
+        <strong>${lang === 'fr' ? 'Total' : (lang === 'ar' ? 'الإجمالي' : (lang === 'hy' ? 'Ընդհանուր' : 'Total'))}:</strong> ${formatDuration(recipe.totalTime, lang) || ''}
       </p>
     </header>
 
     <section class="recipe-section recipe-ingredients">
-      <h2>${lang === 'fr' ? 'Ingrédients' : (lang === 'ar' ? 'المكونات' : 'Ingredients')}</h2>
+      <h2>${lang === 'fr' ? 'Ingrédients' : (lang === 'ar' ? 'المكونات' : (lang === 'hy' ? 'Բաղադրիչներ' : 'Ingredients'))}</h2>
       <ul>
         ${ingredients.map(i => `<li>${i}</li>`).join('\n')}
       </ul>
     </section>
 
     <section class="recipe-section recipe-steps recipe-instructions">
-      <h2>${lang === 'fr' ? 'Instructions' : (lang === 'ar' ? 'التحضير' : 'Instructions')}</h2>
+      <h2>${lang === 'fr' ? 'Instructions' : (lang === 'ar' ? 'التحضير' : (lang === 'hy' ? 'Հրահանգներ' : 'Instructions'))}</h2>
       <ol>
         ${instructions.map(s => `<li>${s}</li>`).join('\n')}
       </ol>
     </section>
 
     <footer class="recipe-footer">
-      <a class="view-all-btn" href="all-recipes.${lang}.html">${lang === 'fr' ? '← Toutes les recettes' : (lang === 'ar' ? '← كل الوصفات' : '← All recipes')}</a>
+      <a class="view-all-btn" href="all-recipes.${lang}.html">${lang === 'fr' ? '← Toutes les recettes' : (lang === 'ar' ? '← كل الوصفات' : (lang === 'hy' ? '← Բոլոր բաղադրատոմսերը' : '← All recipes'))}</a>
     </footer>
   </main>
 </body>

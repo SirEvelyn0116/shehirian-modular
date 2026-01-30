@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Wheat Shortcake",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A shortcake-style dessert or accompaniment using cooked ձավարի ցորեն in the dough.",
+  "recipeCategory": "Կողային ուտեստ",
+  "recipeCuisine": "Baked",
+  "recipeYield": "6 to 8 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT50M",
+  "totalTime": "PT65M",
+  "recipeIngredient": [
+    "1 բաժակ ջուր",
+    "1/4 բաժակ ձավար ցորեն",
+    "2 բաժակ sifted ալյուր",
+    "3-1/2 թեյի գդալ հացի փոշի",
+    "3/4 թեյի գդալ աղ",
+    "1/3 բաժակ շաքար",
+    "1/4 բաժակ shortening",
+    "3/4 բաժակ կաթ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ջուր and ձավար ցորեն; ծածկել and եփել դանդաղ կրակով about 20 րոպե until most ջուր is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together ալյուր, հացի փոշի, աղ, and շաքար."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut in shortening, խառնել ներս եփած ձավար and կաթ, pat into յուղելd 8-դյույմ տորթ տապակ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Brush surface lightly with կաթ, ցրել with շաքար and թխել at 400°f about 30 րոպե. top with whipped սերուցք and մրգային."
+    }
+  ]
+}
