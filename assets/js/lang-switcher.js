@@ -3,7 +3,7 @@
   // Get current page info
   const path = window.location.pathname;
   const fileName = path.split('/').pop();
-  const match = fileName.match(/^(.+)\.(en|fr|ar)\.html$/);
+  const match = fileName.match(/^(.+)\.(en|fr|ar|hy)\.html$/);
   
   if (!match) return;
   
@@ -15,7 +15,7 @@
   const langSwitcher = document.createElement('div');
   langSwitcher.className = 'lang-switcher-nav';
   
-  const langs = ['en', 'fr', 'ar'];
+  const langs = ['en', 'fr', 'ar', 'hy'];
   langs.forEach(lang => {
     const link = document.createElement('a');
     link.href = `${baseName}.${lang}.html`;
