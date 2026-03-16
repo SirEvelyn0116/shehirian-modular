@@ -19,8 +19,8 @@
   const langConfig = [
     { lang: 'en', code: 'EN', flag: 'gb.svg', title: 'English' },
     { lang: 'fr', code: 'FR', flag: 'fr.svg', title: 'Français' },
-    { lang: 'ar', code: 'LB', flag: 'lb.svg', title: 'Lebanese Arabic' },
-    { lang: 'hy', code: 'AM', flag: 'am.svg', title: 'Armenian' }
+    { lang: 'ar', code: 'AR', flag: 'lb.svg', title: 'العربية' },
+    { lang: 'hy', code: 'HY', flag: 'am.svg', title: 'Հայերեն' }
   ];
   const flagPathPrefix = '../assets/img/flags/';
 

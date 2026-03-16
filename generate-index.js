@@ -550,13 +550,13 @@ function writeAllRecipesPages() {
         <img src="../assets/img/flags/fr.svg" alt="Français">
         <span class="code">FR</span>
       </a>
-      <a href="${recipe.slug}.ar.html" class="flag" title="Lebanese Arabic" aria-label="Lebanese Arabic">
-        <img src="../assets/img/flags/lb.svg" alt="Lebanese Arabic">
-        <span class="code">LB</span>
+      <a href="${recipe.slug}.ar.html" class="flag" title="العربية" aria-label="العربية">
+        <img src="../assets/img/flags/lb.svg" alt="العربية">
+        <span class="code">AR</span>
       </a>
-      <a href="${recipe.slug}.hy.html" class="flag" title="Armenian" aria-label="Armenian">
-        <img src="../assets/img/flags/am.svg" alt="Armenian">
-        <span class="code">AM</span>
+      <a href="${recipe.slug}.hy.html" class="flag" title="Հայերեն" aria-label="Հայերեն">
+        <img src="../assets/img/flags/am.svg" alt="Հայերեն">
+        <span class="code">HY</span>
       </a>
     </div>
   </nav>

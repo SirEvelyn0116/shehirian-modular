@@ -19,13 +19,13 @@
         <img src="assets/img/flags/fr.svg" alt="Français">
         <span class="code">FR</span>
       </a>
-      <a href="#" class="flag" onclick="setLanguage('ar', 'lang-lb'); return false;" id="lang-lb" aria-label="Lebanese Arabic" title="Lebanese Arabic">
-        <img src="assets/img/flags/lb.svg" alt="Lebanese Arabic">
-        <span class="code">LB</span>
+      <a href="#" class="flag" onclick="setLanguage('ar'); return false;" id="lang-ar" aria-label="العربية" title="العربية">
+        <img src="assets/img/flags/lb.svg" alt="العربية">
+        <span class="code">AR</span>
       </a>
-      <a href="#" class="flag" onclick="setLanguage('ar', 'lang-am'); return false;" id="lang-am" aria-label="Armenian" title="Armenian">
-        <img src="assets/img/flags/am.svg" alt="Armenian">
-        <span class="code">AM</span>
+      <a href="#" class="flag" onclick="setLanguage('hy'); return false;" id="lang-hy" aria-label="Հայերեն" title="Հայերեն">
+        <img src="assets/img/flags/am.svg" alt="Հայերեն">
+        <span class="code">HY</span>
       </a>
     </div>
     <div class="home">
@@ -291,6 +291,39 @@
         label_email: "البريد الإلكتروني",
         label_message: "رسالة",
         button_send: "إرسال الرسالة"
+      },
+      hy: {
+        company: "shehirian bulgor inc.",
+        nav_home: "Home",
+        nav_about: "About",
+        nav_products: "Products",
+        nav_recipes: "Recipes",
+        nav_certifications: "Certifications",
+        nav_contact: "Contact us",
+        products_title: "Our Products",
+        product_soft_fine: "soft wheat fine",
+        product_soft_medium: "soft wheat medium",
+        product_soft_coarse: "soft wheat coarse",
+        product_soft_xcoarse: "soft wheat extra coarse",
+        product_red_fine: "red wheat fine",
+        product_red_medium: "red wheat medium",
+        product_red_coarse: "red wheat coarse",
+        certifications_title: "Our Certifications",
+        certifications_intro: "GFSI-Recognized Food Safety Standards",
+        cert_brc: "BRC",
+        cert_sqf: "SQF",
+        cert_fssc: "FSSC 22000",
+        cert_ifs: "IFS",
+        contact_title: "Contact Us",
+        contact_get_in_touch: "Get in Touch",
+        contact_address_label: "Address:",
+        contact_phone_label: "Phone:",
+        contact_fax_label: "Fax:",
+        contact_email_label: "Email:",
+        label_name: "Name",
+        label_email: "Email",
+        label_message: "Message",
+        button_send: "Send Message"
       }
     };
 
@@ -305,7 +338,7 @@
       });
     }
     
-    function setLanguage(lang, activeId) {
+    function setLanguage(lang) {
       currentLang = lang;
       document.querySelectorAll("[data-i18n]").forEach(el => {
         const key = el.getAttribute("data-i18n");
@@ -315,13 +348,13 @@
       // Highlight current language
       document.getElementById('lang-en').classList.remove('active-lang');
       document.getElementById('lang-fr').classList.remove('active-lang');
-      document.getElementById('lang-lb').classList.remove('active-lang');
-      document.getElementById('lang-am').classList.remove('active-lang');
-      document.getElementById(activeId || ('lang-' + lang)).classList.add('active-lang');
+      document.getElementById('lang-ar').classList.remove('active-lang');
+      document.getElementById('lang-hy').classList.remove('active-lang');
+      document.getElementById('lang-' + lang).classList.add('active-lang');
       // Reload modular sections
       loadAboutUs(lang);
     }
-    window.onload = function() { setLanguage('en', 'lang-en'); }
+    window.onload = function() { setLanguage('en'); }
   </script>
 </body>
 </html>
