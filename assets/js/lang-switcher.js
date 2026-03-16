@@ -13,14 +13,34 @@
   
   // Create language switcher
   const langSwitcher = document.createElement('div');
+  langSwitcher.id = 'language-switcher';
   langSwitcher.className = 'lang-switcher-nav';
-  
-  const langs = ['en', 'fr', 'ar', 'hy'];
-  langs.forEach(lang => {
+
+  const langConfig = [
+    { lang: 'en', code: 'EN', flag: 'gb.svg', title: 'English' },
+    { lang: 'fr', code: 'FR', flag: 'fr.svg', title: 'Français' },
+    { lang: 'ar', code: 'LB', flag: 'lb.svg', title: 'Lebanese Arabic' },
+    { lang: 'hy', code: 'AM', flag: 'am.svg', title: 'Armenian' }
+  ];
+  const flagPathPrefix = '../assets/img/flags/';
+
+  langConfig.forEach(({ lang, code, flag, title }) => {
     const link = document.createElement('a');
     link.href = `${baseName}.${lang}.html`;
-    link.textContent = lang.toUpperCase();
-    link.className = lang === currentLang ? 'active-lang' : '';
+    link.title = title;
+    link.setAttribute('aria-label', title);
+    link.className = `flag${lang === currentLang ? ' active-lang' : ''}`;
+
+    const img = document.createElement('img');
+    img.src = `${flagPathPrefix}${flag}`;
+    img.alt = title;
+
+    const codeLabel = document.createElement('span');
+    codeLabel.className = 'code';
+    codeLabel.textContent = code;
+
+    link.appendChild(img);
+    link.appendChild(codeLabel);
     langSwitcher.appendChild(link);
   });
   

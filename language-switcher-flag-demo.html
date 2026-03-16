@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flag Overlay Demo</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .flag {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 30px; /* rounded shape */
+    display: inline-block;
+  }
+
+  .flag img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* center crop */
+    object-position: center;
+    display: block;
+  }
+
+  .flag .code {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: wheat;
+    color: black;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 3px;
+    line-height: 1.2;
+  }
+</style>
+</head>
+<body>
+
+  <div class="flag">
+    <img src="https://flagcdn.com/w80/gb.png" alt="English">
+    <span class="code">EN</span>
+  </div>
+
+  <div class="flag">
+    <img src="https://flagcdn.com/w80/fr.png" alt="French">
+    <span class="code">FR</span>
+  </div>
+
+  <div class="flag">
+    <img src="https://flagcdn.com/w80/lb.png" alt="Lebanon">
+    <span class="code">LB</span>
+  </div>
+
+  <div class="flag">
+    <img src="https://flagcdn.com/w80/am.png" alt="Armenia">
+    <span class="code">AM</span>
+  </div>
+
+</body>
+</html>

@@ -277,11 +277,30 @@ function buildAllRecipesHTML(allRecipes, lang) {
     const labelObj = categoriesLookup[group.id] || { en: group.id, fr: group.id, ar: group.id };
     const heading = (labelObj && labelObj[lang]) || labelObj.en || group.id;
     const cards = items.map(it => buildRecipeCardHTML(it, lang)).join('\n');
+    
+    // Localized expand button text
+    const expandText = lang === 'fr' ? 'Voir plus' : 
+                       lang === 'ar' ? 'عرض المزيد' : 
+                       lang === 'hy' ? 'Ցույց տալ ավելին' : 
+                       'Show more';
+    const collapseText = lang === 'fr' ? 'Voir moins' : 
+                         lang === 'ar' ? 'عرض أقل' : 
+                         lang === 'hy' ? 'Ցույց տալ պակաս' : 
+                         'Show less';
+    
     return `<section class="recipes-category-section">
-      <h3 class="recipes-category-heading">${heading}</h3>
+      <div class="category-header-wrapper">
+        <h3 class="recipes-category-heading">${heading}</h3>
+        <button class="category-expand-btn" aria-expanded="false" data-expand-text="${expandText}" data-collapse-text="${collapseText}">
+          <span class="expand-icon">+</span>
+          <span class="expand-text">${expandText}</span>
+        </button>
+      </div>
       <hr class="category-sep">
-      <div class="recipe-grid">
-        ${cards}
+      <div class="recipe-grid-wrapper collapsed">
+        <div class="recipe-grid">
+          ${cards}
+        </div>
       </div>
     </section>`;
   }).join('\n');
@@ -423,6 +442,44 @@ function writeAllRecipesPages() {
       }
     }
 
+    // Add expand/collapse script before closing body tag
+    const expandScript = `
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const expandButtons = document.querySelectorAll('.category-expand-btn');
+    
+    expandButtons.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const section = this.closest('.recipes-category-section');
+        const wrapper = section.querySelector('.recipe-grid-wrapper');
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const expandText = this.getAttribute('data-expand-text');
+        const collapseText = this.getAttribute('data-collapse-text');
+        const textSpan = this.querySelector('.expand-text');
+        
+        if (isExpanded) {
+          // Collapse
+          wrapper.classList.remove('expanded');
+          wrapper.classList.add('collapsed');
+          this.setAttribute('aria-expanded', 'false');
+          textSpan.textContent = expandText;
+          
+          // Smooth scroll to category heading
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Expand
+          wrapper.classList.remove('collapsed');
+          wrapper.classList.add('expanded');
+          this.setAttribute('aria-expanded', 'true');
+          textSpan.textContent = collapseText;
+        }
+      });
+    });
+  });
+</script>`;
+
+    out = out.replace(/<\/body>/i, `${expandScript}\n</body>`);
+
     const outPath = path.join(distRecipesDir, `all-recipes.${lang}.html`);
     fs.writeFileSync(outPath, out, 'utf8');
     console.log(`✓ Generated recipes page: recipes/all-recipes.${lang}.html`);
@@ -485,10 +542,22 @@ function writeAllRecipesPages() {
       <span>${title}</span>
     </div>
     <div id="language-switcher" class="lang-switcher-nav">
-      <a href="${recipe.slug}.en.html" title="English">EN</a>
-      <a href="${recipe.slug}.fr.html" title="Français">FR</a>
-      <a href="${recipe.slug}.ar.html" title="العربية">AR</a>
-      <a href="${recipe.slug}.hy.html" title="Հայերեն">HY</a>
+      <a href="${recipe.slug}.en.html" class="flag" title="English" aria-label="English">
+        <img src="../assets/img/flags/gb.svg" alt="English">
+        <span class="code">EN</span>
+      </a>
+      <a href="${recipe.slug}.fr.html" class="flag" title="Français" aria-label="Français">
+        <img src="../assets/img/flags/fr.svg" alt="Français">
+        <span class="code">FR</span>
+      </a>
+      <a href="${recipe.slug}.ar.html" class="flag" title="Lebanese Arabic" aria-label="Lebanese Arabic">
+        <img src="../assets/img/flags/lb.svg" alt="Lebanese Arabic">
+        <span class="code">LB</span>
+      </a>
+      <a href="${recipe.slug}.hy.html" class="flag" title="Armenian" aria-label="Armenian">
+        <img src="../assets/img/flags/am.svg" alt="Armenian">
+        <span class="code">AM</span>
+      </a>
     </div>
   </nav>
 

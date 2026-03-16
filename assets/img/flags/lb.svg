@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40" role="img" aria-labelledby="title">
+  <title>Lebanon flag</title>
+  <rect width="60" height="10" y="0" fill="#ED1C24"/>
+  <rect width="60" height="20" y="10" fill="#FFFFFF"/>
+  <rect width="60" height="10" y="30" fill="#ED1C24"/>
+  <polygon points="30,9 24,22 36,22" fill="#007A3D"/>
+  <polygon points="30,13 22,27 38,27" fill="#007A3D"/>
+  <polygon points="30,18 20,32 40,32" fill="#007A3D"/>
+  <rect x="28.5" y="22" width="3" height="8" fill="#007A3D"/>
+</svg>
