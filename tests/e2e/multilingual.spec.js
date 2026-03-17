@@ -7,7 +7,7 @@ const BASE_URL = process.env.BASE_URL || 'https://sirevelyn0116.github.io/shehir
 const LOCALIZED_CONTENT = {
   en: {
     lang: 'en',
-    title: 'Shehirian Family Kitchen',
+    title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
       hero: { selector: 'section.hero, .hero', textIncludes: '' },
@@ -20,7 +20,7 @@ const LOCALIZED_CONTENT = {
   },
   fr: {
     lang: 'fr',
-    title: 'Cuisine familiale Shehirian',
+    title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
       hero: { selector: 'section.hero, .hero', textIncludes: '' },
@@ -33,7 +33,7 @@ const LOCALIZED_CONTENT = {
   },
   ar: {
     lang: 'ar',
-    title: 'مطبخ عائلة شيهريان',
+    title: 'Shehirian Bulgor Inc',
     dir: 'rtl',
     sections: {
       hero: { selector: 'section.hero, .hero', textIncludes: '' },
