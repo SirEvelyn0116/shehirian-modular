@@ -7,7 +7,7 @@ const BASE_URL = process.env.BASE_URL || 'https://sirevelyn0116.github.io/shehir
 const LOCALIZED_CONTENT = {
   en: {
     lang: 'en',
-    title: 'Shehirian Family Kitchen',
+    title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
       hero: { selector: 'section.hero, .hero', textIncludes: '' },
@@ -20,7 +20,7 @@ const LOCALIZED_CONTENT = {
   },
   fr: {
     lang: 'fr',
-    title: 'Cuisine familiale Shehirian',
+    title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
       hero: { selector: 'section.hero, .hero', textIncludes: '' },
@@ -33,7 +33,7 @@ const LOCALIZED_CONTENT = {
   },
   ar: {
     lang: 'ar',
-    title: 'مطبخ عائلة شيهريان',
+    title: 'Shehirian Bulgor Inc',
     dir: 'rtl',
     sections: {
       hero: { selector: 'section.hero, .hero', textIncludes: '' },
@@ -43,10 +43,23 @@ const LOCALIZED_CONTENT = {
       certifications: { selector: 'section.certifications, .certifications', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
+  },
+  hy: {
+    lang: 'hy',
+    title: 'Shehirian Bulgor Inc',
+    dir: 'ltr',
+    sections: {
+      hero: { selector: 'section.hero, .hero', textIncludes: '' },
+      aboutUs: { selector: 'section#about-us, section.about-us, .about-us', textIncludes: '' },
+      ourCompanies: { selector: 'section.our-companies, .our-companies', textIncludes: '' },
+      recipes: { selector: 'section.recipes, .recipes', textIncludes: '' },
+      certifications: { selector: 'section.certifications, .certifications', textIncludes: '' },
+      contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
+    }
   }
 };
 
-const LANGUAGES = ['en', 'fr', 'ar'];
+const LANGUAGES = ['en', 'fr', 'ar', 'hy'];
 
 test.describe('Multilingual Static Site - E2E Tests', () => {
   
@@ -265,10 +278,228 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       const xDefaultLink = await page.locator('link[hreflang="x-default"]').getAttribute('href');
       expect(xDefaultLink).toContain('index.en.html');
       
-      // Verify all language links exist
+      // Verify all language links exist (including Armenian)
       for (const lang of LANGUAGES) {
         const langLink = await page.locator(`link[hreflang="${lang}"]`).getAttribute('href');
         expect(langLink).toContain(`index.${lang}.html`);
+      }
+    });
+  });
+
+  test.describe('Recipe Pages', () => {
+    
+    test('should load all-recipes page for each language', async ({ page }) => {
+      for (const lang of LANGUAGES) {
+        const response = await page.goto(`${BASE_URL}/recipes/all-recipes.${lang}.html`);
+        expect(response.status()).toBe(200);
+        
+        const htmlLang = await page.locator('html').getAttribute('lang');
+        expect(htmlLang).toBe(lang);
+      }
+    });
+
+    test('should have translated category headings on all-recipes pages', async ({ page }) => {
+      // English
+      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.waitForLoadState('networkidle');
+      const enHeading = await page.locator('.recipes-category-heading').first().textContent();
+      
+      // French
+      await page.goto(`${BASE_URL}/recipes/all-recipes.fr.html`);
+      await page.waitForLoadState('networkidle');
+      const frHeading = await page.locator('.recipes-category-heading').first().textContent();
+      
+      // Armenian
+      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.waitForLoadState('networkidle');
+      const hyHeading = await page.locator('.recipes-category-heading').first().textContent();
+      
+      // Verify different translations
+      expect(enHeading).not.toBe(frHeading);
+      expect(enHeading).not.toBe(hyHeading);
+      expect(frHeading).not.toBe(hyHeading);
+    });
+
+    test('should have recipe cards with all metadata', async ({ page }) => {
+      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.waitForLoadState('networkidle');
+      
+      const firstCard = page.locator('.recipe-card').first();
+      await expect(firstCard).toBeVisible();
+      
+      // Check for recipe title
+      const title = firstCard.locator('h3');
+      await expect(title).toBeVisible();
+      
+      // Check for metadata (category, cuisine, prep time, etc.)
+      const meta = firstCard.locator('.recipe-meta-info');
+      await expect(meta).toBeVisible();
+    });
+
+    test('should have clickable recipe cards linking to individual pages', async ({ page }) => {
+      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.waitForLoadState('networkidle');
+      
+      const firstCard = page.locator('.recipe-card').first();
+      const href = await firstCard.getAttribute('href');
+      
+      expect(href).toBeTruthy();
+      expect(href).toMatch(/\.en\.html$/);
+    });
+
+    test('should have language switcher on recipe pages', async ({ page }) => {
+      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.waitForLoadState('networkidle');
+      
+      // Should have links to all languages including Armenian
+      for (const lang of LANGUAGES) {
+        const langLink = page.locator(`a[href*="all-recipes.${lang}.html"]`);
+        await expect(langLink).toBeVisible();
+      }
+    });
+  });
+
+  test.describe('Armenian Language Specific Tests', () => {
+    
+    test('should have Armenian (HY) in language switcher on index page', async ({ page }) => {
+      await page.goto(`${BASE_URL}/index.en.html`);
+      const hyLink = page.locator('a[href*="index.hy.html"]').first();
+      await expect(hyLink).toBeVisible();
+    });
+
+    test('should display Armenian content correctly', async ({ page }) => {
+      await page.goto(`${BASE_URL}/index.hy.html`);
+      await page.waitForLoadState('networkidle');
+      
+      // Verify Armenian characters are rendered (Unicode range for Armenian is U+0530-U+058F)
+      const bodyText = await page.locator('body').textContent();
+      const hasArmenian = /[\u0530-\u058F]/.test(bodyText);
+      expect(hasArmenian).toBeTruthy();
+    });
+
+    test('should have Armenian recipes with proper translations', async ({ page }) => {
+      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.waitForLoadState('networkidle');
+      
+      const recipeCard = page.locator('.recipe-card').first();
+      const cardText = await recipeCard.textContent();
+      
+      // Should contain Armenian characters
+      const hasArmenian = /[\u0530-\u058F]/.test(cardText);
+      expect(hasArmenian).toBeTruthy();
+      
+      // Should NOT contain untranslated English words mixed in (basic check)
+      // Note: Some English words like brand names are acceptable
+      const title = await recipeCard.locator('h3').textContent();
+      const hasArmenianTitle = /[\u0530-\u058F]/.test(title);
+      expect(hasArmenianTitle).toBeTruthy();
+    });
+
+    test('should have Armenian category translations', async ({ page }) => {
+      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.waitForLoadState('networkidle');
+      
+      const categoryHeading = await page.locator('.recipes-category-heading').first().textContent();
+      
+      // Should be in Armenian (contains Armenian characters)
+      const hasArmenian = /[\u0530-\u058F]/.test(categoryHeading);
+      expect(hasArmenian).toBeTruthy();
+      
+      // Should NOT be English category names
+      expect(categoryHeading).not.toBe('Soup');
+      expect(categoryHeading).not.toBe('Salad');
+      expect(categoryHeading).not.toBe('Dessert');
+    });
+
+    test('should navigate between languages including Armenian', async ({ page }) => {
+      // Start from English
+      await page.goto(`${BASE_URL}/index.en.html`);
+      
+      // Navigate to Armenian
+      await page.click('a[href*="index.hy.html"]');
+      await page.waitForURL(/index\.hy\.html/);
+      await expect(page.locator('html')).toHaveAttribute('lang', 'hy');
+      
+      // Navigate back to English
+      await page.click('a[href*="index.en.html"]');
+      await page.waitForURL(/index\.en\.html/);
+      await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+    });
+
+    test('should have Armenian locale for time formatting', async ({ page }) => {
+      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.waitForLoadState('networkidle');
+      
+      const metaInfo = await page.locator('.recipe-meta-info').first().textContent();
+      
+      // Check for Armenian time unit (րոպե = minutes, ժամ = hour)
+      const hasArmenianTime = /րոպե|ժամ/.test(metaInfo);
+      expect(hasArmenianTime).toBeTruthy();
+    });
+  });
+
+  test.describe('Content Integrity', () => {
+    
+    test('should not have mixed language content in recipes', async ({ page }) => {
+      for (const lang of LANGUAGES) {
+        await page.goto(`${BASE_URL}/recipes/all-recipes.${lang}.html`);
+        await page.waitForLoadState('networkidle');
+        
+        const firstRecipeCard = page.locator('.recipe-card').first();
+        const title = await firstRecipeCard.locator('h3').textContent();
+        const description = await firstRecipeCard.locator('.recipe-description').textContent();
+        
+        // Basic validation: titles and descriptions should not be empty
+        expect(title.trim().length).toBeGreaterThan(0);
+        expect(description.trim().length).toBeGreaterThan(0);
+        
+        // For Armenian, verify Armenian characters are present
+        if (lang === 'hy') {
+          const hasArmenianInTitle = /[\u0530-\u058F]/.test(title);
+          const hasArmenianInDesc = /[\u0530-\u058F]/.test(description);
+          expect(hasArmenianInTitle || hasArmenianInDesc).toBeTruthy();
+        }
+      }
+    });
+
+    test('should have consistent recipe counts across languages', async ({ page }) => {
+      const recipeCounts = {};
+      
+      for (const lang of LANGUAGES) {
+        await page.goto(`${BASE_URL}/recipes/all-recipes.${lang}.html`);
+        await page.waitForLoadState('networkidle');
+        
+        const cards = await page.locator('.recipe-card').count();
+        recipeCounts[lang] = cards;
+      }
+      
+      // All languages should have the same number of recipes
+      const counts = Object.values(recipeCounts);
+      const firstCount = counts[0];
+      
+      for (const count of counts) {
+        expect(count).toBe(firstCount);
+      }
+      
+      // Should have at least 40 recipes (we know there are 44)
+      expect(firstCount).toBeGreaterThanOrEqual(40);
+    });
+
+    test('should have valid JSON-LD in all languages', async ({ page }) => {
+      for (const lang of LANGUAGES) {
+        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.waitForLoadState('networkidle');
+        
+        const jsonLdScripts = await page.locator('script[type="application/ld+json"]').all();
+        expect(jsonLdScripts.length).toBeGreaterThan(0);
+        
+        for (const script of jsonLdScripts) {
+          const content = await script.textContent();
+          const jsonData = JSON.parse(content);
+          
+          expect(jsonData['@context']).toBe('https://schema.org');
+          expect(jsonData['@type']).toBeDefined();
+        }
       }
     });
   });
