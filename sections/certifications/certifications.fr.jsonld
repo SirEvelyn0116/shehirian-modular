@@ -1,0 +1,23 @@
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About the Shehirian Family",
+  "description": "Our culinary journey began generations ago in Armenia. Today, we share our heritage through recipes, stories, and community.",
+  "url": "https://shehirian-modular.github.io/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Shehirian Family",
+    "description": "A family-led culinary and cultural initiative preserving Armenian and Middle Eastern traditions.",
+    "url": "https://shehirian-modular.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shehirian-modular.github.io/assets/images/logo.png",
+      "width": 300,
+      "height": 100
+    },
+    "sameAs": [
+      "https://www.facebook.com/shehirianfamily",
+      "https://www.instagram.com/shehirianfamily"
+    ]
+  }
+}

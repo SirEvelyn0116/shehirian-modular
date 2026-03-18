@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuisine familiale Shehirian</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="alternate" hreflang="x-default" href="index.en.html" />
+  <link rel="alternate" hreflang="en" href="index.en.html" />
+  <link rel="alternate" hreflang="fr" href="index.fr.html" />
+  <link rel="alternate" hreflang="ar" href="index.ar.html" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "À propos de nous",
+  "description": "Entreprise familiale depuis 1958. Faites défiler pour explorer nos produits",
+  "url": "https://shehirian.com/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Shehirian Bulgor Inc.",
+    "description": "Entreprise familiale depuis 1958",
+    "foundingDate": "1958",
+    "url": "https://shehirian.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shehirian.com/assets/images/logo.png",
+      "width": 300,
+      "height": 100
+    }
+  }
+}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About the Shehirian Family",
+  "description": "Our culinary journey began generations ago in Armenia. Today, we share our heritage through recipes, stories, and community.",
+  "url": "https://shehirian-modular.github.io/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Shehirian Family",
+    "description": "A family-led culinary and cultural initiative preserving Armenian and Middle Eastern traditions.",
+    "url": "https://shehirian-modular.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shehirian-modular.github.io/assets/images/logo.png",
+      "width": 300,
+      "height": 100
+    },
+    "sameAs": [
+      "https://www.facebook.com/shehirianfamily",
+      "https://www.instagram.com/shehirianfamily"
+    ]
+  }
+}</script>
+</head>
+<body dir="ltr">
+  <div id="language-switcher" class="lang-switcher-nav">
+    <a href="index.en.html">EN</a>
+    <a href="index.fr.html">FR</a>
+    <a href="index.ar.html">AR</a>
+  </div>
+
+  <div id="preview"></div>
+
+  <!-- Load all section render functions -->
+  <script src="sections/hero/render.js"></script>
+  <script src="sections/aboutUs/render.js"></script>
+  <script src="sections/ourCompanies/render.js"></script>
+  <script src="sections/recipes/render.js"></script>
+  <script src="sections/certifications/render.js"></script>
+  <script src="sections/contactUs/render.js"></script>
+  
+  <!-- Set language and load preview -->
+  <script>localStorage.setItem('lang', 'fr');</script>
+  <script src="preview.js"></script>
+</body>
+</html>

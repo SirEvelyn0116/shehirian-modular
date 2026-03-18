@@ -1,0 +1,73 @@
+[
+  {
+    "id": "armenian-lentil-soup",
+    "title": "Soupe arménienne aux lentilles",
+    "description": "Une soupe copieuse aux lentilles, à la menthe et au persil — un classique de la famille Shehirian.",
+    "ingredients": [
+      "1/2 tasse d'eau",
+      "1/2 tasse de lentilles",
+      "1/2 tasse d'oignon haché",
+      "1/2 tasse de persil haché",
+      "1/2 c. à thé de sel",
+      "1/2 c. à thé de poivre",
+      "1/2 tasse de beurre ou margarine",
+      "1/2 tasse de menthe hachée"
+    ],
+    "steps": [
+      "Faire bouillir les lentilles dans l'eau pendant 15 minutes.",
+      "Ajouter l'oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes.",
+      "Ajouter la menthe et le beurre. Mijoter 15 minutes.",
+      "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes.",
+      "Optionnel : faire frire le beurre jusqu'à ce qu'il soit doré et verser sur la soupe."
+    ]
+  },
+  {
+    "id": "royal-soup",
+    "title": "Soupe royale",
+    "description": "Une soupe citronnée aux boulettes de viande, riz et persil, inspirée des saveurs du Moyen-Orient.",
+    "ingredients": [
+      "1/2 gallon de bouillon de poulet",
+      "1/2 lb de bœuf haché (pas trop maigre)",
+      "1/4 tasse de riz cru",
+      "1/4 tasse d'oignon très finement haché",
+      "1/4 tasse de persil",
+      "1/4 tasse de jus de citron",
+      "1/4 tasse de céleri finement haché",
+      "1/4 c. à thé de sel",
+      "Tranches de 2 citrons"
+    ],
+    "steps": [
+      "Mélanger la viande crue, le boulgour, l'oignon, le persil et les épices. Former des boulettes de 2,5 cm.",
+      "Ajouter le riz au mélange.",
+      "Ajouter les boulettes dans le bouillon chaud et mijoter jusqu'à cuisson.",
+      "Ajouter le jus de citron et le céleri. Mijoter 10 minutes.",
+      "Ajouter le sel et les tranches de citron. Mijoter 5 minutes.",
+      "Ajuster l'acidité, le sel ou l'épaisseur avec sucre, eau ou riz.",
+      "Verser le bouillon sur les boulettes et servir."
+    ]
+  },
+  {
+    "id": "scotch-broth",
+    "title": "Bouillon écossais",
+    "description": "Une soupe traditionnelle écossaise à l'agneau, aux légumes racines et à l'orge — chaude et nourrissante.",
+    "ingredients": [
+      "2 litres de bouillon de bœuf ou d'agneau",
+      "1 lb de cou ou jarret d'agneau",
+      "1/2 tasse d'orge perlé",
+      "1/2 tasse de carottes hachées",
+      "1/2 tasse de poireaux hachés",
+      "1/2 tasse de navets hachés",
+      "1/2 tasse de céleri haché",
+      "1/2 tasse d'oignon haché",
+      "1/4 tasse de persil haché",
+      "Sel et poivre au goût"
+    ],
+    "steps": [
+      "Faire mijoter l'agneau dans le bouillon pendant 1 heure, en écumant.",
+      "Ajouter l'orge et cuire 30 minutes.",
+      "Ajouter les légumes hachés et mijoter jusqu'à tendreté, environ 30 minutes.",
+      "Retirer l'agneau, effilocher la viande et la remettre dans la soupe.",
+      "Assaisonner avec sel et poivre. Garnir de persil et servir chaud."
+    ]
+  }
+]

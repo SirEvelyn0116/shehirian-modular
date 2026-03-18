@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مطبخ عائلة شيهريان</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="alternate" hreflang="x-default" href="index.en.html" />
+  <link rel="alternate" hreflang="en" href="index.en.html" />
+  <link rel="alternate" hreflang="fr" href="index.fr.html" />
+  <link rel="alternate" hreflang="ar" href="index.ar.html" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "معلومات عنا",
+  "description": "تأسست وتدار عائلياً منذ 1958. قم بالتمرير للأسفل لاستكشاف منتجاتنا",
+  "url": "https://shehirian.com/about",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Shehirian Bulgor Inc.",
+    "description": "تأسست وتدار عائلياً منذ 1958",
+    "foundingDate": "1958",
+    "url": "https://shehirian.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://shehirian.com/assets/images/logo.png",
+      "width": 300,
+      "height": 100
+    }
+  }
+}</script>
+  <script type="application/ld+json">[
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalCredential",
+    "name": "شهادة عضوية",
+    "credentialCategory": "شهادة",
+    "educationalLevel": "متقدم",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "وكالة فحص الأغذية الكندية",
+      "url": "https://inspection.canada.ca"
+    },
+    "validIn": {
+      "@type": "AdministrativeArea",
+      "name": "كندا"
+    },
+    "dateIssued": "2022-01-01"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOccupationalCredential",
+    "name": "شهادة حلال",
+    "credentialCategory": "شهادة",
+    "educationalLevel": "متوسط",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "مجلس الغذاء الإسلامي في كندا",
+      "url": "https://ifcc.ca"
+    },
+    "validIn": {
+      "@type": "AdministrativeArea",
+      "name": "كندا"
+    },
+    "dateIssued": "2023-01-01"
+  }
+]</script>
+</head>
+<body dir="rtl">
+  <div id="language-switcher" class="lang-switcher-nav">
+    <a href="index.en.html">EN</a>
+    <a href="index.fr.html">FR</a>
+    <a href="index.ar.html">AR</a>
+  </div>
+
+  <div id="preview"></div>
+
+  <!-- Load all section render functions -->
+  <script src="sections/hero/render.js"></script>
+  <script src="sections/aboutUs/render.js"></script>
+  <script src="sections/ourCompanies/render.js"></script>
+  <script src="sections/recipes/render.js"></script>
+  <script src="sections/certifications/render.js"></script>
+  <script src="sections/contactUs/render.js"></script>
+  
+  <!-- Set language and load preview -->
+  <script>localStorage.setItem('lang', 'ar');</script>
+  <script src="preview.js"></script>
+</body>
+</html>

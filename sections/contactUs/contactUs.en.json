@@ -1,0 +1,14 @@
+{
+  "title": "Contact Us",
+  "getInTouch": "Get in Touch",
+  "address": "375 Midwest Rd., Toronto, ON",
+  "phone": "(416) 757-9495",
+  "fax": "(416) 752-9248",
+  "email": "info@shehirian.com",
+  "form": {
+    "labelName": "Name",
+    "labelEmail": "Email",
+    "labelMessage": "Message",
+    "buttonSend": "Send Message"
+  }
+}
