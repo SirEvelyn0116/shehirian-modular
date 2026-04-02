@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Mjadara",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "4-6 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT40M",
+  "totalTime": "PT50M",
+  "recipeIngredient": [
+    "1 cup brown lentils",
+    "1 cup long grain rice",
+    "3 large onions, thinly sliced",
+    "1/4 cup olive oil",
+    "1 tsp cumin",
+    "1 tsp salt",
+    "1/2 tsp black pepper",
+    "4 cups water"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Rinse lentils and cook in 3 cups water for 15 minutes." },
+    { "@type": "HowToStep", "text": "Add rice, cumin, salt, and remaining water. Cook until tender." },
+    { "@type": "HowToStep", "text": "Meanwhile, fry onions in olive oil until golden brown and crispy." },
+    { "@type": "HowToStep", "text": "Reserve half the onions for garnish." },
+    { "@type": "HowToStep", "text": "Mix remaining onions into the lentil-rice mixture." },
+    { "@type": "HowToStep", "text": "Top with reserved crispy onions and serve with yogurt." }
+  ],
+  "keywords": "mjadara, lentils and rice, caramelized onions, comfort food"
+}

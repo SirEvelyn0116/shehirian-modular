@@ -69,5 +69,263 @@
       "Retirer l'agneau, effilocher la viande et la remettre dans la soupe.",
       "Assaisonner avec sel et poivre. Garnir de persil et servir chaud."
     ]
+  },
+  {
+    "id": "kibbeh-labanieh",
+    "title": "Kibbeh Labanieh",
+    "description": "Kibbeh traditionnel cuit dans une sauce au yaourt crémeuse - un favori libanais.",
+    "ingredients": [
+      "500g de viande hachée (agneau ou bœuf)",
+      "1 tasse de boulgour fin",
+      "1 oignon finement haché",
+      "1 c. à thé de sel",
+      "1/2 c. à thé de poivre noir",
+      "1/2 c. à thé de piment de la Jamaïque",
+      "4 tasses de yaourt nature",
+      "2 c. à soupe de fécule de maïs",
+      "3 gousses d'ail hachées",
+      "2 c. à soupe de menthe séchée",
+      "2 c. à soupe de beurre"
+    ],
+    "steps": [
+      "Faire tremper le boulgour dans l'eau pendant 10 minutes, puis bien égoutter.",
+      "Mélanger la viande hachée, le boulgour, la moitié de l'oignon, le sel, le poivre et le piment. Bien pétrir.",
+      "Façonner le mélange en petites boules ovales.",
+      "Fouetter le yaourt avec la fécule de maïs jusqu'à consistance lisse.",
+      "Porter le mélange de yaourt à ébullition en remuant constamment.",
+      "Ajouter les boulettes de kibbeh et laisser mijoter 20 minutes.",
+      "Dans une poêle, faire sauter l'ail, l'oignon restant et la menthe dans le beurre.",
+      "Verser le mélange d'ail sur le kibbeh et servir avec du riz."
+    ]
+  },
+  {
+    "id": "fattoush-salad",
+    "title": "Salade Fattoush",
+    "description": "Salade du Moyen-Orient fraîche avec chips de pita croustillantes et vinaigrette au sumac.",
+    "ingredients": [
+      "2 pains pita grillés et brisés",
+      "3 tomates coupées en dés",
+      "2 concombres coupés en dés",
+      "1 tasse de laitue romaine hachée",
+      "4 radis tranchés",
+      "1/4 tasse de menthe hachée",
+      "1/4 tasse de persil haché",
+      "2 oignons verts hachés",
+      "1/4 tasse de jus de citron",
+      "1/4 tasse d'huile d'olive",
+      "2 c. à soupe de sumac",
+      "1 c. à thé de sel"
+    ],
+    "steps": [
+      "Griller le pain pita jusqu'à ce qu'il soit croustillant, puis le casser en morceaux de la taille d'une bouchée.",
+      "Combiner tous les légumes et herbes dans un grand bol.",
+      "Fouetter ensemble le jus de citron, l'huile d'olive, le sumac et le sel.",
+      "Ajouter les chips de pita juste avant de servir.",
+      "Mélanger avec la vinaigrette et servir immédiatement."
+    ]
+  },
+  {
+    "id": "mjadara",
+    "title": "Mjadara",
+    "description": "Lentilles et riz aux oignons caramélisés - un plat réconfortant par excellence.",
+    "ingredients": [
+      "1 tasse de lentilles brunes",
+      "1 tasse de riz à grain long",
+      "3 gros oignons tranchés finement",
+      "1/4 tasse d'huile d'olive",
+      "1 c. à thé de cumin",
+      "1 c. à thé de sel",
+      "1/2 c. à thé de poivre noir",
+      "4 tasses d'eau"
+    ],
+    "steps": [
+      "Rincer les lentilles et les cuire dans 3 tasses d'eau pendant 15 minutes.",
+      "Ajouter le riz, le cumin, le sel et l'eau restante. Cuire jusqu'à tendreté.",
+      "Pendant ce temps, faire frire les oignons dans l'huile d'olive jusqu'à ce qu'ils soient dorés et croustillants.",
+      "Réserver la moitié des oignons pour la garniture.",
+      "Mélanger les oignons restants dans le mélange lentilles-riz.",
+      "Garnir avec les oignons croustillants réservés et servir avec du yaourt."
+    ]
+  },
+  {
+    "id": "stuffed-grape-leaves",
+    "title": "Feuilles de vigne farcies (Warak Enab)",
+    "description": "Feuilles de vigne tendres farcies de riz, herbes et épices.",
+    "ingredients": [
+      "1 pot de feuilles de vigne (environ 60 feuilles)",
+      "1 tasse de riz à grain court",
+      "250g de viande hachée d'agneau (optionnel)",
+      "1 tomate finement coupée en dés",
+      "1/4 tasse de persil haché",
+      "1/4 tasse de menthe hachée",
+      "1/4 tasse de jus de citron",
+      "2 c. à soupe d'huile d'olive",
+      "1 c. à thé de sel",
+      "1/2 c. à thé de piment de la Jamaïque",
+      "2 tasses d'eau ou de bouillon"
+    ],
+    "steps": [
+      "Rincer les feuilles de vigne et retirer les tiges.",
+      "Mélanger le riz, la viande (si utilisée), la tomate, les herbes et les épices.",
+      "Placer une cuillerée de farce sur chaque feuille et rouler fermement.",
+      "Disposer les rouleaux dans une casserole, côté couture vers le bas.",
+      "Ajouter le jus de citron, l'huile et l'eau pour couvrir.",
+      "Placer une assiette sur le dessus pour maintenir les rouleaux en place.",
+      "Laisser mijoter 45 minutes jusqu'à ce que le riz soit cuit.",
+      "Servir chaud ou froid avec du yaourt."
+    ]
+  },
+  {
+    "id": "baba-ganoush",
+    "title": "Baba Ganoush",
+    "description": "Trempette d'aubergine fumée avec tahini, ail et citron.",
+    "ingredients": [
+      "2 grosses aubergines",
+      "3 c. à soupe de tahini",
+      "2 gousses d'ail hachées",
+      "3 c. à soupe de jus de citron",
+      "2 c. à soupe d'huile d'olive",
+      "1/2 c. à thé de sel",
+      "1/4 c. à thé de cumin",
+      "Paprika pour garnir",
+      "Persil frais pour garnir"
+    ],
+    "steps": [
+      "Rôtir les aubergines sur flamme directe ou au four à 450°F jusqu'à ce que la peau soit carbonisée.",
+      "Laisser refroidir, puis éplucher la peau et retirer les graines.",
+      "Écraser la chair d'aubergine avec une fourchette.",
+      "Mélanger le tahini, l'ail, le jus de citron et le sel.",
+      "Mélanger jusqu'à consistance lisse ou laisser légèrement grumeleux.",
+      "Arroser d'huile d'olive et saupoudrer de paprika.",
+      "Garnir de persil et servir avec du pain pita."
+    ]
+  },
+  {
+    "id": "tabbouleh",
+    "title": "Taboulé",
+    "description": "Salade de persil frais avec boulgour, tomates et vinaigrette au citron.",
+    "ingredients": [
+      "3 tasses de persil finement haché",
+      "1/2 tasse de boulgour trempé",
+      "3 tomates finement coupées en dés",
+      "1/4 tasse de menthe hachée",
+      "4 oignons verts finement hachés",
+      "1/4 tasse de jus de citron",
+      "1/4 tasse d'huile d'olive",
+      "1 c. à thé de sel",
+      "1/2 c. à thé de piment de la Jamaïque"
+    ],
+    "steps": [
+      "Faire tremper le boulgour dans l'eau pendant 15 minutes, puis égoutter et presser à sec.",
+      "Hacher finement tous les légumes et herbes.",
+      "Mélanger le persil, le boulgour, les tomates, la menthe et les oignons.",
+      "Fouetter ensemble le jus de citron, l'huile d'olive, le sel et le piment.",
+      "Verser la vinaigrette sur la salade et bien mélanger.",
+      "Réfrigérer 30 minutes avant de servir.",
+      "Servir avec des feuilles de laitue romaine comme cuillères."
+    ]
+  },
+  {
+    "id": "chicken-shawarma",
+    "title": "Shawarma de Poulet",
+    "description": "Poulet mariné aux épices du Moyen-Orient, parfait pour les wraps.",
+    "ingredients": [
+      "1 kg de cuisses de poulet tranchées",
+      "1/4 tasse d'huile d'olive",
+      "3 c. à soupe de jus de citron",
+      "4 gousses d'ail hachées",
+      "2 c. à thé de cumin",
+      "2 c. à thé de paprika",
+      "1 c. à thé de curcuma",
+      "1 c. à thé de cannelle",
+      "1/2 c. à thé de poivre de Cayenne",
+      "1 c. à thé de sel",
+      "Pain pita et sauce tahini pour servir"
+    ],
+    "steps": [
+      "Mélanger toutes les épices avec l'huile, le jus de citron et l'ail pour faire la marinade.",
+      "Ajouter le poulet et mariner au moins 2 heures ou toute la nuit.",
+      "Chauffer une grande poêle à feu vif.",
+      "Cuire le poulet par lots jusqu'à ce qu'il soit doré et bien cuit.",
+      "Laisser reposer 5 minutes, puis trancher finement.",
+      "Servir dans du pain pita avec tomates, oignons et sauce tahini."
+    ]
+  },
+  {
+    "id": "hummus-with-meat",
+    "title": "Houmous à la Viande",
+    "description": "Houmous crémeux surmonté de viande épicée et de pignons.",
+    "ingredients": [
+      "2 tasses de pois chiches cuits",
+      "1/4 tasse de tahini",
+      "3 c. à soupe de jus de citron",
+      "2 gousses d'ail",
+      "1/4 tasse d'huile d'olive",
+      "250g de viande hachée d'agneau ou de bœuf",
+      "1/4 tasse de pignons",
+      "1 c. à thé de piment de la Jamaïque",
+      "1/2 c. à thé de cannelle",
+      "Sel au goût"
+    ],
+    "steps": [
+      "Mélanger les pois chiches, le tahini, le jus de citron, l'ail et 2 c. à soupe d'huile d'olive jusqu'à consistance lisse.",
+      "Ajouter de l'eau si nécessaire pour obtenir la consistance désirée.",
+      "Assaisonner de sel et étaler sur une assiette de service.",
+      "Griller les pignons dans une poêle sèche jusqu'à ce qu'ils soient dorés.",
+      "Faire dorer la viande avec l'huile restante, le piment et la cannelle.",
+      "Déposer le mélange de viande sur le houmous.",
+      "Garnir de pignons et servir avec du pita chaud."
+    ]
+  },
+  {
+    "id": "shish-tawook",
+    "title": "Shish Tawook",
+    "description": "Brochettes de poulet grillées marinées au yaourt et au citron.",
+    "ingredients": [
+      "1 kg de poitrine de poulet en cubes",
+      "1 tasse de yaourt nature",
+      "1/4 tasse de jus de citron",
+      "4 gousses d'ail hachées",
+      "2 c. à soupe de pâte de tomate",
+      "2 c. à thé de paprika",
+      "1 c. à thé d'origan",
+      "1/2 c. à thé de poivre de Cayenne",
+      "1 c. à thé de sel",
+      "Brochettes en bois trempées dans l'eau"
+    ],
+    "steps": [
+      "Mélanger le yaourt, le jus de citron, l'ail, la pâte de tomate et les épices.",
+      "Ajouter les cubes de poulet et bien enrober de marinade.",
+      "Réfrigérer au moins 4 heures ou toute la nuit.",
+      "Enfiler le poulet sur les brochettes en bois trempées.",
+      "Griller à feu moyen-vif pendant 10-12 minutes en tournant occasionnellement.",
+      "Servir avec sauce à l'ail, cornichons et pain pita."
+    ]
+  },
+  {
+    "id": "knafeh",
+    "title": "Knafeh",
+    "description": "Pâtisserie au fromage sucré avec phyllo râpé croustillant et sirop.",
+    "ingredients": [
+      "500g de pâte phyllo râpée (kataifi)",
+      "1 tasse de beurre fondu",
+      "500g de mozzarella fraîche ou fromage akkawi",
+      "1 tasse de sucre",
+      "1/2 tasse d'eau",
+      "1 c. à soupe de jus de citron",
+      "1 c. à soupe d'eau de fleur d'oranger",
+      "1/4 tasse de pistaches concassées"
+    ],
+    "steps": [
+      "Préchauffer le four à 350°F.",
+      "Mélanger le phyllo râpé avec le beurre fondu.",
+      "Presser la moitié du mélange de phyllo dans un plat à four beurré.",
+      "Étaler le fromage uniformément sur le phyllo.",
+      "Couvrir avec le mélange de phyllo restant et presser.",
+      "Cuire 30-40 minutes jusqu'à ce qu'il soit doré et croustillant.",
+      "Pendant ce temps, faire bouillir le sucre, l'eau et le jus de citron pendant 5 minutes.",
+      "Ajouter l'eau de fleur d'oranger au sirop.",
+      "Verser le sirop sur le knafeh chaud et garnir de pistaches."
+    ]
   }
 ]

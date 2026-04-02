@@ -1,0 +1,53 @@
+[
+  {
+    "id": "shish-tawook",
+    "title": "Shish Tawook",
+    "description": "Grilled chicken skewers marinated in yogurt and lemon.",
+    "ingredients": [
+      "2 lbs chicken breast, cubed",
+      "1 cup plain yogurt",
+      "1/4 cup lemon juice",
+      "4 cloves garlic, minced",
+      "2 tbsp tomato paste",
+      "2 tsp paprika",
+      "1 tsp oregano",
+      "1/2 tsp cayenne pepper",
+      "1 tsp salt",
+      "Wooden skewers, soaked in water"
+    ],
+    "steps": [
+      "Mix yogurt, lemon juice, garlic, tomato paste, and spices.",
+      "Add chicken cubes and coat well with marinade.",
+      "Refrigerate for at least 4 hours or overnight.",
+      "Thread chicken onto soaked wooden skewers.",
+      "Grill over medium-high heat for 10-12 minutes, turning occasionally.",
+      "Serve with garlic sauce, pickles, and pita bread."
+    ]
+  },
+  {
+    "id": "knafeh",
+    "title": "Knafeh",
+    "description": "Sweet cheese pastry with crispy shredded phyllo and syrup.",
+    "ingredients": [
+      "1 lb shredded phyllo dough (kataifi)",
+      "1 cup melted butter",
+      "1 lb fresh mozzarella or akkawi cheese",
+      "1 cup sugar",
+      "1/2 cup water",
+      "1 tbsp lemon juice",
+      "1 tbsp orange blossom water",
+      "1/4 cup crushed pistachios"
+    ],
+    "steps": [
+      "Preheat oven to 350°F.",
+      "Mix shredded phyllo with melted butter.",
+      "Press half the phyllo mixture into a buttered baking pan.",
+      "Layer cheese evenly over phyllo.",
+      "Top with remaining phyllo mixture and press down.",
+      "Bake for 30-40 minutes until golden and crispy.",
+      "Meanwhile, boil sugar, water, and lemon juice for 5 minutes.",
+      "Add orange blossom water to syrup.",
+      "Pour syrup over hot knafeh and top with pistachios."
+    ]
+  }
+]

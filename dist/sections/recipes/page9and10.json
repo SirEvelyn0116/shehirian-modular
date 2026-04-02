@@ -1,0 +1,53 @@
+[
+  {
+    "id": "mjadara",
+    "title": "Mjadara",
+    "description": "Lentils and rice with caramelized onions - comfort food at its finest.",
+    "ingredients": [
+      "1 cup brown lentils",
+      "1 cup long grain rice",
+      "3 large onions, thinly sliced",
+      "1/4 cup olive oil",
+      "1 tsp cumin",
+      "1 tsp salt",
+      "1/2 tsp black pepper",
+      "4 cups water"
+    ],
+    "steps": [
+      "Rinse lentils and cook in 3 cups water for 15 minutes.",
+      "Add rice, cumin, salt, and remaining water. Cook until tender.",
+      "Meanwhile, fry onions in olive oil until golden brown and crispy.",
+      "Reserve half the onions for garnish.",
+      "Mix remaining onions into the lentil-rice mixture.",
+      "Top with reserved crispy onions and serve with yogurt."
+    ]
+  },
+  {
+    "id": "stuffed-grape-leaves",
+    "title": "Stuffed Grape Leaves (Warak Enab)",
+    "description": "Tender grape leaves filled with rice, herbs, and spices.",
+    "ingredients": [
+      "1 jar grape leaves (about 60 leaves)",
+      "1 cup short grain rice",
+      "1/2 lb ground lamb (optional)",
+      "1 tomato, finely diced",
+      "1/4 cup chopped parsley",
+      "1/4 cup chopped mint",
+      "1/4 cup lemon juice",
+      "2 tbsp olive oil",
+      "1 tsp salt",
+      "1/2 tsp allspice",
+      "2 cups water or broth"
+    ],
+    "steps": [
+      "Rinse grape leaves and remove stems.",
+      "Mix rice, meat (if using), tomato, herbs, and spices.",
+      "Place a spoonful of filling on each leaf and roll tightly.",
+      "Layer rolls in a pot, seam side down.",
+      "Add lemon juice, oil, and water to cover.",
+      "Place a plate on top to keep rolls in place.",
+      "Simmer for 45 minutes until rice is cooked.",
+      "Serve warm or cold with yogurt."
+    ]
+  }
+]

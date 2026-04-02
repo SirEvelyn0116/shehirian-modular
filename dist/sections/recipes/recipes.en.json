@@ -69,5 +69,263 @@
       "Remove lamb, shred meat, and return to pot.",
       "Season with salt and pepper. Garnish with parsley and serve hot."
     ]
+  },
+  {
+    "id": "kibbeh-labanieh",
+    "title": "Kibbeh Labanieh",
+    "description": "Traditional kibbeh cooked in creamy yogurt sauce - a Lebanese favorite.",
+    "ingredients": [
+      "1 lb ground lamb or beef",
+      "1 cup fine bulgur wheat",
+      "1 onion, finely chopped",
+      "1 tsp salt",
+      "1/2 tsp black pepper",
+      "1/2 tsp allspice",
+      "4 cups plain yogurt",
+      "2 tbsp cornstarch",
+      "3 cloves garlic, minced",
+      "2 tbsp dried mint",
+      "2 tbsp butter"
+    ],
+    "steps": [
+      "Soak bulgur in water for 10 minutes, then drain well.",
+      "Mix ground meat, bulgur, half the onion, salt, pepper, and allspice. Knead well.",
+      "Shape mixture into small oval balls.",
+      "Whisk yogurt with cornstarch until smooth.",
+      "Bring yogurt mixture to a boil, stirring constantly.",
+      "Add kibbeh balls and simmer for 20 minutes.",
+      "In a pan, sauté garlic, remaining onion, and mint in butter.",
+      "Pour garlic mixture over kibbeh and serve with rice."
+    ]
+  },
+  {
+    "id": "fattoush-salad",
+    "title": "Fattoush Salad",
+    "description": "Fresh Middle Eastern salad with crispy pita chips and sumac dressing.",
+    "ingredients": [
+      "2 pita breads, toasted and broken",
+      "3 tomatoes, diced",
+      "2 cucumbers, diced",
+      "1 cup chopped romaine lettuce",
+      "4 radishes, sliced",
+      "1/4 cup chopped mint",
+      "1/4 cup chopped parsley",
+      "2 green onions, chopped",
+      "1/4 cup lemon juice",
+      "1/4 cup olive oil",
+      "2 tbsp sumac",
+      "1 tsp salt"
+    ],
+    "steps": [
+      "Toast pita bread until crispy, then break into bite-sized pieces.",
+      "Combine all vegetables and herbs in a large bowl.",
+      "Whisk together lemon juice, olive oil, sumac, and salt.",
+      "Add pita chips just before serving.",
+      "Toss with dressing and serve immediately."
+    ]
+  },
+  {
+    "id": "mjadara",
+    "title": "Mjadara",
+    "description": "Lentils and rice with caramelized onions - comfort food at its finest.",
+    "ingredients": [
+      "1 cup brown lentils",
+      "1 cup long grain rice",
+      "3 large onions, thinly sliced",
+      "1/4 cup olive oil",
+      "1 tsp cumin",
+      "1 tsp salt",
+      "1/2 tsp black pepper",
+      "4 cups water"
+    ],
+    "steps": [
+      "Rinse lentils and cook in 3 cups water for 15 minutes.",
+      "Add rice, cumin, salt, and remaining water. Cook until tender.",
+      "Meanwhile, fry onions in olive oil until golden brown and crispy.",
+      "Reserve half the onions for garnish.",
+      "Mix remaining onions into the lentil-rice mixture.",
+      "Top with reserved crispy onions and serve with yogurt."
+    ]
+  },
+  {
+    "id": "stuffed-grape-leaves",
+    "title": "Stuffed Grape Leaves (Warak Enab)",
+    "description": "Tender grape leaves filled with rice, herbs, and spices.",
+    "ingredients": [
+      "1 jar grape leaves (about 60 leaves)",
+      "1 cup short grain rice",
+      "1/2 lb ground lamb (optional)",
+      "1 tomato, finely diced",
+      "1/4 cup chopped parsley",
+      "1/4 cup chopped mint",
+      "1/4 cup lemon juice",
+      "2 tbsp olive oil",
+      "1 tsp salt",
+      "1/2 tsp allspice",
+      "2 cups water or broth"
+    ],
+    "steps": [
+      "Rinse grape leaves and remove stems.",
+      "Mix rice, meat (if using), tomato, herbs, and spices.",
+      "Place a spoonful of filling on each leaf and roll tightly.",
+      "Layer rolls in a pot, seam side down.",
+      "Add lemon juice, oil, and water to cover.",
+      "Place a plate on top to keep rolls in place.",
+      "Simmer for 45 minutes until rice is cooked.",
+      "Serve warm or cold with yogurt."
+    ]
+  },
+  {
+    "id": "baba-ganoush",
+    "title": "Baba Ganoush",
+    "description": "Smoky eggplant dip with tahini, garlic, and lemon.",
+    "ingredients": [
+      "2 large eggplants",
+      "3 tbsp tahini",
+      "2 cloves garlic, minced",
+      "3 tbsp lemon juice",
+      "2 tbsp olive oil",
+      "1/2 tsp salt",
+      "1/4 tsp cumin",
+      "Paprika for garnish",
+      "Fresh parsley for garnish"
+    ],
+    "steps": [
+      "Roast eggplants over open flame or in oven at 450°F until skin is charred.",
+      "Let cool, then peel off skin and remove seeds.",
+      "Mash eggplant flesh with a fork.",
+      "Mix in tahini, garlic, lemon juice, and salt.",
+      "Blend until smooth or leave slightly chunky.",
+      "Drizzle with olive oil and sprinkle with paprika.",
+      "Garnish with parsley and serve with pita bread."
+    ]
+  },
+  {
+    "id": "tabbouleh",
+    "title": "Tabbouleh",
+    "description": "Fresh parsley salad with bulgur, tomatoes, and lemon dressing.",
+    "ingredients": [
+      "3 cups finely chopped parsley",
+      "1/2 cup bulgur wheat, soaked",
+      "3 tomatoes, finely diced",
+      "1/4 cup chopped mint",
+      "4 green onions, finely chopped",
+      "1/4 cup lemon juice",
+      "1/4 cup olive oil",
+      "1 tsp salt",
+      "1/2 tsp allspice"
+    ],
+    "steps": [
+      "Soak bulgur in water for 15 minutes, then drain and squeeze dry.",
+      "Finely chop all vegetables and herbs.",
+      "Mix parsley, bulgur, tomatoes, mint, and onions.",
+      "Whisk together lemon juice, olive oil, salt, and allspice.",
+      "Pour dressing over salad and toss well.",
+      "Chill for 30 minutes before serving.",
+      "Serve with romaine lettuce leaves as scoops."
+    ]
+  },
+  {
+    "id": "chicken-shawarma",
+    "title": "Chicken Shawarma",
+    "description": "Marinated chicken with Middle Eastern spices, perfect for wraps.",
+    "ingredients": [
+      "2 lbs chicken thighs, sliced",
+      "1/4 cup olive oil",
+      "3 tbsp lemon juice",
+      "4 cloves garlic, minced",
+      "2 tsp cumin",
+      "2 tsp paprika",
+      "1 tsp turmeric",
+      "1 tsp cinnamon",
+      "1/2 tsp cayenne pepper",
+      "1 tsp salt",
+      "Pita bread and tahini sauce for serving"
+    ],
+    "steps": [
+      "Mix all spices with oil, lemon juice, and garlic to make marinade.",
+      "Add chicken and marinate for at least 2 hours or overnight.",
+      "Heat a large skillet over high heat.",
+      "Cook chicken in batches until golden and cooked through.",
+      "Let rest for 5 minutes, then slice thinly.",
+      "Serve in pita bread with tomatoes, onions, and tahini sauce."
+    ]
+  },
+  {
+    "id": "hummus-with-meat",
+    "title": "Hummus with Spiced Meat",
+    "description": "Creamy hummus topped with seasoned ground meat and pine nuts.",
+    "ingredients": [
+      "2 cups cooked chickpeas",
+      "1/4 cup tahini",
+      "3 tbsp lemon juice",
+      "2 cloves garlic",
+      "1/4 cup olive oil",
+      "1/2 lb ground lamb or beef",
+      "1/4 cup pine nuts",
+      "1 tsp allspice",
+      "1/2 tsp cinnamon",
+      "Salt to taste"
+    ],
+    "steps": [
+      "Blend chickpeas, tahini, lemon juice, garlic, and 2 tbsp olive oil until smooth.",
+      "Add water if needed for desired consistency.",
+      "Season with salt and spread on a serving plate.",
+      "Toast pine nuts in a dry pan until golden.",
+      "Brown meat with remaining oil, allspice, and cinnamon.",
+      "Spoon meat mixture over hummus.",
+      "Top with pine nuts and serve with warm pita."
+    ]
+  },
+  {
+    "id": "shish-tawook",
+    "title": "Shish Tawook",
+    "description": "Grilled chicken skewers marinated in yogurt and lemon.",
+    "ingredients": [
+      "2 lbs chicken breast, cubed",
+      "1 cup plain yogurt",
+      "1/4 cup lemon juice",
+      "4 cloves garlic, minced",
+      "2 tbsp tomato paste",
+      "2 tsp paprika",
+      "1 tsp oregano",
+      "1/2 tsp cayenne pepper",
+      "1 tsp salt",
+      "Wooden skewers, soaked in water"
+    ],
+    "steps": [
+      "Mix yogurt, lemon juice, garlic, tomato paste, and spices.",
+      "Add chicken cubes and coat well with marinade.",
+      "Refrigerate for at least 4 hours or overnight.",
+      "Thread chicken onto soaked wooden skewers.",
+      "Grill over medium-high heat for 10-12 minutes, turning occasionally.",
+      "Serve with garlic sauce, pickles, and pita bread."
+    ]
+  },
+  {
+    "id": "knafeh",
+    "title": "Knafeh",
+    "description": "Sweet cheese pastry with crispy shredded phyllo and syrup.",
+    "ingredients": [
+      "1 lb shredded phyllo dough (kataifi)",
+      "1 cup melted butter",
+      "1 lb fresh mozzarella or akkawi cheese",
+      "1 cup sugar",
+      "1/2 cup water",
+      "1 tbsp lemon juice",
+      "1 tbsp orange blossom water",
+      "1/4 cup crushed pistachios"
+    ],
+    "steps": [
+      "Preheat oven to 350°F.",
+      "Mix shredded phyllo with melted butter.",
+      "Press half the phyllo mixture into a buttered baking pan.",
+      "Layer cheese evenly over phyllo.",
+      "Top with remaining phyllo mixture and press down.",
+      "Bake for 30-40 minutes until golden and crispy.",
+      "Meanwhile, boil sugar, water, and lemon juice for 5 minutes.",
+      "Add orange blossom water to syrup.",
+      "Pour syrup over hot knafeh and top with pistachios."
+    ]
   }
 ]

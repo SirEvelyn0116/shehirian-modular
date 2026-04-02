@@ -1,0 +1,56 @@
+[
+  {
+    "id": "kibbeh-labanieh",
+    "title": "Kibbeh Labanieh",
+    "description": "Traditional kibbeh cooked in creamy yogurt sauce - a Lebanese favorite.",
+    "ingredients": [
+      "1 lb ground lamb or beef",
+      "1 cup fine bulgur wheat",
+      "1 onion, finely chopped",
+      "1 tsp salt",
+      "1/2 tsp black pepper",
+      "1/2 tsp allspice",
+      "4 cups plain yogurt",
+      "2 tbsp cornstarch",
+      "3 cloves garlic, minced",
+      "2 tbsp dried mint",
+      "2 tbsp butter"
+    ],
+    "steps": [
+      "Soak bulgur in water for 10 minutes, then drain well.",
+      "Mix ground meat, bulgur, half the onion, salt, pepper, and allspice. Knead well.",
+      "Shape mixture into small oval balls.",
+      "Whisk yogurt with cornstarch until smooth.",
+      "Bring yogurt mixture to a boil, stirring constantly.",
+      "Add kibbeh balls and simmer for 20 minutes.",
+      "In a pan, sauté garlic, remaining onion, and mint in butter.",
+      "Pour garlic mixture over kibbeh and serve with rice."
+    ]
+  },
+  {
+    "id": "fattoush-salad",
+    "title": "Fattoush Salad",
+    "description": "Fresh Middle Eastern salad with crispy pita chips and sumac dressing.",
+    "ingredients": [
+      "2 pita breads, toasted and broken",
+      "3 tomatoes, diced",
+      "2 cucumbers, diced",
+      "1 cup chopped romaine lettuce",
+      "4 radishes, sliced",
+      "1/4 cup chopped mint",
+      "1/4 cup chopped parsley",
+      "2 green onions, chopped",
+      "1/4 cup lemon juice",
+      "1/4 cup olive oil",
+      "2 tbsp sumac",
+      "1 tsp salt"
+    ],
+    "steps": [
+      "Toast pita bread until crispy, then break into bite-sized pieces.",
+      "Combine all vegetables and herbs in a large bowl.",
+      "Whisk together lemon juice, olive oil, sumac, and salt.",
+      "Add pita chips just before serving.",
+      "Toss with dressing and serve immediately."
+    ]
+  }
+]

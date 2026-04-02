@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Recipe",
+  "name": "Shish Tawook",
+  "author": {
+    "@type": "Person",
+    "name": "Shehirian Family"
+  },
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "4-6 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT12M",
+  "totalTime": "PT27M",
+  "recipeIngredient": [
+    "2 lbs chicken breast, cubed",
+    "1 cup plain yogurt",
+    "1/4 cup lemon juice",
+    "4 cloves garlic, minced",
+    "2 tbsp tomato paste",
+    "2 tsp paprika",
+    "1 tsp oregano",
+    "1/2 tsp cayenne pepper",
+    "1 tsp salt",
+    "Wooden skewers, soaked in water"
+  ],
+  "recipeInstructions": [
+    { "@type": "HowToStep", "text": "Mix yogurt, lemon juice, garlic, tomato paste, and spices." },
+    { "@type": "HowToStep", "text": "Add chicken cubes and coat well with marinade." },
+    { "@type": "HowToStep", "text": "Refrigerate for at least 4 hours or overnight." },
+    { "@type": "HowToStep", "text": "Thread chicken onto soaked wooden skewers." },
+    { "@type": "HowToStep", "text": "Grill over medium-high heat for 10-12 minutes, turning occasionally." },
+    { "@type": "HowToStep", "text": "Serve with garlic sauce, pickles, and pita bread." }
+  ],
+  "keywords": "shish tawook, chicken skewers, grilled chicken, yogurt marinade"
+}
