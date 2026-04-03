@@ -1,6 +1,7 @@
 // Hero/Home section renderer with title bar, nav, and certifications preview
 function renderHero(lang = 'en') {
-  return fetch(`sections/hero/hero.${lang}.json`)
+  const prefix = window.__sitePathPrefix || '';
+  return fetch(`${prefix}sections/hero/hero.${lang}.json`)
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {
@@ -19,16 +20,16 @@ function renderHero(lang = 'en') {
       certPreview.className = 'certifications-preview';
       certPreview.innerHTML = `
         <a href="#certifications" class="cert-badge-small" title="BRC Global Standard">
-          <img src="assets/img/cert-brc.svg" alt="BRC Certification">
+          <img src="${prefix}assets/img/cert-brc.svg" alt="BRC Certification">
         </a>
         <a href="#certifications" class="cert-badge-small" title="Safe Quality Food">
-          <img src="assets/img/cert-sqf.svg" alt="SQF Certification">
+          <img src="${prefix}assets/img/cert-sqf.svg" alt="SQF Certification">
         </a>
         <a href="#certifications" class="cert-badge-small" title="FSSC 22000">
-          <img src="assets/img/cert-fssc.svg" alt="FSSC 22000">
+          <img src="${prefix}assets/img/cert-fssc.svg" alt="FSSC 22000">
         </a>
         <a href="#certifications" class="cert-badge-small" title="IFS Food Standard">
-          <img src="assets/img/cert-ifs.svg" alt="IFS Certification">
+          <img src="${prefix}assets/img/cert-ifs.svg" alt="IFS Certification">
         </a>
       `;
       section.appendChild(certPreview);

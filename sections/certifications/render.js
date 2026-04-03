@@ -1,5 +1,7 @@
 function renderCertifications(lang = 'en') {
-  return fetch(`sections/certifications/certifications.${lang}.json`)
+  const prefix = window.__sitePathPrefix || '';
+  const siteBaseUrl = window.__siteBaseUrl || '';
+  return fetch(`${prefix}sections/certifications/certifications.${lang}.json`)
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {
@@ -31,12 +33,12 @@ function renderCertifications(lang = 'en') {
       } else {
         certs.forEach(cert => {
           const badge = document.createElement('a');
-          badge.href = `certifications/${cert.id}.${lang}.html`;
+          badge.href = `${siteBaseUrl}/${lang}/certifications/${cert.id}.html`;
           badge.className = 'cert-badge';
           badge.title = cert.fullName || cert.name;
           
           const img = document.createElement('img');
-          img.src = cert.logo || 'assets/img/cert-placeholder.svg';
+          img.src = cert.logo ? `${prefix}${cert.logo}` : `${prefix}assets/img/cert-placeholder.svg`;
           img.alt = `${cert.name} Certification`;
           
           const span = document.createElement('span');

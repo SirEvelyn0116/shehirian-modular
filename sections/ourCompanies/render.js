@@ -1,5 +1,25 @@
 function renderOurCompanies(lang = 'en') {
-  return fetch(`sections/ourCompanies/ourCompanies.${lang}.json`)
+  const prefix = window.__sitePathPrefix || '';
+  const siteBaseUrl = window.__siteBaseUrl || '';
+
+  function resolveCompanyLink(companyLink) {
+    if (!companyLink || companyLink === '#') return '#';
+    if (/^(?:[a-z]+:|#)/i.test(companyLink)) return companyLink;
+
+    const trimmed = companyLink.replace(/^\.\//, '');
+    const legacyMatch = trimmed.match(/^([a-z-]+)-products\.html$/i);
+    if (legacyMatch) {
+      return `${siteBaseUrl}/${lang}/products/${legacyMatch[1]}.html`;
+    }
+
+    if (/^products\//i.test(trimmed)) {
+      return `${siteBaseUrl}/${lang}/${trimmed}`;
+    }
+
+    return `${prefix}${trimmed}`;
+  }
+
+  return fetch(`${prefix}sections/ourCompanies/ourCompanies.${lang}.json`)
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {
@@ -20,7 +40,7 @@ function renderOurCompanies(lang = 'en') {
       
       companies.forEach(company => {
         const card = document.createElement('a');
-        card.href = company.link || '#';
+        card.href = resolveCompanyLink(company.link || '#');
         card.className = 'company-card';
         
         // Image container
@@ -28,7 +48,7 @@ function renderOurCompanies(lang = 'en') {
         imageContainer.className = 'company-image-container';
         
         const img = document.createElement('img');
-        img.src = company.image || 'img/placeholder.png';
+        img.src = company.image ? `${prefix}${company.image}` : `${prefix}img/placeholder.png`;
         img.alt = company.name || 'Company';
         
         imageContainer.appendChild(img);

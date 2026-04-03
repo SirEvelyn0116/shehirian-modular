@@ -1,0 +1,117 @@
+name: Production Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - styled-v1
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        env:
+          BASE_URL: /${{ github.event.repository.name }}
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/index.html
+          test -f dist/en/index.html
+          test -f dist/fr/index.html
+          test -f dist/ar/index.html
+          test -f dist/hy/index.html
+          test -f dist/en/recipes/index.html
+          test -f dist/fr/recipes/index.html
+          test -f dist/ar/recipes/index.html
+          test -f dist/hy/recipes/index.html
+          test -f dist/en/certifications/brc.html
+          test -f dist/fr/certifications/sqf.html
+          test -f dist/ar/certifications/ifs.html
+          test -f dist/hy/certifications/fssc-22000.html
+          test -f dist/en/products/shirag.html
+          test -f dist/en/products/mr-falafel.html
+          test -f dist/fr/products/shirag.html
+          test -f dist/ar/products/mr-falafel.html
+          test -f dist/hy/products/shirag.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: dist
+          force_orphan: false
+          keep_files: true
+          enable_jekyll: false
+          commit_message: Deploy ${{ github.ref_name }} @ ${{ github.sha }}
+
+  validate-production:
+    runs-on: ubuntu-latest
+    needs: deploy
+
+    steps:
+      - name: Validate deployed multilingual routes
+        run: |
+          urls=(
+            "${SITE_URL}/en/index.html"
+            "${SITE_URL}/fr/index.html"
+            "${SITE_URL}/ar/index.html"
+            "${SITE_URL}/hy/index.html"
+            "${SITE_URL}/en/recipes/index.html"
+            "${SITE_URL}/fr/recipes/index.html"
+            "${SITE_URL}/ar/recipes/index.html"
+            "${SITE_URL}/hy/recipes/index.html"
+            "${SITE_URL}/en/certifications/brc.html"
+            "${SITE_URL}/fr/certifications/sqf.html"
+            "${SITE_URL}/ar/certifications/ifs.html"
+            "${SITE_URL}/hy/certifications/fssc-22000.html"
+            "${SITE_URL}/en/products/shirag.html"
+            "${SITE_URL}/fr/products/shirag.html"
+            "${SITE_URL}/ar/products/mr-falafel.html"
+            "${SITE_URL}/hy/products/mr-falafel.html"
+          )
+
+          for url in "${urls[@]}"; do
+            echo "Checking ${url}"
+            success=false
+
+            for attempt in {1..12}; do
+              status=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+              if [ "$status" = "200" ]; then
+                success=true
+                break
+              fi
+
+              echo "Attempt ${attempt}: received ${status}"
+              sleep 10
+            done
+
+            if [ "$success" != "true" ]; then
+              echo "Route failed validation: ${url}"
+              exit 1
+            fi
+          done

@@ -9,8 +9,6 @@
   
   const baseName = match[1];
   const currentLang = match[2];
-  const pageType = path.includes('/certifications/') ? 'certifications' : 'recipes';
-  
   // Create language switcher
   const langSwitcher = document.createElement('div');
   langSwitcher.id = 'language-switcher';

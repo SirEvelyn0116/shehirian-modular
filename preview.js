@@ -1,5 +1,7 @@
 // Get language from localStorage or default to English
 const lang = localStorage.getItem('lang') || 'en';
+window.__siteBaseUrl = window.__siteBaseUrl || document.documentElement.getAttribute('data-site-base-url') || '';
+window.__sitePathPrefix = /(?:^|\/)(en|fr|ar|hy)\//.test(window.location.pathname) ? '../' : '';
 
 // Set text direction based on language
 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';

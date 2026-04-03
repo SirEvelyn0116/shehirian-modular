@@ -1,5 +1,6 @@
 function renderAboutUs(lang = 'en') {
-  return fetch(`sections/aboutUs/aboutUs.${lang}.json`)
+  const prefix = window.__sitePathPrefix || '';
+  return fetch(`${prefix}sections/aboutUs/aboutUs.${lang}.json`)
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {

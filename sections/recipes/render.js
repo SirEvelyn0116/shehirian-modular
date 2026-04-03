@@ -1,7 +1,8 @@
 function _sectionsJsonPath(lang) {
-  // When pages live under /recipes/ the JSON is one level up
-  const inRecipesFolder = window && window.location && window.location.pathname && window.location.pathname.includes('/recipes/');
-  const prefix = inRecipesFolder ? '../' : '';
+  const currentPath = window && window.location && window.location.pathname ? window.location.pathname : '';
+  const inLanguageHomeFolder = /(?:^|\/)(en|fr|ar|hy)(?:\/index\.html|\/)?$/.test(currentPath);
+  const inLanguageRecipesFolder = /(?:^|\/)(en|fr|ar|hy)\/recipes\//.test(currentPath);
+  const prefix = inLanguageRecipesFolder ? '../../' : (inLanguageHomeFolder ? '../' : '');
   return `${prefix}sections/recipes/recipes.${lang}.json`;
 }
 
@@ -38,7 +39,7 @@ function renderRecipes(lang = 'en') {
         viewAllContainer.className = 'view-all-recipes';
 
         const viewAllLink = document.createElement('a');
-        viewAllLink.href = `recipes/all-recipes.${lang}.html`;
+        viewAllLink.href = data.viewAllLink;
         viewAllLink.textContent = data.viewAllText || 'View All Recipes';
         viewAllLink.className = 'view-all-btn';
 
@@ -87,12 +88,9 @@ const localizedLabels = {
 // Helper to build a recipe card anchor element from a recipe summary
 function buildRecipeCard(recipe, lang = 'en') {
   const card = document.createElement('a');
-  // If the current page lives under /recipes/ (e.g. recipes/all-recipes.en.html),
-  // links to individual recipe pages should be relative to that folder.
-  const inRecipesFolder = window.location.pathname.includes('/recipes/');
-  const linkRoot = inRecipesFolder ? '' : 'recipes/';
+  const siteBaseUrl = window.__siteBaseUrl || '';
   const slug = recipe.slug || recipe.id || recipe.name || 'recipe';
-  card.href = `${linkRoot}${slug}.${lang}.html`;
+  card.href = `${siteBaseUrl}/${lang}/recipes/${slug}.html`;
   card.className = 'recipe-card';
 
   // Top div: Title only (wheat background)

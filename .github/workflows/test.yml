@@ -2,9 +2,9 @@ name: E2E Tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, styled-v1]
   pull_request:
-    branches: [main]
+    branches: [main, styled-v1]
   schedule:
     # Run weekly on Sunday at midnight UTC
     - cron: '0 0 * * 0'
@@ -22,28 +22,46 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
       
       - name: Install dependencies
         run: npm ci
       
       - name: Build site
-        run: node generate-index.js
+        env:
+          BASE_URL: /${{ github.event.repository.name }}
+        run: npm run build
       
       - name: Verify build output
         run: |
           # Check that all language index files were generated
-          test -f dist/index.en.html || exit 1
-          test -f dist/index.fr.html || exit 1
-          test -f dist/index.ar.html || exit 1
-          test -f dist/index.hy.html || exit 1
+          test -f dist/en/index.html || exit 1
+          test -f dist/fr/index.html || exit 1
+          test -f dist/ar/index.html || exit 1
+          test -f dist/hy/index.html || exit 1
           
-          # Check that all-recipes pages exist
-          test -f dist/recipes/all-recipes.en.html || exit 1
-          test -f dist/recipes/all-recipes.fr.html || exit 1
-          test -f dist/recipes/all-recipes.ar.html || exit 1
-          test -f dist/recipes/all-recipes.hy.html || exit 1
+          # Check that language-specific recipe index pages exist
+          test -f dist/en/recipes/index.html || exit 1
+          test -f dist/fr/recipes/index.html || exit 1
+          test -f dist/ar/recipes/index.html || exit 1
+          test -f dist/hy/recipes/index.html || exit 1
+
+          # Check that language-specific certification pages exist
+          test -f dist/en/certifications/brc.html || exit 1
+          test -f dist/fr/certifications/sqf.html || exit 1
+          test -f dist/ar/certifications/ifs.html || exit 1
+          test -f dist/hy/certifications/fssc-22000.html || exit 1
+
+          # Check that language-specific product pages exist
+          test -f dist/en/products/shirag.html || exit 1
+          test -f dist/en/products/mr-falafel.html || exit 1
+          test -f dist/fr/products/shirag.html || exit 1
+          test -f dist/fr/products/mr-falafel.html || exit 1
+          test -f dist/ar/products/shirag.html || exit 1
+          test -f dist/ar/products/mr-falafel.html || exit 1
+          test -f dist/hy/products/shirag.html || exit 1
+          test -f dist/hy/products/mr-falafel.html || exit 1
           
           # Check that recipe JSON files exist
           test -f dist/sections/recipes/recipes.en.json || exit 1
@@ -82,18 +100,37 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
       
       - name: Install dependencies
         run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+
+      - name: Start local test server
+        run: |
+          npx http-server dist -p 8080 > http-server.log 2>&1 &
+          for attempt in {1..20}; do
+            status=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8080/en/index.html || true)
+            if [ "$status" = "200" ]; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat http-server.log
+          exit 1
       
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps ${{ matrix.browser }}
       
       - name: Run Playwright tests
         env:
-          BASE_URL: https://sirevelyn0116.github.io/shehirian-modular
+          BASE_URL: http://127.0.0.1:8080
         run: npx playwright test --project=${{ matrix.browser }}
       
       - name: Upload test results
@@ -124,18 +161,37 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
       
       - name: Install dependencies
         run: npm ci
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+
+      - name: Start local test server
+        run: |
+          npx http-server dist -p 8080 > http-server.log 2>&1 &
+          for attempt in {1..20}; do
+            status=$(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8080/hy/index.html || true)
+            if [ "$status" = "200" ]; then
+              exit 0
+            fi
+            sleep 2
+          done
+          cat http-server.log
+          exit 1
       
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps chromium
       
       - name: Run Armenian-specific tests
         env:
-          BASE_URL: https://sirevelyn0116.github.io/shehirian-modular
+          BASE_URL: http://127.0.0.1:8080
         run: npx playwright test --project=chromium --grep "Armenian|hy"
       
       - name: Upload Armenian test results

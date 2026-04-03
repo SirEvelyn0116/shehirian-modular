@@ -2,6 +2,10 @@ const { test, expect } = require('@playwright/test');
 
 // Configuration
 const BASE_URL = process.env.BASE_URL || 'https://sirevelyn0116.github.io/shehirian-modular';
+const homePageUrl = lang => `${BASE_URL}/${lang}/index.html`;
+const recipeIndexUrl = lang => `${BASE_URL}/${lang}/recipes/index.html`;
+const productPageUrl = (lang, brand) => `${BASE_URL}/${lang}/products/${brand}.html`;
+const certificationPageUrl = (lang, certification) => `${BASE_URL}/${lang}/certifications/${certification}.html`;
 
 // Expected localized content
 const LOCALIZED_CONTENT = {
@@ -10,11 +14,11 @@ const LOCALIZED_CONTENT = {
     title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
-      hero: { selector: 'section.hero, .hero', textIncludes: '' },
-      aboutUs: { selector: 'section#about-us, section.about-us, .about-us', textIncludes: 'Family owned' },
-      ourCompanies: { selector: 'section.our-companies, .our-companies', textIncludes: '' },
-      recipes: { selector: 'section.recipes, .recipes', textIncludes: '' },
-      certifications: { selector: 'section.certifications, .certifications', textIncludes: '' },
+      hero: { selector: '#home, .home', textIncludes: '' },
+      aboutUs: { selector: 'section#about-us', textIncludes: 'Family owned' },
+      ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
+      recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
+      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -23,11 +27,11 @@ const LOCALIZED_CONTENT = {
     title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
-      hero: { selector: 'section.hero, .hero', textIncludes: '' },
-      aboutUs: { selector: 'section#about-us, section.about-us, .about-us', textIncludes: 'familiale depuis 1958' },
-      ourCompanies: { selector: 'section.our-companies, .our-companies', textIncludes: '' },
-      recipes: { selector: 'section.recipes, .recipes', textIncludes: '' },
-      certifications: { selector: 'section.certifications, .certifications', textIncludes: '' },
+      hero: { selector: '#home, .home', textIncludes: '' },
+      aboutUs: { selector: 'section#about-us', textIncludes: 'familiale depuis 1958' },
+      ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
+      recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
+      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -36,11 +40,11 @@ const LOCALIZED_CONTENT = {
     title: 'Shehirian Bulgor Inc',
     dir: 'rtl',
     sections: {
-      hero: { selector: 'section.hero, .hero', textIncludes: '' },
-      aboutUs: { selector: 'section#about-us, section.about-us, .about-us', textIncludes: 'عائلياً منذ 1958' },
-      ourCompanies: { selector: 'section.our-companies, .our-companies', textIncludes: '' },
-      recipes: { selector: 'section.recipes, .recipes', textIncludes: '' },
-      certifications: { selector: 'section.certifications, .certifications', textIncludes: '' },
+      hero: { selector: '#home, .home', textIncludes: '' },
+      aboutUs: { selector: 'section#about-us', textIncludes: 'عائلياً منذ 1958' },
+      ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
+      recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
+      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -49,15 +53,25 @@ const LOCALIZED_CONTENT = {
     title: 'Shehirian Bulgor Inc',
     dir: 'ltr',
     sections: {
-      hero: { selector: 'section.hero, .hero', textIncludes: '' },
-      aboutUs: { selector: 'section#about-us, section.about-us, .about-us', textIncludes: '' },
-      ourCompanies: { selector: 'section.our-companies, .our-companies', textIncludes: '' },
-      recipes: { selector: 'section.recipes, .recipes', textIncludes: '' },
-      certifications: { selector: 'section.certifications, .certifications', textIncludes: '' },
+      hero: { selector: '#home, .home', textIncludes: '' },
+      aboutUs: { selector: 'section#about-us', textIncludes: '' },
+      ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
+      recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
+      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   }
 };
+
+function assertJsonLdPayloads(content) {
+  const payload = JSON.parse(content);
+  const entries = Array.isArray(payload) ? payload : [payload];
+
+  for (const entry of entries) {
+    expect(entry['@context']).toBe('https://schema.org');
+    expect(entry['@type']).toBeDefined();
+  }
+}
 
 const LANGUAGES = ['en', 'fr', 'ar', 'hy'];
 
@@ -70,30 +84,30 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     test.describe(`Language: ${lang.toUpperCase()}`, () => {
       
       test(`should load index.${lang}.html successfully`, async ({ page }) => {
-        const response = await page.goto(`${BASE_URL}/index.${lang}.html`);
+        const response = await page.goto(homePageUrl(lang));
         expect(response.status()).toBe(200);
       });
 
       test(`should have correct HTML lang attribute (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         const htmlLang = await page.locator('html').getAttribute('lang');
         expect(htmlLang).toBe(lang);
       });
 
       test(`should have correct title (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         const title = await page.title();
         expect(title).toBe(LOCALIZED_CONTENT[lang].title);
       });
 
       test(`should have correct dir attribute (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         const bodyDir = await page.locator('body').getAttribute('dir');
         expect(bodyDir).toBe(LOCALIZED_CONTENT[lang].dir);
       });
 
       test(`should have JSON-LD scripts present and parseable (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         
         // Wait for page to fully load
         await page.waitForLoadState('networkidle');
@@ -107,19 +121,17 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         for (const script of jsonLdScripts) {
           const content = await script.textContent();
           expect(() => JSON.parse(content)).not.toThrow();
-          
-          const jsonData = JSON.parse(content);
-          expect(jsonData['@context']).toBe('https://schema.org');
-          expect(jsonData['@type']).toBeDefined();
+
+          assertJsonLdPayloads(content);
         }
       });
 
       test(`should have language switcher links (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         
-        const enLink = page.locator('a[href*="index.en.html"]').first();
-        const frLink = page.locator('a[href*="index.fr.html"]').first();
-        const arLink = page.locator('a[href*="index.ar.html"]').first();
+        const enLink = page.locator('a[href$="/en/index.html"]').first();
+        const frLink = page.locator('a[href$="/fr/index.html"]').first();
+        const arLink = page.locator('a[href$="/ar/index.html"]').first();
         
         await expect(enLink).toBeVisible();
         await expect(frLink).toBeVisible();
@@ -127,7 +139,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       });
 
       test(`should set localStorage.lang correctly (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         
         // Wait for page to load and execute scripts
         await page.waitForLoadState('networkidle');
@@ -137,7 +149,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       });
 
       test(`should have all required sections rendered (${lang})`, async ({ page }) => {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         
         // Wait for preview container to be populated
         await page.waitForSelector('#preview', { state: 'attached' });
@@ -179,7 +191,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
           consoleErrors.push(error.message);
         });
         
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         await page.waitForLoadState('networkidle');
         
         // Filter out known acceptable errors (e.g., favicon 404s)
@@ -197,34 +209,34 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     
     test('should navigate from EN to FR to AR and back', async ({ page }) => {
       // Start on English page
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       await expect(page.locator('html')).toHaveAttribute('lang', 'en');
       
       // Click French link
-      await page.click('a[href*="index.fr.html"]');
-      await page.waitForURL(/index\.fr\.html/);
+      await page.click('a[href$="/fr/index.html"]');
+      await page.waitForURL(/\/fr\/index\.html/);
       await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
       
       // Click Arabic link
-      await page.click('a[href*="index.ar.html"]');
-      await page.waitForURL(/index\.ar\.html/);
+      await page.click('a[href$="/ar/index.html"]');
+      await page.waitForURL(/\/ar\/index\.html/);
       await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
       await expect(page.locator('body')).toHaveAttribute('dir', 'rtl');
       
       // Click English link to return
-      await page.click('a[href*="index.en.html"]');
-      await page.waitForURL(/index\.en\.html/);
+      await page.click('a[href$="/en/index.html"]');
+      await page.waitForURL(/\/en\/index\.html/);
       await expect(page.locator('html')).toHaveAttribute('lang', 'en');
       await expect(page.locator('body')).toHaveAttribute('dir', 'ltr');
     });
 
     test('should switch between all languages from EN page', async ({ page }) => {
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       
       for (const targetLang of LANGUAGES) {
         // Click language switcher
-        await page.click(`a[href*="index.${targetLang}.html"]`);
-        await page.waitForURL(new RegExp(`index\\.${targetLang}\\.html`));
+        await page.click(`a[href$="/${targetLang}/index.html"]`);
+        await page.waitForURL(new RegExp(`/${targetLang}/index\\.html`));
         
         // Verify navigation
         await expect(page.locator('html')).toHaveAttribute('lang', targetLang);
@@ -237,8 +249,8 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         
         // Return to EN for next iteration
         if (targetLang !== 'en') {
-          await page.click('a[href*="index.en.html"]');
-          await page.waitForURL(/index\.en\.html/);
+          await page.click('a[href$="/en/index.html"]');
+          await page.waitForURL(/\/en\/index\.html/);
         }
       }
     });
@@ -250,7 +262,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       const contentByLang = {};
       
       for (const lang of LANGUAGES) {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         await page.waitForLoadState('networkidle');
         await page.waitForTimeout(1000);
         
@@ -267,7 +279,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
 
     test('should have hreflang links for SEO', async ({ page }) => {
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       
       const hreflangLinks = await page.locator('link[rel="alternate"][hreflang]').all();
       
@@ -276,12 +288,12 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       
       // Verify x-default exists
       const xDefaultLink = await page.locator('link[hreflang="x-default"]').getAttribute('href');
-      expect(xDefaultLink).toContain('index.en.html');
+      expect(xDefaultLink).toContain('/en/index.html');
       
       // Verify all language links exist (including Armenian)
       for (const lang of LANGUAGES) {
         const langLink = await page.locator(`link[hreflang="${lang}"]`).getAttribute('href');
-        expect(langLink).toContain(`index.${lang}.html`);
+        expect(langLink).toContain(`/${lang}/index.html`);
       }
     });
   });
@@ -290,7 +302,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     
     test('should load all-recipes page for each language', async ({ page }) => {
       for (const lang of LANGUAGES) {
-        const response = await page.goto(`${BASE_URL}/recipes/all-recipes.${lang}.html`);
+        const response = await page.goto(recipeIndexUrl(lang));
         expect(response.status()).toBe(200);
         
         const htmlLang = await page.locator('html').getAttribute('lang');
@@ -300,17 +312,17 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
 
     test('should have translated category headings on all-recipes pages', async ({ page }) => {
       // English
-      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.goto(recipeIndexUrl('en'));
       await page.waitForLoadState('networkidle');
       const enHeading = await page.locator('.recipes-category-heading').first().textContent();
       
       // French
-      await page.goto(`${BASE_URL}/recipes/all-recipes.fr.html`);
+      await page.goto(recipeIndexUrl('fr'));
       await page.waitForLoadState('networkidle');
       const frHeading = await page.locator('.recipes-category-heading').first().textContent();
       
       // Armenian
-      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.goto(recipeIndexUrl('hy'));
       await page.waitForLoadState('networkidle');
       const hyHeading = await page.locator('.recipes-category-heading').first().textContent();
       
@@ -321,7 +333,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
 
     test('should have recipe cards with all metadata', async ({ page }) => {
-      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.goto(recipeIndexUrl('en'));
       await page.waitForLoadState('networkidle');
       
       const firstCard = page.locator('.recipe-card').first();
@@ -337,38 +349,84 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
 
     test('should have clickable recipe cards linking to individual pages', async ({ page }) => {
-      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.goto(recipeIndexUrl('en'));
       await page.waitForLoadState('networkidle');
       
       const firstCard = page.locator('.recipe-card').first();
       const href = await firstCard.getAttribute('href');
       
       expect(href).toBeTruthy();
-      expect(href).toMatch(/\.en\.html$/);
+      expect(href).toMatch(/\/en\/recipes\/.+\.html$/);
     });
 
     test('should have language switcher on recipe pages', async ({ page }) => {
-      await page.goto(`${BASE_URL}/recipes/all-recipes.en.html`);
+      await page.goto(recipeIndexUrl('en'));
       await page.waitForLoadState('networkidle');
       
       // Should have links to all languages including Armenian
       for (const lang of LANGUAGES) {
-        const langLink = page.locator(`a[href*="all-recipes.${lang}.html"]`);
+        const langLink = page.locator(`a[href$="/${lang}/recipes/index.html"]`);
         await expect(langLink).toBeVisible();
       }
+    });
+  });
+
+  test.describe('Product Pages', () => {
+
+    ['shirag', 'mr-falafel'].forEach(brand => {
+      test(`should load ${brand} product pages for all languages`, async ({ page }) => {
+        for (const lang of LANGUAGES) {
+          const response = await page.goto(productPageUrl(lang, brand));
+          expect(response.status()).toBe(200);
+
+          await expect(page.locator('.product-card').first()).toBeVisible();
+          await expect(page.locator('#language-switcher')).toBeVisible();
+        }
+      });
+    });
+
+    test('should link from home page product cards to language-scoped product pages', async ({ page }) => {
+      await page.goto(homePageUrl('en'));
+      await page.waitForLoadState('networkidle');
+
+      const firstCompanyCard = page.locator('.company-card').first();
+      await expect(firstCompanyCard).toHaveAttribute('href', /\/en\/products\/.+\.html$/);
+    });
+  });
+
+  test.describe('Certification Pages', () => {
+
+    ['brc', 'sqf', 'fssc-22000', 'ifs'].forEach(certification => {
+      test(`should load ${certification} certification pages for all languages`, async ({ page }) => {
+        for (const lang of LANGUAGES) {
+          const response = await page.goto(certificationPageUrl(lang, certification));
+          expect(response.status()).toBe(200);
+
+          await expect(page.locator('.cert-page').first()).toBeVisible();
+          await expect(page.locator('#language-switcher')).toBeVisible();
+        }
+      });
+    });
+
+    test('should link from home page certification cards to language-scoped certification pages', async ({ page }) => {
+      await page.goto(homePageUrl('en'));
+      await page.waitForLoadState('networkidle');
+
+      const firstCertificationCard = page.locator('.cert-badge').first();
+      await expect(firstCertificationCard).toHaveAttribute('href', /\/en\/certifications\/.+\.html$/);
     });
   });
 
   test.describe('Armenian Language Specific Tests', () => {
     
     test('should have Armenian (HY) in language switcher on index page', async ({ page }) => {
-      await page.goto(`${BASE_URL}/index.en.html`);
-      const hyLink = page.locator('a[href*="index.hy.html"]').first();
+      await page.goto(homePageUrl('en'));
+      const hyLink = page.locator('a[href$="/hy/index.html"]').first();
       await expect(hyLink).toBeVisible();
     });
 
     test('should display Armenian content correctly', async ({ page }) => {
-      await page.goto(`${BASE_URL}/index.hy.html`);
+      await page.goto(homePageUrl('hy'));
       await page.waitForLoadState('networkidle');
       
       // Verify Armenian characters are rendered (Unicode range for Armenian is U+0530-U+058F)
@@ -378,7 +436,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
 
     test('should have Armenian recipes with proper translations', async ({ page }) => {
-      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.goto(recipeIndexUrl('hy'));
       await page.waitForLoadState('networkidle');
       
       const recipeCard = page.locator('.recipe-card').first();
@@ -396,7 +454,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
 
     test('should have Armenian category translations', async ({ page }) => {
-      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.goto(recipeIndexUrl('hy'));
       await page.waitForLoadState('networkidle');
       
       const categoryHeading = await page.locator('.recipes-category-heading').first().textContent();
@@ -413,21 +471,21 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
 
     test('should navigate between languages including Armenian', async ({ page }) => {
       // Start from English
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       
       // Navigate to Armenian
-      await page.click('a[href*="index.hy.html"]');
-      await page.waitForURL(/index\.hy\.html/);
+      await page.click('a[href$="/hy/index.html"]');
+      await page.waitForURL(/\/hy\/index\.html/);
       await expect(page.locator('html')).toHaveAttribute('lang', 'hy');
       
       // Navigate back to English
-      await page.click('a[href*="index.en.html"]');
-      await page.waitForURL(/index\.en\.html/);
+      await page.click('a[href$="/en/index.html"]');
+      await page.waitForURL(/\/en\/index\.html/);
       await expect(page.locator('html')).toHaveAttribute('lang', 'en');
     });
 
     test('should have Armenian locale for time formatting', async ({ page }) => {
-      await page.goto(`${BASE_URL}/recipes/all-recipes.hy.html`);
+      await page.goto(recipeIndexUrl('hy'));
       await page.waitForLoadState('networkidle');
       
       const metaInfo = await page.locator('.recipe-meta-info').first().textContent();
@@ -442,7 +500,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     
     test('should not have mixed language content in recipes', async ({ page }) => {
       for (const lang of LANGUAGES) {
-        await page.goto(`${BASE_URL}/recipes/all-recipes.${lang}.html`);
+        await page.goto(recipeIndexUrl(lang));
         await page.waitForLoadState('networkidle');
         
         const firstRecipeCard = page.locator('.recipe-card').first();
@@ -466,7 +524,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       const recipeCounts = {};
       
       for (const lang of LANGUAGES) {
-        await page.goto(`${BASE_URL}/recipes/all-recipes.${lang}.html`);
+        await page.goto(recipeIndexUrl(lang));
         await page.waitForLoadState('networkidle');
         
         const cards = await page.locator('.recipe-card').count();
@@ -487,7 +545,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
 
     test('should have valid JSON-LD in all languages', async ({ page }) => {
       for (const lang of LANGUAGES) {
-        await page.goto(`${BASE_URL}/index.${lang}.html`);
+        await page.goto(homePageUrl(lang));
         await page.waitForLoadState('networkidle');
         
         const jsonLdScripts = await page.locator('script[type="application/ld+json"]').all();
@@ -495,10 +553,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         
         for (const script of jsonLdScripts) {
           const content = await script.textContent();
-          const jsonData = JSON.parse(content);
-          
-          expect(jsonData['@context']).toBe('https://schema.org');
-          expect(jsonData['@type']).toBeDefined();
+          assertJsonLdPayloads(content);
         }
       }
     });
@@ -509,7 +564,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     test('should be mobile-friendly (viewport test)', async ({ page }) => {
       // Set mobile viewport
       await page.setViewportSize({ width: 375, height: 667 });
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       await page.waitForLoadState('networkidle');
       await page.waitForTimeout(500);
       
@@ -524,7 +579,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
 
     test('should have accessible language switcher', async ({ page }) => {
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       await page.waitForLoadState('networkidle');
       
       // Check that language switcher exists in DOM
@@ -532,7 +587,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       await expect(switcher).toBeAttached();
       
       // Check that language links are keyboard accessible
-      const enLink = page.locator('#language-switcher a[href*="index.en.html"]').first();
+      const enLink = page.locator('#language-switcher a[href$="/en/index.html"]').first();
       await expect(enLink).toBeAttached();
       await enLink.focus();
       
@@ -545,7 +600,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     
     test('should load page within acceptable time', async ({ page }) => {
       const startTime = Date.now();
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       await page.waitForLoadState('networkidle');
       const loadTime = Date.now() - startTime;
       
@@ -562,7 +617,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         }
       });
       
-      await page.goto(`${BASE_URL}/index.en.html`);
+      await page.goto(homePageUrl('en'));
       await page.waitForLoadState('networkidle');
       await page.waitForTimeout(1500); // Give time for sections to render and log
       
