@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Classic Tabbouleh",
+  "author": "Shehirian family",
+  "description": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+  "recipeCategory": "Salad",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "6 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT5M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1/2 cup fine bulgur wheat",
+    "2 cups finely chopped parsley",
+    "1/2 cup finely chopped mint",
+    "3 medium tomatoes, diced",
+    "1/4 cup finely chopped onion",
+    "1/4 cup fresh lemon juice",
+    "1/4 cup olive oil",
+    "Salt and pepper to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Rinse bulgur wheat and soak in cold water for 5 minutes, then drain well."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a large bowl, combine parsley, mint, tomatoes, and onion."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the drained bulgur wheat and mix well."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a small bowl, whisk together lemon juice, olive oil, salt, and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Pour dressing over the salad and toss to combine."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Refrigerate for at least 1 hour before serving to allow flavors to meld."
+    }
+  ]
+}

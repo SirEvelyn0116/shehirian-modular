@@ -1,5 +1,11 @@
 {
-  "headline": "مرحبًا بكم في مطبخ عائلة شهيريان",
-  "subheadline": "نحافظ على التراث من خلال الوصفات والقصص والوجبات المشتركة.",
-  "cta": "استكشف تراثنا"
+  "title": "Shehirian Bulgor Inc",
+  "navigation": [
+    { "label": "الرئيسية", "section": "home" },
+    { "label": "معلومات عنا", "section": "about-us" },
+    { "label": "المنتجات", "section": "products-carousel" },
+    { "label": "وصفات", "section": "recipes" },
+    { "label": "الشهادات", "section": "certifications" },
+    { "label": "اتصل بنا", "section": "contact" }
+  ]
 }

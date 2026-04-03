@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pizza au boulghour",
+  "author": "Famille Shehirian",
+  "description": "Une variante de pizza utilisant du boulghour dans la pâte et une sauce riche à la viande et légumes.",
+  "recipeCategory": "Plat principal",
+  "recipeCuisine": "Internationale",
+  "recipeYield": "2 pizzas (30 cm)",
+  "prepTime": "PT1H15M",
+  "cookTime": "PT40M",
+  "totalTime": "PT1H55M",
+  "recipeIngredient": [
+    "Sauce: huile, poivron vert, oignon, champignons, ail, saucisse italienne, viande hachée, purée de tomate, sauce tomate, eau, Parmesan, feuille de laurier, poivre, sel, origan",
+    "Pâte: 1/2 tasse de boulghour, 1-3/4 tasse d'eau, levure sèche active, farine, sel, huile",
+    "Assemblage: tranches de mozzarella, Parmesan râpé"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Préparer la sauce : faire revenir légumes et viandes, ajouter purée et sauce tomate, eau, fromage et assaisonnements ; mijoter 90 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Préparer la pâte : cuire le boulghour dans l'eau jusqu'à absorption, refroidir; dissoudre la levure et mélanger avec la farine, le boulghour, l'huile ; laisser lever, diviser, étaler en cercles de 30 cm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Assembler avec mozzarella et sauce et cuire à 190°C pendant 35–40 minutes."
+    }
+  ]
+}

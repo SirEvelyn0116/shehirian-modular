@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Chocolate Bulgur Bavarian",
+  "author": "Shehirian family",
+  "description": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "International",
+  "recipeYield": "6-8 servings",
+  "prepTime": "PT30M",
+  "cookTime": "PT0M",
+  "totalTime": "PT2H30M",
+  "recipeIngredient": [
+    "1 package gelatin",
+    "2 tablespoons water",
+    "2-1/2 tablespoons cocoa",
+    "3/4 cup sugar",
+    "1-1/2 cups milk",
+    "1-1/2 cups cooked bulgur",
+    "1 teaspoon vanilla",
+    "1/2 cup heavy cream, whipped"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in cooked bulgur and vanilla, chill until thick but not firm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fold in whipped cream, turn into a greased mould and chill until firm."
+    }
+  ]
+}

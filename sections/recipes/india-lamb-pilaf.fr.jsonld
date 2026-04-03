@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf d'agneau à l'indienne",
+  "author": "Famille Shehirian",
+  "description": "Un pilaf d'agneau épicé au curry et aux pommes, avec du boulghour.",
+  "recipeCategory": "Plat principal",
+  "recipeCuisine": "Inspiré indien",
+  "recipeYield": "5-6 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT40M",
+  "totalTime": "PT55M",
+  "recipeIngredient": [
+    "Huile, cubes d'agneau cuits, oignon haché, pomme acidulée, ail, graines de céleri, curry, gingembre, sel, poivre, Tabasco, purée de tomate, consommé ou eau, 1 tasse de boulghour"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Faire revenir l'agneau avec l'oignon, la pomme et l'ail; dorer légèrement."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Incorporez le reste des ingrédients, portez à ébullition puis laissez mijoter environ 40 minutes jusqu'à épaississement."
+    }
+  ]
+}

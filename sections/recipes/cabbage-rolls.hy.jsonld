@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Cabbage Rolls",
+  "author": "Շահիրյան ընտանիք",
+  "description": "Cabbage leaves stuffed with a ձավարի ցորեն and գառի միս filling, simmered until tender.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Մերձավոր Արևելյան",
+  "recipeYield": "Serves many",
+  "prepTime": "PT30M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H30M",
+  "recipeIngredient": [
+    "Cabbage leaves",
+    "1-1/2 բաժակs ground գառի միս",
+    "2 small սոխs, chopped fine",
+    "1-1/2 բաժակs ձավարի ցորեն",
+    "3 ճաշի գդալs լոլիկ paste",
+    "2 ճաշի գդալs chopped մաղադանոս",
+    "1/2 թեյի գդալ dried անանուխ",
+    "աղ and պղպեղ to taste",
+    "3 բաժակs meat թանձրացրած ապուր or ջուր",
+    "Juice of 1/2 կիտրոն"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Soften cabbage leaves in bձեթing ջուր and trim ribs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mix ձավարի ցորեն with գառի միս, սոխs, լոլիկ paste, մաղադանոս, անանուխ, աղ and պղպեղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Place filling on cabbage leaves, roll and arrange in pan; add թանձրացրած ապուր and կիտրոն juice."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and cook or bake at moderate heat for 1 hour."
+    }
+  ]
+}

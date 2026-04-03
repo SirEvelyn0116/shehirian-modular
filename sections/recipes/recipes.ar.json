@@ -1,73 +1,524 @@
-[
-  {
-    "id": "armenian-lentil-soup",
-    "title": "حساء العدس على الطريقة الأرمنية",
-    "description": "حساء غني بالعدس والنعناع والبقدونس — وصفة عائلية من شهيريان.",
-    "ingredients": [
-      "نصف كوب ماء",
-      "نصف كوب عدس",
-      "نصف كوب بصل مفروم",
-      "نصف كوب بقدونس مفروم",
-      "نصف ملعقة صغيرة ملح",
-      "نصف ملعقة صغيرة فلفل",
-      "نصف كوب زبدة أو مارغرين",
-      "نصف كوب نعناع مفروم"
-    ],
-    "steps": [
-      "غلي العدس في الماء لمدة 15 دقيقة.",
-      "إضافة البصل والبقدونس والملح والفلفل. يُطهى على نار هادئة لمدة 45 دقيقة.",
-      "إضافة النعناع والزبدة. يُطهى لمدة 15 دقيقة.",
-      "إضافة ربع ملعقة صغيرة فلفل ويُطهى لمدة 5 دقائق.",
-      "اختياري: قلي الزبدة حتى تصبح ذهبية وسكبها فوق الحساء."
-    ]
-  },
-  {
-    "id": "royal-soup",
-    "title": "الحساء الملكي",
-    "description": "حساء باللحم والليمون والأرز والبقدونس مستوحى من نكهات الشرق الأوسط.",
-    "ingredients": [
-      "نصف جالون مرق دجاج",
-      "نصف رطل لحم مفروم (غير خالي من الدهون)",
-      "ربع كوب أرز نيء",
-      "ربع كوب بصل مفروم ناعم جداً",
-      "ربع كوب بقدونس",
-      "ربع كوب عصير ليمون",
-      "ربع كوب كرفس مفروم ناعم",
-      "ربع ملعقة صغيرة ملح",
-      "شريحتان من الليمون"
-    ],
-    "steps": [
-      "اخلط اللحم النيء مع البرغل والبصل والبقدونس والتوابل، وشكل كرات بحجم 2.5 سم.",
-      "أضف الأرز إلى خليط كرات اللحم.",
-      "أضف الكرات إلى مرق الدجاج الساخن واتركها تنضج حتى تنضج تماماً.",
-      "أضف عصير الليمون والكرفس. يُطهى لمدة 10 دقائق.",
-      "أضف الملح وشرائح الليمون. يُطهى لمدة 5 دقائق.",
-      "اضبط الحموضة والملوحة أو السماكة باستخدام السكر أو الماء أو الأرز حسب الحاجة.",
-      "اسكب المرق فوق كرات اللحم وقدمه."
-    ]
-  },
-  {
-    "id": "scotch-broth",
-    "title": "مرق سكوتش التقليدي",
-    "description": "حساء اسكتلندي تقليدي مصنوع من لحم الضأن والخضروات الجذرية والقمح — دافئ ومغذٍ.",
-    "ingredients": [
-      "2 لتر مرق لحم الضأن أو البقر",
-      "1 رطل من رقبة أو ساق الضأن",
-      "نصف كوب قمح لؤلؤي",
-      "نصف كوب جزر مفروم",
-      "نصف كوب كراث مفروم",
-      "نصف كوب لفت مفروم",
-      "نصف كوب كرفس مفروم",
-      "نصف كوب بصل مفروم",
-      "ربع كوب بقدونس مفروم",
-      "ملح وفلفل حسب الذوق"
-    ],
-    "steps": [
-      "يُسلق لحم الضأن في المرق لمدة ساعة مع إزالة الرغوة.",
-      "يُضاف القمح ويُطهى لمدة 30 دقيقة.",
-      "تُضاف الخضروات المفرومة وتُطهى حتى تنضج، حوالي 30 دقيقة.",
-      "يُزال اللحم، يُفتت، ويُعاد إلى القدر.",
-      "يُتبل بالملح والفلفل. يُزين بالبقدونس ويُقدم ساخناً."
-    ]
-  }
-]
+{
+  "title": "Recipes",
+  "viewAllLink": "/shehirian-modular/ar/recipes/index.html",
+  "viewAllText": "عرض جميع الوصفات →",
+  "featured": [
+    {
+      "slug": "royal-soup",
+      "title": "حساء ملكي",
+      "description": "حساء شرق أوسطي بكرات اللحم والليمون مع الأرز والبقدونس.",
+      "ingredients": [
+        "نصف جالون مرق دجاج",
+        "نصف رطل لحم بقري مفروم (غير قليل الدهن)",
+        "ربع كوب أرز نيء",
+        "ربع كوب بصل مفروم ناعم جدًا",
+        "ربع كوب بقدونس",
+        "ربع كوب عصير ليمون",
+        "ربع كوب كرفس مفروم ناعم",
+        "ربع ملعقة صغيرة ملح",
+        "شرائح من 2 ليمون"
+      ],
+      "instructions": [
+        "اخلط اللحم النيء والبرغل والبصل والبقدونس والتوابل معًا وشكّل كرات بقطر 2.5 سم.",
+        "أضف الأرز إلى خليط كرات اللحم.",
+        "أضف كرات اللحم إلى مرق الدجاج الساخن واتركها تغلي حتى تنضج.",
+        "أضف عصير الليمون والكرفس واتركه يغلي لمدة 10 دقائق.",
+        "أضف الملح وشرائح الليمون واتركه يغلي لمدة 5 دقائق.",
+        "اضبط الحموضة أو الملوحة أو السماكة باستخدام السكر أو الماء أو الأرز حسب الحاجة.",
+        "اسكب المرق فوق كرات اللحم وقدّم."
+      ],
+      "category": "شوربة",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "totalTime": "PT45M",
+      "yield": "ست حصص"
+    }
+  ],
+  "allRecipes": [
+    {
+      "slug": "royal-soup",
+      "title": "حساء ملكي",
+      "description": "حساء شرق أوسطي بكرات اللحم والليمون مع الأرز والبقدونس.",
+      "category": "شوربة",
+      "categoryId": "soup",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "yield": "ست حصص"
+    },
+    {
+      "slug": "armenian-style-lentil-soup",
+      "title": "حساء العدس على الطريقة الأرمنية",
+      "description": "حساء أرمني غني بالعدس والبقدونس والنعناع والزبدة.",
+      "category": "شوربة",
+      "categoryId": "soup",
+      "cuisine": "أرمنية",
+      "prepTime": "PT15M",
+      "cookTime": "PT60M",
+      "yield": "أربع حصص"
+    },
+    {
+      "slug": "bulgur-wheat-salad",
+      "title": "Bulgur Wheat Salad",
+      "description": "Fresh herbs, lemon dressing, and hearty bulgur.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "متوسطي",
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "yield": "4 حصص"
+    },
+    {
+      "slug": "classic-tabbouleh",
+      "title": "Classic Tabbouleh",
+      "description": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT20M",
+      "cookTime": "PT5M",
+      "yield": "6 حصص"
+    },
+    {
+      "slug": "hearty-bulgur-pilaf",
+      "title": "Hearty Bulgur Pilaf",
+      "description": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "yield": "4 حصص"
+    },
+    {
+      "slug": "spiced-lentil-soup",
+      "title": "Spiced Lentil Soup",
+      "description": "Comforting, protein-rich, and perfect for fall.",
+      "category": "شوربة",
+      "categoryId": "soup",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "4 حصص"
+    },
+    {
+      "slug": "tabbouleh-salad",
+      "title": "سلطة التبولة",
+      "description": "سلطة شرق أوسطية منعشة مع البرغل والخضروات الطازجة والأعشاب.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT1H15M",
+      "cookTime": "PT5M",
+      "yield": "6 حصص"
+    },
+    {
+      "slug": "bulgur-carrot-pineapple-salad",
+      "title": "سلطة البرغل بالجزر والأناناس",
+      "description": "سلطة حلوة ومالحة تجمع بين البرغل والجزر المبشور والأناناس الاستوائي.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "أمريكية",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "8-10 حصص"
+    },
+    {
+      "slug": "cole-slaw-bulgur",
+      "title": "سلطة ملفوف بالبرغل",
+      "description": "نسخة شهية من سلطة الكول سلو الكلاسيكية مع إضافة البرغل المغذي.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "أمريكية",
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "yield": "8-10 حصص"
+    },
+    {
+      "slug": "bulgur-carrot-raisin-salad",
+      "title": "سلطة البرغل بالجزر والزبيب",
+      "description": "نسخة مع الزبيب وصلصة فرنسية لنكهة حلوة وحامضة لذيذة.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "أمريكية",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "8-10 حصص"
+    },
+    {
+      "slug": "chefs-bulgur-salad",
+      "title": "سلطة الشيف بالبرغل",
+      "description": "سلطة رئيسية شهية تتضمن البرغل والخضروات الطازجة واختيارك من اللحوم الباردة والجبن.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "أمريكية",
+      "prepTime": "PT20M",
+      "cookTime": "PT15M",
+      "yield": "8 حصص"
+    },
+    {
+      "slug": "bulgur-dutch-cucumber-salad",
+      "title": "سلطة الخيار الهولندية بالبرغل",
+      "description": "سلطة كريمية ومنعشة مع البرغل والخيار والفجل وصلصة حامضة بالقشطة الحامضة.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "هولندية",
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "yield": "6-8 حصص"
+    },
+    {
+      "slug": "bulgur-garden-salad",
+      "title": "سلطة الحديقة بالبرغل",
+      "description": "سلطة حديقة متعددة الاستخدامات مع البرغل والخضروات الطازجة والبيض المسلوق — مثالية كطبق جانبي أو رئيسي.",
+      "category": "سلطة",
+      "categoryId": "salad",
+      "cuisine": "أمريكية",
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "yield": "8 حصص"
+    },
+    {
+      "slug": "scotch-broth",
+      "title": "مرق اسكتلندي بالبرغل",
+      "description": "حساء اسكتلندي تقليدي معدّل بالبرغل الشهي ولحم الخروف.",
+      "category": "شوربة",
+      "categoryId": "soup",
+      "cuisine": "اسكتلندية",
+      "prepTime": "PT15M",
+      "cookTime": "PT105M",
+      "yield": "6-8 حصص"
+    },
+    {
+      "slug": "bulgur-cherry-custard",
+      "title": "بودينغ البرغل بالكرز",
+      "description": "حلوى بطبقات من البرغل وطبقة كرز وكاسترد مخبوز",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "عالمي",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "yield": "6-8 حصص"
+    },
+    {
+      "slug": "bulgur-indian-pudding",
+      "title": "بودينغ برغل على الطريقة الهندية",
+      "description": "بودينغ برغل بالدبس والبهارات",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "عالمي",
+      "prepTime": "PT15M",
+      "cookTime": "PT1H30M",
+      "yield": "6 حصص"
+    },
+    {
+      "slug": "bulgur-raisin-pudding",
+      "title": "بودينغ البرغل والزبيب التقليدي",
+      "description": "بودينغ برغل مع الزبيب",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "عالمي",
+      "prepTime": "PT10M",
+      "cookTime": "PT1H30M",
+      "yield": "5-6 حصص"
+    },
+    {
+      "slug": "chocolate-bulgur-bavarian",
+      "title": "بافاريا الشوكولاتة بالبرغل",
+      "description": "حلوى شوكولاتة وبرغل مبردة مع الجيلاتين والكريم",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "عالمي",
+      "prepTime": "PT30M",
+      "cookTime": "PT0M",
+      "yield": "6-8 حصص"
+    },
+    {
+      "slug": "steamed-bulgur-fruit-pudding",
+      "title": "بودينغ البرغل المطهو على البخار مع الفواكه",
+      "description": "بودينغ فاكهة بالبرغل مطهو على البخار على شكل رغيف",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "عالمي",
+      "prepTime": "PT30M",
+      "cookTime": "PT2H",
+      "yield": "حوالي 12 حصة"
+    },
+    {
+      "slug": "raw-meat-platter",
+      "title": "طبق اللحم النيء",
+      "description": "خليط لحم ضأن نيء متبّل مع برغل يُقدّم على شكل قطع.",
+      "category": "مقبلات",
+      "categoryId": "starter",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT20M",
+      "cookTime": "PT0M",
+      "yield": "5-6 حصص"
+    },
+    {
+      "slug": "bulgur-stuffed-peppers",
+      "title": "فلفل محشو بالبرغل",
+      "description": "فلفل محشو بخليط البرغل واللحم ومخبوز بصلصة الطماطم.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "عالمي",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H10M",
+      "yield": "5-6 حصص"
+    },
+    {
+      "slug": "bulgur-meat-loaf",
+      "title": "رغيف لحم بالبرغل",
+      "description": "رغيف لحم مخلوط بالبرغل ومخبوز حتى يتحمر.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "عالمي",
+      "prepTime": "PT15M",
+      "cookTime": "PT1H",
+      "yield": "10-12 حصص"
+    },
+    {
+      "slug": "bulgur-salmon-loaf",
+      "title": "رغيف السلمون بالبرغل",
+      "description": "رغيف سلمون ممزوج بالبرغل ومخبوز حتى يستوي.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "عالمي",
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "yield": "6-8 حصص"
+    },
+    {
+      "slug": "cabbage-rolls",
+      "title": "محشي الكرنب",
+      "description": "أوراق الكرنب المحشوة بخليط البرغل واللحم المطهو حتى النعومة.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "شرق أوسطية",
+      "prepTime": "PT30M",
+      "cookTime": "PT1H",
+      "yield": "تكفي عدة حصص"
+    },
+    {
+      "slug": "fish-and-bulgur-pilaf",
+      "title": "بيلاف السمك والبرغل",
+      "description": "بيلاف برغل بنكهة الخضار والسلمون.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "عالمي",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "6-8 حصص"
+    },
+    {
+      "slug": "bulgur-wheat-pizza",
+      "title": "بيتزا بالبرغل",
+      "description": "نسخة من البيتزا تستخدم البرغل في العجين وصلصة غنية باللحم والخضار.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "عالمي",
+      "prepTime": "PT1H15M",
+      "cookTime": "PT40M",
+      "yield": "2 بيتزا (30 سم)"
+    },
+    {
+      "slug": "persian-pilaf",
+      "title": "بيلاف فارسي",
+      "description": "بيلاف على الطراز الفارسي باللحم والبرغل.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "فارسية",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "yield": "8-10 حصص"
+    },
+    {
+      "slug": "india-lamb-pilaf",
+      "title": "بيلاف لحم على الطريقة الهندية",
+      "description": "بيلاف لحم متبّل بالكاري والتفاح مع البرغل.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "من الطراز الهندي",
+      "prepTime": "PT15M",
+      "cookTime": "PT40M",
+      "yield": "5-6 حصص"
+    },
+    {
+      "slug": "india-chicken-curry-pilaf",
+      "title": "بيلاف دجاج بالكاري",
+      "description": "بيلاف دجاج كريمي بالكاري مع البرغل والتفاح.",
+      "category": "طبق رئيسي",
+      "categoryId": "main",
+      "cuisine": "من الطراز الهندي",
+      "prepTime": "PT15M",
+      "cookTime": "PT25M",
+      "yield": "5-6 حصص"
+    },
+    {
+      "slug": "bulgur-cheese-casserole",
+      "title": "طاجن البرغل بالجبن",
+      "description": "طاجن بسيط مخبوز يخلط البرغل المطبوخ مع الجبن والطماطم.",
+      "category": "طاجن",
+      "categoryId": "main",
+      "cuisine": "عالمي",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "4-6 حصص"
+    },
+    {
+      "slug": "scalloped-bulgor-with-wieners",
+      "title": "برغل بالواينرز",
+      "description": "طبق برغل كريمي مخبوز يعلوه سجق (واينرز).",
+      "category": "طاجن",
+      "categoryId": "main",
+      "cuisine": "طعام مريح",
+      "prepTime": "PT10M",
+      "cookTime": "PT50M",
+      "yield": "5-6 حصص"
+    },
+    {
+      "slug": "scotch-haggis-with-bulgor",
+      "title": "هاجيس اسكتلندي مع البرغل",
+      "description": "بودنغ هاجيس تقليدي ممزوج بالبرغل.",
+      "category": "بودنغ",
+      "categoryId": "main",
+      "cuisine": "أسكتلندية",
+      "prepTime": "PT30M",
+      "cookTime": "PT3H",
+      "yield": "كبير (يكفي عدة أشخاص)"
+    },
+    {
+      "slug": "armenian-pilaf",
+      "title": "بيلاف أرمني",
+      "description": "بيلاف خفيف مع شعيرية وبرغل مطبوخ في مرق الدجاج.",
+      "category": "طبق جانبي",
+      "categoryId": "side",
+      "cuisine": "أرمينية",
+      "prepTime": "PT5M",
+      "cookTime": "PT20M",
+      "yield": "4-6 حصص"
+    },
+    {
+      "slug": "chinese-fried-bulgor",
+      "title": "البرغل المقلي على الطريقة الصينية",
+      "description": "برغل مقلي سريع مع صلصة الصويا والخضار، يُقدّم كطبق جانبي أو رئيسي.",
+      "category": "طبق رئيسي/جانبي",
+      "categoryId": "main",
+      "cuisine": "من الطراز الصيني",
+      "prepTime": "PT5M",
+      "cookTime": "PT15M",
+      "yield": "4-5 حصص"
+    },
+    {
+      "slug": "boston-baked-bulgor",
+      "title": "بروغل مخبوز على طريقة بوسطن",
+      "description": "طبق برغل مخبوز حلو-مالح يُغطّى بالبيكون أو اللحم المملح.",
+      "category": "طاجن",
+      "categoryId": "main",
+      "cuisine": "أمريكي",
+      "prepTime": "PT10M",
+      "cookTime": "PT1H25M",
+      "yield": "4-5 حصص"
+    },
+    {
+      "slug": "pilaf-almondine",
+      "title": "Pilaf Almondine",
+      "description": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
+      "category": "طبق جانبي",
+      "categoryId": "side",
+      "cuisine": "متنوع",
+      "prepTime": "PT5M",
+      "cookTime": "PT25M",
+      "yield": "4 إلى 5 حصص"
+    },
+    {
+      "slug": "pilaf-romanoff",
+      "title": "Pilaf Romanoff",
+      "description": "A creamy bulgur pilaf with cottage cheese and sour cream.",
+      "category": "طبق جانبي",
+      "categoryId": "side",
+      "cuisine": "متنوع",
+      "prepTime": "PT5M",
+      "cookTime": "PT10M",
+      "yield": "4 إلى 6 حصص"
+    },
+    {
+      "slug": "spanish-bulgor",
+      "title": "Spanish Bulgor",
+      "description": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
+      "category": "طبق جانبي",
+      "categoryId": "side",
+      "cuisine": "بطابع إسباني",
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "yield": "5 إلى 6 حصص"
+    },
+    {
+      "slug": "bulgor-wheat-shortcake",
+      "title": "Bulgor Wheat Shortcake",
+      "description": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.",
+      "category": "طبق جانبي",
+      "categoryId": "side",
+      "cuisine": "مخبوز",
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "yield": "6 إلى 8 حصص"
+    },
+    {
+      "slug": "bulgor-wheat-biscuits",
+      "title": "Bulgor Wheat Biscuits",
+      "description": "Tender biscuits made with cooked bulgur mixed into the dough.",
+      "category": "طبق جانبي",
+      "categoryId": "side",
+      "cuisine": "مخبوز",
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "yield": "10 إلى 12 بسكويت (2 بوصة)"
+    },
+    {
+      "slug": "white-bread-with-bulgor",
+      "title": "خبز أبيض بالبرغل",
+      "description": "رغيف أبيض طري محضّر بإدخال البرغل المطبوخ في العجين.",
+      "category": "أخرى",
+      "categoryId": "other",
+      "cuisine": "مخبوز",
+      "prepTime": "PT30M",
+      "cookTime": "PT35M",
+      "yield": "رغيفان (1 رطل)"
+    },
+    {
+      "slug": "baked-banana-bulgor-custard",
+      "title": "بودينغ الموز والبرغل",
+      "description": "حلوى كاسترد مخبوزة بالبرغل والموز المهروس.",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "مخبوز",
+      "prepTime": "PT10M",
+      "cookTime": "PT45M",
+      "yield": "6 حصص"
+    },
+    {
+      "slug": "banana-bulgor-cake",
+      "title": "كعكة البرغل بالموز",
+      "description": "كعكة على شكل رغيف تحتوي على برغل مطبوخ لإضافة القوام والنكهة.",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "مخبوز",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H15M",
+      "yield": "10 إلى 12 حصص"
+    },
+    {
+      "slug": "bulgor-apricot-delight",
+      "title": "متعة البرغل بالمشمش مع صلصة ايجنوج",
+      "description": "حلوى برغل بنكهة المشمش تُقدّم باردة مع صلصة البيض الغنية.",
+      "category": "حلوى",
+      "categoryId": "dessert",
+      "cuisine": "متنوع",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "6 حصص"
+    }
+  ]
+}

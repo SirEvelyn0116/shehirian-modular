@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Dutch վարունգ Salad",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A creamy and refreshing salad with ձավարի ցորեն, վարունգs, radishes, and a tangy sour cream dressing.",
+  "recipeCategory": "Աղցան",
+  "recipeCuisine": "Հոլանդական",
+  "recipeYield": "6-8 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT15M",
+  "totalTime": "PT30M",
+  "recipeIngredient": [
+    "1 բաժակ եփած ձավար, cooled",
+    "2 բաժակ կտրատված վարունգ",
+    "1/2 բաժակ կտրատված radishes",
+    "1/2 բաժակ sour սերուցք",
+    "2 ճաշի գդալ mayonnaise",
+    "1 ճաշի գդալ սպիտակ քացախ",
+    "Աղ and պղպեղ to taste",
+    "Թարմ dill or chives for garnish"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Prepare ձավար and cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ձավար, վարունգ կտրատելs and radishes in a bowl."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk together sour սերուցք, mayonnaise, քացախ, աղ and պղպեղ; fold into աղցան."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Garnish with dill or chives and chill before պորցիա."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pain de viande au boulghour",
+  "author": "Famille Shehirian",
+  "description": "Un pain de viande enrichi au boulghour et cuit au four jusqu'à dorure.",
+  "recipeCategory": "Plat principal",
+  "recipeCuisine": "Internationale",
+  "recipeYield": "10-12 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H15M",
+  "recipeIngredient": [
+    "2 1/2 tasses de boulghour cuit",
+    "1 œuf",
+    "1 1/4 tasse de lait",
+    "2 c. à thé de sel",
+    "1/4 c. à thé de poivre",
+    "1/4 à 1/2 tasse d'oignon haché",
+    "1/4 tasse de ketchup",
+    "2 livres de bœuf haché"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger tous les ingrédients."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mettre dans un moule à pain et cuire à 160°C pendant environ 1 heure ou jusqu'à ce qu'il soit doré."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Optionnel: étaler une fine couche de ketchup sur le dessus avant la cuisson."
+    }
+  ]
+}

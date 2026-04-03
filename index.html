@@ -2,19 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting…</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #f4efe4 0%, #e7dcc7 100%);
+      color: #2f2418;
+    }
+
+    main {
+      width: min(90vw, 32rem);
+      padding: 2rem;
+      border-radius: 1.25rem;
+      background: rgba(255, 252, 245, 0.92);
+      box-shadow: 0 20px 60px rgba(47, 36, 24, 0.12);
+      text-align: center;
+    }
+
+    .language-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .language-links a {
+      display: block;
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fffaf2;
+      background: #7a4b2b;
+    }
+  </style>
   <script>
-    const supported = ['en', 'fr', 'ar'];
+    const supported = ['en', 'fr', 'ar', 'hy'];
     const fallback = 'en';
 
     const userLang = (navigator.language || navigator.userLanguage || '').slice(0, 2).toLowerCase();
     const lang = supported.includes(userLang) ? userLang : fallback;
 
     localStorage.setItem('lang', lang);
-    window.location.href = `index.${lang}.html`;
+    window.location.href = `./${lang}/index.html`;
   </script>
 </head>
 <body>
-  <p>Redirecting to your preferred language…</p>
+  <main>
+    <h1>Select Language</h1>
+    <p>Redirecting to your preferred language…</p>
+    <div class="language-links">
+      <a href="./en/index.html">English</a>
+      <a href="./fr/index.html">Français</a>
+      <a href="./ar/index.html">العربية</a>
+      <a href="./hy/index.html">Հայերեն</a>
+    </div>
+  </main>
 </body>
 </html>

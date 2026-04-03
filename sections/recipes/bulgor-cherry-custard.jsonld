@@ -1,0 +1,41 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgor Cherry Custard",
+  "description": "A baked custard dessert featuring a Bulgor wheat base, a layer of sour cherries, and a milk custard topping.",
+  "recipeYield": "6 to 8 servings",
+  "cookTime": "PT1H",
+  "recipeIngredient": [
+    "2 cups hot cooked Bulgor",
+    "2 tablespoons butter or margarine",
+    "1/4 cup brown sugar",
+    "1/2 teaspoon cinnamon",
+    "1-1/2 tablespoons cornstarch",
+    "1/4 cup sugar (for cherry layer)",
+    "Juice drained from 1 can (1 lb.) red sour pitted cherries",
+    "1 tablespoon lemon juice",
+    "1 can (1 lb.) red sour pitted cherries, drained",
+    "2 eggs, slightly beaten",
+    "1 cup milk",
+    "3 tablespoons sugar (for custard)",
+    "1/2 teaspoon vanilla"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "name": "Prepare Bulgor Base",
+      "text": "Blend hot cooked Bulgor, butter, brown sugar, and cinnamon in a baking or pie dish."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Make Cherry Layer",
+      "text": "Blend cornstarch and 1/4 cup sugar in a saucepan. Stir in the drained cherry juice. Cook, stirring constantly, until thickened. Remove from heat and stir in lemon juice. Layer the drained cherries over the Bulgor base."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Mix and Bake Custard",
+      "text": "Blend the eggs, milk, 3 tablespoons sugar, and vanilla. Pour this egg mixture over the cherry layer. Bake in a moderate oven at 350°F for 1 hour, or until the custard is set."
+    }
+  ],
+  "suitableForDiet": "http://schema.org/OvoVegetarian"
+}

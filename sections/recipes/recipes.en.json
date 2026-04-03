@@ -1,73 +1,524 @@
-[
-  {
-    "id": "armenian-lentil-soup",
-    "title": "Armenian Style Lentil Soup",
-    "description": "A hearty soup with lentils, mint, and parsley — a Shehirian family classic.",
-    "ingredients": [
-      "1/2 cup water",
-      "1/2 cup lentils",
-      "1/2 cup chopped onion",
-      "1/2 cup chopped parsley",
-      "1/2 tsp. salt",
-      "1/2 tsp. pepper",
-      "1/2 cup butter or margarine",
-      "1/2 cup chopped mint"
-    ],
-    "steps": [
-      "Boil lentils in water for 15 minutes.",
-      "Add onion, parsley, salt, and pepper. Simmer for 45 minutes.",
-      "Add mint and butter. Simmer for 15 minutes.",
-      "Add 1/4 tsp. pepper and cook for 5 minutes.",
-      "Optional: Fry butter until light brown and pour over soup."
-    ]
-  },
-  {
-    "id": "royal-soup",
-    "title": "Royal Soup",
-    "description": "A lemony meatball soup with rice and parsley, inspired by Middle Eastern flavors.",
-    "ingredients": [
-      "1/2 gallon chicken broth",
-      "1/2 lb. ground beef (not too lean)",
-      "1/4 cup raw rice",
-      "1/4 cup very finely chopped onion",
-      "1/4 cup parsley",
-      "1/4 cup lemon juice",
-      "1/4 cup finely chopped celery",
-      "1/4 tsp. salt",
-      "Slice of 2 lemons"
-    ],
-    "steps": [
-      "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
-      "Add rice to the meat balls mixture.",
-      "Add meat balls to hot chicken broth and simmer until cooked through.",
-      "Add lemon juice and celery. Simmer for 10 minutes.",
-      "Add salt and lemon slices. Simmer for 5 minutes.",
-      "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
-      "Pour broth over meatballs and serve."
-    ]
-  },
-  {
-    "id": "scotch-broth",
-    "title": "Scotch Broth",
-    "description": "A traditional Scottish soup made with lamb, root vegetables, and barley — warm and filling.",
-    "ingredients": [
-      "2 quarts lamb or beef stock",
-      "1 lb lamb neck or shank",
-      "1/2 cup pearl barley",
-      "1/2 cup chopped carrots",
-      "1/2 cup chopped leeks",
-      "1/2 cup chopped turnips",
-      "1/2 cup chopped celery",
-      "1/2 cup chopped onion",
-      "1/4 cup chopped parsley",
-      "Salt and pepper to taste"
-    ],
-    "steps": [
-      "Simmer lamb in stock for 1 hour, skimming off any foam.",
-      "Add barley and cook for 30 minutes.",
-      "Add chopped vegetables and simmer until tender, about 30 minutes.",
-      "Remove lamb, shred meat, and return to pot.",
-      "Season with salt and pepper. Garnish with parsley and serve hot."
-    ]
-  }
-]
+{
+  "title": "Recipes",
+  "viewAllLink": "/shehirian-modular/en/recipes/index.html",
+  "viewAllText": "View all recipes →",
+  "featured": [
+    {
+      "slug": "royal-soup",
+      "title": "Royal Soup",
+      "description": "A Middle Eastern lemon meatball soup with rice and parsley.",
+      "ingredients": [
+        "1/2 gallon chicken broth",
+        "1/2 lb. ground beef (not too lean)",
+        "1/4 cup raw rice",
+        "1/4 cup very finely chopped onion",
+        "1/4 cup parsley",
+        "1/4 cup lemon juice",
+        "1/4 cup finely chopped celery",
+        "1/4 tsp. salt",
+        "Slice of 2 lemons"
+      ],
+      "instructions": [
+        "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
+        "Add rice to the meat balls mixture.",
+        "Add meat balls to hot chicken broth and simmer until cooked through.",
+        "Add lemon juice and celery. Simmer for 10 minutes.",
+        "Add salt and lemon slices. Simmer for 5 minutes.",
+        "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
+        "Pour broth over meatballs and serve."
+      ],
+      "category": "Soup",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "totalTime": "PT45M",
+      "yield": "6 servings"
+    }
+  ],
+  "allRecipes": [
+    {
+      "slug": "royal-soup",
+      "title": "Royal Soup",
+      "description": "A Middle Eastern lemon meatball soup with rice and parsley.",
+      "category": "Soup",
+      "categoryId": "soup",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "yield": "6 servings"
+    },
+    {
+      "slug": "armenian-style-lentil-soup",
+      "title": "Armenian Style Lentil Soup",
+      "description": "A hearty Armenian soup with lentils, parsley, mint, and butter.",
+      "category": "Soup",
+      "categoryId": "soup",
+      "cuisine": "Armenian",
+      "prepTime": "PT15M",
+      "cookTime": "PT60M",
+      "yield": "4 servings"
+    },
+    {
+      "slug": "bulgur-wheat-salad",
+      "title": "Bulgur Wheat Salad",
+      "description": "Fresh herbs, lemon dressing, and hearty bulgur.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "Mediterranean",
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "yield": "4 servings"
+    },
+    {
+      "slug": "classic-tabbouleh",
+      "title": "Classic Tabbouleh",
+      "description": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT20M",
+      "cookTime": "PT5M",
+      "yield": "6 servings"
+    },
+    {
+      "slug": "hearty-bulgur-pilaf",
+      "title": "Hearty Bulgur Pilaf",
+      "description": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "yield": "4 servings"
+    },
+    {
+      "slug": "spiced-lentil-soup",
+      "title": "Spiced Lentil Soup",
+      "description": "Comforting, protein-rich, and perfect for fall.",
+      "category": "Soup",
+      "categoryId": "soup",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "4 servings"
+    },
+    {
+      "slug": "tabbouleh-salad",
+      "title": "Tabbouleh Salad",
+      "description": "A refreshing Middle Eastern salad with bulgur wheat, fresh vegetables, and herbs.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT1H15M",
+      "cookTime": "PT5M",
+      "yield": "6 servings"
+    },
+    {
+      "slug": "bulgur-carrot-pineapple-salad",
+      "title": "Bulgur Carrot Pineapple Salad",
+      "description": "A sweet and savory salad combining bulgur wheat with shredded carrots and tropical pineapple.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "American",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "8-10 servings"
+    },
+    {
+      "slug": "cole-slaw-bulgur",
+      "title": "Cole Slaw with Bulgur",
+      "description": "A hearty twist on classic coleslaw with the addition of nutritious bulgur wheat.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "American",
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "yield": "8-10 servings"
+    },
+    {
+      "slug": "bulgur-carrot-raisin-salad",
+      "title": "Bulgur Carrot Raisin Salad",
+      "description": "A variation with raisins and French dressing for a delightful sweet and tangy flavor.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "American",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "8-10 servings"
+    },
+    {
+      "slug": "chefs-bulgur-salad",
+      "title": "Chef's Bulgur Salad",
+      "description": "A hearty main course salad featuring bulgur wheat, fresh vegetables, and your choice of cold meats and cheese.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "American",
+      "prepTime": "PT20M",
+      "cookTime": "PT15M",
+      "yield": "8 servings"
+    },
+    {
+      "slug": "bulgur-dutch-cucumber-salad",
+      "title": "Bulgur Dutch Cucumber Salad",
+      "description": "A creamy and refreshing salad with bulgur, cucumbers, radishes, and a tangy sour cream dressing.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "Dutch",
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "yield": "6-8 servings"
+    },
+    {
+      "slug": "bulgur-garden-salad",
+      "title": "Bulgur Garden Salad",
+      "description": "A versatile garden salad with bulgur wheat, fresh vegetables, and hard-boiled eggs — perfect as a side or main dish.",
+      "category": "Salad",
+      "categoryId": "salad",
+      "cuisine": "American",
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "yield": "8 servings"
+    },
+    {
+      "slug": "scotch-broth",
+      "title": "Scotch Broth with Bulgur Wheat",
+      "description": "A traditional Scottish soup transformed with hearty bulgur wheat and lamb.",
+      "category": "Soup",
+      "categoryId": "soup",
+      "cuisine": "Scottish",
+      "prepTime": "PT15M",
+      "cookTime": "PT105M",
+      "yield": "6-8 servings"
+    },
+    {
+      "slug": "bulgur-cherry-custard",
+      "title": "Bulgur Cherry Custard",
+      "description": "A layered bulgur dessert with a cherry compote and baked custard.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "International",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "yield": "6-8 servings"
+    },
+    {
+      "slug": "bulgur-indian-pudding",
+      "title": "Bulgur Indian Pudding",
+      "description": "A molasses-sweet bulgur pudding spiced with cinnamon and ginger.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "International",
+      "prepTime": "PT15M",
+      "cookTime": "PT1H30M",
+      "yield": "6 servings"
+    },
+    {
+      "slug": "bulgur-raisin-pudding",
+      "title": "Old-Fashioned Bulgur-Raisin Pudding",
+      "description": "A baked bulgur pudding studded with raisins.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "International",
+      "prepTime": "PT10M",
+      "cookTime": "PT1H30M",
+      "yield": "5-6 servings"
+    },
+    {
+      "slug": "chocolate-bulgur-bavarian",
+      "title": "Chocolate Bulgur Bavarian",
+      "description": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "International",
+      "prepTime": "PT30M",
+      "cookTime": "PT0M",
+      "yield": "6-8 servings"
+    },
+    {
+      "slug": "steamed-bulgur-fruit-pudding",
+      "title": "Steamed Bulgur Fruit Pudding",
+      "description": "A steamed loaf-style fruit pudding with bulgur and dried fruits.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "International",
+      "prepTime": "PT30M",
+      "cookTime": "PT2H",
+      "yield": "about 12 servings"
+    },
+    {
+      "slug": "raw-meat-platter",
+      "title": "Raw Meat Platter",
+      "description": "A traditional seasoned raw lamb and bulgur mixture served as patties.",
+      "category": "Starter",
+      "categoryId": "starter",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT20M",
+      "cookTime": "PT0M",
+      "yield": "5-6 servings"
+    },
+    {
+      "slug": "bulgur-stuffed-peppers",
+      "title": "Bulgur Stuffed Peppers",
+      "description": "Bell peppers stuffed with a bulgur and meat mixture, baked in tomato sauce.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "International",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H10M",
+      "yield": "5-6 servings"
+    },
+    {
+      "slug": "bulgur-meat-loaf",
+      "title": "Bulgur Meat Loaf",
+      "description": "A meatloaf enriched with bulgur wheat and baked until browned.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "International",
+      "prepTime": "PT15M",
+      "cookTime": "PT1H",
+      "yield": "10-12 servings"
+    },
+    {
+      "slug": "bulgur-salmon-loaf",
+      "title": "Bulgur Salmon Loaf",
+      "description": "A salmon loaf combined with bulgur and baked until set.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "International",
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "yield": "6-8 servings"
+    },
+    {
+      "slug": "cabbage-rolls",
+      "title": "Cabbage Rolls",
+      "description": "Cabbage leaves stuffed with a bulgur and lamb filling, simmered until tender.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "Middle Eastern",
+      "prepTime": "PT30M",
+      "cookTime": "PT1H",
+      "yield": "Serves many"
+    },
+    {
+      "slug": "fish-and-bulgur-pilaf",
+      "title": "Fish and Bulgur Pilaf",
+      "description": "A bulgur pilaf flavored with sautéed vegetables and chunks of salmon.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "International",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "6-8 servings"
+    },
+    {
+      "slug": "bulgur-wheat-pizza",
+      "title": "Bulgur Wheat Pizza",
+      "description": "A pizza variation using bulgur in the dough and a hearty meat-and-vegetable sauce.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "International",
+      "prepTime": "PT1H15M",
+      "cookTime": "PT40M",
+      "yield": "2 pizzas (12-in.)"
+    },
+    {
+      "slug": "persian-pilaf",
+      "title": "Persian Pilaf",
+      "description": "A traditional Persian-style pilaf with lamb and bulgur.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "Persian",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "yield": "8-10 servings"
+    },
+    {
+      "slug": "india-lamb-pilaf",
+      "title": "India Lamb Pilaf",
+      "description": "A spiced lamb pilaf with curry and apples, using bulgur.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "Indian-Inspired",
+      "prepTime": "PT15M",
+      "cookTime": "PT40M",
+      "yield": "5-6 servings"
+    },
+    {
+      "slug": "india-chicken-curry-pilaf",
+      "title": "India Chicken Curry Pilaf",
+      "description": "A creamy curried chicken pilaf with bulgur and apples.",
+      "category": "Main Dish",
+      "categoryId": "main",
+      "cuisine": "Indian-Inspired",
+      "prepTime": "PT15M",
+      "cookTime": "PT25M",
+      "yield": "5-6 servings"
+    },
+    {
+      "slug": "bulgur-cheese-casserole",
+      "title": "Bulgur Cheese Casserole",
+      "description": "A simple baked casserole mixing cooked bulgur with cheese and tomatoes.",
+      "category": "Casserole",
+      "categoryId": "main",
+      "cuisine": "International",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "4-6 servings"
+    },
+    {
+      "slug": "scalloped-bulgor-with-wieners",
+      "title": "Scalloped Bulgur with Wieners",
+      "description": "A creamy baked bulgur dish topped with wieners.",
+      "category": "Casserole",
+      "categoryId": "main",
+      "cuisine": "Comfort Food",
+      "prepTime": "PT10M",
+      "cookTime": "PT50M",
+      "yield": "5-6 servings"
+    },
+    {
+      "slug": "scotch-haggis-with-bulgor",
+      "title": "Scotch Haggis with Bulgur",
+      "description": "A traditional haggis-style pudding mixed with bulgur.",
+      "category": "Pudding",
+      "categoryId": "main",
+      "cuisine": "Scottish",
+      "prepTime": "PT30M",
+      "cookTime": "PT3H",
+      "yield": "Large (serves several)"
+    },
+    {
+      "slug": "armenian-pilaf",
+      "title": "Armenian Pilaf",
+      "description": "A light pilaf with vermicelli and bulgur cooked in chicken stock.",
+      "category": "Side dish",
+      "categoryId": "side",
+      "cuisine": "Armenian",
+      "prepTime": "PT5M",
+      "cookTime": "PT20M",
+      "yield": "4-6 servings"
+    },
+    {
+      "slug": "chinese-fried-bulgor",
+      "title": "Chinese Fried Bulgur",
+      "description": "A quick fried bulgur with soy sauce and vegetables, served as a side or main.",
+      "category": "Main/side",
+      "categoryId": "main",
+      "cuisine": "Chinese-Inspired",
+      "prepTime": "PT5M",
+      "cookTime": "PT15M",
+      "yield": "4-5 servings"
+    },
+    {
+      "slug": "boston-baked-bulgor",
+      "title": "Boston Baked Bulgur",
+      "description": "A sweet-and-savory baked bulgur dish finished with bacon or salt pork.",
+      "category": "Casserole",
+      "categoryId": "main",
+      "cuisine": "American",
+      "prepTime": "PT10M",
+      "cookTime": "PT1H25M",
+      "yield": "4-5 servings"
+    },
+    {
+      "slug": "pilaf-almondine",
+      "title": "Pilaf Almondine",
+      "description": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
+      "category": "Side dish",
+      "categoryId": "side",
+      "cuisine": "International",
+      "prepTime": "PT5M",
+      "cookTime": "PT25M",
+      "yield": "4 to 5 servings"
+    },
+    {
+      "slug": "pilaf-romanoff",
+      "title": "Pilaf Romanoff",
+      "description": "A creamy bulgur pilaf with cottage cheese and sour cream.",
+      "category": "Side dish",
+      "categoryId": "side",
+      "cuisine": "International",
+      "prepTime": "PT5M",
+      "cookTime": "PT10M",
+      "yield": "4 to 6 servings"
+    },
+    {
+      "slug": "spanish-bulgor",
+      "title": "Spanish Bulgor",
+      "description": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
+      "category": "Side dish",
+      "categoryId": "side",
+      "cuisine": "Spanish-inspired",
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "yield": "5 to 6 servings"
+    },
+    {
+      "slug": "bulgor-wheat-shortcake",
+      "title": "Bulgor Wheat Shortcake",
+      "description": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.",
+      "category": "Side dish",
+      "categoryId": "side",
+      "cuisine": "Baked",
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "yield": "6 to 8 servings"
+    },
+    {
+      "slug": "bulgor-wheat-biscuits",
+      "title": "Bulgor Wheat Biscuits",
+      "description": "Tender biscuits made with cooked bulgur mixed into the dough.",
+      "category": "Side dish",
+      "categoryId": "side",
+      "cuisine": "Baked",
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "yield": "10 to 12 (2 inch) biscuits"
+    },
+    {
+      "slug": "white-bread-with-bulgor",
+      "title": "White Bread with Bulgor",
+      "description": "A soft white loaf made by incorporating cooked bulgur into the dough.",
+      "category": "Other",
+      "categoryId": "other",
+      "cuisine": "Baked",
+      "prepTime": "PT30M",
+      "cookTime": "PT35M",
+      "yield": "2 (1 lb.) Loaves"
+    },
+    {
+      "slug": "baked-banana-bulgor-custard",
+      "title": "Baked Banana Bulgor Custard",
+      "description": "A baked custard-style dessert made with cooked bulgur and mashed banana.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Baked",
+      "prepTime": "PT10M",
+      "cookTime": "PT45M",
+      "yield": "6 servings"
+    },
+    {
+      "slug": "banana-bulgor-cake",
+      "title": "Banana Bulgor Cake",
+      "description": "A banana loaf-style cake that includes cooked bulgur for texture and flavor.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Baked",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H15M",
+      "yield": "10 to 12 servings"
+    },
+    {
+      "slug": "bulgor-apricot-delight",
+      "title": "Bulgor Apricot Delight with Eggnog Sauce",
+      "description": "A chilled apricot-flavored bulgur dessert topped with a rich eggnog-style sauce.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "International",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "6 servings"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "India Chicken Curry Pilaf",
+  "description": "A flavorful pilaf combining chicken, tart apple, and Bulgor wheat with curry spices.",
+  [cite_start]"recipeYield": "5 to 6 servings [cite: 174]",
+  "ingredients": [
+    [cite_start]"1/4 cup butter or chicken fat [cite: 175]",
+    [cite_start]"1/2 cup chopped onion [cite: 175]",
+    [cite_start]"1 medium-sized tart apple, peeled, cored and chopped [cite: 176, 177, 178]",
+    [cite_start]"1 cup thinly sliced celery [cite: 179]",
+    [cite_start]"1-1/2 to 2 teaspoons curry powder [cite: 181]",
+    [cite_start]"1/8 teaspoon ginger [cite: 182]",
+    [cite_start]"2 tablespoons flour [cite: 183]",
+    [cite_start]"1-1/2 teaspoons salt [cite: 184]",
+    [cite_start]"1/4 teaspoon pepper [cite: 185]",
+    [cite_start]"4-1/2 cups chicken stock [cite: 186]",
+    [cite_start]"1/2 cup cream or milk [cite: 187]",
+    [cite_start]"2 to 3 cups cooked diced chicken [cite: 190]",
+    [cite_start]"1 cup Bulgor [cite: 190]"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Heat butter or chicken fat in a heavy skillet. [cite_start]Add onion, apple, and celery[cite: 171, 175, 176, 179]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Sauté over moderate heat until onions are straw-coloured[cite: 172, 180]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Blend in curry powder, ginger, flour, salt, and pepper[cite: 172, 181, 182, 183, 184, 185]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Remove from heat and stir in chicken stock and cream (or milk)[cite: 173, 186, 187]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Return to heat and stir constantly until mixture thickens and comes to a boil[cite: 188, 189]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Add cooked diced chicken and Bulgor[cite: 189, 190]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Cover and simmer over low heat 25 minutes[cite: 191]."
+    }
+  ]
+}

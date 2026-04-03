@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Persian Pilaf",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A traditional Persian-style pilaf with գառի միս and ձավարի ցորեն.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Պարսկական",
+  "recipeYield": "8-10 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H20M",
+  "recipeIngredient": [
+    "Shoulder of գառի միս, cubed",
+    "Chopped սոխ",
+    "Chopped լոլիկes",
+    "2 բաժակs ձավարի ցորեն",
+    "կարագ",
+    "թանձրացրած ապուր or ջուր",
+    "աղ and պղպեղ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Braise գառի միս cubes until well browned; add սոխs and լոլիկes and cook 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cook ձավարի ցորեն briefly in bձեթing թանձրացրած ապուր, drain and place over meat; put կարագ in center and pour թանձրացրած ապուր around edges."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bake in moderate oven about 1 hour; turn onto platter and serve hot unmixed."
+    }
+  ]
+}

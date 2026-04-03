@@ -1,0 +1,52 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Banana Bulgor Cake",
+  "description": "A moist loaf cake incorporating cooked Bulgor wheat and mashed banana.",
+  "recipeYield": "10 to 12 servings",
+  "cookTime": "PT1H15M",
+  "recipeIngredient": [
+    "1/3 cup Bulgor Wheat",
+    "1-1/3 cups water",
+    "2 cups sifted all-purpose flour",
+    "3 teaspoons baking powder",
+    "1/2 teaspoon salt",
+    "1/2 cup butter",
+    "1 cup sugar",
+    "2 eggs",
+    "1 teaspoon vanilla",
+    "3/4 cup mashed banana",
+    "1 teaspoon lemon juice",
+    "1/4 cup milk"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Combine 1/3 cup Bulgor Wheat and 1-1/3 cups water. Simmer about 20 minutes or until most of the water is absorbed, then set aside."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together the flour, baking powder, and salt."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cream butter and sugar until light and fluffy. Add eggs and beat until thick and creamy."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Blend the cooked Bulgor, vanilla, mashed banana, and lemon juice."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the flour mixture alternately with the milk to the creamed mixture, blending well after each addition."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Turn the batter into a greased 1-1/2 quart loaf pan."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bake in a moderate oven, 350°F, for about 1-1/4 hours."
+    }
+  ]
+}

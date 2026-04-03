@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Meat Loaf",
+  "author": "Shehirian family",
+  "description": "A meatloaf enriched with bulgur wheat and baked until browned.",
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "International",
+  "recipeYield": "10-12 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H15M",
+  "recipeIngredient": [
+    "2-1/2 cups cooked bulgur",
+    "1 egg",
+    "1-1/4 cups milk",
+    "2 teaspoons salt",
+    "1/4 teaspoon pepper",
+    "1/4 to 1/2 cup chopped onion",
+    "1/4 cup ketchup",
+    "2 pounds ground beef"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Blend all ingredients together."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Turn into loaf pan and bake at 325°F (160°C) about 1 hour or until browned."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Optionally spread a thin layer of ketchup on top before baking."
+    }
+  ]
+}

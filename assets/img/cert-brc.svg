@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="95" fill="#003DA5" stroke="#002D7A" stroke-width="3"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="100" y="85" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#FFFFFF" text-anchor="middle">BRC</text>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">GLOBAL STANDARD</text>
+  <text x="100" y="128" font-family="Arial, sans-serif" font-size="12" fill="#FFFFFF" text-anchor="middle">Food Safety</text>
+  <path d="M 70 140 L 80 150 L 100 130" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <path d="M 100 130 L 130 140" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+</svg>

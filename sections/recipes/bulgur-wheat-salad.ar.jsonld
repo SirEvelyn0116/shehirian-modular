@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Wheat Salad",
+  "author": "عائلة شيهريان",
+  "description": "Fresh herbs, lemon dressing, and hearty bulgur.",
+  "recipeCategory": "سلطة",
+  "recipeCuisine": "متوسطي",
+  "recipeYield": "4 حصص",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1 كوب برغل",
+    "1/2 كوب بقدونس مفروم",
+    "1/4 كوب نعناع مفروم",
+    "1/2 كوب خيار مقطع",
+    "2 ملعقة طعام زيت زيتون",
+    "1 ملعقة طعام عصير ليمون"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "انقع البرغل في ماء مغلي لمدة 10 دقائق حتى يصبح طريًا."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "صفّ الماء الزائد وهرّسه بالشوكة."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اخلط مع البقدونس والنعناع والخيار المقطع."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "رُشّ زيت الزيتون وعصير الليمون."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اخلط جيدًا وضعه في الثلاجة قبل التقديم."
+    }
+  ]
+}

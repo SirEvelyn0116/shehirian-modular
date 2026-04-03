@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Fish and ձավարի ցորեն Pilaf",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A ձավարի ցորեն pilaf flavored with sautéed vegetables and chunks of salmon.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "6-8 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "3 ճաշի գդալ կարագ or margarine",
+    "1 ֆունտ թարմ սաղմոն, cubed",
+    "1/2 բաժակ մանրացված սոխ",
+    "1/2 բաժակ մանրացված նեխուր",
+    "1 բաժակ ձավար ցորեն",
+    "2 բաժակ ջուր",
+    "1-2 ճաշի գդալ կիտրոնի հյութ",
+    "1 թեյի գդալ աղ",
+    "1/8 թեյի գդալ fine herbs",
+    "1/8 թեյի գդալ ուրց"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Տաքացնել կարագ in տապակ, ավելացնել սոխ and նեխուր and տապակել until translucent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել սաղմոն and եփել briefly, then ավելացնել ձավար and ջուր."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ծածկել and եփել դանդաղ կրակով 25-30 րոպե until ձավար is փափուկ. համեմել with կիտրոնի հյութ and աղ."
+    }
+  ]
+}

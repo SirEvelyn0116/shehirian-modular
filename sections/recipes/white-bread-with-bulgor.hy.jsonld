@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "White Bread with ձավարի ցորեն",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A soft white loaf made by incorporating cooked ձավարի ցորեն into the dough.",
+  "recipeCategory": "Other",
+  "recipeCuisine": "Baked",
+  "recipeYield": "2 (1 lb.) Loaves",
+  "prepTime": "PT30M",
+  "cookTime": "PT35M",
+  "totalTime": "PT1H5M",
+  "recipeIngredient": [
+    "1 բաժակ ջուր",
+    "1/4 բաժակ ձավար ցորեն",
+    "1/8 թեյի գդալ աղ (for ձավար խառնելture)",
+    "3/4 բաժակ կաթ",
+    "1 package (1/4 oz.) activated dry խմոր",
+    "1/2 բաժակ lukeտաք ջուր",
+    "4-1/4 բաժակ ունիվերսալ ալյուր (reմատուցել 1/4 բաժակ for dusting)",
+    "2 թեյի գդալ աղ (for ալյուր խառնելture)",
+    "3 ճաշի գդալ շաքար",
+    "3 ճաշի գդալ shortening or ձեթ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ջուր, 1/4 բաժակ ձավար ցորեն, and 1/8 թեյի գդալ աղ. ծածկել and bring to եփել դանդաղ կրակով; եփել դանդաղ կրակով about 20 րոպե or until most of ջուր is absorbed. զովացուցիչ to lukeտաք."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dissolve խմոր in 1/2 բաժակ lukeտաք ջուր. խառնել կաթ into the զովացուցիչed ձավար խառնելture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together ալյուր, աղ, and շաքար (reպորցիա 1/4 բաժակ ալյուր). ավելացնել խմոր խառնելture and եփած ձավար to the ալյուր խառնելture; ավելացնել shortening or ձեթ and խառնել thoroughly."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Հունցել about 10 րոպե or until dough is smooth; դնել մեջը տաք յուղելd կաթսա, ծածկել and let rise until doubled (1.5–2 ժամ)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Punch down, divide into 2 loaves, ձևել and դնել մեջըto յուղելd պիրոգ տապակs; let rise until doubled and թխել at 400°f (200°c) for 35–40 րոպե."
+    }
+  ]
+}

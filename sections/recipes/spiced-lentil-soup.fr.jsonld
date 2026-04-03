@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Spiced Lentil Soup",
+  "author": "Famille Shehirian",
+  "description": "Comforting, protein-rich, and perfect for fall.",
+  "recipeCategory": "Soupe",
+  "recipeCuisine": "Moyen-Orientale",
+  "recipeYield": "4 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "1 tasse de lentilles rouges",
+    "1 oignon",
+    "2 carottes",
+    "1 c. à thé de cumin",
+    "1 c. à soupe d'huile d'olive"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Chauffer l'huile d'olive dans une grande casserole à feu moyen."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Faire sauter l'oignon haché et les carottes en dés avec le cumin jusqu'à ce qu'ils soient tendres."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter les lentilles rouges et suffisamment d'eau pour les couvrir de 5 cm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Porter à ébullition, réduire le feu et laisser mijoter 25-30 minutes jusqu'à tendreté."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Assaisonner de sel et de poivre selon le goût. Servir chaud."
+    }
+  ]
+}

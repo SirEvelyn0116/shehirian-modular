@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Salmon Loaf",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A salmon loaf combined with ձավարի ցորեն and baked until set.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "6-8 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT45M",
+  "totalTime": "PT1H",
+  "recipeIngredient": [
+    "2-1/2 բաժակ եփած ձավար",
+    "1 can (16 oz.) սաղմոն, հեղուկը թափելed",
+    "2 ձու",
+    "1/2 բաժակ liquid (սաղմոն liquid plus կաթ)",
+    "1/4 բաժակ մանրացված սոխ",
+    "2 ճաշի գդալ կիտրոնի հյութ",
+    "2 ճաշի գդալ pickle relish",
+    "1/4 թեյի գդալ աղ",
+    "1/4 թեյի գդալ պղպեղ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Blend all ingկարմիրients and turn into a պիրոգ տապակ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Թխել in moderate վառարան, 350°f (175°c), for 45 րոպե until set."
+    }
+  ]
+}

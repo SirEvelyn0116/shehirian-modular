@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Spiced Lentil Soup",
+  "author": "عائلة شيهريان",
+  "description": "Comforting, protein-rich, and perfect for fall.",
+  "recipeCategory": "شوربة",
+  "recipeCuisine": "شرق أوسطية",
+  "recipeYield": "4 حصص",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "1 كوب عدس أحمر",
+    "1 بصلة",
+    "2 جزرات",
+    "1 ملعقة صغيرة كمون",
+    "1 ملعقة طعام زيت زيتون"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "سخّن زيت الزيتون في قدر كبير على نار متوسطة."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اقلِّ البصل المفروم والجزر المقطع مع الكمون حتى يلينان."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "أضف العدس الأحمر ومقدارًا من الماء ليغطيه بحوالي 5 سم."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "اغله ثم خفف النار واتركه ينضج 25-30 دقيقة حتى يطرى العدس."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "تبّل بالملح والفلفل وقدمه ساخنًا."
+    }
+  ]
+}

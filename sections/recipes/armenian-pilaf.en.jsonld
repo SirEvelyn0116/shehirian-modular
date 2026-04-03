@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Armenian Pilaf",
+  "author": "Shehirian family",
+  "description": "A light pilaf with vermicelli and bulgur cooked in chicken stock.",
+  "recipeCategory": "Side Dish",
+  "recipeCuisine": "Armenian",
+  "recipeYield": "4-6 servings",
+  "prepTime": "PT5M",
+  "cookTime": "PT20M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 tbsp butter or margarine",
+    "3 tbsp chopped onion",
+    "1/2 cup vermicelli or noodles",
+    "1 cup bulgur wheat",
+    "2 cups chicken stock",
+    "3/4 tsp salt",
+    "1/8 tsp pepper"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Heat butter, sauté onion and vermicelli until lightly browned."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add bulgur, chicken stock, salt and pepper; cover and simmer 20 minutes until liquid absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Let stand 15-20 minutes before serving."
+    }
+  ]
+}

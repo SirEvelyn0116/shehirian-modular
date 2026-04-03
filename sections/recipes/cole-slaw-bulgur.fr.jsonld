@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Salade de chou au bulgur",
+  "author": "Famille Shehirian",
+  "description": "Une version copieuse de la salade de chou classique avec l'ajout de blé bulgur nutritif.",
+  "recipeCategory": "Salade",
+  "recipeCuisine": "Américaine",
+  "recipeYield": "8-10 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "4 tasses de chou râpé",
+    "1 tasse de carottes râpées",
+    "1 tasse de boulghour cuit et refroidi",
+    "1/2 tasse de mayonnaise",
+    "2 c. à soupe de vinaigre de cidre",
+    "1 c. à soupe de sucre",
+    "Sel et poivre au goût"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Cuire le boulghour selon les instructions et laisser refroidir."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dans un grand bol, mélanger le chou râpé et les carottes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le boulghour refroidi."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger la mayonnaise, le vinaigre, le sucre, le sel et le poivre; verser sur les légumes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Réfrigérer avant de servir."
+    }
+  ]
+}

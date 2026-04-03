@@ -1,0 +1,91 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bouillon écossais au blé bulgur",
+  "author": "Famille Shehirian",
+  "description": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.",
+  "recipeCategory": "Soupe",
+  "recipeCuisine": "Écossaise",
+  "recipeYield": "6-8 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT105M",
+  "totalTime": "PT120M",
+  "recipeIngredient": [
+    "2 lbs. lamb shoulder",
+    "8 cups water",
+    "1/2 cup bulgur wheat",
+    "1 cup diced carrots",
+    "1 cup diced turnip",
+    "1 cup chopped leeks",
+    "1/2 cup pearl barley",
+    "Salt and pepper to taste",
+    "Fresh parsley for garnish",
+    "2 quarts chicken broth",
+    "2 pounds lamb shank",
+    "1 cup chopped parsley",
+    "1/2 cup chopped onion",
+    "1/2 cup chopped carrots",
+    "1/2 cup chopped celery",
+    "1/2 cup chopped green pepper (optional)",
+    "1/2 cup chopped tomato",
+    "1/2 cup chopped mint",
+    "1/2 cup chopped leeks",
+    "1/2 cup chopped bulghur wheat",
+    "1/2 tsp. salt",
+    "1/2 tsp. pepper"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Dans une grande casserole, ajouter l'agneau et l'eau. Porter à ébullition et écumer toute mousse."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Réduire le feu et laisser mijoter 1 heure jusqu'à ce que l'agneau soit tendre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Retirer l'agneau, effilocher la viande et remettre dans la casserole."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le blé bulghour, l'orge, les carottes, le navet et les poireaux."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Laisser mijoter 45 minutes jusqu'à ce que les céréales et les légumes soient tendres."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Assaisonner de sel et de poivre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Servir chaud, garni de persil frais."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Boil lamb shank in chicken broth until tender. Remove meat and bones."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut meat into small pieces and return to broth."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add all vegetables and herbs. Simmer for 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add bulghur wheat. Simmer for 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Slowly stir in 8 cups of soup mixture, then add remaining soup."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Continue cooking until thickened, about 3 minutes."
+    }
+  ]
+}

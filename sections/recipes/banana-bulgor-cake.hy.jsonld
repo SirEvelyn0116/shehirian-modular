@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Banana ձավարի ցորեն Cake",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A banana loaf-style cake that includes cooked ձավարի ցորեն for texture and flavor.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Baked",
+  "recipeYield": "10 to 12 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H15M",
+  "totalTime": "PT1H35M",
+  "recipeIngredient": [
+    "1/3 բաժակ ձավար ցորեն",
+    "1-1/3 բաժակ ջուր (for ձավար)",
+    "2 բաժակ sifted ունիվերսալ ալյուր",
+    "3 թեյի գդալ հացի փոշի",
+    "1/2 թեյի գդալ աղ",
+    "1/2 բաժակ կարագ",
+    "1 բաժակ շաքար",
+    "2 ձու",
+    "1 թեյի գդալ վանիլ",
+    "3/4 բաժակ mashed բանան",
+    "1 թեյի գդալ կիտրոնի հյութ",
+    "1/4 բաժակ կաթ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ձավար and ջուր; ծածկել and եփել դանդաղ կրակով about 20 րոպե until most ջուր is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together ալյուր, հացի փոշի, and աղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Սերուցք կարագ and շաքար until light and fluffy; ավելացնել ձու and ծեծել until thick and քրեմանման."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել եփած ձավար, վանիլ, mashed բանան, and կիտրոնի հյութ into the սերուցքed խառնելture; ավելացնել ալյուր խառնելture alternately with կաթ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Turn into յուղելd պիրոգ տապակ and թխել at 350°f about 1¼ ժամ."
+    }
+  ]
+}

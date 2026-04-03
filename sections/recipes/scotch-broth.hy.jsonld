@@ -1,0 +1,91 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Scotch թանձրացրած ապուր with ձավարի ցորեն Wheat",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A traditional Scottish soup transformed with hearty ձավարի ցորեն wheat and գառի միս.",
+  "recipeCategory": "Ապուր",
+  "recipeCuisine": "Շոտլանդական",
+  "recipeYield": "6-8 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT105M",
+  "totalTime": "PT120M",
+  "recipeIngredient": [
+    "2 lbs. գառան միս shoulder",
+    "8 բաժակ ջուր",
+    "1/2 բաժակ ձավար ցորեն",
+    "1 բաժակ խորանարդիկներով գազարs",
+    "1 բաժակ խորանարդիկներով turnip",
+    "1 բաժակ մանրացված leeks",
+    "1/2 բաժակ pearl barley",
+    "Աղ and պղպեղ to taste",
+    "Թարմ մաղադանոս for garnish",
+    "2 quarts հավի միս broth",
+    "2 pounds գառան միս shank",
+    "1 բաժակ մանրացված մաղադանոս",
+    "1/2 բաժակ մանրացված սոխ",
+    "1/2 բաժակ մանրացված գազարs",
+    "1/2 բաժակ մանրացված նեխուր",
+    "1/2 բաժակ մանրացված կանաչ պղպեղ (optional)",
+    "1/2 բաժակ մանրացված լոլիկ",
+    "1/2 բաժակ մանրացված անանուխ",
+    "1/2 բաժակ մանրացված leeks",
+    "1/2 բաժակ մանրացված bulghur ցորեն",
+    "1/2 թեյի գդալ. աղ",
+    "1/2 թեյի գդալ. պղպեղ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a մեծ pot, ավելացնել գառան միս and ջուր. եռալու բերել and skim off any foam."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Կրակը նվազեցնել and եփել դանդաղ կրակով for 1 ժամ until գառան միս is tender."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove գառան միս, shկարմիր միս, and return to pot."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել ձավար ցորեն, barley, գազարs, turnip, and leeks."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Եփել դանդաղ կրակով for 45 րոպե until grains and vegetables are tender."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Համեմել with աղ and պղպեղ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Մատուցել hot, garnished with թարմ մաղադանոս."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Եփել գառան միս shank in հավի միս broth until tender. remove միս and bones."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut միս into փոքր pieces and return to broth."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել all vegetables and herbs. եփել դանդաղ կրակով for 15 րոպե."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել bulghur ցորեն. եփել դանդաղ կրակով for 15 րոպե."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Slowly խառնել in 8 բաժակ of ապուր խառնելture, then ավելացնել remaining ապուր."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Continue եփելing until thickened, about 3 րոպե."
+    }
+  ]
+}

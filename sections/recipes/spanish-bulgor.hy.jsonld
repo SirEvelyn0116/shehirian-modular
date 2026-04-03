@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Spanish ձավարի ցորեն",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A hearty skillet ձավարի ցորեն with bacon, պղպեղs, լոլիկes and seasonings.",
+  "recipeCategory": "Կողային ուտեստ",
+  "recipeCuisine": "Spanish-inspired",
+  "recipeYield": "5 to 6 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT25M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "4 կտրատելs bacon cut in 1/2-դյույմ strips",
+    "1/2 to 3/4 բաժակ մանրացված սոխ",
+    "1/2 բաժակ մանրացված նեխուր",
+    "1/2 բաժակ մանրացված կանաչ bell պղպեղ",
+    "1 clove սխտոր, finely մանրացված",
+    "1 can (10 oz.) լոլիկներ",
+    "2 բաժակ ջուր",
+    "1/2 թեյի գդալ աղ",
+    "1 թեյի գդալ համեմելed աղ",
+    "1/4 թեյի գդալ պղպեղ",
+    "1 թեյի գդալ շաքար",
+    "1 թեյի գդալ Վորչեստերշայրի սոուս",
+    "1 բաժակ ձավար ցորեն"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Տապակել bacon strips in a heavy տապակ until they begin to շագանակագույն դարձնել."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել սոխ, նեխուր, կանաչ bell պղպեղ, and սխտոր and եփել մինչև սոխ is straw-colouկարմիր."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել in the լոլիկներ, ջուր, համեմելings, and ձավար ցորեն."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ծածկել and եփել դանդաղ կրակով over low տաքացնել until most of liquid is absorbed, 20 to 25 րոպե."
+    }
+  ]
+}

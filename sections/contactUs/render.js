@@ -1,5 +1,6 @@
 function renderContactUs(lang = 'en') {
-  return fetch(`sections/contactUs/contactUs.${lang}.json`)
+  const prefix = window.__sitePathPrefix || '';
+  return fetch(`${prefix}sections/contactUs/contactUs.${lang}.json`)
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {

@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pouding aux fruits et boulghour à la vapeur",
+  "author": "Famille Shehirian",
+  "description": "Un pouding aux fruits cuit à la vapeur, style cake, avec du boulghour.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "Internationale",
+  "recipeYield": "environ 12 portions",
+  "prepTime": "PT30M",
+  "cookTime": "PT2H",
+  "totalTime": "PT2H30M",
+  "recipeIngredient": [
+    "1 1/4 tasse de farine tout usage tamisée",
+    "2 c. à thé de levure chimique",
+    "1/2 c. à thé de sel",
+    "1/2 tasse de beurre ou de shortening",
+    "1 1/4 tasse de sucre",
+    "2 œufs",
+    "1 1/2 tasse de boulghour cuit",
+    "1 c. à thé de vanille",
+    "1/2 tasse de pruneaux secs (dénoyautés), moulus",
+    "1/2 tasse de raisins secs, moulus",
+    "1/4 tasse d'abricots secs, moulus",
+    "1 tasse de lait"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Tamiser la farine, la levure et le sel."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Crémer le beurre et le sucre jusqu'à obtenir une texture légère; ajouter les œufs et battre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le boulghour cuit et la vanille; incorporer les fruits moulus et le lait alternativement avec les ingrédients secs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verser dans un moule graissé aux 3/4, couvrir hermétiquement et cuire à la vapeur 2 heures. Servir avec de la crème fouettée."
+    }
+  ]
+}

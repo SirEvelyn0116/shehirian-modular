@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Persian Pilaf",
+  "author": "Shehirian family",
+  "description": "A traditional Persian-style pilaf with lamb and bulgur.",
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "Persian",
+  "recipeYield": "8-10 servings",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H20M",
+  "recipeIngredient": [
+    "Shoulder of lamb, cubed",
+    "Chopped onion",
+    "Chopped tomatoes",
+    "2 cups bulgur",
+    "Butter",
+    "Broth or water",
+    "Salt and pepper"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Braise lamb cubes until well browned; add onions and tomatoes and cook 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cook bulgur briefly in boiling broth, drain and place over meat; put butter in center and pour broth around edges."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bake in moderate oven about 1 hour; turn onto platter and serve hot unmixed."
+    }
+  ]
+}

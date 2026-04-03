@@ -1,73 +1,524 @@
-[
-  {
-    "id": "armenian-lentil-soup",
-    "title": "Soupe arménienne aux lentilles",
-    "description": "Une soupe copieuse aux lentilles, à la menthe et au persil — un classique de la famille Shehirian.",
-    "ingredients": [
-      "1/2 tasse d'eau",
-      "1/2 tasse de lentilles",
-      "1/2 tasse d'oignon haché",
-      "1/2 tasse de persil haché",
-      "1/2 c. à thé de sel",
-      "1/2 c. à thé de poivre",
-      "1/2 tasse de beurre ou margarine",
-      "1/2 tasse de menthe hachée"
-    ],
-    "steps": [
-      "Faire bouillir les lentilles dans l'eau pendant 15 minutes.",
-      "Ajouter l'oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes.",
-      "Ajouter la menthe et le beurre. Mijoter 15 minutes.",
-      "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes.",
-      "Optionnel : faire frire le beurre jusqu'à ce qu'il soit doré et verser sur la soupe."
-    ]
-  },
-  {
-    "id": "royal-soup",
-    "title": "Soupe royale",
-    "description": "Une soupe citronnée aux boulettes de viande, riz et persil, inspirée des saveurs du Moyen-Orient.",
-    "ingredients": [
-      "1/2 gallon de bouillon de poulet",
-      "1/2 lb de bœuf haché (pas trop maigre)",
-      "1/4 tasse de riz cru",
-      "1/4 tasse d'oignon très finement haché",
-      "1/4 tasse de persil",
-      "1/4 tasse de jus de citron",
-      "1/4 tasse de céleri finement haché",
-      "1/4 c. à thé de sel",
-      "Tranches de 2 citrons"
-    ],
-    "steps": [
-      "Mélanger la viande crue, le boulgour, l'oignon, le persil et les épices. Former des boulettes de 2,5 cm.",
-      "Ajouter le riz au mélange.",
-      "Ajouter les boulettes dans le bouillon chaud et mijoter jusqu'à cuisson.",
-      "Ajouter le jus de citron et le céleri. Mijoter 10 minutes.",
-      "Ajouter le sel et les tranches de citron. Mijoter 5 minutes.",
-      "Ajuster l'acidité, le sel ou l'épaisseur avec sucre, eau ou riz.",
-      "Verser le bouillon sur les boulettes et servir."
-    ]
-  },
-  {
-    "id": "scotch-broth",
-    "title": "Bouillon écossais",
-    "description": "Une soupe traditionnelle écossaise à l'agneau, aux légumes racines et à l'orge — chaude et nourrissante.",
-    "ingredients": [
-      "2 litres de bouillon de bœuf ou d'agneau",
-      "1 lb de cou ou jarret d'agneau",
-      "1/2 tasse d'orge perlé",
-      "1/2 tasse de carottes hachées",
-      "1/2 tasse de poireaux hachés",
-      "1/2 tasse de navets hachés",
-      "1/2 tasse de céleri haché",
-      "1/2 tasse d'oignon haché",
-      "1/4 tasse de persil haché",
-      "Sel et poivre au goût"
-    ],
-    "steps": [
-      "Faire mijoter l'agneau dans le bouillon pendant 1 heure, en écumant.",
-      "Ajouter l'orge et cuire 30 minutes.",
-      "Ajouter les légumes hachés et mijoter jusqu'à tendreté, environ 30 minutes.",
-      "Retirer l'agneau, effilocher la viande et la remettre dans la soupe.",
-      "Assaisonner avec sel et poivre. Garnir de persil et servir chaud."
-    ]
-  }
-]
+{
+  "title": "Recipes",
+  "viewAllLink": "/shehirian-modular/fr/recipes/index.html",
+  "viewAllText": "Voir toutes les recettes →",
+  "featured": [
+    {
+      "slug": "royal-soup",
+      "title": "Soupe Royale",
+      "description": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
+      "ingredients": [
+        "2 litres de bouillon de poulet",
+        "225 g de bœuf haché (pas trop maigre)",
+        "60 ml de riz cru",
+        "60 ml d’oignon très finement haché",
+        "60 ml de persil",
+        "60 ml de jus de citron",
+        "60 ml de céleri finement haché",
+        "1/4 c. à thé de sel",
+        "Tranches de 2 citrons"
+      ],
+      "instructions": [
+        "Mélanger la viande crue, le boulghour, l’oignon, le persil et l’assaisonnement, puis former des boulettes de 2,5 cm de diamètre.",
+        "Ajouter le riz au mélange de boulettes.",
+        "Ajouter les boulettes au bouillon de poulet chaud et laisser mijoter jusqu’à cuisson complète.",
+        "Ajouter le jus de citron et le céleri. Laisser mijoter 10 minutes.",
+        "Ajouter le sel et les tranches de citron. Laisser mijoter 5 minutes.",
+        "Ajuster l’acidité, le sel ou l’épaisseur avec du sucre, de l’eau ou du riz au besoin.",
+        "Verser le bouillon sur les boulettes et servir."
+      ],
+      "category": "Soupe",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "totalTime": "PT45M",
+      "yield": "6 portions"
+    }
+  ],
+  "allRecipes": [
+    {
+      "slug": "royal-soup",
+      "title": "Soupe Royale",
+      "description": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
+      "category": "Soupe",
+      "categoryId": "soup",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "yield": "6 portions"
+    },
+    {
+      "slug": "armenian-style-lentil-soup",
+      "title": "Soupe Arménienne aux Lentilles",
+      "description": "Une soupe arménienne consistante aux lentilles, persil, menthe et beurre.",
+      "category": "Soupe",
+      "categoryId": "soup",
+      "cuisine": "Arménienne",
+      "prepTime": "PT15M",
+      "cookTime": "PT60M",
+      "yield": "4 portions"
+    },
+    {
+      "slug": "bulgur-wheat-salad",
+      "title": "Bulgur Wheat Salad",
+      "description": "Fresh herbs, lemon dressing, and hearty bulgur.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Méditerranéenne",
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "yield": "4 portions"
+    },
+    {
+      "slug": "classic-tabbouleh",
+      "title": "Classic Tabbouleh",
+      "description": "A refreshing salad with parsley, mint, tomatoes, and fine bulgur.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT20M",
+      "cookTime": "PT5M",
+      "yield": "6 portions"
+    },
+    {
+      "slug": "hearty-bulgur-pilaf",
+      "title": "Hearty Bulgur Pilaf",
+      "description": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "yield": "4 portions"
+    },
+    {
+      "slug": "spiced-lentil-soup",
+      "title": "Spiced Lentil Soup",
+      "description": "Comforting, protein-rich, and perfect for fall.",
+      "category": "Soupe",
+      "categoryId": "soup",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "4 portions"
+    },
+    {
+      "slug": "tabbouleh-salad",
+      "title": "Salade de taboulé",
+      "description": "Une salade du Moyen-Orient rafraîchissante avec du blé bulgur, des légumes frais et des herbes.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Moyen-orientale",
+      "prepTime": "PT1H15M",
+      "cookTime": "PT5M",
+      "yield": "6 portions"
+    },
+    {
+      "slug": "bulgur-carrot-pineapple-salad",
+      "title": "Salade de bulgur aux carottes et ananas",
+      "description": "Une salade sucrée et salée combinant du blé bulgur avec des carottes râpées et de l'ananas tropical.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Américaine",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "8-10 portions"
+    },
+    {
+      "slug": "cole-slaw-bulgur",
+      "title": "Salade de chou au bulgur",
+      "description": "Une version copieuse de la salade de chou classique avec l'ajout de blé bulgur nutritif.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Américaine",
+      "prepTime": "PT15M",
+      "cookTime": "PT10M",
+      "yield": "8-10 portions"
+    },
+    {
+      "slug": "bulgur-carrot-raisin-salad",
+      "title": "Salade de bulgur aux carottes et raisins secs",
+      "description": "Une variation avec des raisins secs et une vinaigrette française pour une saveur sucrée et acidulée délicieuse.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Américaine",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "8-10 portions"
+    },
+    {
+      "slug": "chefs-bulgur-salad",
+      "title": "Salade du chef au bulgur",
+      "description": "Une salade principale copieuse mettant en vedette du blé bulgur, des légumes frais et votre choix de viandes froides et de fromage.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Américaine",
+      "prepTime": "PT20M",
+      "cookTime": "PT15M",
+      "yield": "8 portions"
+    },
+    {
+      "slug": "bulgur-dutch-cucumber-salad",
+      "title": "Salade de concombres hollandaise au bulgur",
+      "description": "Une salade crémeuse et rafraîchissante avec du bulgur, des concombres, des radis et une vinaigrette acidulée à la crème sure.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Hollandaise",
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "yield": "6-8 portions"
+    },
+    {
+      "slug": "bulgur-garden-salad",
+      "title": "Salade jardinière au bulgur",
+      "description": "Une salade de jardin polyvalente avec du blé bulgur, des légumes frais et des œufs durs — parfaite comme accompagnement ou plat principal.",
+      "category": "Salade",
+      "categoryId": "salad",
+      "cuisine": "Américaine",
+      "prepTime": "PT15M",
+      "cookTime": "PT15M",
+      "yield": "8 portions"
+    },
+    {
+      "slug": "scotch-broth",
+      "title": "Bouillon écossais au blé bulgur",
+      "description": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.",
+      "category": "Soupe",
+      "categoryId": "soup",
+      "cuisine": "Écossaise",
+      "prepTime": "PT15M",
+      "cookTime": "PT105M",
+      "yield": "6-8 portions"
+    },
+    {
+      "slug": "bulgur-cherry-custard",
+      "title": "Crème au boulghour et cerises",
+      "description": "Un dessert en couches à base de boulghour avec compote de cerises et crème cuite.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Internationale",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "yield": "6-8 portions"
+    },
+    {
+      "slug": "bulgur-indian-pudding",
+      "title": "Pouding indien au boulghour",
+      "description": "Un pouding de boulghour au mélasse et épices.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Internationale",
+      "prepTime": "PT15M",
+      "cookTime": "PT1H30M",
+      "yield": "6 portions"
+    },
+    {
+      "slug": "bulgur-raisin-pudding",
+      "title": "Pouding ancien au boulghour et raisins",
+      "description": "Un pouding de boulghour aux raisins.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Internationale",
+      "prepTime": "PT10M",
+      "cookTime": "PT1H30M",
+      "yield": "5-6 portions"
+    },
+    {
+      "slug": "chocolate-bulgur-bavarian",
+      "title": "Bavarois chocolat au boulghour",
+      "description": "Un dessert chocolaté au boulghour, pris à la gélatine et à la crème fouettée.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Internationale",
+      "prepTime": "PT30M",
+      "cookTime": "PT0M",
+      "yield": "6-8 portions"
+    },
+    {
+      "slug": "steamed-bulgur-fruit-pudding",
+      "title": "Pouding aux fruits et boulghour à la vapeur",
+      "description": "Un pouding aux fruits cuit à la vapeur, style cake, avec du boulghour.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Internationale",
+      "prepTime": "PT30M",
+      "cookTime": "PT2H",
+      "yield": "environ 12 portions"
+    },
+    {
+      "slug": "raw-meat-platter",
+      "title": "Plateau de viande crue",
+      "description": "Un mélange traditionnel d'agneau cru et de boulghour servi en galettes.",
+      "category": "Entrée",
+      "categoryId": "starter",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT20M",
+      "cookTime": "PT0M",
+      "yield": "5-6 portions"
+    },
+    {
+      "slug": "bulgur-stuffed-peppers",
+      "title": "Poivrons farcis au boulghour",
+      "description": "Poivrons farcis d'un mélange de boulghour et viande, cuits au four dans une sauce tomate.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Internationale",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H10M",
+      "yield": "5-6 portions"
+    },
+    {
+      "slug": "bulgur-meat-loaf",
+      "title": "Pain de viande au boulghour",
+      "description": "Un pain de viande enrichi au boulghour et cuit au four jusqu'à dorure.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Internationale",
+      "prepTime": "PT15M",
+      "cookTime": "PT1H",
+      "yield": "10-12 portions"
+    },
+    {
+      "slug": "bulgur-salmon-loaf",
+      "title": "Pain de saumon au boulghour",
+      "description": "Un pain de saumon mélangé au boulghour et cuit au four.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Internationale",
+      "prepTime": "PT15M",
+      "cookTime": "PT45M",
+      "yield": "6-8 portions"
+    },
+    {
+      "slug": "cabbage-rolls",
+      "title": "Choux farcis",
+      "description": "Feuilles de chou farcies d'une préparation de boulghour et d'agneau, mijotées jusqu'à tendreté.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Moyen-Orientale",
+      "prepTime": "PT30M",
+      "cookTime": "PT1H",
+      "yield": "Pour plusieurs personnes"
+    },
+    {
+      "slug": "fish-and-bulgur-pilaf",
+      "title": "Pilaf de poisson et boulghour",
+      "description": "Un pilaf de boulghour parfumé aux légumes sautés et morceaux de saumon.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Internationale",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "6-8 portions"
+    },
+    {
+      "slug": "bulgur-wheat-pizza",
+      "title": "Pizza au boulghour",
+      "description": "Une variante de pizza utilisant du boulghour dans la pâte et une sauce riche à la viande et légumes.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Internationale",
+      "prepTime": "PT1H15M",
+      "cookTime": "PT40M",
+      "yield": "2 pizzas (30 cm)"
+    },
+    {
+      "slug": "persian-pilaf",
+      "title": "Pilaf persan",
+      "description": "Un pilaf de style persan avec de l'agneau et du boulghour.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Persan",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H",
+      "yield": "8-10 portions"
+    },
+    {
+      "slug": "india-lamb-pilaf",
+      "title": "Pilaf d'agneau à l'indienne",
+      "description": "Un pilaf d'agneau épicé au curry et aux pommes, avec du boulghour.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Inspiré indien",
+      "prepTime": "PT15M",
+      "cookTime": "PT40M",
+      "yield": "5-6 portions"
+    },
+    {
+      "slug": "india-chicken-curry-pilaf",
+      "title": "Pilaf au poulet et curry",
+      "description": "Un pilaf crémeux au poulet et curry avec du boulghour et des pommes.",
+      "category": "Plat Principal",
+      "categoryId": "main",
+      "cuisine": "Inspiré indien",
+      "prepTime": "PT15M",
+      "cookTime": "PT25M",
+      "yield": "5-6 portions"
+    },
+    {
+      "slug": "bulgur-cheese-casserole",
+      "title": "Gratin de boulghour au fromage",
+      "description": "Un gratin au four mélangeant du boulghour cuit avec du fromage et des tomates.",
+      "category": "Gratin",
+      "categoryId": "main",
+      "cuisine": "Internationale",
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "yield": "4-6 portions"
+    },
+    {
+      "slug": "scalloped-bulgor-with-wieners",
+      "title": "Boulghour gratiné aux saucisses",
+      "description": "Un plat gratiné crémeux de boulghour garni de saucisses.",
+      "category": "Gratin",
+      "categoryId": "main",
+      "cuisine": "Confort alimentaire",
+      "prepTime": "PT10M",
+      "cookTime": "PT50M",
+      "yield": "5-6 portions"
+    },
+    {
+      "slug": "scotch-haggis-with-bulgor",
+      "title": "Haggis écossais au boulghour",
+      "description": "Un pudding traditionnel de type haggis mélangé au boulghour.",
+      "category": "Pudding",
+      "categoryId": "main",
+      "cuisine": "Écossaise",
+      "prepTime": "PT30M",
+      "cookTime": "PT3H",
+      "yield": "Grand (pour plusieurs)"
+    },
+    {
+      "slug": "armenian-pilaf",
+      "title": "Pilaf arménien",
+      "description": "Un pilaf léger avec vermicelles et boulghour cuits au bouillon de poulet.",
+      "category": "Accompagnement",
+      "categoryId": "side",
+      "cuisine": "Arménienne",
+      "prepTime": "PT5M",
+      "cookTime": "PT20M",
+      "yield": "4-6 portions"
+    },
+    {
+      "slug": "chinese-fried-bulgor",
+      "title": "Boulghour frit à la chinoise",
+      "description": "Un boulghour sauté rapide à la sauce soja et légumes, servi en accompagnement ou plat principal.",
+      "category": "Plat/accompagnement",
+      "categoryId": "main",
+      "cuisine": "Inspiré chinois",
+      "prepTime": "PT5M",
+      "cookTime": "PT15M",
+      "yield": "4-5 portions"
+    },
+    {
+      "slug": "boston-baked-bulgor",
+      "title": "Boulghour cuit à la Boston",
+      "description": "Un plat de boulghour sucré-salé cuit au four et garni de bacon ou lard salé.",
+      "category": "Gratin",
+      "categoryId": "main",
+      "cuisine": "Américaine",
+      "prepTime": "PT10M",
+      "cookTime": "PT1H25M",
+      "yield": "4-5 portions"
+    },
+    {
+      "slug": "pilaf-almondine",
+      "title": "Pilaf Almondine",
+      "description": "A simple bulgur pilaf garnished with toasted almonds and poppy seeds.",
+      "category": "Accompagnement",
+      "categoryId": "side",
+      "cuisine": "Internationale",
+      "prepTime": "PT5M",
+      "cookTime": "PT25M",
+      "yield": "4 à 5 portions"
+    },
+    {
+      "slug": "pilaf-romanoff",
+      "title": "Pilaf Romanoff",
+      "description": "A creamy bulgur pilaf with cottage cheese and sour cream.",
+      "category": "Accompagnement",
+      "categoryId": "side",
+      "cuisine": "Internationale",
+      "prepTime": "PT5M",
+      "cookTime": "PT10M",
+      "yield": "4 à 6 portions"
+    },
+    {
+      "slug": "spanish-bulgor",
+      "title": "Spanish Bulgor",
+      "description": "A hearty skillet bulgur with bacon, peppers, tomatoes and seasonings.",
+      "category": "Accompagnement",
+      "categoryId": "side",
+      "cuisine": "Inspiré espagnol",
+      "prepTime": "PT10M",
+      "cookTime": "PT25M",
+      "yield": "5 à 6 portions"
+    },
+    {
+      "slug": "bulgor-wheat-shortcake",
+      "title": "Bulgor Wheat Shortcake",
+      "description": "A shortcake-style dessert or accompaniment using cooked bulgur in the dough.",
+      "category": "Accompagnement",
+      "categoryId": "side",
+      "cuisine": "Cuit au four",
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "yield": "6 à 8 portions"
+    },
+    {
+      "slug": "bulgor-wheat-biscuits",
+      "title": "Bulgor Wheat Biscuits",
+      "description": "Tender biscuits made with cooked bulgur mixed into the dough.",
+      "category": "Accompagnement",
+      "categoryId": "side",
+      "cuisine": "Cuit au four",
+      "prepTime": "PT15M",
+      "cookTime": "PT50M",
+      "yield": "10 à 12 biscuits (5 cm)"
+    },
+    {
+      "slug": "white-bread-with-bulgor",
+      "title": "Pain Blanc au Bulgor",
+      "description": "Un pain blanc moelleux préparé en incorporant du boulghour cuit dans la pâte.",
+      "category": "Autre",
+      "categoryId": "other",
+      "cuisine": "Cuit au four",
+      "prepTime": "PT30M",
+      "cookTime": "PT35M",
+      "yield": "2 pains (450 g)"
+    },
+    {
+      "slug": "baked-banana-bulgor-custard",
+      "title": "Crème Au Bananes Et Bulghour",
+      "description": "Un dessert en style crème pâtissière préparé avec du boulghour cuit et de la banane écrasée.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Cuit au four",
+      "prepTime": "PT10M",
+      "cookTime": "PT45M",
+      "yield": "6 portions"
+    },
+    {
+      "slug": "banana-bulgor-cake",
+      "title": "Gâteau Bananes Et Bulghour",
+      "description": "Un gâteau en forme de pain contenant du boulghour cuit pour la texture.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Cuit au four",
+      "prepTime": "PT20M",
+      "cookTime": "PT1H15M",
+      "yield": "10 à 12 portions"
+    },
+    {
+      "slug": "bulgor-apricot-delight",
+      "title": "Délice Abricot au Bulghour et Sauce Eggnog",
+      "description": "Un dessert au boulghour parfumé à l'abricot, servi frais avec une sauce type eggnog.",
+      "category": "Dessert",
+      "categoryId": "dessert",
+      "cuisine": "Internationale",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "yield": "6 portions"
+    }
+  ]
+}

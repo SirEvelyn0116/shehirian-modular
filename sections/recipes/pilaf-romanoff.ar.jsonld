@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pilaf Romanoff",
+  "author": "عائلة شيهريان",
+  "description": "A creamy bulgur pilaf with cottage cheese and sour cream.",
+  "recipeCategory": "طبق جانبي",
+  "recipeCuisine": "متنوع",
+  "recipeYield": "4 إلى 6 حصص",
+  "prepTime": "PT5M",
+  "cookTime": "PT10M",
+  "totalTime": "PT15M",
+  "recipeIngredient": [
+    "2-1/2 cups cooked or soaked Bulgor Wheat",
+    "1 cup sour cream",
+    "1 cup cottage cheese",
+    "1 teaspoon grated onion",
+    "3/4 teaspoon salt",
+    "Dash Tabasco Sauce",
+    "1/4 teaspoon Worcestershire sauce"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Blend all ingredients in a saucepan."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and cook low heat about 10 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir several times while heating."
+    }
+  ]
+}
