@@ -886,7 +886,7 @@ function writeAllRecipesPages() {
     }, []);
 
     const recipesJson = {
-      title: 'Recipes',
+      title: lang === 'fr' ? 'Recettes' : (lang === 'ar' ? 'وصفات مميزة' : (lang === 'hy' ? 'Առանձնահատուկ բաղադրատոմսեր' : 'Recipes')),
       viewAllLink: recipeIndexPath(lang),
       viewAllText: lang === 'fr' ? 'Voir toutes les recettes →' : (lang === 'ar' ? 'عرض جميع الوصفات →' : (lang === 'hy' ? 'Դիտել բոլոր բաղադրատոմսերը →' : 'View all recipes →')),
       featured: featured,
