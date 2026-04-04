@@ -146,7 +146,7 @@
     },
     {
       "slug": "armenian-style-lentil-soup",
-      "featuredRecipe": false,
+      "featuredRecipe": true,
       "title": {
         "en": "Armenian Style Lentil Soup",
         "fr": "Soupe Arménienne aux Lentilles",
@@ -1578,7 +1578,7 @@
     },
     {
       "slug": "scotch-broth",
-      "featuredRecipe": false,
+      "featuredRecipe": true,
       "title": {
         "en": "Scotch Broth with Bulgur Wheat",
         "fr": "Bouillon écossais au blé bulgur",
