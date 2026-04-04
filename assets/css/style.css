@@ -1134,6 +1134,10 @@ body[dir="rtl"] .back-home-button {
     left: 10px;
   }
 
+  .section-recipes {
+    min-height: auto;
+  }
+
   .certifications-preview {
     bottom: 20px;
     left: 20px;
@@ -1157,6 +1161,14 @@ body[dir="rtl"] .back-home-button {
     padding: 30px 20px;
   }
 
+  .section {
+    height: auto;
+  }
+
+  .page-section {
+    min-height: auto;
+  }
+
   .title {
     font-size: 6vh;
     padding: 0 3vh 0 3vh;
@@ -1172,6 +1184,11 @@ body[dir="rtl"] .back-home-button {
     font-size: 1.2rem;
   }
 
+  .companies-section {
+    min-height: auto;
+    padding: 40px 16px;
+  }
+
   .companies-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1182,7 +1199,7 @@ body[dir="rtl"] .back-home-button {
   }
   
   .company-card {
-    min-height: 350px;
+    min-height: auto;
   }
   
   .company-info {
@@ -1201,6 +1218,7 @@ body[dir="rtl"] .back-home-button {
 @media (max-width: 600px) {
   .section-recipes {
     padding: 32px 0;
+    min-height: auto;
   }
 
   .recipe-grid {
