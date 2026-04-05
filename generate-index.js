@@ -714,7 +714,7 @@ Object.entries(langs).forEach(([lang, config]) => {
     .replace(/{{baseUrl}}/g, BASE_URL)
     .replace(/{{backHomeText}}/g, config.backHomeText)
     .replace(/{{jsonld}}/g, loadJSONLD(lang)))
-    .replace(/<html lang="en" data-template-lang="([^"]+)"/i, '<html lang="$1"');
+    .replace(/<html lang="en" data-template-lang="([^"]+)"/i, `<html lang="$1" dir="${config.dir}"`);
 
   const outputFile = path.join(langDir, 'index.html');
   fs.writeFileSync(outputFile, html);
