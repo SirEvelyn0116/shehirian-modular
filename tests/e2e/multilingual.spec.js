@@ -75,6 +75,18 @@ function assertJsonLdPayloads(content) {
 
 const LANGUAGES = ['en', 'fr', 'ar', 'hy'];
 
+/**
+ * Wait for both localStorage 'lang' key and html[lang] attribute to match
+ * the expected language code before proceeding.
+ */
+async function expectLanguageApplied(page, lang) {
+  await expect(page.locator('html')).toHaveAttribute('lang', lang);
+  await expect(async () => {
+    const storedLang = await page.evaluate(() => localStorage.getItem('lang'));
+    expect(storedLang).toBe(lang);
+  }).toPass({ timeout: 5000 });
+}
+
 test.describe('Multilingual Static Site - E2E Tests', () => {
   
   test.describe.configure({ mode: 'parallel' });
@@ -210,23 +222,23 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     test('should navigate from EN to FR to AR and back', async ({ page }) => {
       // Start on English page
       await page.goto(homePageUrl('en'));
-      await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+      await expectLanguageApplied(page, 'en');
       
       // Click French link
       await page.click('a[href$="/fr/index.html"]');
       await page.waitForURL(/\/fr\/index\.html/);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
+      await expectLanguageApplied(page, 'fr');
       
       // Click Arabic link
       await page.click('a[href$="/ar/index.html"]');
       await page.waitForURL(/\/ar\/index\.html/);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
+      await expectLanguageApplied(page, 'ar');
       await expect(page.locator('body')).toHaveAttribute('dir', 'rtl');
       
       // Click English link to return
       await page.click('a[href$="/en/index.html"]');
       await page.waitForURL(/\/en\/index\.html/);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+      await expectLanguageApplied(page, 'en');
       await expect(page.locator('body')).toHaveAttribute('dir', 'ltr');
     });
 
@@ -238,19 +250,16 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         await page.click(`a[href$="/${targetLang}/index.html"]`);
         await page.waitForURL(new RegExp(`/${targetLang}/index\\.html`));
         
-        // Verify navigation
-        await expect(page.locator('html')).toHaveAttribute('lang', targetLang);
+        // Verify navigation and localStorage
+        await expectLanguageApplied(page, targetLang);
         const title = await page.title();
         expect(title).toBe(LOCALIZED_CONTENT[targetLang].title);
-        
-        // Verify localStorage updated
-        const storedLang = await page.evaluate(() => localStorage.getItem('lang'));
-        expect(storedLang).toBe(targetLang);
         
         // Return to EN for next iteration
         if (targetLang !== 'en') {
           await page.click('a[href$="/en/index.html"]');
           await page.waitForURL(/\/en\/index\.html/);
+          await expectLanguageApplied(page, 'en');
         }
       }
     });
@@ -472,16 +481,17 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     test('should navigate between languages including Armenian', async ({ page }) => {
       // Start from English
       await page.goto(homePageUrl('en'));
+      await expectLanguageApplied(page, 'en');
       
       // Navigate to Armenian
       await page.click('a[href$="/hy/index.html"]');
       await page.waitForURL(/\/hy\/index\.html/);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'hy');
+      await expectLanguageApplied(page, 'hy');
       
       // Navigate back to English
       await page.click('a[href$="/en/index.html"]');
       await page.waitForURL(/\/en\/index\.html/);
-      await expect(page.locator('html')).toHaveAttribute('lang', 'en');
+      await expectLanguageApplied(page, 'en');
     });
 
     test('should have Armenian locale for time formatting', async ({ page }) => {
