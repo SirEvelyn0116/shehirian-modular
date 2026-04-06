@@ -1,5 +1,7 @@
-// Get language from localStorage or default to English
-const lang = localStorage.getItem('lang') || 'en';
+// Derive language from the URL path (e.g., /en/index.html → 'en'), then sync localStorage
+const urlLangMatch = window.location.pathname.match(/\/(en|fr|ar|hy)\//);
+const lang = urlLangMatch ? urlLangMatch[1] : (localStorage.getItem('lang') || 'en');
+localStorage.setItem('lang', lang);
 window.__siteBaseUrl = window.__siteBaseUrl || document.documentElement.getAttribute('data-site-base-url') || '';
 window.__sitePathPrefix = /(?:^|\/)(en|fr|ar|hy)\//.test(window.location.pathname) ? '../' : '';
 
