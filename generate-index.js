@@ -80,8 +80,14 @@ function buildRecipeIndexLanguageSwitcher(currentLang) {
 
 function rewriteRecipeIndexPaths(pageHtml, lang) {
   const languageSwitcher = buildRecipeIndexLanguageSwitcher(lang);
+  const dirAttr = langs[lang] ? langs[lang].dir : 'ltr';
 
   let rewritten = pageHtml
+    .replace(/<html([^>]*)lang="[^"]+"([^>]*)>/i, (match, before, after) => {
+      const cleanBefore = before.replace(/\s*dir="[^"]*"/i, '');
+      const cleanAfter = after.replace(/\s*dir="[^"]*"/i, '');
+      return `<html${cleanBefore}lang="${lang}" dir="${dirAttr}"${cleanAfter}>`;
+    })
     .replace(/href="\.\.\/assets\//g, 'href="../../assets/')
     .replace(/src="\.\.\/assets\//g, 'src="../../assets/')
     .replace(/href="\.\.\/sections\//g, 'href="../../sections/')
@@ -296,8 +302,14 @@ function buildCertificationLanguageSwitcher(currentLang, certSlug) {
 function rewriteCertificationPagePaths(pageHtml, lang, certSlug) {
   const sourceLang = (pageHtml.match(/<html[^>]*lang="([^"]+)"/i) || [])[1] || lang;
   const languageSwitcher = buildCertificationLanguageSwitcher(lang, certSlug);
+  const dirAttr = langs[lang] ? langs[lang].dir : 'ltr';
   let rewritten = pageHtml
-    .replace(/<html([^>]*)lang="[^"]+"([^>]*)>/i, `<html$1lang="${lang}"$2>`)
+    .replace(/<html([^>]*)lang="[^"]+"([^>]*)>/i, (match, before, after) => {
+      // Strip any existing dir attribute so we can set the correct one
+      const cleanBefore = before.replace(/\s*dir="[^"]*"/i, '');
+      const cleanAfter = after.replace(/\s*dir="[^"]*"/i, '');
+      return `<html${cleanBefore}lang="${lang}" dir="${dirAttr}"${cleanAfter}>`;
+    })
     .replace(/href="\.\.\/assets\//g, 'href="../../assets/')
     .replace(/src="\.\.\/assets\//g, 'src="../../assets/')
     .replace(new RegExp(`href="\.\.\/index\\.${sourceLang}\\.html#certifications"`, 'gi'), `href="${homePagePath(lang)}#certifications"`)
@@ -904,7 +916,7 @@ function writeAllRecipesPages() {
     if (fs.existsSync(srcPage)) {
       pageHtml = fs.readFileSync(srcPage, 'utf8');
     } else {
-      pageHtml = `<!doctype html><html lang="${lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All Recipes</title><link rel="stylesheet" href="../../assets/css/style.css"></head><body><section class="all-recipes-page"><div class="all-recipes-header"><h1>All Recipes</h1></div><div class="all-recipes-grid"></div></section></body></html>`;
+      pageHtml = `<!doctype html><html lang="${lang}" dir="${langs[lang].dir}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All Recipes</title><link rel="stylesheet" href="../../assets/css/style.css"></head><body><section class="all-recipes-page"><div class="all-recipes-header"><h1>All Recipes</h1></div><div class="all-recipes-grid"></div></section></body></html>`;
     }
 
     pageHtml = rewriteRecipeIndexPaths(pageHtml, lang);
