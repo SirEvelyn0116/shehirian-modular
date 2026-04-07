@@ -46,6 +46,9 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+// Inline script injected into every page to sync localStorage.lang on load
+const LANG_SYNC_SCRIPT = `<script>\n(function(){var l=document.documentElement.getAttribute("lang")||location.pathname.split("/").filter(Boolean)[0];if(l)localStorage.setItem("lang",l);})();\n</script>`;
+
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -324,6 +327,9 @@ function rewriteCertificationPagePaths(pageHtml, lang, certSlug) {
     rewritten = rewritten.replace(/<body([^>]*)>/i, `<body$1>\n    ${languageSwitcher}`);
   }
 
+  // Inject lang-sync script before closing body
+  rewritten = rewritten.replace(/<\/body>/i, `${LANG_SYNC_SCRIPT}\n</body>`);
+
   return rewritten;
 }
 
@@ -545,6 +551,7 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
       <a class="view-all-btn" href="${homePagePath(lang)}#products-carousel">← ${escapeHtml(labels.backToProducts)}</a>
     </footer>
   </main>
+${LANG_SYNC_SCRIPT}
 </body>
 </html>`;
 }
@@ -976,7 +983,7 @@ function writeAllRecipesPages() {
   });
 </script>`;
 
-    out = out.replace(/<\/body>/i, `${expandScript}\n</body>`);
+    out = out.replace(/<\/body>/i, `${expandScript}\n${LANG_SYNC_SCRIPT}\n</body>`);
 
     const langRecipesDir = path.join(distDir, lang, 'recipes');
     ensureDir(langRecipesDir);
@@ -1101,6 +1108,7 @@ function writeAllRecipesPages() {
       <a class="view-all-btn" href="${recipeIndexPath(lang)}">${lang === 'fr' ? '← Toutes les recettes' : (lang === 'ar' ? '← كل الوصفات' : (lang === 'hy' ? '← Բոլոր բաղադրատոմսերը' : '← All recipes'))}</a>
     </footer>
   </main>
+${LANG_SYNC_SCRIPT}
 </body>
 </html>`;
 
