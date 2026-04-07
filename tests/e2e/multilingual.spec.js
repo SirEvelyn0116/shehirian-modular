@@ -208,10 +208,15 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         await page.goto(homePageUrl(lang));
         await page.waitForLoadState('networkidle');
         
-        // Filter out known acceptable errors (e.g., favicon 404s)
+        // Filter out known non-breaking warnings:
+        // - favicon 404s and generic resource failures
+        // - Firefox font-table validation warnings for the "Elgar" font
+        //   (e.g. "downloadable font: hdmx: ...")
         const criticalErrors = consoleErrors.filter(err => 
           !err.includes('favicon') && 
-          !err.includes('Failed to load resource')
+          !err.includes('Failed to load resource') &&
+          !err.includes('downloadable font:') &&
+          !err.includes('hdmx')
         );
         
         expect(criticalErrors).toHaveLength(0);
