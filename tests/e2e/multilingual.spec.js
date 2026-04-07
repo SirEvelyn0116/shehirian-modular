@@ -502,8 +502,6 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       await page.waitForLoadState('domcontentloaded');
       await expectLanguageApplied(page, 'en');
     });
-      await expectLanguageApplied(page, 'en');
-    });
 
     test('should have Armenian locale for time formatting', async ({ page }) => {
       await page.goto(recipeIndexUrl('hy'));
