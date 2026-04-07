@@ -2,7 +2,7 @@
 
 ## Overview
 
-This directory contains end-to-end tests for the multilingual static site using **Playwright**. The tests verify correct functionality across all three languages (EN, FR, AR) and ensure proper SEO, accessibility, and navigation.
+This directory contains end-to-end tests for the multilingual static site using **Playwright**. The tests verify correct functionality across all four languages (EN, FR, AR, HY) and ensure proper SEO, accessibility, and navigation.
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ After running tests, view detailed reports:
 
 ```bash
 # Open HTML report
-npx playwright show-report test-results/html
+npx playwright show-report playwright-report
 
 # View JSON results
 cat test-results/results.json
@@ -130,51 +130,15 @@ cat test-results/results.json
 
 ## CI/CD Integration
 
-### GitHub Actions Example
+### GitHub Actions
 
-Add to `.github/workflows/test.yml`:
+The project already has a full CI pipeline in `.github/workflows/test.yml` that:
 
-```yaml
-name: E2E Tests
+1. **Builds** the site (`npm run build`) and verifies all four language outputs exist
+2. **Tests** against a local server on three browsers (chromium, firefox, webkit)
+3. **Publishes** merged test reports as artifacts
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  schedule:
-    - cron: '0 0 * * 0'  # Weekly on Sunday
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-      
-      - name: Run Playwright tests
-        env:
-          BASE_URL: https://sirevelyn0116.github.io/shehirian-modular
-        run: npx playwright test
-      
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report
-          path: test-results/
-          retention-days: 30
-```
+The CI uses `BASE_URL=http://127.0.0.1:8080` and tests against a local `http-server` serving the `dist/` directory.
 
 ## Debugging Failed Tests
 
@@ -237,7 +201,7 @@ const LOCALIZED_CONTENT = {
 
 ```javascript
 test('should have custom feature', async ({ page }) => {
-  await page.goto(`${BASE_URL}/index.en.html`);
+  await page.goto(`${BASE_URL}/en/index.html`);
   
   // Your test logic
   const element = page.locator('.custom-selector');
