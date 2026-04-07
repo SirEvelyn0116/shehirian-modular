@@ -229,20 +229,20 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       // Click French link
       await page.click('a[href$="/fr/index.html"]');
       await page.waitForURL(/\/fr\/index\.html/);
-      await page.waitForLoadState('domcontentloaded');
+      await page.waitForLoadState('networkidle');
       await expectLanguageApplied(page, 'fr');
       
       // Click Arabic link
       await page.click('a[href$="/ar/index.html"]');
       await page.waitForURL(/\/ar\/index\.html/);
-      await page.waitForLoadState('domcontentloaded');
+      await page.waitForLoadState('networkidle');
       await expectLanguageApplied(page, 'ar');
       await expect(page.locator('body')).toHaveAttribute('dir', 'rtl');
       
       // Click English link to return
       await page.click('a[href$="/en/index.html"]');
       await page.waitForURL(/\/en\/index\.html/);
-      await page.waitForLoadState('domcontentloaded');
+      await page.waitForLoadState('networkidle');
       await expectLanguageApplied(page, 'en');
       await expect(page.locator('body')).toHaveAttribute('dir', 'ltr');
     });
@@ -254,7 +254,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         // Click language switcher
         await page.click(`a[href$="/${targetLang}/index.html"]`);
         await page.waitForURL(new RegExp(`/${targetLang}/index\\.html`));
-        await page.waitForLoadState('domcontentloaded');
+        await page.waitForLoadState('networkidle');
         
         // Verify navigation and localStorage
         await expectLanguageApplied(page, targetLang);
@@ -265,7 +265,7 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
         if (targetLang !== 'en') {
           await page.click('a[href$="/en/index.html"]');
           await page.waitForURL(/\/en\/index\.html/);
-          await page.waitForLoadState('domcontentloaded');
+          await page.waitForLoadState('networkidle');
           await expectLanguageApplied(page, 'en');
         }
       }
@@ -493,13 +493,13 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
       // Navigate to Armenian
       await page.click('a[href$="/hy/index.html"]');
       await page.waitForURL(/\/hy\/index\.html/);
-      await page.waitForLoadState('domcontentloaded');
+      await page.waitForLoadState('networkidle');
       await expectLanguageApplied(page, 'hy');
       
       // Navigate back to English
       await page.click('a[href$="/en/index.html"]');
       await page.waitForURL(/\/en\/index\.html/);
-      await page.waitForLoadState('domcontentloaded');
+      await page.waitForLoadState('networkidle');
       await expectLanguageApplied(page, 'en');
     });
 

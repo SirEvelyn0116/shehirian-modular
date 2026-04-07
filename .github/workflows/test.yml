@@ -29,8 +29,9 @@ jobs:
         run: npm ci
       
       - name: Build site
-        env:
-          BASE_URL: /${{ github.event.repository.name }}
+        # No BASE_URL prefix: the test job serves dist/ at http://127.0.0.1:8080
+        # with no path prefix, so links must be root-relative (e.g. /fr/index.html).
+        # Deployment workflows (Production-Deploy, preview) set their own BASE_URL.
         run: npm run build
       
       - name: Verify build output
