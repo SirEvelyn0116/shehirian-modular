@@ -7,7 +7,7 @@ const { test, expect } = require('@playwright/test');
 test.describe('Smoke Tests', () => {
   
   test('quick health check - EN page loads', async ({ page }) => {
-    const response = await page.goto('https://sirevelyn0116.github.io/shehirian-modular/index.en.html');
+    const response = await page.goto('https://sirevelyn0116.github.io/shehirian-modular/en/index.html');
     expect(response.status()).toBe(200);
     
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
@@ -19,7 +19,7 @@ test.describe('Smoke Tests', () => {
 test.describe('Custom Feature Tests', () => {
   
   test('verify recipe images load', async ({ page }) => {
-    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/index.en.html');
+    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/en/index.html');
     await page.waitForLoadState('networkidle');
     
     const recipeSection = page.locator('section.recipes, .recipes');
@@ -41,7 +41,7 @@ test.describe('Custom Feature Tests', () => {
   });
   
   test('verify contact form fields', async ({ page }) => {
-    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/index.en.html');
+    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/en/index.html');
     await page.waitForLoadState('networkidle');
     
     const contactForm = page.locator('form.contact-form, .contact-form');
@@ -55,7 +55,7 @@ test.describe('Custom Feature Tests', () => {
   });
   
   test('verify certification badges render', async ({ page }) => {
-    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/index.en.html');
+    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/en/index.html');
     await page.waitForLoadState('networkidle');
     
     const certSection = page.locator('section.certifications, .certifications');
@@ -72,7 +72,7 @@ test.describe('Custom Feature Tests', () => {
 test.describe('Visual Regression', () => {
   
   test('homepage screenshot comparison', async ({ page }) => {
-    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/index.en.html');
+    await page.goto('https://sirevelyn0116.github.io/shehirian-modular/en/index.html');
     await page.waitForLoadState('networkidle');
     
     // Take screenshot and compare with baseline

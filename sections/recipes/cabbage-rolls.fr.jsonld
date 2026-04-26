@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Choux farcis",
+  "author": "Famille Shehirian",
+  "description": "Feuilles de chou farcies d'une préparation de boulghour et d'agneau, mijotées jusqu'à tendreté.",
+  "recipeCategory": "Plat principal",
+  "recipeCuisine": "Moyen-Orientale",
+  "recipeYield": "Pour plusieurs personnes",
+  "prepTime": "PT30M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H30M",
+  "recipeIngredient": [
+    "Feuilles de chou",
+    "1 1/2 tasse d'agneau haché",
+    "2 petits oignons hachés",
+    "1 1/2 tasse de boulghour",
+    "3 c. à soupe de concentré de tomate",
+    "2 c. à soupe de persil haché",
+    "1/2 c. à thé de menthe séchée",
+    "Sel et poivre au goût",
+    "3 tasses de bouillon de viande ou d'eau",
+    "Jus d'1/2 citron"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Ramollir les feuilles de chou dans l'eau bouillante et couper les nervures."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger le boulghour avec l'agneau, les oignons, le concentré de tomate, le persil, la menthe, le sel et le poivre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Déposer la farce sur les feuilles, rouler et arranger dans la poêle; ajouter le bouillon et le jus de citron."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Couvrir et cuire à feu modéré ou au four pendant 1 heure."
+    }
+  ]
+}

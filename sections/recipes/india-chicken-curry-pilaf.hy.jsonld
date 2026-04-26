@@ -1,0 +1,26 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "India հավ Curry Pilaf",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A creamy curried հավ pilaf with ձավարի ցորեն and apples.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Indian-Inspired",
+  "recipeYield": "5-6 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT25M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "Կարագ or հավի միս fat, մանրացված սոխ, tart apple, նեխուր, կարի powder, կծու, ալյուր, աղ, պղպեղ, հավի միս stock, սերուցք or կաթ, եփած խորանարդիկներով հավի միս, ձավար"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Տապակել սոխ, apple and նեխուր in կարագ; ավելացնել spices and ալյուր then խառնել in stock and սերուցք until thickened."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել եփած հավի միս and ձավար, ծածկել and եփել դանդաղ կրակով over low տաքացնել 25 րոպե."
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "title": "Contact Us",
   "getInTouch": "Get in Touch",
+  "addressLabel": "Address",
+  "phoneLabel": "Phone",
+  "faxLabel": "Fax",
+  "emailLabel": "Email",
   "address": "375 Midwest Rd., Toronto, ON",
   "phone": "(416) 757-9495",
   "fax": "(416) 752-9248",

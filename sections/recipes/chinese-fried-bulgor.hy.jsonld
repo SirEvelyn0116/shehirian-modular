@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Chinese Fried ձավարի ցորեն",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A quick fried ձավարի ցորեն with soy sauce and vegetables, served as a side or main.",
+  "recipeCategory": "Main/Side",
+  "recipeCuisine": "Chinese-Inspired",
+  "recipeYield": "4-5 պորցիա",
+  "prepTime": "PT5M",
+  "cookTime": "PT15M",
+  "totalTime": "PT20M",
+  "recipeIngredient": [
+    "2 ճաշի գդալ ձեթ",
+    "3/4 բաժակ finely մանրացված սոխ",
+    "1/2 բաժակ finely մանրացված կանաչ bell պղպեղ",
+    "1/2 բաժակ finely մանրացված նեխուր",
+    "2-1/2 բաժակ եփած ձավար",
+    "2 ճաշի գդալ սոյայի սոուս"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Տաքացնել ձեթ in տապակ, տապակել սոխ, bell պղպեղ and նեխուր until translucent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել ներս եփած ձավար and սոյայի սոուս; ծածկել and եփել over low տաքացնել 15 րոպե, խառնելring occasionally."
+    }
+  ]
+}

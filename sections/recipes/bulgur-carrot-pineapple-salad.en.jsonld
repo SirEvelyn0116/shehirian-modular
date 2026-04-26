@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgur Carrot Pineapple Salad",
+  "author": "Shehirian family",
+  "description": "A sweet and savory salad combining bulgur wheat with shredded carrots and tropical pineapple.",
+  "recipeCategory": "Salad",
+  "recipeCuisine": "American",
+  "recipeYield": "8-10 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 cups cooked and cooled bulgur wheat",
+    "2 cups shredded carrots",
+    "1 cup pineapple chunks (fresh or canned)",
+    "1/4 cup mayonnaise",
+    "1 tbsp lemon juice",
+    "1 tbsp sugar (optional)",
+    "Salt and pepper to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Cook bulgur according to package, cool to room temperature."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a large bowl combine bulgur, shredded carrots and pineapple."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk together mayonnaise, lemon juice, sugar, salt and pepper; fold into salad."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Chill before serving."
+    }
+  ]
+}

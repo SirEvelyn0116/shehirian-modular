@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Soupe Royale",
+  "author": "Famille Shehirian",
+  "description": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
+  "recipeCategory": "Soupe",
+  "recipeCuisine": "Moyen-Orientale",
+  "recipeYield": "6 portions",
+  "prepTime": "PT15M",
+  "cookTime": "PT30M",
+  "totalTime": "PT45M",
+  "recipeIngredient": [
+    "2 litres de bouillon de poulet",
+    "225 g de bœuf haché (pas trop maigre)",
+    "60 ml de riz cru",
+    "60 ml d’oignon très finement haché",
+    "60 ml de persil",
+    "60 ml de jus de citron",
+    "60 ml de céleri finement haché",
+    "1/4 c. à thé de sel",
+    "Tranches de 2 citrons"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger la viande crue, le boulghour, l’oignon, le persil et l’assaisonnement, puis former des boulettes de 2,5 cm de diamètre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le riz au mélange de boulettes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter les boulettes au bouillon de poulet chaud et laisser mijoter jusqu’à cuisson complète."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le jus de citron et le céleri. Laisser mijoter 10 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le sel et les tranches de citron. Laisser mijoter 5 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajuster l’acidité, le sel ou l’épaisseur avec du sucre, de l’eau ou du riz au besoin."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verser le bouillon sur les boulettes et servir."
+    }
+  ]
+}

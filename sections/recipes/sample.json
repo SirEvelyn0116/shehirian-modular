@@ -1,0 +1,207 @@
+{
+  "recipes": [
+    {
+      "slug": "royal-soup",
+      "featuredRecipe": true,
+      "title": {
+        "en": "Royal Soup",
+        "fr": "Soupe Royale",
+        "ar": "حساء ملكي"
+      },
+      "description": {
+        "en": "A Middle Eastern lemon meatball soup with rice and parsley.",
+        "fr": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
+        "ar": "حساء شرق أوسطي بكرات اللحم والليمون مع الأرز والبقدونس."
+      },
+      "author": {
+        "en": "Laurence Evelyn",
+        "fr": "Laurence Evelyn",
+        "ar": "لورنس إيفلين"
+      },
+      "recipeCategory": {
+        "en": "Soup",
+        "fr": "Soupe",
+        "ar": "شوربة"
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "Moyen-Orientale",
+        "ar": "شرق أوسطية"
+      },
+      "recipeYield": {
+        "en": "6 servings",
+        "fr": "6 portions",
+        "ar": "ست حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT30M",
+      "totalTime": "PT45M",
+      "ingredients": {
+        "en": [
+          "1/2 gallon chicken broth",
+          "1/2 lb. ground beef (not too lean)",
+          "1/4 cup raw rice",
+          "1/4 cup very finely chopped onion",
+          "1/4 cup parsley",
+          "1/4 cup lemon juice",
+          "1/4 cup finely chopped celery",
+          "1/4 tsp. salt",
+          "Slice of 2 lemons"
+        ],
+        "fr": [
+          "2 litres de bouillon de poulet",
+          "225 g de bœuf haché (pas trop maigre)",
+          "60 ml de riz cru",
+          "60 ml d’oignon très finement haché",
+          "60 ml de persil",
+          "60 ml de jus de citron",
+          "60 ml de céleri finement haché",
+          "1/4 c. à thé de sel",
+          "Tranches de 2 citrons"
+        ],
+        "ar": [
+          "نصف جالون مرق دجاج",
+          "نصف رطل لحم بقري مفروم (غير قليل الدهن)",
+          "ربع كوب أرز نيء",
+          "ربع كوب بصل مفروم ناعم جدًا",
+          "ربع كوب بقدونس",
+          "ربع كوب عصير ليمون",
+          "ربع كوب كرفس مفروم ناعم",
+          "ربع ملعقة صغيرة ملح",
+          "شرائح من 2 ليمون"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
+          "Add rice to the meat balls mixture.",
+          "Add meat balls to hot chicken broth and simmer until cooked through.",
+          "Add lemon juice and celery. Simmer for 10 minutes.",
+          "Add salt and lemon slices. Simmer for 5 minutes.",
+          "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
+          "Pour broth over meatballs and serve."
+        ],
+        "fr": [
+          "Mélanger la viande crue, le boulghour, l’oignon, le persil et l’assaisonnement, puis former des boulettes de 2,5 cm de diamètre.",
+          "Ajouter le riz au mélange de boulettes.",
+          "Ajouter les boulettes au bouillon de poulet chaud et laisser mijoter jusqu’à cuisson complète.",
+          "Ajouter le jus de citron et le céleri. Laisser mijoter 10 minutes.",
+          "Ajouter le sel et les tranches de citron. Laisser mijoter 5 minutes.",
+          "Ajuster l’acidité, le sel ou l’épaisseur avec du sucre, de l’eau ou du riz au besoin.",
+          "Verser le bouillon sur les boulettes et servir."
+        ],
+        "ar": [
+          "اخلط اللحم النيء والبرغل والبصل والبقدونس والتوابل معًا وشكّل كرات بقطر 2.5 سم.",
+          "أضف الأرز إلى خليط كرات اللحم.",
+          "أضف كرات اللحم إلى مرق الدجاج الساخن واتركها تغلي حتى تنضج.",
+          "أضف عصير الليمون والكرفس واتركه يغلي لمدة 10 دقائق.",
+          "أضف الملح وشرائح الليمون واتركه يغلي لمدة 5 دقائق.",
+          "اضبط الحموضة أو الملوحة أو السماكة باستخدام السكر أو الماء أو الأرز حسب الحاجة.",
+          "اسكب المرق فوق كرات اللحم وقدّم."
+        ]
+      },
+      "keywords": {
+        "en": ["royal soup", "lemon meatball soup", "bulghur soup"],
+        "fr": ["soupe royale", "soupe aux boulettes de citron", "soupe au boulghour"],
+        "ar": ["حساء ملكي", "حساء كرات اللحم بالليمون", "حساء البرغل"]
+      }
+    },
+    {
+      "slug": "armenian-style-lentil-soup",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Armenian Style Lentil Soup",
+        "fr": "Soupe Arménienne aux Lentilles",
+        "ar": "حساء العدس على الطريقة الأرمنية"
+      },
+      "description": {
+        "en": "A hearty Armenian soup with lentils, parsley, mint, and butter.",
+        "fr": "Une soupe arménienne consistante aux lentilles, persil, menthe et beurre.",
+        "ar": "حساء أرمني غني بالعدس والبقدونس والنعناع والزبدة."
+      },
+      "author": {
+        "en": "Laurence Evelyn",
+        "fr": "Laurence Evelyn",
+        "ar": "لورنس إيفلين"
+      },
+      "recipeCategory": {
+        "en": "Soup",
+        "fr": "Soupe",
+        "ar": "شوربة"
+      },
+      "recipeCuisine": {
+        "en": "Armenian",
+        "fr": "Arménienne",
+        "ar": "أرمنية"
+      },
+      "recipeYield": {
+        "en": "4 servings",
+        "fr": "4 portions",
+        "ar": "أربع حصص"
+      },
+      "prepTime": "PT15M",
+      "cookTime": "PT60M",
+      "totalTime": "PT75M",
+      "ingredients": {
+        "en": [
+          "1/2 cup water",
+          "1/2 cup lentils",
+          "1/2 cup chopped onion",
+          "1/2 cup chopped parsley",
+          "1/2 tsp. salt",
+          "1/2 tsp. pepper",
+          "1/2 cup butter or margarine",
+          "1/2 cup chopped mint"
+        ],
+        "fr": [
+          "125 ml d’eau",
+          "125 ml de lentilles",
+          "125 ml d’oignon haché",
+          "125 ml de persil haché",
+          "1/2 c. à thé de sel",
+          "1/2 c. à thé de poivre",
+          "125 ml de beurre ou margarine",
+          "125 ml de menthe hachée"
+        ],
+        "ar": [
+          "نصف كوب ماء",
+          "نصف كوب عدس",
+          "نصف كوب بصل مفروم",
+          "نصف كوب بقدونس مفروم",
+          "نصف ملعقة صغيرة ملح",
+          "نصف ملعقة صغيرة فلفل",
+          "نصف كوب زبدة أو سمن",
+          "نصف كوب نعناع مفروم"
+        ]
+      },
+      "instructions": {
+        "en": [
+          "Boil lentils in water for 15 minutes.",
+          "Add onion, parsley, salt, and pepper. Simmer for 45 minutes.",
+          "Add mint and butter. Simmer for 15 minutes.",
+          "Add 1/4 tsp. pepper and cook for 5 minutes.",
+          "Optional: Fry butter until light brown and pour over soup."
+        ],
+        "fr": [
+          "Faire bouillir les lentilles dans l’eau pendant 15 minutes.",
+          "Ajouter l’oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes.",
+          "Ajouter la menthe et le beurre. Laisser mijoter 15 minutes.",
+          "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes.",
+          "Optionnel : Faire frire le beurre jusqu’à ce qu’il soit doré et le verser sur la soupe."
+        ],
+        "ar": [
+          "اغلِ العدس في الماء لمدة 15 دقيقة.",
+          "أضف البصل والبقدونس والملح والفلفل واتركه يغلي لمدة 45 دقيقة.",
+          "أضف النعناع والزبدة واتركه يغلي لمدة 15 دقيقة.",
+          "أضف ربع ملعقة صغيرة فلفل واطهِ لمدة 5 دقائق.",
+          "اختياري: اقْلِ الزبدة حتى تصبح بنية فاتحة ثم اسكبها فوق الحساء."
+        ]
+      },
+      "keywords": {
+        "en": ["lentil soup", "Armenian recipe", "mint soup"],
+        "fr": ["soupe aux lentilles", "recette arménienne", "soupe à la menthe"],
+        "ar": ["حساء العدس", "وصفة أرمنية", "حساء النعناع"]
+      }
+    }
+  ]
+}

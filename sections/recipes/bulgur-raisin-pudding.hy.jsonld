@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Old-Fashioned ձավարի ցորեն-Raisin Pudding",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A baked ձավարի ցորեն pudding studded with raisins.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "5-6 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT1H30M",
+  "totalTime": "PT1H40M",
+  "recipeIngredient": [
+    "1-1/2 բաժակ ջուր",
+    "2-1/2 բաժակ եփած ձավար",
+    "1-1/2 բաժակ evaporated կաթ",
+    "1/3 բաժակ շաքար",
+    "1/2 թեյի գդալ աղ",
+    "1/4 թեյի գդալ mace",
+    "1/2 բաժակ seedless չամիչ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել all ingկարմիրients in a թխման աման."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ծածկել and թխել in moderate վառարան, 325°f (160°c), 45 րոպե."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Հանել ծածկել, խառնել, and continue baking բացելed about 45 րոպե or until շագանակագույն դարձնելed."
+    }
+  ]
+}

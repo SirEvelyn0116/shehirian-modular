@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Spiced ոսպ Soup",
+  "author": "Շահիրյան ընտանիք",
+  "description": "Հանգստացնող, սպիտակուցով հարուստ, and կատարյալ աշնանը համար.",
+  "recipeCategory": "Ապուր",
+  "recipeCuisine": "Մերձավոր Արևելյան",
+  "recipeYield": "4 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "1 բաժակ կարմիր ոսպs",
+    "1 սոխ",
+    "2 գազարs",
+    "1 թեյի գդալ cumin",
+    "1 ճաշի գդալ ձիթապտղի ձեթ"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Տաքացնել ձիթապտղի ձեթ in a մեծ pot over միջին տաքացնել."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Տապակել մանրացված սոխ and խորանարդիկներով գազարs with cumin until softened."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել կարմիր ոսպs and enough ջուր to ծածկել by 2 inches."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Եռալու բերել, then կրակը նվազեցնել and եփել դանդաղ կրակով for 25-30 րոպե until ոսպs are soft."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Համեմել with աղ and պղպեղ to taste. մատուցել hot."
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Hearty Bulgur Pilaf",
+  "author": "Shehirian family",
+  "description": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "4 servings",
+  "prepTime": "PT10M",
+  "cookTime": "PT25M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "1 1/2 cups coarse bulgur wheat",
+    "2 tbsp butter or olive oil",
+    "1 medium onion, diced",
+    "2 cloves garlic, minced",
+    "1 red bell pepper, diced",
+    "1 carrot, diced",
+    "3 cups vegetable broth",
+    "1 tsp cumin",
+    "1/2 tsp paprika",
+    "Salt and pepper to taste",
+    "Fresh herbs for garnish"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a large pot, heat butter or oil over medium heat."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add onion and garlic, sauté until fragrant and translucent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add bell pepper and carrot, cook for 5 minutes until softened."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in bulgur wheat, cumin, and paprika, coating the grains with oil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Pour in vegetable broth, bring to a boil, then reduce heat to low."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and simmer for 15-20 minutes until bulgur is tender and liquid is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove from heat, let stand covered for 5 minutes, then fluff with a fork."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Season with salt and pepper, garnish with fresh herbs, and serve."
+    }
+  ]
+}

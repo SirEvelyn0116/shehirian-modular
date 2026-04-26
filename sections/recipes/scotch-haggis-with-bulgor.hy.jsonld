@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Scotch Haggis with ձավարի ցորեն",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A traditional haggis-style pudding mixed with ձավարի ցորեն.",
+  "recipeCategory": "Pudding",
+  "recipeCuisine": "Շոտլանդական",
+  "recipeYield": "Large (serves several)",
+  "prepTime": "PT30M",
+  "cookTime": "PT3H",
+  "totalTime": "PT3H30M",
+  "recipeIngredient": [
+    "3 գառան միս hearts",
+    "1 lb liver",
+    "1/2 lb մանրացված suet",
+    "1/2 բաժակ մանրացված սոխ",
+    "1 բաժակ ձավար ցորեն",
+    "3 թեյի գդալ աղ",
+    "2 բաժակ միս broth or bouillon"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Եփել դանդաղ կրակով գառան միս hearts and liver in ջուր 1.5 ժամ; զովացուցիչ and grind."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել suet, սոխ, ձավար, աղ and broth; լավ խառնել and steam in ծածկելed քաղցրավենիք mold 3 ժամ."
+    }
+  ]
+}

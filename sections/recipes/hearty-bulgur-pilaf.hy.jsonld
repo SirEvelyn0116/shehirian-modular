@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Hearty ձավարի ցորեն Pilaf",
+  "author": "Շահիրյան ընտանիք",
+  "description": "Coarse ձավարի ցորեն simmered with vegetables and spices for a comforting meal.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Մերձավոր Արևելյան",
+  "recipeYield": "4 պորցիա",
+  "prepTime": "PT10M",
+  "cookTime": "PT25M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "1 1/2 բաժակ coarse ձավար ցորեն",
+    "2 ճաշի գդալ կարագ or ձիթապտղի ձեթ",
+    "1 միջին սոխ, խորանարդիկներով",
+    "2 cloves սխտոր, մանրացված",
+    "1 կարմիր bell պղպեղ, խորանարդիկներով",
+    "1 գազար, խորանարդիկներով",
+    "3 բաժակ vegetable broth",
+    "1 թեյի գդալ cumin",
+    "1/2 թեյի գդալ paprika",
+    "Աղ and պղպեղ to taste",
+    "Թարմ herbs for garnish"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a մեծ pot, տաքացնել կարագ or ձեթ over միջին տաքացնել."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել սոխ and սխտոր, տապակել until fragrant and translucent."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել bell պղպեղ and գազար, եփել for 5 րոպե until softened."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել in ձավար ցորեն, cumin, and paprika, coating the grains with ձեթ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Pour in vegetable broth, եռալու բերել, then կրակը նվազեցնել to low."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ծածկել and եփել դանդաղ կրակով for 15-20 րոպե until ձավար is tender and liquid is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove from տաքացնել, թողնել կանգնած ծածկելed for 5 րոպե, then fluff with a fork."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Համեմել with աղ and պղպեղ, garnish with թարմ herbs, and մատուցել."
+    }
+  ]
+}

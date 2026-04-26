@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Chef's ձավարի ցորեն Salad",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A hearty main course salad featuring ձավարի ցորեն wheat, fresh vegetables, and your choice of cold meats and պանիր.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Ամերիկյան",
+  "recipeYield": "8 պորցիա",
+  "prepTime": "PT20M",
+  "cookTime": "PT15M",
+  "totalTime": "PT35M",
+  "recipeIngredient": [
+    "2 բաժակ եփած ձավար ցորեն",
+    "2 բաժակ խառնելed աղցան կանաչs",
+    "1 բաժակ խորանարդիկներով լոլիկ",
+    "1 բաժակ խորանարդիկներով վարունգ",
+    "1 բաժակ cold միսs, կտրատված (optional)",
+    "1 բաժակ cubed պանիր (optional)",
+    "1/4 բաժակ ձիթապտղի ձեթ",
+    "2 ճաշի գդալ կիտրոն juice",
+    "Աղ and պղպեղ to taste"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Prepare ձավար and let cool."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a մեծ bowl խառնել ձավար, աղցան կանաչs, լոլիկ and վարունգ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ավելացնել cold միսs and պանիր if using."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Whisk ձիթապտղի ձեթ, կիտրոն juice, աղ and պղպեղ; toss with աղցան."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Մատուցել chilled or at room temperature."
+    }
+  ]
+}

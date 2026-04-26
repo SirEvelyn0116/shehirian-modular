@@ -1,0 +1,47 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Pain Blanc au Bulgor",
+  "author": "Famille Shehirian",
+  "description": "Un pain blanc moelleux préparé en incorporant du boulghour cuit dans la pâte.",
+  "recipeCategory": "Autre",
+  "recipeCuisine": "Cuit au four",
+  "recipeYield": "2 pains (450 g)",
+  "prepTime": "PT30M",
+  "cookTime": "PT35M",
+  "totalTime": "PT1H5M",
+  "recipeIngredient": [
+    "1 cup water",
+    "1/4 cup Bulgor wheat",
+    "1/8 teaspoon salt (for Bulgor mixture)",
+    "3/4 cup milk",
+    "1 package (1/4 oz.) activated dry yeast",
+    "1/2 cup lukewarm water",
+    "4-1/4 cups all-purpose flour (reserve 1/4 cup for dusting)",
+    "2 teaspoons salt (for flour mixture)",
+    "3 tablespoons sugar",
+    "3 tablespoons shortening or oil"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."
+    }
+  ]
+}

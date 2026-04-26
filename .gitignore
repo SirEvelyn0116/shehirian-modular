@@ -7,3 +7,8 @@ test-results/
 # Test artifacts
 playwright-report/
 playwright/.auth/
+dist/
+
+# payment-integration-prototype build output
+.netlify/
+payment-integration-prototype/

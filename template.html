@@ -1,35 +1,80 @@
 <!DOCTYPE html>
-<html lang="{{lang}}">
+<html lang="en" data-template-lang="{{lang}}" data-site-base-url="{{baseUrl}}">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{title}}</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal" rel="stylesheet">
   <link rel="alternate" hreflang="x-default" href="index.en.html" />
   <link rel="alternate" hreflang="en" href="index.en.html" />
   <link rel="alternate" hreflang="fr" href="index.fr.html" />
   <link rel="alternate" hreflang="ar" href="index.ar.html" />
+  <link rel="alternate" hreflang="hy" href="index.hy.html" />
   {{jsonld}}
 </head>
 <body dir="{{dir}}">
-  <div id="language-switcher" class="lang-switcher-nav">
-    <a href="index.en.html">EN</a>
-    <a href="index.fr.html">FR</a>
-    <a href="index.ar.html">AR</a>
+  <div class="background">
+    <div id="language-switcher" class="lang-switcher-nav">
+      <a href="index.en.html" class="flag" title="English" aria-label="English">
+        <img src="../assets/img/flags/gb.svg" alt="English">
+        <span class="code">EN</span>
+      </a>
+      <a href="index.fr.html" class="flag" title="Français" aria-label="Français">
+        <img src="../assets/img/flags/fr.svg" alt="Français">
+        <span class="code">FR</span>
+      </a>
+      <a href="index.ar.html" class="flag" title="العربية" aria-label="العربية">
+        <img src="../assets/img/flags/lb.svg" alt="العربية">
+        <span class="code">AR</span>
+      </a>
+      <a href="index.hy.html" class="flag" title="Հայերեն" aria-label="Հայերեն">
+        <img src="../assets/img/flags/am.svg" alt="Հայերեն">
+        <span class="code">HY</span>
+      </a>
+    </div>
+
+    <!-- Floating Back/Home Button -->
+    <div class="back-home-button" id="backHomeButton">
+      <a href="#home">{{backHomeText}}</a>
+    </div>
+
+    <div id="preview"></div>
   </div>
 
-  <div id="preview"></div>
-
   <!-- Load all section render functions -->
-  <script src="sections/hero/render.js"></script>
-  <script src="sections/aboutUs/render.js"></script>
-  <script src="sections/ourCompanies/render.js"></script>
-  <script src="sections/recipes/render.js"></script>
-  <script src="sections/certifications/render.js"></script>
-  <script src="sections/contactUs/render.js"></script>
+  <script src="../sections/hero/render.js"></script>
+  <script src="../sections/aboutUs/render.js"></script>
+  <script src="../sections/ourCompanies/render.js"></script>
+  <script src="../sections/recipes/render.js"></script>
+  <script src="../sections/certifications/render.js"></script>
+  <script src="../sections/contactUs/render.js"></script>
   
   <!-- Set language and load preview -->
-  <script>localStorage.setItem('lang', '{{lang}}');</script>
-  <script src="preview.js"></script>
+  <script>
+    window.__siteBaseUrl = '{{baseUrl}}';
+    localStorage.setItem('lang', '{{lang}}');
+  </script>
+  <script src="../preview.js"></script>
+  
+  <!-- Back/Home button visibility script -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const backHomeButton = document.getElementById('backHomeButton');
+      const homeSection = document.getElementById('home');
+      
+      if (homeSection && backHomeButton) {
+        const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        if (scrollPosition > homeBottom - 100) {
+          backHomeButton.classList.add('visible');
+        } else {
+          backHomeButton.classList.remove('visible');
+        }
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Indian Pudding",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A molasses-sweet ձավարի ցորեն pudding spiced with cinnamon and ginger.",
+  "recipeCategory": "Կրկեսային",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "6 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT1H30M",
+  "totalTime": "PT1H45M",
+  "recipeIngredient": [
+    "2-1/2 բաժակ եփած ձավար",
+    "1/2 թեյի գդալ աղ",
+    "1/2 թեյի գդալ դարչին",
+    "1/4 թեյի գդալ կծու",
+    "1/8 թեյի գդալ մեխակ",
+    "1/3 բաժակ շաքար",
+    "1/2 բաժակ molasses",
+    "3 ճաշի գդալ կարագ",
+    "1/2 բաժակ չամիչ (optional)",
+    "1 մեծ can evaporated կաթ",
+    "1-1/4 բաժակ ջուր"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել all ingկարմիրients in a 2-քվարտ casserole."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ծածկել and թխել in a slow վառարան (325°f / 160°c) for 45 րոպե."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Հանել ծածկել and continue baking about 45 րոպե until set."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Մատուցել տաք with whipped սերուցք or ice սերուցք."
+    }
+  ]
+}

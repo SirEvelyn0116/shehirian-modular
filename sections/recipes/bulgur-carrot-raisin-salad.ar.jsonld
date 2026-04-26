@@ -1,0 +1,34 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "سلطة البرغل بالجزر والزبيب",
+  "author": "عائلة شيهريان",
+  "description": "نسخة مع الزبيب وصلصة فرنسية لنكهة حلوة وحامضة لذيذة.",
+  "recipeCategory": "سلطة",
+  "recipeCuisine": "أمريكية",
+  "recipeYield": "8-10 حصص",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "2 كوب برغل مطبوخ",
+    "1 1/2 كوب جزر مبشور",
+    "1/2 كوب زبيب",
+    "1/2 كوب صلصة فرنسية (أو صلصة vinaigrette)",
+    "ملح وفلفل حسب الذوق"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "اخلط البرغل المطبوخ والجزر المبشور والزبيب في وعاء."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "أضف الصلصة الفرنسية وامزج لتغليف المكونات."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "ضعها في الثلاجة قبل التقديم."
+    }
+  ]
+}

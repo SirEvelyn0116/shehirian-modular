@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Wheat Salad",
+  "author": "Շահիրյան ընտանիք",
+  "description": "Fresh herbs, կիտրոն dressing, and hearty ձավարի ցորեն.",
+  "recipeCategory": "Աղցան",
+  "recipeCuisine": "Mediterranean",
+  "recipeYield": "4 պորցիա",
+  "prepTime": "PT15M",
+  "cookTime": "PT10M",
+  "totalTime": "PT25M",
+  "recipeIngredient": [
+    "1 բաժակ ձավար ցորեն",
+    "1/2 բաժակ մանրացված մաղադանոս",
+    "1/4 բաժակ մանրացված անանուխ",
+    "1/2 բաժակ խորանարդիկներով վարունգ",
+    "2 ճաշի գդալ ձիթապտղի ձեթ",
+    "1 ճաշի գդալ կիտրոն juice"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Soak ձավար in եռացող ջուր for 10 րոպե until tender."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Հեղուկը թափել excess ջուր and fluff with a fork."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Խառնել with մանրացված մաղադանոս, անանուխ, and խորանարդիկներով վարունգ."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Drizzle with ձիթապտղի ձեթ and կիտրոն juice."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Toss well and chill before պորցիա."
+    }
+  ]
+}

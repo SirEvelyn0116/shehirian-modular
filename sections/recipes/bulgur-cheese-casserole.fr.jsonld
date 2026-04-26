@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Gratin de boulghour au fromage",
+  "author": "Famille Shehirian",
+  "description": "Un gratin au four mélangeant du boulghour cuit avec du fromage et des tomates.",
+  "recipeCategory": "Gratin",
+  "recipeCuisine": "Internationale",
+  "recipeYield": "4-6 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT30M",
+  "totalTime": "PT40M",
+  "recipeIngredient": [
+    "3 tasses de boulghour cuit",
+    "1 boîte de 425 g de tomates",
+    "1/3 tasse de champignons tranchés",
+    "225 g de fromage pasteurisé en tranche",
+    "2 c. à soupe de poivron vert haché",
+    "2 c. à soupe d'oignon haché",
+    "Sel et poivre au goût"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger le boulghour cuit, les champignons, le poivron, l'oignon, le sel et le poivre."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Déposer la moitié du mélange dans un plat, couvrir de la moitié des tranches de fromage."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter le reste, disposer le fromage restant et cuire à 175°C pendant 30 minutes."
+    }
+  ]
+}

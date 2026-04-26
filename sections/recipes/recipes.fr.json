@@ -1,73 +1,112 @@
-[
-  {
-    "id": "armenian-lentil-soup",
-    "title": "Soupe arménienne aux lentilles",
-    "description": "Une soupe copieuse aux lentilles, à la menthe et au persil — un classique de la famille Shehirian.",
-    "ingredients": [
-      "1/2 tasse d'eau",
-      "1/2 tasse de lentilles",
-      "1/2 tasse d'oignon haché",
-      "1/2 tasse de persil haché",
-      "1/2 c. à thé de sel",
-      "1/2 c. à thé de poivre",
-      "1/2 tasse de beurre ou margarine",
-      "1/2 tasse de menthe hachée"
-    ],
-    "steps": [
-      "Faire bouillir les lentilles dans l'eau pendant 15 minutes.",
-      "Ajouter l'oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes.",
-      "Ajouter la menthe et le beurre. Mijoter 15 minutes.",
-      "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes.",
-      "Optionnel : faire frire le beurre jusqu'à ce qu'il soit doré et verser sur la soupe."
-    ]
-  },
-  {
-    "id": "royal-soup",
-    "title": "Soupe royale",
-    "description": "Une soupe citronnée aux boulettes de viande, riz et persil, inspirée des saveurs du Moyen-Orient.",
-    "ingredients": [
-      "1/2 gallon de bouillon de poulet",
-      "1/2 lb de bœuf haché (pas trop maigre)",
-      "1/4 tasse de riz cru",
-      "1/4 tasse d'oignon très finement haché",
-      "1/4 tasse de persil",
-      "1/4 tasse de jus de citron",
-      "1/4 tasse de céleri finement haché",
-      "1/4 c. à thé de sel",
-      "Tranches de 2 citrons"
-    ],
-    "steps": [
-      "Mélanger la viande crue, le boulgour, l'oignon, le persil et les épices. Former des boulettes de 2,5 cm.",
-      "Ajouter le riz au mélange.",
-      "Ajouter les boulettes dans le bouillon chaud et mijoter jusqu'à cuisson.",
-      "Ajouter le jus de citron et le céleri. Mijoter 10 minutes.",
-      "Ajouter le sel et les tranches de citron. Mijoter 5 minutes.",
-      "Ajuster l'acidité, le sel ou l'épaisseur avec sucre, eau ou riz.",
-      "Verser le bouillon sur les boulettes et servir."
-    ]
-  },
-  {
-    "id": "scotch-broth",
-    "title": "Bouillon écossais",
-    "description": "Une soupe traditionnelle écossaise à l'agneau, aux légumes racines et à l'orge — chaude et nourrissante.",
-    "ingredients": [
-      "2 litres de bouillon de bœuf ou d'agneau",
-      "1 lb de cou ou jarret d'agneau",
-      "1/2 tasse d'orge perlé",
-      "1/2 tasse de carottes hachées",
-      "1/2 tasse de poireaux hachés",
-      "1/2 tasse de navets hachés",
-      "1/2 tasse de céleri haché",
-      "1/2 tasse d'oignon haché",
-      "1/4 tasse de persil haché",
-      "Sel et poivre au goût"
-    ],
-    "steps": [
-      "Faire mijoter l'agneau dans le bouillon pendant 1 heure, en écumant.",
-      "Ajouter l'orge et cuire 30 minutes.",
-      "Ajouter les légumes hachés et mijoter jusqu'à tendreté, environ 30 minutes.",
-      "Retirer l'agneau, effilocher la viande et la remettre dans la soupe.",
-      "Assaisonner avec sel et poivre. Garnir de persil et servir chaud."
-    ]
-  }
-]
+{
+  "title": "Recettes en vedette",
+  "viewAllLink": true,
+  "viewAllText": "Voir toutes les recettes →",
+  "featured": [
+    {
+      "id": "armenian-lentil-soup",
+      "title": "Soupe aux lentilles à l'arménienne",
+      "description": "Une soupe copieuse aux lentilles, menthe et persil — un classique de la famille Shehirian.",
+      "category": "Soupe",
+      "cuisine": "Arménienne",
+      "prepTime": "10 minutes",
+      "cookTime": "1 heure 15 minutes",
+      "yield": "4 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1/2 tasse d'eau",
+        "1/2 tasse de lentilles",
+        "1/2 tasse d'oignon haché",
+        "1/2 tasse de persil haché",
+        "1/2 c. à thé de sel",
+        "1/2 c. à thé de poivre",
+        "1/2 tasse de beurre ou margarine",
+        "1/2 tasse de menthe hachée"
+      ],
+      "steps": [
+        "Faire bouillir les lentilles dans l'eau pendant 15 minutes.",
+        "Ajouter l'oignon, le persil, le sel et le poivre. Laisser mijoter 45 minutes.",
+        "Ajouter la menthe et le beurre. Laisser mijoter 15 minutes.",
+        "Ajouter 1/4 c. à thé de poivre et cuire 5 minutes.",
+        "Optionnel: Faire frire le beurre jusqu'à ce qu'il soit brun clair et verser sur la soupe."
+      ]
+    },
+    {
+      "id": "royal-soup",
+      "title": "Soupe royale",
+      "description": "Une soupe de boulettes de viande citronnée avec du riz et du persil, inspirée des saveurs du Moyen-Orient.",
+      "category": "Soupe",
+      "cuisine": "Moyen-orientale",
+      "prepTime": "20 minutes",
+      "cookTime": "45 minutes",
+      "yield": "6 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "1/2 gallon de bouillon de poulet",
+        "1/2 lb de bœuf haché (pas trop maigre)",
+        "1/4 tasse de riz cru",
+        "1/4 tasse d'oignon très finement haché",
+        "1/4 tasse de persil",
+        "1/4 tasse de jus de citron",
+        "1/4 tasse de céleri finement haché",
+        "1/4 c. à thé de sel",
+        "Tranches de 2 citrons"
+      ],
+      "steps": [
+        "Mélanger la viande crue, le blé bulgur, l'oignon, le persil et l'assaisonnement ensemble et façonner en boules de 1\" de diamètre.",
+        "Ajouter le riz au mélange de boulettes de viande.",
+        "Ajouter les boulettes de viande au bouillon de poulet chaud et laisser mijoter jusqu'à cuisson complète.",
+        "Ajouter le jus de citron et le céleri. Laisser mijoter 10 minutes.",
+        "Ajouter le sel et les tranches de citron. Laisser mijoter 5 minutes.",
+        "Ajuster l'acidité, la salinité ou l'épaisseur avec du sucre, de l'eau ou du riz au besoin.",
+        "Verser le bouillon sur les boulettes de viande et servir."
+      ]
+    },
+    {
+      "id": "scotch-broth",
+      "title": "Bouillon écossais au blé bulgur",
+      "description": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.",
+      "category": "Soupe",
+      "cuisine": "Écossaise",
+      "prepTime": "15 minutes",
+      "cookTime": "1 heure 45 minutes",
+      "yield": "6-8 portions",
+      "ingredientsLabel": "Ingrédients",
+      "stepsLabel": "Étapes",
+      "ingredients": [
+        "2 lbs d'épaule d'agneau",
+        "8 tasses d'eau",
+        "1/2 tasse de blé bulgur",
+        "1 tasse de carottes en dés",
+        "1 tasse de navet en dés",
+        "1 tasse de poireaux hachés",
+        "1/2 tasse d'orge perlé",
+        "Sel et poivre au goût",
+        "Persil frais pour la garniture"
+      ],
+      "steps": [
+        "Dans une grande casserole, ajouter l'agneau et l'eau. Porter à ébullition et écumer toute mousse.",
+        "Réduire le feu et laisser mijoter 1 heure jusqu'à ce que l'agneau soit tendre.",
+        "Retirer l'agneau, effilocher la viande et remettre dans la casserole.",
+        "Ajouter le blé bulgur, l'orge, les carottes, le navet et les poireaux.",
+        "Laisser mijoter 45 minutes jusqu'à ce que les céréales et les légumes soient tendres.",
+        "Assaisonner de sel et de poivre.",
+        "Servir chaud, garni de persil frais."
+      ]
+    }
+  ],
+  "allRecipes": [
+    { "id": "armenian-lentil-soup", "title": "Soupe aux lentilles à l'arménienne", "description": "Une soupe copieuse aux lentilles, menthe et persil — un classique de la famille Shehirian.", "category": "Soupe", "cuisine": "Arménienne", "prepTime": "10 minutes", "cookTime": "1 heure 15 minutes", "yield": "4 portions" },
+    { "id": "royal-soup", "title": "Soupe royale", "description": "Une soupe de boulettes de viande citronnée avec du riz et du persil, inspirée des saveurs du Moyen-Orient.", "category": "Soupe", "cuisine": "Moyen-orientale", "prepTime": "20 minutes", "cookTime": "45 minutes", "yield": "6 portions" },
+    { "id": "scotch-broth", "title": "Bouillon écossais au blé bulgur", "description": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.", "category": "Soupe", "cuisine": "Écossaise", "prepTime": "15 minutes", "cookTime": "1 heure 45 minutes", "yield": "6-8 portions" },
+    { "id": "tabbouleh-salad", "title": "Salade de taboulé", "description": "Une salade du Moyen-Orient rafraîchissante avec du blé bulgur, des légumes frais et des herbes.", "category": "Salade", "cuisine": "Moyen-orientale", "prepTime": "1 heure 15 minutes", "cookTime": "5 minutes", "yield": "6 portions" },
+    { "id": "bulgur-carrot-pineapple-salad", "title": "Salade de bulgur aux carottes et ananas", "description": "Une salade sucrée et salée combinant du blé bulgur avec des carottes râpées et de l'ananas tropical.", "category": "Salade", "cuisine": "Américaine", "prepTime": "10 minutes", "cookTime": "15 minutes", "yield": "8-10 portions" },
+    { "id": "cole-slaw-bulgur", "title": "Salade de chou au bulgur", "description": "Une version copieuse de la salade de chou classique avec l'ajout de blé bulgur nutritif.", "category": "Salade", "cuisine": "Américaine", "prepTime": "15 minutes", "cookTime": "10 minutes", "yield": "8-10 portions" },
+    { "id": "bulgur-carrot-raisin-salad", "title": "Salade de bulgur aux carottes et raisins secs", "description": "Une variation avec des raisins secs et une vinaigrette française pour une saveur sucrée et acidulée délicieuse.", "category": "Salade", "cuisine": "Américaine", "prepTime": "10 minutes", "cookTime": "15 minutes", "yield": "8-10 portions" },
+    { "id": "chefs-bulgur-salad", "title": "Salade du chef au bulgur", "description": "Une salade principale copieuse mettant en vedette du blé bulgur, des légumes frais et votre choix de viandes froides et de fromage.", "category": "Salade", "cuisine": "Américaine", "prepTime": "20 minutes", "cookTime": "15 minutes", "yield": "8 portions" },
+    { "id": "bulgur-dutch-cucumber-salad", "title": "Salade de concombres hollandaise au bulgur", "description": "Une salade crémeuse et rafraîchissante avec du bulgur, des concombres, des radis et une vinaigrette acidulée à la crème sure.", "category": "Salade", "cuisine": "Hollandaise", "prepTime": "15 minutes", "cookTime": "15 minutes", "yield": "6-8 portions" },
+    { "id": "bulgur-garden-salad", "title": "Salade jardinière au bulgur", "description": "Une salade de jardin polyvalente avec du blé bulgur, des légumes frais et des œufs durs — parfaite comme accompagnement ou plat principal.", "category": "Salade", "cuisine": "Américaine", "prepTime": "15 minutes", "cookTime": "15 minutes", "yield": "8 portions" }
+  ]
+}

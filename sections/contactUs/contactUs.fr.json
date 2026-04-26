@@ -1,6 +1,10 @@
 {
   "title": "Contactez-nous",
   "getInTouch": "Entrer en contact",
+  "addressLabel": "Adresse",
+  "phoneLabel": "Téléphone",
+  "faxLabel": "Fax",
+  "emailLabel": "Courriel",
   "address": "375 chemin Midwest, Toronto, ON",
   "phone": "(416) 757-9495",
   "fax": "(416) 752-9248",

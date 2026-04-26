@@ -1,0 +1,32 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "ձավարի ցորեն Wheat Pizza",
+  "author": "Շահիրյան ընտանիք",
+  "description": "A pizza variation using ձավարի ցորեն in the dough and a hearty meat-and-vegetable sauce.",
+  "recipeCategory": "Հիմնական ուտեստ",
+  "recipeCuisine": "Միջազգային",
+  "recipeYield": "2 pizzas (12-in.)",
+  "prepTime": "PT1H15M",
+  "cookTime": "PT40M",
+  "totalTime": "PT1H55M",
+  "recipeIngredient": [
+    "Պիցցա sauce: ձեթ, կանաչ bell պղպեղ, սոխ, mushrooms, սխտոր, italian sausage, lean աղացած տավարի միս, լոլիկ purée, լոլիկի սոուս, ջուր, parmesan, դափնու տերև, պղպեղ, աղ, մեխակաթունչ",
+    "Պիցցա dough: 1/2 բաժակ ձավար, 1-3/4 բաժակ ջուր, active dry yeast, ալյուր, աղ, ձեթ",
+    "Assembly: կտրատելs of mozzarella, grated parmesan"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Prepare the sauce: տապակել vegetables and միսs, ավելացնել լոլիկ purée, sauce, ջուր, պանիր and համեմելings; եփել դանդաղ կրակով 90 րոպե total."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Prepare the dough: եփել ձավար in ջուր until absorbed, զովացուցիչ; dissolve yeast and խառնել with ալյուր, ձավար, ձեթ; let rise, divide, roll to 12-inch rounds."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Assemble with mozzarella and sauce and թխել at 375°f (190°c) for 35–40 րոպե."
+    }
+  ]
+}

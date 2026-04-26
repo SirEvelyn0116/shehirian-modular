@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Crème au boulghour et cerises",
+  "author": "Famille Shehirian",
+  "description": "Un dessert en couches à base de boulghour avec compote de cerises et crème cuite.",
+  "recipeCategory": "Dessert",
+  "recipeCuisine": "Internationale",
+  "recipeYield": "6-8 portions",
+  "prepTime": "PT20M",
+  "cookTime": "PT1H",
+  "totalTime": "PT1H20M",
+  "recipeIngredient": [
+    "2 tasses de boulghour cuit chaud",
+    "2 cuillères à soupe de beurre ou margarine",
+    "1/4 tasse de cassonade",
+    "1/2 cuillère à café de cannelle",
+    "1-1/2 cuillères à soupe de fécule de maïs",
+    "1/4 tasse de sucre",
+    "Jus d'une boîte (450 g) de cerises rouges dénoyautées",
+    "1 cuillère à soupe de jus de citron",
+    "Cerises égouttées",
+    "2 œufs légèrement battus",
+    "1 tasse de lait",
+    "3 cuillères à soupe de sucre",
+    "1/2 cuillère à café de vanille"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Préparer la base de boulghour en mélangeant le boulghour chaud, le beurre, la cassonade et la cannelle dans un plat à four."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dans une casserole, mélanger la fécule et le sucre, incorporer le jus de cerise égoutté et cuire jusqu'à épaississement. Ajouter le jus de citron et disposer les cerises égouttées sur le boulghour."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger les œufs, le lait, le sucre et la vanille; verser sur la couche de cerises et cuire à 175°C pendant 1 heure ou jusqu'à ce que le flan soit pris."
+    }
+  ]
+}

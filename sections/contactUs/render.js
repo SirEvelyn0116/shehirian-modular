@@ -1,5 +1,6 @@
 function renderContactUs(lang = 'en') {
-  return fetch(`sections/contactUs/contactUs.${lang}.json`)
+  const prefix = window.__sitePathPrefix || '';
+  return fetch(`${prefix}sections/contactUs/contactUs.${lang}.json`)
     .then(res => res.ok ? res.json() : {})
     .catch(() => ({}))
     .then(data => {
@@ -11,10 +12,10 @@ function renderContactUs(lang = 'en') {
         <div class="contact-container">
           <div class="contact-info">
             <h3>${data.getInTouch || 'Get in Touch'}</h3>
-            <p><strong>Address:</strong> ${data.address || 'N/A'}</p>
-            <p><strong>Phone:</strong> ${data.phone || 'N/A'}</p>
-            <p><strong>Fax:</strong> ${data.fax || 'N/A'}</p>
-            <p><strong>Email:</strong> <a href="mailto:${data.email || 'info@example.com'}">${data.email || 'N/A'}</a></p>
+            <p><strong>${data.addressLabel || 'Address'}:</strong> ${data.address || 'N/A'}</p>
+            <p><strong>${data.phoneLabel || 'Phone'}:</strong> ${data.phone || 'N/A'}</p>
+            <p><strong>${data.faxLabel || 'Fax'}:</strong> ${data.fax || 'N/A'}</p>
+            <p><strong>${data.emailLabel || 'Email'}:</strong> <a href="mailto:${data.email || 'info@example.com'}">${data.email || 'N/A'}</a></p>
           </div>
           <form class="contact-form">
             <label for="name">${data.form.labelName}</label>

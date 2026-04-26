@@ -1,0 +1,40 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Armenian Pilaf",
+  "description": "A traditional pilaf made with Bulgor wheat, vermicelli, and chicken stock.",
+  "recipeYield": "4 to 6 servings",
+  "prepTime": "PT15M",
+  "cookTime": "PT20M",
+  "recipeIngredient": [
+    "2 tablespoons butter or margarine",
+    "3 tablespoons chopped onion",
+    "1/2 cup vermicelli or noodles",
+    "1 cup Bulgor wheat",
+    "2 cups chicken stock",
+    "3/4 teaspoon salt",
+    "1/8 teaspoon pepper"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Heat butter or margarine in a heavy skillet[cite: 233, 234]."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add chopped onion and vermicelli or noodles; [cite_start]Sauté until lightly browned[cite: 234, 235]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "Add Bulgor wheat, chicken stock, salt, and pepper[cite: 237]."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover and simmer over low heat 20 minutes or until all liquid is absorbed. [cite_start]Stir occasionally[cite: 238]."
+    },
+    {
+      "@type": "HowToStep",
+      [cite_start]"text": "After cooking, let stand 15 to 20 minutes before serving[cite: 239]."
+    }
+  ]
+}

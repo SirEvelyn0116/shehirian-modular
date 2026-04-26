@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shirag Bulgor Products - Shehirian Bulgor Co.</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f6f2;
+    }
+
+    .back-nav {
+      background: #5a6345;
+      padding: 1rem 2rem;
+    }
+
+    .back-nav a {
+      color: #f8f6f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover {
+      color: #a36b1b;
+    }
+
+    .products-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #55422c;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .product-card {
+      background-color: #5a6345;
+      color: #f8f6f2;
+      padding: 0;
+      border-radius: 30px;
+      font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+
+    .product-image-container {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background-color: #f8f6f2;
+    }
+
+    .product-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-info {
+      padding: 24px 20px 20px 20px;
+    }
+
+    .product-card h3 {
+      font-size: 1.35rem;
+      margin: 0 0 8px 0;
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      color: #a36b1b;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-transform: capitalize;
+    }
+
+    .product-card .product-description {
+      font-size: 1rem;
+      margin: 0;
+      color: #2a241b;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .product-image-container {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="index.html#products-carousel">← Back to Products</a>
+  </nav>
+
+  <div class="products-container">
+    <h1>Shirag Bulgor Products</h1>
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src='img/fine-bulgor-soft-wheat.jpg' alt='fine soft wheat bulgor'>
+        </div>
+        <div class="product-info">
+          <h3>soft wheat fine</h3>
+          <p class="product-description">Premium fine bulgur wheat, perfect for tabbouleh and delicate dishes.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="img/medium-bulgor-soft-wheat.jpg" alt="medium soft wheat bulgor">
+        </div>
+        <div class="product-info">
+          <h3>soft wheat medium</h3>
+          <p class="product-description">Versatile medium bulgur wheat, ideal for pilafs and salads.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="img/coarse-bulgor-soft-wheat.jpg" alt="coarse soft wheat bulgor">
+        </div>
+        <div class="product-info">
+          <h3>soft wheat coarse</h3>
+          <p class="product-description">Hearty coarse bulgur wheat for traditional Middle Eastern recipes.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="img/extra-coarse-bulgor-soft-wheat.jpg" alt="extra coarse soft wheat bulgor">
+        </div>
+        <div class="product-info">
+          <h3>soft wheat extra coarse</h3>
+          <p class="product-description">Extra coarse bulgur wheat for soups and hearty main dishes.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="img/fine-bulgor-red-wheat.jpg" alt="fine red wheat bulgor">
+        </div>
+        <div class="product-info">
+          <h3>red wheat fine</h3>
+          <p class="product-description">Nutritious fine red bulgur wheat with a rich, nutty flavor.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="img/medium-bulgor-red-wheat.jpg" alt="medium red wheat bulgor">
+        </div>
+        <div class="product-info">
+          <h3>red wheat medium</h3>
+          <p class="product-description">Medium red bulgur wheat, excellent for robust salads and sides.</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          <img src="img/coarse-bulgor-red-wheat.jpg" alt="coarse red wheat bulgor">
+        </div>
+        <div class="product-info">
+          <h3>red wheat coarse</h3>
+          <p class="product-description">Coarse red bulgur wheat for traditional dishes with enhanced nutrition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

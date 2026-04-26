@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Boulghour gratiné aux saucisses",
+  "author": "Famille Shehirian",
+  "description": "Un plat gratiné crémeux de boulghour garni de saucisses.",
+  "recipeCategory": "Gratin",
+  "recipeCuisine": "Confort alimentaire",
+  "recipeYield": "5-6 portions",
+  "prepTime": "PT10M",
+  "cookTime": "PT50M",
+  "totalTime": "PT1H",
+  "recipeIngredient": [
+    "2 1/2 tasses de boulghour cuit",
+    "1 œuf battu",
+    "2 c. à soupe d'oignon haché",
+    "1 boîte soupe crème de champignons concentrée",
+    "1/2 c. à thé sel",
+    "3/4 tasse lait",
+    "5-6 saucisses"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Mélanger boulghour, œuf, oignon, soupe concentrée, sel et lait dans un plat."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cuire à 175°C jusqu'à prise partielle (~30 minutes)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Ajouter les saucisses, badigeonner de margarine et poursuivre la cuisson 15–20 minutes jusqu'à brunissement."
+    }
+  ]
+}

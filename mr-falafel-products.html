@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mr. Falafel Products - Shehirian Bulgor Co.</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f6f2;
+    }
+
+    .back-nav {
+      background: #5a6345;
+      padding: 1rem 2rem;
+    }
+
+    .back-nav a {
+      color: #f8f6f2;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .back-nav a:hover {
+      color: #a36b1b;
+    }
+
+    .products-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #55422c;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
+
+    .product-card {
+      background-color: #5a6345;
+      color: #f8f6f2;
+      padding: 0;
+      border-radius: 30px;
+      font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+      transition: transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.13);
+    }
+
+    .product-image-container {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #a67b5b 0%, #8b6644 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .product-image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-info {
+      padding: 24px 20px 20px 20px;
+    }
+
+    .product-card h3 {
+      font-size: 1.35rem;
+      margin: 0 0 8px 0;
+      font-family: 'Poppins', 'PP Neue Montreal', sans-serif;
+      color: #a36b1b;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    .product-card .product-description {
+      font-size: 1rem;
+      margin: 0 0 12px 0;
+      color: #2a241b;
+      line-height: 1.5;
+    }
+
+    .product-card .product-size {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f8f6f2;
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .product-image-container {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="back-nav">
+    <a href="index.html#products-carousel">← Back to Products</a>
+  </nav>
+
+  <div class="products-container">
+    <h1>Mr. Falafel Products</h1>
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-image-container">
+          🥙
+        </div>
+        <div class="product-info">
+          <h3>Falafel Mix - Small</h3>
+          <p class="product-description">Perfect for home cooking and small gatherings.</p>
+          <p class="product-size">1 lb bag</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          🥙
+        </div>
+        <div class="product-info">
+          <h3>Falafel Mix - Medium</h3>
+          <p class="product-description">Ideal for family meals and casual entertaining.</p>
+          <p class="product-size">3 lb bag</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          🥙
+        </div>
+        <div class="product-info">
+          <h3>Falafel Mix - Large</h3>
+          <p class="product-description">Great for parties and larger gatherings.</p>
+          <p class="product-size">5 lb bag</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          🥙
+        </div>
+        <div class="product-info">
+          <h3>Falafel Mix - Bulk</h3>
+          <p class="product-description">Perfect for restaurants and commercial use.</p>
+          <p class="product-size">10 lb bag</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          🥙
+        </div>
+        <div class="product-info">
+          <h3>Premium Falafel Mix</h3>
+          <p class="product-description">Our signature blend with authentic spices and herbs.</p>
+          <p class="product-size">2 lb bag</p>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image-container">
+          🥙
+        </div>
+        <div class="product-info">
+          <h3>Spicy Falafel Mix</h3>
+          <p class="product-description">A zesty blend for those who love extra heat.</p>
+          <p class="product-size">2 lb bag</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
