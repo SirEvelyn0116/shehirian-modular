@@ -43,12 +43,74 @@ body[dir="rtl"] {
 }
 
 /* === BACKGROUND & LAYOUT === */
-.background {
-  background-image: url('../img/bulgur-wheat-pile.png');
-  background-size: 200%;
-  background-position: top right;
+:root {
+  --canvas-grain-image: url('../img/bulgur-wheat-pile.jpg'), url('../img/bulgur-wheat-pile.png');
+}
+
+.background.common-canvas {
+  background-image: var(--canvas-grain-image);
+  background-size: 200% auto;
+  background-position: 100% 0%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
+  position: relative;
+}
+
+/* Section background coordinate map (2x6 progression) */
+.bg-slice-hero,
+#home {
+  --section-bg-y: 0%;
+}
+
+.bg-slice-about,
+#about-us {
+  --section-bg-y: 20%;
+}
+
+.bg-slice-companies,
+#products-carousel {
+  --section-bg-y: 40%;
+}
+
+.bg-slice-recipes,
+#recipes {
+  --section-bg-y: 60%;
+}
+
+.bg-slice-certs,
+#certifications {
+  --section-bg-y: 80%;
+}
+
+.bg-slice-contact,
+#contact {
+  --section-bg-y: 100%;
+}
+
+/* If navigation targets a section hash, snap the common canvas to that section slice */
+.background.common-canvas:has(#home:target) {
+  background-position: 100% 0%;
+}
+
+.background.common-canvas:has(#about-us:target) {
+  background-position: 100% 20%;
+}
+
+.background.common-canvas:has(#products-carousel:target) {
+  background-position: 100% 40%;
+}
+
+.background.common-canvas:has(#recipes:target) {
+  background-position: 100% 60%;
+}
+
+.background.common-canvas:has(#certifications:target) {
+  background-position: 100% 80%;
+}
+
+.background.common-canvas:has(#contact:target) {
+  background-position: 100% 100%;
 }
 
 .home {
@@ -93,6 +155,52 @@ body[dir="rtl"] .title {
   min-height: 100vh;
 }
 
+/* Mobile: avoid fixed-attachment stutter and fake a light parallax shift per section */
+@media (max-width: 767px) {
+  .background.common-canvas {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: 100% 0%;
+  }
+
+  #home,
+  #about-us,
+  #products-carousel,
+  #recipes,
+  #certifications,
+  #contact {
+    background-image: var(--canvas-grain-image);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: 100% var(--section-bg-mobile-y, var(--section-bg-y, 0%));
+  }
+
+  #home {
+    --section-bg-mobile-y: 4%;
+  }
+
+  #about-us {
+    --section-bg-mobile-y: 22%;
+  }
+
+  #products-carousel {
+    --section-bg-mobile-y: 43%;
+  }
+
+  #recipes {
+    --section-bg-mobile-y: 62%;
+  }
+
+  #certifications {
+    --section-bg-mobile-y: 82%;
+  }
+
+  #contact {
+    --section-bg-mobile-y: 100%;
+  }
+}
+
 /* === LANGUAGE SWITCHER === */
 .lang-switcher-nav {
   position: fixed;
@@ -133,6 +241,18 @@ body[dir="rtl"] .lang-switcher-nav {
   object-fit: cover;
   object-position: center;
   display: block;
+  border-radius: 50%;
+}
+
+.lang-switcher-nav .flag.active-lang {
+  overflow: visible;
+  z-index: 2;
+}
+
+.lang-switcher-nav .flag.active-lang img {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.95), 0 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
 .lang-switcher-nav .flag .code {

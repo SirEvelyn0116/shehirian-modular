@@ -65,16 +65,15 @@ function injectBaseUrlIntoRootLinks(html) {
 
 function buildRecipeIndexLanguageSwitcher(currentLang) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg', code: 'EN' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg', code: 'FR' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg', code: 'AR' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg', code: 'HY' }
+    { lang: 'en', title: 'English', flag: 'gb.svg' },
+    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
+    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
+    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
   ];
 
-  const items = links.map(({ lang, title, flag, code }) => `
-      <a href="${recipeIndexPath(lang)}" class="flag${lang === currentLang ? ' active-lang' : ''}" title="${title}" aria-label="${title}">
-        <img src="../../assets/img/flags/${flag}" alt="${title}">
-        <span class="code">${code}</span>
+  const items = links.map(({ lang, title, flag }) => `
+      <a href="${recipeIndexPath(lang)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
+        <img src="../../assets/img/flags/${flag}" alt="${title} flag">
       </a>`).join('');
 
   return `<div id="language-switcher" class="lang-switcher-nav">${items}
@@ -268,16 +267,15 @@ function extractLegacyProductCards(sourceFile) {
 
 function buildProductLanguageSwitcher(currentLang, brandSlug) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg', code: 'EN' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg', code: 'FR' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg', code: 'AR' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg', code: 'HY' }
+    { lang: 'en', title: 'English', flag: 'gb.svg' },
+    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
+    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
+    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
   ];
 
-  const items = links.map(({ lang, title, flag, code }) => `
-      <a href="${productPagePath(lang, brandSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" title="${title}" aria-label="${title}">
-        <img src="../../assets/img/flags/${flag}" alt="${title}">
-        <span class="code">${code}</span>
+  const items = links.map(({ lang, title, flag }) => `
+      <a href="${productPagePath(lang, brandSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
+        <img src="../../assets/img/flags/${flag}" alt="${title} flag">
       </a>`).join('');
 
   return `<div id="language-switcher" class="lang-switcher-nav">${items}
@@ -286,16 +284,15 @@ function buildProductLanguageSwitcher(currentLang, brandSlug) {
 
 function buildCertificationLanguageSwitcher(currentLang, certSlug) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg', code: 'EN' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg', code: 'FR' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg', code: 'AR' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg', code: 'HY' }
+    { lang: 'en', title: 'English', flag: 'gb.svg' },
+    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
+    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
+    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
   ];
 
-  const items = links.map(({ lang, title, flag, code }) => `
-      <a href="${certificationPagePath(lang, certSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" title="${title}" aria-label="${title}">
-        <img src="../../assets/img/flags/${flag}" alt="${title}">
-        <span class="code">${code}</span>
+  const items = links.map(({ lang, title, flag }) => `
+      <a href="${certificationPagePath(lang, certSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
+        <img src="../../assets/img/flags/${flag}" alt="${title} flag">
       </a>`).join('');
 
   return `<div id="language-switcher" class="lang-switcher-nav">${items}
