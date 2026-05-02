@@ -44,7 +44,11 @@ body[dir="rtl"] {
 
 /* === BACKGROUND & LAYOUT === */
 :root {
-  --canvas-grain-image: url('../img/bulgur-wheat-pile.jpg'), url('../img/bulgur-wheat-pile.png');
+  --canvas-grain-image: url('../img/bulgur-wheat-pile.png');
+  /* 3-segment background Y coordinate map — edit these to shift the image math */
+  --bg-pos-top:    0%;
+  --bg-pos-mid:   50%;
+  --bg-pos-bottom: 100%;
 }
 
 .background.common-canvas {
@@ -57,60 +61,39 @@ body[dir="rtl"] {
   position: relative;
 }
 
-/* Section background coordinate map (2x6 progression) */
-.bg-slice-hero,
-#home {
-  --section-bg-y: 0%;
+/* 3-Segment background Y coordinate map */
+/* Segment 1 — top: hero + about */
+.bg-slice-hero, #home,
+.bg-slice-about, #about-us {
+  --bg-pos-y: var(--bg-pos-top);
 }
 
-.bg-slice-about,
-#about-us {
-  --section-bg-y: 20%;
+/* Segment 2 — middle: companies + recipes */
+.bg-slice-companies, #products-carousel,
+.bg-slice-recipes,   #recipes {
+  --bg-pos-y: var(--bg-pos-mid);
 }
 
-.bg-slice-companies,
-#products-carousel {
-  --section-bg-y: 40%;
+/* Segment 3 — bottom: certifications + contact */
+.bg-slice-certs,   #certifications,
+.bg-slice-contact, #contact {
+  --bg-pos-y: var(--bg-pos-bottom);
 }
 
-.bg-slice-recipes,
-#recipes {
-  --section-bg-y: 60%;
-}
-
-.bg-slice-certs,
-#certifications {
-  --section-bg-y: 80%;
-}
-
-.bg-slice-contact,
-#contact {
-  --section-bg-y: 100%;
-}
-
-/* If navigation targets a section hash, snap the common canvas to that section slice */
-.background.common-canvas:has(#home:target) {
-  background-position: 100% 0%;
-}
-
+/* Hash-target snapping: shift the common canvas to the active segment */
+.background.common-canvas:has(#home:target),
 .background.common-canvas:has(#about-us:target) {
-  background-position: 100% 20%;
+  background-position: 100% var(--bg-pos-top);
 }
 
-.background.common-canvas:has(#products-carousel:target) {
-  background-position: 100% 40%;
-}
-
+.background.common-canvas:has(#products-carousel:target),
 .background.common-canvas:has(#recipes:target) {
-  background-position: 100% 60%;
+  background-position: 100% var(--bg-pos-mid);
 }
 
-.background.common-canvas:has(#certifications:target) {
-  background-position: 100% 80%;
-}
-
+.background.common-canvas:has(#certifications:target),
 .background.common-canvas:has(#contact:target) {
-  background-position: 100% 100%;
+  background-position: 100% var(--bg-pos-bottom);
 }
 
 .home {
@@ -163,6 +146,7 @@ body[dir="rtl"] .title {
     background-position: 100% 0%;
   }
 
+  /* Each section inherits --bg-pos-y from the 3-segment map in :root */
   #home,
   #about-us,
   #products-carousel,
@@ -173,31 +157,14 @@ body[dir="rtl"] .title {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
-    background-position: 100% var(--section-bg-mobile-y, var(--section-bg-y, 0%));
+    background-position: 100% var(--bg-pos-y, 0%);
   }
+}
 
-  #home {
-    --section-bg-mobile-y: 4%;
-  }
-
-  #about-us {
-    --section-bg-mobile-y: 22%;
-  }
-
-  #products-carousel {
-    --section-bg-mobile-y: 43%;
-  }
-
-  #recipes {
-    --section-bg-mobile-y: 62%;
-  }
-
-  #certifications {
-    --section-bg-mobile-y: 82%;
-  }
-
-  #contact {
-    --section-bg-mobile-y: 100%;
+@media (min-width: 1024px) {
+  .background.common-canvas {
+    background-size: 200% auto;
+    background-attachment: fixed;
   }
 }
 
@@ -228,11 +195,12 @@ body[dir="rtl"] .lang-switcher-nav {
   position: relative;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
   border: 2px solid #e0c97f;
   opacity: 0.95;
   outline: none;
   text-decoration: none;
+  will-change: transform, box-shadow;
 }
 
 .lang-switcher-nav .flag img {
@@ -247,12 +215,33 @@ body[dir="rtl"] .lang-switcher-nav {
 .lang-switcher-nav .flag.active-lang {
   overflow: visible;
   z-index: 2;
+  position: relative;
+  transform: translateY(-8px);
 }
 
-.lang-switcher-nav .flag.active-lang img {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.95), 0 0 0 4px rgba(0, 0, 0, 0.5);
+/* Shadow puddle beneath the active flag */
+.lang-switcher-nav .flag.active-lang::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 80%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.lang-switcher-nav .flag:hover,
+.lang-switcher-nav .flag:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.lang-switcher-nav .flag.active-lang {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
 }
 
 .lang-switcher-nav .flag .code {
@@ -267,6 +256,13 @@ body[dir="rtl"] .lang-switcher-nav {
   color: #000;
   line-height: 1.2;
   font-weight: 600;
+}
+
+/* === BUILD STAMP === */
+.build-version {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
 }
 
 .lang-switcher-nav .flag.active-lang .code,
@@ -1158,6 +1154,112 @@ body[dir="rtl"] .contact-info {
   line-height: 1.5;
 }
 
+/* === PRODUCT PAGES === */
+.product-page-body {
+  margin: 0;
+  font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
+  background: #f8f6f2;
+  color: #2f2418;
+}
+
+.back-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  background: #5a6345;
+}
+
+.back-nav .breadcrumb-nav {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #f8f6f2;
+}
+
+.back-nav .breadcrumb-nav a {
+  color: #f8f6f2;
+  text-decoration: none;
+}
+
+.products-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 4rem;
+}
+
+.products-container > h1 {
+  margin: 0 0 2rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #55422c;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  overflow: hidden;
+  border-radius: 30px;
+  background: #5a6345;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
+.product-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  background: linear-gradient(135deg, #a67b5b 0%, #8b6644 100%);
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 4rem;
+  text-align: center;
+}
+
+.product-image-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+  background: #f8f6f2;
+}
+
+.product-info {
+  padding: 1.5rem 1.25rem;
+  background: #f8f6f2;
+}
+
+.product-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.35rem;
+  color: #7a4b2b;
+}
+
+.product-description {
+  margin: 0;
+  line-height: 1.6;
+  color: #2a241b;
+}
+
+.product-size {
+  margin: 0.75rem 0 0;
+  font-weight: 600;
+  color: #5a6345;
+}
+
+.products-footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
 /* === LOADING STATE === */
 .loading {
   text-align: center;
@@ -1336,6 +1438,17 @@ body[dir="rtl"] .back-home-button {
   
   .company-card p {
     font-size: 0.95rem;
+  }
+
+  .back-nav,
+  .products-container {
+    padding-inline: 1rem;
+  }
+
+  .product-image-container,
+  .product-image-container img {
+    min-height: 210px;
+    height: 210px;
   }
 }
 

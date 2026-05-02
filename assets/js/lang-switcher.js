@@ -11,10 +11,13 @@
   if (!match || !currentLang) return;
   
   const baseName = match[1];
-  // Create language switcher
-  const langSwitcher = document.createElement('div');
-  langSwitcher.id = 'language-switcher';
-  langSwitcher.className = 'lang-switcher-nav';
+  // Reuse existing switcher if present; otherwise create one for standalone pages.
+  const existingSwitcher = document.getElementById('language-switcher');
+  const langSwitcher = existingSwitcher || document.createElement('div');
+  if (!existingSwitcher) {
+    langSwitcher.id = 'language-switcher';
+    langSwitcher.className = 'lang-switcher-nav';
+  }
 
   const langConfig = [
     { lang: 'en', flag: 'gb.svg', title: 'English' },
@@ -24,20 +27,34 @@
   ];
   const flagPathPrefix = '../assets/img/flags/';
 
-  langConfig.forEach(({ lang, flag, title }) => {
-    const link = document.createElement('a');
-    link.href = `${baseName}.${lang}.html`;
-    link.title = title;
-    link.setAttribute('aria-label', `Switch to ${title}`);
-    link.setAttribute('data-lang', lang);
-    link.className = 'flag';
+  if (!existingSwitcher) {
+    langConfig.forEach(({ lang, flag, title }) => {
+      const link = document.createElement('a');
+      link.href = `${baseName}.${lang}.html`;
+      link.title = title;
+      link.setAttribute('aria-label', `Switch to ${title}`);
+      link.setAttribute('data-lang', lang);
+      link.className = 'flag';
 
-    const img = document.createElement('img');
-    img.src = `${flagPathPrefix}${flag}`;
-    img.alt = `${title} flag`;
+      const img = document.createElement('img');
+      img.src = `${flagPathPrefix}${flag}`;
+      img.alt = `${title} flag`;
 
-    link.appendChild(img);
-    langSwitcher.appendChild(link);
+      link.appendChild(img);
+      langSwitcher.appendChild(link);
+    });
+  }
+
+  // Ensure language metadata exists on pre-rendered links.
+  langSwitcher.querySelectorAll('a').forEach(link => {
+    link.classList.add('flag');
+    if (link.hasAttribute('data-lang')) return;
+    const href = link.getAttribute('href') || '';
+    const hrefLangMatch = href.match(/(?:^|\/)(en|fr|ar|hy)(?:\/|$)|\.(en|fr|ar|hy)\.html$/);
+    const hrefLang = hrefLangMatch ? (hrefLangMatch[1] || hrefLangMatch[2]) : '';
+    if (hrefLang) {
+      link.setAttribute('data-lang', hrefLang);
+    }
   });
 
   // Sync active language from URL path/route and keep a single active item.
@@ -53,5 +70,7 @@
     activeLink.setAttribute('aria-current', 'page');
   }
   
-  document.body.appendChild(langSwitcher);
+  if (!existingSwitcher) {
+    document.body.appendChild(langSwitcher);
+  }
 })();

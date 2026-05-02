@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE_URL = process.env.BASE_URL || '';
+const buildTime = new Date().toLocaleString();
 
 const langs = {
   en: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Back / Home" },
@@ -49,6 +50,30 @@ function escapeHtml(value) {
 // Inline script injected into every page to sync localStorage.lang on load
 const LANG_SYNC_SCRIPT = `<script>\n(function(){var l=document.documentElement.getAttribute("lang")||location.pathname.split("/").filter(Boolean)[0];if(l)localStorage.setItem("lang",l);})();\n</script>`;
 
+function injectBuildStamp(html) {
+  const buildStamp = `<p class="build-version">Build Version: ${escapeHtml(buildTime)}</p>`;
+  if (/Build Version:/i.test(html)) {
+    return html;
+  }
+
+  let stamped = false;
+  let output = html.replace(/(<footer\b[^>]*>)([\s\S]*?)(<\/footer>)/gi, (match, open, content, close) => {
+    stamped = true;
+    return `${open}${content}\n      ${buildStamp}\n    ${close}`;
+  });
+
+  output = output.replace(/(<div\b[^>]*class="[^"]*all-recipes-footer[^"]*"[^>]*>)([\s\S]*?)(<\/div>)/i, (match, open, content, close) => {
+    stamped = true;
+    return `${open}${content}\n      ${buildStamp}\n    ${close}`;
+  });
+
+  if (!stamped) {
+    output = output.replace(/<\/body>/i, `<footer class="build-footer">${buildStamp}</footer>\n</body>`);
+  }
+
+  return output;
+}
+
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -63,6 +88,26 @@ function injectBaseUrlIntoRootLinks(html) {
     .replace(/href="index\.hy\.html"/g, `href="${homePagePath('hy')}"`);
 }
 
+function buildHomeLanguageSwitcher(currentLang) {
+  const links = [
+    { lang: 'en', title: 'English', flag: 'gb.svg' },
+    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
+    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
+    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
+  ];
+
+  const items = links.map(({ lang, title, flag }) => {
+    const isActive = lang === currentLang;
+    return `
+      <a href="${homePagePath(lang)}" class="flag${isActive ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}"${isActive ? ' aria-current="page"' : ''}>
+        <img src="../assets/img/flags/${flag}" alt="${title} flag">
+      </a>`;
+  }).join('');
+
+  return `<div id="language-switcher" class="lang-switcher-nav">${items}
+    </div>`;
+}
+
 function buildRecipeIndexLanguageSwitcher(currentLang) {
   const links = [
     { lang: 'en', title: 'English', flag: 'gb.svg' },
@@ -71,10 +116,13 @@ function buildRecipeIndexLanguageSwitcher(currentLang) {
     { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
   ];
 
-  const items = links.map(({ lang, title, flag }) => `
+  const items = links.map(({ lang, title, flag }) => {
+    console.log('GENERATING SWITCHER FOR:', lang);
+    return `
       <a href="${recipeIndexPath(lang)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
         <img src="../../assets/img/flags/${flag}" alt="${title} flag">
-      </a>`).join('');
+      </a>`;
+  }).join('');
 
   return `<div id="language-switcher" class="lang-switcher-nav">${items}
     </div>`;
@@ -273,10 +321,13 @@ function buildProductLanguageSwitcher(currentLang, brandSlug) {
     { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
   ];
 
-  const items = links.map(({ lang, title, flag }) => `
+  const items = links.map(({ lang, title, flag }) => {
+    console.log('GENERATING SWITCHER FOR:', lang);
+    return `
       <a href="${productPagePath(lang, brandSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
         <img src="../../assets/img/flags/${flag}" alt="${title} flag">
-      </a>`).join('');
+      </a>`;
+  }).join('');
 
   return `<div id="language-switcher" class="lang-switcher-nav">${items}
     </div>`;
@@ -290,10 +341,13 @@ function buildCertificationLanguageSwitcher(currentLang, certSlug) {
     { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
   ];
 
-  const items = links.map(({ lang, title, flag }) => `
+  const items = links.map(({ lang, title, flag }) => {
+    console.log('GENERATING SWITCHER FOR:', lang);
+    return `
       <a href="${certificationPagePath(lang, certSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
         <img src="../../assets/img/flags/${flag}" alt="${title} flag">
-      </a>`).join('');
+      </a>`;
+  }).join('');
 
   return `<div id="language-switcher" class="lang-switcher-nav">${items}
     </div>`;
@@ -323,6 +377,8 @@ function rewriteCertificationPagePaths(pageHtml, lang, certSlug) {
   } else {
     rewritten = rewritten.replace(/<body([^>]*)>/i, `<body$1>\n    ${languageSwitcher}`);
   }
+
+  rewritten = injectBuildStamp(rewritten);
 
   // Inject lang-sync script before closing body
   rewritten = rewritten.replace(/<\/body>/i, `${LANG_SYNC_SCRIPT}\n</body>`);
@@ -406,127 +462,8 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escapeHtml(pageTitle)} | ${escapeHtml(labels.pageSuffix)}</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'PP Neue Montreal', 'Poppins', sans-serif;
-      background: #f8f6f2;
-      color: #2f2418;
-    }
-
-    .back-nav {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem 2rem;
-      background: #5a6345;
-    }
-
-    .breadcrumb-nav {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-      color: #f8f6f2;
-    }
-
-    .breadcrumb-nav a {
-      color: #f8f6f2;
-      text-decoration: none;
-    }
-
-    .products-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2.5rem 2rem 4rem;
-    }
-
-    h1 {
-      margin: 0 0 2rem;
-      font-size: clamp(2rem, 4vw, 3rem);
-      color: #55422c;
-      text-align: center;
-      letter-spacing: 0.03em;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product-card {
-      overflow: hidden;
-      border-radius: 30px;
-      background: #5a6345;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-    }
-
-    .product-image-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 250px;
-      background: linear-gradient(135deg, #a67b5b 0%, #8b6644 100%);
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 4rem;
-      text-align: center;
-    }
-
-    .product-image-container img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      object-position: center;
-      background: #f8f6f2;
-    }
-
-    .product-info {
-      padding: 1.5rem 1.25rem;
-      background: #f8f6f2;
-    }
-
-    .product-card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.35rem;
-      color: #7a4b2b;
-    }
-
-    .product-description {
-      margin: 0;
-      line-height: 1.6;
-      color: #2a241b;
-    }
-
-    .product-size {
-      margin: 0.75rem 0 0;
-      font-weight: 600;
-      color: #5a6345;
-    }
-
-    .products-footer {
-      margin-top: 2rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    @media (max-width: 768px) {
-      .back-nav,
-      .products-container {
-        padding-inline: 1rem;
-      }
-
-      .product-image-container,
-      .product-image-container img {
-        min-height: 210px;
-        height: 210px;
-      }
-    }
-  </style>
 </head>
-<body>
+<body class="product-page-body">
   <nav class="back-nav">
     <div class="breadcrumb-nav">
       <a href="${homePagePath(lang)}">${escapeHtml(labels.home)}</a>
@@ -561,7 +498,7 @@ function writeProductPages() {
       const outDir = path.join(distDir, lang, 'products');
       ensureDir(outDir);
       const outFile = path.join(outDir, `${slug}.html`);
-      const page = buildProductPageHtml(slug, pageTitle, products, lang, imageFallback);
+      const page = injectBuildStamp(buildProductPageHtml(slug, pageTitle, products, lang, imageFallback));
       fs.writeFileSync(outFile, page, 'utf8');
     });
 
@@ -723,17 +660,23 @@ Object.entries(langs).forEach(([lang, config]) => {
   const langDir = path.join(distDir, lang);
   ensureDir(langDir);
 
+  const homeLanguageSwitcher = buildHomeLanguageSwitcher(lang);
+
   const html = injectBaseUrlIntoRootLinks(template
     .replace(/{{lang}}/g, lang)
     .replace(/{{dir}}/g, config.dir)
     .replace(/{{title}}/g, config.title)
     .replace(/{{baseUrl}}/g, BASE_URL)
     .replace(/{{backHomeText}}/g, config.backHomeText)
-    .replace(/{{jsonld}}/g, loadJSONLD(lang)))
+    .replace(/{{jsonld}}/g, loadJSONLD(lang))
+    .replace(/bulgur-wheat-pile\.(jpg|jpeg)/gi, 'bulgur-wheat-pile.png'))
+    .replace(/<div id="language-switcher"[\s\S]*?<\/div>/i, homeLanguageSwitcher)
     .replace(/<html lang="en" data-template-lang="([^"]+)"/i, `<html lang="$1" dir="${config.dir}"`);
 
+  const stampedHtml = injectBuildStamp(html);
+
   const outputFile = path.join(langDir, 'index.html');
-  fs.writeFileSync(outputFile, html);
+  fs.writeFileSync(outputFile, stampedHtml);
   console.log(`✓ Generated ${lang}: ${lang}/index.html`);
 });
 
@@ -980,6 +923,7 @@ function writeAllRecipesPages() {
   });
 </script>`;
 
+    out = injectBuildStamp(out);
     out = out.replace(/<\/body>/i, `${expandScript}\n${LANG_SYNC_SCRIPT}\n</body>`);
 
     const langRecipesDir = path.join(distDir, lang, 'recipes');
@@ -1050,21 +994,17 @@ function writeAllRecipesPages() {
       <span>${title}</span>
     </div>
     <div id="language-switcher" class="lang-switcher-nav">
-      <a href="${recipePagePath('en', recipe.slug)}" class="flag" title="English" aria-label="English">
-        <img src="../../assets/img/flags/gb.svg" alt="English">
-        <span class="code">EN</span>
+      <a href="${recipePagePath('en', recipe.slug)}" class="flag" title="English" aria-label="Switch to English">
+        <img src="../../assets/img/flags/gb.svg" alt="English flag">
       </a>
-      <a href="${recipePagePath('fr', recipe.slug)}" class="flag" title="Français" aria-label="Français">
-        <img src="../../assets/img/flags/fr.svg" alt="Français">
-        <span class="code">FR</span>
+      <a href="${recipePagePath('fr', recipe.slug)}" class="flag" title="Français" aria-label="Switch to Français">
+        <img src="../../assets/img/flags/fr.svg" alt="Français flag">
       </a>
-      <a href="${recipePagePath('ar', recipe.slug)}" class="flag" title="العربية" aria-label="العربية">
-        <img src="../../assets/img/flags/lb.svg" alt="العربية">
-        <span class="code">AR</span>
+      <a href="${recipePagePath('ar', recipe.slug)}" class="flag" title="العربية" aria-label="Switch to العربية">
+        <img src="../../assets/img/flags/lb.svg" alt="العربية flag">
       </a>
-      <a href="${recipePagePath('hy', recipe.slug)}" class="flag" title="Հայերեն" aria-label="Հայերեն">
-        <img src="../../assets/img/flags/am.svg" alt="Հայերեն">
-        <span class="code">HY</span>
+      <a href="${recipePagePath('hy', recipe.slug)}" class="flag" title="Հայերեն" aria-label="Switch to Հայերեն">
+        <img src="../../assets/img/flags/am.svg" alt="Հայերեն flag">
       </a>
     </div>
   </nav>
@@ -1110,7 +1050,7 @@ ${LANG_SYNC_SCRIPT}
 </html>`;
 
       const outFile = path.join(langRecipesDir, `${recipe.slug}.html`);
-      fs.writeFileSync(outFile, page, 'utf8');
+      fs.writeFileSync(outFile, injectBuildStamp(page), 'utf8');
     });
   });
 }
@@ -1123,7 +1063,8 @@ writeProductPages();
 const redirectSource = path.join(__dirname, 'redirect.html');
 const redirectTarget = path.join(distDir, 'index.html');
 if (fs.existsSync(redirectSource)) {
-  fs.copyFileSync(redirectSource, redirectTarget);
+  const redirectHtml = fs.readFileSync(redirectSource, 'utf8');
+  fs.writeFileSync(redirectTarget, injectBuildStamp(redirectHtml), 'utf8');
   console.log('✓ Copied redirect.html → dist/index.html');
 } else {
   console.warn('⚠ Warning: redirect.html not found, skipping root redirect');
