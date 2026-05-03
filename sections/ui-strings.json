@@ -1,0 +1,182 @@
+{
+  "site_title": {
+    "en": "Shehirian Bulgor Inc.",
+    "fr": "Shehirian Bulgor Inc.",
+    "ar": "مطبخ عائلة شيهريان",
+    "hy": "Շեհիրյան ընտանիքի խոհանոց"
+  },
+  "app_title": {
+    "en": "Shehirian Bulgor Inc",
+    "fr": "Shehirian Bulgor Inc",
+    "ar": "Shehirian Bulgor Inc",
+    "hy": "Shehirian Bulgor Inc"
+  },
+  "btn_back_home": {
+    "en": "Back / Home",
+    "fr": "Retour / Accueil",
+    "ar": "العودة / الرئيسية",
+    "hy": "Վերադառնալ / Գլխավոր"
+  },
+  "label_build_version": {
+    "en": "Build Version",
+    "fr": "Version de build",
+    "ar": "إصدار البناء",
+    "hy": "Կառուցման տարբերակ"
+  },
+  "lang_name_en": {
+    "en": "English",
+    "fr": "Anglais",
+    "ar": "الإنجليزية",
+    "hy": "Անգլերեն"
+  },
+  "lang_name_fr": {
+    "en": "Français",
+    "fr": "Français",
+    "ar": "الفرنسية",
+    "hy": "Ֆրանսերեն"
+  },
+  "lang_name_ar": {
+    "en": "العربية",
+    "fr": "Arabe",
+    "ar": "العربية",
+    "hy": "Արաբերեն"
+  },
+  "lang_name_hy": {
+    "en": "Հայերեն",
+    "fr": "Arménien",
+    "ar": "الأرمنية",
+    "hy": "Հայերեն"
+  },
+  "aria_switch_to": {
+    "en": "Switch to {language}",
+    "fr": "Passer en {language}",
+    "ar": "التبديل إلى {language}",
+    "hy": "Փոխել {language}"
+  },
+  "alt_language_flag": {
+    "en": "{language} flag",
+    "fr": "drapeau {language}",
+    "ar": "علم {language}",
+    "hy": "{language} դրոշ"
+  },
+  "nav_home": {
+    "en": "Home",
+    "fr": "Accueil",
+    "ar": "الرئيسية",
+    "hy": "Գլխավոր"
+  },
+  "nav_products": {
+    "en": "Products",
+    "fr": "Produits",
+    "ar": "المنتجات",
+    "hy": "Արտադրանք"
+  },
+  "btn_back_to_products": {
+    "en": "Back to Products",
+    "fr": "Retour aux produits",
+    "ar": "العودة إلى المنتجات",
+    "hy": "Վերադառնալ արտադրանքին"
+  },
+  "meta_category": {
+    "en": "Category",
+    "fr": "Catégorie",
+    "ar": "الفئة",
+    "hy": "Կատեգորիա"
+  },
+  "meta_cuisine": {
+    "en": "Cuisine",
+    "fr": "Cuisine",
+    "ar": "المطبخ",
+    "hy": "Խոհանոց"
+  },
+  "meta_prep": {
+    "en": "Prep",
+    "fr": "Préparation",
+    "ar": "وقت التحضير",
+    "hy": "Պատրաստում"
+  },
+  "meta_cook": {
+    "en": "Cook",
+    "fr": "Cuisson",
+    "ar": "وقت الطهي",
+    "hy": "Եփում"
+  },
+  "meta_yield": {
+    "en": "Yield",
+    "fr": "Portions",
+    "ar": "الحصة",
+    "hy": "Պորցիաներ"
+  },
+  "recipes_title": {
+    "en": "Recipes",
+    "fr": "Recettes",
+    "ar": "وصفات مميزة",
+    "hy": "Առանձնահատուկ բաղադրատոմսեր"
+  },
+  "btn_view_all_recipes": {
+    "en": "View all recipes →",
+    "fr": "Voir toutes les recettes →",
+    "ar": "عرض جميع الوصفات →",
+    "hy": "Դիտել բոլոր բաղադրատոմսերը →"
+  },
+  "all_recipes_title": {
+    "en": "All Recipes",
+    "fr": "Toutes les recettes",
+    "ar": "كل الوصفات",
+    "hy": "Բոլոր բաղադրատոմսերը"
+  },
+  "btn_show_more": {
+    "en": "Show more",
+    "fr": "Voir plus",
+    "ar": "عرض المزيد",
+    "hy": "Ցույց տալ ավելին"
+  },
+  "btn_show_less": {
+    "en": "Show less",
+    "fr": "Voir moins",
+    "ar": "عرض أقل",
+    "hy": "Ցույց տալ պակաս"
+  },
+  "meta_prep_time": {
+    "en": "Prep Time",
+    "fr": "Temps de préparation",
+    "ar": "وقت التحضير",
+    "hy": "Պատրաստման ժամանակ"
+  },
+  "meta_cook_time": {
+    "en": "Cook Time",
+    "fr": "Temps de cuisson",
+    "ar": "وقت الطهي",
+    "hy": "Եփման ժամանակ"
+  },
+  "meta_total_time": {
+    "en": "Total",
+    "fr": "Total",
+    "ar": "الإجمالي",
+    "hy": "Ընդհանուր"
+  },
+  "section_ingredients": {
+    "en": "Ingredients",
+    "fr": "Ingrédients",
+    "ar": "المكونات",
+    "hy": "Բաղադրիչներ"
+  },
+  "section_instructions": {
+    "en": "Instructions",
+    "fr": "Instructions",
+    "ar": "التحضير",
+    "hy": "Հրահանգներ"
+  },
+  "btn_back_to_all_recipes": {
+    "en": "← All recipes",
+    "fr": "← Toutes les recettes",
+    "ar": "← كل الوصفات",
+    "hy": "← Բոլոր բաղադրատոմսերը"
+  },
+  "page_suffix_product": {
+    "en": "Shehirian Bulgor Co.",
+    "fr": "Shehirian Bulgor Co.",
+    "ar": "شركة شهيريان للبرغل",
+    "hy": "Շեհիրյան Բուլղուր Քո."
+  }
+}

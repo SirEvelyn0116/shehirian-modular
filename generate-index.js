@@ -5,13 +5,22 @@ const BASE_URL = process.env.BASE_URL || '';
 const buildTime = new Date().toLocaleString();
 
 const langs = {
-  en: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Back / Home" },
-  fr: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Retour / Accueil" },
-  ar: { title: "Shehirian Bulgor Inc", dir: "rtl", backHomeText: "العودة / الرئيسية" },
-  hy: { title: "Shehirian Bulgor Inc", dir: "ltr", backHomeText: "Վերադառնալ / Գլխավոր" }
+  en: { dir: 'ltr' },
+  fr: { dir: 'ltr' },
+  ar: { dir: 'rtl' },
+  hy: { dir: 'ltr' }
 };
 
 const template = fs.readFileSync('template.html', 'utf8');
+const uiStrings = JSON.parse(fs.readFileSync(path.join(__dirname, 'sections', 'ui-strings.json'), 'utf8'));
+
+function getTranslator(lang) {
+  return function t(key, vars = {}) {
+    const entry = uiStrings[key] || {};
+    const raw = entry[lang] || entry.en || key;
+    return String(raw).replace(/\{(\w+)\}/g, (_, token) => String(vars[token] ?? ''));
+  };
+}
 
 function withBaseUrl(sitePath) {
   const normalizedBaseUrl = BASE_URL.endsWith('/') ? BASE_URL.slice(0, -1) : BASE_URL;
@@ -50,9 +59,10 @@ function escapeHtml(value) {
 // Inline script injected into every page to sync localStorage.lang on load
 const LANG_SYNC_SCRIPT = `<script>\n(function(){var l=document.documentElement.getAttribute("lang")||location.pathname.split("/").filter(Boolean)[0];if(l)localStorage.setItem("lang",l);})();\n</script>`;
 
-function injectBuildStamp(html) {
-  const buildStamp = `<p class="build-version">Build Version: ${escapeHtml(buildTime)}</p>`;
-  if (/Build Version:/i.test(html)) {
+function injectBuildStamp(html, lang = 'en') {
+  const t = getTranslator(lang);
+  const buildStamp = `<p class="build-version">${escapeHtml(t('label_build_version'))}: ${escapeHtml(buildTime)}</p>`;
+  if (/class="build-version"/i.test(html)) {
     return html;
   }
 
@@ -90,17 +100,19 @@ function injectBaseUrlIntoRootLinks(html) {
 
 function buildHomeLanguageSwitcher(currentLang) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
+    { lang: 'en', nameKey: 'lang_name_en', flag: 'gb.svg' },
+    { lang: 'fr', nameKey: 'lang_name_fr', flag: 'fr.svg' },
+    { lang: 'ar', nameKey: 'lang_name_ar', flag: 'lb.svg' },
+    { lang: 'hy', nameKey: 'lang_name_hy', flag: 'am.svg' }
   ];
+  const t = getTranslator(currentLang);
 
-  const items = links.map(({ lang, title, flag }) => {
+  const items = links.map(({ lang, nameKey, flag }) => {
     const isActive = lang === currentLang;
+    const languageName = t(nameKey);
     return `
-      <a href="${homePagePath(lang)}" class="flag${isActive ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}"${isActive ? ' aria-current="page"' : ''}>
-        <img src="../assets/img/flags/${flag}" alt="${title} flag">
+      <a href="${homePagePath(lang)}" class="flag${isActive ? ' active-lang' : ''}" data-lang="${lang}" title="${languageName}" aria-label="${t('aria_switch_to', { language: languageName })}"${isActive ? ' aria-current="page"' : ''}>
+        <img src="../assets/img/flags/${flag}" alt="${t('alt_language_flag', { language: languageName })}">
       </a>`;
   }).join('');
 
@@ -110,17 +122,19 @@ function buildHomeLanguageSwitcher(currentLang) {
 
 function buildRecipeIndexLanguageSwitcher(currentLang) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
+    { lang: 'en', nameKey: 'lang_name_en', flag: 'gb.svg' },
+    { lang: 'fr', nameKey: 'lang_name_fr', flag: 'fr.svg' },
+    { lang: 'ar', nameKey: 'lang_name_ar', flag: 'lb.svg' },
+    { lang: 'hy', nameKey: 'lang_name_hy', flag: 'am.svg' }
   ];
+  const t = getTranslator(currentLang);
 
-  const items = links.map(({ lang, title, flag }) => {
+  const items = links.map(({ lang, nameKey, flag }) => {
     console.log('GENERATING SWITCHER FOR:', lang);
+    const languageName = t(nameKey);
     return `
-      <a href="${recipeIndexPath(lang)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
-        <img src="../../assets/img/flags/${flag}" alt="${title} flag">
+      <a href="${recipeIndexPath(lang)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${languageName}" aria-label="${t('aria_switch_to', { language: languageName })}">
+        <img src="../../assets/img/flags/${flag}" alt="${t('alt_language_flag', { language: languageName })}">
       </a>`;
   }).join('');
 
@@ -184,40 +198,6 @@ function formatDuration(iso, lang) {
   if (hrs) return `${hrs} hr`;
   return `${mins} minutes`;
 }
-
-const localizedLabels = {
-  en: { category: 'Category', cuisine: 'Cuisine', prep: 'Prep', cook: 'Cook', yield: 'Yield' },
-  fr: { category: 'Catégorie', cuisine: 'Cuisine', prep: 'Préparation', cook: 'Cuisson', yield: 'Portions' },
-  ar: { category: 'الفئة', cuisine: 'المطبخ', prep: 'وقت التحضير', cook: 'وقت الطهي', yield: 'الحصة' },
-  hy: { category: 'Կատեգորիա', cuisine: 'Խոհանոց', prep: 'Պատրաստում', cook: 'Եփում', yield: 'Պորցիաներ' }
-};
-
-const productPageLabels = {
-  en: {
-    home: 'Home',
-    products: 'Products',
-    backToProducts: 'Back to Products',
-    pageSuffix: 'Shehirian Bulgor Co.'
-  },
-  fr: {
-    home: 'Accueil',
-    products: 'Produits',
-    backToProducts: 'Retour aux produits',
-    pageSuffix: 'Shehirian Bulgor Co.'
-  },
-  ar: {
-    home: 'الرئيسية',
-    products: 'المنتجات',
-    backToProducts: 'العودة إلى المنتجات',
-    pageSuffix: 'شركة شهيريان للبرغل'
-  },
-  hy: {
-    home: 'Գլխավոր',
-    products: 'Արտադրանք',
-    backToProducts: 'Վերադառնալ արտադրանքին',
-    pageSuffix: 'Շեհիրյան Բուլղուր Քո.'
-  }
-};
 
 const productTextTranslations = {
   'Mr. Falafel Products': { fr: 'Produits Mr. Falafel', ar: 'منتجات مستر فلافل', hy: 'Պարոն Ֆալաֆելի արտադրանք' },
@@ -315,17 +295,19 @@ function extractLegacyProductCards(sourceFile) {
 
 function buildProductLanguageSwitcher(currentLang, brandSlug) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
+    { lang: 'en', nameKey: 'lang_name_en', flag: 'gb.svg' },
+    { lang: 'fr', nameKey: 'lang_name_fr', flag: 'fr.svg' },
+    { lang: 'ar', nameKey: 'lang_name_ar', flag: 'lb.svg' },
+    { lang: 'hy', nameKey: 'lang_name_hy', flag: 'am.svg' }
   ];
+  const t = getTranslator(currentLang);
 
-  const items = links.map(({ lang, title, flag }) => {
+  const items = links.map(({ lang, nameKey, flag }) => {
     console.log('GENERATING SWITCHER FOR:', lang);
+    const languageName = t(nameKey);
     return `
-      <a href="${productPagePath(lang, brandSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
-        <img src="../../assets/img/flags/${flag}" alt="${title} flag">
+      <a href="${productPagePath(lang, brandSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${languageName}" aria-label="${t('aria_switch_to', { language: languageName })}">
+        <img src="../../assets/img/flags/${flag}" alt="${t('alt_language_flag', { language: languageName })}">
       </a>`;
   }).join('');
 
@@ -335,17 +317,19 @@ function buildProductLanguageSwitcher(currentLang, brandSlug) {
 
 function buildCertificationLanguageSwitcher(currentLang, certSlug) {
   const links = [
-    { lang: 'en', title: 'English', flag: 'gb.svg' },
-    { lang: 'fr', title: 'Français', flag: 'fr.svg' },
-    { lang: 'ar', title: 'العربية', flag: 'lb.svg' },
-    { lang: 'hy', title: 'Հայերեն', flag: 'am.svg' }
+    { lang: 'en', nameKey: 'lang_name_en', flag: 'gb.svg' },
+    { lang: 'fr', nameKey: 'lang_name_fr', flag: 'fr.svg' },
+    { lang: 'ar', nameKey: 'lang_name_ar', flag: 'lb.svg' },
+    { lang: 'hy', nameKey: 'lang_name_hy', flag: 'am.svg' }
   ];
+  const t = getTranslator(currentLang);
 
-  const items = links.map(({ lang, title, flag }) => {
+  const items = links.map(({ lang, nameKey, flag }) => {
     console.log('GENERATING SWITCHER FOR:', lang);
+    const languageName = t(nameKey);
     return `
-      <a href="${certificationPagePath(lang, certSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${title}" aria-label="Switch to ${title}">
-        <img src="../../assets/img/flags/${flag}" alt="${title} flag">
+      <a href="${certificationPagePath(lang, certSlug)}" class="flag${lang === currentLang ? ' active-lang' : ''}" data-lang="${lang}" title="${languageName}" aria-label="${t('aria_switch_to', { language: languageName })}">
+        <img src="../../assets/img/flags/${flag}" alt="${t('alt_language_flag', { language: languageName })}">
       </a>`;
   }).join('');
 
@@ -378,7 +362,7 @@ function rewriteCertificationPagePaths(pageHtml, lang, certSlug) {
     rewritten = rewritten.replace(/<body([^>]*)>/i, `<body$1>\n    ${languageSwitcher}`);
   }
 
-  rewritten = injectBuildStamp(rewritten);
+  rewritten = injectBuildStamp(rewritten, lang);
 
   // Inject lang-sync script before closing body
   rewritten = rewritten.replace(/<\/body>/i, `${LANG_SYNC_SCRIPT}\n</body>`);
@@ -449,7 +433,7 @@ function buildProductCardsHtml(products, lang, imageFallback) {
 }
 
 function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, imageFallback) {
-  const labels = productPageLabels[lang] || productPageLabels.en;
+  const t = getTranslator(lang);
   const pageTitle = translateProductText(englishPageTitle, lang);
   const breadcrumbsTitle = escapeHtml(pageTitle);
   const switcher = buildProductLanguageSwitcher(lang, brandSlug);
@@ -460,15 +444,15 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${escapeHtml(pageTitle)} | ${escapeHtml(labels.pageSuffix)}</title>
+  <title>${escapeHtml(pageTitle)} | ${escapeHtml(t('page_suffix_product'))}</title>
   <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body class="product-page-body">
   <nav class="back-nav">
     <div class="breadcrumb-nav">
-      <a href="${homePagePath(lang)}">${escapeHtml(labels.home)}</a>
+      <a href="${homePagePath(lang)}">${escapeHtml(t('nav_home'))}</a>
       <span>›</span>
-      <a href="${homePagePath(lang)}#products-carousel">${escapeHtml(labels.products)}</a>
+      <a href="${homePagePath(lang)}#products-carousel">${escapeHtml(t('nav_products'))}</a>
       <span>›</span>
       <span>${breadcrumbsTitle}</span>
     </div>
@@ -482,7 +466,7 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
     </section>
 
     <footer class="products-footer">
-      <a class="view-all-btn" href="${homePagePath(lang)}#products-carousel">← ${escapeHtml(labels.backToProducts)}</a>
+      <a class="view-all-btn" href="${homePagePath(lang)}#products-carousel">← ${escapeHtml(t('btn_back_to_products'))}</a>
     </footer>
   </main>
 ${LANG_SYNC_SCRIPT}
@@ -498,7 +482,7 @@ function writeProductPages() {
       const outDir = path.join(distDir, lang, 'products');
       ensureDir(outDir);
       const outFile = path.join(outDir, `${slug}.html`);
-      const page = injectBuildStamp(buildProductPageHtml(slug, pageTitle, products, lang, imageFallback));
+      const page = injectBuildStamp(buildProductPageHtml(slug, pageTitle, products, lang, imageFallback), lang);
       fs.writeFileSync(outFile, page, 'utf8');
     });
 
@@ -659,21 +643,22 @@ ensureDir(distDir);
 Object.entries(langs).forEach(([lang, config]) => {
   const langDir = path.join(distDir, lang);
   ensureDir(langDir);
+  const t = getTranslator(lang);
 
   const homeLanguageSwitcher = buildHomeLanguageSwitcher(lang);
 
   const html = injectBaseUrlIntoRootLinks(template
     .replace(/{{lang}}/g, lang)
     .replace(/{{dir}}/g, config.dir)
-    .replace(/{{title}}/g, config.title)
+    .replace(/{{title}}/g, t('site_title'))
     .replace(/{{baseUrl}}/g, BASE_URL)
-    .replace(/{{backHomeText}}/g, config.backHomeText)
+    .replace(/{{backHomeText}}/g, t('btn_back_home'))
     .replace(/{{jsonld}}/g, loadJSONLD(lang))
     .replace(/bulgur-wheat-pile\.(jpg|jpeg)/gi, 'bulgur-wheat-pile.png'))
     .replace(/<div id="language-switcher"[\s\S]*?<\/div>/i, homeLanguageSwitcher)
     .replace(/<html lang="en" data-template-lang="([^"]+)"/i, `<html lang="$1" dir="${config.dir}"`);
 
-  const stampedHtml = injectBuildStamp(html);
+  const stampedHtml = injectBuildStamp(html, lang);
 
   const outputFile = path.join(langDir, 'index.html');
   fs.writeFileSync(outputFile, stampedHtml);
@@ -686,16 +671,16 @@ console.log('✓ Created .nojekyll file');
 
 // Generate build-time all-recipes pages from sections/recipes/recipes.<lang>.json
 function buildRecipeCardHTML(recipe, lang) {
+  const t = getTranslator(lang);
   const slug = recipe.slug || recipe.id || recipe.name || 'recipe';
   const href = recipePagePath(lang, slug);
   const desc = recipe.description ? `<p class="recipe-description">${recipe.description}</p>` : '';
-  const labels = localizedLabels[lang] || localizedLabels.en;
   const meta = [];
-  if (recipe.category) meta.push(`<strong>${labels.category}:</strong> ${recipe.category}`);
-  if (recipe.cuisine) meta.push(`<strong>${labels.cuisine}:</strong> ${recipe.cuisine}`);
-  if (recipe.prepTime) meta.push(`<strong>${labels.prep}:</strong> ${formatDuration(recipe.prepTime, lang)}`);
-  if (recipe.cookTime) meta.push(`<strong>${labels.cook}:</strong> ${formatDuration(recipe.cookTime, lang)}`);
-  if (recipe.yield) meta.push(`<strong>${labels.yield}:</strong> ${recipe.yield}`);
+  if (recipe.category) meta.push(`<strong>${t('meta_category')}:</strong> ${recipe.category}`);
+  if (recipe.cuisine) meta.push(`<strong>${t('meta_cuisine')}:</strong> ${recipe.cuisine}`);
+  if (recipe.prepTime) meta.push(`<strong>${t('meta_prep')}:</strong> ${formatDuration(recipe.prepTime, lang)}`);
+  if (recipe.cookTime) meta.push(`<strong>${t('meta_cook')}:</strong> ${formatDuration(recipe.cookTime, lang)}`);
+  if (recipe.yield) meta.push(`<strong>${t('meta_yield')}:</strong> ${recipe.yield}`);
 
   return `
     <a href="${href}" class="recipe-card">
@@ -710,6 +695,7 @@ function buildRecipeCardHTML(recipe, lang) {
 }
 
 function buildAllRecipesHTML(allRecipes, lang) {
+  const t = getTranslator(lang);
   // group by canonical categoryId; fall back to normalized category text
   const groups = {};
   allRecipes.forEach(r => {
@@ -724,15 +710,8 @@ function buildAllRecipesHTML(allRecipes, lang) {
     const heading = (labelObj && labelObj[lang]) || labelObj.en || group.id;
     const cards = items.map(it => buildRecipeCardHTML(it, lang)).join('\n');
     
-    // Localized expand button text
-    const expandText = lang === 'fr' ? 'Voir plus' : 
-                       lang === 'ar' ? 'عرض المزيد' : 
-                       lang === 'hy' ? 'Ցույց տալ ավելին' : 
-                       'Show more';
-    const collapseText = lang === 'fr' ? 'Voir moins' : 
-                         lang === 'ar' ? 'عرض أقل' : 
-                         lang === 'hy' ? 'Ցույց տալ պակաս' : 
-                         'Show less';
+    const expandText = t('btn_show_more');
+    const collapseText = t('btn_show_less');
     
     return `<section class="recipes-category-section">
       <div class="category-header-wrapper">
@@ -844,10 +823,12 @@ function writeAllRecipesPages() {
       return acc;
     }, []);
 
+    const t = getTranslator(lang);
+
     const recipesJson = {
-      title: lang === 'fr' ? 'Recettes' : (lang === 'ar' ? 'وصفات مميزة' : (lang === 'hy' ? 'Առանձնահատուկ բաղադրատոմսեր' : 'Recipes')),
+      title: t('recipes_title'),
       viewAllLink: recipeIndexPath(lang),
-      viewAllText: lang === 'fr' ? 'Voir toutes les recettes →' : (lang === 'ar' ? 'عرض جميع الوصفات →' : (lang === 'hy' ? 'Դիտել բոլոր բաղադրատոմսերը →' : 'View all recipes →')),
+      viewAllText: t('btn_view_all_recipes'),
       featured: featured,
       allRecipes: localizedAll
     };
@@ -863,7 +844,7 @@ function writeAllRecipesPages() {
     if (fs.existsSync(srcPage)) {
       pageHtml = fs.readFileSync(srcPage, 'utf8');
     } else {
-      pageHtml = `<!doctype html><html lang="${lang}" dir="${langs[lang].dir}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>All Recipes</title><link rel="stylesheet" href="../../assets/css/style.css"></head><body><section class="all-recipes-page"><div class="all-recipes-header"><h1>All Recipes</h1></div><div class="all-recipes-grid"></div></section></body></html>`;
+      pageHtml = `<!doctype html><html lang="${lang}" dir="${langs[lang].dir}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${t('all_recipes_title')}</title><link rel="stylesheet" href="../../assets/css/style.css"></head><body><section class="all-recipes-page"><div class="all-recipes-header"><h1>${t('all_recipes_title')}</h1></div><div class="all-recipes-grid"></div></section></body></html>`;
     }
 
     pageHtml = rewriteRecipeIndexPaths(pageHtml, lang);
@@ -923,7 +904,7 @@ function writeAllRecipesPages() {
   });
 </script>`;
 
-    out = injectBuildStamp(out);
+    out = injectBuildStamp(out, lang);
     out = out.replace(/<\/body>/i, `${expandScript}\n${LANG_SYNC_SCRIPT}\n</body>`);
 
     const langRecipesDir = path.join(distDir, lang, 'recipes');
@@ -938,6 +919,7 @@ function writeAllRecipesPages() {
 
   master.recipes.forEach(recipe => {
     Object.keys(langs).forEach(lang => {
+      const t = getTranslator(lang);
       const langRecipesDir = path.join(distDir, lang, 'recipes');
       ensureDir(langRecipesDir);
 
@@ -987,24 +969,24 @@ function writeAllRecipesPages() {
 <body>
     <nav class="back-nav">
     <div class="breadcrumb-nav">
-  <a href="${homePagePath(lang)}">${lang === 'fr' ? 'Accueil' : (lang === 'ar' ? 'الرئيسية' : (lang === 'hy' ? 'Գլխավոր' : 'Home'))}</a>
+  <a href="${homePagePath(lang)}">${t('nav_home')}</a>
       <span>›</span>
-      <a href="${recipeIndexPath(lang)}">${lang === 'fr' ? 'Toutes les recettes' : (lang === 'ar' ? 'كل الوصفات' : (lang === 'hy' ? 'Բոլոր բաղադրատոմսերը' : 'All Recipes'))}</a>
+      <a href="${recipeIndexPath(lang)}">${t('all_recipes_title')}</a>
       <span>›</span>
       <span>${title}</span>
     </div>
     <div id="language-switcher" class="lang-switcher-nav">
-      <a href="${recipePagePath('en', recipe.slug)}" class="flag" title="English" aria-label="Switch to English">
-        <img src="../../assets/img/flags/gb.svg" alt="English flag">
+      <a href="${recipePagePath('en', recipe.slug)}" class="flag" title="${t('lang_name_en')}" aria-label="${t('aria_switch_to', { language: t('lang_name_en') })}">
+        <img src="../../assets/img/flags/gb.svg" alt="${t('alt_language_flag', { language: t('lang_name_en') })}">
       </a>
-      <a href="${recipePagePath('fr', recipe.slug)}" class="flag" title="Français" aria-label="Switch to Français">
-        <img src="../../assets/img/flags/fr.svg" alt="Français flag">
+      <a href="${recipePagePath('fr', recipe.slug)}" class="flag" title="${t('lang_name_fr')}" aria-label="${t('aria_switch_to', { language: t('lang_name_fr') })}">
+        <img src="../../assets/img/flags/fr.svg" alt="${t('alt_language_flag', { language: t('lang_name_fr') })}">
       </a>
-      <a href="${recipePagePath('ar', recipe.slug)}" class="flag" title="العربية" aria-label="Switch to العربية">
-        <img src="../../assets/img/flags/lb.svg" alt="العربية flag">
+      <a href="${recipePagePath('ar', recipe.slug)}" class="flag" title="${t('lang_name_ar')}" aria-label="${t('aria_switch_to', { language: t('lang_name_ar') })}">
+        <img src="../../assets/img/flags/lb.svg" alt="${t('alt_language_flag', { language: t('lang_name_ar') })}">
       </a>
-      <a href="${recipePagePath('hy', recipe.slug)}" class="flag" title="Հայերեն" aria-label="Switch to Հայերեն">
-        <img src="../../assets/img/flags/am.svg" alt="Հայերեն flag">
+      <a href="${recipePagePath('hy', recipe.slug)}" class="flag" title="${t('lang_name_hy')}" aria-label="${t('aria_switch_to', { language: t('lang_name_hy') })}">
+        <img src="../../assets/img/flags/am.svg" alt="${t('alt_language_flag', { language: t('lang_name_hy') })}">
       </a>
     </div>
   </nav>
@@ -1014,35 +996,35 @@ function writeAllRecipesPages() {
       <h1>${title}</h1>
       <p class="recipe-description">${description}</p>
       <p>
-        <strong>${lang === 'fr' ? 'Catégorie' : (lang === 'ar' ? 'الفئة' : (lang === 'hy' ? 'Կատեգորիա' : 'Category'))}:</strong> ${(recipe.recipeCategory && recipe.recipeCategory[lang]) || ''}
+        <strong>${t('meta_category')}:</strong> ${(recipe.recipeCategory && recipe.recipeCategory[lang]) || ''}
         &nbsp; | &nbsp;
-        <strong>${lang === 'fr' ? 'Cuisine' : (lang === 'ar' ? 'المطبخ' : (lang === 'hy' ? 'Խոհանոց' : 'Cuisine'))}:</strong> ${(recipe.recipeCuisine && recipe.recipeCuisine[lang]) || ''}
+        <strong>${t('meta_cuisine')}:</strong> ${(recipe.recipeCuisine && recipe.recipeCuisine[lang]) || ''}
       </p>
       <p>
-        <strong>${lang === 'fr' ? 'Temps de préparation' : (lang === 'ar' ? 'وقت التحضير' : (lang === 'hy' ? 'Պատրաստման ժամանակ' : 'Prep Time'))}:</strong> ${formatDuration(recipe.prepTime, lang) || ''}
+        <strong>${t('meta_prep_time')}:</strong> ${formatDuration(recipe.prepTime, lang) || ''}
         &nbsp; | &nbsp;
-        <strong>${lang === 'fr' ? 'Temps de cuisson' : (lang === 'ar' ? 'وقت الطهي' : (lang === 'hy' ? 'Եփման ժամանակ' : 'Cook Time'))}:</strong> ${formatDuration(recipe.cookTime, lang) || ''}
+        <strong>${t('meta_cook_time')}:</strong> ${formatDuration(recipe.cookTime, lang) || ''}
         &nbsp; | &nbsp;
-        <strong>${lang === 'fr' ? 'Total' : (lang === 'ar' ? 'الإجمالي' : (lang === 'hy' ? 'Ընդհանուր' : 'Total'))}:</strong> ${formatDuration(recipe.totalTime, lang) || ''}
+        <strong>${t('meta_total_time')}:</strong> ${formatDuration(recipe.totalTime, lang) || ''}
       </p>
     </header>
 
     <section class="recipe-section recipe-ingredients">
-      <h2>${lang === 'fr' ? 'Ingrédients' : (lang === 'ar' ? 'المكونات' : (lang === 'hy' ? 'Բաղադրիչներ' : 'Ingredients'))}</h2>
+      <h2>${t('section_ingredients')}</h2>
       <ul>
         ${ingredients.map(i => `<li>${i}</li>`).join('\n')}
       </ul>
     </section>
 
     <section class="recipe-section recipe-steps recipe-instructions">
-      <h2>${lang === 'fr' ? 'Instructions' : (lang === 'ar' ? 'التحضير' : (lang === 'hy' ? 'Հրահանգներ' : 'Instructions'))}</h2>
+      <h2>${t('section_instructions')}</h2>
       <ol>
         ${instructions.map(s => `<li>${s}</li>`).join('\n')}
       </ol>
     </section>
 
     <footer class="recipe-footer">
-      <a class="view-all-btn" href="${recipeIndexPath(lang)}">${lang === 'fr' ? '← Toutes les recettes' : (lang === 'ar' ? '← كل الوصفات' : (lang === 'hy' ? '← Բոլոր բաղադրատոմսերը' : '← All recipes'))}</a>
+      <a class="view-all-btn" href="${recipeIndexPath(lang)}">${t('btn_back_to_all_recipes')}</a>
     </footer>
   </main>
 ${LANG_SYNC_SCRIPT}
@@ -1050,7 +1032,7 @@ ${LANG_SYNC_SCRIPT}
 </html>`;
 
       const outFile = path.join(langRecipesDir, `${recipe.slug}.html`);
-      fs.writeFileSync(outFile, injectBuildStamp(page), 'utf8');
+      fs.writeFileSync(outFile, injectBuildStamp(page, lang), 'utf8');
     });
   });
 }
@@ -1064,7 +1046,7 @@ const redirectSource = path.join(__dirname, 'redirect.html');
 const redirectTarget = path.join(distDir, 'index.html');
 if (fs.existsSync(redirectSource)) {
   const redirectHtml = fs.readFileSync(redirectSource, 'utf8');
-  fs.writeFileSync(redirectTarget, injectBuildStamp(redirectHtml), 'utf8');
+  fs.writeFileSync(redirectTarget, injectBuildStamp(redirectHtml, 'en'), 'utf8');
   console.log('✓ Copied redirect.html → dist/index.html');
 } else {
   console.warn('⚠ Warning: redirect.html not found, skipping root redirect');
