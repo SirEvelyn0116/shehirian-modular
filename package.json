@@ -13,11 +13,19 @@
     "test:webkit": "playwright test --project=webkit",
     "test:report": "playwright show-report test-results/html"
   },
-  "keywords": ["multilingual", "static-site", "modular"],
+  "keywords": [
+    "multilingual",
+    "static-site",
+    "modular"
+  ],
   "author": "Shehirian Family",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
     "http-server": "^14.1.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "googleapis": "^171.4.0"
   }
 }

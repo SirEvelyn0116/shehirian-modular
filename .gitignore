@@ -1,14 +1,15 @@
-# Playwright Test Results
-test-results/
+# Dependencies
+node_modules/
 
-# Playwright browsers cache
-.cache/ms-playwright/
+# Environment / Security
+.env
+*.pem
+shehirian-translation-service-0be256eb8ad0.json
 
-# Test artifacts
-playwright-report/
-playwright/.auth/
+# Build Outputs
 dist/
-
-# payment-integration-prototype build output
 .netlify/
-payment-integration-prototype/
+
+# OS Metadata
+.DS_Store
+Thumbs.db

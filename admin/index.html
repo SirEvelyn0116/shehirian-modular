@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Governance Dashboard</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; line-height: 1.5; }
+        .dashboard-card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; max-width: 500px; }
+        .status-box { margin-top: 20px; padding: 15px; background: #f4f4f9; border-left: 5px solid #2ecc71; }
+        button { background: #0070f3; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        button:disabled { background: #ccc; }
+        #build-progress { color: #666; font-style: italic; display: none; }
+    </style>
+</head>
+<body>
+
+<div data-netlify-identity-menu></div>
+
+<div id="translator-ui" style="display:none;" class="dashboard-card">
+    <h1>Translation Governance</h1>
+    <p><strong>Step 1:</strong> Update the <a href="YOUR_GOOGLE_SHEET_URL" target="_blank">Google Translation Sheet</a>.</p>
+    <p><strong>Step 2:</strong> Trigger a site-wide rebuild.</p>
+    
+    <button id="deploy-btn" onclick="approveBuild()">Approve & Deploy to Live Site</button>
+    <p id="build-progress">Build in progress... checking for updates...</p>
+
+    <div id="status-area" class="status-box">
+        <strong>Last Successful Deploy:</strong>
+        <div id="build-report">Loading stats...</div>
+    </div>
+</div>
+
+<script>
+    const reportEl = document.getElementById('build-report');
+    const progressEl = document.getElementById('build-progress');
+    const deployBtn = document.getElementById('deploy-btn');
+
+    // Show UI on login
+    netlifyIdentity.on('login', user => {
+        document.getElementById('translator-ui').style.display = 'block';
+        fetchBuildStatus();
+    });
+
+    // Fetches the metadata.json we added to generate-index.js
+    async function fetchBuildStatus() {
+        try {
+            const res = await fetch('/metadata.json?t=' + Date.now()); // Prevent caching
+            if (!res.ok) throw new Error("No metadata found.");
+            const data = await res.json();
+            reportEl.innerHTML = `
+                <br>📅 Time: ${data.lastBuild}
+                <br>📄 Pages Generated: <strong>${data.pageCount}</strong>
+                <br>✅ Status: ${data.status}
+            `;
+        } catch (err) {
+            reportEl.innerText = "No previous build data available.";
+        }
+    }
+
+    async function approveBuild() {
+        if (!confirm("Are you sure you want to rebuild the entire site with the current Google Sheet data?")) return;
+
+        deployBtn.disabled = true;
+        progressEl.style.display = 'block';
+
+        try {
+            const response = await fetch('/.netlify/functions/trigger-sync', {
+                method: 'POST',
+                headers: { 
+                    'Authorization': `Bearer ${netlifyIdentity.currentUser().token.access_token}` 
+                }
+            });
+
+            if (response.ok) {
+                alert("Build Hook triggered successfully! The site will update in 1-2 minutes.");
+                // Start polling for the new metadata.json every 10 seconds
+                let attempts = 0;
+                const interval = setInterval(async () => {
+                    await fetchBuildStatus();
+                    attempts++;
+                    if (attempts > 12) { // Stop after 2 minutes
+                        clearInterval(interval);
+                        progressEl.style.display = 'none';
+                        deployBtn.disabled = false;
+                    }
+                }, 10000);
+            } else {
+                throw new Error("Function failed.");
+            }
+        } catch (error) {
+            alert("Error triggering build. Please check Netlify function logs.");
+            deployBtn.disabled = false;
+            progressEl.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>

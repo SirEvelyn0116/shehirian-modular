@@ -1,0 +1,13 @@
+[build]
+  # Step 1: Sync Google Sheets, Step 2: Generate all 212+ pages
+  command = "node sync-google-sheets.js && node generate-index.js"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  conditions = {Role = ["translator", "admin"]}

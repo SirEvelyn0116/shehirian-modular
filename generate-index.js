@@ -4,6 +4,8 @@ const path = require('path');
 const BASE_URL = process.env.BASE_URL || '';
 const buildTime = new Date().toLocaleString();
 
+let totalPagesGenerated = 0;
+
 const langs = {
   en: { dir: 'ltr' },
   fr: { dir: 'ltr' },
@@ -12,8 +14,7 @@ const langs = {
 };
 
 const template = fs.readFileSync('template.html', 'utf8');
-const uiStrings = JSON.parse(fs.readFileSync(path.join(__dirname, 'sections', 'ui-strings.json'), 'utf8'));
-
+const uiStrings = JSON.parse(fs.readFileSync(path.join(__dirname, 'ui-strings.json'), 'utf8'));
 function getTranslator(lang) {
   return function t(key, vars = {}) {
     const entry = uiStrings[key] || {};
@@ -401,6 +402,7 @@ function writeCertificationPages() {
       const outDir = path.join(distDir, lang, 'certifications');
       ensureDir(outDir);
       fs.writeFileSync(path.join(outDir, `${slug}.html`), rewritten, 'utf8');
+      totalPagesGenerated++;
     });
 
     console.log(`✓ Generated certification page set: ${slug}`);
@@ -484,6 +486,7 @@ function writeProductPages() {
       const outFile = path.join(outDir, `${slug}.html`);
       const page = injectBuildStamp(buildProductPageHtml(slug, pageTitle, products, lang, imageFallback), lang);
       fs.writeFileSync(outFile, page, 'utf8');
+      totalPagesGenerated++;
     });
 
     console.log(`✓ Generated products page set: ${slug}`);
@@ -615,6 +618,7 @@ function copyAssets() {
   
   // Create .nojekyll
   fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
+  totalPagesGenerated++;
 }
 
 function copyRecursive(src, dest) {
@@ -662,6 +666,7 @@ Object.entries(langs).forEach(([lang, config]) => {
 
   const outputFile = path.join(langDir, 'index.html');
   fs.writeFileSync(outputFile, stampedHtml);
+  totalPagesGenerated++;
   console.log(`✓ Generated ${lang}: ${lang}/index.html`);
 });
 
@@ -835,6 +840,7 @@ function writeAllRecipesPages() {
 
     // write localized recipes json to dist sections so client side can still fetch it
     fs.writeFileSync(path.join(distSectionsRecipes, `recipes.${lang}.json`), JSON.stringify(recipesJson, null, 2), 'utf8');
+    totalPagesGenerated++;
 
     // Build all-recipes HTML
     const gridHtml = buildAllRecipesHTML(recipesJson.allRecipes, lang);
@@ -912,6 +918,7 @@ function writeAllRecipesPages() {
 
     const outPath = path.join(langRecipesDir, 'index.html');
     fs.writeFileSync(outPath, out, 'utf8');
+    totalPagesGenerated++;
     console.log(`✓ Generated recipes page: ${lang}/recipes/index.html`);
   });
 
@@ -1033,6 +1040,7 @@ ${LANG_SYNC_SCRIPT}
 
       const outFile = path.join(langRecipesDir, `${recipe.slug}.html`);
       fs.writeFileSync(outFile, injectBuildStamp(page, lang), 'utf8');
+      totalPagesGenerated++;
     });
   });
 }
@@ -1047,10 +1055,20 @@ const redirectTarget = path.join(distDir, 'index.html');
 if (fs.existsSync(redirectSource)) {
   const redirectHtml = fs.readFileSync(redirectSource, 'utf8');
   fs.writeFileSync(redirectTarget, injectBuildStamp(redirectHtml, 'en'), 'utf8');
+  totalPagesGenerated++;
   console.log('✓ Copied redirect.html → dist/index.html');
 } else {
   console.warn('⚠ Warning: redirect.html not found, skipping root redirect');
 }
+
+const metadata = {
+    lastBuild: new Date().toLocaleString(), // Used by data.lastBuild
+    pageCount: totalPagesGenerated,         // Used by data.pageCount
+    status: 'Success'                       // Used by data.status
+};
+
+fs.writeFileSync(path.join(distDir, 'metadata.json'), JSON.stringify(metadata, null, 2), 'utf8');
+console.log(`✓ Wrote dist/metadata.json (${totalPagesGenerated} files)`);
 
 console.log('\n✅ Build complete! Output in dist/');
 console.log(`   Pages: ${Object.keys(langs).map(l => `${l}/index.html`).join(', ')}`);
