@@ -595,6 +595,7 @@ function copyAssets() {
   const distDir = path.join(__dirname, 'dist');
   const assetsDir = path.join(__dirname, 'assets');
   const sectionsDir = path.join(__dirname, 'sections');
+  const adminDir = path.join(__dirname, 'admin');
   const previewJsSource = path.join(__dirname, 'preview.js');
   
   // Copy assets folder
@@ -616,6 +617,17 @@ function copyAssets() {
   // Copy preview.js
   fs.copyFileSync(previewJsSource, path.join(distDir, 'preview.js'));
   
+  // Copy admin folder
+  if (fs.existsSync(adminDir)) {
+    const distAdmin = path.join(distDir, 'admin');
+    if (!fs.existsSync(distAdmin)) {
+      fs.mkdirSync(distAdmin, { recursive: true });
+    }
+    copyRecursive(adminDir, distAdmin);
+    totalPagesGenerated++;
+    console.log('✓ Copied admin folder');
+  }
+
   // Create .nojekyll
   fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
   totalPagesGenerated++;
