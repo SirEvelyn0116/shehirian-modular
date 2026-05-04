@@ -51,6 +51,7 @@
             reportEl.innerHTML = `
                 <br>📅 Time: ${data.lastBuild}
                 <br>📄 Pages Generated: <strong>${data.pageCount}</strong>
+                <br>📁 Files Deployed: <strong>${data.totalFilesDeployed}</strong>
                 <br>✅ Status: ${data.status}
             `;
         } catch (err) {

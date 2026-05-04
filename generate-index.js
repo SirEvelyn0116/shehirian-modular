@@ -4,6 +4,7 @@ const path = require('path');
 const BASE_URL = process.env.BASE_URL || '';
 const buildTime = new Date().toLocaleString();
 
+let totalFilesDeployed = 0;
 let totalPagesGenerated = 0;
 
 const langs = {
@@ -88,6 +89,18 @@ function injectBuildStamp(html, lang = 'en') {
 function ensureDir(dirPath) {
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
+  }
+}
+
+function smartWrite(filePath, content, encoding = 'utf8') {
+  const parentDir = path.dirname(filePath);
+  if (!fs.existsSync(parentDir)) {
+    fs.mkdirSync(parentDir, { recursive: true });
+  }
+  fs.writeFileSync(filePath, content, encoding);
+  totalFilesDeployed++;
+  if (String(filePath).toLowerCase().endsWith('.html')) {
+    totalPagesGenerated++;
   }
 }
 
@@ -400,9 +413,7 @@ function writeCertificationPages() {
       const pageHtml = fs.readFileSync(sourcePath, 'utf8');
       const rewritten = rewriteCertificationPagePaths(pageHtml, lang, slug);
       const outDir = path.join(distDir, lang, 'certifications');
-      ensureDir(outDir);
-      fs.writeFileSync(path.join(outDir, `${slug}.html`), rewritten, 'utf8');
-      totalPagesGenerated++;
+      smartWrite(path.join(outDir, `${slug}.html`), rewritten, 'utf8');
     });
 
     console.log(`✓ Generated certification page set: ${slug}`);
@@ -482,11 +493,9 @@ function writeProductPages() {
 
     Object.keys(langs).forEach(lang => {
       const outDir = path.join(distDir, lang, 'products');
-      ensureDir(outDir);
       const outFile = path.join(outDir, `${slug}.html`);
       const page = injectBuildStamp(buildProductPageHtml(slug, pageTitle, products, lang, imageFallback), lang);
-      fs.writeFileSync(outFile, page, 'utf8');
-      totalPagesGenerated++;
+      smartWrite(outFile, page, 'utf8');
     });
 
     console.log(`✓ Generated products page set: ${slug}`);
@@ -624,13 +633,11 @@ function copyAssets() {
       fs.mkdirSync(distAdmin, { recursive: true });
     }
     copyRecursive(adminDir, distAdmin);
-    totalPagesGenerated++;
     console.log('✓ Copied admin folder');
   }
 
   // Create .nojekyll
-  fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
-  totalPagesGenerated++;
+  smartWrite(path.join(distDir, '.nojekyll'), '');
 }
 
 function copyRecursive(src, dest) {
@@ -658,7 +665,6 @@ ensureDir(distDir);
 
 Object.entries(langs).forEach(([lang, config]) => {
   const langDir = path.join(distDir, lang);
-  ensureDir(langDir);
   const t = getTranslator(lang);
 
   const homeLanguageSwitcher = buildHomeLanguageSwitcher(lang);
@@ -677,8 +683,7 @@ Object.entries(langs).forEach(([lang, config]) => {
   const stampedHtml = injectBuildStamp(html, lang);
 
   const outputFile = path.join(langDir, 'index.html');
-  fs.writeFileSync(outputFile, stampedHtml);
-  totalPagesGenerated++;
+  smartWrite(outputFile, stampedHtml);
   console.log(`✓ Generated ${lang}: ${lang}/index.html`);
 });
 
@@ -851,8 +856,7 @@ function writeAllRecipesPages() {
     };
 
     // write localized recipes json to dist sections so client side can still fetch it
-    fs.writeFileSync(path.join(distSectionsRecipes, `recipes.${lang}.json`), JSON.stringify(recipesJson, null, 2), 'utf8');
-    totalPagesGenerated++;
+    smartWrite(path.join(distSectionsRecipes, `recipes.${lang}.json`), JSON.stringify(recipesJson, null, 2), 'utf8');
 
     // Build all-recipes HTML
     const gridHtml = buildAllRecipesHTML(recipesJson.allRecipes, lang);
@@ -926,11 +930,9 @@ function writeAllRecipesPages() {
     out = out.replace(/<\/body>/i, `${expandScript}\n${LANG_SYNC_SCRIPT}\n</body>`);
 
     const langRecipesDir = path.join(distDir, lang, 'recipes');
-    ensureDir(langRecipesDir);
 
     const outPath = path.join(langRecipesDir, 'index.html');
-    fs.writeFileSync(outPath, out, 'utf8');
-    totalPagesGenerated++;
+    smartWrite(outPath, out, 'utf8');
     console.log(`✓ Generated recipes page: ${lang}/recipes/index.html`);
   });
 
@@ -940,7 +942,6 @@ function writeAllRecipesPages() {
     Object.keys(langs).forEach(lang => {
       const t = getTranslator(lang);
       const langRecipesDir = path.join(distDir, lang, 'recipes');
-      ensureDir(langRecipesDir);
 
       const title = (recipe.title && recipe.title[lang]) || recipe.title && recipe.title.en || recipe.slug;
       const description = (recipe.description && recipe.description[lang]) || '';
@@ -970,7 +971,7 @@ function writeAllRecipesPages() {
         const sectionsRecipesDir = path.join(__dirname, 'sections', 'recipes');
         if (!fs.existsSync(sectionsRecipesDir)) fs.mkdirSync(sectionsRecipesDir, { recursive: true });
         const jsonldPath = path.join(sectionsRecipesDir, `${recipe.slug}.${lang}.jsonld`);
-        fs.writeFileSync(jsonldPath, JSON.stringify(jsonld, null, 2), 'utf8');
+        smartWrite(jsonldPath, JSON.stringify(jsonld, null, 2), 'utf8');
       } catch (e) {
         console.warn('⚠ Failed to write JSON-LD for', recipe.slug, e && e.message);
       }
@@ -1051,8 +1052,7 @@ ${LANG_SYNC_SCRIPT}
 </html>`;
 
       const outFile = path.join(langRecipesDir, `${recipe.slug}.html`);
-      fs.writeFileSync(outFile, injectBuildStamp(page, lang), 'utf8');
-      totalPagesGenerated++;
+      smartWrite(outFile, injectBuildStamp(page, lang), 'utf8');
     });
   });
 }
@@ -1066,21 +1066,23 @@ const redirectSource = path.join(__dirname, 'redirect.html');
 const redirectTarget = path.join(distDir, 'index.html');
 if (fs.existsSync(redirectSource)) {
   const redirectHtml = fs.readFileSync(redirectSource, 'utf8');
-  fs.writeFileSync(redirectTarget, injectBuildStamp(redirectHtml, 'en'), 'utf8');
-  totalPagesGenerated++;
+  smartWrite(redirectTarget, injectBuildStamp(redirectHtml, 'en'), 'utf8');
   console.log('✓ Copied redirect.html → dist/index.html');
 } else {
   console.warn('⚠ Warning: redirect.html not found, skipping root redirect');
 }
 
+const finalFileCount = totalFilesDeployed + 1;
+const finalPageCount = totalPagesGenerated;
 const metadata = {
     lastBuild: new Date().toLocaleString(), // Used by data.lastBuild
-    pageCount: totalPagesGenerated,         // Used by data.pageCount
+    pageCount: finalPageCount,              // Used by data.pageCount
+    totalFilesDeployed: finalFileCount,
     status: 'Success'                       // Used by data.status
 };
 
-fs.writeFileSync(path.join(distDir, 'metadata.json'), JSON.stringify(metadata, null, 2), 'utf8');
-console.log(`✓ Wrote dist/metadata.json (${totalPagesGenerated} files)`);
+smartWrite(path.join(distDir, 'metadata.json'), JSON.stringify(metadata, null, 2), 'utf8');
+console.log(`✓ Wrote dist/metadata.json (${totalFilesDeployed} files)`);
 
 console.log('\n✅ Build complete! Output in dist/');
 console.log(`   Pages: ${Object.keys(langs).map(l => `${l}/index.html`).join(', ')}`);
