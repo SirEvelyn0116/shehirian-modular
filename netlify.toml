@@ -10,4 +10,6 @@
   from = "/admin/*"
   to = "/admin/index.html"
   status = 200
-  conditions = {Role = ["translator", "admin"]}
+
+# trigger-sync.js already checks for the 'translator' role
+#  conditions = {Role = ["translator", "admin"]}
