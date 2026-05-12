@@ -4,6 +4,13 @@ const path = require('path');
 const BASE_URL = process.env.BASE_URL || '';
 const buildTime = new Date().toLocaleString();
 
+// Construct the Google Sheet URL from env at build time so admin/index.html
+// never contains a hardcoded URL or exposed credentials.
+const GOOGLE_SHEET_ID = process.env.GOOGLE_SHEET_ID || '';
+const GOOGLE_SHEET_URL = GOOGLE_SHEET_ID
+  ? `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/edit`
+  : '#';
+
 let totalFilesDeployed = 0;
 let totalPagesGenerated = 0;
 
@@ -626,13 +633,25 @@ function copyAssets() {
   // Copy preview.js
   fs.copyFileSync(previewJsSource, path.join(distDir, 'preview.js'));
   
-  // Copy admin folder
+  // Copy admin folder, then inject the Google Sheet URL from env
   if (fs.existsSync(adminDir)) {
     const distAdmin = path.join(distDir, 'admin');
     if (!fs.existsSync(distAdmin)) {
       fs.mkdirSync(distAdmin, { recursive: true });
     }
     copyRecursive(adminDir, distAdmin);
+
+    // Replace the placeholder with the env-constructed Sheet URL so the
+    // source file never contains a hardcoded or exposed URL.
+    const adminIndexPath = path.join(distAdmin, 'index.html');
+    if (fs.existsSync(adminIndexPath)) {
+      const adminHtml = fs.readFileSync(adminIndexPath, 'utf8');
+      const injected = adminHtml.replace(/YOUR_GOOGLE_SHEET_URL/g, GOOGLE_SHEET_URL);
+      fs.writeFileSync(adminIndexPath, injected, 'utf8');
+      if (GOOGLE_SHEET_URL === '#') {
+        console.warn('⚠ GOOGLE_SHEET_ID not set — admin Sheet link will be a no-op (#)');
+      }
+    }
     console.log('✓ Copied admin folder');
   }
 
