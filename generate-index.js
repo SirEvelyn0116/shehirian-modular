@@ -104,11 +104,29 @@ function smartWrite(filePath, content, encoding = 'utf8') {
   if (!fs.existsSync(parentDir)) {
     fs.mkdirSync(parentDir, { recursive: true });
   }
+  const rel = path.relative(__dirname, filePath);
+  if (fs.existsSync(filePath)) {
+    const existing = fs.readFileSync(filePath, encoding);
+    if (existing === content) {
+      console.log(`  unchanged  ${rel}`);
+      return;
+    }
+  }
   fs.writeFileSync(filePath, content, encoding);
   totalFilesDeployed++;
   if (String(filePath).toLowerCase().endsWith('.html')) {
     totalPagesGenerated++;
   }
+  console.log(`  ✓ written  ${rel}`);
+}
+
+function smartCopy(srcPath, destPath) {
+  const rel = path.relative(__dirname, srcPath);
+  if (!fs.existsSync(srcPath)) {
+    console.warn(`⚠ not found, skipping: ${rel}`);
+    return;
+  }
+  smartWrite(destPath, fs.readFileSync(srcPath, 'utf8'));
 }
 
 function injectBaseUrlIntoRootLinks(html) {
@@ -631,7 +649,7 @@ function copyAssets() {
   copyRecursive(sectionsDir, distSections);
   
   // Copy preview.js
-  fs.copyFileSync(previewJsSource, path.join(distDir, 'preview.js'));
+  smartCopy(previewJsSource, path.join(distDir, 'preview.js'));
   
   // Copy admin folder, then inject the Google Sheet URL from env
   if (fs.existsSync(adminDir)) {
@@ -647,13 +665,16 @@ function copyAssets() {
     if (fs.existsSync(adminIndexPath)) {
       const adminHtml = fs.readFileSync(adminIndexPath, 'utf8');
       const injected = adminHtml.replace(/YOUR_GOOGLE_SHEET_URL/g, GOOGLE_SHEET_URL);
-      fs.writeFileSync(adminIndexPath, injected, 'utf8');
+      smartWrite(adminIndexPath, injected, 'utf8');
       if (GOOGLE_SHEET_URL === '#') {
         console.warn('⚠ GOOGLE_SHEET_ID not set — admin Sheet link will be a no-op (#)');
       }
     }
-    console.log('✓ Copied admin folder');
   }
+
+  // Copy welcome.html (invite landing page — must live in dist/ so Netlify
+  // Identity invite links resolve correctly against the deployed site root)
+  smartCopy(path.join(__dirname, 'welcome.html'), path.join(distDir, 'welcome.html'));
 
   // Create .nojekyll
   smartWrite(path.join(distDir, '.nojekyll'), '');
@@ -707,8 +728,7 @@ Object.entries(langs).forEach(([lang, config]) => {
 });
 
 copyAssets();
-console.log('✓ Copied assets, sections, and preview.js');
-console.log('✓ Created .nojekyll file');
+
 
 // Generate build-time all-recipes pages from sections/recipes/recipes.<lang>.json
 function buildRecipeCardHTML(recipe, lang) {

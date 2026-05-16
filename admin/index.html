@@ -208,6 +208,10 @@
 <div id="translator-ui" style="display:none;" class="dashboard-card">
     <h1>🌐 Translation Governance Dashboard</h1>
 
+    <div id="welcome-banner" style="display:none; background:#f0fdf4; border-left:3px solid #86efac; color:#166534; padding:0.75rem 1rem; font-size:0.82rem; margin-bottom:1rem; border-radius:2px;">
+        👋 Welcome! Your account is active. You can now manage translations below.
+    </div>
+
     <div class="workflow-steps">
         <div class="step"><strong>Step 1</strong> Edit the <a href="YOUR_GOOGLE_SHEET_URL" target="_blank">Google Translation Sheet</a></div>
         <div class="step"><strong>Step 2</strong> Preview changes below</div>
@@ -271,8 +275,13 @@
     netlifyIdentity.on('login', () => {
         document.getElementById('translator-ui').style.display = 'block';
         fetchBuildStatus();
+        // Show welcome banner if arriving from the invite/welcome page
+        if (window.location.hash.includes('welcome=1')) {
+            document.getElementById('welcome-banner').style.display = 'block';
+            history.replaceState(null, '', window.location.pathname); // clean the URL
+        }
     });
-
+    
     function getToken() {
         return netlifyIdentity.currentUser().token.access_token;
     }
