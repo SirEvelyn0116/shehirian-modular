@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const BASE_URL = process.env.BASE_URL || '';
-const buildTime = new Date().toLocaleString();
+const buildTime = new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' });
 
 // Construct the Google Sheet URL from env at build time so admin/index.html
 // never contains a hardcoded URL or exposed credentials.
@@ -675,6 +675,9 @@ function copyAssets() {
   // Copy welcome.html (invite landing page — must live in dist/ so Netlify
   // Identity invite links resolve correctly against the deployed site root)
   smartCopy(path.join(__dirname, 'welcome.html'), path.join(distDir, 'welcome.html'));
+
+  // Copy ui-strings.json for client-side translations
+  smartCopy(path.join(__dirname, 'ui-strings.json'), path.join(distDir, 'ui-strings.json'));
 
   // Create .nojekyll
   smartWrite(path.join(distDir, '.nojekyll'), '');
