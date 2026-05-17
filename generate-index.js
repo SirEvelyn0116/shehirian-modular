@@ -1117,7 +1117,7 @@ if (fs.existsSync(redirectSource)) {
 const finalFileCount = totalFilesDeployed + 1;
 const finalPageCount = totalPagesGenerated;
 const metadata = {
-    lastBuild: new Date().toLocaleString(), // Used by data.lastBuild
+    lastBuild: new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' }), 
     pageCount: finalPageCount,              // Used by data.pageCount
     totalFilesDeployed: finalFileCount,
     status: 'Success'                       // Used by data.status
