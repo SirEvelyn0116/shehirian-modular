@@ -5,7 +5,9 @@ exports.handler = async (event, context) => {
   const { user } = context.clientContext;
   console.log('user:', JSON.stringify(user));
 
-  const roles = user?.app_metadata?.authorization?.roles || [];
+  const roles = user?.app_metadata?.authorization?.roles
+   || user?.app_metadata?.roles
+   || [];
   console.log('roles:', JSON.stringify(roles));
 
   if (!roles.includes('translator')) {
