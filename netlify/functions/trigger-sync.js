@@ -3,10 +3,18 @@ const https = require('https');
 exports.handler = async (event, context) => {
   // Governance: Only logged-in translators can trigger this
   const { user } = context.clientContext;
+  console.log('user:', JSON.stringify(user));
+
   const roles = user?.app_metadata?.authorization?.roles || [];
+  console.log('roles:', JSON.stringify(roles));
+
   if (!roles.includes('translator')) {
+    console.log('Unauthorized — returning 403');
     return { statusCode: 403, body: "Unauthorized." };
   }
+
+  console.log('NETLIFY_BUILD_HOOK_ID:', process.env.NETLIFY_BUILD_HOOK_ID);
+  console.log('body received:', event.body);
 
   // Parse the request body
   let totalChanges = 0;
