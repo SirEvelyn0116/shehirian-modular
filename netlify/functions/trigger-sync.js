@@ -16,7 +16,8 @@ exports.handler = async (event, context) => {
     totalChanges = body.totalChanges || 0;
     totalKeys = body.totalKeys || 0;
   } catch (e) {
-    return { statusCode: 400, body: "Invalid request body." };
+      // Non-fatal — proceed with zeros
+    console.warn('Could not parse request body:', e.message);
   }
 
   const message = `Build triggered. Deploying ${totalChanges} change(s) across ${totalKeys} keys...`;
