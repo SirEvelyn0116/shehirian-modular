@@ -11,6 +11,7 @@ const deployBtn  = document.getElementById('deploy-btn');
 const previewBtn = document.getElementById('preview-btn');
 
 let lastDiff = null;
+let lastKnownBuild = null;
 netlifyIdentity.on('login', () => {
     document.getElementById('translator-ui').style.display = 'block';
     fetchBuildStatus();
@@ -30,14 +31,19 @@ async function fetchBuildStatus() {
         const res = await fetch('/metadata.json?t=' + Date.now());
         if (!res.ok) throw new Error('No metadata found.');
         const data = await res.json();
+        const currentBuild = data.lastBuild;
+        const updated = lastKnownBuild !== null && currentBuild !== lastKnownBuild;
+        lastKnownBuild = currentBuild;
         reportEl.innerHTML = `
             <br>📅 Time: ${data.lastBuild}
             <br>📄 Pages Generated: <strong>${data.pageCount}</strong>
             <br>📁 Files Deployed: <strong>${data.totalFilesDeployed}</strong>
             <br>✅ Status: ${data.status}
         `;
+        return updated;
     } catch {
         reportEl.innerText = 'No previous build data available.';
+        return false;
     }
 }
 
@@ -175,9 +181,19 @@ async function approveBuild() {
             alert('Build triggered! The site will update in 1-2 minutes.');
             let attempts = 0;
             const interval = setInterval(async function() {
-                await fetchBuildStatus();
+                const updated = await fetchBuildStatus();
+                if (updated) {
+                    clearInterval(interval);
+                    progressEl.style.display = 'none';
+                    deployBtn.disabled = false;
+                    previewBtn.disabled = false;
+                    const placeholder = document.getElementById('diff-placeholder');
+                    placeholder.textContent = '✅ Deploy complete — site is live.';
+                    placeholder.classList.remove('hidden');
+                    return;
+                }
                 attempts++;
-                if (attempts > 12) {
+                if (attempts > 24) {
                     clearInterval(interval);
                     progressEl.style.display = 'none';
                     deployBtn.disabled = false;
