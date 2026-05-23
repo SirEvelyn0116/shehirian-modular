@@ -187,9 +187,7 @@ async function approveBuild() {
                     progressEl.style.display = 'none';
                     deployBtn.disabled = false;
                     previewBtn.disabled = false;
-                    const placeholder = document.getElementById('diff-placeholder');
-                    placeholder.textContent = '✅ Deploy complete — site is live.';
-                    placeholder.classList.remove('hidden');
+                    await runPreview();
                     return;
                 }
                 attempts++;
