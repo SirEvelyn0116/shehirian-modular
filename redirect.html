@@ -41,6 +41,12 @@
     }
   </style>
   <script>
+  // Intercept Netlify Identity invite/recovery links before language redirect
+  if (window.location.hash.includes('invite_token') ||
+      window.location.hash.includes('recovery_token')) {
+    window.location.replace('/welcome/' + window.location.hash);
+  }
+
     const supported = ['en', 'fr', 'ar', 'hy'];
     const fallback = 'en';
 
