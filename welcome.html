@@ -264,7 +264,7 @@
 
   netlifyIdentity.on('init', user => {
     if (!user) {
-      const hash = window.location.hash;
+      const hash = window.location.hash || sessionStorage.getItem('netlify_token') || '';
       if (hash.includes('invite_token') || hash.includes('recovery_token')) {
         setStatus('waiting', 'Invite detected — opening password setup…');
         setTimeout(() => netlifyIdentity.open('signup'), 400);
