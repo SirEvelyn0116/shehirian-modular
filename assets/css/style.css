@@ -45,55 +45,34 @@ body[dir="rtl"] {
 /* === BACKGROUND & LAYOUT === */
 :root {
   --canvas-grain-image: url('../img/bulgur-wheat-pile.png');
-  /* 3-segment background Y coordinate map — edit these to shift the image math */
-  --bg-pos-top:    0%;
-  --bg-pos-mid:   50%;
-  --bg-pos-bottom: 100%;
+  /* The fixed bulgur pile is sized and framed with two knobs:
+     --bg-pile-size: cover = fill the viewport at sensible zoom (default).
+                     Raise to e.g. 130% / 160% to zoom further into the pile.
+     --bg-pile-pos:  which part of the pile sits in view (x y). */
+  --bg-pile-size: cover;
+  --bg-pile-pos:  center center;
 }
 
 .background.common-canvas {
-  background-image: var(--canvas-grain-image);
-  background-size: 200% auto;
-  background-position: 100% 0%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   min-height: 100vh;
   position: relative;
 }
 
-/* 3-Segment background Y coordinate map */
-/* Segment 1 — top: hero + about */
-.bg-slice-hero, #home,
-.bg-slice-about, #about-us {
-  --bg-pos-y: var(--bg-pos-top);
-}
-
-/* Segment 2 — middle: companies + recipes */
-.bg-slice-companies, #products-carousel,
-.bg-slice-recipes,   #recipes {
-  --bg-pos-y: var(--bg-pos-mid);
-}
-
-/* Segment 3 — bottom: certifications + contact */
-.bg-slice-certs,   #certifications,
-.bg-slice-contact, #contact {
-  --bg-pos-y: var(--bg-pos-bottom);
-}
-
-/* Hash-target snapping: shift the common canvas to the active segment */
-.background.common-canvas:has(#home:target),
-.background.common-canvas:has(#about-us:target) {
-  background-position: 100% var(--bg-pos-top);
-}
-
-.background.common-canvas:has(#products-carousel:target),
-.background.common-canvas:has(#recipes:target) {
-  background-position: 100% var(--bg-pos-mid);
-}
-
-.background.common-canvas:has(#certifications:target),
-.background.common-canvas:has(#contact:target) {
-  background-position: 100% var(--bg-pos-bottom);
+/* Single bulgur pile fixed behind all content — identical on desktop and mobile.
+   This uses a position:fixed LAYER rather than `background-attachment: fixed`,
+   which is the part that janks/breaks on iOS Safari and jumps with Android's
+   dynamic toolbar. The pile stays put; content scrolls over it. No per-section
+   movement. Frame it with the two :root knobs (--bg-pile-size / --bg-pile-pos).
+   Sections are transparent, so the pile shows through throughout the page. */
+.background.common-canvas::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--canvas-grain-image);
+  background-repeat: no-repeat;
+  background-position: var(--bg-pile-pos, center center);
+  background-size: var(--bg-pile-size, cover);
 }
 
 .home {
@@ -136,36 +115,6 @@ body[dir="rtl"] .title {
 
 .page-section {
   min-height: 100vh;
-}
-
-/* Mobile: avoid fixed-attachment stutter and fake a light parallax shift per section */
-@media (max-width: 767px) {
-  .background.common-canvas {
-    background-attachment: scroll;
-    background-size: cover;
-    background-position: 100% 0%;
-  }
-
-  /* Each section inherits --bg-pos-y from the 3-segment map in :root */
-  #home,
-  #about-us,
-  #products-carousel,
-  #recipes,
-  #certifications,
-  #contact {
-    background-image: var(--canvas-grain-image);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: scroll;
-    background-position: 100% var(--bg-pos-y, 0%);
-  }
-}
-
-@media (min-width: 1024px) {
-  .background.common-canvas {
-    background-size: 200% auto;
-    background-attachment: fixed;
-  }
 }
 
 /* === LANGUAGE SWITCHER === */
@@ -1426,6 +1375,15 @@ body[dir="rtl"] .back-home-button {
   
   .company-card {
     min-height: auto;
+  }
+
+  /* Card has min-height:auto on mobile, so the flex:1 image container loses its
+     defined height and the square 1024x1024 logo collapses to full-width intrinsic
+     size. Pin a square box so object-fit:cover has something to fill (no crop, as
+     the images are square). Switch to 3/2 + object-fit:contain for a shorter band. */
+  .company-image-container {
+    flex: none;
+    aspect-ratio: 1 / 1;
   }
   
   .company-info {
