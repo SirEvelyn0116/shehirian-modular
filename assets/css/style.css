@@ -50,7 +50,18 @@ body[dir="rtl"] {
                      Raise to e.g. 130% / 160% to zoom further into the pile.
      --bg-pile-pos:  which part of the pile sits in view (x y). */
   --bg-pile-size: cover;
-  --bg-pile-pos:  center center;
+  --bg-pile-pos:  75% center;
+}
+
+/* Laptop/desktop: zoom into the pile (200%) and frame the top-right quadrant,
+   instead of cover (which shows the whole pile zoomed out on a wide screen).
+   Mobile keeps the cover default above. Tune --bg-pile-pos Y (the second value)
+   toward 25%/33% to drop the framing down a row for a 2x3 feel. */
+@media (min-width: 1024px) {
+  :root {
+    --bg-pile-size: 200%;
+    --bg-pile-pos:  100% 0%;
+  }
 }
 
 .background.common-canvas {
@@ -63,11 +74,18 @@ body[dir="rtl"] {
    which is the part that janks/breaks on iOS Safari and jumps with Android's
    dynamic toolbar. The pile stays put; content scrolls over it. No per-section
    movement. Frame it with the two :root knobs (--bg-pile-size / --bg-pile-pos).
-   Sections are transparent, so the pile shows through throughout the page. */
+   Sections are transparent, so the pile shows through throughout the page.
+   Height is 100lvh (large-viewport height) so the layer is already sized for the
+   toolbar-hidden state and does NOT reframe as the mobile address bar collapses
+   on scroll; 100vh is the fallback for browsers without lvh. */
 .background.common-canvas::before {
   content: "";
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100lvh;
   z-index: -1;
   background-image: var(--canvas-grain-image);
   background-repeat: no-repeat;
@@ -87,15 +105,28 @@ body[dir="rtl"] {
 .title {
   font-size: 10vh;
   font-family: 'Elgar';
-  color: black;
-  background-color: wheat;
+  color: #5a6345;                 /* olive text (treatment F) */
+  background-color: #faf1d8;      /* cream base, shows if texture fails to load */
+  /* Cream texture with a 38% cream scrim washed over it so the olive Elgar
+     reads cleanly. Scrim is the top background layer; image sits beneath it. */
+  background-image:
+    linear-gradient(rgba(250, 241, 216, 0.38), rgba(250, 241, 216, 0.38)),
+    url('../img/shirag_red_cream.png');
+  background-repeat: no-repeat;
+  background-position: 50% 26%;
+  background-size: cover;
   padding: 0 5vh 0 5vh;
-  border-radius: 0 5vh 5vh 0;
+  /* Wheat outer frame around the cream pill (was the mockup's .frame layer). */
+  border: 0.1em solid wheat;
+  /* Laptop: flush-left tab — square left corners sit on the screen edge, right
+     end rounded. Mobile restack overrides this to a full 999px stadium that
+     rounds the left and floats off the edge. */
+  border-radius: 0 999px 999px 0;
   left: 0;
 }
 
 body[dir="rtl"] .title {
-  border-radius: 5vh 0 0 5vh;
+  border-radius: 999px 0 0 999px;
   right: 0;
   left: auto;
 }
@@ -289,10 +320,19 @@ section p {
 }
 
 /* === PRODUCTS CAROUSEL === */
+#about-us {
+  /* Lightest text backing — the start of the legibility gradient down the page,
+     so About Us copy reads clearly over the pile. */
+  background-color: rgba(255, 250, 240, 0.40);
+}
+
 #products-carousel {
   padding: 40px 0;
-  background-color: #f5f5f5;
-  opacity: 0.75;
+  /* Translucent backing veils the pile so cards/text read clearly, WITHOUT
+     dimming the content the way element opacity:0.75 did (that made the whole
+     section, text included, see-through). A bit more opaque than About Us,
+     still lighter than the Recipes cards. */
+  background-color: rgba(245, 245, 245, 0.55);
 }
 
 .carousel {
@@ -1063,7 +1103,10 @@ body[dir="rtl"] .contact-info {
   width: 100%;
   overflow: hidden;
   border-radius: 30px 30px 0 0;
-  flex: 1;
+  /* Fixed square at every size so both company logos render identically,
+     regardless of each source file's dimensions (object-fit:cover crops to fit). */
+  aspect-ratio: 1 / 1;
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1314,9 +1357,7 @@ body[dir="rtl"] .back-home-button {
   }
 
   .certifications-preview {
-    bottom: 20px;
-    left: 20px;
-    gap: 10px;
+    display: none;            /* redundant with the homepage section; hide on mobile */
   }
   
   .cert-badge-small img {
@@ -1344,17 +1385,45 @@ body[dir="rtl"] .back-home-button {
     min-height: auto;
   }
 
+  /* Hero restacks to a centered column on mobile. The desktop row layout's
+     flush-left title tab and flush-right nav tabs don't fit narrow screens, so
+     here everything centers and the tabs become full pills. */
+  .home {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    padding: 90px 16px 60px;
+    text-align: center;
+  }
+
+  .mid-spacer,
+  .spacer {
+    display: none;            /* desktop layout spacers, unused when stacked */
+  }
+
   .title {
-    font-size: 6vh;
-    padding: 0 3vh 0 3vh;
+    font-size: clamp(2.4rem, 12vw, 4rem);   /* width-aware, not viewport-height */
+    padding: 0.32em 0.7em;
+    border-radius: 999px;     /* full stadium, matching desktop treatment */
+    border-left: none;
+    width: auto;
+    max-width: 92vw;
+    left: auto;
+    text-align: center;
   }
 
   .nav {
-    gap: 10px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
   }
 
   .nav h2 {
-    width: 200px;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 30px;      /* full pill instead of flush-right tab */
     padding: 15px;
     font-size: 1.2rem;
   }
@@ -1377,15 +1446,6 @@ body[dir="rtl"] .back-home-button {
     min-height: auto;
   }
 
-  /* Card has min-height:auto on mobile, so the flex:1 image container loses its
-     defined height and the square 1024x1024 logo collapses to full-width intrinsic
-     size. Pin a square box so object-fit:cover has something to fill (no crop, as
-     the images are square). Switch to 3/2 + object-fit:contain for a shorter band. */
-  .company-image-container {
-    flex: none;
-    aspect-ratio: 1 / 1;
-  }
-  
   .company-info {
     padding: 20px 16px 20px 16px;
   }
@@ -1422,7 +1482,10 @@ body[dir="rtl"] .back-home-button {
   }
 
   .recipe-card {
-    padding: 16px 10px 12px 10px;
+    /* Keep padding:0 so the wheat .recipe-info band stays edge-to-edge under the
+       card's overflow:hidden. Padding here insets the band into a floating square.
+       Tighten the inner band/meta instead if less spacing is wanted on small screens. */
+    padding: 0;
   }
 
   .certifications-section {
