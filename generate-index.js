@@ -13,6 +13,7 @@ const GOOGLE_SHEET_URL = GOOGLE_SHEET_ID
 
 let totalFilesDeployed = 0;
 let totalPagesGenerated = 0;
+let totalAssetsCopied = 0;   // css/js/img/fonts/sections copied via copyRecursive (not smartWrite)
 
 const langs = {
   en: { dir: 'ltr' },
@@ -693,7 +694,17 @@ function copyRecursive(src, dest) {
       copyRecursive(path.join(src, child), path.join(dest, child));
     });
   } else {
+    const rel = path.relative(__dirname, dest);
+    totalAssetsCopied++;   // counts every asset that ends up in dist (copied or unchanged)
+    // Binary-safe unchanged check: compare bytes via Buffer.equals — do NOT read as
+    // utf8 (would corrupt image/font assets). Mirrors smartWrite's logging so asset
+    // copies (including style.css) show up in the build log.
+    if (fs.existsSync(dest) && fs.readFileSync(src).equals(fs.readFileSync(dest))) {
+      console.log(`  unchanged  ${rel}`);
+      return;
+    }
     fs.copyFileSync(src, dest);
+    console.log(`  ✓ copied   ${rel}`);
   }
 }
 
@@ -780,17 +791,17 @@ function buildAllRecipesHTML(allRecipes, lang) {
     return `<section class="recipes-category-section">
       <div class="category-header-wrapper">
         <h3 class="recipes-category-heading">${heading}</h3>
-        <button class="category-expand-btn" aria-expanded="false" data-expand-text="${expandText}" data-collapse-text="${collapseText}">
-          <span class="expand-icon">+</span>
-          <span class="expand-text">${expandText}</span>
-        </button>
       </div>
       <hr class="category-sep">
-      <div class="recipe-grid-wrapper collapsed">
+      <div class="recipe-grid-wrapper">
         <div class="recipe-grid">
           ${cards}
         </div>
       </div>
+      <button class="category-expand-btn" aria-expanded="false" data-expand-text="${expandText}" data-collapse-text="${collapseText}">
+        <span class="expand-icon">+</span>
+        <span class="expand-text">${expandText}</span>
+      </button>
     </section>`;
   }).join('\n');
 }
@@ -936,32 +947,83 @@ function writeAllRecipesPages() {
     const expandScript = `
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const expandButtons = document.querySelectorAll('.category-expand-btn');
-    
-    expandButtons.forEach(function(btn) {
+    var sections = document.querySelectorAll('.recipes-category-section');
+
+    // Measure the natural first-row height and whether a 2nd row exists.
+    // Sets --row1 (collapsed height) and toggles .has-overflow (button visibility).
+    // getBoundingClientRect reports true layout positions even when the wrapper is
+    // clipped, so this is safe to run whether collapsed or expanded.
+    function measure(section) {
+      var wrapper = section.querySelector('.recipe-grid-wrapper');
+      var btn = section.querySelector('.category-expand-btn');
+      if (!wrapper || !btn) return;
+      var cards = wrapper.querySelectorAll('.recipe-card');
+      if (!cards.length) return;
+
+      var wrapTop = wrapper.getBoundingClientRect().top;
+      var firstTop = Infinity;
+      cards.forEach(function(c) { firstTop = Math.min(firstTop, Math.round(c.getBoundingClientRect().top)); });
+
+      var rowBottom = 0, hasSecondRow = false;
+      cards.forEach(function(c) {
+        var r = c.getBoundingClientRect();
+        if (Math.round(r.top) <= firstTop + 2) { rowBottom = Math.max(rowBottom, r.bottom); }
+        else { hasSecondRow = true; }
+      });
+
+      section.style.setProperty('--row1', Math.ceil(rowBottom - wrapTop) + 'px');
+
+      if (hasSecondRow) {
+        section.classList.add('has-overflow');
+        // Collapse only if the user hasn't manually expanded this section.
+        if (btn.getAttribute('aria-expanded') !== 'true') {
+          wrapper.classList.add('collapsed');
+          wrapper.classList.remove('expanded');
+        }
+      } else {
+        // Everything fits one row: no button, fully open.
+        section.classList.remove('has-overflow');
+        wrapper.classList.remove('collapsed');
+        wrapper.classList.add('expanded');
+      }
+    }
+
+    function measureAll() { sections.forEach(measure); }
+
+    measureAll();
+    // Re-measure once late in case web fonts / images shifted card heights.
+    window.addEventListener('load', measureAll);
+    // Only re-measure when the viewport WIDTH changes. Row layout depends on width,
+    // not height, so this ignores the height-only resize events that fire when a
+    // mobile address bar hides/shows during scroll (which otherwise replayed the
+    // collapse transition — the "scrolling reopens/closes the list" flicker).
+    var rt, lastWidth = window.innerWidth;
+    window.addEventListener('resize', function() {
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      clearTimeout(rt);
+      rt = setTimeout(measureAll, 150);
+    });
+
+    // Expand / collapse toggle
+    document.querySelectorAll('.category-expand-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        const section = this.closest('.recipes-category-section');
-        const wrapper = section.querySelector('.recipe-grid-wrapper');
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        const expandText = this.getAttribute('data-expand-text');
-        const collapseText = this.getAttribute('data-collapse-text');
-        const textSpan = this.querySelector('.expand-text');
-        
+        var section = this.closest('.recipes-category-section');
+        var wrapper = section.querySelector('.recipe-grid-wrapper');
+        var textSpan = this.querySelector('.expand-text');
+        var isExpanded = this.getAttribute('aria-expanded') === 'true';
+
         if (isExpanded) {
-          // Collapse
           wrapper.classList.remove('expanded');
           wrapper.classList.add('collapsed');
           this.setAttribute('aria-expanded', 'false');
-          textSpan.textContent = expandText;
-          
-          // Smooth scroll to category heading
+          textSpan.textContent = this.getAttribute('data-expand-text');
           section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         } else {
-          // Expand
           wrapper.classList.remove('collapsed');
           wrapper.classList.add('expanded');
           this.setAttribute('aria-expanded', 'true');
-          textSpan.textContent = collapseText;
+          textSpan.textContent = this.getAttribute('data-collapse-text');
         }
       });
     });
@@ -1114,18 +1176,24 @@ if (fs.existsSync(redirectSource)) {
   console.warn('⚠ Warning: redirect.html not found, skipping root redirect');
 }
 
-const finalFileCount = totalFilesDeployed + 1;
 const finalPageCount = totalPagesGenerated;
+const finalWrittenCount = totalFilesDeployed + 1;              // generated files incl. metadata.json (written next)
+const finalTotalCount = finalWrittenCount + totalAssetsCopied; // full scope: everything in dist
 const metadata = {
     lastBuild: new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' }), 
     pageCount: finalPageCount,              // Used by data.pageCount
-    totalFilesDeployed: finalFileCount,
+    filesWritten: finalWrittenCount,        // generated files (pages + data)
+    assetsCopied: totalAssetsCopied,        // css/js/img/fonts/sections passthrough
+    totalFilesDeployed: finalTotalCount,    // full scope in dist (client-facing "size")
     status: 'Success'                       // Used by data.status
 };
 
 smartWrite(path.join(distDir, 'metadata.json'), JSON.stringify(metadata, null, 2), 'utf8');
-console.log(`✓ Wrote dist/metadata.json (${totalFilesDeployed} files)`);
+console.log(`✓ Wrote dist/metadata.json`);
 
 console.log('\n✅ Build complete! Output in dist/');
-console.log(`   Pages: ${Object.keys(langs).map(l => `${l}/index.html`).join(', ')}`);
-console.log('   Root:  index.html (redirect)');
+console.log(`   Pages generated: ${finalPageCount}  (HTML)`);
+console.log(`   Files written:   ${finalWrittenCount}  (pages + data)`);
+console.log(`   Assets copied:   ${totalAssetsCopied}  (css/js/img/fonts/sections)`);
+console.log(`   Total in dist:   ${finalTotalCount}`);
+console.log(`   Root:  index.html (redirect)`);

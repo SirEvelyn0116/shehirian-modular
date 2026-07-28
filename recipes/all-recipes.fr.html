@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <div class="back-home-button" style="display: none;">
-        <a href="../index.fr.html">← Retour à l'accueil</a>
-    </div>
 
     <section class="all-recipes-page">
         <div class="all-recipes-header">
@@ -28,25 +25,5 @@
     </section>
 
     <script src="../assets/js/lang-switcher.js"></script>
-    <script>
-        window.addEventListener('load', () => {
-            if (window.updateBackButtonLock) window.updateBackButtonLock();
-        });
-
-        window.addEventListener('scroll', () => {
-            const backBtn = document.querySelector('.back-home-button');
-            if (!backBtn) return;
-            if (window.scrollY > 100) {
-                backBtn.style.display = 'block';
-            } else {
-                backBtn.style.display = 'none';
-            }
-            if (window.updateBackButtonLock) window.updateBackButtonLock();
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.updateBackButtonLock) window.updateBackButtonLock();
-        });
-    </script>
 </body>
 </html>

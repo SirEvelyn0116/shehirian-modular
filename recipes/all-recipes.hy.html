@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
-    <div class="back-home-button" style="display: none;">
-        <a href="../index.hy.html">← Վերադառնալ գլխավոր</a>
-    </div>
 
     <section class="all-recipes-page">
         <div class="all-recipes-header">
@@ -43,25 +40,9 @@
                     } else if (page && container) {
                         page.insertBefore(container, footer);
                     }
-                    if (window.updateBackButtonLock) window.updateBackButtonLock();
                 }).catch(err => {
                     console.error('Failed to render all recipes', err);
                 });
-            });
-
-            window.addEventListener('scroll', () => {
-                const backBtn = document.querySelector('.back-home-button');
-                if (!backBtn) return;
-                if (window.scrollY > 100) {
-                    backBtn.style.display = 'block';
-                } else {
-                    backBtn.style.display = 'none';
-                }
-                if (window.updateBackButtonLock) window.updateBackButtonLock();
-            });
-
-            window.addEventListener('resize', () => {
-                if (window.updateBackButtonLock) window.updateBackButtonLock();
             });
         })();
     </script>
