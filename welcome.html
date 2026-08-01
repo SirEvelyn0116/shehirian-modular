@@ -262,27 +262,29 @@
     document.getElementById('status-text').textContent = message;
   }
 
+  // The widget's own init-time hash parsing already verifies any
+  // invite_token/recovery_token/confirmation_token and opens the correct
+  // modal page itself (its internal verifyToken sets modal.page to 'invite'
+  // or 'recovery', distinct from 'signup') — no .open() call needed here.
+  // Calling .open('signup') or .open('login') manually, even as a
+  // "fallback", overwrites that already-correct page with the wrong one:
+  // 'signup' is the public-registration panel, which this invite-only
+  // site's disable_signup setting blocks outright regardless of any
+  // verified token. That's what caused "does not allow public logins".
+  netlifyIdentity.on('open', page => {
+    if (page === 'invite') setStatus('waiting', 'Invite detected — opening password setup…');
+    else if (page === 'recovery') setStatus('waiting', 'Recovery link detected — opening password reset…');
+    else if (page === 'signup') setStatus('waiting', 'Confirming your email…');
+  });
+
   netlifyIdentity.on('init', user => {
-    if (!user) {
-      const hash = window.location.hash || '';
-      if (hash.includes('invite_token')) {
-        setStatus('waiting', 'Invite detected — opening password setup…');
-        setTimeout(() => netlifyIdentity.open('signup'), 400);
-      } else if (hash.includes('recovery_token')) {
-        setStatus('waiting', 'Recovery link detected — opening password reset…');
-        // recovery_token needs the 'login' panel, not 'signup' — .open(action)
-        // forces that modal page regardless of which token the widget verified,
-        // and 'signup' is the public-registration form, blocked on invite-only sites.
-        setTimeout(() => netlifyIdentity.open('login'), 400);
-      } else if (hash.includes('confirmation_token')) {
-        setStatus('waiting', 'Confirming your email…');
-        setTimeout(() => netlifyIdentity.open(), 400);
-      } else {
-        setStatus('waiting', 'No invite token found. Please use the link from your invitation email.');
-      }
-    } else {
+    if (user) {
       redirectToAdmin();
+    } else if (!window.location.hash) {
+      setStatus('waiting', 'No invite token found. Please use the link from your invitation email.');
     }
+    // else: a token is present in the hash — the widget will verify it and
+    // fire 'open' shortly with the right page.
   });
 
   function getRoles(user) {
