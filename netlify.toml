@@ -13,6 +13,15 @@
   status = 200
 
 # Recipes read API (role gate enforced inside each function, not here).
+# Redirects apply in file order, first match wins — the exact-path rule
+# for the list MUST come before the /* wildcard, since /api/recipes/*
+# also matches the bare /api/recipes path on Netlify's real redirect
+# engine (unlike what local netlify dev suggested).
+[[redirects]]
+  from = "/api/recipes"
+  to = "/.netlify/functions/recipes-list"
+  status = 200
+
 # recipe-detail.js reads the slug from event.path, not a query param —
 # the named-placeholder-into-query-string form (?slug=:slug) matches
 # locally under netlify dev but the real edge never substitutes it,
@@ -20,11 +29,6 @@
 [[redirects]]
   from = "/api/recipes/*"
   to = "/.netlify/functions/recipe-detail"
-  status = 200
-
-[[redirects]]
-  from = "/api/recipes"
-  to = "/.netlify/functions/recipes-list"
   status = 200
 
 # trigger-sync.js already checks for the 'translator' role
