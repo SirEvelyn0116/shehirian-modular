@@ -23,7 +23,8 @@ function fetchAllRecipes() {
 exports.handler = async (event, context) => {
   const gate = requireRole('translator', context);
   if (!gate.ok) {
-    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error }) };
+    // TEMP DEBUG — remove once slug-threading is confirmed on the real deploy.
+    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error, debugQSP: event.queryStringParameters || null, debugPath: event.path }) };
   }
 
   const slug = event.queryStringParameters && event.queryStringParameters.slug;
