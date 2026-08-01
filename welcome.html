@@ -264,7 +264,7 @@
 
   netlifyIdentity.on('init', user => {
     if (!user) {
-      const hash = window.location.hash || sessionStorage.getItem('netlify_token') || '';
+      const hash = window.location.hash || '';
       if (hash.includes('invite_token') || hash.includes('recovery_token')) {
         setStatus('waiting', 'Invite detected — opening password setup…');
         setTimeout(() => netlifyIdentity.open('signup'), 400);
@@ -279,9 +279,16 @@
     }
   });
 
+  function getRoles(user) {
+    return (user && (
+      (user.app_metadata && user.app_metadata.authorization && user.app_metadata.authorization.roles) ||
+      (user.app_metadata && user.app_metadata.roles)
+    )) || [];
+  }
+
   netlifyIdentity.on('login', user => {
-    const roles = user.app_metadata?.roles || [];
-    if (roles.includes('translator') || roles.length === 0) {
+    const roles = getRoles(user);
+    if (roles.includes('translator') || roles.includes('approver') || roles.length === 0) {
       setStatus('success', `Welcome, ${user.email}. Password set successfully!`);
       redirectToAdmin();
     } else {

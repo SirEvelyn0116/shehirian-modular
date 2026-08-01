@@ -41,14 +41,15 @@
     }
   </style>
   <script>
-  // Intercept Netlify Identity invite/recovery links before language redirect
+  // Intercept Netlify Identity invite/recovery/confirmation links before
+  // language redirect. The token must stay in the URL hash (not stashed
+  // elsewhere) so the Netlify Identity widget's own init-time hash parsing
+  // on welcome.html can pick it up and drive the correct flow.
   const hash = window.location.hash;
-  if (hash.includes('invite_token') || hash.includes('recovery_token')) {
-        console.log('intercepting - Redirecting to welcome page with token from URL hash');
-        sessionStorage.setItem('netlify_token', hash);
-        window.location.replace('/welcome.html');
-  }
-
+  if (hash.includes('invite_token') || hash.includes('recovery_token') || hash.includes('confirmation_token')) {
+    console.log('intercepting - redirecting to welcome page with token from URL hash');
+    window.location.replace('/welcome.html' + hash);
+  } else {
     const supported = ['en', 'fr', 'ar', 'hy'];
     const fallback = 'en';
 
@@ -57,6 +58,7 @@
 
     localStorage.setItem('lang', lang);
     window.location.href = `./${lang}/index.html`;
+  }
   </script>
 </head>
 <body>
