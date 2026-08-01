@@ -1,6 +1,7 @@
 [build]
-  # Step 1: Sync Google Sheets, Step 2: Generate all 212+ pages
-  command = "node sync-google-sheets.js && node generate-index.js"
+  # Step 1: Build the Recipes admin React island, Step 2: Sync Google Sheets,
+  # Step 3: Generate all 212+ pages (copies admin/, including recipes-dist/)
+  command = "npm run build:recipes && node sync-google-sheets.js && node generate-index.js"
   publish = "dist"
 
 [functions]

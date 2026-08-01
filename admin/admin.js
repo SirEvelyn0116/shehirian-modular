@@ -20,10 +20,32 @@ netlifyIdentity.on('login', () => {
         document.getElementById('welcome-banner').style.display = 'block';
         history.replaceState(null, '', window.location.pathname); // clean the URL
     }
+
+    // Recipes view is a separate, role-gated surface — only translators and
+    // approvers get the tab (matches the requireRole roles used server-side
+    // by trigger-sync.js / fetch-preview.js).
+    const roles = getRoles(netlifyIdentity.currentUser());
+    if (roles.includes('translator') || roles.includes('approver')) {
+        document.getElementById('tab-recipes').classList.remove('hidden');
+    }
 });
 
 function getToken() {
     return netlifyIdentity.currentUser().token.access_token;
+}
+
+function getRoles(user) {
+    return (user && (
+        (user.app_metadata && user.app_metadata.authorization && user.app_metadata.authorization.roles) ||
+        (user.app_metadata && user.app_metadata.roles)
+    )) || [];
+}
+
+function switchView(view) {
+    document.getElementById('view-ui-strings').classList.toggle('hidden', view !== 'ui-strings');
+    document.getElementById('view-recipes').classList.toggle('hidden', view !== 'recipes');
+    document.getElementById('tab-ui-strings').classList.toggle('active', view === 'ui-strings');
+    document.getElementById('tab-recipes').classList.toggle('active', view === 'recipes');
 }
 
 async function fetchBuildStatus() {

@@ -184,6 +184,35 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 
 .hidden { display: none !important; }
 
+.view-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.view-tab {
+    background: none;
+    color: #6b7280;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 6px 6px 0 0;
+}
+.view-tab:hover:not(:disabled) { opacity: 1; background: #f4f4f9; }
+.view-tab.active {
+    color: #0070f3;
+    border-bottom: 2px solid #0070f3;
+}
+
+.recipes-placeholder {
+    padding: 2rem;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+}
+
 #diff-placeholder {
     text-align: center;
     padding: 2rem;

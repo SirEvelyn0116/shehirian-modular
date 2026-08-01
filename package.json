@@ -2,8 +2,12 @@
   "name": "shehirian-modular",
   "version": "1.0.0",
   "description": "Modular multilingual static site for Shehirian Family",
+  "workspaces": [
+    "recipes-app"
+  ],
   "scripts": {
-    "build": "node generate-index.js",
+    "build": "npm run build:recipes && node generate-index.js",
+    "build:recipes": "npm run build --workspace=recipes-app",
     "preview": "npx http-server dist -p 8080 -o",
     "test": "playwright test",
     "test:headed": "playwright test --headed",

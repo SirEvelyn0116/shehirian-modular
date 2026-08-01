@@ -9,6 +9,7 @@ shehirian-translation-service-0be256eb8ad0.json
 # Build Outputs
 dist/
 .netlify/
+admin/recipes-dist/
 
 # OS Metadata
 .DS_Store
