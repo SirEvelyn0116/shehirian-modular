@@ -12,10 +12,14 @@
   to = "/admin/index.html"
   status = 200
 
-# Recipes read API (role gate enforced inside each function, not here)
+# Recipes read API (role gate enforced inside each function, not here).
+# recipe-detail.js reads the slug from event.path, not a query param —
+# the named-placeholder-into-query-string form (?slug=:slug) matches
+# locally under netlify dev but the real edge never substitutes it,
+# so queryStringParameters comes back empty in production.
 [[redirects]]
-  from = "/api/recipes/:slug"
-  to = "/.netlify/functions/recipe-detail?slug=:slug"
+  from = "/api/recipes/*"
+  to = "/.netlify/functions/recipe-detail"
   status = 200
 
 [[redirects]]

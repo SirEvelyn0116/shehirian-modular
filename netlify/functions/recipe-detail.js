@@ -23,11 +23,14 @@ function fetchAllRecipes() {
 exports.handler = async (event, context) => {
   const gate = requireRole('translator', context);
   if (!gate.ok) {
-    // TEMP DEBUG — remove once slug-threading is confirmed on the real deploy.
-    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error, debugQSP: event.queryStringParameters || null, debugPath: event.path }) };
+    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error }) };
   }
 
-  const slug = event.queryStringParameters && event.queryStringParameters.slug;
+  // Read the slug from the path rather than a query param: the redirect's
+  // named-placeholder-into-query-string form (?slug=:slug) matches locally
+  // under netlify dev, but the real edge never substitutes it, leaving
+  // queryStringParameters empty in production.
+  const slug = decodeURIComponent((event.path || '').split('/').filter(Boolean).pop() || '');
   if (!slug) {
     return { statusCode: 400, body: JSON.stringify({ error: 'Missing slug.' }) };
   }
