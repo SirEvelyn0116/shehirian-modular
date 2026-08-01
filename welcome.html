@@ -265,9 +265,15 @@
   netlifyIdentity.on('init', user => {
     if (!user) {
       const hash = window.location.hash || '';
-      if (hash.includes('invite_token') || hash.includes('recovery_token')) {
+      if (hash.includes('invite_token')) {
         setStatus('waiting', 'Invite detected — opening password setup…');
         setTimeout(() => netlifyIdentity.open('signup'), 400);
+      } else if (hash.includes('recovery_token')) {
+        setStatus('waiting', 'Recovery link detected — opening password reset…');
+        // recovery_token needs the 'login' panel, not 'signup' — .open(action)
+        // forces that modal page regardless of which token the widget verified,
+        // and 'signup' is the public-registration form, blocked on invite-only sites.
+        setTimeout(() => netlifyIdentity.open('login'), 400);
       } else if (hash.includes('confirmation_token')) {
         setStatus('waiting', 'Confirming your email…');
         setTimeout(() => netlifyIdentity.open(), 400);
