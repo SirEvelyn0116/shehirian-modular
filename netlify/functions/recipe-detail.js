@@ -23,8 +23,7 @@ function fetchAllRecipes() {
 exports.handler = async (event, context) => {
   const gate = requireRole('translator', context);
   if (!gate.ok) {
-    // TEMP DEBUG — remove once redirect ordering is confirmed on the real deploy.
-    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error, debugFn: 'recipe-detail', debugPath: event.path }) };
+    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error }) };
   }
 
   // Read the slug from the path rather than a query param: the redirect's
