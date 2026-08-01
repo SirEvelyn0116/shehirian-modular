@@ -1,3 +1,11 @@
+import { useState } from 'react';
+import RecipeList from './RecipeList.jsx';
+import RecipeReplica from './RecipeReplica.jsx';
+
 export default function RecipesApp() {
-  return <div className="recipes-placeholder">Recipes view — Phase 0</div>;
+  const [selectedSlug, setSelectedSlug] = useState(null);
+
+  return selectedSlug
+    ? <RecipeReplica slug={selectedSlug} onBack={() => setSelectedSlug(null)} />
+    : <RecipeList onSelect={setSelectedSlug} />;
 }

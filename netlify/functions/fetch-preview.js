@@ -1,5 +1,6 @@
 const https = require('https');
 const { google } = require('googleapis');
+const { requireRole } = require('./_shared/requireRole');
 
 // Fetch the live ui-strings.json from the deployed site
 function fetchLiveStrings(siteUrl) {
@@ -96,10 +97,10 @@ function buildDiff(live, sheet) {
 }
 
 exports.handler = async (event, context) => {
-  // Role gate — same as trigger-sync.js
-  const { user } = context.clientContext;
-  if (!user || !user.app_metadata || !user.app_metadata.roles || !user.app_metadata.roles.includes('translator')) {
-    return { statusCode: 403, body: JSON.stringify({ error: 'Unauthorized.' }) };
+  // Role gate — shared with trigger-sync.js
+  const gate = requireRole('translator', context);
+  if (!gate.ok) {
+    return { statusCode: gate.status, body: JSON.stringify({ error: gate.error }) };
   }
 
   try {

@@ -12,5 +12,16 @@
   to = "/admin/index.html"
   status = 200
 
+# Recipes read API (role gate enforced inside each function, not here)
+[[redirects]]
+  from = "/api/recipes/:slug"
+  to = "/.netlify/functions/recipe-detail?slug=:slug"
+  status = 200
+
+[[redirects]]
+  from = "/api/recipes"
+  to = "/.netlify/functions/recipes-list"
+  status = 200
+
 # trigger-sync.js already checks for the 'translator' role
 #  conditions = {Role = ["translator", "admin"]}

@@ -1,18 +1,16 @@
 const https = require('https');
+const { requireRole, getRoles } = require('./_shared/requireRole');
 
 exports.handler = async (event, context) => {
   // Governance: Only logged-in translators can trigger this
-  const { user } = context.clientContext;
+  const user = context.clientContext && context.clientContext.user;
   console.log('user:', JSON.stringify(user));
+  console.log('roles:', JSON.stringify(getRoles(user)));
 
-  const roles = user?.app_metadata?.authorization?.roles
-   || user?.app_metadata?.roles
-   || [];
-  console.log('roles:', JSON.stringify(roles));
-
-  if (!roles.includes('translator')) {
-    console.log('Unauthorized — returning 403');
-    return { statusCode: 403, body: "Unauthorized." };
+  const gate = requireRole('translator', context);
+  if (!gate.ok) {
+    console.log(`${gate.error} — returning ${gate.status}`);
+    return { statusCode: gate.status, body: gate.error };
   }
 
   console.log('NETLIFY_BUILD_HOOK_ID:', process.env.NETLIFY_BUILD_HOOK_ID);
