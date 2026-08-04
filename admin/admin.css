@@ -184,6 +184,100 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 
 .hidden { display: none !important; }
 
+.view-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.view-tab {
+    background: none;
+    color: #6b7280;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 6px 6px 0 0;
+}
+.view-tab:hover:not(:disabled) { opacity: 1; background: #f4f4f9; }
+.view-tab.active {
+    color: #0070f3;
+    border-bottom: 2px solid #0070f3;
+}
+
+.recipes-placeholder {
+    padding: 2rem;
+    text-align: center;
+    color: #6b7280;
+    font-style: italic;
+    border: 2px dashed #e5e7eb;
+    border-radius: 8px;
+}
+
+.recipes-loading, .recipes-error {
+    padding: 1.5rem;
+    text-align: center;
+    color: #6b7280;
+}
+.recipes-error { color: #991b1b; }
+
+.recipe-picker-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.recipe-picker-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    font-weight: 400;
+    padding: 0.6rem 0.9rem;
+}
+.recipe-picker-item:hover { background: #f0f4ff; border-color: #c7d7ff; }
+.recipe-picker-title { font-weight: 600; color: #1a1a2e; }
+.recipe-picker-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+}
+
+.recipe-replica-back {
+    background: none;
+    color: #0070f3;
+    padding: 0.4rem 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.recipe-replica-back:hover:not(:disabled) { opacity: 1; text-decoration: underline; }
+
+.recipe-replica-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+@media (max-width: 720px) {
+    .recipe-replica-columns { grid-template-columns: 1fr; }
+}
+
+.recipe-replica-column {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+.recipe-replica-title { margin-top: 0; font-size: 1.2rem; }
+.recipe-replica-description { color: #4b5563; }
+.recipe-replica-meta { font-size: 0.85rem; color: #374151; }
+.recipe-replica-section h3 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+.recipe-replica-section ul, .recipe-replica-section ol { margin: 0; padding-inline-start: 1.25rem; }
+.recipe-replica-section li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+
 #diff-placeholder {
     text-align: center;
     padding: 2rem;

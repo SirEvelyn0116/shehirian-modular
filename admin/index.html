@@ -20,51 +20,64 @@
         👋 Welcome! Your account is active. You can now manage translations below.
     </div>
 
-    <div class="workflow-steps">
-        <div class="step"><strong>Step 1</strong> Edit the <a href="YOUR_GOOGLE_SHEET_URL" target="_blank">Google Translation Sheet</a></div>
-        <div class="step"><strong>Step 2</strong> Preview changes below</div>
-        <div class="step"><strong>Step 3</strong> Approve &amp; deploy to live site</div>
+    <div class="view-tabs">
+        <button id="tab-ui-strings" class="view-tab active" onclick="switchView('ui-strings')">UI Strings</button>
+        <button id="tab-recipes" class="view-tab hidden" onclick="switchView('recipes')">Recipes</button>
     </div>
 
-    <div class="btn-row">
-        <button id="preview-btn" onclick="runPreview()">🔍 Preview Changes</button>
-        <button id="deploy-btn" onclick="approveBuild()" disabled title="Run a preview first">🚀 Approve &amp; Deploy to Live Site</button>
-        <span id="build-progress">⏳ Build in progress — polling for updates…</span>
-    </div>
+    <div id="view-ui-strings" class="view-panel">
+        <div class="workflow-steps">
+            <div class="step"><strong>Step 1</strong> Edit the <a href="YOUR_GOOGLE_SHEET_URL" target="_blank">Google Translation Sheet</a></div>
+            <div class="step"><strong>Step 2</strong> Preview changes below</div>
+            <div class="step"><strong>Step 3</strong> Approve &amp; deploy to live site</div>
+        </div>
 
-    <div id="diff-section">
-        <div id="diff-placeholder">Run a preview to see what will change before deploying.</div>
-        <div id="diff-results" class="hidden">
-            <h2>Change Summary</h2>
-            <div class="diff-summary" id="diff-summary"></div>
-            <div class="diff-controls">
-                <label>
-                    <input type="checkbox" id="show-unchanged" onchange="toggleUnchanged()">
-                    Show unchanged keys
-                </label>
-                <span style="color:#9ca3af;font-size:0.85rem;" id="key-count"></span>
+        <div class="btn-row">
+            <button id="preview-btn" onclick="runPreview()">🔍 Preview Changes</button>
+            <button id="deploy-btn" onclick="approveBuild()" disabled title="Run a preview first">🚀 Approve &amp; Deploy to Live Site</button>
+            <span id="build-progress">⏳ Build in progress — polling for updates…</span>
+        </div>
+
+        <div id="diff-section">
+            <div id="diff-placeholder">Run a preview to see what will change before deploying.</div>
+            <div id="diff-results" class="hidden">
+                <h2>Change Summary</h2>
+                <div class="diff-summary" id="diff-summary"></div>
+                <div class="diff-controls">
+                    <label>
+                        <input type="checkbox" id="show-unchanged" onchange="toggleUnchanged()">
+                        Show unchanged keys
+                    </label>
+                    <span style="color:#9ca3af;font-size:0.85rem;" id="key-count"></span>
+                </div>
+                <div class="diff-table-wrap">
+                    <table id="diff-table">
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>English</th>
+                                <th>French</th>
+                                <th>Arabic</th>
+                                <th>Armenian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diff-tbody"></tbody>
+                    </table>
+                </div>
             </div>
-            <div class="diff-table-wrap">
-                <table id="diff-table">
-                    <thead>
-                        <tr>
-                            <th>Key</th>
-                            <th>English</th>
-                            <th>French</th>
-                            <th>Arabic</th>
-                            <th>Armenian</th>
-                        </tr>
-                    </thead>
-                    <tbody id="diff-tbody"></tbody>
-                </table>
-            </div>
+        </div>
+
+        <div class="status-box">
+            <strong>Last Successful Deploy:</strong>
+            <div id="build-report">Loading stats…</div>
         </div>
     </div>
 
-    <div class="status-box">
-        <strong>Last Successful Deploy:</strong>
-        <div id="build-report">Loading stats…</div>
+    <div id="view-recipes" class="view-panel hidden">
+        <div id="recipes-root"></div>
     </div>
 </div>
+
+<script type="module" src="recipes-dist/recipes.js"></script>
 </body>
 </html>

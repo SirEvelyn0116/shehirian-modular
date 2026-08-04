@@ -1,6 +1,7 @@
 [build]
-  # Step 1: Sync Google Sheets, Step 2: Generate all 212+ pages
-  command = "node sync-google-sheets.js && node generate-index.js"
+  # Step 1: Build the Recipes admin React island, Step 2: Sync Google Sheets,
+  # Step 3: Generate all 212+ pages (copies admin/, including recipes-dist/)
+  command = "npm run build:recipes && node sync-google-sheets.js && node generate-index.js"
   publish = "dist"
 
 [functions]
@@ -9,6 +10,25 @@
 [[redirects]]
   from = "/admin/*"
   to = "/admin/index.html"
+  status = 200
+
+# Recipes read API (role gate enforced inside each function, not here).
+# Redirects apply in file order, first match wins — the exact-path rule
+# for the list MUST come before the /* wildcard, since /api/recipes/*
+# also matches the bare /api/recipes path on Netlify's real redirect
+# engine (unlike what local netlify dev suggested).
+[[redirects]]
+  from = "/api/recipes"
+  to = "/.netlify/functions/recipes-list"
+  status = 200
+
+# recipe-detail.js reads the slug from event.path, not a query param —
+# the named-placeholder-into-query-string form (?slug=:slug) matches
+# locally under netlify dev but the real edge never substitutes it,
+# so queryStringParameters comes back empty in production.
+[[redirects]]
+  from = "/api/recipes/*"
+  to = "/.netlify/functions/recipe-detail"
   status = 200
 
 # trigger-sync.js already checks for the 'translator' role
