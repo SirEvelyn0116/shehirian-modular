@@ -6,8 +6,11 @@
     "recipes-app"
   ],
   "scripts": {
+    "//build": "Deliberately skips sync-google-sheets.js — fast local iteration, and avoids silently overwriting local ui-strings.json with whatever's currently in the live Sheet (which may be mid-edit or bad). netlify.toml's [build].command includes the sync; production must reflect the Sheet. Use build:full to test the exact production pipeline locally.",
     "build": "npm run build:recipes && node generate-index.js",
+    "build:full": "npm run build:recipes && node sync-google-sheets.js && node generate-index.js",
     "build:recipes": "npm run build --workspace=recipes-app",
+    "dev:recipes": "npm run dev --workspace=recipes-app",
     "preview": "npx http-server dist -p 8080 -o",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
