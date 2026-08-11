@@ -61,6 +61,28 @@
   to = "/.netlify/functions/recipe-detail"
   status = 200
 
+# Pending-edits API (role gate enforced inside each function, not here).
+# Same first-match-wins ordering lesson as /api/recipes: /api/edits/mine
+# would otherwise get caught by /api/edits/* and treated as an edit id to
+# delete, and bare /api/edits also matches /api/edits/* on Netlify's real
+# redirect engine — so both exact paths must precede the wildcard.
+[[redirects]]
+  from = "/api/edits/mine"
+  to = "/.netlify/functions/edits-mine"
+  status = 200
+
+[[redirects]]
+  from = "/api/edits"
+  to = "/.netlify/functions/edit-create"
+  status = 200
+
+# edit-delete.js reads the id from event.path, not a query param — same
+# reasoning as recipe-detail.js.
+[[redirects]]
+  from = "/api/edits/*"
+  to = "/.netlify/functions/edit-delete"
+  status = 200
+
 # trigger-sync.js already checks for the 'translator' role
 #  conditions = {Role = ["translator", "admin"]}
 

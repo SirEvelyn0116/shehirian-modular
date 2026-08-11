@@ -32,6 +32,7 @@
     "http-server": "^14.1.1"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "dotenv": "^17.4.2",
     "googleapis": "^171.4.0"
   }
