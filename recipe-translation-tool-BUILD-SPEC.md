@@ -293,6 +293,15 @@ value. "proposed" = a copy of `all-recipes.json` with every pending edit applied
 **Neon**, for managed Postgres *and* because it solves the serverless connection problem (below).
 Edits are stored per-field even though approval is batch.
 
+**Two tables, two different jobs.** `edits` is the mutable *current pending state* — upserted per
+save, drives the editing UI, unchanged in semantics from v1. `edit_log` is a second, **append-only**
+audit trail — written only at approval time, one row per field actually shipped in an approved
+batch. This split exists because `edits`' upsert-on-save behavior (by design — the pending set is
+"latest value per field," never a pile of superseded edits) means a translator's re-edits overwrite
+the row, leaving no durable, queryable history of who changed what and when beyond the git commit
+itself — which has the content but not the structured attribution. `edit_log` is that missing
+history, scoped to *approved* changes so it grows once per shipped field, not once per keystroke.
+
 ```sql
 create table edits (
   id           uuid primary key default gen_random_uuid(),
@@ -313,10 +322,31 @@ create table edits (
 
 create index edits_status_idx on edits (status);
 create index edits_editor_idx on edits (editor_email);
+
+-- Append-only audit log. Insert-only — never update or delete a row here.
+-- No unique constraint: unlike `edits`, this table is meant to accumulate
+-- one row per approved change over time, not upsert to a single latest row.
+create table edit_log (
+  id           uuid primary key default gen_random_uuid(),
+  recipe_slug  text        not null,
+  lang         text        not null,
+  field_path   text        not null,
+  old_value    text,
+  new_value    text        not null,
+  action       text        not null default 'approved',  -- room for future action types
+  editor_email text        not null,          -- translator who authored the edit
+  resolved_by  text        not null,          -- approver who shipped it
+  commit_sha   text        not null,          -- git commit this batch produced
+  created_at   timestamptz not null default now()
+);
+
+create index edit_log_recipe_idx on edit_log (recipe_slug);
+create index edit_log_commit_idx on edit_log (commit_sha);
 ```
 
-> `unique (recipe_slug, lang, field_path)` makes re-editing a field an UPSERT, so the pending set
-> is always "latest value per field," never a pile of superseded edits.
+> `unique (recipe_slug, lang, field_path)` on `edits` makes re-editing a field an UPSERT, so the
+> pending set is always "latest value per field," never a pile of superseded edits. `edit_log` has
+> deliberately no such constraint — it's meant to grow.
 
 ### Connection pooling (budget an evening → then it's a résumé line)
 
@@ -342,22 +372,34 @@ This is where recipes differ from ui-strings by **exactly one step**:
 3. For each: parse `field_path`, read current value; if !== `old_value` → mark `conflict`, skip.
 4. Apply all non-conflicting edits into the parsed object.
 5. Re-serialize with the repo's existing 2-space indent (keep diffs clean); `PUT` one commit,
-   message e.g. `i18n(ar): batch — 7 fields across 3 recipes`.
+   message e.g. `i18n(ar): batch — 7 fields across 3 recipes`. **Capture the resulting commit SHA**
+   — the next step needs it.
 6. `UPDATE edits SET status='approved', resolved_at=now(), resolved_by=<approver>` for applied.
-7. Fire the **Netlify build hook** (reuse `trigger-sync.js`'s POST-to-`NETLIFY_BUILD_HOOK_ID`).
-8. Front end polls `metadata.json` until `lastBuild` changes (reuse the existing poll-confirm).
+7. **Write the audit trail:** for each non-conflicting edit just applied (i.e. everything updated
+   in step 6 — conflicts that were skipped do NOT get logged, they weren't shipped), `INSERT INTO
+   edit_log` one row: `recipe_slug`, `lang`, `field_path`, `old_value`, `new_value` (carried over
+   from the `edits` row), `action='approved'`, `editor_email` (the translator, carried over from
+   the `edits` row — **not** the approver), `resolved_by` (the approver, same value written to
+   `edits.resolved_by` in step 6), `commit_sha` (from step 5). Same logical unit of work as step 6
+   — both are "this batch just shipped," just two different tables recording it.
+8. Fire the **Netlify build hook** (reuse `trigger-sync.js`'s POST-to-`NETLIFY_BUILD_HOOK_ID`).
+9. Front end polls `metadata.json` until `lastBuild` changes (reuse the existing poll-confirm).
 
 **GitHub auth:** fine-scoped token (`contents:write`, one repo) in Netlify env. Never client-side.
 
 **One commit per batch** (not per edit) — avoids rebuild storms, since batch approval collects
 everything into a single push.
 
-**Rollback / audit trail (a free benefit of committing).** Because approval commits
-`all-recipes.json`, every approved batch is a git commit — a versioned, reversible history of
-who changed what, when. To roll back, revert the commit; the next build restores the prior state.
-This is a genuine advantage over the ui-strings side, whose approval fires a build hook but does
-**not** commit (its history lives in Google Sheets' revision log instead). Recipes get git-native
-backup and audit for free; ui-strings relies on Sheets versioning.
+**Rollback / audit trail — two layers now.** Because approval commits `all-recipes.json`, every
+approved batch is also a git commit — a versioned, reversible history of *content*: to roll back,
+revert the commit; the next build restores the prior state. This is a genuine advantage over the
+ui-strings side, whose approval fires a build hook but does **not** commit (its history lives in
+Google Sheets' revision log instead) — recipes get git-native backup for free; ui-strings relies on
+Sheets versioning. `edit_log` (§5) is the second layer: git has the content diff, but not "who
+authored this translation, who approved it, when" as structured, queryable data — `edit_log` is
+exactly that, one row per shipped field, keyed to the commit SHA that shipped it. The two are
+complementary: `commit_sha` on each `edit_log` row is the join key back to git history if you need
+the actual diff behind a logged change.
 
 ---
 
@@ -454,6 +496,9 @@ right backend for each.
 - **Identity role assignment** — confirm how `translator`/`approver` get set on Identity users;
   the whole gate depends on it. (`translator` already works today.)
 - **`preview` cost** — reads `all-recipes.json` + all pending edits each call; fine at this scale.
+- ~~**Structured audit trail**~~ — **closed.** git commits had the content history but not
+  structured attribution (who/when per field, queryably). `edit_log` (§5), written at approval time
+  (§6), closes this: one append-only row per shipped field, keyed to the commit SHA that shipped it.
 
 ---
 
