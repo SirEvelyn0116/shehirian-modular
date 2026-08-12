@@ -11,6 +11,8 @@
     "build:full": "npm run build:recipes && node sync-google-sheets.js && node generate-index.js",
     "build:recipes": "npm run build --workspace=recipes-app",
     "dev:recipes": "npm run dev --workspace=recipes-app",
+    "//dev:auth-stub": "Local-only: full stack (real functions + real DB) with a stubbed Netlify Identity, since there's no real Identity backend to validate a JWT against locally. Never deployed — see scripts/dev-server.js and LOCAL_DEV.md. Run `npm run build` first.",
+    "dev:auth-stub": "netlify dev:exec node scripts/dev-server.js",
     "preview": "npx http-server dist -p 8080 -o",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
