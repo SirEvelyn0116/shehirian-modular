@@ -20,7 +20,36 @@ If you change anything in `recipes-app/src/`, re-run `npm run build` (or `npm ru
 
 `npm run dev:auth-stub` is `netlify dev:exec node scripts/dev-server.js` — `dev:exec` is what injects `DATABASE_URL` and the other Netlify-managed env vars into the process; running `node scripts/dev-server.js` directly will fail fast with a clear error instead of silently missing the database connection.
 
-## 2. Cleaning up your test edits
+## 2. Testing as translator, approver, or both
+
+The default `npm run dev:auth-stub` stub has **both** roles, which is fine for most work but hides
+a real distinction: a genuine approver-only Identity account has no `translator` role, and
+`GET /api/recipes` / `GET /api/recipes/:slug` both require `translator` — so a real approver
+landing on the translate flow would just get a 403. `RecipesApp.jsx` handles this (an approver-only
+user goes straight to Review, no dead end), but you can only actually see that behavior, or the
+Phase 4 approval view in general, by running the stub as one role at a time:
+
+```bash
+npm run dev:auth-stub:translator   # roles: [translator] — no Review tab, exactly pre-Phase-4 behavior
+npm run dev:auth-stub:approver     # roles: [approver] — lands directly on Review, no Translate flow at all
+npm run dev:auth-stub              # roles: [translator, approver] — both, with a mode toggle between them
+```
+
+Same server, same port, same everything else — only `STUB_ROLE` differs (`scripts/stub-identity.js`
+reads it, defaulting to `'both'`). The terminal banner on startup prints the active identity and
+roles so you always know which mode you're in:
+
+```
+⚠️  LOCAL AUTH STUB DEV SERVER — not netlify dev, not deployable.
+   Stub identity: local-dev@example.com  roles: [approver]
+   Open: http://localhost:8888/admin/
+```
+
+To actually generate something for the approver stub to review: run `dev:auth-stub:translator`
+(or the default), save a couple of edits, stop it, then start `dev:auth-stub:approver` and reload
+— the pending edits are in the real database regardless of which role wrote or is viewing them.
+
+## 3. Cleaning up your test edits
 
 There's no separate test database — `dev:auth-stub` writes real rows into the real Neon `edits`
 table. Clean them up when you're done so they don't clutter the pending queue Phase 4's approval
@@ -53,7 +82,7 @@ yet, so nothing lands there during Phase 3 testing regardless. If Phase 5 testin
 `edit_log` rows via the stub, whether/how to clean those up is a separate decision to make then —
 not something to fold into this script quietly now.
 
-## 3. What this does and doesn't test
+## 4. What this does and doesn't test
 
 `scripts/dev-server.js` is a small plain Node HTTP server — **not** `netlify dev`, not a fork of the real functions. It does two things:
 
@@ -75,7 +104,7 @@ That `fakeCtx` is the entire shortcut. Spelled out precisely:
 
 **Bottom line:** this mode proves the code is correct. It does not prove Netlify's auth plumbing is wired correctly around that code. Both matter; only a real deploy test covers the second one.
 
-## 4. Why this can't leak into production
+## 5. Why this can't leak into production
 
 This is the part that actually matters, so here's the reasoning, not just the assertion:
 
@@ -86,13 +115,14 @@ This is the part that actually matters, so here's the reasoning, not just the as
 
 If you ever want to double check this yourself after future changes: `grep -rn "scripts/" netlify.toml` should keep returning nothing.
 
-## 5. Gotchas
+## 6. Gotchas
 
 - **`netlify link` is required once per clone.** `dev:exec` needs the project linked to pull `DATABASE_URL` and friends — `.netlify/state.json` holds that (gitignored, machine-specific). If you're on a fresh checkout and get "not linked" errors, run `netlify link` and select `ornate-biscuit-625466`.
 - **`DATABASE_URL` isn't in `.env`.** It's a Netlify-managed env var (Site configuration → Environment variables, scoped to include the `dev` context), only reachable locally through `netlify dev:exec` / `netlify dev`. That's why `dev-server.js` refuses to start without it rather than silently limping along.
 - **Port 8888.** Same port `netlify dev` itself uses, chosen for muscle-memory, but this is a different, unrelated server — don't run `netlify dev` and `npm run dev:auth-stub` at the same time, they'll fight over the port. `netstat -ano | grep 8888` (or `Get-CimInstance Win32_Process -Filter "name = 'node.exe'"` in PowerShell, since `pkill -f netlify` has proven unreliable against these Windows-spawned node children) if you need to find and kill a stuck one.
 - **No hot-reload.** Rebuild (`npm run build` or `npm run build:recipes`) and refresh the browser after any `recipes-app/src/` change.
 - **No CORS to worry about.** Static files and `/api/*` are served from the same origin/port, matching production's shape — this was a deliberate reason to write a same-process server rather than pointing the React app at a separately-hosted API during dev.
-- **Route table drift.** As noted in §3 — new `/api/*` endpoints need a matching route added to `scripts/dev-server.js` by hand.
+- **Route table drift.** As noted in §4 — new `/api/*` endpoints need a matching route added to `scripts/dev-server.js` by hand.
+- **`STUB_ROLE` only affects `dev-server.js`.** `db:clean-test-edits` always targets `local-dev@example.com` regardless of which role variant wrote the row — the role doesn't change the stub's email.
 - **Cleanup script needs `netlify dev:exec` too** (via `npm run db:clean-test-edits`) for the same `DATABASE_URL` reason as the stub server itself — don't run `node db/clean-test-edits.js` directly.
 - **Stub visibly announces itself.** Both a `console.warn` banner (styled, hard to miss) on every page load and a startup banner in the terminal say this is the auth-stub server — if you ever see recipe data in a screenshot or log without that warning nearby, it's not this mode.
