@@ -417,21 +417,60 @@ New for recipes (needs React — the vanilla-JS diff table can't do a stateful i
 
 ```
 Recipes view
-├─ <RecipeListView>       picker (GET /api/recipes)
-├─ <RecipeEditorView>
-│   ├─ <RecipeReplica>    renders recipe from JSON — mirrors generate-index.js layout
-│   │   └─ <EditableField> click-to-edit (rename-style), RTL-aware; EN ref vs AR editable
-│   └─ <PendingBar>       this session's staged/submitted edits
-└─ <RecipeApprovalView>   approver: GET /api/recipes/preview → renderDiff → Approve & Deploy
+├─ <RecipeList>            picker (GET /api/recipes)
+└─ <RecipeReplica>         one recipe's whole edit session — fetches the recipe AND
+    │                      the translator's own pending edits (GET /api/edits/mine),
+    │                      reconciling per field on load (§ three-state model)
+    ├─ view mode: edit     the default working view — EN reference (read-only, LTR) |
+    │                      AR editable (RTL), side by side. Every editable AR field is
+    │                      an <EditableField> — click-to-edit, rename-style, colour-
+    │                      coded by state.
+    ├─ view mode: preview  single-column, no editing chrome — the AR recipe as it reads
+    │                      with pending edits applied (reuses the same read-only replica
+    │                      render, just fed a recipe clone with pending values merged in)
+    └─ back to admin/list  returns to <RecipeList>, guarded if dirty fields exist
+└─ <RecipeApprovalView>    Phase 4 — approver: GET /api/recipes/preview → renderDiff → Approve & Deploy
 ```
 
-**Editing interaction (the "click a word, type over it" model):** click an AR field → inline
-input prefilled with current value → click out/Enter → stage locally → **Save** → `POST /api/edits`
-per staged field. Staged/submitted fields are color-coded, distinct from ui-strings in the shared
-styling.
+**The three-state field (Phase 3).** Every editable AR field is in exactly one of:
+- **clean** — matches the saved (live or previously-approved) value. Default look, a hover
+  affordance hints it's editable.
+- **dirty** — edited locally, not yet saved. In-memory only: no localStorage, no per-keystroke
+  API calls, no cross-session persistence. Lost on navigate-away/reload — see the unsaved-changes
+  guard below. Distinct colour (amber) from pending.
+- **pending** — saved via `POST /api/edits`, awaiting approval. Distinct colour (blue). This state
+  survives reloads: on load, `<RecipeReplica>` reconciles each field against the translator's own
+  `GET /api/edits/mine` results (filtered client-side to this recipe) and initializes any field
+  with a matching pending edit straight into `pending` (showing the saved value, not the live one)
+  rather than `clean` — otherwise "pending" would only ever be true within a single browser session,
+  which defeats the point of it being a real, durable state backed by the DB.
 
-**RTL:** AR fields render `dir="rtl"`; EN reference is LTR. Keep reference and target in clearly
-separated columns so mixed direction doesn't fight. Expect to iterate.
+**Editing interaction:** click an AR field → inline input, pre-populated and selected (rename-
+style) → click out / **Enter** commits to local `dirty` state only — not the API, not per-keystroke.
+**Escape** reverts to the pre-edit value without committing (not explicitly speced, cheap standard
+affordance for this interaction — flag if unwanted).
+
+**Saving:** an explicit **Save** action `POST`s one request per `dirty` field (the endpoint upserts
+on `(recipe_slug, lang, field_path)`, so re-saving a field just updates its pending row). Deliberate,
+not automatic — the translator can edit several fields, including re-correcting her own mistakes,
+before committing anything. Dirty fields that fail to save stay `dirty` (nothing is lost;
+Save again to retry) and a message reports the failure count. Successful ones flip to `pending`.
+**Stays on the recipe after Save** — no navigation. A persistent pending-count badge ("N pending
+edits") is always visible while editing, alongside the field colour states.
+
+**Unsaved-changes guard:** if the translator tries to leave with `dirty` fields present — closing
+the tab, reloading (`beforeunload`), or clicking the in-app Back button — she's warned ("You have
+unsaved changes. Leave anyway?"). `pending`/`clean` fields need no warning; they're safe in the DB
+or unchanged.
+
+**Scope boundary (v1):** existing strings only. Array fields (`ingredients`, `instructions`) are
+editable per existing item (`ingredients[2]`) — no add/remove/reorder UI, no "+ add ingredient."
+Matches the `fieldPath` grammar's existing assumption of stable array shape (§1).
+
+**RTL — functional, not polished.** AR fields (both display and the inline input) render
+`dir="rtl"`; EN reference is LTR, kept in a clearly separated column. Mixed Latin/numeral runs
+inside Arabic text may render imperfectly for now — deferred, to be tuned against real content
+once the translator starts using it.
 
 > **React integration:** introduce React/Vite for the Recipes *editor view* only. The existing
 > dashboard shell and the UI-strings view stay as-is (vanilla JS). Don't uproot what works;
@@ -476,9 +515,18 @@ right backend for each.
   *Riskiest visual piece — proves render-from-JSON — so it goes first.*
 - **Phase 2 — API + DB.** Neon schema + `@neondatabase/serverless`; `POST /api/edits` (upsert),
   `GET /api/edits/mine`, `DELETE /api/edits/:id`; shared `requireRole`.
-- **Phase 3 — Inline editing.** `<EditableField>` click-to-edit, staging, Save → POST. RTL.
+- **Phase 3 — Inline editing.** ✅ `<EditableField>` — click-to-edit, rename-style, three-state
+  (clean/dirty/pending, colour-coded). Dirty is in-memory only, committed on click-out/Enter, never
+  auto-saved. Explicit **Save** flushes dirty fields via `POST /api/edits` (upsert), stays on the
+  recipe, shows a persistent pending count. Unsaved-changes guard on nav-away/reload. Added a
+  translator-facing **preview** *view mode* within `<RecipeReplica>` (single-column, edits applied,
+  no editing chrome) — **not** the same thing as Phase 4's approver-facing preview below; that one
+  diffs the whole pending set against live for the approver, this one just lets the translator read
+  her own in-context translation. Functional-only RTL. No array add/remove/reorder (existing items
+  only). Full detail in §7.
 - **Phase 4 — Preview diff.** `GET /api/recipes/preview` (apply pending → diff vs live); render
-  with the existing `renderDiff`.
+  with the existing `renderDiff`. (Approver-facing — distinct from Phase 3's translator preview
+  view mode, see above.)
 - **Phase 5 — Approve → commit → hook.** `POST /api/recipes/approve`: conflict guard, apply,
   GitHub commit, build hook; reuse the deploy-poll. End-to-end: edit → approve → live.
 - **Phase 6 — Polish.** Color-coding vs ui-strings, conflict/empty/error states, translator's
