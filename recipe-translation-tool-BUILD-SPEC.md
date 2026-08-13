@@ -425,9 +425,10 @@ Recipes view
     │                      AR editable (RTL), side by side. Every editable AR field is
     │                      an <EditableField> — click-to-edit, rename-style, colour-
     │                      coded by state.
-    ├─ view mode: preview  single-column, no editing chrome — the AR recipe as it reads
-    │                      with pending edits applied (reuses the same read-only replica
-    │                      render, just fed a recipe clone with pending values merged in)
+    ├─ view mode: preview  <RecipePagePreview> — a faithful reproduction of the real,
+    │                      deployed recipe page (see below), with the translator's
+    │                      *current* edits applied: dirty (unsaved) as well as pending
+    │                      (saved) — a live working aid, not a DB-only snapshot
     └─ back to admin/list  returns to <RecipeList>, guarded if dirty fields exist
 └─ <RecipeApprovalView>    Phase 4 — approver: GET /api/recipes/preview → renderDiff → Approve & Deploy
 ```
@@ -462,6 +463,37 @@ edits") is always visible while editing, alongside the field colour states.
 the tab, reloading (`beforeunload`), or clicking the in-app Back button — she's warned ("You have
 unsaved changes. Leave anyway?"). `pending`/`clean` fields need no warning; they're safe in the DB
 or unchanged.
+
+**Preview view mode.** Originally (first Phase 3 pass) this reused the edit view's own read-only
+column layout minus the editing chrome — which made it feel near-redundant with the editor, since
+it was just the same stripped-down field list restyled. Revised: Preview now reproduces the *real*
+deployed recipe page — `<main class="recipe-page">`, `<header class="recipe-header">`,
+`<section class="recipe-section recipe-ingredients">` etc. — the same structure and class names
+`generate-index.js`'s `writeAllRecipesPages()` emits for one recipe (not the card), rendered from
+JSON via `recipePageHtml.js` (kept deliberately parallel to that function, the same "layout
+maintained twice" tax §3 already accepts) into an `<iframe srcDoc>` that loads the real
+`/assets/css/style.css` — so it's styled by the actual stylesheet the live page uses, not bespoke
+preview CSS, and stays in sync automatically when that CSS changes. An iframe with its own
+independent `<html>`/`<body>` was necessary, not just convenient: the real template puts `dir` on
+`<html>` (never `<body>` — confirmed against both the generator and the live page; style.css's
+`body[dir="rtl"] …` rules are consequently dead on the real site too, faithfully reproduced rather
+than "fixed"), and inlining the markup into the admin dashboard's shared body would mean fighting
+that body for CSS scope. Section labels ("Ingredients," "Category," …) come from `ui-strings.json`
+(fetched client-side, same source the real page's `t()` labels use at build time) so they're
+correctly localized, not hardcoded English. No recipe photo: the real template has none (no image
+field anywhere in `all-recipes.json`), so none was invented here either. The top breadcrumb/language-
+switcher nav is deliberately excluded — shared site chrome, not part of "the recipe," and its links
+have no sensible target inside an admin preview pane.
+
+Preview shows the recipe with **all current field states applied — dirty (unsaved) as well as
+pending (saved)**, not just what's in the database. The translator can type a field, switch to
+Preview without saving, and see her in-progress translation in context immediately — Preview is a
+live working aid keyed to the same `fieldStates` the editor uses, not a separate DB-backed view.
+(This is distinct from Phase 4's approver-facing preview, `GET /api/recipes/preview` — see §10.)
+
+Verified by direct comparison against the live deployed page (`royal-soup`, Arabic): identical
+computed styles (font, size, color, layout), identical DOM class structure, identical localized
+labels, `dir` placement matching exactly.
 
 **Scope boundary (v1):** existing strings only. Array fields (`ingredients`, `instructions`) are
 editable per existing item (`ingredients[2]`) — no add/remove/reorder UI, no "+ add ingredient."
@@ -519,10 +551,13 @@ right backend for each.
   (clean/dirty/pending, colour-coded). Dirty is in-memory only, committed on click-out/Enter, never
   auto-saved. Explicit **Save** flushes dirty fields via `POST /api/edits` (upsert), stays on the
   recipe, shows a persistent pending count. Unsaved-changes guard on nav-away/reload. Added a
-  translator-facing **preview** *view mode* within `<RecipeReplica>` (single-column, edits applied,
-  no editing chrome) — **not** the same thing as Phase 4's approver-facing preview below; that one
-  diffs the whole pending set against live for the approver, this one just lets the translator read
-  her own in-context translation. Functional-only RTL. No array add/remove/reorder (existing items
+  translator-facing **preview** *view mode* within `<RecipeReplica>` — a faithful reproduction of
+  the real deployed recipe page (`generate-index.js`'s structure/classes, the real
+  `/assets/css/style.css`, via `<iframe srcDoc>`), with *all current edits* applied — dirty
+  (unsaved) as well as pending (saved), a live working aid, not a DB-only snapshot — **not** the
+  same thing as Phase 4's approver-facing preview below; that one diffs the whole pending set
+  against live for the approver, this one just lets the translator read her own in-context
+  translation as she types. Functional-only RTL. No array add/remove/reorder (existing items
   only). Full detail in §7.
 - **Phase 4 — Preview diff.** `GET /api/recipes/preview` (apply pending → diff vs live); render
   with the existing `renderDiff`. (Approver-facing — distinct from Phase 3's translator preview
