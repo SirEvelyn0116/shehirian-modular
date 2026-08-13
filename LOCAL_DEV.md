@@ -20,7 +20,40 @@ If you change anything in `recipes-app/src/`, re-run `npm run build` (or `npm ru
 
 `npm run dev:auth-stub` is `netlify dev:exec node scripts/dev-server.js` — `dev:exec` is what injects `DATABASE_URL` and the other Netlify-managed env vars into the process; running `node scripts/dev-server.js` directly will fail fast with a clear error instead of silently missing the database connection.
 
-## 2. What this does and doesn't test
+## 2. Cleaning up your test edits
+
+There's no separate test database — `dev:auth-stub` writes real rows into the real Neon `edits`
+table. Clean them up when you're done so they don't clutter the pending queue Phase 4's approval
+view will eventually read:
+
+```bash
+npm run db:clean-test-edits
+```
+
+This deletes rows from `edits` **only** where `editor_email` matches the stub's fake identity
+(`local-dev@example.com`, defined once in `scripts/stub-identity.js` and imported by both the
+stub server and this script — so they can never drift apart). It prints every matching row —
+recipe, field, status, id — before deleting anything, and if nothing matches it says so and stops.
+
+**Why it's safe to run without thinking twice:**
+- The email filter is imported, not retyped, and is checked non-empty before the query is even
+  built (`db/clean-test-edits.js`) — there's no code path here that degrades into an unscoped
+  `DELETE FROM edits`.
+- `local-dev@example.com` is a fake domain that will never match a real translator's account.
+- Verified directly: seeded a decoy row under a different `editor_email`, ran a real
+  `dev:auth-stub` session to create two genuine stub rows, ran the cleanup — it found and deleted
+  exactly the two stub rows, printed them by name first, and left the decoy row untouched. Confirmed
+  with a direct query afterward that the decoy was still there, then removed it by hand (deliberately
+  *not* via this script, since it isn't the stub's row to touch).
+
+**Why it never touches `edit_log`:** that table is append-only by design (build spec §5) — a
+cleanup script deleting from it would undercut the one thing it's for, even for test data. It's
+also moot right now: `edit_log` is only written at approval time (Phase 5), which doesn't exist
+yet, so nothing lands there during Phase 3 testing regardless. If Phase 5 testing later does write
+`edit_log` rows via the stub, whether/how to clean those up is a separate decision to make then —
+not something to fold into this script quietly now.
+
+## 3. What this does and doesn't test
 
 `scripts/dev-server.js` is a small plain Node HTTP server — **not** `netlify dev`, not a fork of the real functions. It does two things:
 
@@ -31,7 +64,7 @@ That `fakeCtx` is the entire shortcut. Spelled out precisely:
 
 **Exercised for real:**
 - All business logic in every function — upsert semantics, validation (`lang='en'` rejection, missing fields), the conflict-guard fields, ownership scoping on delete, everything.
-- The **role-check logic itself** (`requireRole` in `netlify/functions/_shared/requireRole.js`) — it runs unmodified and really does read `roles` off the `user` object and really does reject if `'translator'` isn't in the list. You can prove this by editing `scripts/dev-server.js`'s `STUB_USER.app_metadata.roles` to `[]` and confirming every call starts 401ing again.
+- The **role-check logic itself** (`requireRole` in `netlify/functions/_shared/requireRole.js`) — it runs unmodified and really does read `roles` off the `user` object and really does reject if `'translator'` isn't in the list. You can prove this by editing `scripts/stub-identity.js`'s `STUB_USER.app_metadata.roles` to `[]` and confirming every call starts 401ing again.
 - The real Neon database, over the real `@neondatabase/serverless` driver, same as production.
 - All of the React state machine — clean/dirty/pending transitions, Save, the reload-reconciliation against `GET /api/edits/mine`, the unsaved-changes guard, Preview mode.
 
@@ -42,7 +75,7 @@ That `fakeCtx` is the entire shortcut. Spelled out precisely:
 
 **Bottom line:** this mode proves the code is correct. It does not prove Netlify's auth plumbing is wired correctly around that code. Both matter; only a real deploy test covers the second one.
 
-## 3. Why this can't leak into production
+## 4. Why this can't leak into production
 
 This is the part that actually matters, so here's the reasoning, not just the assertion:
 
@@ -53,12 +86,13 @@ This is the part that actually matters, so here's the reasoning, not just the as
 
 If you ever want to double check this yourself after future changes: `grep -rn "scripts/" netlify.toml` should keep returning nothing.
 
-## 4. Gotchas
+## 5. Gotchas
 
 - **`netlify link` is required once per clone.** `dev:exec` needs the project linked to pull `DATABASE_URL` and friends — `.netlify/state.json` holds that (gitignored, machine-specific). If you're on a fresh checkout and get "not linked" errors, run `netlify link` and select `ornate-biscuit-625466`.
 - **`DATABASE_URL` isn't in `.env`.** It's a Netlify-managed env var (Site configuration → Environment variables, scoped to include the `dev` context), only reachable locally through `netlify dev:exec` / `netlify dev`. That's why `dev-server.js` refuses to start without it rather than silently limping along.
 - **Port 8888.** Same port `netlify dev` itself uses, chosen for muscle-memory, but this is a different, unrelated server — don't run `netlify dev` and `npm run dev:auth-stub` at the same time, they'll fight over the port. `netstat -ano | grep 8888` (or `Get-CimInstance Win32_Process -Filter "name = 'node.exe'"` in PowerShell, since `pkill -f netlify` has proven unreliable against these Windows-spawned node children) if you need to find and kill a stuck one.
 - **No hot-reload.** Rebuild (`npm run build` or `npm run build:recipes`) and refresh the browser after any `recipes-app/src/` change.
 - **No CORS to worry about.** Static files and `/api/*` are served from the same origin/port, matching production's shape — this was a deliberate reason to write a same-process server rather than pointing the React app at a separately-hosted API during dev.
-- **Route table drift.** As noted in §2 — new `/api/*` endpoints need a matching route added to `scripts/dev-server.js` by hand.
+- **Route table drift.** As noted in §3 — new `/api/*` endpoints need a matching route added to `scripts/dev-server.js` by hand.
+- **Cleanup script needs `netlify dev:exec` too** (via `npm run db:clean-test-edits`) for the same `DATABASE_URL` reason as the stub server itself — don't run `node db/clean-test-edits.js` directly.
 - **Stub visibly announces itself.** Both a `console.warn` banner (styled, hard to miss) on every page load and a startup banner in the terminal say this is the auth-stub server — if you ever see recipe data in a screenshot or log without that warning nearby, it's not this mode.
