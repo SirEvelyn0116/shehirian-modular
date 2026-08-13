@@ -11,8 +11,10 @@
     "build:full": "npm run build:recipes && node sync-google-sheets.js && node generate-index.js",
     "build:recipes": "npm run build --workspace=recipes-app",
     "dev:recipes": "npm run dev --workspace=recipes-app",
-    "//dev:auth-stub": "Local-only: full stack (real functions + real DB) with a stubbed Netlify Identity, since there's no real Identity backend to validate a JWT against locally. Never deployed — see scripts/dev-server.js and LOCAL_DEV.md. Run `npm run build` first.",
+    "//dev:auth-stub": "Local-only: full stack (real functions + real DB) with a stubbed Netlify Identity, since there's no real Identity backend to validate a JWT against locally. Never deployed — see scripts/dev-server.js and LOCAL_DEV.md. Run `npm run build` first. Default stub identity has both translator and approver roles — use the :translator / :approver variants to test either role in isolation.",
     "dev:auth-stub": "netlify dev:exec node scripts/dev-server.js",
+    "dev:auth-stub:translator": "cross-env STUB_ROLE=translator netlify dev:exec node scripts/dev-server.js",
+    "dev:auth-stub:approver": "cross-env STUB_ROLE=approver netlify dev:exec node scripts/dev-server.js",
     "//db:clean-test-edits": "Deletes ONLY rows in `edits` whose editor_email matches the auth-stub's fake identity (scripts/stub-identity.js) — never touches edit_log (append-only by design). Safe to run repeatedly after local dev:auth-stub sessions. See LOCAL_DEV.md.",
     "db:clean-test-edits": "netlify dev:exec node db/clean-test-edits.js",
     "preview": "npx http-server dist -p 8080 -o",
@@ -33,6 +35,7 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
+    "cross-env": "^10.1.0",
     "http-server": "^14.1.1"
   },
   "dependencies": {

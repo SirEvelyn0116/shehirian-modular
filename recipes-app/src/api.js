@@ -31,4 +31,14 @@ function apiPost(path, body) {
   return apiRequest(path, { method: 'POST', body });
 }
 
-export { apiGet, apiPost };
+// Mirrors admin.js's / welcome.html's getRoles — same Identity role shape,
+// duplicated rather than shared since those are plain scripts and this is
+// an ES module with no bundling relationship to them.
+function getRoles(user) {
+  return (user && (
+    (user.app_metadata && user.app_metadata.authorization && user.app_metadata.authorization.roles) ||
+    (user.app_metadata && user.app_metadata.roles)
+  )) || [];
+}
+
+export { apiGet, apiPost, getRoles };

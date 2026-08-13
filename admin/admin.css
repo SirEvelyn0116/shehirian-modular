@@ -369,3 +369,34 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     border: 2px dashed #e5e7eb;
     border-radius: 8px;
 }
+
+/* Recipe approval view (Phase 4). Reuses .chip/.diff-table-wrap/table/
+   .row-changed/.key-cell/.lang-cell/.val-old/.val-new/.val-empty from the
+   ui-strings diff table as-is — same visual language, recipe-grouped
+   structure on top. */
+.recipe-approval-group {
+    margin-bottom: 1.25rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.recipe-approval-group-summary {
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    background: #f9fafb;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+.recipe-approval-group-count { font-weight: 400; color: #6b7280; font-size: 0.85rem; }
+
+.recipe-approval-group .diff-table-wrap { border: none; border-radius: 0; border-top: 1px solid #e5e7eb; }
+
+.recipe-approval-editor { font-size: 0.78rem; color: #6b7280; white-space: nowrap; }
+
+.recipe-approval-actions { align-items: flex-start; flex-direction: column; gap: 0.4rem; }
+
+.recipe-approval-approve-btn { background: #16a34a; color: white; }
+.recipe-approval-approve-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.recipe-approval-conflict-note { font-size: 0.8rem; color: #9ca3af; font-style: italic; }

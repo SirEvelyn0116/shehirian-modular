@@ -36,6 +36,7 @@ if (!process.env.DATABASE_URL) {
 
 const recipesList = require(path.join(ROOT, 'netlify/functions/recipes-list.js'));
 const recipeDetail = require(path.join(ROOT, 'netlify/functions/recipe-detail.js'));
+const recipesPreview = require(path.join(ROOT, 'netlify/functions/recipes-preview.js'));
 const editCreate = require(path.join(ROOT, 'netlify/functions/edit-create.js'));
 const editsMine = require(path.join(ROOT, 'netlify/functions/edits-mine.js'));
 const editDelete = require(path.join(ROOT, 'netlify/functions/edit-delete.js'));
@@ -100,6 +101,9 @@ const server = http.createServer(async (req, res) => {
   if (/^\/api\/edits\/[^/]+$/.test(parsed.pathname) && req.method === 'DELETE') {
     return sendJson(res, await editDelete.handler({ path: parsed.pathname }, fakeCtx));
   }
+  if (parsed.pathname === '/api/recipes/preview' && req.method === 'GET') {
+    return sendJson(res, await recipesPreview.handler({}, fakeCtx));
+  }
   if (/^\/api\/recipes\/[^/]+$/.test(parsed.pathname) && req.method === 'GET') {
     return sendJson(res, await recipeDetail.handler({ path: parsed.pathname }, fakeCtx));
   }
@@ -128,5 +132,6 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`\n⚠️  LOCAL AUTH STUB DEV SERVER — not netlify dev, not deployable.`);
+  console.log(`   Stub identity: ${STUB_USER.email}  roles: [${STUB_USER.app_metadata.roles.join(', ')}]`);
   console.log(`   Open: http://localhost:${PORT}/admin/\n`);
 });

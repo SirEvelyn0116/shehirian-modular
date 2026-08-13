@@ -52,6 +52,14 @@
   to = "/.netlify/functions/recipes-list"
   status = 200
 
+# Approver-only: must precede the /* wildcard below for the same reason
+# /api/edits/mine precedes /api/edits/* — "preview" would otherwise be
+# treated as a recipe slug by recipe-detail.js.
+[[redirects]]
+  from = "/api/recipes/preview"
+  to = "/.netlify/functions/recipes-preview"
+  status = 200
+
 # recipe-detail.js reads the slug from event.path, not a query param —
 # the named-placeholder-into-query-string form (?slug=:slug) matches
 # locally under netlify dev but the real edge never substitutes it,
