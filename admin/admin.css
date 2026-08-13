@@ -278,6 +278,80 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 .recipe-replica-section ul, .recipe-replica-section ol { margin: 0; padding-inline-start: 1.25rem; }
 .recipe-replica-section li { margin-bottom: 0.3rem; font-size: 0.9rem; }
 
+.recipe-replica-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.recipe-replica-modes { margin-bottom: 0; border-bottom: none; }
+
+.recipe-replica-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pending-count-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 0.3rem 0.7rem;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+
+.recipe-save-btn { background: #16a34a; color: white; padding: 0.5rem 1.1rem; font-size: 0.88rem; }
+.recipe-save-btn:hover:not(:disabled) { opacity: 0.88; }
+
+.recipe-save-error { margin-bottom: 1rem; }
+
+.recipe-replica-preview { max-width: 640px; }
+
+/* Three-state editable field (build spec §7). Clean = default text with a
+   subtle "this is editable" affordance; dirty = edited locally, not saved;
+   pending = saved via POST /api/edits, awaiting approval. */
+.editable-field {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 1px 4px;
+    border-bottom: 1px dashed transparent;
+}
+.editable-field:hover { border-bottom-color: #9ca3af; }
+
+.editable-field-clean { color: inherit; }
+
+.editable-field-dirty {
+    background: #fffbeb;
+    color: #92400e;
+    border-bottom: 1px dashed #f59e0b;
+}
+
+.editable-field-pending {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-bottom: 1px dashed #93c5fd;
+}
+
+.editable-field-empty { color: #9ca3af; font-style: italic; }
+
+.editable-field-input {
+    font: inherit;
+    color: inherit;
+    background: white;
+    border: 1px solid #93c5fd;
+    border-radius: 3px;
+    padding: 0px 3px;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
+    width: 100%;
+    min-width: 4rem;
+}
+
 #diff-placeholder {
     text-align: center;
     padding: 2rem;

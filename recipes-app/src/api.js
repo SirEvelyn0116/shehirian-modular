@@ -6,10 +6,15 @@ async function getToken() {
   return user ? user.jwt() : null;
 }
 
-async function apiGet(path) {
+async function apiRequest(path, options = {}) {
   const token = await getToken();
   const res = await fetch(path, {
-    headers: { Authorization: `Bearer ${token}` },
+    method: options.method || 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+    },
+    body: options.body ? JSON.stringify(options.body) : undefined,
   });
   const body = await res.json().catch(() => null);
   if (!res.ok) {
@@ -18,4 +23,12 @@ async function apiGet(path) {
   return body;
 }
 
-export { apiGet };
+function apiGet(path) {
+  return apiRequest(path);
+}
+
+function apiPost(path, body) {
+  return apiRequest(path, { method: 'POST', body });
+}
+
+export { apiGet, apiPost };
