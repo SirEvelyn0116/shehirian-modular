@@ -582,6 +582,10 @@ right backend for each.
 - ~~**Structured audit trail**~~ — **closed.** git commits had the content history but not
   structured attribution (who/when per field, queryably). `edit_log` (§5), written at approval time
   (§6), closes this: one append-only row per shipped field, keyed to the commit SHA that shipped it.
+- **LAUNCH BLOCKER — RTL dead on live Arabic pages** (site bug, not the admin tool): `dir` is set on
+  `<html>`, never `<body>`, on deployed recipe pages, so every `body[dir="rtl"]` rule in `style.css`
+  is dead — found while verifying the Preview view mode against a real page (§7). Tracked and parked
+  on `fix/rtl-dir-attribute` (off `translation-pipeline`); not fixed yet. Must resolve before launch.
 
 ---
 
