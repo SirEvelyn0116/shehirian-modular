@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { apiGet, apiPost } from './api.js';
 import formatDuration from './formatDuration.js';
 import EditableField from './EditableField.jsx';
-import { buildEditableFieldPaths, getFieldValue, applyPendingEdits } from './fieldUtils.js';
+import RecipePagePreview from './RecipePagePreview.jsx';
+import { buildEditableFieldPaths, getFieldValue, applyCurrentEdits } from './fieldUtils.js';
 
-// Read-only replica column — unchanged from Phase 1, reused as-is for the
-// EN reference (edit mode) and for the single-column Preview (fed a clone
-// with pending edits merged in, via applyPendingEdits).
+// Read-only replica column — the EN reference in edit mode. (Preview mode
+// no longer reuses this — see RecipePagePreview.jsx, which reproduces the
+// real recipe page structure/CSS instead of this stripped-down layout.)
 function RecipeColumn({ recipe, lang, dir }) {
   const field = (key) => (recipe[key] && recipe[key][lang]) || '';
   const ingredients = (recipe.ingredients && recipe.ingredients[lang]) || [];
@@ -214,7 +215,7 @@ export default function RecipeReplica({ slug, onBack }) {
             </div>
           ) : (
             <div className="recipe-replica-preview">
-              <RecipeColumn recipe={applyPendingEdits(recipe, fieldStates, 'ar')} lang="ar" dir="rtl" />
+              <RecipePagePreview recipe={applyCurrentEdits(recipe, fieldStates, 'ar')} lang="ar" dir="rtl" />
             </div>
           )}
         </>

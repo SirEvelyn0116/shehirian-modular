@@ -310,7 +310,16 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 
 .recipe-save-error { margin-bottom: 1rem; }
 
-.recipe-replica-preview { max-width: 640px; }
+/* Preview renders in an <iframe srcDoc> loading the real site's
+   /assets/css/style.css — the wrapper here is just a frame, no visual
+   styling of the recipe content itself belongs in admin.css. */
+.recipe-replica-preview { max-width: 900px; }
+.recipe-page-preview-frame {
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    display: block;
+}
 
 /* Three-state editable field (build spec §7). Clean = default text with a
    subtle "this is editable" affordance; dirty = edited locally, not saved;

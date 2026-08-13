@@ -30,13 +30,15 @@ function buildEditableFieldPaths(recipe) {
   return paths;
 }
 
-// Returns a clone of `recipe` with `lang`'s values overridden by any
-// *pending* (saved) field states — not dirty/unsaved ones. Preview shows
-// what's actually staged to ship, not speculative in-progress keystrokes.
-function applyPendingEdits(recipe, fieldStates, lang) {
+// Returns a clone of `recipe` with `lang`'s values overridden by the
+// *current* field states — dirty (unsaved) as well as pending (saved).
+// Preview is a live working aid: the translator should see her in-progress
+// typing in context without saving first. (Clean fields' state.value always
+// equals the live baseline already, so applying them unconditionally is a
+// no-op — no need to branch on status at all.)
+function applyCurrentEdits(recipe, fieldStates, lang) {
   const clone = JSON.parse(JSON.stringify(recipe));
   Object.entries(fieldStates).forEach(([fieldPath, state]) => {
-    if (state.status !== 'pending') return;
     const { key, index } = parseFieldPath(fieldPath);
     if (!clone[key]) return;
     if (index !== null) {
@@ -49,4 +51,4 @@ function applyPendingEdits(recipe, fieldStates, lang) {
   return clone;
 }
 
-export { parseFieldPath, getFieldValue, buildEditableFieldPaths, applyPendingEdits };
+export { parseFieldPath, getFieldValue, buildEditableFieldPaths, applyCurrentEdits };
