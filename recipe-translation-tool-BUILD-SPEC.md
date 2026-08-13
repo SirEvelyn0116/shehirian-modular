@@ -273,10 +273,37 @@ wrapped in `requireRole`.
 Unique key `(recipe_slug, lang, field_path)` → editing the same field again updates the row
 rather than creating duplicates. Returns `200` with the stored edit.
 
-`GET /api/recipes/preview` → same diff object shape as the ui-strings `fetch-preview`
-(`{ rows, totalChanges, changesByLang }`), so the existing `renderDiff` renders it. For recipes,
-a row's identity is `recipeSlug + fieldPath`; "old" = current committed value, "new" = pending
-value. "proposed" = a copy of `all-recipes.json` with every pending edit applied.
+`GET /api/recipes/preview` (✅ Phase 4) → **not** the ui-strings `fetch-preview` flat-rows shape
+(`{ rows, ... }`) — recipes are grouped by recipe, not a flat key/value list, per the build spec's
+own instruction for this view (§7). Actual shape:
+```json
+{
+  "totalChanges": 2,
+  "changesByLang": { "fr": 0, "ar": 2, "hy": 0 },
+  "recipes": [
+    {
+      "slug": "royal-soup",
+      "title": "Royal Soup",
+      "edits": [
+        { "id": "uuid", "lang": "ar", "fieldPath": "title",
+          "oldValue": "<current live value>", "newValue": "<pending edit's value>",
+          "editorEmail": "translator@example.com", "updatedAt": "..." }
+      ]
+    }
+  ]
+}
+```
+Reads **all** `status = 'pending'` rows (every translator's, not just the caller's — this is the
+approver's view of the whole queue), applied against a fresh read of `all-recipes.json`. "old" is
+the *current live value*, read fresh at request time — not the edit's stored `old_value` column,
+which is the Phase 5 conflict-guard baseline, a different thing. `renderDiff`'s **CSS classes**
+are reused (chip/diff-table-wrap/row-changed/val-old/val-new) for visual consistency; the vanilla-
+JS `renderDiff` *function* itself is not, since the recipe-grouped shape needs its own render logic
+(`<RecipeApprovalView>`, §7).
+
+**No conflict detection in this endpoint.** Conflict surfacing (comparing `old_value` at stage-time
+against the current live value to flag a stale edit) is deferred entirely to the Phase 5 approve
+action, per that phase's design (§6) — this is a plain live-vs-proposed read, nothing more.
 
 `POST /api/recipes/approve`:
 - For each pending edit: if current value at `fieldPath` !== `old_value` → **conflict**; skip it,
@@ -430,8 +457,18 @@ Recipes view
     │                      *current* edits applied: dirty (unsaved) as well as pending
     │                      (saved) — a live working aid, not a DB-only snapshot
     └─ back to admin/list  returns to <RecipeList>, guarded if dirty fields exist
-└─ <RecipeApprovalView>    Phase 4 — approver: GET /api/recipes/preview → renderDiff → Approve & Deploy
+└─ <RecipeApprovalView>    ✅ Phase 4 — approver: GET /api/recipes/preview → recipe-grouped diff
+                           with per-edit include checkboxes → Approve & Deploy (stubbed, inert;
+                           Phase 5 wires it)
 ```
+
+**Role-based routing (`<RecipesApp>`).** Reads the caller's roles client-side (same
+`app_metadata.authorization.roles` / `app_metadata.roles` shape `requireRole` reads server-side).
+Translator-only: unchanged from Phase 0–3, no mode toggle, no Review tab — exactly the pre-Phase-4
+experience. Approver-only: skips the translate flow entirely and lands directly on
+`<RecipeApprovalView>` — `GET /api/recipes` and `GET /api/recipes/:slug` both require `translator`,
+so a real approver-only account hitting the translate flow would just 403; routing around that
+dead end is the point, not a nicety. Both roles: a small mode toggle (Translate | Review) appears.
 
 **The three-state field (Phase 3).** Every editable AR field is in exactly one of:
 - **clean** — matches the saved (live or previously-approved) value. Default look, a hover
@@ -504,6 +541,30 @@ Matches the `fieldPath` grammar's existing assumption of stable array shape (§1
 inside Arabic text may render imperfectly for now — deferred, to be tuned against real content
 once the translator starts using it.
 
+**`<RecipeApprovalView>` (Phase 4) — review only, no approve action.** Fetches
+`GET /api/recipes/preview` (§4) and renders it grouped by recipe — each recipe a collapsible
+`<details>` section (native, no extra open/close state to manage) containing its changed fields:
+language, `fieldPath`, old value → new value, and which translator authored it. Deliberately
+recipe→field hierarchy, not the ui-strings tool's flat key/value rows — reuses that tool's diff
+**CSS classes** (chip, diff-table-wrap, row-changed, val-old/val-new/val-empty) for a consistent
+look, not its flat-row assumptions.
+
+*Per-edit include checkbox — the key interaction, and the one with a hard constraint:* every
+pending edit has a checkbox, **checked by default**. Unchecking means "not this round" — the edit
+is simply left out of the batch and stays `pending` in the database, appearing again next time the
+view loads. Purely local component state; nothing is written anywhere when a box is (un)checked.
+**There is no approver-side delete, reject, or discard control anywhere on this screen, by design.**
+Approvers only ever promote work forward; only a translator can remove their own edit, via the
+`DELETE /api/edits/:id` that already exists for exactly that (§4) — that endpoint has no route by
+which an approver's checkbox state could reach it. Verified directly: created real pending edits,
+unchecked one in the approval view, reloaded the page — both edits were still there, `pending`,
+untouched; the deselection was never anything but local UI state.
+
+The "Approve & Deploy (N selected)" button is present but **permanently disabled**, labeled with
+why (Phase 5 isn't built). No commit, no build hook, nothing destructive is wired to it. Conflict
+detection — did the live value change since an edit was staged? — is likewise not attempted here;
+a note in the UI says so. Both are Phase 5's job (§6), not Phase 4's.
+
 > **React integration:** introduce React/Vite for the Recipes *editor view* only. The existing
 > dashboard shell and the UI-strings view stay as-is (vanilla JS). Don't uproot what works;
 > mount React where the interactivity actually needs it.
@@ -559,13 +620,39 @@ right backend for each.
   against live for the approver, this one just lets the translator read her own in-context
   translation as she types. Functional-only RTL. No array add/remove/reorder (existing items
   only). Full detail in §7.
-- **Phase 4 — Preview diff.** `GET /api/recipes/preview` (apply pending → diff vs live); render
-  with the existing `renderDiff`. (Approver-facing — distinct from Phase 3's translator preview
-  view mode, see above.)
+- **Phase 4 — Approval review.** ✅ `GET /api/recipes/preview` (approver-gated; reads *all*
+  translators' pending edits, applies them to a fresh copy of `all-recipes.json`, diffs live vs.
+  proposed — full contract in §4). `<RecipeApprovalView>` renders it recipe-grouped (not flat
+  key/value), reusing the ui-strings diff table's CSS classes. Per-edit include checkbox,
+  checked by default, purely local selection state — unchecking is non-destructive, the edit stays
+  `pending` and reappears next load; no approver-side delete/reject exists anywhere. "Approve &
+  Deploy" is present but permanently disabled — stubbed for Phase 5, not wired. Conflict detection
+  explicitly deferred to Phase 5, noted in the UI rather than attempted here. Distinct from Phase
+  3's translator-facing preview *view mode* (§7) — that one is a single recipe's in-progress
+  translation in context; this one is the approver's queue across every recipe. Auth-stub extended
+  with a `STUB_ROLE` toggle (`dev:auth-stub:translator` / `:approver`) so both roles — including
+  approver *without* translator, which the real role gate makes a materially different experience
+  — are testable locally without a real Identity account (`LOCAL_DEV.md` §2). Full detail in §7.
 - **Phase 5 — Approve → commit → hook.** `POST /api/recipes/approve`: conflict guard, apply,
   GitHub commit, build hook; reuse the deploy-poll. End-to-end: edit → approve → live.
 - **Phase 6 — Polish.** Color-coding vs ui-strings, conflict/empty/error states, translator's
   pending list.
+- **Phase 7 (capstone, post-core) — Unify the recipe + ui-strings review into one decision
+  surface.** Planned, not built, no branch yet — recorded here so the reasoning survives until it's
+  reached. Present both approval flows in a single screen: collapsible groups, recipes grouped by
+  recipe (as Phase 4 already does) alongside ui-strings as its own collapsible group, so the
+  approver has one place to make every decision instead of switching tabs. Deliberately sequenced
+  **after** both flows work independently, not before — the two backends stay fundamentally
+  different under the hood even once visually unified: recipes are a Postgres pending store where
+  approval commits `all-recipes.json` and fires the build hook (§6), ui-strings is an on-demand
+  Sheet-vs-live diff where approval fires the build hook only, no commit and no store (§0). They
+  cannot share a single approve action — each group keeps its own backend fetch and its own approve
+  call; the unification is presentational, not architectural. Building this after Phase 6 means
+  unifying two *proven, understood* flows rather than inventing the recipe flow and the merge at
+  the same time — lower risk, and the stronger portfolio story: "unified two working heterogeneous
+  systems behind one decision surface" beats "built one screen over two mismatched backends before
+  either was proven." It also can't be designed well any earlier — Phase 4 is what teaches what
+  recipe approval actually needs before attempting to fold it in alongside ui-strings'.
 
 ---
 
@@ -574,6 +661,11 @@ right backend for each.
 - **Layout drift** (replica vs `generate-index.js`) — parallel+documented in v1; shared module v2.
 - **Concurrency** — batch approve applies the conflict guard per edit; conflicting edits skip and
   are reported, rest ship. With a single approver this is rare.
+- **No conflict detection in Phase 4's preview** — `GET /api/recipes/preview` (§4) is a plain
+  live-vs-proposed read; it does not compare an edit's stored `old_value` against the current live
+  value to flag staleness. That check is entirely Phase 5's (the approve action's conflict guard,
+  same mechanism as the "Concurrency" item above) — deliberate scope boundary, not an oversight, so
+  it stays listed here until Phase 5 closes it.
 - **Array structural edits** — out of v1 scope (index `fieldPath` assumes stable arrays).
 - **GitHub token** — fine-scoped `contents:write`, one repo, Netlify env only.
 - **Identity role assignment** — confirm how `translator`/`approver` get set on Identity users;
