@@ -44,11 +44,10 @@ const editDelete = require(path.join(ROOT, 'netlify/functions/edit-delete.js'));
 // like it would from a real validated JWT's claims — this is a fake claims
 // object, not a fake requireRole. The role-check logic itself is untouched
 // and does run for real against this object (see LOCAL_DEV.md for what
-// that does and doesn't prove).
-const STUB_USER = {
-  email: 'local-dev@example.com',
-  app_metadata: { roles: ['translator', 'approver'] },
-};
+// that does and doesn't prove). Defined in stub-identity.js, not here, so
+// db/clean-test-edits.js can import the same email without importing this
+// whole server (which would start listening as a side effect).
+const { STUB_USER } = require('./stub-identity.js');
 const fakeCtx = { clientContext: { user: STUB_USER } };
 
 const DEV_AUTH_STUB_SCRIPT = `

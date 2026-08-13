@@ -13,6 +13,8 @@
     "dev:recipes": "npm run dev --workspace=recipes-app",
     "//dev:auth-stub": "Local-only: full stack (real functions + real DB) with a stubbed Netlify Identity, since there's no real Identity backend to validate a JWT against locally. Never deployed — see scripts/dev-server.js and LOCAL_DEV.md. Run `npm run build` first.",
     "dev:auth-stub": "netlify dev:exec node scripts/dev-server.js",
+    "//db:clean-test-edits": "Deletes ONLY rows in `edits` whose editor_email matches the auth-stub's fake identity (scripts/stub-identity.js) — never touches edit_log (append-only by design). Safe to run repeatedly after local dev:auth-stub sessions. See LOCAL_DEV.md.",
+    "db:clean-test-edits": "netlify dev:exec node db/clean-test-edits.js",
     "preview": "npx http-server dist -p 8080 -o",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
