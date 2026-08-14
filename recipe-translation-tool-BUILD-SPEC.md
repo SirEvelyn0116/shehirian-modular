@@ -653,6 +653,13 @@ right backend for each.
   systems behind one decision surface" beats "built one screen over two mismatched backends before
   either was proven." It also can't be designed well any earlier — Phase 4 is what teaches what
   recipe approval actually needs before attempting to fold it in alongside ui-strings'.
+  **Also folds in instruction unification:** the Recipes view's workflow-steps (added as a
+  deliberately light "Pick a recipe → click a field → Save to submit" in the Phase 4 polish pass,
+  §7) and the ui-strings tab's own workflow-steps currently exist as two separate, slightly-
+  duplicated guidance blocks. Reconciling them into one shared instruction set — the same way the
+  two approval flows get reconciled into one screen — is part of this capstone, not a separate
+  effort; doing it now would mean guessing at a unified voice before the two flows are even done
+  diverging.
 
 ---
 
@@ -678,6 +685,15 @@ right backend for each.
   `<html>`, never `<body>`, on deployed recipe pages, so every `body[dir="rtl"]` rule in `style.css`
   is dead — found while verifying the Preview view mode against a real page (§7). Tracked and parked
   on `fix/rtl-dir-attribute` (off `translation-pipeline`); not fixed yet. Must resolve before launch.
+- **LAUNCH GATE — developer-facing scaffolding in the approver UI.** `<RecipeApprovalView>`'s inert
+  Approve button carries a `title` explaining the Phase 5 deferral in blunt build-log language
+  ("ships in Phase 5 — not implemented yet"), and the conflict-detection note is written the same
+  way — both fine while the only approver is the developer, both wrong to show a real approver.
+  Left as-is deliberately during the Phase 4 polish pass (§7) rather than rewritten now, since the
+  exact wording only matters once there's a real audience for it. **Before the admin tool goes live
+  to any real approver, strip developer-facing scaffolding/deferral messages from the approver UI**
+  and replace with user-appropriate copy (or remove the elements entirely once Phase 5 ships and
+  the button stops being inert).
 
 ---
 

@@ -115,7 +115,14 @@ This is the part that actually matters, so here's the reasoning, not just the as
 
 If you ever want to double check this yourself after future changes: `grep -rn "scripts/" netlify.toml` should keep returning nothing.
 
-## 6. Gotchas
+## 6. Automated tests
+
+Phase 4's approver-review behavior (checkbox non-destructiveness, role routing, the inert Approve
+button, the empty state) has a Playwright suite in `tests/phase4/`, run via `npm run test:phase4`
+against a `dev:auth-stub*` server you start separately. See [`TESTING.md`](TESTING.md) for the full
+behavioral matrix and which rows are automated vs. manual-only.
+
+## 7. Gotchas
 
 - **`netlify link` is required once per clone.** `dev:exec` needs the project linked to pull `DATABASE_URL` and friends — `.netlify/state.json` holds that (gitignored, machine-specific). If you're on a fresh checkout and get "not linked" errors, run `netlify link` and select `ornate-biscuit-625466`.
 - **`DATABASE_URL` isn't in `.env`.** It's a Netlify-managed env var (Site configuration → Environment variables, scoped to include the `dev` context), only reachable locally through `netlify dev:exec` / `netlify dev`. That's why `dev-server.js` refuses to start without it rather than silently limping along.
