@@ -28,6 +28,27 @@ netlifyIdentity.on('login', () => {
     if (roles.includes('translator') || roles.includes('approver')) {
         document.getElementById('tab-recipes').classList.remove('hidden');
     }
+
+    // Text is the primary signal for which role is active — translator and
+    // approver views otherwise look too similar to tell apart at a glance.
+    // Per-account roles (not the moment-to-moment Translate/Review toggle
+    // inside the Recipes view), so this reflects capability, not the
+    // current sub-view — kept deliberately simple.
+    const badge = document.getElementById('dashboard-role-badge');
+    const isTranslator = roles.includes('translator');
+    const isApprover = roles.includes('approver');
+    if (isTranslator && isApprover) {
+        badge.textContent = ' — Translator & Approver view';
+        badge.className = 'role-badge role-badge-both';
+    } else if (isApprover) {
+        badge.textContent = ' — Approver view';
+        badge.className = 'role-badge role-badge-approver';
+    } else if (isTranslator) {
+        badge.textContent = ' — Translator view';
+        badge.className = 'role-badge role-badge-translator';
+    } else {
+        badge.className = 'hidden';
+    }
 });
 
 function getToken() {

@@ -42,7 +42,7 @@ export default function RecipeApprovalView() {
     <div className="recipe-approval-view">
       <div className="diff-summary">
         {preview.totalChanges === 0 ? (
-          <span className="chip chip-none">✅ No pending edits</span>
+          <span className="chip chip-none">✅ Nothing to approve right now — no pending translations awaiting review.</span>
         ) : (
           <>
             <span className="chip chip-total">⚠️ {preview.totalChanges} change{preview.totalChanges === 1 ? '' : 's'}</span>

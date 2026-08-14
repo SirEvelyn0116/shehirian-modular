@@ -63,6 +63,26 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('translator-ui').style.display = 'block';
   document.getElementById('tab-recipes').classList.remove('hidden');
   switchView('recipes');
+
+  // Mirrors admin.js's netlifyIdentity.on('login', ...) role-badge logic —
+  // duplicated, not shared, because this whole block only exists to bypass
+  // that real event (there's no real login to fire it locally). Same
+  // duplication the DOM-reveal lines above already accepted; keep both in
+  // sync by hand if admin.js's role-badge logic changes.
+  const badge = document.getElementById('dashboard-role-badge');
+  const roles = ${JSON.stringify(STUB_USER.app_metadata.roles)};
+  const isTranslator = roles.includes('translator');
+  const isApprover = roles.includes('approver');
+  if (isTranslator && isApprover) {
+    badge.textContent = ' — Translator & Approver view';
+    badge.className = 'role-badge role-badge-both';
+  } else if (isApprover) {
+    badge.textContent = ' — Approver view';
+    badge.className = 'role-badge role-badge-approver';
+  } else if (isTranslator) {
+    badge.textContent = ' — Translator view';
+    badge.className = 'role-badge role-badge-translator';
+  }
 });
 </script>`;
 
