@@ -24,7 +24,9 @@
     "test:chromium": "playwright test --project=chromium",
     "test:firefox": "playwright test --project=firefox",
     "test:webkit": "playwright test --project=webkit",
-    "test:report": "playwright show-report test-results/html"
+    "test:report": "playwright show-report test-results/html",
+    "//test:phase4": "Phase 4 recipe-admin behavioral matrix, run against a locally running dev:auth-stub* server (start that separately first). Wraps netlify dev:exec so the DB-seeding helpers get DATABASE_URL directly. See tests/phase4/ and TESTING.md.",
+    "test:phase4": "netlify dev:exec -- npx playwright test --config=tests/phase4/playwright.config.js"
   },
   "keywords": [
     "multilingual",
