@@ -198,6 +198,12 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 }
 .val-empty { color: #d1d5db; font-style: italic; }
 
+/* Recipe approval diff table only — Arabic old/new value cells, driven by
+   each edit's own `lang` field. This is the tool's own UI, not a
+   reproduction of the site, so it renders Arabic correctly on its own
+   merits regardless of the site's separate (parked) RTL bug. */
+.val-cell-rtl { text-align: right; }
+
 .hidden { display: none !important; }
 
 .view-tabs {

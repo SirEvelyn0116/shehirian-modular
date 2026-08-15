@@ -83,8 +83,12 @@ export default function RecipeApprovalView() {
                     </td>
                     <td className="lang-cell">{edit.lang}</td>
                     <td className="key-cell" title={edit.fieldPath}>{edit.fieldPath}</td>
-                    <td>{edit.oldValue ? <span className="val-old">{edit.oldValue}</span> : <span className="val-empty">(empty)</span>}</td>
-                    <td>{edit.newValue ? <span className="val-new">{edit.newValue}</span> : <span className="val-empty">(empty)</span>}</td>
+                    <td dir={edit.lang === 'ar' ? 'rtl' : 'ltr'} className={edit.lang === 'ar' ? 'val-cell-rtl' : undefined}>
+                      {edit.oldValue ? <span className="val-old">{edit.oldValue}</span> : <span className="val-empty">(empty)</span>}
+                    </td>
+                    <td dir={edit.lang === 'ar' ? 'rtl' : 'ltr'} className={edit.lang === 'ar' ? 'val-cell-rtl' : undefined}>
+                      {edit.newValue ? <span className="val-new">{edit.newValue}</span> : <span className="val-empty">(empty)</span>}
+                    </td>
                     <td className="recipe-approval-editor">{edit.editorEmail}</td>
                   </tr>
                 ))}
