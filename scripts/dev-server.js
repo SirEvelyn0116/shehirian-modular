@@ -34,6 +34,23 @@ if (!process.env.DATABASE_URL) {
   process.exit(1);
 }
 
+// Safe-by-default local commit target for the Phase 5 approve action. Only
+// applies here, in this LOCAL-DEV-ONLY, never-deployed process — NOT inside
+// recipes-approve.js itself, and deliberately so: that module's own
+// `process.env.GITHUB_BRANCH || 'translation-pipeline'` fallback is
+// untouched, because THAT is the line that also runs in production, and
+// production must keep defaulting to the real branch with no scratch
+// fallback anywhere it could reach. This just pre-sets the env var, in this
+// process only, before recipes-approve.js is require()'d below and reads it
+// into its own top-level const — so by the time that read happens, "unset"
+// has already become "test/phase5-scratch" *for this dev server*, and nowhere
+// else. An explicit GITHUB_BRANCH (set before running this script) is left
+// alone and wins, exactly like the DATABASE_URL/GITHUB_TOKEN vars above —
+// this only fills in the gap when nothing was set at all.
+if (!process.env.GITHUB_BRANCH) {
+  process.env.GITHUB_BRANCH = 'test/phase5-scratch';
+}
+
 const recipesList = require(path.join(ROOT, 'netlify/functions/recipes-list.js'));
 const recipeDetail = require(path.join(ROOT, 'netlify/functions/recipe-detail.js'));
 const recipesPreview = require(path.join(ROOT, 'netlify/functions/recipes-preview.js'));
@@ -158,5 +175,7 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, () => {
   console.log(`\n⚠️  LOCAL AUTH STUB DEV SERVER — not netlify dev, not deployable.`);
   console.log(`   Stub identity: ${STUB_USER.email}  roles: [${STUB_USER.app_metadata.roles.join(', ')}]`);
+  const isProdBranch = process.env.GITHUB_BRANCH === 'translation-pipeline';
+  console.log(`   Approve action commit target: ${process.env.GITHUB_BRANCH}${isProdBranch ? '  ⚠️  PRODUCTION — set explicitly, not the default' : '  (scratch — safe default)'}`);
   console.log(`   Open: http://localhost:${PORT}/admin/\n`);
 });
