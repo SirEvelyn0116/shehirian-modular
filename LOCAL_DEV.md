@@ -20,6 +20,20 @@ If you change anything in `recipes-app/src/`, re-run `npm run build` (or `npm ru
 
 `npm run dev:auth-stub` is `netlify dev:exec node scripts/dev-server.js` — `dev:exec` is what injects `DATABASE_URL` and the other Netlify-managed env vars into the process; running `node scripts/dev-server.js` directly will fail fast with a clear error instead of silently missing the database connection.
 
+> ⚠️ **The interactive Approve & Deploy button in this mode is NOT automatically safe.** Editing
+> and saving fields only ever writes to the `edits` table — always safe. But `/api/recipes/approve`
+> is wired into `dev-server.js` too, and its commit-target branch defaults to `translation-pipeline`
+> (real production) exactly like every other recipe function's `GITHUB_BRANCH` fallback — clicking
+> through the real confirm gate here, with real pending edits, **will commit to production and fire
+> the real build hook** unless you override it first:
+> ```bash
+> GITHUB_BRANCH=test/phase5-scratch npm run dev:auth-stub
+> ```
+> For actually verifying the approve flow, prefer §7's `npm run test:phase5:integration` below —
+> it's scripted, repeatable, and impossible to accidentally point at production. Reach for the
+> interactive route only when you specifically need to see the confirm panel / poll UI render in a
+> real browser, and always with `GITHUB_BRANCH` overridden when you do.
+
 ## 2. Testing as translator, approver, or both
 
 The default `npm run dev:auth-stub` stub has **both** roles, which is fine for most work but hides
@@ -76,11 +90,16 @@ recipe, field, status, id — before deleting anything, and if nothing matches i
   *not* via this script, since it isn't the stub's row to touch).
 
 **Why it never touches `edit_log`:** that table is append-only by design (build spec §5) — a
-cleanup script deleting from it would undercut the one thing it's for, even for test data. It's
-also moot right now: `edit_log` is only written at approval time (Phase 5), which doesn't exist
-yet, so nothing lands there during Phase 3 testing regardless. If Phase 5 testing later does write
-`edit_log` rows via the stub, whether/how to clean those up is a separate decision to make then —
-not something to fold into this script quietly now.
+cleanup script deleting from it would undercut the one thing it's for, even for test data. Phase 5
+does now write `edit_log` rows at approval time, but not through this script or this identity: the
+interactive approve flow uses whatever identity the running stub presents (still
+`local-dev@example.com` if you approve edits authored under that identity), while the scripted
+Phase 5 tests (§7) use their own separate identity and clean up their own `edit_log` rows directly
+in their own `finally` block, scoped to that identity only. If you do interactively approve edits
+under the stub identity and want their `edit_log` rows gone too, that's a manual, deliberate
+decision (e.g. a direct scoped `DELETE ... WHERE editor_email = 'local-dev@example.com'` against
+`edit_log`) — intentionally not something this script does silently, for the same append-only
+reasoning as above.
 
 ## 4. What this does and doesn't test
 
@@ -117,12 +136,83 @@ If you ever want to double check this yourself after future changes: `grep -rn "
 
 ## 6. Automated tests
 
-Phase 4's approver-review behavior (checkbox non-destructiveness, role routing, the inert Approve
-button, the empty state) has a Playwright suite in `tests/phase4/`, run via `npm run test:phase4`
-against a `dev:auth-stub*` server you start separately. See [`TESTING.md`](TESTING.md) for the full
-behavioral matrix and which rows are automated vs. manual-only.
+Phase 4's approver-review behavior (checkbox non-destructiveness, role routing, the empty state)
+has a Playwright suite in `tests/phase4/`, run via `npm run test:phase4` against a `dev:auth-stub*`
+server you start separately. See [`TESTING.md`](TESTING.md) for the full behavioral matrix and
+which rows are automated vs. manual-only.
 
-## 7. Gotchas
+Phase 5's approve action (the real commit) has its own, separate two-tier test setup — see §7.
+
+## 7. Testing Phase 5's approve action safely
+
+`POST /api/recipes/approve` is the one endpoint in this whole tool that writes to the repo and
+deploys to production, so it gets tested in two tiers: pure logic offline, and the real commit path
+against a scratch branch that can never trigger a real deploy.
+
+### Unit tests (no DB, no GitHub, no server)
+
+```bash
+npm run test:phase5:unit
+```
+
+Runs `tests/phase5/approveLogic.test.js` (Node's built-in test runner — no extra dependency) against
+`netlify/functions/_shared/approveLogic.js`'s pure functions: the conflict-guard comparison, the
+apply-edits-to-JSON transform, and the idempotency filter. Fixture `all-recipes.json` + fixture edit
+rows in, plain data out — this is where most of the approve action's correctness risk actually
+lives, and none of it needs real infrastructure to verify.
+
+### Integration test (real commit, real DB — but never production)
+
+```bash
+npm run test:phase5:integration
+```
+
+Runs `tests/phase5/scratch-branch-integration.js`, which calls the **real** `recipes-approve.js`
+handler — same file that deploys — with `GITHUB_BRANCH` overridden to `test/phase5-scratch` instead
+of `translation-pipeline`. This is exactly the config-driven design build spec §6 requires: the
+commit target branch is read from env everywhere in `recipes-approve.js`, never hardcoded, so
+pointing it at a scratch branch for testing is a one-line env override, not a code change.
+
+**Why this is safe to run for real, repeatedly:** `netlify.toml`'s `[build]` only builds
+`translation-pipeline` — a commit to any other branch triggers **no deploy at all**, independent of
+whether the build hook also fires (it doesn't fire here regardless: the build hook only fires when
+`toCommit.length > 0` *and* the batch actually needed a fresh commit, and even then it's just an
+unnecessary rebuild of already-correct content, not a leak of test data — see §6 point 6 of the
+build spec's approve sequence). The script also asserts this directly rather than just assuming it:
+it captures `translation-pipeline`'s blob SHA before running, and asserts it's byte-for-byte
+unchanged afterward.
+
+What the script does, in order:
+1. Creates `test/phase5-scratch` off `translation-pipeline` if it doesn't already exist (via the
+   GitHub API — `git/refs`, not a local `git push`).
+2. Seeds one real pending edit in Postgres, scoped to its own test identity
+   (`phase5-integration-test@example.com`, distinct from every other test email in this repo —
+   `local-dev@example.com` for the auth-stub, `playwright-test@example.com` for Phase 4's suite —
+   so none of their cleanup scripts can ever touch each other's data).
+3. Runs a `dryRun` call first and asserts it wrote nothing (blob SHA unchanged).
+4. Runs the real `confirmed: true` call and asserts: a commit actually landed on
+   `test/phase5-scratch` with the right content, `translation-pipeline` did **not** move, the
+   `edits` row flipped to `approved`, and an `edit_log` row was written with `commit_sha` matching
+   exactly what the approve call reported.
+5. Re-submits the same (now-approved) id and asserts no second commit — the simple "already
+   resolved" case.
+6. Manually resets that same row back to `pending` (simulating the exact crash the build spec's
+   ordering rationale describes: the commit succeeded, but the status flip didn't) and re-submits
+   it — asserts this also produces no second commit and no duplicate `edit_log` row, proving the
+   *deeper* idempotency guard (matched via `edit_log.commit_sha`, not just `edits.status`) is what's
+   actually doing the work, not just the simpler status check.
+7. Cleans up its own `edits`/`edit_log` rows in a `finally` block, scoped to its own test email —
+   never touches `edit_log` rows belonging to anything else, consistent with `edit_log` being
+   append-only everywhere else in this project.
+
+Needs `DATABASE_URL` and `GITHUB_TOKEN`, hence `netlify dev:exec` — don't run the script with plain
+`node`, same reasoning as every other DB-touching script in this repo.
+
+**What this does NOT test:** the real Netlify build hook actually triggering a real deploy (by
+design — this never fires it for real against test data) and real Netlify Identity JWT validation
+(same boundary as everywhere else in this repo, see §4). Both stay manual/post-deploy checks.
+
+## 8. Gotchas
 
 - **`netlify link` is required once per clone.** `dev:exec` needs the project linked to pull `DATABASE_URL` and friends — `.netlify/state.json` holds that (gitignored, machine-specific). If you're on a fresh checkout and get "not linked" errors, run `netlify link` and select `ornate-biscuit-625466`.
 - **`DATABASE_URL` isn't in `.env`.** It's a Netlify-managed env var (Site configuration → Environment variables, scoped to include the `dev` context), only reachable locally through `netlify dev:exec` / `netlify dev`. That's why `dev-server.js` refuses to start without it rather than silently limping along.
@@ -133,3 +223,11 @@ behavioral matrix and which rows are automated vs. manual-only.
 - **`STUB_ROLE` only affects `dev-server.js`.** `db:clean-test-edits` always targets `local-dev@example.com` regardless of which role variant wrote the row — the role doesn't change the stub's email.
 - **Cleanup script needs `netlify dev:exec` too** (via `npm run db:clean-test-edits`) for the same `DATABASE_URL` reason as the stub server itself — don't run `node db/clean-test-edits.js` directly.
 - **Stub visibly announces itself.** Both a `console.warn` banner (styled, hard to miss) on every page load and a startup banner in the terminal say this is the auth-stub server — if you ever see recipe data in a screenshot or log without that warning nearby, it's not this mode.
+- **`GITHUB_BRANCH` defaults to `translation-pipeline` everywhere, including `dev-server.js`.** See
+  the warning in §1 — the interactive Approve button is only scratch-branch-safe if you set
+  `GITHUB_BRANCH` yourself before starting the stub server.
+- **`test/phase5-scratch` is a real, permanent branch on the real repo**, created automatically by
+  the first `npm run test:phase5:integration` run. It accumulates one commit per test run by
+  design (each run reads the branch's *current* content rather than assuming a fixed baseline, so
+  repeated runs never conflict with themselves) — that's expected, not a leak to clean up. It is
+  never merged anywhere and Netlify never builds it.
