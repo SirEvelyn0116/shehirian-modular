@@ -16,4 +16,19 @@ function getFieldValue(recipe, fieldPath, lang) {
   return field[lang] ?? '';
 }
 
-module.exports = { parseFieldPath, getFieldValue };
+// Write side, added for Phase 5's approve action. Mutates `recipe` in
+// place — callers that need immutability (approveLogic.js's
+// applyEditsToJson) deep-clone first, same pattern as the frontend's
+// applyCurrentEdits in fieldUtils.js.
+function setFieldValue(recipe, fieldPath, lang, value) {
+  const { key, index } = parseFieldPath(fieldPath);
+  if (!recipe[key]) recipe[key] = {};
+  if (index !== null) {
+    if (!recipe[key][lang]) recipe[key][lang] = [];
+    recipe[key][lang][index] = value;
+  } else {
+    recipe[key][lang] = value;
+  }
+}
+
+module.exports = { parseFieldPath, getFieldValue, setFieldValue };

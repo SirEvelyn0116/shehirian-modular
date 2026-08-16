@@ -40,6 +40,7 @@ const recipesPreview = require(path.join(ROOT, 'netlify/functions/recipes-previe
 const editCreate = require(path.join(ROOT, 'netlify/functions/edit-create.js'));
 const editsMine = require(path.join(ROOT, 'netlify/functions/edits-mine.js'));
 const editDelete = require(path.join(ROOT, 'netlify/functions/edit-delete.js'));
+const recipesApprove = require(path.join(ROOT, 'netlify/functions/recipes-approve.js'));
 
 // The stub identity. requireRole() reads context.clientContext.user exactly
 // like it would from a real validated JWT's claims — this is a fake claims
@@ -123,6 +124,10 @@ const server = http.createServer(async (req, res) => {
   }
   if (parsed.pathname === '/api/recipes/preview' && req.method === 'GET') {
     return sendJson(res, await recipesPreview.handler({}, fakeCtx));
+  }
+  if (parsed.pathname === '/api/recipes/approve' && req.method === 'POST') {
+    const body = await readBody(req);
+    return sendJson(res, await recipesApprove.handler({ body, httpMethod: 'POST' }, fakeCtx));
   }
   if (/^\/api\/recipes\/[^/]+$/.test(parsed.pathname) && req.method === 'GET') {
     return sendJson(res, await recipeDetail.handler({ path: parsed.pathname }, fakeCtx));
