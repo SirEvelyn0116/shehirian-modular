@@ -26,7 +26,11 @@
     "test:webkit": "playwright test --project=webkit",
     "test:report": "playwright show-report test-results/html",
     "//test:phase4": "Phase 4 recipe-admin behavioral matrix, run against a locally running dev:auth-stub* server (start that separately first). Wraps netlify dev:exec so the DB-seeding helpers get DATABASE_URL directly. See tests/phase4/ and TESTING.md.",
-    "test:phase4": "netlify dev:exec -- npx playwright test --config=tests/phase4/playwright.config.js"
+    "test:phase4": "netlify dev:exec -- npx playwright test --config=tests/phase4/playwright.config.js",
+    "//test:phase5:unit": "Pure-function tests for the approve action's conflict guard, apply-to-JSON transform, and idempotency check — no DB, no GitHub, no server needed. See tests/phase5/approveLogic.test.js.",
+    "test:phase5:unit": "node --test tests/phase5/approveLogic.test.js",
+    "//test:phase5:integration": "Exercises the REAL recipes-approve.js handler and a REAL GitHub commit, but against test/phase5-scratch (never translation-pipeline) -- Netlify only builds translation-pipeline, so this triggers no deploy. Needs DATABASE_URL and GITHUB_TOKEN, hence netlify dev:exec. See TESTING.md and LOCAL_DEV.md.",
+    "test:phase5:integration": "netlify dev:exec -- node tests/phase5/scratch-branch-integration.js"
   },
   "keywords": [
     "multilingual",
