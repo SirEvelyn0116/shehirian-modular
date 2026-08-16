@@ -20,19 +20,37 @@ If you change anything in `recipes-app/src/`, re-run `npm run build` (or `npm ru
 
 `npm run dev:auth-stub` is `netlify dev:exec node scripts/dev-server.js` — `dev:exec` is what injects `DATABASE_URL` and the other Netlify-managed env vars into the process; running `node scripts/dev-server.js` directly will fail fast with a clear error instead of silently missing the database connection.
 
-> ⚠️ **The interactive Approve & Deploy button in this mode is NOT automatically safe.** Editing
-> and saving fields only ever writes to the `edits` table — always safe. But `/api/recipes/approve`
-> is wired into `dev-server.js` too, and its commit-target branch defaults to `translation-pipeline`
-> (real production) exactly like every other recipe function's `GITHUB_BRANCH` fallback — clicking
-> through the real confirm gate here, with real pending edits, **will commit to production and fire
-> the real build hook** unless you override it first:
+> ⚠️ **The interactive Approve & Deploy button in this mode is real, not inert — but it's now
+> production-safe by default.** Editing and saving fields only ever writes to the `edits` table —
+> always safe, unaffected by any of this. `/api/recipes/approve` is wired into `dev-server.js` too,
+> and clicking through the real confirm gate here, with real pending edits, makes a real GitHub
+> commit (and a real build hook call, if that commit lands somewhere Netlify builds) — this was
+> never inert. What changed is *where* it commits by default: `dev-server.js` now defaults
+> `GITHUB_BRANCH` to `test/phase5-scratch` whenever it isn't already set, so clicking approve with
+> a plain `npm run dev:auth-stub` targets the scratch branch, not production. Netlify only builds
+> `translation-pipeline`, so a scratch-branch commit triggers no deploy regardless.
+>
+> **Reaching production from here requires setting `GITHUB_BRANCH` explicitly** — the safe path is
+> the default now, touching production is the deliberate opt-in:
 > ```bash
-> GITHUB_BRANCH=test/phase5-scratch npm run dev:auth-stub
+> GITHUB_BRANCH=translation-pipeline npm run dev:auth-stub
 > ```
-> For actually verifying the approve flow, prefer §7's `npm run test:phase5:integration` below —
-> it's scripted, repeatable, and impossible to accidentally point at production. Reach for the
-> interactive route only when you specifically need to see the confirm panel / poll UI render in a
-> real browser, and always with `GITHUB_BRANCH` overridden when you do.
+> The startup banner always prints which branch is actually in effect, so there's no need to
+> remember or guess:
+> ```
+> Approve action commit target: test/phase5-scratch  (scratch — safe default)
+> Approve action commit target: translation-pipeline  ⚠️  PRODUCTION — set explicitly, not the default
+> ```
+> This default lives entirely in `dev-server.js` — a file that, per its own header comment, is
+> never referenced by `[build].command` and can't reach a real deploy. `recipes-approve.js`'s own
+> fallback (`process.env.GITHUB_BRANCH || 'translation-pipeline'`) is untouched and still runs
+> unmodified in production, still defaulting to the real branch there — the scratch default is
+> injected into `process.env` by `dev-server.js` *before* that module is `require`'d, in this
+> process only, so production can't inherit it under any circumstance.
+>
+> For scripted, repeatable verification of the approve flow that can't be pointed at production
+> even by mistake, prefer §7's `npm run test:phase5:integration` below. Reach for the interactive
+> route when you specifically need to see the confirm panel / poll UI render in a real browser.
 
 ## 2. Testing as translator, approver, or both
 
@@ -223,9 +241,19 @@ design — this never fires it for real against test data) and real Netlify Iden
 - **`STUB_ROLE` only affects `dev-server.js`.** `db:clean-test-edits` always targets `local-dev@example.com` regardless of which role variant wrote the row — the role doesn't change the stub's email.
 - **Cleanup script needs `netlify dev:exec` too** (via `npm run db:clean-test-edits`) for the same `DATABASE_URL` reason as the stub server itself — don't run `node db/clean-test-edits.js` directly.
 - **Stub visibly announces itself.** Both a `console.warn` banner (styled, hard to miss) on every page load and a startup banner in the terminal say this is the auth-stub server — if you ever see recipe data in a screenshot or log without that warning nearby, it's not this mode.
-- **`GITHUB_BRANCH` defaults to `translation-pipeline` everywhere, including `dev-server.js`.** See
-  the warning in §1 — the interactive Approve button is only scratch-branch-safe if you set
-  `GITHUB_BRANCH` yourself before starting the stub server.
+- **`GITHUB_BRANCH` defaults differently in `dev-server.js` than everywhere else, on purpose.**
+  `recipes-approve.js` itself still defaults to `translation-pipeline` when unset — that's the
+  production code path, unchanged. `dev-server.js` pre-sets `GITHUB_BRANCH` to
+  `test/phase5-scratch` in its own process, before requiring that module, whenever you haven't set
+  one yourself — see the warning in §1. An explicit `GITHUB_BRANCH` (yours) always wins over this
+  default, in either direction.
+- **The scratch branch must already exist for the interactive Approve button to work.**
+  `dev-server.js` sets the *env var* default; it does not create the branch. If
+  `test/phase5-scratch` doesn't exist yet (fresh clone, never run the integration test), the
+  approve call's first GitHub read 404s and the whole action fails with a clear error — not
+  silently, and nothing is written anywhere when this happens. Run `npm run test:phase5:integration`
+  once first (§7 — it creates the branch itself if missing), or create it by hand, before relying
+  on the interactive button.
 - **`test/phase5-scratch` is a real, permanent branch on the real repo**, created automatically by
   the first `npm run test:phase5:integration` run. It accumulates one commit per test run by
   design (each run reads the branch's *current* content rather than assuming a fixed baseline, so
