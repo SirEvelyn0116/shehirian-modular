@@ -229,7 +229,7 @@ body[dir="rtl"] .title {
   z-index: 100;
 }
 
-body[dir="rtl"] .lang-switcher-nav {
+html[dir="rtl"] .lang-switcher-nav {
   right: auto;
   left: 20px;
 }
@@ -1292,7 +1292,7 @@ body[dir="rtl"] .back-home-button {
     right: 10px;
   }
   
-  body[dir="rtl"] .lang-switcher-nav {
+  html[dir="rtl"] .lang-switcher-nav {
     right: auto;
     left: 10px;
   }
@@ -1579,6 +1579,16 @@ body[dir="rtl"] .breadcrumb-nav {
   line-height: 2;
   color: #333;
   margin-bottom: 10px;
+}
+
+/* Isolate the step-number marker from the surrounding bidi context so
+   "4." doesn't reorder to ".4" in RTL. The marker digits are always
+   read left-to-right regardless of numeral system (Western or Eastern
+   Arabic-Indic), so this stays correct if the numerals themselves ever
+   change; it only fixes ordering, not glyphs. */
+.recipe-steps li::marker {
+  unicode-bidi: isolate;
+  direction: ltr;
 }
 
 .recipe-footer {
