@@ -10,6 +10,22 @@ body {
 }
 
 h1 { margin-top: 0; font-size: 1.5rem; }
+
+/* Role indicator (Phase 4 polish). Text is the primary signal — the label
+   itself, not just color — with a subtle background tint as a secondary
+   cue only. */
+.role-badge {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.15rem 0.6rem;
+    border-radius: 6px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.role-badge-translator { background: #eff6ff; color: #1d4ed8; }
+.role-badge-approver   { background: #f0fdf4; color: #166534; }
+.role-badge-both       { background: #faf5ff; color: #6b21a8; }
 h2 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
 
 .dashboard-card {
@@ -182,6 +198,48 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 }
 .val-empty { color: #d1d5db; font-style: italic; }
 
+/* Recipe approval diff table only — Arabic old/new value cells, driven by
+   each edit's own `lang` field. This is the tool's own UI, not a
+   reproduction of the site, so it renders Arabic correctly on its own
+   merits regardless of the site's separate (parked) RTL bug. */
+.val-cell-rtl { text-align: right; }
+
+/* Phase 5 — approve action: confirm gate, in-flight status, and result panels. */
+.recipe-approve-confirm-panel {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+}
+.recipe-approve-confirm-panel p { margin: 0 0 0.6rem; }
+.recipe-approve-confirm-warning { color: #92400e; font-size: 0.88rem; }
+.recipe-approve-confirm-yes { background: #16a34a; color: white; }
+.recipe-approve-confirm-yes:hover:not(:disabled) { opacity: 0.88; }
+.recipe-approve-confirm-cancel { background: #e5e7eb; color: #374151; }
+.recipe-approve-confirm-cancel:hover:not(:disabled) { opacity: 0.88; }
+
+.recipe-approve-status {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    color: #555;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+.recipe-approve-result {
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 8px;
+}
+.recipe-approve-result p { margin: 0 0 0.6rem; }
+.recipe-approve-result.recipe-approve-timeout { background: #fffbeb; border-color: #fde68a; }
+.recipe-approve-result.recipe-approve-error { background: #fef2f2; border-color: #fecaca; }
+.recipe-approve-dismiss { background: #e5e7eb; color: #374151; }
+.recipe-approve-dismiss:hover:not(:disabled) { opacity: 0.88; }
+
 .hidden { display: none !important; }
 
 .view-tabs {
@@ -241,12 +299,24 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 }
 .recipe-picker-item:hover { background: #f0f4ff; border-color: #c7d7ff; }
 .recipe-picker-title { font-weight: 600; color: #1a1a2e; }
+.recipe-picker-meta { display: flex; align-items: center; gap: 0.6rem; }
 .recipe-picker-category {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     color: #6b7280;
 }
+.recipe-picker-pending-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #92400e;
+    background: #fef3c7;
+    padding: 0.15rem 0.55rem;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+
+.recipes-workflow-steps { margin-bottom: 1.25rem; }
 
 .recipe-replica-back {
     background: none;
@@ -278,6 +348,89 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 .recipe-replica-section ul, .recipe-replica-section ol { margin: 0; padding-inline-start: 1.25rem; }
 .recipe-replica-section li { margin-bottom: 0.3rem; font-size: 0.9rem; }
 
+.recipe-replica-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.recipe-replica-modes { margin-bottom: 0; border-bottom: none; }
+
+.recipe-replica-status {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pending-count-badge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1d4ed8;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 0.3rem 0.7rem;
+    border-radius: 99px;
+    white-space: nowrap;
+}
+
+.recipe-save-btn { background: #16a34a; color: white; padding: 0.5rem 1.1rem; font-size: 0.88rem; }
+.recipe-save-btn:hover:not(:disabled) { opacity: 0.88; }
+
+.recipe-save-error { margin-bottom: 1rem; }
+
+/* Preview renders in an <iframe srcDoc> loading the real site's
+   /assets/css/style.css — the wrapper here is just a frame, no visual
+   styling of the recipe content itself belongs in admin.css. */
+.recipe-replica-preview { max-width: 900px; }
+.recipe-page-preview-frame {
+    width: 100%;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Three-state editable field (build spec §7). Clean = default text with a
+   subtle "this is editable" affordance; dirty = edited locally, not saved;
+   pending = saved via POST /api/edits, awaiting approval. */
+.editable-field {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 1px 4px;
+    border-bottom: 1px dashed transparent;
+}
+.editable-field:hover { border-bottom-color: #9ca3af; }
+
+.editable-field-clean { color: inherit; }
+
+.editable-field-dirty {
+    background: #fffbeb;
+    color: #92400e;
+    border-bottom: 1px dashed #f59e0b;
+}
+
+.editable-field-pending {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-bottom: 1px dashed #93c5fd;
+}
+
+.editable-field-empty { color: #9ca3af; font-style: italic; }
+
+.editable-field-input {
+    font: inherit;
+    color: inherit;
+    background: white;
+    border: 1px solid #93c5fd;
+    border-radius: 3px;
+    padding: 0px 3px;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.15);
+    width: 100%;
+    min-width: 4rem;
+}
+
 #diff-placeholder {
     text-align: center;
     padding: 2rem;
@@ -286,3 +439,34 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     border: 2px dashed #e5e7eb;
     border-radius: 8px;
 }
+
+/* Recipe approval view (Phase 4). Reuses .chip/.diff-table-wrap/table/
+   .row-changed/.key-cell/.lang-cell/.val-old/.val-new/.val-empty from the
+   ui-strings diff table as-is — same visual language, recipe-grouped
+   structure on top. */
+.recipe-approval-group {
+    margin-bottom: 1.25rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.recipe-approval-group-summary {
+    cursor: pointer;
+    padding: 0.7rem 1rem;
+    background: #f9fafb;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+.recipe-approval-group-count { font-weight: 400; color: #6b7280; font-size: 0.85rem; }
+
+.recipe-approval-group .diff-table-wrap { border: none; border-radius: 0; border-top: 1px solid #e5e7eb; }
+
+.recipe-approval-editor { font-size: 0.78rem; color: #6b7280; white-space: nowrap; }
+
+.recipe-approval-actions { align-items: flex-start; flex-direction: column; gap: 0.4rem; }
+
+.recipe-approval-approve-btn { background: #16a34a; color: white; }
+.recipe-approval-approve-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.recipe-approval-conflict-note { font-size: 0.8rem; color: #9ca3af; font-style: italic; }

@@ -212,12 +212,14 @@ React ──GET /api/recipes/preview──► fn
   │  approver reviews colored diff (reuses renderDiff UI)
   │  clicks "Approve & Deploy"  (BATCH — ships the whole pending set)
   ▼
-React ──POST /api/recipes/approve──► fn
+React ──POST /api/recipes/approve──► fn   (dryRun first for an accurate confirm-panel count)
         ├─ CONFLICT GUARD per edit (current value === old_value?)
-        ├─ applies all non-conflicting pending edits to all-recipes.json
-        ├─ commits all-recipes.json via GitHub API   (ONE commit)
-        ├─ fires Netlify BUILD HOOK
-        └─ marks applied edits 'approved' (conflicts stay 'pending', flagged)
+        ├─ IDEMPOTENCY GUARD (edit_log.commit_sha — safe to retry after a partial failure)
+        ├─ applies all non-conflicting, not-already-shipped edits to all-recipes.json
+        ├─ commits all-recipes.json via GitHub API   (ONE commit — the point of no return)
+        ├─ marks applied edits 'approved', writes edit_log (one DB transaction)
+        └─ fires Netlify BUILD HOOK  (last — the most harmless step to retry)
+     conflicts are marked 'conflict' (not left 'pending') and reported in the response
   │  React polls metadata.json until lastBuild changes  (reused deploy-poll)
   ▼
 Netlify build-on-hook → generate-index.js → deploy
@@ -273,18 +275,68 @@ wrapped in `requireRole`.
 Unique key `(recipe_slug, lang, field_path)` → editing the same field again updates the row
 rather than creating duplicates. Returns `200` with the stored edit.
 
-`GET /api/recipes/preview` → same diff object shape as the ui-strings `fetch-preview`
-(`{ rows, totalChanges, changesByLang }`), so the existing `renderDiff` renders it. For recipes,
-a row's identity is `recipeSlug + fieldPath`; "old" = current committed value, "new" = pending
-value. "proposed" = a copy of `all-recipes.json` with every pending edit applied.
+`GET /api/recipes/preview` (✅ Phase 4) → **not** the ui-strings `fetch-preview` flat-rows shape
+(`{ rows, ... }`) — recipes are grouped by recipe, not a flat key/value list, per the build spec's
+own instruction for this view (§7). Actual shape:
+```json
+{
+  "totalChanges": 2,
+  "changesByLang": { "fr": 0, "ar": 2, "hy": 0 },
+  "recipes": [
+    {
+      "slug": "royal-soup",
+      "title": "Royal Soup",
+      "edits": [
+        { "id": "uuid", "lang": "ar", "fieldPath": "title",
+          "oldValue": "<current live value>", "newValue": "<pending edit's value>",
+          "editorEmail": "translator@example.com", "updatedAt": "..." }
+      ]
+    }
+  ]
+}
+```
+Reads **all** `status = 'pending'` rows (every translator's, not just the caller's — this is the
+approver's view of the whole queue), applied against a fresh read of `all-recipes.json`. "old" is
+the *current live value*, read fresh at request time — not the edit's stored `old_value` column,
+which is the Phase 5 conflict-guard baseline, a different thing. `renderDiff`'s **CSS classes**
+are reused (chip/diff-table-wrap/row-changed/val-old/val-new) for visual consistency; the vanilla-
+JS `renderDiff` *function* itself is not, since the recipe-grouped shape needs its own render logic
+(`<RecipeApprovalView>`, §7).
 
-`POST /api/recipes/approve`:
-- For each pending edit: if current value at `fieldPath` !== `old_value` → **conflict**; skip it,
-  leave it `pending` with a `conflict` flag, include it in the response.
-- Apply all non-conflicting edits to `all-recipes.json`, commit once, fire the build hook, mark
-  those edits `approved`.
-- `200` with `{ applied, skippedConflicts }`. (Batch is all-or-most: non-conflicting ship,
-  conflicting are reported for the translator to redo.)
+**No conflict detection in this endpoint.** Conflict surfacing (comparing `old_value` at stage-time
+against the current live value to flag a stale edit) is deferred entirely to the Phase 5 approve
+action, per that phase's design (§6) — this is a plain live-vs-proposed read, nothing more.
+
+`POST /api/recipes/approve` (✅ Phase 5) — full ordering rationale, idempotency mechanism, and
+config-driven requirement in §6. Request:
+```json
+{
+  "editIds": ["uuid", "uuid"],
+  "confirmed": true,     // required on the real call — refused without it, see §6
+  "dryRun": false        // true = read-only conflict/idempotency check, no writes, powers the confirm gate
+}
+```
+Response (same shape for both `dryRun: true` and the real call — `dryRun: true` just guarantees
+nothing was written):
+```json
+{
+  "dryRun": false,
+  "committed": true,             // false if nothing needed a fresh commit (all-conflict, or
+                                  // fully already-shipped — see the idempotency case in §6)
+  "commitSha": "abc123...",      // null when committed is false
+  "applied": [
+    { "id": "uuid", "recipeSlug": "royal-soup", "lang": "ar", "fieldPath": "title" }
+  ],
+  "conflicts": [
+    { "id": "uuid", "recipeSlug": "royal-soup", "lang": "ar", "fieldPath": "ingredients[2]",
+      "reason": "stale", "currentValue": "<the live value that moved>" }
+  ],
+  "totalRequested": 2, "totalApplied": 1, "totalConflicts": 1
+}
+```
+Any requested id no longer `pending` (approved by a concurrent call, or otherwise resolved) is
+silently dropped from the batch — not an error, and exactly the situation a client retry after a
+partial failure produces (§6).
 
 ---
 
@@ -292,6 +344,15 @@ value. "proposed" = a copy of `all-recipes.json` with every pending edit applied
 
 **Neon**, for managed Postgres *and* because it solves the serverless connection problem (below).
 Edits are stored per-field even though approval is batch.
+
+**Two tables, two different jobs.** `edits` is the mutable *current pending state* — upserted per
+save, drives the editing UI, unchanged in semantics from v1. `edit_log` is a second, **append-only**
+audit trail — written only at approval time, one row per field actually shipped in an approved
+batch. This split exists because `edits`' upsert-on-save behavior (by design — the pending set is
+"latest value per field," never a pile of superseded edits) means a translator's re-edits overwrite
+the row, leaving no durable, queryable history of who changed what and when beyond the git commit
+itself — which has the content but not the structured attribution. `edit_log` is that missing
+history, scoped to *approved* changes so it grows once per shipped field, not once per keystroke.
 
 ```sql
 create table edits (
@@ -313,10 +374,31 @@ create table edits (
 
 create index edits_status_idx on edits (status);
 create index edits_editor_idx on edits (editor_email);
+
+-- Append-only audit log. Insert-only — never update or delete a row here.
+-- No unique constraint: unlike `edits`, this table is meant to accumulate
+-- one row per approved change over time, not upsert to a single latest row.
+create table edit_log (
+  id           uuid primary key default gen_random_uuid(),
+  recipe_slug  text        not null,
+  lang         text        not null,
+  field_path   text        not null,
+  old_value    text,
+  new_value    text        not null,
+  action       text        not null default 'approved',  -- room for future action types
+  editor_email text        not null,          -- translator who authored the edit
+  resolved_by  text        not null,          -- approver who shipped it
+  commit_sha   text        not null,          -- git commit this batch produced
+  created_at   timestamptz not null default now()
+);
+
+create index edit_log_recipe_idx on edit_log (recipe_slug);
+create index edit_log_commit_idx on edit_log (commit_sha);
 ```
 
-> `unique (recipe_slug, lang, field_path)` makes re-editing a field an UPSERT, so the pending set
-> is always "latest value per field," never a pile of superseded edits.
+> `unique (recipe_slug, lang, field_path)` on `edits` makes re-editing a field an UPSERT, so the
+> pending set is always "latest value per field," never a pile of superseded edits. `edit_log` has
+> deliberately no such constraint — it's meant to grow.
 
 ### Connection pooling (budget an evening → then it's a résumé line)
 
@@ -327,7 +409,7 @@ serverless driver.
 
 ---
 
-## 6. Approval → commit → build hook → confirm
+## 6. Approval → commit → build hook → confirm (✅ Phase 5)
 
 This is where recipes differ from ui-strings by **exactly one step**:
 
@@ -336,28 +418,122 @@ This is where recipes differ from ui-strings by **exactly one step**:
 - **recipes approve** = **commit `all-recipes.json` first, THEN fire the build hook.** Because
   the committed JSON *is* the source of truth; there's no external system to re-pull from.
 
-`approve` function steps:
-1. Load current `all-recipes.json` via GitHub Contents API (need its blob SHA to commit).
-2. Load all pending edits from Postgres.
-3. For each: parse `field_path`, read current value; if !== `old_value` → mark `conflict`, skip.
-4. Apply all non-conflicting edits into the parsed object.
-5. Re-serialize with the repo's existing 2-space indent (keep diffs clean); `PUT` one commit,
-   message e.g. `i18n(ar): batch — 7 fields across 3 recipes`.
-6. `UPDATE edits SET status='approved', resolved_at=now(), resolved_by=<approver>` for applied.
-7. Fire the **Netlify build hook** (reuse `trigger-sync.js`'s POST-to-`NETLIFY_BUILD_HOOK_ID`).
-8. Front end polls `metadata.json` until `lastBuild` changes (reuse the existing poll-confirm).
+This is the one action in the whole tool that writes to production, so its ordering is a hard
+requirement, not an implementation detail — reproduced here from the code comment in
+`netlify/functions/recipes-approve.js` that carries it (the actual source of truth if the two
+ever drift):
 
-**GitHub auth:** fine-scoped token (`contents:write`, one repo) in Netlify env. Never client-side.
+1. **Conflict check** — read-only. For each pending edit, read the *current* value at its
+   `fieldPath` in `all-recipes.json` and compare to the edit's own `old_value` (the value it
+   recorded as current when it was staged):
+   - current `===` the edit's `new_value` → **not a conflict** — the field is already correct in
+     the file. Either a genuine no-op re-edit, or (see step 2) the retry side of a partial
+     failure. Excluded from the commit, but not blocked from finishing its bookkeeping.
+   - current `===` the edit's `old_value` → clean, nothing else has touched it since staging.
+   - anything else → **conflict**: the live value moved to a *third* value since staging (someone
+     else's approved change landed). Marked `status='conflict'` in Postgres right away — a safe,
+     recoverable write (not the irreversible one) that also drops it from the approver's pending
+     queue. A translator recovers a conflicted field by simply re-editing it: `POST /api/edits`'s
+     upsert unconditionally resets status back to `pending` on save, regardless of what it was.
+   - Nothing has been written to the repo at this point — a failure or abort here is always safe
+     to just retry.
+2. **Idempotency check** — also read-only, also safe to abort. Compares the batch against
+   `edit_log`: an edit whose exact content (`recipe_slug`, `lang`, `field_path`, `new_value`)
+   already has a logged row was already shipped in a past call and must not be recommitted or
+   relogged — `commit_sha` is the idempotency key. This is what makes step 3 below safe to retry:
+   see the ordering rationale below for the failure mode this specifically closes.
+3. **Commit `all-recipes.json`** — **THE POINT OF NO RETURN**, the only irreversible,
+   externally-visible effect in this whole action. Apply every non-conflicting, not-already-shipped
+   edit to a copy of the parsed object; re-serialize with the repo's existing 2-space indent, no
+   trailing newline (matches the file's actual committed bytes — keeps the diff to the fields that
+   actually changed); `PUT` **one commit for the whole batch**, message e.g. `i18n: approve batch —
+   7 field(s) across 3 recipe(s)`. Capture the resulting commit SHA — steps 4–5 need it. Skipped
+   entirely if nothing in the batch actually needs a fresh write (e.g. everything was a conflict).
+4. **Flip `edits` rows to `approved`** — done FIRST among the after-commit steps because it's the
+   *double-apply guard*: if these rows stayed `pending`, the next approve call would try to
+   re-apply changes that already shipped. Not "just bookkeeping" — load-bearing. Bundled into one
+   database transaction with step 5 (`sql.transaction([...])`) so that, within any single call,
+   "status flipped but not logged" can't happen on its own.
+5. **Write the audit trail** — one `edit_log` row per field actually shipped this call (or newly
+   confirmed as shipped, in the retry case): `recipe_slug`, `lang`, `field_path`, `old_value`,
+   `new_value` (carried from the `edits` row), `action='approved'`, `editor_email` (the
+   translator, carried from the `edits` row — **not** the approver), `resolved_by` (the approver),
+   `commit_sha`. A field whose commit didn't happen *this* call (the retry/idempotency case) is
+   attributed to the branch's current HEAD commit at read time — the honest answer, since this
+   call didn't make the commit that carries that content, an earlier one did.
+6. **Fire the Netlify build hook** — **LAST**, reusing `trigger-sync.js`'s
+   POST-to-`NETLIFY_BUILD_HOOK_ID` pattern exactly. Last because it's the most harmless step to
+   retry (worst case: one extra rebuild of content that's already safely committed). Only fires if
+   step 3 actually produced a fresh commit.
+7. Front end polls `metadata.json` until `lastBuild` changes (reuse the existing poll-confirm —
+   same 10s-interval/24-attempt shape as `admin.js`'s ui-strings deploy poll), with a graceful
+   timeout message rather than polling forever if the deploy is slow or fails.
+
+**Ordering rationale, in full:** steps 1–2 are read-only comparisons — a crash or error there
+means nothing has changed anywhere, so simply retrying the whole call is always safe. Step 3 is
+the only step with an irreversible external effect. Steps 4–7 are designed to be safely
+re-runnable: if the function crashes after step 3 succeeds but before steps 4–5 finish, a retry's
+own step 1 finds the affected fields' live values already equal to `new_value` rather than
+`old_value` — not a conflict, the "already applied in file" case — and step 2 either finds a
+matching `edit_log` row already (nothing left to log, just re-flip status) or doesn't (log it now,
+attributed to current HEAD as described above). Either way, the retry completes the bookkeeping
+instead of re-committing. Verified directly against a real GitHub commit (§ testing below): after
+a successful approve, manually resetting the same row back to `pending` (simulating exactly this
+crash — commit succeeded, status flip didn't) and re-submitting produces no second commit, no
+duplicate `edit_log` row, and correctly re-flips status to `approved`.
+
+**Confirm gate.** Because this action commits to the repo *and* deploys to production, the
+approver gets an explicit confirmation step before it fires — `dryRun: true` runs steps 1–2 only
+(genuinely nothing written) and returns the real `totalApplied`/`totalConflicts` counts, which the
+confirm panel displays ("You're about to publish N changes to the live site" plus the conflict
+count, if any) before the real call. The real call additionally requires `confirmed: true` in the
+body — defense-in-depth alongside the UI's own confirm panel, refused otherwise, so this can't
+fire from a stray retry or a button wired up without the gate.
+
+**Config-driven — hard requirement, not a convenience default.** Commit target repo (`GITHUB_REPO`),
+branch (`GITHUB_BRANCH`), file path (`GITHUB_RECIPES_PATH`), `DATABASE_URL`, `GITHUB_TOKEN`, and
+`NETLIFY_BUILD_HOOK_ID` are all read from env — same `process.env.X || 'default'` pattern the
+read-only recipe functions already use, never hardcoded. `GITHUB_BRANCH` matters most: it's what
+lets testing point this action at a scratch branch (`test/phase5-scratch`) instead of
+`translation-pipeline`. Netlify only builds `translation-pipeline` (`netlify.toml`'s `[build]`), so
+a commit to any other branch triggers no deploy, independent of whether the build hook also fires
+— that's what makes the real-commit integration test (below) safe to run for real, repeatedly,
+without touching production.
+
+**GitHub auth:** fine-scoped token (`contents:write`, one repo) in Netlify env and local `.env`.
+Never client-side. Reads use the Contents API (not the `raw.githubusercontent.com` CDN the
+read-only recipe functions use) — the approve flow needs the file's blob SHA to commit, and a
+CDN-cached read would risk the conflict check comparing against a stale value.
 
 **One commit per batch** (not per edit) — avoids rebuild storms, since batch approval collects
 everything into a single push.
 
-**Rollback / audit trail (a free benefit of committing).** Because approval commits
-`all-recipes.json`, every approved batch is a git commit — a versioned, reversible history of
-who changed what, when. To roll back, revert the commit; the next build restores the prior state.
-This is a genuine advantage over the ui-strings side, whose approval fires a build hook but does
-**not** commit (its history lives in Google Sheets' revision log instead). Recipes get git-native
-backup and audit for free; ui-strings relies on Sheets versioning.
+### Testing this safely
+
+- **Pure logic, unit-tested, no I/O:** the conflict-guard comparison, the apply-edits-to-JSON
+  transform, and the idempotency filter all live in `netlify/functions/_shared/approveLogic.js` as
+  plain functions with no DB/GitHub/env access — fixture data in, plain data out. Covered by
+  `tests/phase5/approveLogic.test.js` (`node --test`, no extra dependency). This is where most of
+  the correctness risk in this action actually lives, and it's fully testable offline.
+- **Real-commit integration test:** `tests/phase5/scratch-branch-integration.js` runs the real
+  `recipes-approve.js` handler against a real database and a real GitHub commit, with
+  `GITHUB_BRANCH` overridden to `test/phase5-scratch` (created off `translation-pipeline` on first
+  run if it doesn't exist yet). Seeds a real pending edit, exercises the dry run, the real approve
+  call, a simple resubmit-of-a-resolved-id check, and the deeper crash-recovery replay described
+  above — then asserts, among other things, that `translation-pipeline`'s blob SHA is provably
+  unchanged before vs. after. Never commits to `translation-pipeline`. Full procedure in
+  `LOCAL_DEV.md`.
+
+**Rollback / audit trail — two layers now.** Because approval commits `all-recipes.json`, every
+approved batch is also a git commit — a versioned, reversible history of *content*: to roll back,
+revert the commit; the next build restores the prior state. This is a genuine advantage over the
+ui-strings side, whose approval fires a build hook but does **not** commit (its history lives in
+Google Sheets' revision log instead) — recipes get git-native backup for free; ui-strings relies on
+Sheets versioning. `edit_log` (§5) is the second layer: git has the content diff, but not "who
+authored this translation, who approved it, when" as structured, queryable data — `edit_log` is
+exactly that, one row per shipped field, keyed to the commit SHA that shipped it. The two are
+complementary: `commit_sha` on each `edit_log` row is the join key back to git history if you need
+the actual diff behind a logged change.
 
 ---
 
@@ -375,21 +551,129 @@ New for recipes (needs React — the vanilla-JS diff table can't do a stateful i
 
 ```
 Recipes view
-├─ <RecipeListView>       picker (GET /api/recipes)
-├─ <RecipeEditorView>
-│   ├─ <RecipeReplica>    renders recipe from JSON — mirrors generate-index.js layout
-│   │   └─ <EditableField> click-to-edit (rename-style), RTL-aware; EN ref vs AR editable
-│   └─ <PendingBar>       this session's staged/submitted edits
-└─ <RecipeApprovalView>   approver: GET /api/recipes/preview → renderDiff → Approve & Deploy
+├─ <RecipeList>            picker (GET /api/recipes)
+└─ <RecipeReplica>         one recipe's whole edit session — fetches the recipe AND
+    │                      the translator's own pending edits (GET /api/edits/mine),
+    │                      reconciling per field on load (§ three-state model)
+    ├─ view mode: edit     the default working view — EN reference (read-only, LTR) |
+    │                      AR editable (RTL), side by side. Every editable AR field is
+    │                      an <EditableField> — click-to-edit, rename-style, colour-
+    │                      coded by state.
+    ├─ view mode: preview  <RecipePagePreview> — a faithful reproduction of the real,
+    │                      deployed recipe page (see below), with the translator's
+    │                      *current* edits applied: dirty (unsaved) as well as pending
+    │                      (saved) — a live working aid, not a DB-only snapshot
+    └─ back to admin/list  returns to <RecipeList>, guarded if dirty fields exist
+└─ <RecipeApprovalView>    ✅ Phase 4+5 — approver: GET /api/recipes/preview → recipe-grouped diff
+                           with per-edit include checkboxes → Approve & Deploy → confirm gate
+                           (dry-run count) → POST /api/recipes/approve → deploy poll
 ```
 
-**Editing interaction (the "click a word, type over it" model):** click an AR field → inline
-input prefilled with current value → click out/Enter → stage locally → **Save** → `POST /api/edits`
-per staged field. Staged/submitted fields are color-coded, distinct from ui-strings in the shared
-styling.
+**Role-based routing (`<RecipesApp>`).** Reads the caller's roles client-side (same
+`app_metadata.authorization.roles` / `app_metadata.roles` shape `requireRole` reads server-side).
+Translator-only: unchanged from Phase 0–3, no mode toggle, no Review tab — exactly the pre-Phase-4
+experience. Approver-only: skips the translate flow entirely and lands directly on
+`<RecipeApprovalView>` — `GET /api/recipes` and `GET /api/recipes/:slug` both require `translator`,
+so a real approver-only account hitting the translate flow would just 403; routing around that
+dead end is the point, not a nicety. Both roles: a small mode toggle (Translate | Review) appears.
 
-**RTL:** AR fields render `dir="rtl"`; EN reference is LTR. Keep reference and target in clearly
-separated columns so mixed direction doesn't fight. Expect to iterate.
+**The three-state field (Phase 3).** Every editable AR field is in exactly one of:
+- **clean** — matches the saved (live or previously-approved) value. Default look, a hover
+  affordance hints it's editable.
+- **dirty** — edited locally, not yet saved. In-memory only: no localStorage, no per-keystroke
+  API calls, no cross-session persistence. Lost on navigate-away/reload — see the unsaved-changes
+  guard below. Distinct colour (amber) from pending.
+- **pending** — saved via `POST /api/edits`, awaiting approval. Distinct colour (blue). This state
+  survives reloads: on load, `<RecipeReplica>` reconciles each field against the translator's own
+  `GET /api/edits/mine` results (filtered client-side to this recipe) and initializes any field
+  with a matching pending edit straight into `pending` (showing the saved value, not the live one)
+  rather than `clean` — otherwise "pending" would only ever be true within a single browser session,
+  which defeats the point of it being a real, durable state backed by the DB.
+
+**Editing interaction:** click an AR field → inline input, pre-populated and selected (rename-
+style) → click out / **Enter** commits to local `dirty` state only — not the API, not per-keystroke.
+**Escape** reverts to the pre-edit value without committing (not explicitly speced, cheap standard
+affordance for this interaction — flag if unwanted).
+
+**Saving:** an explicit **Save** action `POST`s one request per `dirty` field (the endpoint upserts
+on `(recipe_slug, lang, field_path)`, so re-saving a field just updates its pending row). Deliberate,
+not automatic — the translator can edit several fields, including re-correcting her own mistakes,
+before committing anything. Dirty fields that fail to save stay `dirty` (nothing is lost;
+Save again to retry) and a message reports the failure count. Successful ones flip to `pending`.
+**Stays on the recipe after Save** — no navigation. A persistent pending-count badge ("N pending
+edits") is always visible while editing, alongside the field colour states.
+
+**Unsaved-changes guard:** if the translator tries to leave with `dirty` fields present — closing
+the tab, reloading (`beforeunload`), or clicking the in-app Back button — she's warned ("You have
+unsaved changes. Leave anyway?"). `pending`/`clean` fields need no warning; they're safe in the DB
+or unchanged.
+
+**Preview view mode.** Originally (first Phase 3 pass) this reused the edit view's own read-only
+column layout minus the editing chrome — which made it feel near-redundant with the editor, since
+it was just the same stripped-down field list restyled. Revised: Preview now reproduces the *real*
+deployed recipe page — `<main class="recipe-page">`, `<header class="recipe-header">`,
+`<section class="recipe-section recipe-ingredients">` etc. — the same structure and class names
+`generate-index.js`'s `writeAllRecipesPages()` emits for one recipe (not the card), rendered from
+JSON via `recipePageHtml.js` (kept deliberately parallel to that function, the same "layout
+maintained twice" tax §3 already accepts) into an `<iframe srcDoc>` that loads the real
+`/assets/css/style.css` — so it's styled by the actual stylesheet the live page uses, not bespoke
+preview CSS, and stays in sync automatically when that CSS changes. An iframe with its own
+independent `<html>`/`<body>` was necessary, not just convenient: the real template puts `dir` on
+`<html>` (never `<body>` — confirmed against both the generator and the live page; style.css's
+`body[dir="rtl"] …` rules are consequently dead on the real site too, faithfully reproduced rather
+than "fixed"), and inlining the markup into the admin dashboard's shared body would mean fighting
+that body for CSS scope. Section labels ("Ingredients," "Category," …) come from `ui-strings.json`
+(fetched client-side, same source the real page's `t()` labels use at build time) so they're
+correctly localized, not hardcoded English. No recipe photo: the real template has none (no image
+field anywhere in `all-recipes.json`), so none was invented here either. The top breadcrumb/language-
+switcher nav is deliberately excluded — shared site chrome, not part of "the recipe," and its links
+have no sensible target inside an admin preview pane.
+
+Preview shows the recipe with **all current field states applied — dirty (unsaved) as well as
+pending (saved)**, not just what's in the database. The translator can type a field, switch to
+Preview without saving, and see her in-progress translation in context immediately — Preview is a
+live working aid keyed to the same `fieldStates` the editor uses, not a separate DB-backed view.
+(This is distinct from Phase 4's approver-facing preview, `GET /api/recipes/preview` — see §10.)
+
+Verified by direct comparison against the live deployed page (`royal-soup`, Arabic): identical
+computed styles (font, size, color, layout), identical DOM class structure, identical localized
+labels, `dir` placement matching exactly.
+
+**Scope boundary (v1):** existing strings only. Array fields (`ingredients`, `instructions`) are
+editable per existing item (`ingredients[2]`) — no add/remove/reorder UI, no "+ add ingredient."
+Matches the `fieldPath` grammar's existing assumption of stable array shape (§1).
+
+**RTL — functional, not polished.** AR fields (both display and the inline input) render
+`dir="rtl"`; EN reference is LTR, kept in a clearly separated column. Mixed Latin/numeral runs
+inside Arabic text may render imperfectly for now — deferred, to be tuned against real content
+once the translator starts using it.
+
+**`<RecipeApprovalView>` (Phase 4) — review only, no approve action.** Fetches
+`GET /api/recipes/preview` (§4) and renders it grouped by recipe — each recipe a collapsible
+`<details>` section (native, no extra open/close state to manage) containing its changed fields:
+language, `fieldPath`, old value → new value, and which translator authored it. Deliberately
+recipe→field hierarchy, not the ui-strings tool's flat key/value rows — reuses that tool's diff
+**CSS classes** (chip, diff-table-wrap, row-changed, val-old/val-new/val-empty) for a consistent
+look, not its flat-row assumptions.
+
+*Per-edit include checkbox — the key interaction, and the one with a hard constraint:* every
+pending edit has a checkbox, **checked by default**. Unchecking means "not this round" — the edit
+is simply left out of the batch and stays `pending` in the database, appearing again next time the
+view loads. Purely local component state; nothing is written anywhere when a box is (un)checked.
+**There is no approver-side delete, reject, or discard control anywhere on this screen, by design.**
+Approvers only ever promote work forward; only a translator can remove their own edit, via the
+`DELETE /api/edits/:id` that already exists for exactly that (§4) — that endpoint has no route by
+which an approver's checkbox state could reach it. Verified directly: created real pending edits,
+unchecked one in the approval view, reloaded the page — both edits were still there, `pending`,
+untouched; the deselection was never anything but local UI state.
+
+The "Approve & Deploy (N selected)" button (✅ Phase 5) is disabled only while `N === 0` or a
+publish is already in flight — otherwise it starts the real flow: a `dryRun` call reports the
+actual applyable/conflict counts, a confirm panel shows them ("You're about to publish N changes…
+M conflicting will be skipped") and requires an explicit "Yes, publish," then the real
+`confirmed: true` call commits, and the view polls `metadata.json` for deploy confirmation with a
+graceful timeout message rather than hanging. Full mechanics, ordering, and safety guarantees in
+§6.
 
 > **React integration:** introduce React/Vite for the Recipes *editor view* only. The existing
 > dashboard shell and the UI-strings view stay as-is (vanilla JS). Don't uproot what works;
@@ -434,26 +718,96 @@ right backend for each.
   *Riskiest visual piece — proves render-from-JSON — so it goes first.*
 - **Phase 2 — API + DB.** Neon schema + `@neondatabase/serverless`; `POST /api/edits` (upsert),
   `GET /api/edits/mine`, `DELETE /api/edits/:id`; shared `requireRole`.
-- **Phase 3 — Inline editing.** `<EditableField>` click-to-edit, staging, Save → POST. RTL.
-- **Phase 4 — Preview diff.** `GET /api/recipes/preview` (apply pending → diff vs live); render
-  with the existing `renderDiff`.
-- **Phase 5 — Approve → commit → hook.** `POST /api/recipes/approve`: conflict guard, apply,
-  GitHub commit, build hook; reuse the deploy-poll. End-to-end: edit → approve → live.
+- **Phase 3 — Inline editing.** ✅ `<EditableField>` — click-to-edit, rename-style, three-state
+  (clean/dirty/pending, colour-coded). Dirty is in-memory only, committed on click-out/Enter, never
+  auto-saved. Explicit **Save** flushes dirty fields via `POST /api/edits` (upsert), stays on the
+  recipe, shows a persistent pending count. Unsaved-changes guard on nav-away/reload. Added a
+  translator-facing **preview** *view mode* within `<RecipeReplica>` — a faithful reproduction of
+  the real deployed recipe page (`generate-index.js`'s structure/classes, the real
+  `/assets/css/style.css`, via `<iframe srcDoc>`), with *all current edits* applied — dirty
+  (unsaved) as well as pending (saved), a live working aid, not a DB-only snapshot — **not** the
+  same thing as Phase 4's approver-facing preview below; that one diffs the whole pending set
+  against live for the approver, this one just lets the translator read her own in-context
+  translation as she types. Functional-only RTL. No array add/remove/reorder (existing items
+  only). Full detail in §7.
+- **Phase 4 — Approval review.** ✅ `GET /api/recipes/preview` (approver-gated; reads *all*
+  translators' pending edits, applies them to a fresh copy of `all-recipes.json`, diffs live vs.
+  proposed — full contract in §4). `<RecipeApprovalView>` renders it recipe-grouped (not flat
+  key/value), reusing the ui-strings diff table's CSS classes. Per-edit include checkbox,
+  checked by default, purely local selection state — unchecking is non-destructive, the edit stays
+  `pending` and reappears next load; no approver-side delete/reject exists anywhere. "Approve &
+  Deploy" is present but permanently disabled — stubbed for Phase 5, not wired. Conflict detection
+  explicitly deferred to Phase 5, noted in the UI rather than attempted here. Distinct from Phase
+  3's translator-facing preview *view mode* (§7) — that one is a single recipe's in-progress
+  translation in context; this one is the approver's queue across every recipe. Auth-stub extended
+  with a `STUB_ROLE` toggle (`dev:auth-stub:translator` / `:approver`) so both roles — including
+  approver *without* translator, which the real role gate makes a materially different experience
+  — are testable locally without a real Identity account (`LOCAL_DEV.md` §2). Full detail in §7.
+- **Phase 5 — Approve → commit → hook.** ✅ `POST /api/recipes/approve`: conflict guard,
+  idempotency guard (safe to retry after a partial failure — `commit_sha` in `edit_log` is the
+  idempotency key), GitHub commit (the one irreversible step — everything before it is safe to
+  abort, everything after it is safely re-runnable), status flip + audit log in one transaction,
+  build hook fired last, front end polls `metadata.json` for deploy confirmation. Config-driven
+  commit target (repo/branch/path all env-driven — testing points `GITHUB_BRANCH` at a scratch
+  branch instead of production) and an explicit confirm gate (`dryRun` for a real pre-commit
+  count, `confirmed: true` required on the real call) since this is the one action that touches
+  production. End-to-end: edit → approve (with confirm) → commit → deploy. Full detail in §6.
 - **Phase 6 — Polish.** Color-coding vs ui-strings, conflict/empty/error states, translator's
   pending list.
+- **Phase 7 (capstone, post-core) — Unify the recipe + ui-strings review into one decision
+  surface.** Planned, not built, no branch yet — recorded here so the reasoning survives until it's
+  reached. Present both approval flows in a single screen: collapsible groups, recipes grouped by
+  recipe (as Phase 4 already does) alongside ui-strings as its own collapsible group, so the
+  approver has one place to make every decision instead of switching tabs. Deliberately sequenced
+  **after** both flows work independently, not before — the two backends stay fundamentally
+  different under the hood even once visually unified: recipes are a Postgres pending store where
+  approval commits `all-recipes.json` and fires the build hook (§6), ui-strings is an on-demand
+  Sheet-vs-live diff where approval fires the build hook only, no commit and no store (§0). They
+  cannot share a single approve action — each group keeps its own backend fetch and its own approve
+  call; the unification is presentational, not architectural. Building this after Phase 6 means
+  unifying two *proven, understood* flows rather than inventing the recipe flow and the merge at
+  the same time — lower risk, and the stronger portfolio story: "unified two working heterogeneous
+  systems behind one decision surface" beats "built one screen over two mismatched backends before
+  either was proven." It also can't be designed well any earlier — Phase 4 is what teaches what
+  recipe approval actually needs before attempting to fold it in alongside ui-strings'.
+  **Also folds in instruction unification:** the Recipes view's workflow-steps (added as a
+  deliberately light "Pick a recipe → click a field → Save to submit" in the Phase 4 polish pass,
+  §7) and the ui-strings tab's own workflow-steps currently exist as two separate, slightly-
+  duplicated guidance blocks. Reconciling them into one shared instruction set — the same way the
+  two approval flows get reconciled into one screen — is part of this capstone, not a separate
+  effort; doing it now would mean guessing at a unified voice before the two flows are even done
+  diverging.
 
 ---
 
 ## 11. Risks & open items
 
 - **Layout drift** (replica vs `generate-index.js`) — parallel+documented in v1; shared module v2.
-- **Concurrency** — batch approve applies the conflict guard per edit; conflicting edits skip and
-  are reported, rest ship. With a single approver this is rare.
+- ~~**Concurrency**~~ — **closed.** Batch approve applies the conflict guard per edit (§6); conflicting
+  edits are marked `conflict` and reported, the rest ship in one commit. With a single approver
+  this is rare in practice, but the guard — and the separate idempotency guard for partial-failure
+  retries — is real, not aspirational; both are covered by the scratch-branch integration test.
+- ~~**No conflict detection in Phase 4's preview**~~ — **closed by design, not by building it into
+  the preview.** `GET /api/recipes/preview` (§4) stays a plain live-vs-proposed read, no conflict
+  check — that check lives entirely in the approve action's step 1 (§6), which is where it
+  actually needs to gate a write. Listed here only as a pointer now that Phase 5 exists; nothing
+  left to do.
 - **Array structural edits** — out of v1 scope (index `fieldPath` assumes stable arrays).
 - **GitHub token** — fine-scoped `contents:write`, one repo, Netlify env only.
 - **Identity role assignment** — confirm how `translator`/`approver` get set on Identity users;
   the whole gate depends on it. (`translator` already works today.)
 - **`preview` cost** — reads `all-recipes.json` + all pending edits each call; fine at this scale.
+- ~~**Structured audit trail**~~ — **closed.** git commits had the content history but not
+  structured attribution (who/when per field, queryably). `edit_log` (§5), written at approval time
+  (§6), closes this: one append-only row per shipped field, keyed to the commit SHA that shipped it.
+- **LAUNCH BLOCKER — RTL dead on live Arabic pages** (site bug, not the admin tool): `dir` is set on
+  `<html>`, never `<body>`, on deployed recipe pages, so every `body[dir="rtl"]` rule in `style.css`
+  is dead — found while verifying the Preview view mode against a real page (§7). Tracked and parked
+  on `fix/rtl-dir-attribute` (off `translation-pipeline`); not fixed yet. Must resolve before launch.
+- ~~**LAUNCH GATE — developer-facing scaffolding in the approver UI**~~ — **closed by Phase 5.**
+  The inert Approve button's blunt "ships in Phase 5 — not implemented yet" `title` and the static
+  conflict-deferral note are both gone — replaced by the real confirm gate and the real,
+  server-reported conflict count (§6, §7). Nothing developer-facing left on this screen to strip.
 
 ---
 

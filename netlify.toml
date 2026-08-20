@@ -1,16 +1,46 @@
 [build]
   # Step 1: Build the Recipes admin React island, Step 2: Sync Google Sheets,
   # Step 3: Generate all 212+ pages (copies admin/, including recipes-dist/)
+  #
+  # This deliberately differs from the root package.json "build" script,
+  # which skips the sync step — see the "//build" note there. Production
+  # must always pull the live Sheet (it's the staging area for translations,
+  # per the build spec §0); local builds skip it for speed and to avoid
+  # silently overwriting local ui-strings.json with unreviewed Sheet content.
+  # Run `npm run build:full` locally to exercise this exact pipeline.
   command = "npm run build:recipes && node sync-google-sheets.js && node generate-index.js"
   publish = "dist"
 
+[dev]
+  # This site is a large pre-built multi-language static site with a small
+  # React island (recipes-app) mounted via a plain <script> tag — not a
+  # Vite-managed app. Proxying the whole site to Vite's dev server (the
+  # command/targetPort/framework approach) 404s on everything outside
+  # recipes-app's own module graph: /admin/, /en/, every generated page.
+  # Instead: `netlify dev` serves the prebuilt dist/ statically (same shape
+  # as production), and `npm run dev:recipes` (vite build --watch) rebuilds
+  # the recipes bundle straight into dist/admin/recipes-dist/ in the
+  # background — run `npm run build` once, then both, refresh to pick up
+  # recipes-app changes. No HMR, but it's a small island, not a full SPA,
+  # and it means dev always exercises the real production bundle shape.
+  #
+  # framework = "#static" is required, not just publish: without it,
+  # Netlify Dev auto-detects recipes-app's own "vite"+"dev" script as *the*
+  # site framework and waits for it to bind an HTTP port — but recipes-app's
+  # dev script is `vite build --watch`, which rebuilds a file, not a server,
+  # so that wait times out and dev refuses to start at all.
+  framework = "#static"
+  publish = "dist"
+  autoLaunch = false
 [functions]
   directory = "netlify/functions"
 
-[[redirects]]
-  from = "/admin/*"
-  to = "/admin/index.html"
-  status = 200
+# Note: there used to be a `/admin/*` -> /admin/index.html redirect here.
+# Removed — it's redundant with Netlify's own directory-index/pretty-URL
+# resolution (/admin, /admin/, and /admin/index.html all resolve correctly
+# without it) and `/admin/*` also matches /admin/index.html itself, which
+# netlify dev's local static server treated as a redirect loop and blocked
+# with 403 — breaking /admin/ and everything under it in local dev.
 
 # Recipes read API (role gate enforced inside each function, not here).
 # Redirects apply in file order, first match wins — the exact-path rule
@@ -22,6 +52,21 @@
   to = "/.netlify/functions/recipes-list"
   status = 200
 
+# Approver-only: must precede the /* wildcard below for the same reason
+# /api/edits/mine precedes /api/edits/* — "preview" would otherwise be
+# treated as a recipe slug by recipe-detail.js.
+[[redirects]]
+  from = "/api/recipes/preview"
+  to = "/.netlify/functions/recipes-preview"
+  status = 200
+
+# Approver-only, Phase 5 — same wildcard-shadowing reasoning as /preview
+# above: "approve" would otherwise be treated as a recipe slug.
+[[redirects]]
+  from = "/api/recipes/approve"
+  to = "/.netlify/functions/recipes-approve"
+  status = 200
+
 # recipe-detail.js reads the slug from event.path, not a query param —
 # the named-placeholder-into-query-string form (?slug=:slug) matches
 # locally under netlify dev but the real edge never substitutes it,
@@ -31,5 +76,28 @@
   to = "/.netlify/functions/recipe-detail"
   status = 200
 
+# Pending-edits API (role gate enforced inside each function, not here).
+# Same first-match-wins ordering lesson as /api/recipes: /api/edits/mine
+# would otherwise get caught by /api/edits/* and treated as an edit id to
+# delete, and bare /api/edits also matches /api/edits/* on Netlify's real
+# redirect engine — so both exact paths must precede the wildcard.
+[[redirects]]
+  from = "/api/edits/mine"
+  to = "/.netlify/functions/edits-mine"
+  status = 200
+
+[[redirects]]
+  from = "/api/edits"
+  to = "/.netlify/functions/edit-create"
+  status = 200
+
+# edit-delete.js reads the id from event.path, not a query param — same
+# reasoning as recipe-detail.js.
+[[redirects]]
+  from = "/api/edits/*"
+  to = "/.netlify/functions/edit-delete"
+  status = 200
+
 # trigger-sync.js already checks for the 'translator' role
 #  conditions = {Role = ["translator", "admin"]}
+

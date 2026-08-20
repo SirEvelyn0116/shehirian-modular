@@ -1,5 +1,6 @@
 const https = require('https');
 const { requireRole } = require('./_shared/requireRole');
+const { getSql } = require('./_shared/db');
 
 const GITHUB_REPO = process.env.GITHUB_REPO || 'SirEvelyn0116/shehirian-modular';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'translation-pipeline';
@@ -27,11 +28,26 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    const master = await fetchAllRecipes();
+    const sql = getSql();
+    const [master, pendingCounts] = await Promise.all([
+      fetchAllRecipes(),
+      sql`select recipe_slug, count(*)::int as count from edits where status = 'pending' group by recipe_slug`,
+    ]);
+
+    // pendingCount reflects durable, saved (pending) edits only — grouped
+    // straight from the edits table. Deliberately does NOT reflect dirty
+    // (unsaved, in-memory) editor state: dirty edits live only in a given
+    // browser tab's React state and are intentionally lost on navigating
+    // away (build spec §7's confirmed v1 design) — there is nothing in the
+    // database for a list view, here or anywhere else, to show for them.
+    const pendingBySlug = {};
+    pendingCounts.forEach(row => { pendingBySlug[row.recipe_slug] = row.count; });
+
     const list = (master.recipes || []).map(r => ({
       slug: r.slug,
       title: r.title && r.title.en,
       categoryId: r.categoryId,
+      pendingCount: pendingBySlug[r.slug] || 0,
     }));
 
     return {

@@ -6,10 +6,15 @@ async function getToken() {
   return user ? user.jwt() : null;
 }
 
-async function apiGet(path) {
+async function apiRequest(path, options = {}) {
   const token = await getToken();
   const res = await fetch(path, {
-    headers: { Authorization: `Bearer ${token}` },
+    method: options.method || 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+    },
+    body: options.body ? JSON.stringify(options.body) : undefined,
   });
   const body = await res.json().catch(() => null);
   if (!res.ok) {
@@ -18,4 +23,22 @@ async function apiGet(path) {
   return body;
 }
 
-export { apiGet };
+function apiGet(path) {
+  return apiRequest(path);
+}
+
+function apiPost(path, body) {
+  return apiRequest(path, { method: 'POST', body });
+}
+
+// Mirrors admin.js's / welcome.html's getRoles — same Identity role shape,
+// duplicated rather than shared since those are plain scripts and this is
+// an ES module with no bundling relationship to them.
+function getRoles(user) {
+  return (user && (
+    (user.app_metadata && user.app_metadata.authorization && user.app_metadata.authorization.roles) ||
+    (user.app_metadata && user.app_metadata.roles)
+  )) || [];
+}
+
+export { apiGet, apiPost, getRoles };

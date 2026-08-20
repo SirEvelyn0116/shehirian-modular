@@ -6,8 +6,17 @@
     "recipes-app"
   ],
   "scripts": {
+    "//build": "Deliberately skips sync-google-sheets.js — fast local iteration, and avoids silently overwriting local ui-strings.json with whatever's currently in the live Sheet (which may be mid-edit or bad). netlify.toml's [build].command includes the sync; production must reflect the Sheet. Use build:full to test the exact production pipeline locally.",
     "build": "npm run build:recipes && node generate-index.js",
+    "build:full": "npm run build:recipes && node sync-google-sheets.js && node generate-index.js",
     "build:recipes": "npm run build --workspace=recipes-app",
+    "dev:recipes": "npm run dev --workspace=recipes-app",
+    "//dev:auth-stub": "Local-only: full stack (real functions + real DB) with a stubbed Netlify Identity, since there's no real Identity backend to validate a JWT against locally. Never deployed — see scripts/dev-server.js and LOCAL_DEV.md. Run `npm run build` first. Default stub identity has both translator and approver roles — use the :translator / :approver variants to test either role in isolation.",
+    "dev:auth-stub": "netlify dev:exec node scripts/dev-server.js",
+    "dev:auth-stub:translator": "cross-env STUB_ROLE=translator netlify dev:exec node scripts/dev-server.js",
+    "dev:auth-stub:approver": "cross-env STUB_ROLE=approver netlify dev:exec node scripts/dev-server.js",
+    "//db:clean-test-edits": "Deletes ONLY rows in `edits` whose editor_email matches the auth-stub's fake identity (scripts/stub-identity.js) — never touches edit_log (append-only by design). Safe to run repeatedly after local dev:auth-stub sessions. See LOCAL_DEV.md.",
+    "db:clean-test-edits": "netlify dev:exec node db/clean-test-edits.js",
     "preview": "npx http-server dist -p 8080 -o",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
@@ -15,7 +24,13 @@
     "test:chromium": "playwright test --project=chromium",
     "test:firefox": "playwright test --project=firefox",
     "test:webkit": "playwright test --project=webkit",
-    "test:report": "playwright show-report test-results/html"
+    "test:report": "playwright show-report test-results/html",
+    "//test:phase4": "Phase 4 recipe-admin behavioral matrix, run against a locally running dev:auth-stub* server (start that separately first). Wraps netlify dev:exec so the DB-seeding helpers get DATABASE_URL directly. See tests/phase4/ and TESTING.md.",
+    "test:phase4": "netlify dev:exec -- npx playwright test --config=tests/phase4/playwright.config.js",
+    "//test:phase5:unit": "Pure-function tests for the approve action's conflict guard, apply-to-JSON transform, and idempotency check — no DB, no GitHub, no server needed. See tests/phase5/approveLogic.test.js.",
+    "test:phase5:unit": "node --test tests/phase5/approveLogic.test.js",
+    "//test:phase5:integration": "Exercises the REAL recipes-approve.js handler and a REAL GitHub commit, but against test/phase5-scratch (never translation-pipeline) -- Netlify only builds translation-pipeline, so this triggers no deploy. Needs DATABASE_URL and GITHUB_TOKEN, hence netlify dev:exec. See TESTING.md and LOCAL_DEV.md.",
+    "test:phase5:integration": "netlify dev:exec -- node tests/phase5/scratch-branch-integration.js"
   },
   "keywords": [
     "multilingual",
@@ -26,9 +41,11 @@
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
+    "cross-env": "^10.1.0",
     "http-server": "^14.1.1"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "dotenv": "^17.4.2",
     "googleapis": "^171.4.0"
   }
