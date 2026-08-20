@@ -33,7 +33,7 @@ function RecipeColumn({ recipe, lang, dir }) {
         <ul>{ingredients.map((item, i) => <li key={i}>{item}</li>)}</ul>
       </section>
 
-      <section className="recipe-replica-section">
+      <section className="recipe-replica-section recipe-instructions">
         <h3>Instructions</h3>
         <ol>{instructions.map((step, i) => <li key={i}>{step}</li>)}</ol>
       </section>
@@ -82,7 +82,7 @@ function EditableRecipeColumn({ recipe, fieldStates, onCommit }) {
         <ul>{ingredients.map((_, i) => <li key={i}>{field(`ingredients[${i}]`)}</li>)}</ul>
       </section>
 
-      <section className="recipe-replica-section">
+      <section className="recipe-replica-section recipe-instructions">
         <h3>Instructions</h3>
         <ol>{instructions.map((_, i) => <li key={i}>{field(`instructions[${i}]`)}</li>)}</ol>
       </section>

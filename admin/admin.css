@@ -431,15 +431,10 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     min-width: 4rem;
 }
 
-/* Recipe steps render as a real <ol>/<li> here (unlike the site's own
-   generated step markup) — same neutral digit+period bidi-reordering bug
-   ("4." -> ".4" under the surrounding RTL run) as the site's own step
-   numbers, same fix: isolate the marker's bidi context and force its
-   internal digit/period order to LTR. */
-.recipe-replica-section li::marker {
-    unicode-bidi: isolate;
-    direction: ltr;
-}
+/* Marker bidi-isolation for recipe steps now lives in the shared
+   assets/css/recipes.css (.recipe-instructions li::marker), linked
+   directly in admin/index.html — same rule the site and preview use,
+   see that file's header comment. */
 
 #diff-placeholder {
     text-align: center;
