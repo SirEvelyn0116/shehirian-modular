@@ -1565,11 +1565,27 @@ body[dir="rtl"] .breadcrumb-nav {
   margin-bottom: 20px;
 }
 
-.recipe-ingredients ul,
-.recipe-steps ol {
+.recipe-ingredients ul {
   font-family: sans-serif;
   list-style-position: inside;
   padding-left: 0;
+}
+
+/* Steps keep the (default) outside list-style-position, unlike the bullet
+   ingredients above: with "inside," a wrapped step's second line starts
+   back at the li's own left edge instead of indenting under the first
+   line's text, so wrapped Arabic steps read as run-together sentences
+   with no number/text separation. "Outside" + a reserved start-indent
+   gives wrapped lines their own column, matching the admin editable
+   replica's already-correct step layout (admin/admin.css). padding-left:0
+   resets the general .recipe-section ul/ol rule above so only the logical
+   (direction-aware) padding-inline-start applies — otherwise both would
+   stack in RTL, since they resolve to different physical edges. */
+.recipe-steps ol {
+  font-family: sans-serif;
+  list-style-position: outside;
+  padding-left: 0;
+  padding-inline-start: 30px;
 }
 
 .recipe-ingredients li,
