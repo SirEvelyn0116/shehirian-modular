@@ -395,7 +395,7 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
    subtle "this is editable" affordance; dirty = edited locally, not saved;
    pending = saved via POST /api/edits, awaiting approval. */
 .editable-field {
-    display: inline-block;
+    display: inline;
     cursor: pointer;
     border-radius: 3px;
     padding: 1px 4px;
