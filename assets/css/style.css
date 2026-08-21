@@ -1580,12 +1580,24 @@ body[dir="rtl"] .breadcrumb-nav {
    replica's already-correct step layout (admin/admin.css). padding-left:0
    resets the general .recipe-section ul/ol rule above so only the logical
    (direction-aware) padding-inline-start applies — otherwise both would
-   stack in RTL, since they resolve to different physical edges. */
+   stack in RTL, since they resolve to different physical edges.
+
+   padding-inline-start is 24px, not an arbitrary round number: it's the
+   ingredient bullets' own measured indent (the distance from the .recipe-
+   ingredients ul's own edge to where its li text actually starts, under
+   list-style-position: inside) -- measured directly via Range against a
+   built page, not eyeballed. Reusing that exact figure for the numbered
+   list's reserved indent is what makes "1."/"2." line up with "•" on the
+   same edge above them. A single-digit marker doesn't fully fill this
+   indent, leaving more empty space before its text than a bullet does --
+   an intentional, accepted trade-off (bullets are the reference; making
+   the numbers line up with them is the goal, not a tight number-to-text
+   gap). */
 .recipe-steps ol {
   font-family: sans-serif;
   list-style-position: outside;
   padding-left: 0;
-  padding-inline-start: 30px;
+  padding-inline-start: 24px;
 }
 
 .recipe-ingredients li,

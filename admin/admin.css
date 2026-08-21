@@ -348,6 +348,23 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
 .recipe-replica-section ul, .recipe-replica-section ol { margin: 0; padding-inline-start: 1.25rem; }
 .recipe-replica-section li { margin-bottom: 0.3rem; font-size: 0.9rem; }
 
+/* Ingredients (ul) and instructions (ol) shared the same padding-inline-
+   start above, but a decimal marker ("1.") doesn't fill as much of that
+   reserved indent as a disc bullet does, so the two markers don't land on
+   the same edge even with an identical reserved width -- same asymmetry
+   as the site's own .recipe-steps ol (assets/css/style.css). Both lists
+   here render with list-style-position: outside (the default -- neither
+   is overridden to inside the way the site's ingredient bullets are), so
+   there's no DOM-measurable proxy for the disc marker's own rendered
+   width the way there is on the site (where "inside" makes the bullet
+   part of the text's own inline flow, directly measurable). This value is
+   the site's fix (30px -> 24px, a 20% cut, measured directly there)
+   applied at the same proportion to this view's own indent -- not an
+   independent measurement. If it looks off against a real disc marker in
+   this view specifically, nudge it; the direction (narrower than
+   ingredients') is the well-grounded part, the exact px less so. */
+.recipe-replica-section.recipe-instructions ol { padding-inline-start: 1rem; }
+
 .recipe-replica-toolbar {
     display: flex;
     justify-content: space-between;
