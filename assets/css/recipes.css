@@ -13,20 +13,26 @@
    under/over-indent the site. See recipe-translation-tool-BUILD-SPEC.md
    §3/§11 on this accepted, documented layout tax.
 
-   Neutral digit+period marker runs ("6.") take on the surrounding
-   paragraph's bidi direction inside an RTL step and reorder to ".6".
-   Isolating the marker's bidi context and forcing its internal order to
-   LTR fixes ordering without touching numeral choice (Western/Eastern). */
-.recipe-instructions li::marker {
-  unicode-bidi: isolate;
-  direction: ltr;
-}
+   Neutral digit+period marker runs ("6.") were reordering to ".6" inside
+   RTL steps, so this rule used to force `unicode-bidi: isolate; direction:
+   ltr` on the marker to fix that ordering. REMOVED: live DevTools A/B
+   testing in real Edge/Chrome showed `direction: ltr` on ::marker doesn't
+   just fix internal character order there -- it also drags the whole
+   marker box to the physical-left (trailing) side in RTL, which headless
+   Chromium does not reproduce (it rendered the marker correctly
+   right-placed with or without this rule, which is why this divergence
+   went undetected across several earlier fix attempts). `unicode-bidi:
+   isolate` alone tested as inert (no effect either way) once `direction:
+   ltr` was gone, so it was dropped too rather than keeping dead CSS.
+   Digit-ordering correctness now rests entirely on the Eastern Arabic-
+   Indic numerals below, which don't hit the Western-digit neutral-run
+   ambiguity that motivated this rule in the first place. */
 
 /* Arabic (RTL) recipe pages number steps with Eastern Arabic-Indic
    numerals (١ ٢ ٣ …) instead of Western (1 2 3) -- both a plausible
    localization choice for a Lebanese-positioned brand, and a way to
-   sidestep the ::marker bidi-reordering bug above at its root: Western
-   digits in a "6." marker form a bidi-neutral run that Blink resolves
+   sidestep Western digits' ::marker bidi-reordering ambiguity: a "6."
+   marker's digit+period is a bidi-neutral run that Blink resolves
    inconsistently inside RTL text, whereas Eastern Arabic-Indic digits
    carry inherent RTL association and don't hit that ambiguity. Scoped to
    [dir="rtl"] so it only touches Arabic pages -- English/French keep
