@@ -21,3 +21,19 @@
   unicode-bidi: isolate;
   direction: ltr;
 }
+
+/* Arabic (RTL) recipe pages number steps with Eastern Arabic-Indic
+   numerals (١ ٢ ٣ …) instead of Western (1 2 3) -- both a plausible
+   localization choice for a Lebanese-positioned brand, and a way to
+   sidestep the ::marker bidi-reordering bug above at its root: Western
+   digits in a "6." marker form a bidi-neutral run that Blink resolves
+   inconsistently inside RTL text, whereas Eastern Arabic-Indic digits
+   carry inherent RTL association and don't hit that ambiguity. Scoped to
+   [dir="rtl"] so it only touches Arabic pages -- English/French keep
+   Western numerals. Matches both html[dir="rtl"] (site pages, preview
+   iframe) and .recipe-replica-column[dir="rtl"] (admin editable view).
+   Deliberately only the step markers: ingredient quantities and other
+   numbers live in the translated strings and are handled separately. */
+[dir="rtl"] .recipe-instructions ol {
+  list-style-type: arabic-indic;
+}
