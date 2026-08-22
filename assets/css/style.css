@@ -1600,6 +1600,29 @@ body[dir="rtl"] .breadcrumb-nav {
   padding-inline-start: 24px;
 }
 
+/* RTL-only override: 24px was measured against Western "1."/"2." markers
+   (see above) to line up with the ingredient bullets. Eastern Arabic-Indic
+   digits (recipes.css's [dir="rtl"] .recipe-instructions ol rule) are
+   narrower -- "١" in particular is a single thin stroke, ~13px at this
+   font-size vs. the ~18px "1" was -- so that same 24px gutter leaves a
+   visibly larger unused gap between the marker and the page's outer edge
+   (list-style-position: outside hugs the marker to the text, not to the
+   gutter's far edge, so any slack shows up as dead space beyond it, same
+   mechanism the admin editable replica uses at its own, smaller scale --
+   see admin.css's .recipe-replica-section.recipe-instructions ol).
+   20px is sized the same way that rule's 1rem was: tight enough that the
+   narrowest real digit ("١") doesn't leave much unused gutter, matching
+   the editable view's proportion at this surface's larger (1.1rem) font.
+   Traded off against step-count width: recipes.ar.json's longest list
+   (scotch-broth, 13 steps) needs a two-digit "١٣." marker (~23px) that
+   this 20px no longer fully contains -- it'll overflow slightly past the
+   gutter into the section's own padding. The editable replica already
+   accepts the identical trade at its own scale (1rem doesn't fit "١٣."
+   either), so this isn't a new class of problem, just the same one. */
+[dir="rtl"] .recipe-steps ol {
+  padding-inline-start: 20px;
+}
+
 .recipe-ingredients li,
 .recipe-steps li {
   font-family: sans-serif;
