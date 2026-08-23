@@ -19,12 +19,12 @@ function getFieldValue(recipe, fieldPath, lang) {
 }
 
 // All editable fieldPaths for a recipe, array length taken from the target
-// language (ar) — that's what's actually rendered/edited. v1 scope: existing
-// items only, no add/remove/reorder (build spec's scope boundary).
-function buildEditableFieldPaths(recipe) {
+// language being edited — that's what's actually rendered/edited. v1 scope:
+// existing items only, no add/remove/reorder (build spec's scope boundary).
+function buildEditableFieldPaths(recipe, lang) {
   const paths = [...SCALAR_FIELDS];
   ARRAY_FIELDS.forEach(key => {
-    const items = (recipe[key] && recipe[key].ar) || [];
+    const items = (recipe[key] && recipe[key][lang]) || [];
     items.forEach((_, i) => paths.push(`${key}[${i}]`));
   });
   return paths;
