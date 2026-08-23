@@ -336,6 +336,16 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     .recipe-replica-columns { grid-template-columns: 1fr; }
 }
 
+.recipe-replica-column-wrap {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.recipe-replica-lang-tabs {
+    margin-bottom: 0.5rem;
+}
+
 .recipe-replica-column {
     border: 1px solid #e5e7eb;
     border-radius: 8px;
