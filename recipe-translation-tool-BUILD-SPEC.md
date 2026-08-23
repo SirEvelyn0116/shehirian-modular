@@ -808,6 +808,55 @@ right backend for each.
   The inert Approve button's blunt "ships in Phase 5 — not implemented yet" `title` and the static
   conflict-deferral note are both gone — replaced by the real confirm gate and the real,
   server-reported conflict count (§6, §7). Nothing developer-facing left on this screen to strip.
+- **DEFERRED — Retire fossils + make `main` the real production branch (rescue unique work
+  first).** Repo-hygiene task, not started; parked here so it doesn't get interleaved with content
+  work. Current confusing state: `translation-pipeline` **is** production (Netlify Production
+  Branch setting = `translation-pipeline`, confirmed; the `GITHUB_BRANCH` Production-context env
+  var is also set to `translation-pipeline`). `main` is a dead GitHub-Pages-era fossil — confirmed
+  a strict git ancestor of `translation-pipeline` (0 commits ahead, 66 behind), zero unique
+  content. `shehirian-site` is a fossil repo still connected to Netlify. The branch names mislead:
+  `main` looks like production but is dead; `translation-pipeline` looks like a working branch but
+  is the actual trunk. A read-only branch inventory has already been completed and established
+  exactly what's safe to delete vs. what holds unique, irrecoverable work.
+  - **Step 1 — rescue unique work BEFORE any deletion.** Two branches hold work that exists
+    nowhere else and would be permanently lost if deleted:
+    - `unstyled-payment-integration` — the Clover POS integration prototype (commit `1b7da97`): a
+      Next.js app under `payment-integration-prototype/` with `lib/clover.ts`, Clover
+      order/inventory API routes, plus Shopify Shipping and Amazon FBA fulfillment code. 14 unique
+      commits. High value — genuinely reusable integration work. Preserve it (recommended:
+      annotated git tag e.g. `archive-clover-poc`, or rename to `archive/clover-poc`) before
+      deleting.
+    - `styled-v1-recipe-click-tracking` — a custom self-hosted recipe click-tracker (commit
+      `78c4132`): `assets/js/recipe-click-tracker.js` + `netlify/functions/track-recipe.js` +
+      docs (`TRACKING_README.md`, `TRACKING_IMPLEMENTATION_SUMMARY.md`). **Not** StatCounter —
+      custom-built. 4 unique commits. Preserve (tag/archive-rename) before deleting.
+    - (Note: no StatCounter exists anywhere in the repo — that memory was likely this custom
+      click-tracker, or something pasted directly into a hosting panel that was never
+      version-controlled. Nothing to rescue there.)
+  - **Step 2 — glance at, then decide on:** four `origin/copilot/*` remote branches carry a few
+    unique commits each (GitHub Pages deploy-workflow fixes + a recipe JSON-LD fix). Low value, but
+    check the JSON-LD fix in case it's still relevant to current recipe JSON-LD before deleting.
+    Keep or delete after a look.
+  - **Step 3 — safe to delete** (inventory-confirmed zero unique content, each proven via
+    `merge-base --is-ancestor` plus tree diffs): `main`, `client-visual-tweaks` (identical SHA to
+    `main`), `mobile-and-design-fixes`, `styled-v1` (strict ancestor of production, fully
+    absorbed), `gh-pages` (generated build output, not source). `modular-v1-unstyled`'s commits
+    are all also reachable via `unstyled-payment-integration`, so it's safe to delete once that one
+    is rescued.
+  - **Step 4 — rename `translation-pipeline` → `main`** to fix the naming, after the fossil `main`
+    is deleted: `git branch -m translation-pipeline main`, push, delete the old remote branch, and
+    set Netlify's Production Branch **and** the `GITHUB_BRANCH` Production env var to `main`.
+    Disconnect the fossil `shehirian-site` repo from Netlify.
+  - **CRITICAL FOOTGUN — reference sweep.** Step 4 is **not** just a branch rename. Every reference
+    to the string `translation-pipeline` in code/config/docs must be updated or things break —
+    notably the `GITHUB_BRANCH` fallback default (likely `|| 'translation-pipeline'`) in the
+    approve function, `scripts/dev-server.js`, `LOCAL_DEV.md`, this spec, and any tests. Do a full
+    `translation-pipeline` search as the first action of Step 4 and work through every hit.
+  - **Preserve:** `test/phase5-scratch` is load-bearing for local dev — do **not** delete it as
+    part of this cleanup.
+  - **Why deferred:** this is production-pipeline-affecting. Do it as its own focused task with
+    post-rename production-deploy verification (confirm the live site builds green from the
+    renamed `main`), not interleaved with content work.
 
 ---
 
