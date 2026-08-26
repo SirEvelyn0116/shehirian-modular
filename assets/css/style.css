@@ -1609,6 +1609,33 @@ body[dir="rtl"] .breadcrumb-nav {
   margin-bottom: 10px;
 }
 
+/* Published-flag "coming soon" watermark (recipe-translation-tool-BUILD-
+   SPEC.md) -- replaces the ingredients/instructions area on a recipe page
+   whose language isn't published yet. Styled as a deliberate placeholder
+   (wheat-tinted card, matches .recipe-header/.recipe-footer's rule color)
+   rather than looking like missing/broken content. */
+.recipe-coming-soon {
+  text-align: center;
+  padding: 40px 24px;
+  background: #fdf8ee;
+  border: 1px solid #f5deb3;
+  border-radius: 12px;
+}
+
+.recipe-coming-soon h2 {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: #5a6345;
+  margin-bottom: 12px;
+}
+
+.recipe-coming-soon p {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
 .recipe-footer {
   text-align: center;
   padding-top: 30px;
