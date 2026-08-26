@@ -857,6 +857,18 @@ right backend for each.
   - **Why deferred:** this is production-pipeline-affecting. Do it as its own focused task with
     post-rename production-deploy verification (confirm the live site builds green from the
     renamed `main`), not interleaved with content work.
+- **DEFERRED — Post-launch: anonymous per-recipe-per-language "want this translated" demand
+  counter on coming-soon pages**, to prioritize Arabic/Armenian translation order by actual
+  demand. Count-only — **no email/PII/notifications** (avoids consent/obligation surface — a
+  demand signal doesn't need to know who asked, and adding a "notify me" surface would create an
+  obligation this tool has no mechanism to fulfill). Adapt from the rescued
+  `styled-v1-recipe-click-tracking` click-tracker (§11 Step 1 above — the custom self-hosted
+  recipe click-tracker, not StatCounter): same pattern, public button → Netlify function → Neon
+  counter, keyed by `recipe_slug` + `lang` instead of the tracker's original key. Build once
+  there's real traffic to feed it — collects nothing useful until the published-flag feature is
+  actually launched and coming-soon pages are getting real visits. Tied to the click-tracker
+  rescue in the fossil-cleanup task above, since it's the reason that branch is worth preserving
+  rather than just archiving as reference.
 
 ---
 
