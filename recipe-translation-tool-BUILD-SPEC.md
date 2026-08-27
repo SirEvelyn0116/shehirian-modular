@@ -869,6 +869,14 @@ right backend for each.
   actually launched and coming-soon pages are getting real visits. Tied to the click-tracker
   rescue in the fossil-cleanup task above, since it's the reason that branch is worth preserving
   rather than just archiving as reference.
+- **DEFERRED — Recipe images.** Most recipes currently lack images. The site needs to (a)
+  source/create images and (b) render with-image and without-image page formats consistently
+  across all recipe pages. Significant content + rendering work with a content-sourcing question
+  (where images come from) — matters substantially for recipe-site appeal and SEO. `recipe.image`
+  is already wired into the published-flag rendering (both the real recipe page and the coming-soon
+  watermark degrade cleanly with or without one — generate-index.js's `buildRecipeImageHtml`), so
+  the rendering half is a non-issue once images exist; what's deferred is actually sourcing them
+  and any per-recipe editorial work that implies. Scope separately as its own project.
 
 ---
 
