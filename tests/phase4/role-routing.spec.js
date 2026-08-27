@@ -31,13 +31,21 @@ test.describe('Recipes role routing', () => {
       expect(hasTranslateTab).toBe(true);
       expect(hasReviewTab).toBe(true);
     } else if (heading.includes('Approver view')) {
-      // Approver-only: no toggle, no translate flow at all — lands
-      // directly on Review. The dead-end this avoids: GET /api/recipes
-      // requires the translator role, so an approver-only account hitting
-      // the picker would just 403.
+      // Approver-only: since the published-flag admin toggle (recipes
+      // stage 3), GET /api/recipes is shared by both roles (approvers need
+      // it too, to see and flip per-language publish status) — so a mode
+      // toggle now appears here too, same as the dual-role case, just
+      // labeled "Publish" instead of "Translate" (there's nothing to
+      // translate for this role) and defaulting to that list rather than
+      // Review. GET /api/recipes/:slug (the full replica editor) still
+      // requires the translator role — RecipeList only wires up row-click
+      // navigation when isTranslator, so there's still no dead end, just
+      // no navigation into a recipe from here.
       expect(hasTranslateTab).toBe(false);
-      expect(hasReviewTab).toBe(false);
-      await page.waitForSelector('.recipe-approval-view', { timeout: 10000 });
+      const hasPublishTab = await page.locator('.view-tab:has-text("Publish")').count() > 0;
+      expect(hasPublishTab).toBe(true);
+      expect(hasReviewTab).toBe(true);
+      await expect(page.locator('.recipe-picker-list')).toBeVisible();
       await expect(page.locator('.recipes-error')).toHaveCount(0);
     } else if (heading.includes('Translator view')) {
       // Translator-only: byte-identical to pre-Phase-4 behavior — no
