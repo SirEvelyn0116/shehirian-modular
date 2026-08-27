@@ -89,6 +89,17 @@ function buildRecipeHreflangHtml(alternates) {
   return alternates.map(({ lang, href }) => `  <link rel="alternate" hreflang="${lang}" href="${href}">`).join('\n');
 }
 
+// Optional recipe image (`recipe.image`, a site-root-relative path — no
+// recipe currently has one; build spec §11 tracks sourcing/rendering images
+// as its own deferred project). Both the published and coming-soon layouts
+// must degrade cleanly without it: this returns '' when absent, so callers
+// that splice it directly after the <h1> never leave a broken/empty <img>
+// or a stray gap where one would have been.
+function buildRecipeImageHtml(recipe, title) {
+  if (!recipe.image) return '';
+  return `\n      <img class="recipe-image" src="../../${escapeHtml(recipe.image)}" alt="${escapeHtml(title)}">`;
+}
+
 function escapeHtml(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -1168,8 +1179,8 @@ function writeAllRecipesPages() {
   </nav>
 
   <main class="recipe-page">
-    <header class="recipe-header">
-      <h1>${title}</h1>
+    ${isPublished ? `<header class="recipe-header">
+      <h1>${title}</h1>${buildRecipeImageHtml(recipe, title)}
       <p class="recipe-description">${description}</p>
       <p>
         <strong>${t('meta_category')}:</strong> ${(recipe.recipeCategory && recipe.recipeCategory[lang]) || ''}
@@ -1185,7 +1196,7 @@ function writeAllRecipesPages() {
       </p>
     </header>
 
-    ${isPublished ? `<section class="recipe-section recipe-ingredients">
+    <section class="recipe-section recipe-ingredients">
       <h2>${t('section_ingredients')}</h2>
       <ul>
         ${ingredients.map(i => `<li>${i}</li>`).join('\n')}
@@ -1197,7 +1208,11 @@ function writeAllRecipesPages() {
       <ol>
         ${instructions.map(s => `<li>${s}</li>`).join('\n')}
       </ol>
-    </section>` : `<section class="recipe-section recipe-coming-soon">
+    </section>` : `<header class="recipe-header recipe-header-coming-soon">
+      <h1>${title}</h1>${buildRecipeImageHtml(recipe, title)}
+    </header>
+
+    <section class="recipe-section recipe-coming-soon">
       <h2>${t('recipe_coming_soon_heading')}</h2>
       <p>${t('recipe_coming_soon_message', { language: t(`lang_name_${lang}`) })}</p>
     </section>`}

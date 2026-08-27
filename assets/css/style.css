@@ -1522,6 +1522,19 @@ body[dir="rtl"] .breadcrumb-nav {
   color: #333;
 }
 
+/* recipe.image is optional -- most recipes don't have one (build spec §11
+   tracks sourcing/rendering images as its own deferred project). This rule
+   only ever applies when the <img> is actually emitted (buildRecipeImageHtml
+   in generate-index.js returns '' otherwise), so there's no reserved space
+   or placeholder box to cause a gap on recipes without one. */
+.recipe-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto 0;
+}
+
 .recipe-section {
   margin-bottom: 40px;
 }
