@@ -286,6 +286,17 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     gap: 0.5rem;
 }
 
+/* Wraps the (possibly non-clickable, for an approver-only viewer) row
+   content plus the publish-status pills row — these used to be the same
+   element (a single <button>) before stage 3 added the pills, which can't
+   nest inside it (invalid HTML, and pill clicks would also trigger row
+   navigation). */
+.recipe-picker-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
 .recipe-picker-item {
     width: 100%;
     display: flex;
@@ -298,6 +309,11 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     padding: 0.6rem 0.9rem;
 }
 .recipe-picker-item:hover { background: #f0f4ff; border-color: #c7d7ff; }
+/* Approver-only viewer: the row isn't a <button> (nothing to navigate
+   into — GET /api/recipes/:slug stays translator-only), so no hover/pointer
+   affordance implying it's clickable. */
+.recipe-picker-item-static { cursor: default; }
+.recipe-picker-item-static:hover { background: #f9fafb; border-color: #e5e7eb; }
 .recipe-picker-title { font-weight: 600; color: #1a1a2e; }
 .recipe-picker-meta { display: flex; align-items: center; gap: 0.6rem; }
 .recipe-picker-category {
@@ -314,6 +330,37 @@ td { padding: 0.45rem 0.75rem; vertical-align: top; }
     padding: 0.15rem 0.55rem;
     border-radius: 99px;
     white-space: nowrap;
+}
+
+/* Per-language publish status pills (stage 3). Read-only <span>s for a
+   translator viewer, clickable <button>s for an approver — same classes
+   either way so the two look identical at rest. */
+.recipe-publish-status {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    padding-left: 0.1rem;
+}
+.publish-pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 99px;
+    border: 1px solid transparent;
+    line-height: 1.4;
+}
+.publish-pill-on  { background: #f0fdf4; color: #166534; border-color: #bbf7d0; }
+.publish-pill-off { background: #f3f4f6; color: #6b7280; border-color: #e5e7eb; }
+button.publish-pill { cursor: pointer; }
+button.publish-pill:hover:not(:disabled) { filter: brightness(0.95); }
+button.publish-pill:disabled { opacity: 0.6; cursor: default; }
+.publish-pill-busy { opacity: 0.75; }
+
+.publish-toggle-error {
+    font-size: 0.75rem;
+    color: #991b1b;
 }
 
 .recipes-workflow-steps { margin-bottom: 1.25rem; }
