@@ -144,7 +144,8 @@
       },
       "categoryId": "soup",
       "published": {
-        "en": true
+        "en": true,
+        "fr": true
       }
     },
     {
