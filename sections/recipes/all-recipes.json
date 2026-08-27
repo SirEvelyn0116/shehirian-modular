@@ -142,7 +142,10 @@
           "ձավարով ապուր"
         ]
       },
-      "categoryId": "soup"
+      "categoryId": "soup",
+      "published": {
+        "en": true
+      }
     },
     {
       "slug": "armenian-style-lentil-soup",
