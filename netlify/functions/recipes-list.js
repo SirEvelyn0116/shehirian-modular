@@ -1,6 +1,8 @@
 const https = require('https');
-const { requireRole } = require('./_shared/requireRole');
+const { requireAnyRole } = require('./_shared/requireRole');
 const { getSql } = require('./_shared/db');
+
+const LANGS = ['en', 'fr', 'ar', 'hy'];
 
 const GITHUB_REPO = process.env.GITHUB_REPO || 'SirEvelyn0116/shehirian-modular';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'translation-pipeline';
@@ -22,7 +24,12 @@ function fetchAllRecipes() {
 }
 
 exports.handler = async (event, context) => {
-  const gate = requireRole('translator', context);
+  // Shared by both roles: translators use this list to pick a recipe to
+  // edit, approvers use it (stage 3's admin publish list) to see and toggle
+  // publish status per language. GET /api/recipes/:slug (recipe-detail.js —
+  // the full replica editor) stays translator-only; the list itself doesn't
+  // expose anything an approver-only account shouldn't see.
+  const gate = requireAnyRole(['translator', 'approver'], context);
   if (!gate.ok) {
     return { statusCode: gate.status, body: JSON.stringify({ error: gate.error }) };
   }
@@ -48,6 +55,15 @@ exports.handler = async (event, context) => {
       title: r.title && r.title.en,
       categoryId: r.categoryId,
       pendingCount: pendingBySlug[r.slug] || 0,
+      // Per-language publish status for the admin list's status pills
+      // (stage 3). Same default-false-on-missing-data reasoning as
+      // generate-index.js's isRecipePublished: a recipe with no `published`
+      // object yet (pre-migration data) reads as all-unpublished, not as a
+      // crash.
+      published: LANGS.reduce((acc, lang) => {
+        acc[lang] = !!(r.published && r.published[lang] === true);
+        return acc;
+      }, {}),
     }));
 
     return {
