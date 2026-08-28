@@ -788,6 +788,17 @@ copyAssets();
 
 
 // Generate build-time all-recipes pages from sections/recipes/recipes.<lang>.json
+//
+// `recipe` here is already the per-language CARD SUMMARY built below
+// (localizedAll/featured, in writeAllRecipesPages) — for a recipe that's
+// unpublished in `lang`, that summary has already had description/category/
+// cuisine/prepTime/cookTime/yield replaced with '' or the coming-soon
+// message before it ever reaches this function (published-flag gating: the
+// list/card path must match the individual page's noindex/watermark
+// treatment, not just leave cards showing unverified preview content for a
+// page the flag otherwise suppresses). This function stays a dumb renderer
+// of whatever summary it's handed — `recipe.comingSoon` only changes the
+// modifier class so CSS can style it distinctly, "deliberate, not broken."
 function buildRecipeCardHTML(recipe, lang) {
   const t = getTranslator(lang);
   const slug = recipe.slug || recipe.id || recipe.name || 'recipe';
@@ -799,9 +810,18 @@ function buildRecipeCardHTML(recipe, lang) {
   if (recipe.prepTime) meta.push(`<strong>${t('meta_prep')}:</strong> ${formatDuration(recipe.prepTime, lang)}`);
   if (recipe.cookTime) meta.push(`<strong>${t('meta_cook')}:</strong> ${formatDuration(recipe.cookTime, lang)}`);
   if (recipe.yield) meta.push(`<strong>${t('meta_yield')}:</strong> ${recipe.yield}`);
+  // Optional image (recipe.image — no recipe has one yet, build spec §11):
+  // absolute site-root path via withBaseUrl, not a page-depth-relative one,
+  // since this same card markup/data also feeds the homepage's featured
+  // section (sections/recipes/render.js's buildRecipeCard) at a shallower
+  // depth than the all-recipes list page — an absolute path is correct at
+  // either depth, a relative one would only be correct at one.
+  const imageHtml = recipe.image ? `<img class="recipe-card-image" src="${withBaseUrl('/' + recipe.image.replace(/^\/+/, ''))}" alt="${recipe.title}">` : '';
+  const cardClass = recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card';
 
   return `
-    <a href="${href}" class="recipe-card">
+    <a href="${href}" class="${cardClass}">
+      ${imageHtml}
       <div class="recipe-info">
         <h3>${recipe.title}</h3>
       </div>
@@ -895,6 +915,23 @@ function writeAllRecipesPages() {
 
   // Iterate languages and build localized listing JSON + all-recipes pages
   Object.keys(langs).forEach(lang => {
+    const t = getTranslator(lang);
+
+    // Card/list gating (published-flag feature, completing stage 2's gap):
+    // a recipe unpublished in `lang` must show the same coming-soon story
+    // on its card as its own page does — title + optional image + the
+    // coming-soon message, with description/category/cuisine/times
+    // suppressed rather than showing unverified translated preview text.
+    // categoryId is NOT suppressed: it's a stable, language-neutral
+    // grouping key (build spec §1's schema), not translated content, and
+    // dropping it would misfile the card out of its real category section.
+    // The card stays clickable either way, straight to the recipe's own
+    // (already-gated) page — same "clickable-to-watermark, stable URLs"
+    // rule stage 2 applied to the page link itself.
+    function comingSoonCardMessage() {
+      return t('recipe_coming_soon_message', { language: t(`lang_name_${lang}`) });
+    }
+
     // Build localized summaries, dedupe by slug and normalize categories
     const seenSlugs = new Set();
     const localizedAll = master.recipes.reduce((acc, r) => {
@@ -904,16 +941,20 @@ function writeAllRecipesPages() {
       const rawCategory = (r.recipeCategory && (r.recipeCategory[lang] || r.recipeCategory.en)) || '';
       const categoryText = normalizeCategory(rawCategory, lang);
       const categoryId = r.categoryId || (categoryText && categoryText.toString().toLowerCase().replace(/\s+/g,'-')) || 'other';
+      const title = (r.title && r.title[lang]) || (r.title && r.title.en) || slug;
+      const isPublished = isRecipePublished(r, lang);
       acc.push({
         slug: slug,
-        title: (r.title && r.title[lang]) || (r.title && r.title.en) || slug,
-        description: (r.description && r.description[lang]) || '',
-        category: categoryText,
+        title: title,
+        description: isPublished ? ((r.description && r.description[lang]) || '') : comingSoonCardMessage(),
+        category: isPublished ? categoryText : '',
         categoryId: categoryId,
-        cuisine: (r.recipeCuisine && (r.recipeCuisine[lang] || r.recipeCuisine.en)) || '',
-        prepTime: r.prepTime || '',
-        cookTime: r.cookTime || '',
-        yield: (r.recipeYield && (r.recipeYield[lang] || r.recipeYield.en)) || ''
+        cuisine: isPublished ? ((r.recipeCuisine && (r.recipeCuisine[lang] || r.recipeCuisine.en)) || '') : '',
+        prepTime: isPublished ? (r.prepTime || '') : '',
+        cookTime: isPublished ? (r.cookTime || '') : '',
+        yield: isPublished ? ((r.recipeYield && (r.recipeYield[lang] || r.recipeYield.en)) || '') : '',
+        image: r.image || '',
+        comingSoon: !isPublished
       });
       return acc;
     }, []);
@@ -925,23 +966,32 @@ function writeAllRecipesPages() {
       if (!r.slug || seenFeatured.has(r.slug)) return acc;
       seenFeatured.add(r.slug);
       const rawCategory = (r.recipeCategory && (r.recipeCategory[lang] || r.recipeCategory.en)) || '';
+      const title = (r.title && r.title[lang]) || (r.title && r.title.en) || r.slug;
+      const isPublished = isRecipePublished(r, lang);
       acc.push({
         slug: r.slug,
-        title: (r.title && r.title[lang]) || (r.title && r.title.en) || r.slug,
-        description: (r.description && r.description[lang]) || '',
-        ingredients: (r.ingredients && r.ingredients[lang]) || [],
-        instructions: (r.instructions && r.instructions[lang]) || [],
-        category: normalizeCategory(rawCategory, lang),
-        cuisine: (r.recipeCuisine && (r.recipeCuisine[lang] || r.recipeCuisine.en)) || '',
-        prepTime: r.prepTime || '',
-        cookTime: r.cookTime || '',
-        totalTime: r.totalTime || '',
-        yield: (r.recipeYield && (r.recipeYield[lang] || r.recipeYield.en)) || ''
+        title: title,
+        description: isPublished ? ((r.description && r.description[lang]) || '') : comingSoonCardMessage(),
+        // ingredients/instructions are never shown on a card (buildRecipeCard(HTML)
+        // don't read them) — suppressed here too anyway, not just left off the
+        // card, because this array ships verbatim into recipes.<lang>.json, a
+        // plain publicly-fetchable file. Leaving unverified translated
+        // ingredients/instructions in that JSON for an unpublished language
+        // would be exactly the leak stage 2 closed on the actual page, just
+        // reopened through the data file instead of the markup.
+        ingredients: isPublished ? ((r.ingredients && r.ingredients[lang]) || []) : [],
+        instructions: isPublished ? ((r.instructions && r.instructions[lang]) || []) : [],
+        category: isPublished ? normalizeCategory(rawCategory, lang) : '',
+        cuisine: isPublished ? ((r.recipeCuisine && (r.recipeCuisine[lang] || r.recipeCuisine.en)) || '') : '',
+        prepTime: isPublished ? (r.prepTime || '') : '',
+        cookTime: isPublished ? (r.cookTime || '') : '',
+        totalTime: isPublished ? (r.totalTime || '') : '',
+        yield: isPublished ? ((r.recipeYield && (r.recipeYield[lang] || r.recipeYield.en)) || '') : '',
+        image: r.image || '',
+        comingSoon: !isPublished
       });
       return acc;
     }, []);
-
-    const t = getTranslator(lang);
 
     const recipesJson = {
       title: t('recipes_title'),

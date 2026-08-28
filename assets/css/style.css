@@ -912,6 +912,37 @@ body[dir="rtl"] .cert-item {
   font-family: sans-serif;
 }
 
+/* Optional card image (recipe.image -- no recipe has one yet, build spec
+   §11). Only ever present in the markup when the data actually has one
+   (buildRecipeCardHTML / render.js's buildRecipeCard both omit the <img>
+   entirely otherwise), so there's no reserved space or placeholder box
+   causing a gap on the vast majority of cards that don't have one. */
+.recipe-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Coming-soon card (published-flag feature) -- a recipe unpublished in the
+   current language shows this instead of its normal preview, matching the
+   full page's coming-soon watermark rather than showing unverified
+   translated content. Muted, not hidden: still a real, clickable card
+   (leads straight to the recipe's own gated/noindex page), just visually
+   distinct so it reads as "deliberately not ready" rather than "broken." */
+.recipe-card-coming-soon .recipe-info {
+  background-color: #ede4d3;
+}
+
+.recipe-card-coming-soon:hover .recipe-info {
+  background-color: #8b9478;
+}
+
+.recipe-card-coming-soon .recipe-description {
+  font-style: italic;
+  color: #6b6b6b;
+}
+
 .view-all-recipes {
   margin-top: 30px;
   text-align: center;
