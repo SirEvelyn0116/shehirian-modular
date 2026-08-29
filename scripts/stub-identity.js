@@ -8,11 +8,14 @@
 // 'approver' | 'both' (default). Set via npm run dev:auth-stub:translator /
 // :approver, or STUB_ROLE directly. This matters beyond convenience: a real
 // approver-only account (no translator role) is blocked from GET
-// /api/recipes and /api/recipes/:slug by requireRole, so testing "approver"
-// as its own role in isolation — not just as an extra role tacked onto a
-// translator — is the only way to see what that account actually
-// experiences (RecipesApp.jsx routes it straight to Review, skipping the
-// translate flow that would otherwise 403).
+// /api/recipes/:slug by requireRole (recipe-detail.js — the full replica
+// editor stays translator-only), so testing "approver" as its own role in
+// isolation — not just as an extra role tacked onto a translator — is the
+// only way to see what that account actually experiences (RecipesApp.jsx
+// routes it to the publish list + Review, never into the translate/edit
+// flow that would otherwise 403). GET /api/recipes itself (the list) is
+// shared by both roles as of the published-flag stage 3 admin toggle —
+// approvers need it too, to see and flip publish status per recipe.
 const ROLE_SETS = {
   translator: ['translator'],
   approver: ['approver'],

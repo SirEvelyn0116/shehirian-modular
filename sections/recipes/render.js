@@ -85,13 +85,32 @@ const localizedLabels = {
   hy: { category: 'Կատեգորիա', cuisine: 'Խոհանոց', prep: 'Պատրաստում', cook: 'Եփում', yield: 'Պորցիաներ' }
 };
 
-// Helper to build a recipe card anchor element from a recipe summary
+// Helper to build a recipe card anchor element from a recipe summary.
+// `recipe` is the same per-language card summary generate-index.js writes
+// into recipes.<lang>.json — for a recipe unpublished in `lang`, that
+// summary already has description/category/cuisine/times replaced with ''
+// or the coming-soon message and `comingSoon: true` set (see
+// writeAllRecipesPages in generate-index.js), so this function stays a
+// dumb renderer of whatever it's handed, same as its build-time
+// counterpart, buildRecipeCardHTML.
 function buildRecipeCard(recipe, lang = 'en') {
   const card = document.createElement('a');
   const siteBaseUrl = window.__siteBaseUrl || '';
   const slug = recipe.slug || recipe.id || recipe.name || 'recipe';
   card.href = `${siteBaseUrl}/${lang}/recipes/${slug}.html`;
-  card.className = 'recipe-card';
+  card.className = recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card';
+
+  // Optional image (recipe.image — no recipe has one yet, build spec §11).
+  // Absolute site-root path via siteBaseUrl, matching how card.href above
+  // is already built, so this renders correctly regardless of which page
+  // depth mounted this card (homepage vs. the all-recipes list fallback).
+  if (recipe.image) {
+    const img = document.createElement('img');
+    img.className = 'recipe-card-image';
+    img.src = `${siteBaseUrl}/${String(recipe.image).replace(/^\/+/, '')}`;
+    img.alt = recipe.title;
+    card.appendChild(img);
+  }
 
   // Top div: Title only (wheat background)
   const infoDiv = document.createElement('div');

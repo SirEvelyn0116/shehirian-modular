@@ -67,6 +67,14 @@
   to = "/.netlify/functions/recipes-approve"
   status = 200
 
+# Approver-only, published-flag stage 3 — same wildcard-shadowing reasoning
+# as /preview and /approve above: "publish" would otherwise be treated as a
+# recipe slug by recipe-detail.js.
+[[redirects]]
+  from = "/api/recipes/publish"
+  to = "/.netlify/functions/recipes-publish"
+  status = 200
+
 # recipe-detail.js reads the slug from event.path, not a query param —
 # the named-placeholder-into-query-string form (?slug=:slug) matches
 # locally under netlify dev but the real edge never substitutes it,

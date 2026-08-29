@@ -1,8 +1,8 @@
-const https = require('https');
 const { requireRole } = require('./_shared/requireRole');
 const { getSql } = require('./_shared/db');
 const { getFile, putFile, getBranchHeadSha } = require('./_shared/github');
 const { classifyEdits, applyEditsToJson, filterAlreadyLogged } = require('./_shared/approveLogic');
+const { fireBuildHook } = require('./_shared/buildHook');
 
 // Config-driven — HARD requirement, not a convenience default. Every one of
 // these is read from env, same pattern the read-only recipe functions
@@ -241,7 +241,7 @@ exports.handler = async (event, context) => {
 
     // --- Step 6: build hook, LAST — only if a new commit actually shipped ---
     if (toCommit.length > 0 && NETLIFY_BUILD_HOOK_ID) {
-      await fireBuildHook();
+      await fireBuildHook(NETLIFY_BUILD_HOOK_ID);
     }
 
     return {
@@ -272,21 +272,4 @@ function toConflictSummary(edit) {
     id: edit.id, recipeSlug: edit.recipe_slug, lang: edit.lang, fieldPath: edit.field_path,
     reason: edit.reason, currentValue: edit.currentValue,
   };
-}
-
-// Reuses trigger-sync.js's POST-to-NETLIFY_BUILD_HOOK_ID pattern exactly —
-// same endpoint, same fire-and-forget shape.
-function fireBuildHook() {
-  return new Promise((resolve, reject) => {
-    const options = {
-      method: 'POST',
-      hostname: 'api.netlify.com',
-      path: `/build_hooks/${NETLIFY_BUILD_HOOK_ID}`,
-      headers: { 'Content-Type': 'application/json', 'Content-Length': 2 },
-    };
-    const req = https.request(options, () => resolve());
-    req.on('error', reject);
-    req.write('{}');
-    req.end();
-  });
 }

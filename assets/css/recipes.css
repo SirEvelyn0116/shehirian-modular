@@ -1,0 +1,45 @@
+/* Shared recipe step-numbering rule, consumed by all three surfaces that
+   render a recipe's steps as a real <ol>/<li>: the site's generated recipe
+   pages and the preview iframe (both loaded via this file directly — see
+   generate-index.js's writeAllRecipesPages() and recipePageHtml.js), and
+   the admin editable replica (admin/index.html links this file too — see
+   admin/admin.css). Kept deliberately narrow: this is the one rule that
+   was previously fixed twice, independently, in the same commit session
+   (site: assets/css/style.css; editable view: admin/admin.css) because
+   there was nowhere shared for it to live. Indent amount and typography
+   stay local to style.css/admin.css — they differ intentionally per
+   surface (dense admin UI vs branded site copy) and unifying them would
+   either regress the admin editable view's pixel-verified layout or
+   under/over-indent the site. See recipe-translation-tool-BUILD-SPEC.md
+   §3/§11 on this accepted, documented layout tax.
+
+   Neutral digit+period marker runs ("6.") were reordering to ".6" inside
+   RTL steps, so this rule used to force `unicode-bidi: isolate; direction:
+   ltr` on the marker to fix that ordering. REMOVED: live DevTools A/B
+   testing in real Edge/Chrome showed `direction: ltr` on ::marker doesn't
+   just fix internal character order there -- it also drags the whole
+   marker box to the physical-left (trailing) side in RTL, which headless
+   Chromium does not reproduce (it rendered the marker correctly
+   right-placed with or without this rule, which is why this divergence
+   went undetected across several earlier fix attempts). `unicode-bidi:
+   isolate` alone tested as inert (no effect either way) once `direction:
+   ltr` was gone, so it was dropped too rather than keeping dead CSS.
+   Digit-ordering correctness now rests entirely on the Eastern Arabic-
+   Indic numerals below, which don't hit the Western-digit neutral-run
+   ambiguity that motivated this rule in the first place. */
+
+/* Arabic (RTL) recipe pages number steps with Eastern Arabic-Indic
+   numerals (١ ٢ ٣ …) instead of Western (1 2 3) -- both a plausible
+   localization choice for a Lebanese-positioned brand, and a way to
+   sidestep Western digits' ::marker bidi-reordering ambiguity: a "6."
+   marker's digit+period is a bidi-neutral run that Blink resolves
+   inconsistently inside RTL text, whereas Eastern Arabic-Indic digits
+   carry inherent RTL association and don't hit that ambiguity. Scoped to
+   [dir="rtl"] so it only touches Arabic pages -- English/French keep
+   Western numerals. Matches both html[dir="rtl"] (site pages, preview
+   iframe) and .recipe-replica-column[dir="rtl"] (admin editable view).
+   Deliberately only the step markers: ingredient quantities and other
+   numbers live in the translated strings and are handled separately. */
+[dir="rtl"] .recipe-instructions ol {
+  list-style-type: arabic-indic;
+}

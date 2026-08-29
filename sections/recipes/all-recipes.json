@@ -142,7 +142,13 @@
           "ձավարով ապուր"
         ]
       },
-      "categoryId": "soup"
+      "categoryId": "soup",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "armenian-style-lentil-soup",
@@ -274,7 +280,13 @@
           "անանուխով ապուր"
         ]
       },
-      "categoryId": "soup"
+      "categoryId": "soup",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-wheat-salad",
@@ -398,7 +410,13 @@
           "Առողջարար grain աղցան"
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "classic-tabbouleh",
@@ -538,7 +556,13 @@
           "ձավարի ցորեն wheat"
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "hearty-bulgur-pilaf",
@@ -694,7 +718,13 @@
           "Առողջարար grain dish"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "spiced-lentil-soup",
@@ -814,7 +844,13 @@
           "Առողջարար comfort food"
         ]
       },
-      "categoryId": "soup"
+      "categoryId": "soup",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "tabbouleh-salad",
@@ -950,7 +986,13 @@
           "ձավարի ցորեն"
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-carrot-pineapple-salad",
@@ -1052,7 +1094,13 @@
           "Chill before պորցիա."
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "cole-slaw-bulgur",
@@ -1158,7 +1206,13 @@
           "Chill before պորցիա."
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-carrot-raisin-salad",
@@ -1248,7 +1302,13 @@
           "Chill before պորցիա."
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "chefs-bulgur-salad",
@@ -1362,7 +1422,13 @@
           "Մատուցել chilled or at room temperature."
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-dutch-cucumber-salad",
@@ -1468,7 +1534,13 @@
           "Garnish with dill or chives and chill before պորցիա."
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-garden-salad",
@@ -1574,7 +1646,13 @@
           "Chill briefly before պորցիա."
         ]
       },
-      "categoryId": "salad"
+      "categoryId": "salad",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "scotch-broth",
@@ -1794,7 +1872,13 @@
           "Middle eastern ապուր"
         ]
       },
-      "categoryId": "soup"
+      "categoryId": "soup",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-cherry-custard",
@@ -1934,7 +2018,13 @@
           "Ձավար dessert"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-indian-pudding",
@@ -2070,7 +2160,13 @@
           "Ձավար քաղցրավուկ"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-raisin-pudding",
@@ -2186,7 +2282,13 @@
           "Ձավար dessert"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "chocolate-bulgur-bavarian",
@@ -2306,7 +2408,13 @@
           "Ձավար dessert"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "steamed-bulgur-fruit-pudding",
@@ -2446,7 +2554,13 @@
           "Ձավար մրգային քաղցրավուկ"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "raw-meat-platter",
@@ -2574,7 +2688,13 @@
           "ձավարի ցորեն"
         ]
       },
-      "categoryId": "starter"
+      "categoryId": "starter",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-stuffed-peppers",
@@ -2702,7 +2822,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-meat-loaf",
@@ -2822,7 +2948,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-salmon-loaf",
@@ -2942,7 +3074,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "cabbage-rolls",
@@ -3078,7 +3216,13 @@
           "ձավարի ցորեն"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "fish-and-bulgur-pilaf",
@@ -3206,7 +3350,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-wheat-pizza",
@@ -3306,7 +3456,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "persian-pilaf",
@@ -3426,7 +3582,13 @@
           "ձավարի ցորեն"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "india-lamb-pilaf",
@@ -3518,7 +3680,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "india-chicken-curry-pilaf",
@@ -3610,7 +3778,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgur-cheese-casserole",
@@ -3730,7 +3904,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "scalloped-bulgor-with-wieners",
@@ -3850,7 +4030,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "scotch-haggis-with-bulgor",
@@ -3966,7 +4152,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "armenian-pilaf",
@@ -4086,7 +4278,13 @@
           "ձավարի ցորեն"
         ]
       },
-      "categoryId": "side"
+      "categoryId": "side",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "chinese-fried-bulgor",
@@ -4198,7 +4396,13 @@
           "Vegetables"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "boston-baked-bulgor",
@@ -4330,7 +4534,13 @@
           "Boston"
         ]
       },
-      "categoryId": "main"
+      "categoryId": "main",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "pilaf-almondine",
@@ -4450,7 +4660,13 @@
           "ձավարի ցորեն"
         ]
       },
-      "categoryId": "side"
+      "categoryId": "side",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "pilaf-romanoff",
@@ -4570,7 +4786,13 @@
           "creamy"
         ]
       },
-      "categoryId": "side"
+      "categoryId": "side",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "spanish-bulgor",
@@ -4718,7 +4940,13 @@
           "Տապակ"
         ]
       },
-      "categoryId": "side"
+      "categoryId": "side",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgor-wheat-shortcake",
@@ -4846,7 +5074,13 @@
           "Թխած"
         ]
       },
-      "categoryId": "side"
+      "categoryId": "side",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgor-wheat-biscuits",
@@ -4974,7 +5208,13 @@
           "Թխած"
         ]
       },
-      "categoryId": "side"
+      "categoryId": "side",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "white-bread-with-bulgor",
@@ -5114,7 +5354,13 @@
           "Պիրոգ"
         ]
       },
-      "categoryId": "other"
+      "categoryId": "other",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "baked-banana-bulgor-custard",
@@ -5246,7 +5492,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "banana-bulgor-cake",
@@ -5394,7 +5646,13 @@
           "Ձավար"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     },
     {
       "slug": "bulgor-apricot-delight",
@@ -5518,7 +5776,13 @@
           "Ձուnog"
         ]
       },
-      "categoryId": "dessert"
+      "categoryId": "dessert",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
     }
   ]
 }

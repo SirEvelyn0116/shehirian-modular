@@ -912,6 +912,37 @@ body[dir="rtl"] .cert-item {
   font-family: sans-serif;
 }
 
+/* Optional card image (recipe.image -- no recipe has one yet, build spec
+   §11). Only ever present in the markup when the data actually has one
+   (buildRecipeCardHTML / render.js's buildRecipeCard both omit the <img>
+   entirely otherwise), so there's no reserved space or placeholder box
+   causing a gap on the vast majority of cards that don't have one. */
+.recipe-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Coming-soon card (published-flag feature) -- a recipe unpublished in the
+   current language shows this instead of its normal preview, matching the
+   full page's coming-soon watermark rather than showing unverified
+   translated content. Muted, not hidden: still a real, clickable card
+   (leads straight to the recipe's own gated/noindex page), just visually
+   distinct so it reads as "deliberately not ready" rather than "broken." */
+.recipe-card-coming-soon .recipe-info {
+  background-color: #ede4d3;
+}
+
+.recipe-card-coming-soon:hover .recipe-info {
+  background-color: #8b9478;
+}
+
+.recipe-card-coming-soon .recipe-description {
+  font-style: italic;
+  color: #6b6b6b;
+}
+
 .view-all-recipes {
   margin-top: 30px;
   text-align: center;
@@ -1522,6 +1553,19 @@ body[dir="rtl"] .breadcrumb-nav {
   color: #333;
 }
 
+/* recipe.image is optional -- most recipes don't have one (build spec §11
+   tracks sourcing/rendering images as its own deferred project). This rule
+   only ever applies when the <img> is actually emitted (buildRecipeImageHtml
+   in generate-index.js returns '' otherwise), so there's no reserved space
+   or placeholder box to cause a gap on recipes without one. */
+.recipe-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px auto 0;
+}
+
 .recipe-section {
   margin-bottom: 40px;
 }
@@ -1565,11 +1609,39 @@ body[dir="rtl"] .breadcrumb-nav {
   margin-bottom: 20px;
 }
 
-.recipe-ingredients ul,
-.recipe-steps ol {
+.recipe-ingredients ul {
   font-family: sans-serif;
   list-style-position: inside;
   padding-left: 0;
+}
+
+/* Steps keep the (default) outside list-style-position, unlike the bullet
+   ingredients above: with "inside," a wrapped step's second line starts
+   back at the li's own left edge instead of indenting under the first
+   line's text, so wrapped Arabic steps read as run-together sentences
+   with no number/text separation. "Outside" + a reserved start-indent
+   gives wrapped lines their own column, matching the admin editable
+   replica's already-correct step layout (admin/admin.css). padding-left:0
+   resets the general .recipe-section ul/ol rule above so only the logical
+   (direction-aware) padding-inline-start applies — otherwise both would
+   stack in RTL, since they resolve to different physical edges.
+
+   padding-inline-start is 24px, not an arbitrary round number: it's the
+   ingredient bullets' own measured indent (the distance from the .recipe-
+   ingredients ul's own edge to where its li text actually starts, under
+   list-style-position: inside) -- measured directly via Range against a
+   built page, not eyeballed. Reusing that exact figure for the numbered
+   list's reserved indent is what makes "1."/"2." line up with "•" on the
+   same edge above them. A single-digit marker doesn't fully fill this
+   indent, leaving more empty space before its text than a bullet does --
+   an intentional, accepted trade-off (bullets are the reference; making
+   the numbers line up with them is the goal, not a tight number-to-text
+   gap). */
+.recipe-steps ol {
+  font-family: sans-serif;
+  list-style-position: outside;
+  padding-left: 0;
+  padding-inline-start: 24px;
 }
 
 .recipe-ingredients li,
@@ -1581,14 +1653,31 @@ body[dir="rtl"] .breadcrumb-nav {
   margin-bottom: 10px;
 }
 
-/* Isolate the step-number marker from the surrounding bidi context so
-   "4." doesn't reorder to ".4" in RTL. The marker digits are always
-   read left-to-right regardless of numeral system (Western or Eastern
-   Arabic-Indic), so this stays correct if the numerals themselves ever
-   change; it only fixes ordering, not glyphs. */
-.recipe-steps li::marker {
-  unicode-bidi: isolate;
-  direction: ltr;
+/* Published-flag "coming soon" watermark (recipe-translation-tool-BUILD-
+   SPEC.md) -- replaces the ingredients/instructions area on a recipe page
+   whose language isn't published yet. Styled as a deliberate placeholder
+   (wheat-tinted card, matches .recipe-header/.recipe-footer's rule color)
+   rather than looking like missing/broken content. */
+.recipe-coming-soon {
+  text-align: center;
+  padding: 40px 24px;
+  background: #fdf8ee;
+  border: 1px solid #f5deb3;
+  border-radius: 12px;
+}
+
+.recipe-coming-soon h2 {
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: #5a6345;
+  margin-bottom: 12px;
+}
+
+.recipe-coming-soon p {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
 }
 
 .recipe-footer {

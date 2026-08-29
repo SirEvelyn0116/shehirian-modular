@@ -178,5 +178,17 @@
     "fr": "Shehirian Bulgor Co.",
     "ar": "شركة شهيريان للبرغل",
     "hy": "Շեհիրյան Բուլղուր Քո."
+  },
+  "recipe_coming_soon_heading": {
+    "en": "Translation coming soon",
+    "fr": "Traduction à venir",
+    "ar": "الترجمة قادمة قريباً",
+    "hy": "Թարգմանությունը շուտով"
+  },
+  "recipe_coming_soon_message": {
+    "en": "We're working on the {language} translation for this recipe. Please check back soon.",
+    "fr": "Nous travaillons sur la traduction {language} de cette recette. Revenez bientôt.",
+    "ar": "نحن نعمل على ترجمة هذه الوصفة إلى {language}. يرجى العودة قريباً.",
+    "hy": "Մենք աշխատում ենք այս բաղադրատոմսի {language} թարգմանության վրա։ Խնդրում ենք այցելել կրկին շուտով։"
   }
 }
