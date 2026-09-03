@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Tabulee Salad",
+  "author": "Famille Shehirian",
+  "description": "",
+  "recipeCategory": "",
+  "recipeCuisine": "",
+  "recipeYield": "",
+  "prepTime": "PT1H",
+  "cookTime": "PT0M",
+  "totalTime": "PT1H",
+  "recipeIngredient": [],
+  "recipeInstructions": []
+}

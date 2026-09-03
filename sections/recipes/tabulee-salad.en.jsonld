@@ -1,0 +1,42 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Tabulee Salad",
+  "author": "Shehirian family",
+  "description": "A bulgur salad with cucumber, tomatoes, radishes, green onions, green peppers, parsley, and mint, dressed with olive oil or salad oil.",
+  "recipeCategory": "Salad",
+  "recipeCuisine": "",
+  "recipeYield": "",
+  "prepTime": "PT1H",
+  "cookTime": "PT0M",
+  "totalTime": "PT1H",
+  "recipeIngredient": [
+    "2 cups boiling water",
+    "1 cup Bulgor wheat",
+    "1 cucumber, peeled and diced",
+    "4 to 6 green onions, thinly sliced",
+    "1/2 cup diced green peppers",
+    "2 to 4 tablespoons minced parsley",
+    "1 tablespoon finely chopped mint, or 1/4 teaspoon dry mint",
+    "2 large tomatoes, diced",
+    "10 to 12 radishes, sliced",
+    "1/4 teaspoon pepper",
+    "1 teaspoon salt",
+    "1/2 cup olive oil or salad oil",
+    "1 teaspoon seasoned salt"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Combine boiling water and Bulgor wheat. Let it stand until all water is absorbed, about 1 hour."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Combine in a salad bowl: cucumber, green onions, green peppers, parsley, mint (or dry mint), tomatoes, radishes, pepper, salt, olive oil or salad oil, and seasoned salt."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Toss until dressing is well distributed."
+    }
+  ]
+}

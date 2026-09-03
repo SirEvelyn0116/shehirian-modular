@@ -1,0 +1,48 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Bulgor Salad",
+  "author": "Shehirian family",
+  "description": "A bulgur salad with celery, green pepper, hard-cooked eggs, and mayonnaise, with an optional addition of tuna, meat, or poultry for a hearty main course.",
+  "recipeCategory": "Salad",
+  "recipeCuisine": "",
+  "recipeYield": "6 to 8 servings",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
+  "recipeIngredient": [
+    "2 cups cooked Bulgor wheat",
+    "3 tablespoons French dressing",
+    "3 tablespoons chopped sweet pickle",
+    "1/2 teaspoon salt",
+    "1/8 teaspoon pepper",
+    "1-1/2 cups thinly sliced celery",
+    "1/4 cup chopped green bell pepper",
+    "2 chopped hard-cooked eggs",
+    "1 to 2 teaspoons minced onion",
+    "2/3 cup mayonnaise",
+    "A can of tuna fish, or some diced cooked meat or poultry (optional, for a hearty main course salad)"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Blend cooked Bulgor wheat, French dressing, chopped sweet pickle, salt and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Chill."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add celery, green bell pepper, chopped hard-cooked eggs, minced onion, and mayonnaise."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mix well. Serve on a bed of lettuce and garnish with tomato wedges."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "For a hearty main course salad, add a can of tuna fish or some diced cooked meat or poultry."
+    }
+  ]
+}

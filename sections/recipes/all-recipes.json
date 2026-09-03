@@ -451,139 +451,70 @@
       }
     },
     {
-      "_contentStatus": "TO BE REPLACED by user-built tabulee-salad from p.5 scan (scan heading: \"TABULEE SALAD\"). This entry is a confirmed AI fabrication/near-duplicate kept only as a build-coherent placeholder — do not publish.",
-      "slug": "tabbouleh-salad",
+      "slug": "tabulee-salad",
       "featuredRecipe": false,
       "title": {
-        "en": "Tabbouleh Salad",
-        "fr": "Salade de taboulé",
-        "ar": "سلطة التبولة",
-        "hy": "Թաբուլե Աղցան"
+        "en": "Tabulee Salad",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "description": {
-        "en": "A refreshing Middle Eastern salad with bulgur wheat, fresh vegetables, and herbs.",
-        "fr": "Une salade du Moyen-Orient rafraîchissante avec du blé bulgur, des légumes frais et des herbes.",
-        "ar": "سلطة شرق أوسطية منعشة مع البرغل والخضروات الطازجة والأعشاب.",
-        "hy": "Ուշացուցիչ Մերձավոր Արևելյան աղցան ձավարի ցորենով, թարմ բանջարեղենով և բույսերով։"
+        "en": "A bulgur salad with cucumber, tomatoes, radishes, green onions, green peppers, parsley, and mint, dressed with olive oil or salad oil.",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "recipeCategory": {
         "en": "Salad",
-        "fr": "Salade",
-        "ar": "سلطة",
-        "hy": "Աղցան"
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "recipeCuisine": {
-        "en": "Middle Eastern",
-        "fr": "Moyen-orientale",
-        "ar": "شرق أوسطية",
-        "hy": "Մերձավոր Արևելյան"
+        "en": "",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
-      "prepTime": "PT1H15M",
-      "cookTime": "PT5M",
-      "totalTime": "PT1H20M",
+      "prepTime": "PT1H",
+      "cookTime": "PT0M",
+      "totalTime": "PT1H",
       "recipeYield": {
-        "en": "6 servings",
-        "fr": "6 portions",
-        "ar": "6 حصص",
-        "hy": "6 պորցիա"
+        "en": "",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "ingredients": {
         "en": [
-          "1/2 cup fine bulgur wheat",
-          "2 cups finely chopped parsley",
-          "1/2 cup finely chopped mint",
-          "3 medium tomatoes, diced",
-          "1/4 cup finely chopped onion",
-          "1/4 cup fresh lemon juice",
-          "1/4 cup olive oil",
-          "Salt and pepper to taste"
+          "2 cups boiling water",
+          "1 cup Bulgor wheat",
+          "1 cucumber, peeled and diced",
+          "4 to 6 green onions, thinly sliced",
+          "1/2 cup diced green peppers",
+          "2 to 4 tablespoons minced parsley",
+          "1 tablespoon finely chopped mint, or 1/4 teaspoon dry mint",
+          "2 large tomatoes, diced",
+          "10 to 12 radishes, sliced",
+          "1/4 teaspoon pepper",
+          "1 teaspoon salt",
+          "1/2 cup olive oil or salad oil",
+          "1 teaspoon seasoned salt"
         ],
-        "fr": [
-          "1/2 tasse de boulghour fin",
-          "2 tasses de persil finement haché",
-          "1/2 tasse de menthe finement hachée",
-          "3 tomates moyennes, en dés",
-          "1/4 tasse d'oignon finement haché",
-          "1/4 tasse de jus de citron frais",
-          "1/4 tasse d'huile d'olive",
-          "Sel et poivre au goût"
-        ],
-        "ar": [
-          "1/2 كوب برغل ناعم",
-          "2 كوب بقدونس مفروم ناعم",
-          "1/2 كوب نعناع مفروم ناعم",
-          "3 طماطم متوسطة مقطعة",
-          "1/4 كوب بصل مفروم ناعم",
-          "1/4 كوب عصير ليمون طازج",
-          "1/4 كوب زيت زيتون",
-          "ملح وفلفل حسب الذوق"
-        ],
-        "hy": [
-          "1/2 բաժակ մանր ձավարի ցորեն",
-          "2 բաժակ մանր կտրտած մաղադանոս",
-          "1/2 բաժակ մանր կտրտած անանուխ",
-          "3 միջին լոլիկ, կտրտած",
-          "1/4 բաժակ մանր կտրտած սոխ",
-          "1/4 բաժակ թարմ կիտրոնի հյութ",
-          "1/4 բաժակ ձիթենի յուղ",
-          "Աղ և պղպեղ ըստ համին"
-        ]
+        "fr": [],
+        "ar": [],
+        "hy": []
       },
       "instructions": {
         "en": [
-          "Rinse bulgur and soak in cold water for 5 minutes then drain well.",
-          "In a large bowl combine parsley, mint, tomatoes and onion.",
-          "Add the drained bulgur and mix well.",
-          "Whisk together lemon juice, olive oil, salt and pepper; pour over salad and toss to combine.",
-          "Chill for at least 1 hour before serving to allow flavors to meld."
+          "Combine boiling water and Bulgor wheat. Let it stand until all water is absorbed, about 1 hour.",
+          "Combine in a salad bowl: cucumber, green onions, green peppers, parsley, mint (or dry mint), tomatoes, radishes, pepper, salt, olive oil or salad oil, and seasoned salt.",
+          "Toss until dressing is well distributed."
         ],
-        "fr": [
-          "Rincer le boulghour et le faire tremper dans de l'eau froide pendant 5 minutes puis bien égoutter.",
-          "Dans un grand bol, mélanger le persil, la menthe, les tomates et l'oignon.",
-          "Ajouter le boulghour égoutté et bien mélanger.",
-          "Fouetter le jus de citron, l'huile d'olive, le sel et le poivre; verser sur la salade et mélanger.",
-          "Réfrigérer au moins 1 heure avant de servir pour laisser les saveurs se développer."
-        ],
-        "ar": [
-          "اغسل البرغل وانقعه في ماء بارد لمدة 5 دقائق ثم صفّه جيدًا.",
-          "في وعاء كبير اخلط البقدونس والنعناع والطماطم والبصل.",
-          "أضف البرغل المصفي وامزج جيدًا.",
-          "اخلط عصير الليمون وزيت الزيتون والملح والفلفل واسكب التتبيلة على السلطة واخلط.",
-          "ضعها في الثلاجة لمدة ساعة على الأقل قبل التقديم لتندمج النكهات."
-        ],
-        "hy": [
-          "Լվանալ ձավարը և թրևել սառն ջրում 5 րոպե, ապա լավ ցուցել։",
-          "Մեծ ավանում խառնել մաղադանոս, անանուխ, լոլիկ և սոխ։",
-          "Ավելացնել ցուցած ձավարը և լավ խառնել։",
-          "Խառնել կիտրոնի հյութը, ձիթենի յուղը, աղը և պղպեղը. լցնել աղցանի վրա և խառնել։",
-          "Սառնարանում պահել ոչ փոքր 1 ժամ մատուցելուց առաջ, որպեսզի համերն իրար համալրվեն։"
-        ]
-      },
-      "keywords": {
-        "en": [
-          "tabbouleh",
-          "parsley salad",
-          "Lebanese salad",
-          "bulgur wheat"
-        ],
-        "fr": [
-          "taboulé",
-          "salade de persil",
-          "salade libanaise",
-          "blé bulgur"
-        ],
-        "ar": [
-          "تبولة",
-          "سلطة البقدونس",
-          "سلطة لبنانية",
-          "برغل"
-        ],
-        "hy": [
-          "թաբուլե",
-          "մաղադանոսի աղցան",
-          "լիբանանական աղցան",
-          "ձավարի ցորեն"
-        ]
+        "fr": [],
+        "ar": [],
+        "hy": []
       },
       "categoryId": "salad",
       "published": {
@@ -693,6 +624,24 @@
           "Chill before պորցիա."
         ]
       },
+      "variations": [
+        {
+          "name": {
+            "en": [
+              "Bulgor-Carrot-Raisin-Salad"
+            ],
+            "fr": [],
+            "ar": [],
+            "hy": []
+          },
+          "note": {
+            "en": "Substitute 2 tablespoons french dressing for the pineapple juice and 1/4 cup raisin for the crushed pineapple in above recipe.",
+            "fr": "",
+            "ar": "",
+            "hy": ""
+          }
+        }
+      ],
       "categoryId": "salad",
       "published": {
         "en": false,
@@ -802,103 +751,6 @@
           "In a մեծ bowl խառնել shկարմիրded կաղամբ and գազարs.",
           "Ավելացնել cooled ձավար.",
           "Whisk together mayonnaise, քացախ, շաքար, աղ and պղպեղ; toss with vegetables.",
-          "Chill before պորցիա."
-        ]
-      },
-      "categoryId": "salad",
-      "published": {
-        "en": false,
-        "fr": false,
-        "ar": false,
-        "hy": false
-      }
-    },
-    {
-      "_contentStatus": "TO BE COLLAPSED into bulgur-carrot-pineapple-salad as a noted variation (scan p.5: \"Substitute 2 tablespoons french dressing for the pineapple juice and 1/4 cup raisin for the crushed pineapple in above recipe\"). Variation text pending — user to add from scan. This standalone slug is a placeholder — do not publish.",
-      "slug": "bulgur-carrot-raisin-salad",
-      "featuredRecipe": false,
-      "title": {
-        "en": "Bulgur Carrot Raisin Salad",
-        "fr": "Salade de bulgur aux carottes et raisins secs",
-        "ar": "سلطة البرغل بالجزر والزبيب",
-        "hy": "ձավարի ցորեն գազար Raisin Salad"
-      },
-      "description": {
-        "en": "A variation with raisins and French dressing for a delightful sweet and tangy flavor.",
-        "fr": "Une variation avec des raisins secs et une vinaigrette française pour une saveur sucrée et acidulée délicieuse.",
-        "ar": "نسخة مع الزبيب وصلصة فرنسية لنكهة حلوة وحامضة لذيذة.",
-        "hy": "A variation with չամիչ and french dressing for a delightful sweet and tangy flavor."
-      },
-      "recipeCategory": {
-        "en": "Salad",
-        "fr": "Salade",
-        "ar": "سلطة",
-        "hy": "Աղցան"
-      },
-      "recipeCuisine": {
-        "en": "American",
-        "fr": "Américaine",
-        "ar": "أمريكية",
-        "hy": "Ամերիկյան"
-      },
-      "prepTime": "PT10M",
-      "cookTime": "PT15M",
-      "totalTime": "PT25M",
-      "recipeYield": {
-        "en": "8-10 servings",
-        "fr": "8-10 portions",
-        "ar": "8-10 حصص",
-        "hy": "8-10 պորցիա"
-      },
-      "ingredients": {
-        "en": [
-          "2 cups cooked bulgur wheat",
-          "1 1/2 cups shredded carrots",
-          "1/2 cup raisins",
-          "1/2 cup French dressing (or vinaigrette)",
-          "Salt and pepper to taste"
-        ],
-        "fr": [
-          "2 tasses de boulghour cuit",
-          "1 1/2 tasse de carottes râpées",
-          "1/2 tasse de raisins secs",
-          "1/2 tasse de vinaigrette (ou sauce française)",
-          "Sel et poivre au goût"
-        ],
-        "ar": [
-          "2 كوب برغل مطبوخ",
-          "1 1/2 كوب جزر مبشور",
-          "1/2 كوب زبيب",
-          "1/2 كوب صلصة فرنسية (أو صلصة vinaigrette)",
-          "ملح وفلفل حسب الذوق"
-        ],
-        "hy": [
-          "2 բաժակ եփած ձավար ցորեն",
-          "1 1/2 բաժակ shկարմիրded գազարs",
-          "1/2 բաժակ չամիչ",
-          "1/2 բաժակ french dressing (or vinaigrette)",
-          "Աղ and պղպեղ to taste"
-        ]
-      },
-      "instructions": {
-        "en": [
-          "Combine cooked bulgur, shredded carrots, and raisins in a bowl.",
-          "Add French dressing and toss to coat.",
-          "Chill before serving."
-        ],
-        "fr": [
-          "Mélanger le boulghour cuit, les carottes râpées et les raisins secs dans un bol.",
-          "Ajouter la vinaigrette et mélanger.",
-          "Réfrigérer avant de servir."
-        ],
-        "ar": [
-          "اخلط البرغل المطبوخ والجزر المبشور والزبيب في وعاء.",
-          "أضف الصلصة الفرنسية وامزج لتغليف المكونات.",
-          "ضعها في الثلاجة قبل التقديم."
-        ],
-        "hy": [
-          "Խառնել եփած ձավար, shկարմիրded գազարs, and չամիչ in a bowl.",
-          "Ավելացնել french dressing and toss to coat.",
           "Chill before պորցիա."
         ]
       },
@@ -1143,109 +995,70 @@
       }
     },
     {
-      "_contentStatus": "TO BE REPLACED by user-built bulgur-salad from p.6 scan (scan heading: \"BULGOR SALAD\"). This entry is flagged as a likely AI fabrication kept only as a build-coherent placeholder — do not publish.",
-      "slug": "bulgur-garden-salad",
+      "slug": "bulgur-salad",
       "featuredRecipe": false,
       "title": {
-        "en": "Bulgur Garden Salad",
-        "fr": "Salade jardinière au bulgur",
-        "ar": "سلطة الحديقة بالبرغل",
-        "hy": "ձավարի ցորեն Garden Salad"
+        "en": "Bulgor Salad",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "description": {
-        "en": "A versatile garden salad with bulgur wheat, fresh vegetables, and hard-boiled eggs — perfect as a side or main dish.",
-        "fr": "Une salade de jardin polyvalente avec du blé bulgur, des légumes frais et des œufs durs — parfaite comme accompagnement ou plat principal.",
-        "ar": "سلطة حديقة متعددة الاستخدامات مع البرغل والخضروات الطازجة والبيض المسلوق — مثالية كطبق جانبي أو رئيسي.",
-        "hy": "A versatile garden salad with ձավարի ցորեն wheat, fresh vegetables, and hard-bձեթed ձուs — perfect as a side or main dish."
+        "en": "A bulgur salad with celery, green pepper, hard-cooked eggs, and mayonnaise, with an optional addition of tuna, meat, or poultry for a hearty main course.",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "recipeCategory": {
         "en": "Salad",
-        "fr": "Salade",
-        "ar": "سلطة",
-        "hy": "Աղցան"
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "recipeCuisine": {
-        "en": "American",
-        "fr": "Américaine",
-        "ar": "أمريكية",
-        "hy": "Ամերիկյան"
+        "en": "",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT15M",
-      "totalTime": "PT30M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "recipeYield": {
-        "en": "8 servings",
-        "fr": "8 portions",
-        "ar": "8 حصص",
-        "hy": "8 պորցիա"
+        "en": "6 to 8 servings",
+        "fr": "",
+        "ar": "",
+        "hy": ""
       },
       "ingredients": {
         "en": [
-          "2 cups cooked bulgur wheat",
-          "1 cup mixed chopped vegetables (tomato, cucumber, bell pepper)",
-          "2 hard-boiled eggs, sliced",
-          "1/4 cup olive oil",
-          "2 tbsp lemon juice",
-          "Salt and pepper to taste",
-          "Fresh parsley for garnish"
+          "2 cups cooked Bulgor wheat",
+          "3 tablespoons French dressing",
+          "3 tablespoons chopped sweet pickle",
+          "1/2 teaspoon salt",
+          "1/8 teaspoon pepper",
+          "1-1/2 cups thinly sliced celery",
+          "1/4 cup chopped green bell pepper",
+          "2 chopped hard-cooked eggs",
+          "1 to 2 teaspoons minced onion",
+          "2/3 cup mayonnaise",
+          "A can of tuna fish, or some diced cooked meat or poultry (optional, for a hearty main course salad)"
         ],
-        "fr": [
-          "2 tasses de boulghour cuit",
-          "1 tasse de légumes hachés mélangés (tomate, concombre, poivron)",
-          "2 œufs durs, tranchés",
-          "1/4 tasse d'huile d'olive",
-          "2 c. à soupe de jus de citron",
-          "Sel et poivre au goût",
-          "Persil frais pour garnir"
-        ],
-        "ar": [
-          "2 كوب برغل مطبوخ",
-          "1 كوب خضروات مفرومة متنوعة (طماطم، خيار، فلفل)",
-          "2 بيض مسلوق، مقطع شرائح",
-          "1/4 كوب زيت زيتون",
-          "2 ملعقة طعام عصير ليمون",
-          "ملح وفلفل حسب الذوق",
-          "بقدونس طازج للتزيين"
-        ],
-        "hy": [
-          "2 բաժակ եփած ձավար ցորեն",
-          "1 բաժակ խառնելed մանրացված vegetables (լոլիկ, վարունգ, bell պղպեղ)",
-          "2 hard-եփելed ձու, կտրատված",
-          "1/4 բաժակ ձիթապտղի ձեթ",
-          "2 ճաշի գդալ կիտրոն juice",
-          "Աղ and պղպեղ to taste",
-          "Թարմ մաղադանոս for garnish"
-        ]
+        "fr": [],
+        "ar": [],
+        "hy": []
       },
       "instructions": {
         "en": [
-          "Cook bulgur and allow to cool.",
-          "Combine chopped vegetables and sliced eggs in a bowl.",
-          "Add bulgur and toss gently.",
-          "Whisk olive oil, lemon juice, salt and pepper; pour over salad and toss to coat.",
-          "Chill briefly before serving."
+          "Blend cooked Bulgor wheat, French dressing, chopped sweet pickle, salt and pepper.",
+          "Chill.",
+          "Add celery, green bell pepper, chopped hard-cooked eggs, minced onion, and mayonnaise.",
+          "Mix well. Serve on a bed of lettuce and garnish with tomato wedges.",
+          "For a hearty main course salad, add a can of tuna fish or some diced cooked meat or poultry."
         ],
-        "fr": [
-          "Cuire le boulghour et laisser refroidir.",
-          "Mélanger les légumes hachés et les œufs tranchés dans un bol.",
-          "Ajouter le boulghour et mélanger délicatement.",
-          "Fouetter l'huile d'olive, le jus de citron, le sel et le poivre; verser sur la salade et mélanger.",
-          "Réfrigérer brièvement avant de servir."
-        ],
-        "ar": [
-          "اطبخ البرغل واتركه يبرد.",
-          "اخلط الخضروات المفرومة وشرائح البيض في وعاء.",
-          "أضف البرغل وقلّب بلطف.",
-          "اخلط زيت الزيتون وعصير الليمون والملح والفلفل واسكبها على السلطة وقلّب.",
-          "ضعها في الثلاجة لفترة قصيرة قبل التقديم."
-        ],
-        "hy": [
-          "Եփել ձավար and allow to cool.",
-          "Խառնել մանրացված vegetables and կտրատված ձու in a bowl.",
-          "Ավելացնել ձավար and toss gently.",
-          "Whisk ձիթապտղի ձեթ, կիտրոն juice, աղ and պղպեղ; pour over աղցան and toss to coat.",
-          "Chill briefly before պորցիա."
-        ]
+        "fr": [],
+        "ar": [],
+        "hy": []
       },
       "categoryId": "salad",
       "published": {
@@ -1601,6 +1414,28 @@
           "Whisk ձու, կաթ, շաքար and vanilla; pour over the բալ layer and թխել at 350°f (175°c) for 1 ժամ or until քրեմ is set."
         ]
       },
+      "variations": [
+        {
+          "name": {
+            "en": [
+              "Bulgor Apricot Custard",
+              "Bulgor Blueberry Custard",
+              "Bulgor Boysenberry Custard",
+              "Bulgor Pineapple Custard",
+              "Bulgor Peach Custard"
+            ],
+            "fr": [],
+            "ar": [],
+            "hy": []
+          },
+          "note": {
+            "en": "Substitute 1 can (1 lb.) of any of these fruits for the 1 can (1 lb.) red sour pitted cherries in the above recipe.",
+            "fr": "",
+            "ar": "",
+            "hy": ""
+          }
+        }
+      ],
       "keywords": {
         "en": [
           "cherry custard",
