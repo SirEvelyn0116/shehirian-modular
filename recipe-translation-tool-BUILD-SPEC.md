@@ -907,3 +907,103 @@ right backend for each.
   build consumes" — the architectural insight (data is truth, page is a view).
 - "Extended a **governance dashboard** to handle a second content type, choosing the right
   backend per data shape (Sheets for flat strings, Postgres for structured recipes)" — judgment.
+
+---
+
+## 14. Content strategy — authentic recipe set (2026-09-03)
+
+Recorded after a scan-vs-JSON reconciliation of `all-recipes.json` against the source scans in
+`sections/recipes/scans` (`ShehirianBulgorRecipes-3-6.pdf` = pp.2–6 rescans;
+`recipesPGs7-18.pdf` = pp.7–18, skips 13–14; `page13and14.pdf` = the only source for pp.13–14 —
+**not** an overlap/duplicate of anything in the 7–18 file, contrary to an earlier assumption). This
+section is the record of what's authentic, what's fabricated, and the decisions that follow —
+kept separate from the dashboard-build risk log in §11 because it's a content question, not a
+tool-build one.
+
+**The scans hold 40 headed recipes + 5 named sub-variants** (the Bulgor Cherry Custard fruit
+substitutions on p.17) — 45 distinct named items. The pre-cleanup `all-recipes.json` had 44 slugs.
+Reconciling the two directions (every slug traced to a scan heading or flagged as unsourced; every
+scan heading traced to a slug or flagged as unrepresented) found:
+
+- **38 slugs** map cleanly 1:1 to a scan heading (authentic).
+- **1 slug** (`bulgur-carrot-raisin-salad`) is a legitimate scan-authored variation of another slug
+  (`bulgur-carrot-pineapple-salad`), not an independent recipe — see the variation rule below.
+- **4 slugs** have no scan source anywhere and read as AI-invented: `bulgur-wheat-salad`,
+  `classic-tabbouleh`, `hearty-bulgur-pilaf`, `spiced-lentil-soup`. (`classic-tabbouleh` also
+  duplicates a fifth slug, `tabbouleh-salad`, near-verbatim — see below.)
+- **1 slug** (`bulgur-garden-salad`) is an unresolved, low-confidence link to the scan's plain
+  "Bulgor Salad" (p.6) — shares only the "2 hard-cooked eggs" detail, everything else differs.
+  Unresolved as fabricated-vs-heavily-rewritten; not acted on structurally, see Part 2 log below.
+- On the scan side: of the 40 headed recipes, 1 (the plain "Bulgor Salad," p.6) has no confident
+  slug — the same open item as `bulgur-garden-salad` above, from the other direction. The 5 named
+  Bulgor Cherry Custard fruit sub-variants (Apricot, Blueberry, Boysenberry, Pineapple, Peach) have
+  **zero** slug representation.
+
+Full recipe-by-recipe mapping, confidence ratings, and the fidelity assessment (which recipes are
+faithful vs. altered vs. rewritten) live in session notes, not duplicated here — this section
+records the *decisions*, not the working detail.
+
+### Uniform variation rule
+
+When the scan phrases a recipe as **"substitute X for Y in the above recipe"** (rather than giving
+it a full standalone ingredient/method list), it is recorded in `all-recipes.json` as a **noted
+variation on the base recipe** — never as its own slug/page. Reasons: (1) SEO — a near-duplicate
+page competing with its own base recipe is duplicate content, not new content; (2) consistency —
+the base recipe's full method still applies, so splitting it into a separate "recipe" with a
+sparse or copy-pasted ingredient list misrepresents what the scan actually says.
+
+This rule is retroactive and prospective:
+- **`bulgur-carrot-raisin-salad`** (currently its own slug) is being collapsed into
+  `bulgur-carrot-pineapple-salad` as a variation note — mechanical retirement done in this pass
+  (Part 2 below); the variation text itself is scan-sourced and left for direct entry from the
+  scan.
+- **The 5 Bulgor Cherry Custard fruit variants** (p.17: "Substitute 1 can (1 lb.) of any of these
+  fruits for the 1 can (1 lb.) red sour pitted cherries in the above recipe") will be added as
+  variation notes on `bulgur-cherry-custard`, not as five new slugs. Not yet done — scan-sourced,
+  pending.
+- **Any other instance found in the scans** going forward (translation work, not this pass) should
+  be checked against this rule before being given its own slug.
+
+### Recipe-set changes made this pass (Part 2 — mechanical only, no scan-sourced content written)
+
+- **Removed** (fabricated, no bulgur, no scan basis): `spiced-lentil-soup`.
+- **Removed** (fabricated/duplicate, no scan basis): `bulgur-wheat-salad`, `classic-tabbouleh`.
+- **Parked**, `published` forced to `false` on all languages, entry left in place pending the
+  Shehirian brothers' call (item (d) below): `hearty-bulgur-pilaf`.
+- **Parked as a placeholder** (`published: false`, inline "TO BE REPLACED" note), not deleted,
+  because the replacement is scan-sourced content that is the user's task: `tabbouleh-salad` → to
+  be replaced by a user-built `tabulee-salad` from p.5 ("TABULEE SALAD").
+- **Parked as a placeholder** (`published: false`, inline note), same reason: `bulgur-garden-salad`
+  → to be replaced by a user-built `bulgur-salad` from p.6 ("BULGOR SALAD").
+- **Parked as a placeholder** (`published: false`, inline note): `bulgur-carrot-raisin-salad` → to
+  be collapsed into `bulgur-carrot-pineapple-salad` as a variation; variation text to be written
+  from the p.5 scan by the user.
+- **Not created** (scan-sourced, user's task, no action taken): the 5 Bulgor Cherry Custard fruit
+  variants as variation notes on `bulgur-cherry-custard`.
+
+Exact per-item mechanics (why some were deletable outright and others had to stay as
+build-coherent placeholders) are in the Part 2 commit and its report.
+
+### Decisions for the Shehirian brothers (brief once, comprehensively)
+
+1. **Armenian needs a full retranslation, not a review pass.** Frame it to them as a corruption
+   fix, not a quality check — the `hy` fields contain literal dictionary-substitution artifacts,
+   not just awkward phrasing. Concrete evidence sitting in the current JSON: the English substring
+   `"oil"` inside unrelated English words has been naively substring-replaced with the Armenian
+   word for oil, producing garbage like `"hard-bձեթed ձուs"` (intended: "hard-boiled eggs" —
+   "boiled" contains "oil" as a substring, which is what triggered the bad replace) sitting
+   alongside *correctly* handled instances elsewhere in the same file (`"2 hard-եփելed ձու"`,
+   using the real word for "boiled/cooked"). Inconsistent, automated, and not fixable by
+   spot-editing — the whole `hy` column needs redoing.
+2. **Arabic numeral preference — open decision, needs their call.** Current `ar` fields mix Western
+   digits (4, 1/2, 6-8…) into Arabic script throughout. Ask whether they want Eastern Arabic-Indic
+   numerals (٤, ١/٢) instead, for step numbers and quantities, before the Arabic pass is treated as
+   final.
+3. **Confirm Armenian numeral convention.** `hy` fields currently also use Western digits
+   throughout. Unlike Arabic, Armenian typography doesn't have a live Eastern-numeral alternative
+   in general use — this is very likely already correct — but get an explicit confirmation from the
+   brothers rather than assuming, since it's being asked in the same breath as the Arabic question.
+4. **`hearty-bulgur-pilaf` — keep or drop?** Confirmed AI-fabricated (no scan source), but unlike
+   `spiced-lentil-soup` it does contain bulgur and is a plausible modern addition to the line, not
+   nonsense. Their call: keep it as a deliberate "modern recipe" addition to the collection, or drop
+   it entirely for collection authenticity. Parked, unpublished, pending that decision — see above.
