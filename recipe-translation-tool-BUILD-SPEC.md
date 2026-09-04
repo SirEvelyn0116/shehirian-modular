@@ -964,6 +964,29 @@ This rule is retroactive and prospective:
 - **Any other instance found in the scans** going forward (translation work, not this pass) should
   be checked against this rule before being given its own slug.
 
+### Spelling convention: "Bulgor" (2026-09-04)
+
+**Authored English prose uses "Bulgor" (capital B — Shehirian family / booklet spelling), never
+the common "bulgur."** Transcribed content preserves the scan's spelling (also "Bulgor" — the
+booklet itself always capitalizes it, brand-name style, even mid-sentence). Applies to all
+descriptions, About/intro content, and any other composed prose. Enforced in a full audit pass
+(2026-09-04): ~193 case-insensitive "bulgur" occurrences in `all-recipes.json` were categorized by
+context — composed English prose (`title.en`, `description.en`, `keywords.en`) was corrected to
+"Bulgor" throughout (88 instances, 38 recipes); everything else was deliberately left alone:
+slugs, transcribed `ingredients.en`/`instructions.en` (a "bulgur" surviving there is a signal of
+un-verified content — see the flagged list in that pass's report, not duplicated here), and every
+non-English field (translation spelling is its own later question). Full per-instance detail is in
+that session's report, not the repo.
+
+**Slug spelling — deferred, do not change during content work.** Slugs currently mix "bulgur" and
+"bulgor" (e.g. `bulgur-salad` vs. `scalloped-bulgor-with-wieners`). Unlike prose, this is a
+URL/SEO-affecting decision, not a content-fidelity one — and the common spelling ("bulgur") is
+actually the *better* one for slugs, since it matches what people actually search, giving the
+common-spelling URLs a small SEO edge the brand-spelling ones don't get. So standardizing slugs
+toward "bulgur" — or simply leaving the current mix — may be preferable to forcing everything to
+"bulgor." Do not change slugs during content/translation work; this is a deferred, deliberate
+URL/links/code-references decision, listed in the brothers' decision list below.
+
 ### Recipe-set changes made this pass (Part 2 — mechanical only, no scan-sourced content written)
 
 - **Removed** (fabricated, no bulgur, no scan basis): `spiced-lentil-soup`.
@@ -1007,3 +1030,13 @@ build-coherent placeholders) are in the Part 2 commit and its report.
    `spiced-lentil-soup` it does contain bulgur and is a plausible modern addition to the line, not
    nonsense. Their call: keep it as a deliberate "modern recipe" addition to the collection, or drop
    it entirely for collection authenticity. Parked, unpublished, pending that decision — see above.
+5. **"Bulgor" vs. "bulgur" for SEO/discoverability.** Recommendation: use "Bulgor" as the
+   brand/heritage spelling (brand name, headings, recipe content — authenticity), **and** include
+   the common "bulgur" spelling in descriptions/searchable text/meta (discoverability — "bulgur" is
+   overwhelmingly the more-searched term; using only "Bulgor" would make the site hard to find).
+   Decision for the brothers: how *visible* should the common "bulgur" be —
+   (a) woven visibly into descriptions, e.g. "Bulgor salad (bulgur wheat)…", or
+   (b) kept only in invisible meta/keywords so visible text always shows "Bulgor"?
+   Both work for SEO; it's a brand-voice comfort call. Once decided, a later authored-content pass
+   adds the common spelling accordingly. (Separate from, but related to, the slug-spelling question
+   above — that one's about URLs, this one's about visible/meta text.)
