@@ -1,6 +1,69 @@
 {
   "recipes": [
     {
+      "slug": "how-to-cook-bulgor",
+      "featuredRecipe": false,
+      "title": {
+        "en": "How to Cook Bulgor",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "description": {
+        "en": "The basic method for cooking dry Bulgor wheat, used as a prepared ingredient in other recipes in this collection.",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCategory": {
+        "en": "Basics",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCuisine": {
+        "en": "",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
+      "recipeYield": {
+        "en": "2 1/2 cups",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "ingredients": {
+        "en": [
+          "1 cup dry Bulgor wheat",
+          "1-2/3 cups water",
+          "1/4 teaspoon salt"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "instructions": {
+        "en": [
+          "Combine in a saucepan: dry Bulgor wheat, water, and salt.",
+          "Bring to boil, cover, reduce heat, and simmer until water is absorbed."
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "categoryId": "other",
+      "published": {
+        "en": false,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      }
+    },
+    {
       "slug": "royal-soup",
       "featuredRecipe": true,
       "title": {
