@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Chinese Fried Bulgur",
+  "name": "Chinese Fried Bulgor",
   "author": "Shehirian family",
-  "description": "A quick fried bulgur with soy sauce and vegetables, served as a side or main.",
+  "description": "A quick fried Bulgor with soy sauce and vegetables, served as a side or main.",
   "recipeCategory": "Main/Side",
   "recipeCuisine": "Chinese-Inspired",
   "recipeYield": "4-5 servings",

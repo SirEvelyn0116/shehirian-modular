@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Scotch Haggis with Bulgur",
+  "name": "Scotch Haggis with Bulgor",
   "author": "Shehirian family",
-  "description": "A traditional haggis-style pudding mixed with bulgur.",
+  "description": "A traditional haggis-style pudding mixed with Bulgor.",
   "recipeCategory": "Pudding",
   "recipeCuisine": "Scottish",
   "recipeYield": "Large (serves several)",

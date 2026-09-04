@@ -1,9 +1,9 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Hearty Bulgur Pilaf",
+  "name": "Hearty Bulgor Pilaf",
   "author": "Shehirian family",
-  "description": "Coarse bulgur simmered with vegetables and spices for a comforting meal.",
+  "description": "Coarse Bulgor simmered with vegetables and spices for a comforting meal.",
   "recipeCategory": "Main Dish",
   "recipeCuisine": "Middle Eastern",
   "recipeYield": "4 servings",
