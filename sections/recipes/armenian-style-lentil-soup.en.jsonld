@@ -3,43 +3,39 @@
   "@type": "Recipe",
   "name": "Armenian Style Lentil Soup",
   "author": "Shehirian family",
-  "description": "A hearty Armenian soup with lentils, parsley, mint, and butter.",
+  "description": "An Armenian lentil soup with Bulgor wheat, parsley, mint, and a butter-fried onion garnish.",
   "recipeCategory": "Soup",
   "recipeCuisine": "Armenian",
-  "recipeYield": "4 servings",
-  "prepTime": "PT15M",
-  "cookTime": "PT60M",
-  "totalTime": "PT75M",
+  "recipeYield": "",
+  "prepTime": "",
+  "cookTime": "PT35M",
+  "totalTime": "PT35M",
   "recipeIngredient": [
-    "1/2 cup water",
-    "1/2 cup lentils",
-    "1/2 cup chopped onion",
+    "1/2 gallon water",
+    "1/2 cup Bulgor wheat",
     "1/2 cup chopped parsley",
-    "1/2 tsp. salt",
-    "1/2 tsp. pepper",
-    "1/2 cup butter or margarine",
-    "1/2 cup chopped mint"
+    "1/4 cup butter",
+    "1/4 cup unpeeled whole lentils",
+    "2 medium onions",
+    "1/2 teaspoon dry mint, or 1 tablespoon fresh mint",
+    "Salt and pepper"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Boil lentils in water for 15 minutes."
+      "text": "Put lentils in water and bring to boil. Keep it boiling for 15 minutes."
     },
     {
       "@type": "HowToStep",
-      "text": "Add onion, parsley, salt, and pepper. Simmer for 45 minutes."
+      "text": "Add Bulgor wheat, one onion sliced, parsley, salt and pepper, and cook for 20 minutes on moderate heat."
     },
     {
       "@type": "HowToStep",
-      "text": "Add mint and butter. Simmer for 15 minutes."
+      "text": "Meanwhile, chop the other onion and fry in butter until light brown."
     },
     {
       "@type": "HowToStep",
-      "text": "Add 1/4 tsp. pepper and cook for 5 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Optional: Fry butter until light brown and pour over soup."
+      "text": "Add mint 2 or 3 minutes before it is done, and pour over; mix and serve hot."
     }
   ]
 }

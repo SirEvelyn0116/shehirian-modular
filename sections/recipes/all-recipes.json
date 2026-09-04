@@ -73,7 +73,7 @@
         "hy": "Թագավորական Ապուր"
       },
       "description": {
-        "en": "A Middle Eastern lemon meatball soup with rice and parsley.",
+        "en": "A Middle Eastern egg-and-lemon meatball soup with Bulgor wheat and parsley.",
         "fr": "Une soupe moyen-orientale aux boulettes de viande et au citron, avec du riz et du persil.",
         "ar": "حساء شرق أوسطي بكرات اللحم والليمون مع الأرز والبقدونس.",
         "hy": "Մերձավոր Արևելյան կիտրոնով և միսով գնդիկներով ապուր բրնձով և մաղադանոսով։"
@@ -91,25 +91,24 @@
         "hy": "Մերձավոր Արևելյան"
       },
       "recipeYield": {
-        "en": "6 servings",
+        "en": "",
         "fr": "6 portions",
         "ar": "ست حصص",
         "hy": "6 պորցիա"
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT30M",
-      "totalTime": "PT45M",
+      "prepTime": "PT10M",
+      "cookTime": "PT15M",
+      "totalTime": "PT25M",
       "ingredients": {
         "en": [
           "1/2 gallon chicken broth",
-          "1/2 lb. ground beef (not too lean)",
-          "1/4 cup raw rice",
+          "1/2 lb. ground lamb, not too lean",
+          "1 cup Bulgor wheat (fine)",
           "1/4 cup very finely chopped onion",
-          "1/4 cup parsley",
-          "1/4 cup lemon juice",
-          "1/4 cup finely chopped celery",
-          "1/4 tsp. salt",
-          "Slice of 2 lemons"
+          "1/4 cup finely chopped parsley",
+          "3 eggs",
+          "Juice of 2 lemons",
+          "Salt and pepper"
         ],
         "fr": [
           "2 litres de bouillon de poulet",
@@ -147,13 +146,11 @@
       },
       "instructions": {
         "en": [
-          "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls.",
-          "Add rice to the meat balls mixture.",
-          "Add meat balls to hot chicken broth and simmer until cooked through.",
-          "Add lemon juice and celery. Simmer for 10 minutes.",
-          "Add salt and lemon slices. Simmer for 5 minutes.",
-          "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed.",
-          "Pour broth over meatballs and serve."
+          "Mix raw meat, Bulgor wheat, onion, parsley and seasoning together, and knead well, adding water a little at a time until mixture is smooth (about 10 minutes).",
+          "Make mixture into small balls about the size of cherries, drop them into the boiling chicken broth and cook for 15 minutes.",
+          "Beat eggs thoroughly, adding lemon juice while beating.",
+          "Slowly pour the soup broth into the egg and lemon mixture, beating constantly, until all the broth has been used.",
+          "Pour over the balls and serve immediately."
         ],
         "fr": [
           "Mélanger la viande crue, le boulghour, l’oignon, le persil et l’assaisonnement, puis former des boulettes de 2,5 cm de diamètre.",
@@ -223,7 +220,7 @@
         "hy": "Հայկական Ոսպով Ապուր"
       },
       "description": {
-        "en": "A hearty Armenian soup with lentils, parsley, mint, and butter.",
+        "en": "An Armenian lentil soup with Bulgor wheat, parsley, mint, and a butter-fried onion garnish.",
         "fr": "Une soupe arménienne consistante aux lentilles, persil, menthe et beurre.",
         "ar": "حساء أرمني غني بالعدس والبقدونس والنعناع والزبدة.",
         "hy": "Սննդարար հայկական ապուր ոսպով, մաղադանոսով, անանուխով և կարագով։"
@@ -241,24 +238,24 @@
         "hy": "Հայկական"
       },
       "recipeYield": {
-        "en": "4 servings",
+        "en": "",
         "fr": "4 portions",
         "ar": "أربع حصص",
         "hy": "4 պորցիա"
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT60M",
-      "totalTime": "PT75M",
+      "prepTime": "",
+      "cookTime": "PT35M",
+      "totalTime": "PT35M",
       "ingredients": {
         "en": [
-          "1/2 cup water",
-          "1/2 cup lentils",
-          "1/2 cup chopped onion",
+          "1/2 gallon water",
+          "1/2 cup Bulgor wheat",
           "1/2 cup chopped parsley",
-          "1/2 tsp. salt",
-          "1/2 tsp. pepper",
-          "1/2 cup butter or margarine",
-          "1/2 cup chopped mint"
+          "1/4 cup butter",
+          "1/4 cup unpeeled whole lentils",
+          "2 medium onions",
+          "1/2 teaspoon dry mint, or 1 tablespoon fresh mint",
+          "Salt and pepper"
         ],
         "fr": [
           "125 ml d’eau",
@@ -293,11 +290,10 @@
       },
       "instructions": {
         "en": [
-          "Boil lentils in water for 15 minutes.",
-          "Add onion, parsley, salt, and pepper. Simmer for 45 minutes.",
-          "Add mint and butter. Simmer for 15 minutes.",
-          "Add 1/4 tsp. pepper and cook for 5 minutes.",
-          "Optional: Fry butter until light brown and pour over soup."
+          "Put lentils in water and bring to boil. Keep it boiling for 15 minutes.",
+          "Add Bulgor wheat, one onion sliced, parsley, salt and pepper, and cook for 20 minutes on moderate heat.",
+          "Meanwhile, chop the other onion and fry in butter until light brown.",
+          "Add mint 2 or 3 minutes before it is done, and pour over; mix and serve hot."
         ],
         "fr": [
           "Faire bouillir les lentilles dans l’eau pendant 15 minutes.",
@@ -835,7 +831,7 @@
         "hy": "Chef's ձավարի ցորեն Salad"
       },
       "description": {
-        "en": "A hearty main course salad featuring Bulgor wheat, fresh vegetables, and your choice of cold meats and cheese.",
+        "en": "A Bulgor salad with french dressing, sweet pickle, celery, and green pepper, topped with cold meat and cheese.",
         "fr": "Une salade principale copieuse mettant en vedette du blé bulgur, des légumes frais et votre choix de viandes froides et de fromage.",
         "ar": "سلطة رئيسية شهية تتضمن البرغل والخضروات الطازجة واختيارك من اللحوم الباردة والجبن.",
         "hy": "A hearty main course salad featuring ձավարի ցորեն wheat, fresh vegetables, and your choice of cold meats and պանիր."
@@ -852,26 +848,25 @@
         "ar": "أمريكية",
         "hy": "Ամերիկյան"
       },
-      "prepTime": "PT20M",
-      "cookTime": "PT15M",
-      "totalTime": "PT35M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "recipeYield": {
-        "en": "8 servings",
+        "en": "6 servings",
         "fr": "8 portions",
         "ar": "8 حصص",
         "hy": "8 պորցիա"
       },
       "ingredients": {
         "en": [
-          "2 cups cooked bulgur wheat",
-          "2 cups mixed salad greens",
-          "1 cup diced tomatoes",
-          "1 cup diced cucumber",
-          "1 cup cold meats, sliced (optional)",
-          "1 cup cubed cheese (optional)",
-          "1/4 cup olive oil",
-          "2 tbsp lemon juice",
-          "Salt and pepper to taste"
+          "2-1/2 cups cooked bulgor",
+          "1/3 cup french dressing",
+          "3 tablespoons chopped sweet pickle",
+          "1/2 teaspoon salt",
+          "1/8 teaspoon pepper",
+          "1/3 cup chopped green bell pepper",
+          "1 cup thinly sliced celery",
+          "1 to 2 teaspoons minced onion"
         ],
         "fr": [
           "2 tasses de boulghour cuit",
@@ -909,11 +904,10 @@
       },
       "instructions": {
         "en": [
-          "Prepare bulgur and let cool.",
-          "In a large bowl combine bulgur, salad greens, tomatoes and cucumber.",
-          "Add cold meats and cheese if using.",
-          "Whisk olive oil, lemon juice, salt and pepper; toss with salad.",
-          "Serve chilled or at room temperature."
+          "Blend Bulgor wheat, french dressing, pickle, salt and pepper; chill.",
+          "Add green pepper, sliced celery and onion.",
+          "Mix well; serve on a bed of salad greens which have been tossed with french dressing.",
+          "Top with thin strips of cold boiled ham or tongue, cold chicken or turkey, and Canadian or swiss cheese."
         ],
         "fr": [
           "Préparer le boulghour et laisser refroidir.",
@@ -1141,7 +1135,7 @@
         "hy": "Scotch թանձրացրած ապուր with ձավարի ցորեն Wheat"
       },
       "description": {
-        "en": "A traditional Scottish soup transformed with hearty Bulgor wheat and lamb.",
+        "en": "A Scottish lamb and vegetable broth with Bulgor wheat, thickened with a butter-and-flour roux.",
         "fr": "Une soupe écossaise traditionnelle transformée avec du blé bulgur copieux et de l'agneau.",
         "ar": "حساء اسكتلندي تقليدي معدّل بالبرغل الشهي ولحم الخروف.",
         "hy": "A traditional Scottish soup transformed with hearty ձավարի ցորեն wheat and գառի միս."
@@ -1158,33 +1152,23 @@
         "ar": "اسكتلندية",
         "hy": "Շոտլանդական"
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT105M",
-      "totalTime": "PT120M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
-          "2 lbs. lamb shoulder",
-          "8 cups water",
-          "1/2 cup bulgur wheat",
-          "1 cup diced carrots",
-          "1 cup diced turnip",
-          "1 cup chopped leeks",
-          "1/2 cup pearl barley",
-          "Salt and pepper to taste",
-          "Fresh parsley for garnish",
-          "2 quarts chicken broth",
-          "2 pounds lamb shank",
-          "1 cup chopped parsley",
-          "1/2 cup chopped onion",
-          "1/2 cup chopped carrots",
-          "1/2 cup chopped celery",
-          "1/2 cup chopped green pepper (optional)",
-          "1/2 cup chopped tomato",
-          "1/2 cup chopped mint",
-          "1/2 cup chopped leeks",
-          "1/2 cup chopped bulghur wheat",
-          "1/2 tsp. salt",
-          "1/2 tsp. pepper"
+          "2-1/2 quarts water",
+          "2 pounds lamb shanks",
+          "1 cup diced or shredded carrots",
+          "1/2 cup chopped onion or leeks",
+          "1 cup sliced celery",
+          "1 cup Bulgor wheat",
+          "1/4 cup snipped parsley",
+          "2 to 3 teaspoons salt",
+          "1/4 teaspoon pepper",
+          "1/2 teaspoon curry powder (optional)",
+          "2 tablespoons butter or margarine",
+          "4 tablespoons flour"
         ],
         "fr": [
           "2 lbs. lamb shoulder",
@@ -1261,18 +1245,11 @@
       },
       "instructions": {
         "en": [
-          "In a large pot, add lamb and water. Bring to a boil and skim off any foam.",
-          "Reduce heat and simmer for 1 hour until lamb is tender.",
-          "Remove lamb, shred meat, and return to pot.",
-          "Add bulgur wheat, barley, carrots, turnip, and leeks.",
-          "Simmer for 45 minutes until grains and vegetables are tender.",
-          "Season with salt and pepper.",
-          "Serve hot, garnished with fresh parsley.",
-          "Boil lamb shank in chicken broth until tender. Remove meat and bones.",
-          "Cut meat into small pieces and return to broth.",
-          "Add all vegetables and herbs. Simmer for 15 minutes.",
-          "Add bulghur wheat. Simmer for 15 minutes.",
-          "Slowly stir in 8 cups of soup mixture, then add remaining soup.",
+          "Simmer lamb shanks in water 2 to 3 hours, then remove meat and bones and skin off all fat.",
+          "Add Bulgor wheat, carrots, onion or leeks, celery, parsley, salt and pepper, and curry power; cover and continue cooking until vegetables are tender, 15 to 20 minutes.",
+          "Remove meat from bones, dice, and return to soup mixture.",
+          "Blend together over low heat: butter and flour.",
+          "Slowly stir in about 2 cups of the soup mixture, then stir into remaining soup mixture.",
           "Continue cooking until thickened, about 3 minutes."
         ],
         "fr": [
@@ -1322,7 +1299,7 @@
         ]
       },
       "recipeYield": {
-        "en": "6-8 servings",
+        "en": "6 to 8 servings",
         "fr": "6-8 portions",
         "ar": "6-8 حصص",
         "hy": "6-8 պորցիա"

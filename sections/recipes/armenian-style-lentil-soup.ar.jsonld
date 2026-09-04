@@ -7,9 +7,9 @@
   "recipeCategory": "شوربة",
   "recipeCuisine": "أرمنية",
   "recipeYield": "أربع حصص",
-  "prepTime": "PT15M",
-  "cookTime": "PT60M",
-  "totalTime": "PT75M",
+  "prepTime": "",
+  "cookTime": "PT35M",
+  "totalTime": "PT35M",
   "recipeIngredient": [
     "نصف كوب ماء",
     "نصف كوب عدس",
