@@ -15,7 +15,7 @@
     "Green pepper, chopped fine",
     "Parsley, chopped fine",
     "Green onions, chopped fine",
-    "1 cup bulgur wheat (fine)",
+    "1-1/2 cups Bulgor wheat (fine)",
     "1 small onion, chopped fine",
     "Cayenne pepper (optional)",
     "Salt and pepper to taste"
@@ -31,11 +31,11 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Add bulgur, chopped onions and vegetables and knead with a little water until mixture holds together."
+      "text": "Add Bulgor wheat, onions, a tablespoon of each green pepper, parsley, green onions and cayenne pepper if desired, and knead all together like dough, adding water a little at a time, until meat and Bulgor stick together, forming a smooth mixture (knead about 10 minutes)."
     },
     {
       "@type": "HowToStep",
-      "text": "Shape into 2 inch patties and serve immediately, garnished with chopped vegetables."
+      "text": "Shape into 2 inch patties and serve at once, garnished with the rest of chopped vegetables, after salting them to your taste."
     }
   ]
 }
