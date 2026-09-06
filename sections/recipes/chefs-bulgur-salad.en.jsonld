@@ -11,8 +11,8 @@
   "cookTime": "",
   "totalTime": "",
   "recipeIngredient": [
-    "2-1/2 cups cooked bulgor",
-    "1/3 cup french dressing",
+    "2-1/2 cups cooked Bulgor",
+    "1/3 cup French dressing",
     "3 tablespoons chopped sweet pickle",
     "1/2 teaspoon salt",
     "1/8 teaspoon pepper",
@@ -23,7 +23,7 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Blend Bulgor wheat, french dressing, pickle, salt and pepper; chill."
+      "text": "Blend Bulgor wheat, French dressing, pickle, salt and pepper; chill."
     },
     {
       "@type": "HowToStep",
@@ -31,11 +31,11 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Mix well; serve on a bed of salad greens which have been tossed with french dressing."
+      "text": "Mix well; serve on a bed of salad greens which have been tossed with French dressing."
     },
     {
       "@type": "HowToStep",
-      "text": "Top with thin strips of cold boiled ham or tongue, cold chicken or turkey, and Canadian or swiss cheese."
+      "text": "Top with thin strips of cold boiled ham or tongue, cold chicken or turkey, and Canadian or Swiss cheese."
     }
   ]
 }

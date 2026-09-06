@@ -987,6 +987,18 @@ toward "bulgur" — or simply leaving the current mix — may be preferable to f
 "bulgor." Do not change slugs during content/translation work; this is a deferred, deliberate
 URL/links/code-references decision, listed in the brothers' decision list below.
 
+### Editorial-correction policy (2026-09-06)
+
+Obvious errors in the original booklet (clear typos) may be corrected in transcription, but
+**only at the user's explicit direction** — Claude flags candidates, the user decides each; Claude
+never silently corrects. Two examples already handled this way: `scotch-broth`'s "skin off all
+fat" → "skim off all fat" and "curry power" → "curry powder" (the latter already spelled correctly
+in the same recipe's own ingredient list) — both flagged during transcription, both fixed only
+once the user confirmed each. Brand/proper-term casing (**Bulgor**, **French**, **Swiss**) is
+normalized to the standard/brand convention wherever it appears inconsistently in transcribed
+content, on the same user-confirms-first basis — see `chefs-bulgur-salad`, where the scan itself
+inconsistently cased "bulgor"/"french"/"swiss" mid-recipe.
+
 ### Recipe-set changes made this pass (Part 2 — mechanical only, no scan-sourced content written)
 
 - **Removed** (fabricated, no bulgur, no scan basis): `spiced-lentil-soup`.
