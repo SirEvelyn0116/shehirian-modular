@@ -567,7 +567,7 @@
       },
       "instructions": {
         "en": [
-          "Combine boiling water and Bulgor wheat. Let it stand until all water is absorbed, about 1 hour.",
+          "Combine the boiling water and Bulgor wheat; let it stand until all water is absorbed, about 1 hour.",
           "Combine in a salad bowl: cucumber, green onions, green peppers, parsley, mint (or dry mint), tomatoes, radishes, pepper, salt, olive oil or salad oil, and seasoned salt.",
           "Toss until dressing is well distributed."
         ],
@@ -694,7 +694,7 @@
             "hy": []
           },
           "note": {
-            "en": "Substitute 2 tablespoons french dressing for the pineapple juice and 1/4 cup raisin for the crushed pineapple in above recipe.",
+            "en": "Substitute 2 tablespoons French dressing for the pineapple juice and 1/4 cup raisin for the crushed pineapple in above recipe.",
             "fr": "",
             "ar": "",
             "hy": ""
@@ -713,7 +713,7 @@
       "slug": "cole-slaw-bulgur",
       "featuredRecipe": false,
       "title": {
-        "en": "Cole Slaw with Bulgor",
+        "en": "Bulgor Cole Slaw",
         "fr": "Salade de chou au bulgur",
         "ar": "سلطة ملفوف بالبرغل",
         "hy": "Cole Slaw with ձավարի ցորեն"
@@ -736,9 +736,9 @@
         "ar": "أمريكية",
         "hy": "Ամերիկյան"
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT10M",
-      "totalTime": "PT25M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "recipeYield": {
         "en": "4 to 6 servings",
         "fr": "8-10 portions",
