@@ -37,6 +37,20 @@ this pass's page 4–6 scope.
 | `bulgur-dutch-cucumber-salad` | Already named for its own (Dutch/Northern-European) tradition — a creamy sour-cream cucumber salad is a recognizable Dutch/German style (cf. Gurkensalat), not a disguised anglicization of something else. Low confidence there's a different name being obscured. | Low — likely already correctly attributed as-is |
 | `bulgur-salad` | Generic mayonnaise-dressed composed salad (celery, egg, onion, optional tuna/meat), in the same family as the other American composed salads on this page; no specific traditional dish identified. | N/A — skip |
 
+## Page 7
+
+No new candidates. `bulgur-meat-loaf` and `bulgur-salmon-loaf` are mid-century American composed
+dishes (ketchup-glazed meatloaf; canned-salmon loaf) with nothing suggesting an underlying
+traditional dish. `raw-meat-platter` remains flagged above (already listed before this pass).
+
+## Page 8
+
+| Recipe | Tentative observation | Confidence |
+|---|---|---|
+| `cabbage-rolls` | Bulgor-and-lamb-stuffed cabbage leaves, rolled "like a cigarette" and simmered in lemon-broth — this is a textbook stuffed-cabbage preparation with close counterparts across Armenian/Turkish/Middle Eastern cuisines (e.g. "sarma" / "lahana dolması"). Given this booklet's other Armenian/Middle Eastern-rooted dishes, "Cabbage Rolls" plausibly stands in for a specific family/traditional name. | Medium — a recognizable dish family, not a confident specific match |
+| `bulgur-stuffed-peppers` | Bulgor-and-meat-stuffed bell peppers belong to the same stuffed-vegetable (dolma) family as the cabbage rolls above (cf. Turkish "biber dolması"). Lower confidence than cabbage-rolls since stuffed peppers are also common in many non-Middle-Eastern cuisines, but worth a mention given the dolma-family resemblance. | Low–medium |
+| `fish-and-bulgur-pilaf` | Reads as a mid-century American test-kitchen variation (swap in fresh salmon for variety) rather than a specific traditional dish; bulgur pilafs with meat/vegetables are traditional, but this fish-forward version doesn't point to a specific named dish. | Low — likely a booklet-original variation, not a hidden traditional name |
+
 ---
 
 *Add future pages' candidates below as the review continues.*
