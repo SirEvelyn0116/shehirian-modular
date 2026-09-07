@@ -2065,12 +2065,12 @@
         "hy": "Մերձավոր Արևելյան"
       },
       "recipeYield": {
-        "en": "5-6 servings",
+        "en": "5 to 6 servings",
         "fr": "5-6 portions",
         "ar": "5-6 حصص",
         "hy": "5-6 պորցիա"
       },
-      "prepTime": "PT20M",
+      "prepTime": "",
       "cookTime": "PT0M",
       "totalTime": "PT20M",
       "ingredients": {
@@ -2333,17 +2333,17 @@
         "hy": "Միջազգային"
       },
       "recipeYield": {
-        "en": "10-12 servings",
+        "en": "10 to 12 servings",
         "fr": "10-12 portions",
         "ar": "10-12 حصص",
         "hy": "10-12 պորցիա"
       },
-      "prepTime": "PT15M",
+      "prepTime": "",
       "cookTime": "PT1H",
-      "totalTime": "PT1H15M",
+      "totalTime": "PT1H",
       "ingredients": {
         "en": [
-          "2-1/2 cups cooked bulgur",
+          "2-1/2 cups cooked Bulgor wheat",
           "1 egg",
           "1-1/4 cups milk",
           "2 teaspoons salt",
@@ -2386,7 +2386,7 @@
       "instructions": {
         "en": [
           "Blend all ingredients together.",
-          "Turn into loaf pan and bake at 325°F (160°C) about 1 hour or until browned.",
+          "Turn into loaf pan or shape into loaf in shallow baking dish. Bake in moderate oven, 325°F., about 1 hour or until browned.",
           "Optionally spread a thin layer of ketchup on top before baking."
         ],
         "fr": [
@@ -2459,17 +2459,17 @@
         "hy": "Միջազգային"
       },
       "recipeYield": {
-        "en": "6-8 servings",
+        "en": "6 to 8 servings",
         "fr": "6-8 portions",
         "ar": "6-8 حصص",
         "hy": "6-8 պորցիա"
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT45M",
-      "totalTime": "PT1H",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
-          "2-1/2 cups cooked bulgur",
+          "2-1/2 cups cooked Bulgor wheat",
           "1 can (16 oz.) salmon, drained",
           "2 eggs",
           "1/2 cup liquid (salmon liquid plus milk)",
@@ -2516,7 +2516,7 @@
       "instructions": {
         "en": [
           "Blend all ingredients and turn into a loaf pan.",
-          "Bake in moderate oven, 350°F (175°C), for 45 minutes until set."
+          "Bake in moderate oven, 350°F., 45 to 60 minutes."
         ],
         "fr": [
           "Mélanger tous les ingrédients et mettre dans un moule à cake.",
