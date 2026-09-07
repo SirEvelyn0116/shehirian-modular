@@ -877,6 +877,23 @@ right backend for each.
   watermark degrade cleanly with or without one — generate-index.js's `buildRecipeImageHtml`), so
   the rendering half is a non-issue once images exist; what's deferred is actually sourcing them
   and any per-recipe editorial work that implies. Scope separately as its own project.
+- **PRE-PUBLISH REQUIREMENT — Variations do not render on recipe pages (template gap).** The
+  `variations` field in `all-recipes.json` is read nowhere — `generate-index.js` and the
+  recipe-page template have no variations section (confirmed by grep: zero references to
+  `variations` anywhere in the codebase outside the JSON data itself; the template goes straight
+  from the instructions `<section>` to the page footer). So the carrot-raisin variation on
+  `bulgur-carrot-pineapple-salad` and the 5 custard variants on `bulgur-cherry-custard` are
+  captured in data but **invisible to visitors**. This is a template/feature gap, not a content
+  problem. **Must render variations in the template before publishing
+  `bulgur-carrot-pineapple-salad` or `bulgur-cherry-custard`**, or their variation content ships
+  invisible. Recipes without variations can publish without this. To implement (small feature
+  task, do in build/feature mode not content mode): add a `recipe-variations` section to the
+  template after instructions (gated on `isPublished` like the other sections); add a
+  `section_variations` UI-string for all 4 languages; render logic iterating
+  `recipe.variations` (each variation's `name.{lang}` as sub-heading — joined if a list, as with
+  the 5 custard names — and `note.{lang}` as body); with English-fallback / skip-if-untranslated
+  handling for fr/ar/hy (currently empty for all variations) so non-English pages don't show
+  blank sub-sections.
 
 ---
 
