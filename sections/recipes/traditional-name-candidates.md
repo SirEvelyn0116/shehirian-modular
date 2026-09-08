@@ -51,6 +51,26 @@ traditional dish. `raw-meat-platter` remains flagged above (already listed befor
 | `bulgur-stuffed-peppers` | Bulgor-and-meat-stuffed bell peppers belong to the same stuffed-vegetable (dolma) family as the cabbage rolls above (cf. Turkish "biber dolması"). Lower confidence than cabbage-rolls since stuffed peppers are also common in many non-Middle-Eastern cuisines, but worth a mention given the dolma-family resemblance. | Low–medium |
 | `fish-and-bulgur-pilaf` | Reads as a mid-century American test-kitchen variation (swap in fresh salmon for variety) rather than a specific traditional dish; bulgur pilafs with meat/vegetables are traditional, but this fish-forward version doesn't point to a specific named dish. | Low — likely a booklet-original variation, not a hidden traditional name |
 
+## Page 9
+
+No new candidates. `bulgur-wheat-pizza` is a mid-century American fusion (bulgur-enriched crust
+on a standard Italian-American pizza) with nothing suggesting a hidden traditional dish.
+
+## Page 10
+
+| Recipe | Tentative observation | Confidence |
+|---|---|---|
+| `persian-pilaf` | The technique itself is the tell, not just the name: cooked lamb topped with drained Bulgor, butter placed in the center, baked covered, then turned out onto a platter "unmixed" to serve. This closely resembles the Persian **tahdig** technique — a rice dish deliberately cooked to form a crust on the bottom, then unmolded to display it. Worth the brothers confirming whether this was consciously modeled on tahdig-style rice cookery, or if there's a more specific traditional name. | Medium — a recognizable technique, not just a cuisine label |
+| `india-lamb-pilaf` / `india-chicken-curry-pilaf` | Both use curry powder, a British-colonial-era spice blend, rather than pointing to any single named regional dish. Reads as a generic Western "curry" adaptation, not a specific traditional recipe. | Low — cuisine label without a specific dish to identify |
+
+## Page 11
+
+No new candidates. `bulgur-cheese-casserole` and `scalloped-bulgor-with-wieners` are mid-century
+American convenience dishes (canned soup, sliced process cheese, wieners) with no traditional-dish
+question. `scotch-haggis-with-bulgor` is already self-identified by name (haggis, with Bulgor
+substituted for the dish's usual oats) — nothing further to flag beyond what the title already
+states.
+
 ---
 
 *Add future pages' candidates below as the review continues.*
