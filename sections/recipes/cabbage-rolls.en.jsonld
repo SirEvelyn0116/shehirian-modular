@@ -6,38 +6,54 @@
   "description": "Cabbage leaves stuffed with a Bulgor and lamb filling, simmered until tender.",
   "recipeCategory": "Main Dish",
   "recipeCuisine": "Middle Eastern",
-  "recipeYield": "Serves many",
-  "prepTime": "PT30M",
+  "recipeYield": "",
+  "prepTime": "",
   "cookTime": "PT1H",
-  "totalTime": "PT1H30M",
+  "totalTime": "PT1H",
   "recipeIngredient": [
     "Cabbage leaves",
-    "1-1/2 cups ground lamb",
+    "1-1/2 cups (3/4 lb.) ground lamb",
     "2 small onions, chopped fine",
-    "1-1/2 cups bulgur",
+    "1-1/2 cups Bulgor wheat",
     "3 tablespoons tomato paste",
     "2 tablespoons chopped parsley",
-    "1/2 teaspoon dried mint",
+    "1/2 teaspoon mint (dry)",
     "Salt and pepper to taste",
-    "3 cups meat broth or water",
+    "About 3 cups meat broth or water (or to an inch below the surface)",
     "Juice of 1/2 lemon"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Soften cabbage leaves in boiling water and trim ribs."
+      "text": "Soften the cabbage leaves in boiling water and cut off the ribs."
     },
     {
       "@type": "HowToStep",
-      "text": "Mix bulgur with lamb, onions, tomato paste, parsley, mint, salt and pepper."
+      "text": "Put this back in boiling water and boil 4 to 5 minutes; take out, rinse with cold water, and squeeze the water out gently."
     },
     {
       "@type": "HowToStep",
-      "text": "Place filling on cabbage leaves, roll and arrange in pan; add broth and lemon juice."
+      "text": "Add Bulgor to the meat and mix; add parsley, mint, chopped onions, tomato paste, salt and pepper, and blend together."
     },
     {
       "@type": "HowToStep",
-      "text": "Cover and cook or bake at moderate heat for 1 hour."
+      "text": "Spread a leaf on a small plate, wrong side up, with the stem end toward you."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Put some filling (according to the size of the leaf) near the stem end; with your hands, fold over the sides, then start rolling from the stem up like a cigarette."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover the bottom of the pan with some leaves, then arrange the stuffed rolls side by side."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fill with meat broth or water (about 3 cups, or an inch below the surface); add the juice of 1/2 lemon to the water."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Put on the lid and cook or bake with moderate heat for 1 hour. Rest if served hot."
     }
   ]
 }

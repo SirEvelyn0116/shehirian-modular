@@ -7,9 +7,9 @@
   "recipeCategory": "طبق رئيسي",
   "recipeCuisine": "شرق أوسطية",
   "recipeYield": "تكفي عدة حصص",
-  "prepTime": "PT30M",
+  "prepTime": "",
   "cookTime": "PT1H",
-  "totalTime": "PT1H30M",
+  "totalTime": "PT1H",
   "recipeIngredient": [
     "أوراق كرنب",
     "1.5 كوب لحم ضأن مفروم",

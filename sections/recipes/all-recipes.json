@@ -2199,17 +2199,17 @@
         "hy": "Միջազգային"
       },
       "recipeYield": {
-        "en": "5-6 servings",
+        "en": "5 to 6 servings",
         "fr": "5-6 portions",
         "ar": "5-6 حصص",
         "hy": "5-6 պորցիա"
       },
-      "prepTime": "PT20M",
+      "prepTime": "",
       "cookTime": "PT1H10M",
-      "totalTime": "PT1H30M",
+      "totalTime": "PT1H10M",
       "ingredients": {
         "en": [
-          "2-1/2 cups cooked bulgur",
+          "2-1/2 cups cooked Bulgor wheat",
           "1/2 pound ground fresh or left-over meat or sausage",
           "1-3/4 cup meat or chicken stock or canned bouillon",
           "1/2 teaspoon salt",
@@ -2255,10 +2255,10 @@
       },
       "instructions": {
         "en": [
-          "Blend bulgur, meat, stock, salt, seasoned salt, Worcestershire sauce and pepper.",
+          "Blend together Bulgor, meat or sausage, one cup bouillon or meat stock, salt, seasoned salt, Worcestershire sauce, and pepper.",
           "Cut peppers in halves lengthwise and remove all seeds and white portions.",
-          "Fill pepper halves with bulgur mixture and place in shallow baking dish.",
-          "Pour tomato purée mixed with stock over peppers, cover and bake at 375°F for 30 minutes, then uncover and bake an additional 40 minutes."
+          "Fill pepper halves with Bulgor mixture and place in shallow baking dish.",
+          "Mix tomato purée and 3/4 cup meat stock and pour over peppers, cover and bake at 375°F for 30 minutes, then uncover and bake an additional 40 minutes."
         ],
         "fr": [
           "Mélanger le boulghour, la viande, le bouillon, le sel, la sauce Worcestershire et le poivre.",
@@ -2585,25 +2585,25 @@
         "hy": "Մերձավոր Արևելյան"
       },
       "recipeYield": {
-        "en": "Serves many",
+        "en": "",
         "fr": "Pour plusieurs personnes",
         "ar": "تكفي عدة حصص",
         "hy": "Serves many"
       },
-      "prepTime": "PT30M",
+      "prepTime": "",
       "cookTime": "PT1H",
-      "totalTime": "PT1H30M",
+      "totalTime": "PT1H",
       "ingredients": {
         "en": [
           "Cabbage leaves",
-          "1-1/2 cups ground lamb",
+          "1-1/2 cups (3/4 lb.) ground lamb",
           "2 small onions, chopped fine",
-          "1-1/2 cups bulgur",
+          "1-1/2 cups Bulgor wheat",
           "3 tablespoons tomato paste",
           "2 tablespoons chopped parsley",
-          "1/2 teaspoon dried mint",
+          "1/2 teaspoon mint (dry)",
           "Salt and pepper to taste",
-          "3 cups meat broth or water",
+          "About 3 cups meat broth or water (or to an inch below the surface)",
           "Juice of 1/2 lemon"
         ],
         "fr": [
@@ -2645,10 +2645,14 @@
       },
       "instructions": {
         "en": [
-          "Soften cabbage leaves in boiling water and trim ribs.",
-          "Mix bulgur with lamb, onions, tomato paste, parsley, mint, salt and pepper.",
-          "Place filling on cabbage leaves, roll and arrange in pan; add broth and lemon juice.",
-          "Cover and cook or bake at moderate heat for 1 hour."
+          "Soften the cabbage leaves in boiling water and cut off the ribs.",
+          "Put this back in boiling water and boil 4 to 5 minutes; take out, rinse with cold water, and squeeze the water out gently.",
+          "Add Bulgor to the meat and mix; add parsley, mint, chopped onions, tomato paste, salt and pepper, and blend together.",
+          "Spread a leaf on a small plate, wrong side up, with the stem end toward you.",
+          "Put some filling (according to the size of the leaf) near the stem end; with your hands, fold over the sides, then start rolling from the stem up like a cigarette.",
+          "Cover the bottom of the pan with some leaves, then arrange the stuffed rolls side by side.",
+          "Fill with meat broth or water (about 3 cups, or an inch below the surface); add the juice of 1/2 lemon to the water.",
+          "Put on the lid and cook or bake with moderate heat for 1 hour. Rest if served hot."
         ],
         "fr": [
           "Ramollir les feuilles de chou dans l'eau bouillante et couper les nervures.",
@@ -2727,26 +2731,26 @@
         "hy": "Միջազգային"
       },
       "recipeYield": {
-        "en": "6-8 servings",
+        "en": "6 to 8 servings",
         "fr": "6-8 portions",
         "ar": "6-8 حصص",
         "hy": "6-8 պորցիա"
       },
-      "prepTime": "PT10M",
-      "cookTime": "PT30M",
-      "totalTime": "PT40M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "3 tablespoons butter or margarine",
-          "1 pound fresh salmon, cubed",
+          "1 pound fresh salmon, cut in cubes or strips",
           "1/2 cup chopped onion",
           "1/2 cup chopped celery",
-          "1 cup bulgur wheat",
+          "1 cup Bulgor wheat",
           "2 cups water",
-          "1-2 tablespoons lemon juice",
+          "1 to 2 tablespoons lemon juice",
           "1 teaspoon salt",
           "1/8 teaspoon fine herbs",
-          "1/8 teaspoon thyme"
+          "1/8 teaspoon (scant) thyme"
         ],
         "fr": [
           "3 c. à soupe de beurre ou margarine",
@@ -2787,9 +2791,9 @@
       },
       "instructions": {
         "en": [
-          "Heat butter in skillet, add onion and celery and sauté until translucent.",
-          "Add salmon and cook briefly, then add bulgur and water.",
-          "Cover and simmer 25-30 minutes until bulgur is tender. Season with lemon juice and salt."
+          "Heat butter or margarine in skillet, add onion and celery.",
+          "Sauté until onions are straw-coloured.",
+          "Add rest of the ingredients, cover and simmer 25 to 30 minutes."
         ],
         "fr": [
           "Faire fondre le beurre dans une poêle, ajouter l'oignon et le céleri et faire revenir jusqu'à transparence.",
