@@ -71,6 +71,21 @@ question. `scotch-haggis-with-bulgor` is already self-identified by name (haggis
 substituted for the dish's usual oats) — nothing further to flag beyond what the title already
 states.
 
+## Page 12
+
+| Recipe | Tentative observation | Confidence |
+|---|---|---|
+| `armenian-pilaf` | The technique is the specific tell here, not just the name: browning vermicelli or noodles in butter before adding the grain and liquid is the defining, well-known method of Armenian/Turkish rice pilaf (often called something like "tel şehriyeli pilav" — vermicelli pilaf). Worth the brothers confirming whether a more specific family/traditional name applies, given this is a named technique rather than just a resemblance. | Medium-high — a specific, recognizable named technique |
+| `boston-baked-bulgor` | Openly modeled on Boston baked beans (molasses, salt pork, brown sugar, dry mustard); already correctly named for its own (New England) tradition. | N/A — skip, self-evident |
+| `chinese-fried-bulgor` | Openly modeled on American-Chinese fried rice (soy sauce, minced aromatics, stir-fry technique); already correctly named. | N/A — skip, self-evident |
+
+## Page 13
+
+No new candidates. `pilaf-almondine` and `pilaf-romanoff` use Continental-American naming
+conventions (almondine/amandine, Romanoff — cf. "Trout Almondine," "Strawberries Romanoff"), not
+disguised references to a specific ethnic dish. `spanish-bulgor` is an openly-named "Spanish rice"
+adaptation, already self-evident.
+
 ---
 
 *Add future pages' candidates below as the review continues.*
