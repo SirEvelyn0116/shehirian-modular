@@ -27,19 +27,35 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Sift together flour, baking powder and salt."
+      "text": "Sift together the flour, baking powder, and salt."
     },
     {
       "@type": "HowToStep",
-      "text": "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy."
+      "text": "Cream the butter and sugar until light and fluffy."
     },
     {
       "@type": "HowToStep",
-      "text": "Stir in the cooked Bulgor and vanilla. Grind together the prunes, raisins, and apricots; stir into the Bulgor mixture. Add the milk alternately with the dry ingredients."
+      "text": "Add the eggs; beat until thick and creamy."
     },
     {
       "@type": "HowToStep",
-      "text": "Fill greased loaf pan or mould three-fourths full (coffee or shortening cans will do), cover tightly, and steam for 2 hours. Serve with whipped cream."
+      "text": "Stir in the cooked Bulgor and vanilla."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Grind together the prunes, raisins, and apricots; stir into the Bulgor mixture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the milk alternately with the dry ingredients."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fill a greased loaf pan or mould three-fourths full (coffee or shortening cans will do)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cover tightly. Steam 2 hours. Serve with whipped cream."
     },
     {
       "@type": "HowToStep",
