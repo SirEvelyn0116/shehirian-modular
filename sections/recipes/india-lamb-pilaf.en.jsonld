@@ -3,24 +3,45 @@
   "@type": "Recipe",
   "name": "India Lamb Pilaf",
   "author": "Shehirian family",
-  "description": "A spiced lamb pilaf with curry and apples, using bulgur.",
+  "description": "A spiced lamb pilaf with curry and apples, using Bulgor.",
   "recipeCategory": "Main Dish",
   "recipeCuisine": "Indian-Inspired",
-  "recipeYield": "5-6 servings",
-  "prepTime": "PT15M",
+  "recipeYield": "5 to 6 servings",
+  "prepTime": "",
   "cookTime": "PT40M",
-  "totalTime": "PT55M",
+  "totalTime": "PT40M",
   "recipeIngredient": [
-    "Oil, cooked lamb cubes, chopped onion, tart apple, garlic, celery seed, curry powder, ginger, salt, pepper, Tabasco, tomato purée, consommé or water, 1 cup bulgur"
+    "3 tablespoons oil",
+    "3 cups cooked lamb, cut in cubes",
+    "1/3 cup chopped onion",
+    "1/2 cup chopped tart apple",
+    "1 clove garlic, minced",
+    "1/2 teaspoon celery seed",
+    "1-1/2 teaspoons curry powder",
+    "1/8 teaspoon ginger",
+    "1 teaspoon salt",
+    "1/4 teaspoon pepper",
+    "5 to 6 drops Tabasco sauce",
+    "1 can (10 oz.) tomato purée",
+    "3-1/2 cups canned consommé or water",
+    "1 cup Bulgor wheat"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Sauté lamb with onion, apple and garlic; brown lightly."
+      "text": "Heat the oil in a heavy skillet."
     },
     {
       "@type": "HowToStep",
-      "text": "Blend in remaining ingredients, bring to boil then simmer about 40 minutes until thickened."
+      "text": "Add the cooked lamb, onion, tart apple, and garlic; sauté over moderate heat until the meat and onions are lightly browned."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Blend in the rest of the ingredients; cover and bring to a boil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Reduce heat and simmer slowly until thickened, about 40 minutes."
     }
   ]
 }

@@ -1,19 +1,19 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Bulgur Cheese Casserole",
+  "name": "Bulgor Cheese Casserole",
   "author": "Shehirian family",
-  "description": "A simple baked casserole mixing cooked bulgur with cheese and tomatoes.",
+  "description": "A simple baked casserole mixing cooked Bulgor with cheese and tomatoes.",
   "recipeCategory": "Casserole",
   "recipeCuisine": "International",
-  "recipeYield": "4-6 servings",
-  "prepTime": "PT10M",
+  "recipeYield": "4 to 6 servings",
+  "prepTime": "",
   "cookTime": "PT30M",
   "totalTime": "PT40M",
   "recipeIngredient": [
-    "3 cups cooked bulgur",
+    "3 cups cooked Bulgor",
     "1 15-oz can tomatoes",
-    "1/3 cup sliced mushrooms",
+    "1/3 cup sliced cooked or canned mushrooms",
     "1/2 lb pasteurized process cheese, sliced",
     "2 tbsp chopped green pepper",
     "2 tbsp chopped onion",
@@ -22,7 +22,7 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Blend cooked bulgur, mushrooms, green peppers, onion, salt and pepper."
+      "text": "Blend cooked Bulgor, mushrooms, green peppers, onion, salt and pepper."
     },
     {
       "@type": "HowToStep",
@@ -30,7 +30,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Add the rest of the bulgur mixture, arrange remaining cheese and bake at 350°F (175°C) for 30 minutes."
+      "text": "Then the rest of the Bulgor mixture. Cut the remaining cheese slices diagonally in half; arrange on the Bulgor mixture. Bake in a preheated moderate oven, 350°F., for 30 minutes."
     }
   ]
 }

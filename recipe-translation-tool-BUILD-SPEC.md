@@ -877,6 +877,23 @@ right backend for each.
   watermark degrade cleanly with or without one — generate-index.js's `buildRecipeImageHtml`), so
   the rendering half is a non-issue once images exist; what's deferred is actually sourcing them
   and any per-recipe editorial work that implies. Scope separately as its own project.
+- **PRE-PUBLISH REQUIREMENT — Variations do not render on recipe pages (template gap).** The
+  `variations` field in `all-recipes.json` is read nowhere — `generate-index.js` and the
+  recipe-page template have no variations section (confirmed by grep: zero references to
+  `variations` anywhere in the codebase outside the JSON data itself; the template goes straight
+  from the instructions `<section>` to the page footer). So the carrot-raisin variation on
+  `bulgur-carrot-pineapple-salad` and the 5 custard variants on `bulgur-cherry-custard` are
+  captured in data but **invisible to visitors**. This is a template/feature gap, not a content
+  problem. **Must render variations in the template before publishing
+  `bulgur-carrot-pineapple-salad` or `bulgur-cherry-custard`**, or their variation content ships
+  invisible. Recipes without variations can publish without this. To implement (small feature
+  task, do in build/feature mode not content mode): add a `recipe-variations` section to the
+  template after instructions (gated on `isPublished` like the other sections); add a
+  `section_variations` UI-string for all 4 languages; render logic iterating
+  `recipe.variations` (each variation's `name.{lang}` as sub-heading — joined if a list, as with
+  the 5 custard names — and `note.{lang}` as body); with English-fallback / skip-if-untranslated
+  handling for fr/ar/hy (currently empty for all variations) so non-English pages don't show
+  blank sub-sections.
 
 ---
 
@@ -907,3 +924,173 @@ right backend for each.
   build consumes" — the architectural insight (data is truth, page is a view).
 - "Extended a **governance dashboard** to handle a second content type, choosing the right
   backend per data shape (Sheets for flat strings, Postgres for structured recipes)" — judgment.
+
+---
+
+## 14. Content strategy — authentic recipe set (2026-09-03)
+
+Recorded after a scan-vs-JSON reconciliation of `all-recipes.json` against the source scans in
+`sections/recipes/scans` (`ShehirianBulgorRecipes-3-6.pdf` = pp.2–6 rescans;
+`recipesPGs7-18.pdf` = pp.7–18, skips 13–14; `page13and14.pdf` = the only source for pp.13–14 —
+**not** an overlap/duplicate of anything in the 7–18 file, contrary to an earlier assumption). This
+section is the record of what's authentic, what's fabricated, and the decisions that follow —
+kept separate from the dashboard-build risk log in §11 because it's a content question, not a
+tool-build one.
+
+**The scans hold 40 headed recipes + 5 named sub-variants** (the Bulgor Cherry Custard fruit
+substitutions on p.17) — 45 distinct named items. The pre-cleanup `all-recipes.json` had 44 slugs.
+Reconciling the two directions (every slug traced to a scan heading or flagged as unsourced; every
+scan heading traced to a slug or flagged as unrepresented) found:
+
+- **38 slugs** map cleanly 1:1 to a scan heading (authentic).
+- **1 slug** (`bulgur-carrot-raisin-salad`) is a legitimate scan-authored variation of another slug
+  (`bulgur-carrot-pineapple-salad`), not an independent recipe — see the variation rule below.
+- **4 slugs** have no scan source anywhere and read as AI-invented: `bulgur-wheat-salad`,
+  `classic-tabbouleh`, `hearty-bulgur-pilaf`, `spiced-lentil-soup`. (`classic-tabbouleh` also
+  duplicates a fifth slug, `tabbouleh-salad`, near-verbatim — see below.)
+- **1 slug** (`bulgur-garden-salad`) is an unresolved, low-confidence link to the scan's plain
+  "Bulgor Salad" (p.6) — shares only the "2 hard-cooked eggs" detail, everything else differs.
+  Unresolved as fabricated-vs-heavily-rewritten; not acted on structurally, see Part 2 log below.
+- On the scan side: of the 40 headed recipes, 1 (the plain "Bulgor Salad," p.6) has no confident
+  slug — the same open item as `bulgur-garden-salad` above, from the other direction. The 5 named
+  Bulgor Cherry Custard fruit sub-variants (Apricot, Blueberry, Boysenberry, Pineapple, Peach) have
+  **zero** slug representation.
+
+Full recipe-by-recipe mapping, confidence ratings, and the fidelity assessment (which recipes are
+faithful vs. altered vs. rewritten) live in session notes, not duplicated here — this section
+records the *decisions*, not the working detail.
+
+### Uniform variation rule
+
+When the scan phrases a recipe as **"substitute X for Y in the above recipe"** (rather than giving
+it a full standalone ingredient/method list), it is recorded in `all-recipes.json` as a **noted
+variation on the base recipe** — never as its own slug/page. Reasons: (1) SEO — a near-duplicate
+page competing with its own base recipe is duplicate content, not new content; (2) consistency —
+the base recipe's full method still applies, so splitting it into a separate "recipe" with a
+sparse or copy-pasted ingredient list misrepresents what the scan actually says.
+
+This rule is retroactive and prospective:
+- **`bulgur-carrot-raisin-salad`** (currently its own slug) is being collapsed into
+  `bulgur-carrot-pineapple-salad` as a variation note — mechanical retirement done in this pass
+  (Part 2 below); the variation text itself is scan-sourced and left for direct entry from the
+  scan.
+- **The 5 Bulgor Cherry Custard fruit variants** (p.17: "Substitute 1 can (1 lb.) of any of these
+  fruits for the 1 can (1 lb.) red sour pitted cherries in the above recipe") will be added as
+  variation notes on `bulgur-cherry-custard`, not as five new slugs. Not yet done — scan-sourced,
+  pending.
+- **Any other instance found in the scans** going forward (translation work, not this pass) should
+  be checked against this rule before being given its own slug.
+
+### Spelling convention: "Bulgor" (2026-09-04)
+
+**Authored English prose uses "Bulgor" (capital B — Shehirian family / booklet spelling), never
+the common "bulgur."** Transcribed content preserves the scan's spelling (also "Bulgor" — the
+booklet itself always capitalizes it, brand-name style, even mid-sentence). Applies to all
+descriptions, About/intro content, and any other composed prose. Enforced in a full audit pass
+(2026-09-04): ~193 case-insensitive "bulgur" occurrences in `all-recipes.json` were categorized by
+context — composed English prose (`title.en`, `description.en`, `keywords.en`) was corrected to
+"Bulgor" throughout (88 instances, 38 recipes); everything else was deliberately left alone:
+slugs, transcribed `ingredients.en`/`instructions.en` (a "bulgur" surviving there is a signal of
+un-verified content — see the flagged list in that pass's report, not duplicated here), and every
+non-English field (translation spelling is its own later question). Full per-instance detail is in
+that session's report, not the repo.
+
+**Slug spelling — deferred, do not change during content work.** Slugs currently mix "bulgur" and
+"bulgor" (e.g. `bulgur-salad` vs. `scalloped-bulgor-with-wieners`). Unlike prose, this is a
+URL/SEO-affecting decision, not a content-fidelity one — and the common spelling ("bulgur") is
+actually the *better* one for slugs, since it matches what people actually search, giving the
+common-spelling URLs a small SEO edge the brand-spelling ones don't get. So standardizing slugs
+toward "bulgur" — or simply leaving the current mix — may be preferable to forcing everything to
+"bulgor." Do not change slugs during content/translation work; this is a deferred, deliberate
+URL/links/code-references decision, listed in the brothers' decision list below.
+
+### Editorial-correction policy (2026-09-06)
+
+Obvious errors in the original booklet (clear typos) may be corrected in transcription, but
+**only at the user's explicit direction** — Claude flags candidates, the user decides each; Claude
+never silently corrects. Two examples already handled this way: `scotch-broth`'s "skin off all
+fat" → "skim off all fat" and "curry power" → "curry powder" (the latter already spelled correctly
+in the same recipe's own ingredient list) — both flagged during transcription, both fixed only
+once the user confirmed each. Brand/proper-term casing (**Bulgor**, **French**, **Swiss**) is
+normalized to the standard/brand convention wherever it appears inconsistently in transcribed
+content, on the same user-confirms-first basis — see `chefs-bulgur-salad`, where the scan itself
+inconsistently cased "bulgor"/"french"/"swiss" mid-recipe.
+
+### Instruction formatting (2026-09-10)
+
+Prefer short, discrete, sequenced steps (one action or tight action-group per step) over long
+compound prose blocks. This matches the booklet's own `[action]: [ingredients]` step structure,
+reads better on the recipe pages, and translates more cleanly — short simple sentences reduce
+translation ambiguity/error, especially for the AR/HY re-translation and RTL rendering. Applies to
+reconstructions and any future instruction work.
+
+### Recipe-set changes made this pass (Part 2 — mechanical only, no scan-sourced content written)
+
+- **Removed** (fabricated, no bulgur, no scan basis): `spiced-lentil-soup`.
+- **Removed** (fabricated/duplicate, no scan basis): `bulgur-wheat-salad`, `classic-tabbouleh`.
+- **Parked**, `published` forced to `false` on all languages, entry left in place pending the
+  Shehirian brothers' call (item (d) below): `hearty-bulgur-pilaf`.
+- **Parked as a placeholder** (`published: false`, inline "TO BE REPLACED" note), not deleted,
+  because the replacement is scan-sourced content that is the user's task: `tabbouleh-salad` → to
+  be replaced by a user-built `tabulee-salad` from p.5 ("TABULEE SALAD").
+- **Parked as a placeholder** (`published: false`, inline note), same reason: `bulgur-garden-salad`
+  → to be replaced by a user-built `bulgur-salad` from p.6 ("BULGOR SALAD").
+- **Parked as a placeholder** (`published: false`, inline note): `bulgur-carrot-raisin-salad` → to
+  be collapsed into `bulgur-carrot-pineapple-salad` as a variation; variation text to be written
+  from the p.5 scan by the user.
+- **Not created** (scan-sourced, user's task, no action taken): the 5 Bulgor Cherry Custard fruit
+  variants as variation notes on `bulgur-cherry-custard`.
+
+Exact per-item mechanics (why some were deletable outright and others had to stay as
+build-coherent placeholders) are in the Part 2 commit and its report.
+
+### Decisions for the Shehirian brothers (brief once, comprehensively)
+
+1. **Armenian needs a full retranslation, not a review pass.** Frame it to them as a corruption
+   fix, not a quality check — the `hy` fields contain literal dictionary-substitution artifacts,
+   not just awkward phrasing. Concrete evidence sitting in the current JSON: the English substring
+   `"oil"` inside unrelated English words has been naively substring-replaced with the Armenian
+   word for oil, producing garbage like `"hard-bձեթed ձուs"` (intended: "hard-boiled eggs" —
+   "boiled" contains "oil" as a substring, which is what triggered the bad replace) sitting
+   alongside *correctly* handled instances elsewhere in the same file (`"2 hard-եփելed ձու"`,
+   using the real word for "boiled/cooked"). Inconsistent, automated, and not fixable by
+   spot-editing — the whole `hy` column needs redoing.
+2. **Arabic numeral preference — open decision, needs their call.** Current `ar` fields mix Western
+   digits (4, 1/2, 6-8…) into Arabic script throughout. Ask whether they want Eastern Arabic-Indic
+   numerals (٤, ١/٢) instead, for step numbers and quantities, before the Arabic pass is treated as
+   final.
+3. **Confirm Armenian numeral convention.** `hy` fields currently also use Western digits
+   throughout. Unlike Arabic, Armenian typography doesn't have a live Eastern-numeral alternative
+   in general use — this is very likely already correct — but get an explicit confirmation from the
+   brothers rather than assuming, since it's being asked in the same breath as the Arabic question.
+4. **`hearty-bulgur-pilaf` — keep or drop?** Confirmed AI-fabricated (no scan source), but unlike
+   `spiced-lentil-soup` it does contain bulgur and is a plausible modern addition to the line, not
+   nonsense. Their call: keep it as a deliberate "modern recipe" addition to the collection, or drop
+   it entirely for collection authenticity. Parked, unpublished, pending that decision — see above.
+5. **"Bulgor" vs. "bulgur" for SEO/discoverability.** Recommendation: use "Bulgor" as the
+   brand/heritage spelling (brand name, headings, recipe content — authenticity), **and** include
+   the common "bulgur" spelling in descriptions/searchable text/meta (discoverability — "bulgur" is
+   overwhelmingly the more-searched term; using only "Bulgor" would make the site hard to find).
+   Decision for the brothers: how *visible* should the common "bulgur" be —
+   (a) woven visibly into descriptions, e.g. "Bulgor salad (bulgur wheat)…", or
+   (b) kept only in invisible meta/keywords so visible text always shows "Bulgor"?
+   Both work for SEO; it's a brand-voice comfort call. Once decided, a later authored-content pass
+   adds the common spelling accordingly. (Separate from, but related to, the slug-spelling question
+   above — that one's about URLs, this one's about visible/meta text.)
+6. **`bulgur-cheese-casserole` — unused tomatoes, apparent booklet omission.** The booklet lists
+   "1 (15 oz.) can tomatoes" as an ingredient, but the instructions never use it — only Bulgor,
+   mushrooms, green peppers, onion, salt, and pepper get blended and layered. Preserved as-is
+   (faithful to the booklet); not guessed at or dropped. The brothers may know the intended use
+   (most likely a dropped step) — confirm whether/where the tomatoes should be incorporated.
+7. **`persian-pilaf` — broth quantity underspecified in the booklet.** The recipe uses broth in
+   two places: the Bulgor is cooked in "boiling broth" (no amount stated), then drained; separately,
+   "1 cup of broth" is poured around the edges of the meat before baking. It's unclear whether that
+   1 cup is fresh/additional or reserved from the drained Bulgor-cooking broth, and the total amount
+   of boiling broth needed is never stated at all. Kept faithful to the booklet — no quantity was
+   invented for either use. The brothers may know the family's actual practice here.
+8. **`white-bread-with-bulgor` assembly sequence.** The booklet's terse column layout was interpreted
+   as — stir the milk into the yeast mixture; sift together the flour, salt, and sugar; reserve 1/4
+   cup of the flour mixture; add the remainder to the yeast mixture with the cooked Bulgor. This is
+   our reading of an ambiguous terse layout (the conventional bread sequence, and the one internally
+   consistent with reserving dry flour). The brothers may not have made this specific recipe, but if
+   they have, confirm this matches the family's intended method.

@@ -7,9 +7,9 @@
   "recipeCategory": "طبق رئيسي",
   "recipeCuisine": "من الطراز الهندي",
   "recipeYield": "5-6 حصص",
-  "prepTime": "PT15M",
+  "prepTime": "",
   "cookTime": "PT40M",
-  "totalTime": "PT55M",
+  "totalTime": "PT40M",
   "recipeIngredient": [
     "زيت، مكعبات لحم مطبوخة، بصل مفروم، تفاح حامض، ثوم، بذور كرفس، مسحوق كاري، زنجبيل، ملح، فلفل، تاباسكو، معجون طماطم، مرق أو ماء، 1 كوب برغل"
   ],

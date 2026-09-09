@@ -3,11 +3,11 @@
   "@type": "Recipe",
   "name": "Raw Meat Platter",
   "author": "Shehirian family",
-  "description": "A traditional seasoned raw lamb and bulgur mixture served as patties.",
+  "description": "A traditional seasoned raw lamb and Bulgor mixture served as patties.",
   "recipeCategory": "Starter",
   "recipeCuisine": "Middle Eastern",
-  "recipeYield": "5-6 servings",
-  "prepTime": "PT20M",
+  "recipeYield": "5 to 6 servings",
+  "prepTime": "",
   "cookTime": "PT0M",
   "totalTime": "PT20M",
   "recipeIngredient": [
@@ -15,7 +15,7 @@
     "Green pepper, chopped fine",
     "Parsley, chopped fine",
     "Green onions, chopped fine",
-    "1 cup bulgur wheat (fine)",
+    "1-1/2 cups Bulgor wheat (fine)",
     "1 small onion, chopped fine",
     "Cayenne pepper (optional)",
     "Salt and pepper to taste"
@@ -23,7 +23,7 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Use lamb only (leg preferred) and serve the same day it is ground."
+      "text": "Use lamb only (leg preferred) and serve same day it is ground."
     },
     {
       "@type": "HowToStep",
@@ -31,11 +31,11 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Add bulgur, chopped onions and vegetables and knead with a little water until mixture holds together."
+      "text": "Add Bulgor wheat, onions, a tablespoon of each green pepper, parsley, green onions and cayenne pepper if desired, and knead all together like dough, adding water a little at a time, until meat and Bulgor stick together, forming a smooth mixture (knead about 10 minutes)."
     },
     {
       "@type": "HowToStep",
-      "text": "Shape into 2 inch patties and serve immediately, garnished with chopped vegetables."
+      "text": "Shape into 2 inch patties and serve at once, garnished with the rest of chopped vegetables, after salting them to your taste."
     }
   ]
 }

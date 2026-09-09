@@ -1,39 +1,39 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Fish and Bulgur Pilaf",
+  "name": "Fish and Bulgor Pilaf",
   "author": "Shehirian family",
-  "description": "A bulgur pilaf flavored with sautéed vegetables and chunks of salmon.",
+  "description": "A Bulgor pilaf flavored with sautéed vegetables and chunks of salmon.",
   "recipeCategory": "Main Dish",
   "recipeCuisine": "International",
-  "recipeYield": "6-8 servings",
-  "prepTime": "PT10M",
-  "cookTime": "PT30M",
-  "totalTime": "PT40M",
+  "recipeYield": "6 to 8 servings",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
     "3 tablespoons butter or margarine",
-    "1 pound fresh salmon, cubed",
+    "1 pound fresh salmon, cut in cubes or strips",
     "1/2 cup chopped onion",
     "1/2 cup chopped celery",
-    "1 cup bulgur wheat",
+    "1 cup Bulgor wheat",
     "2 cups water",
-    "1-2 tablespoons lemon juice",
+    "1 to 2 tablespoons lemon juice",
     "1 teaspoon salt",
     "1/8 teaspoon fine herbs",
-    "1/8 teaspoon thyme"
+    "1/8 teaspoon (scant) thyme"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Heat butter in skillet, add onion and celery and sauté until translucent."
+      "text": "Heat butter or margarine in skillet, add onion and celery."
     },
     {
       "@type": "HowToStep",
-      "text": "Add salmon and cook briefly, then add bulgur and water."
+      "text": "Sauté until onions are straw-coloured."
     },
     {
       "@type": "HowToStep",
-      "text": "Cover and simmer 25-30 minutes until bulgur is tender. Season with lemon juice and salt."
+      "text": "Add rest of the ingredients, cover and simmer 25 to 30 minutes."
     }
   ]
 }

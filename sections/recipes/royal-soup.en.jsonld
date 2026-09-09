@@ -3,52 +3,43 @@
   "@type": "Recipe",
   "name": "Royal Soup",
   "author": "Shehirian family",
-  "description": "A Middle Eastern lemon meatball soup with rice and parsley.",
+  "description": "A Middle Eastern egg-and-lemon meatball soup with Bulgor wheat and parsley.",
   "recipeCategory": "Soup",
   "recipeCuisine": "Middle Eastern",
-  "recipeYield": "6 servings",
-  "prepTime": "PT15M",
-  "cookTime": "PT30M",
-  "totalTime": "PT45M",
+  "recipeYield": "",
+  "prepTime": "PT10M",
+  "cookTime": "PT15M",
+  "totalTime": "PT25M",
   "recipeIngredient": [
     "1/2 gallon chicken broth",
-    "1/2 lb. ground beef (not too lean)",
-    "1/4 cup raw rice",
+    "1/2 lb. ground lamb, not too lean",
+    "1 cup Bulgor wheat (fine)",
     "1/4 cup very finely chopped onion",
-    "1/4 cup parsley",
-    "1/4 cup lemon juice",
-    "1/4 cup finely chopped celery",
-    "1/4 tsp. salt",
-    "Slice of 2 lemons"
+    "1/4 cup finely chopped parsley",
+    "3 eggs",
+    "Juice of 2 lemons",
+    "Salt and pepper"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Mix raw meat, bulghur wheat, onion, parsley and seasoning together and shape into 1\" diameter balls."
+      "text": "Mix raw meat, Bulgor wheat, onion, parsley and seasoning together, and knead well, adding water a little at a time until mixture is smooth (about 10 minutes)."
     },
     {
       "@type": "HowToStep",
-      "text": "Add rice to the meat balls mixture."
+      "text": "Make mixture into small balls about the size of cherries, drop them into the boiling chicken broth and cook for 15 minutes."
     },
     {
       "@type": "HowToStep",
-      "text": "Add meat balls to hot chicken broth and simmer until cooked through."
+      "text": "Beat eggs thoroughly, adding lemon juice while beating."
     },
     {
       "@type": "HowToStep",
-      "text": "Add lemon juice and celery. Simmer for 10 minutes."
+      "text": "Slowly pour the soup broth into the egg and lemon mixture, beating constantly, until all the broth has been used."
     },
     {
       "@type": "HowToStep",
-      "text": "Add salt and lemon slices. Simmer for 5 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Adjust sourness, saltiness, or thickness with sugar, water, or rice as needed."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Pour broth over meatballs and serve."
+      "text": "Pour over the balls and serve immediately."
     }
   ]
 }

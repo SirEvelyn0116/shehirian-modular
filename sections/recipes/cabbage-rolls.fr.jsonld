@@ -7,9 +7,9 @@
   "recipeCategory": "Plat principal",
   "recipeCuisine": "Moyen-Orientale",
   "recipeYield": "Pour plusieurs personnes",
-  "prepTime": "PT30M",
+  "prepTime": "",
   "cookTime": "PT1H",
-  "totalTime": "PT1H30M",
+  "totalTime": "PT1H",
   "recipeIngredient": [
     "Feuilles de chou",
     "1 1/2 tasse d'agneau haché",

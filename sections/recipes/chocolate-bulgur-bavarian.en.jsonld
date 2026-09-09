@@ -1,37 +1,53 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Chocolate Bulgur Bavarian",
+  "name": "Chocolate Bulgor Bavarian",
   "author": "Shehirian family",
-  "description": "A chilled chocolate and bulgur dessert set with gelatin and folded cream.",
+  "description": "A chilled chocolate and Bulgor dessert set with gelatin and folded cream.",
   "recipeCategory": "Dessert",
   "recipeCuisine": "International",
   "recipeYield": "6-8 servings",
-  "prepTime": "PT30M",
-  "cookTime": "PT0M",
-  "totalTime": "PT2H30M",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
-    "1 package gelatin",
+    "1 package (1 tbsp.) gelatin",
     "2 tablespoons water",
     "2-1/2 tablespoons cocoa",
     "3/4 cup sugar",
     "1-1/2 cups milk",
-    "1-1/2 cups cooked bulgur",
+    "1-1/2 cups cooked Bulgor",
     "1 teaspoon vanilla",
     "1/2 cup heavy cream, whipped"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil)."
+      "text": "In a saucepan, blend the gelatin and water."
     },
     {
       "@type": "HowToStep",
-      "text": "Stir in cooked bulgur and vanilla, chill until thick but not firm."
+      "text": "Blend the cocoa and sugar."
     },
     {
       "@type": "HowToStep",
-      "text": "Fold in whipped cream, turn into a greased mould and chill until firm."
+      "text": "Add to the gelatin mixture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in the milk."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Heat until the gelatin and sugar dissolve. Stir frequently. Do not boil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove from heat and add the cooked Bulgor and vanilla. Chill until thick but not firm."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fold in whipped cream, turn into a mould which has been brushed with salad oil, and chill until firm. Unmould and garnish, if you wish, with whipped cream and a few candied cherries."
     }
   ]
 }

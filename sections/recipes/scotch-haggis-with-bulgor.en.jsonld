@@ -1,21 +1,21 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Scotch Haggis with Bulgur",
+  "name": "Scotch Haggis with Bulgor",
   "author": "Shehirian family",
-  "description": "A traditional haggis-style pudding mixed with bulgur.",
+  "description": "A traditional haggis-style pudding mixed with Bulgor.",
   "recipeCategory": "Pudding",
   "recipeCuisine": "Scottish",
-  "recipeYield": "Large (serves several)",
-  "prepTime": "PT30M",
-  "cookTime": "PT3H",
-  "totalTime": "PT3H30M",
+  "recipeYield": "",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
     "3 lamb hearts",
     "1 lb liver",
     "1/2 lb minced suet",
     "1/2 cup chopped onions",
-    "1 cup bulgur wheat",
+    "1 cup Bulgor wheat",
     "3 tsp salt",
     "2 cups meat broth or bouillon"
   ],
@@ -26,7 +26,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Add suet, onions, bulgur, salt and broth; mix well and steam in covered pudding mold 3 hours."
+      "text": "Add suet, onions, Bulgor, salt and broth; mix well and steam in covered pudding mold 3 hours."
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "How to Cook Bulgor",
+  "author": "Famille Shehirian",
+  "description": "",
+  "recipeCategory": "",
+  "recipeCuisine": "",
+  "recipeYield": "",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
+  "recipeIngredient": [],
+  "recipeInstructions": []
+}

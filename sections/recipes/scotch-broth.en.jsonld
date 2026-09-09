@@ -1,87 +1,49 @@
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
-  "name": "Scotch Broth with Bulgur Wheat",
+  "name": "Scotch Broth with Bulgor Wheat",
   "author": "Shehirian family",
-  "description": "A traditional Scottish soup transformed with hearty bulgur wheat and lamb.",
+  "description": "A Scottish lamb and vegetable broth with Bulgor wheat, thickened with a butter-and-flour roux.",
   "recipeCategory": "Soup",
   "recipeCuisine": "Scottish",
-  "recipeYield": "6-8 servings",
-  "prepTime": "PT15M",
-  "cookTime": "PT105M",
-  "totalTime": "PT120M",
+  "recipeYield": "6 to 8 servings",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
-    "2 lbs. lamb shoulder",
-    "8 cups water",
-    "1/2 cup bulgur wheat",
-    "1 cup diced carrots",
-    "1 cup diced turnip",
-    "1 cup chopped leeks",
-    "1/2 cup pearl barley",
-    "Salt and pepper to taste",
-    "Fresh parsley for garnish",
-    "2 quarts chicken broth",
-    "2 pounds lamb shank",
-    "1 cup chopped parsley",
-    "1/2 cup chopped onion",
-    "1/2 cup chopped carrots",
-    "1/2 cup chopped celery",
-    "1/2 cup chopped green pepper (optional)",
-    "1/2 cup chopped tomato",
-    "1/2 cup chopped mint",
-    "1/2 cup chopped leeks",
-    "1/2 cup chopped bulghur wheat",
-    "1/2 tsp. salt",
-    "1/2 tsp. pepper"
+    "2-1/2 quarts water",
+    "2 pounds lamb shanks",
+    "1 cup diced or shredded carrots",
+    "1/2 cup chopped onion or leeks",
+    "1 cup sliced celery",
+    "1 cup Bulgor wheat",
+    "1/4 cup snipped parsley",
+    "2 to 3 teaspoons salt",
+    "1/4 teaspoon pepper",
+    "1/2 teaspoon curry powder (optional)",
+    "2 tablespoons butter or margarine",
+    "4 tablespoons flour"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "In a large pot, add lamb and water. Bring to a boil and skim off any foam."
+      "text": "Simmer lamb shanks in water 2 to 3 hours, then remove meat and bones and skim off all fat."
     },
     {
       "@type": "HowToStep",
-      "text": "Reduce heat and simmer for 1 hour until lamb is tender."
+      "text": "Add Bulgor wheat, carrots, onion or leeks, celery, parsley, salt and pepper, and curry powder; cover and continue cooking until vegetables are tender, 15 to 20 minutes."
     },
     {
       "@type": "HowToStep",
-      "text": "Remove lamb, shred meat, and return to pot."
+      "text": "Remove meat from bones, dice, and return to soup mixture."
     },
     {
       "@type": "HowToStep",
-      "text": "Add bulgur wheat, barley, carrots, turnip, and leeks."
+      "text": "Blend together over low heat: butter and flour."
     },
     {
       "@type": "HowToStep",
-      "text": "Simmer for 45 minutes until grains and vegetables are tender."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Season with salt and pepper."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Serve hot, garnished with fresh parsley."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Boil lamb shank in chicken broth until tender. Remove meat and bones."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Cut meat into small pieces and return to broth."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Add all vegetables and herbs. Simmer for 15 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Add bulghur wheat. Simmer for 15 minutes."
-    },
-    {
-      "@type": "HowToStep",
-      "text": "Slowly stir in 8 cups of soup mixture, then add remaining soup."
+      "text": "Slowly stir in about 2 cups of the soup mixture, then stir into remaining soup mixture."
     },
     {
       "@type": "HowToStep",
