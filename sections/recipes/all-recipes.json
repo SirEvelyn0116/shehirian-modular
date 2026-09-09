@@ -3738,7 +3738,7 @@
         "ar": "4-6 حصص",
         "hy": "4-6 պորցիա"
       },
-      "prepTime": "PT5M",
+      "prepTime": "",
       "cookTime": "PT20M",
       "totalTime": "PT25M",
       "ingredients": {
@@ -3746,7 +3746,7 @@
           "2 tbsp butter or margarine",
           "3 tbsp chopped onion",
           "1/2 cup vermicelli or noodles",
-          "1 cup bulgur wheat",
+          "1 cup Bulgor wheat",
           "2 cups chicken stock",
           "3/4 tsp salt",
           "1/8 tsp pepper"
@@ -3782,8 +3782,8 @@
       "instructions": {
         "en": [
           "Heat butter, sauté onion and vermicelli until lightly browned.",
-          "Add bulgur, chicken stock, salt and pepper; cover and simmer 20 minutes until liquid absorbed.",
-          "Let stand 15-20 minutes before serving."
+          "Add Bulgor, chicken stock, salt and pepper; cover and simmer 20 minutes until liquid absorbed. Stir occasionally.",
+          "Let stand 15 to 20 minutes before serving."
         ],
         "fr": [
           "Faire fondre le beurre, faire revenir l'oignon et les vermicelles jusqu'à légère coloration.",
@@ -3864,7 +3864,7 @@
         "ar": "4-5 حصص",
         "hy": "4-5 պորցիա"
       },
-      "prepTime": "PT5M",
+      "prepTime": "",
       "cookTime": "PT15M",
       "totalTime": "PT20M",
       "ingredients": {
@@ -3873,7 +3873,7 @@
           "3/4 cup finely minced onion",
           "1/2 cup finely minced green bell pepper",
           "1/2 cup finely minced celery",
-          "2-1/2 cups cooked bulgur",
+          "2-1/2 cups cooked Bulgor wheat",
           "2 tbsp soy sauce"
         ],
         "fr": [
@@ -3903,8 +3903,9 @@
       },
       "instructions": {
         "en": [
-          "Heat oil in skillet, sauté onion, bell pepper and celery until translucent.",
-          "Stir in cooked bulgur and soy sauce; cover and cook over low heat 15 minutes, stirring occasionally."
+          "Heat oil in skillet, sauté onion, bell pepper and celery until straw-coloured.",
+          "Stir in the Bulgor wheat; cover and cook over low heat 15 minutes, stirring occasionally.",
+          "Stir in the soy sauce."
         ],
         "fr": [
           "Chauffer l'huile, faire revenir oignon, poivron et céleri jusqu'à transparence.",
@@ -3982,15 +3983,15 @@
         "ar": "4-5 حصص",
         "hy": "4-5 պորցիա"
       },
-      "prepTime": "PT10M",
+      "prepTime": "",
       "cookTime": "PT1H25M",
       "totalTime": "PT1H35M",
       "ingredients": {
         "en": [
-          "2-1/2 cups cooked bulgur wheat",
+          "2-1/2 cups cooked Bulgor wheat",
           "2/3 cup condensed tomato soup",
           "3 tablespoons molasses",
-          "3/4 cup water or consommé",
+          "3/4 cup water or canned consommé",
           "3 tablespoons brown sugar",
           "1/2 teaspoon dry mustard",
           "1/2 teaspoon salt",
@@ -4037,9 +4038,9 @@
       },
       "instructions": {
         "en": [
-          "Blend all ingredients except salt pork or bacon in a casserole.",
-          "Cut salt pork or bacon into strips and press into surface of bulgur mixture.",
-          "Cover and bake at 325°F (160°C) for 45 minutes; remove cover and continue baking about 40 minutes."
+          "Blend all ingredients except salt pork or bacon in a 1-1/2 quart casserole.",
+          "Cut salt pork or bacon into strips 1/2 inch thick and press lengthwise into surface of Bulgor mixture.",
+          "Cover and bake at 325°F for 45 minutes; remove cover and continue baking about 40 minutes."
         ],
         "fr": [
           "Mélanger tous les ingrédients sauf le lard dans un plat.",
@@ -4120,9 +4121,9 @@
         "ar": "4 إلى 5 حصص",
         "hy": "4 to 5 պորցիա"
       },
-      "prepTime": "PT5M",
-      "cookTime": "PT25M",
-      "totalTime": "PT35M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "1 cup Bulgor Wheat",
@@ -4246,7 +4247,7 @@
         "ar": "4 إلى 6 حصص",
         "hy": "4 to 6 պորցիա"
       },
-      "prepTime": "PT5M",
+      "prepTime": "",
       "cookTime": "PT10M",
       "totalTime": "PT15M",
       "ingredients": {
@@ -4372,9 +4373,9 @@
         "ar": "5 إلى 6 حصص",
         "hy": "5 to 6 պորցիա"
       },
-      "prepTime": "PT10M",
-      "cookTime": "PT25M",
-      "totalTime": "PT35M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "4 slices bacon cut in 1/2-inch strips",

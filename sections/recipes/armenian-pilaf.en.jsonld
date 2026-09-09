@@ -7,14 +7,14 @@
   "recipeCategory": "Side Dish",
   "recipeCuisine": "Armenian",
   "recipeYield": "4-6 servings",
-  "prepTime": "PT5M",
+  "prepTime": "",
   "cookTime": "PT20M",
   "totalTime": "PT25M",
   "recipeIngredient": [
     "2 tbsp butter or margarine",
     "3 tbsp chopped onion",
     "1/2 cup vermicelli or noodles",
-    "1 cup bulgur wheat",
+    "1 cup Bulgor wheat",
     "2 cups chicken stock",
     "3/4 tsp salt",
     "1/8 tsp pepper"
@@ -26,11 +26,11 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Add bulgur, chicken stock, salt and pepper; cover and simmer 20 minutes until liquid absorbed."
+      "text": "Add Bulgor, chicken stock, salt and pepper; cover and simmer 20 minutes until liquid absorbed. Stir occasionally."
     },
     {
       "@type": "HowToStep",
-      "text": "Let stand 15-20 minutes before serving."
+      "text": "Let stand 15 to 20 minutes before serving."
     }
   ]
 }
