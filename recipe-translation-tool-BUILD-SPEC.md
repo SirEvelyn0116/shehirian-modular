@@ -1074,3 +1074,9 @@ build-coherent placeholders) are in the Part 2 commit and its report.
    mushrooms, green peppers, onion, salt, and pepper get blended and layered. Preserved as-is
    (faithful to the booklet); not guessed at or dropped. The brothers may know the intended use
    (most likely a dropped step) — confirm whether/where the tomatoes should be incorporated.
+7. **`persian-pilaf` — broth quantity underspecified in the booklet.** The recipe uses broth in
+   two places: the Bulgor is cooked in "boiling broth" (no amount stated), then drained; separately,
+   "1 cup of broth" is poured around the edges of the meat before baking. It's unclear whether that
+   1 cup is fresh/additional or reserved from the drained Bulgor-cooking broth, and the total amount
+   of boiling broth needed is never stated at all. Kept faithful to the booklet — no quantity was
+   invented for either use. The brothers may know the family's actual practice here.
