@@ -1016,6 +1016,14 @@ normalized to the standard/brand convention wherever it appears inconsistently i
 content, on the same user-confirms-first basis — see `chefs-bulgur-salad`, where the scan itself
 inconsistently cased "bulgor"/"french"/"swiss" mid-recipe.
 
+### Instruction formatting (2026-09-10)
+
+Prefer short, discrete, sequenced steps (one action or tight action-group per step) over long
+compound prose blocks. This matches the booklet's own `[action]: [ingredients]` step structure,
+reads better on the recipe pages, and translates more cleanly — short simple sentences reduce
+translation ambiguity/error, especially for the AR/HY re-translation and RTL rendering. Applies to
+reconstructions and any future instruction work.
+
 ### Recipe-set changes made this pass (Part 2 — mechanical only, no scan-sourced content written)
 
 - **Removed** (fabricated, no bulgur, no scan basis): `spiced-lentil-soup`.
