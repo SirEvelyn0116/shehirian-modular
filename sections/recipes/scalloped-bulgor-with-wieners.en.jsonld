@@ -6,18 +6,18 @@
   "description": "A creamy baked Bulgor dish topped with wieners.",
   "recipeCategory": "Casserole",
   "recipeCuisine": "Comfort Food",
-  "recipeYield": "5-6 servings",
-  "prepTime": "PT10M",
-  "cookTime": "PT50M",
-  "totalTime": "PT1H",
+  "recipeYield": "5 to 6 servings",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
     "2-1/2 cups cooked bulgur",
-    "1 egg slightly beaten",
+    "1 egg, slightly beaten",
     "2 tbsp chopped onion",
-    "1 can condensed cream of mushroom soup",
+    "1 can (10-1/2 oz.) condensed cream of mushroom soup",
     "1/2 tsp salt",
     "3/4 cup milk",
-    "5-6 wieners"
+    "5 to 6 wieners"
   ],
   "recipeInstructions": [
     {
@@ -26,11 +26,11 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Bake at 350°F (175°C) until partially set (~30 minutes)."
+      "text": "Bake at 350°F until partially set (about 30 minutes)."
     },
     {
       "@type": "HowToStep",
-      "text": "Top with wieners, brush with margarine and continue baking 15–20 minutes until browned."
+      "text": "Top with wieners; brush with melted margarine or oil. Continue baking until wieners are lightly browned, 15 to 20 minutes."
     }
   ]
 }
