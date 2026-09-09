@@ -1069,3 +1069,8 @@ build-coherent placeholders) are in the Part 2 commit and its report.
    Both work for SEO; it's a brand-voice comfort call. Once decided, a later authored-content pass
    adds the common spelling accordingly. (Separate from, but related to, the slug-spelling question
    above — that one's about URLs, this one's about visible/meta text.)
+6. **`bulgur-cheese-casserole` — unused tomatoes, apparent booklet omission.** The booklet lists
+   "1 (15 oz.) can tomatoes" as an ingredient, but the instructions never use it — only Bulgor,
+   mushrooms, green peppers, onion, salt, and pepper get blended and layered. Preserved as-is
+   (faithful to the booklet); not guessed at or dropped. The brothers may know the intended use
+   (most likely a dropped step) — confirm whether/where the tomatoes should be incorporated.
