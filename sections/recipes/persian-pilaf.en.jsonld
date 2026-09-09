@@ -6,31 +6,47 @@
   "description": "A traditional Persian-style pilaf with lamb and Bulgor.",
   "recipeCategory": "Main Dish",
   "recipeCuisine": "Persian",
-  "recipeYield": "8-10 servings",
-  "prepTime": "PT20M",
-  "cookTime": "PT1H",
-  "totalTime": "PT1H20M",
+  "recipeYield": "8 to 10 servings",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
-    "Shoulder of lamb, cubed",
-    "Chopped onion",
-    "Chopped tomatoes",
-    "2 cups bulgur",
-    "Butter",
+    "1 lb. shoulder of lamb",
+    "2/3 cup chopped onion",
+    "1/2 cup chopped fresh tomatoes or 1/2 cup solid-pack canned tomatoes",
+    "2 cups Bulgor wheat",
+    "4 tablespoons butter (2 ozs.)",
     "Broth or water",
-    "Salt and pepper"
+    "Salt and pepper to taste"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Braise lamb cubes until well browned; add onions and tomatoes and cook 15 minutes."
+      "text": "Have the butcher cut the shoulder of lamb into inch cubes; braise well in a pot."
     },
     {
       "@type": "HowToStep",
-      "text": "Cook bulgur briefly in boiling broth, drain and place over meat; put butter in center and pour broth around edges."
+      "text": "Add the chopped onions and brown lightly with the meat."
     },
     {
       "@type": "HowToStep",
-      "text": "Bake in moderate oven about 1 hour; turn onto platter and serve hot unmixed."
+      "text": "Add the tomatoes and cook 15 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Meanwhile, put the Bulgor in boiling broth and cook 7 minutes; drain and put over the top of the meat in the pot."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Place the butter in the centre of the Bulgor."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Pour 1 cup of broth around the edges of the meat, and bake in a moderate oven about 1 hour."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Turn onto a platter and serve unmixed and very hot."
     }
   ]
 }

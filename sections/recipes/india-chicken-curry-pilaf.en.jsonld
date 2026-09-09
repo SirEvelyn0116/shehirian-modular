@@ -6,21 +6,45 @@
   "description": "A creamy curried chicken pilaf with Bulgor and apples.",
   "recipeCategory": "Main Dish",
   "recipeCuisine": "Indian-Inspired",
-  "recipeYield": "5-6 servings",
-  "prepTime": "PT15M",
+  "recipeYield": "5 to 6 servings",
+  "prepTime": "",
   "cookTime": "PT25M",
-  "totalTime": "PT40M",
+  "totalTime": "PT25M",
   "recipeIngredient": [
-    "Butter or chicken fat, chopped onion, tart apple, celery, curry powder, ginger, flour, salt, pepper, chicken stock, cream or milk, cooked diced chicken, bulgur"
+    "1/4 cup butter or chicken fat",
+    "1/2 cup chopped onion",
+    "1 medium-sized tart apple, peeled, cored and chopped",
+    "1 cup thinly sliced celery",
+    "1-1/2 to 2 teaspoons curry powder",
+    "1/8 teaspoon ginger",
+    "2 tablespoons flour",
+    "1-1/2 teaspoons salt",
+    "1/4 teaspoon pepper",
+    "4-1/2 cups chicken stock",
+    "1/2 cup cream or milk",
+    "2 to 3 cups cooked diced chicken",
+    "1 cup Bulgor"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Sauté onion, apple and celery in butter; add spices and flour then stir in stock and cream until thickened."
+      "text": "Sauté the onion, apple, and celery in the butter until the onions are straw-coloured."
     },
     {
       "@type": "HowToStep",
-      "text": "Add cooked chicken and bulgur, cover and simmer over low heat 25 minutes."
+      "text": "Blend in the curry powder, ginger, flour, salt, and pepper."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove from heat and stir in the chicken stock and cream."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Return to heat and stir constantly until the mixture thickens and comes to a boil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the cooked diced chicken and Bulgor; cover and simmer over low heat 25 minutes."
     }
   ]
 }
