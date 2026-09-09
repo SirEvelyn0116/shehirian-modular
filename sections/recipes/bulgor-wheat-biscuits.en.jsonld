@@ -7,9 +7,9 @@
   "recipeCategory": "Side Dish",
   "recipeCuisine": "Baked",
   "recipeYield": "10 to 12 (2 inch) biscuits",
-  "prepTime": "PT15M",
-  "cookTime": "PT50M",
-  "totalTime": "PT65M",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
     "1 cup water",
     "1/4 cup Bulgor wheat",
@@ -23,15 +23,15 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed."
+      "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed. Do not boil."
     },
     {
       "@type": "HowToStep",
-      "text": "Sift together flour, baking powder, and salt; cut in shortening."
+      "text": "Sift together flour, baking powder, and salt; cut in shortening with a pastry blender until the shortening is finely distributed."
     },
     {
       "@type": "HowToStep",
-      "text": "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits."
+      "text": "Stir in milk and cooked Bulgor. Turn out on lightly floured paper. Knead about 10 times. Pat or roll out about 1/2-inch thick. Cut with a floured biscuit cutter or knife into 2-inch squares."
     },
     {
       "@type": "HowToStep",

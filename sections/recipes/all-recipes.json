@@ -4527,7 +4527,7 @@
         "ar": "6 إلى 8 حصص",
         "hy": "6 to 8 պորցիա"
       },
-      "prepTime": "PT15M",
+      "prepTime": "",
       "cookTime": "PT50M",
       "totalTime": "PT65M",
       "ingredients": {
@@ -4574,9 +4574,9 @@
       },
       "instructions": {
         "en": [
-          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed. Do not boil.",
           "Sift together flour, baking powder, salt, and sugar.",
-          "Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.",
+          "Cut in shortening with a pastry blender until the shortening is finely distributed. Stir in cooked Bulgor and milk, pat into greased 8-inch cake pan.",
           "Brush surface lightly with milk, sprinkle with sugar and bake at 400°F about 30 minutes. Top with whipped cream and fruit."
         ],
         "fr": [
@@ -4661,9 +4661,9 @@
         "ar": "10 إلى 12 بسكويت (2 بوصة)",
         "hy": "10 to 12 (2 inch) biscuits"
       },
-      "prepTime": "PT15M",
-      "cookTime": "PT50M",
-      "totalTime": "PT65M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "1 cup water",
@@ -4708,9 +4708,9 @@
       },
       "instructions": {
         "en": [
-          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed.",
-          "Sift together flour, baking powder, and salt; cut in shortening.",
-          "Stir in milk and cooked Bulgor, knead lightly, pat or roll out 1/2-inch thick and cut into biscuits.",
+          "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed. Do not boil.",
+          "Sift together flour, baking powder, and salt; cut in shortening with a pastry blender until the shortening is finely distributed.",
+          "Stir in milk and cooked Bulgor. Turn out on lightly floured paper. Knead about 10 times. Pat or roll out about 1/2-inch thick. Cut with a floured biscuit cutter or knife into 2-inch squares.",
           "Bake at 400°F until lightly browned, about 25 to 30 minutes."
         ],
         "fr": [
@@ -4795,9 +4795,9 @@
         "ar": "رغيفان (1 رطل)",
         "hy": "2 (1 lb.) Loaves"
       },
-      "prepTime": "PT30M",
-      "cookTime": "PT35M",
-      "totalTime": "PT1H5M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "1 cup water",
@@ -4850,11 +4850,13 @@
       },
       "instructions": {
         "en": [
-          "Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.",
-          "Dissolve yeast in 1/2 cup lukewarm water. Stir milk into the cooled Bulgor mixture.",
-          "Sift together flour, salt, and sugar (reserving 1/4 cup flour). Add yeast mixture and cooked Bulgor to the flour mixture; add shortening or oil and mix thoroughly.",
-          "Knead about 10 minutes or until dough is smooth; place in warm greased bowl, cover and let rise until doubled (1.5–2 hours).",
-          "Punch down, divide into 2 loaves, shape and place into greased loaf pans; let rise until doubled and bake at 400°F (200°C) for 35–40 minutes."
+          "Combine the water, Bulgor wheat, and salt. Cover and bring to a simmer; simmer about 20 minutes or until most of the water is absorbed. Do not boil. Cool to lukewarm.",
+          "Scald the milk; cool to lukewarm.",
+          "Blend the yeast in the lukewarm water.",
+          "Sift together the flour, salt, and sugar; stir in the milk.",
+          "Reserve 1/4 cup of the flour mixture. Add the remainder to the yeast mixture with the cooked Bulgor. Add the shortening. Mix thoroughly.",
+          "Knead about 10 minutes or until the dough is smooth and satiny. Form into a ball. Place in a warm greased bowl. Brush the surface lightly with oil or melted shortening. Cover and let rise in a warm place (80° to 85°F) until doubled in volume, 1-1/2 to 2 hours. The dough will retain an impression when pressed with a finger.",
+          "Punch down the dough. Turn out on a board or brown paper lightly dusted with the reserved flour. Divide into 2 equal portions. Mould each into a ball. Cover and let rest for 15 minutes. Shape into loaves. Place in lightly greased loaf pans. Brush tops lightly with oil or melted shortening. Cover and let rise in a warm place (80° to 85°F) until doubled in volume. Bake in a preheated oven, 400°F, 35 to 40 minutes."
         ],
         "fr": [
           "Combine water, 1/4 cup Bulgor wheat, and 1/8 teaspoon salt. Cover and bring to simmer; simmer about 20 minutes or until most of water is absorbed. Cool to lukewarm.",

@@ -7,7 +7,7 @@
   "recipeCategory": "Side Dish",
   "recipeCuisine": "Baked",
   "recipeYield": "6 to 8 servings",
-  "prepTime": "PT15M",
+  "prepTime": "",
   "cookTime": "PT50M",
   "totalTime": "PT65M",
   "recipeIngredient": [
@@ -23,7 +23,7 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed."
+      "text": "Combine water and Bulgor wheat; cover and simmer about 20 minutes until most water is absorbed. Do not boil."
     },
     {
       "@type": "HowToStep",
@@ -31,7 +31,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Cut in shortening, stir in cooked Bulgor and milk, pat into greased 8-inch cake pan."
+      "text": "Cut in shortening with a pastry blender until the shortening is finely distributed. Stir in cooked Bulgor and milk, pat into greased 8-inch cake pan."
     },
     {
       "@type": "HowToStep",
