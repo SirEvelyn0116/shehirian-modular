@@ -23,11 +23,27 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved, stirring frequently. Do not boil."
+      "text": "In a saucepan, blend the gelatin and water."
     },
     {
       "@type": "HowToStep",
-      "text": "Stir in cooked bulgur and vanilla, chill until thick but not firm."
+      "text": "Blend the cocoa and sugar."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add to the gelatin mixture."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Stir in the milk."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Heat until the gelatin and sugar dissolve. Stir frequently. Do not boil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove from heat and add the cooked Bulgor and vanilla. Chill until thick but not firm."
     },
     {
       "@type": "HowToStep",
