@@ -11,7 +11,7 @@
   "cookTime": "PT25M",
   "totalTime": "PT35M",
   "recipeIngredient": [
-    "1 1/2 cups coarse bulgur wheat",
+    "1 1/2 cups coarse Bulgor wheat",
     "2 tbsp butter or olive oil",
     "1 medium onion, diced",
     "2 cloves garlic, minced",
@@ -38,7 +38,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Stir in bulgur wheat, cumin, and paprika, coating the grains with oil."
+      "text": "Stir in Bulgor wheat, cumin, and paprika, coating the grains with oil."
     },
     {
       "@type": "HowToStep",
@@ -46,7 +46,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Cover and simmer for 15-20 minutes until bulgur is tender and liquid is absorbed."
+      "text": "Cover and simmer for 15-20 minutes until Bulgor is tender and liquid is absorbed."
     },
     {
       "@type": "HowToStep",
