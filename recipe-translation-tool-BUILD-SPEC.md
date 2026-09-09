@@ -1080,3 +1080,9 @@ build-coherent placeholders) are in the Part 2 commit and its report.
    1 cup is fresh/additional or reserved from the drained Bulgor-cooking broth, and the total amount
    of boiling broth needed is never stated at all. Kept faithful to the booklet — no quantity was
    invented for either use. The brothers may know the family's actual practice here.
+8. **`white-bread-with-bulgor` assembly sequence.** The booklet's terse column layout indicates the
+   flour, salt, and sugar are sifted together and the milk is stirred into the flour mixture (rather
+   than the more conventional milk-into-yeast-mixture), then 1/4 cup flour is reserved and the
+   remainder added to the yeast mixture with the cooked Bulgor. Transcribed as written, not
+   normalized to standard bread technique. This is an unusual sequence — the brothers may not have
+   made this specific recipe, but if they have, confirm or correct the intended assembly order.
