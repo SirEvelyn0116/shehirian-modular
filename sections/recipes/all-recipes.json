@@ -3055,7 +3055,7 @@
           "Add the tomatoes and cook 15 minutes.",
           "Meanwhile, put the Bulgor in boiling broth and cook 7 minutes; drain and put over the top of the meat in the pot.",
           "Place the butter in the centre of the Bulgor.",
-          "Pour 1 cup of broth around the edges of the meat, and bake in a moderate oven about 1 hour.",
+          "Pour 1 cup of broth or water around the edges of the meat, and bake in a moderate oven about 1 hour.",
           "Turn onto a platter and serve unmixed and very hot."
         ],
         "fr": [
@@ -3281,6 +3281,7 @@
       },
       "instructions": {
         "en": [
+          "Heat the butter or chicken fat in a heavy skillet.",
           "Sauté the onion, apple, and celery in the butter until the onions are straw-coloured.",
           "Blend in the curry powder, ginger, flour, salt, and pepper.",
           "Remove from heat and stir in the chicken stock and cream.",

@@ -28,6 +28,10 @@
   "recipeInstructions": [
     {
       "@type": "HowToStep",
+      "text": "Heat the butter or chicken fat in a heavy skillet."
+    },
+    {
+      "@type": "HowToStep",
       "text": "Sauté the onion, apple, and celery in the butter until the onions are straw-coloured."
     },
     {
