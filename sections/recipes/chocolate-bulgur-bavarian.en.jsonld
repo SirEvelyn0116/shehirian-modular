@@ -7,23 +7,23 @@
   "recipeCategory": "Dessert",
   "recipeCuisine": "International",
   "recipeYield": "6-8 servings",
-  "prepTime": "PT30M",
-  "cookTime": "PT0M",
-  "totalTime": "PT2H30M",
+  "prepTime": "",
+  "cookTime": "",
+  "totalTime": "",
   "recipeIngredient": [
-    "1 package gelatin",
+    "1 package (1 tbsp.) gelatin",
     "2 tablespoons water",
     "2-1/2 tablespoons cocoa",
     "3/4 cup sugar",
     "1-1/2 cups milk",
-    "1-1/2 cups cooked bulgur",
+    "1-1/2 cups cooked Bulgor",
     "1 teaspoon vanilla",
     "1/2 cup heavy cream, whipped"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil)."
+      "text": "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved, stirring frequently. Do not boil."
     },
     {
       "@type": "HowToStep",
@@ -31,7 +31,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Fold in whipped cream, turn into a greased mould and chill until firm."
+      "text": "Fold in whipped cream, turn into a mould which has been brushed with salad oil, and chill until firm. Unmould and garnish, if you wish, with whipped cream and a few candied cherries."
     }
   ]
 }

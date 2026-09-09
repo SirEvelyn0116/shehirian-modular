@@ -7,11 +7,11 @@
   "recipeCategory": "Dessert",
   "recipeCuisine": "International",
   "recipeYield": "6-8 servings",
-  "prepTime": "PT20M",
+  "prepTime": "",
   "cookTime": "PT1H",
   "totalTime": "PT1H20M",
   "recipeIngredient": [
-    "2 cups hot cooked bulgur",
+    "2 cups hot cooked Bulgor",
     "2 tablespoons butter or margarine",
     "1/4 cup brown sugar",
     "1/2 teaspoon cinnamon",
@@ -36,7 +36,7 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F (175°C) for 1 hour or until custard is set."
+      "text": "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F for 1 hour or until custard is set."
     }
   ]
 }

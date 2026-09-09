@@ -7,7 +7,7 @@
   "recipeCategory": "Dessert",
   "recipeCuisine": "International",
   "recipeYield": "about 12 servings",
-  "prepTime": "PT30M",
+  "prepTime": "",
   "cookTime": "PT2H",
   "totalTime": "PT2H30M",
   "recipeIngredient": [
@@ -17,7 +17,7 @@
     "1/2 cup butter or shortening",
     "1-1/4 cups sugar",
     "2 eggs",
-    "1-1/2 cups cooked bulgur",
+    "1-1/2 cups cooked Bulgor",
     "1 teaspoon vanilla",
     "1/2 cup dried prunes (pitted), ground",
     "1/2 cup raisins, ground",
@@ -35,11 +35,15 @@
     },
     {
       "@type": "HowToStep",
-      "text": "Stir in cooked bulgur and vanilla; add ground fruit and milk alternately with dry ingredients."
+      "text": "Stir in the cooked Bulgor and vanilla. Grind together the prunes, raisins, and apricots; stir into the Bulgor mixture. Add the milk alternately with the dry ingredients."
     },
     {
       "@type": "HowToStep",
-      "text": "Fill greased loaf pan or mould three-fourths full, cover tightly and steam for 2 hours. Serve with whipped cream."
+      "text": "Fill greased loaf pan or mould three-fourths full (coffee or shortening cans will do), cover tightly, and steam for 2 hours. Serve with whipped cream."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Any large covered utensil with a tight cover can be used as a steamer. Place a rack in the bottom and keep the water level at about 1-1/2 inches. Keep the water boiling gently."
     }
   ]
 }

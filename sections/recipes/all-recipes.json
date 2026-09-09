@@ -1366,12 +1366,12 @@
         "ar": "6-8 حصص",
         "hy": "6-8 պորցիա"
       },
-      "prepTime": "PT20M",
+      "prepTime": "",
       "cookTime": "PT1H",
       "totalTime": "PT1H20M",
       "ingredients": {
         "en": [
-          "2 cups hot cooked bulgur",
+          "2 cups hot cooked Bulgor",
           "2 tablespoons butter or margarine",
           "1/4 cup brown sugar",
           "1/2 teaspoon cinnamon",
@@ -1435,7 +1435,7 @@
         "en": [
           "Prepare the bulgur base by combining hot cooked bulgur, butter, brown sugar and cinnamon in a baking dish.",
           "In a saucepan, mix cornstarch and sugar, stir in drained cherry juice and cook until thickened. Stir in lemon juice and layer drained cherries over the bulgur.",
-          "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F (175°C) for 1 hour or until custard is set."
+          "Whisk eggs, milk, sugar and vanilla; pour over the cherry layer and bake at 350°F for 1 hour or until custard is set."
         ],
         "fr": [
           "Préparer la base de boulghour en mélangeant le boulghour chaud, le beurre, la cassonade et la cannelle dans un plat à four.",
@@ -1534,7 +1534,7 @@
         "ar": "6 حصص",
         "hy": "6 պորցիա"
       },
-      "prepTime": "PT15M",
+      "prepTime": "",
       "cookTime": "PT1H30M",
       "totalTime": "PT1H45M",
       "ingredients": {
@@ -1546,9 +1546,9 @@
           "1/8 teaspoon cloves",
           "1/3 cup sugar",
           "1/2 cup molasses",
-          "3 tablespoons butter",
+          "3 tablespoons butter or margarine",
           "1/2 cup raisins (optional)",
-          "1 large can evaporated milk",
+          "1 large can (13-1/2 oz.) evaporated milk",
           "1-1/4 cups water"
         ],
         "fr": [
@@ -1594,7 +1594,7 @@
       "instructions": {
         "en": [
           "Mix all ingredients in a 2-quart casserole.",
-          "Cover and bake in a slow oven (325°F / 160°C) for 45 minutes.",
+          "Cover and bake in a slow oven, 325°F, for 45 minutes.",
           "Remove cover and continue baking about 45 minutes until set.",
           "Serve warm with whipped cream or ice cream."
         ],
@@ -1676,13 +1676,13 @@
         "ar": "5-6 حصص",
         "hy": "5-6 պորցիա"
       },
-      "prepTime": "PT10M",
+      "prepTime": "",
       "cookTime": "PT1H30M",
       "totalTime": "PT1H40M",
       "ingredients": {
         "en": [
           "1-1/2 cups water",
-          "2-1/2 cups cooked bulgur",
+          "2-1/2 cups cooked Bulgor",
           "1-1/2 cups evaporated milk",
           "1/3 cup sugar",
           "1/2 teaspoon salt",
@@ -1720,7 +1720,7 @@
       "instructions": {
         "en": [
           "Combine all ingredients in a baking dish.",
-          "Cover and bake in moderate oven, 325°F (160°C), 45 minutes.",
+          "Cover and bake in moderate oven, 325°F, 45 minutes.",
           "Remove cover, stir, and continue baking uncovered about 45 minutes or until browned."
         ],
         "fr": [
@@ -1798,17 +1798,17 @@
         "ar": "6-8 حصص",
         "hy": "6-8 պորցիա"
       },
-      "prepTime": "PT30M",
-      "cookTime": "PT0M",
-      "totalTime": "PT2H30M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
-          "1 package gelatin",
+          "1 package (1 tbsp.) gelatin",
           "2 tablespoons water",
           "2-1/2 tablespoons cocoa",
           "3/4 cup sugar",
           "1-1/2 cups milk",
-          "1-1/2 cups cooked bulgur",
+          "1-1/2 cups cooked Bulgor",
           "1 teaspoon vanilla",
           "1/2 cup heavy cream, whipped"
         ],
@@ -1845,9 +1845,9 @@
       },
       "instructions": {
         "en": [
-          "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved (do not boil).",
+          "Dissolve gelatin in water and heat with cocoa, sugar and milk until dissolved, stirring frequently. Do not boil.",
           "Stir in cooked bulgur and vanilla, chill until thick but not firm.",
-          "Fold in whipped cream, turn into a greased mould and chill until firm."
+          "Fold in whipped cream, turn into a mould which has been brushed with salad oil, and chill until firm. Unmould and garnish, if you wish, with whipped cream and a few candied cherries."
         ],
         "fr": [
           "Dissoudre la gélatine dans l'eau et chauffer avec le cacao, le sucre et le lait jusqu'à dissolution (ne pas bouillir).",
@@ -1924,7 +1924,7 @@
         "ar": "حوالي 12 حصة",
         "hy": "about 12 պորցիա"
       },
-      "prepTime": "PT30M",
+      "prepTime": "",
       "cookTime": "PT2H",
       "totalTime": "PT2H30M",
       "ingredients": {
@@ -1935,7 +1935,7 @@
           "1/2 cup butter or shortening",
           "1-1/4 cups sugar",
           "2 eggs",
-          "1-1/2 cups cooked bulgur",
+          "1-1/2 cups cooked Bulgor",
           "1 teaspoon vanilla",
           "1/2 cup dried prunes (pitted), ground",
           "1/2 cup raisins, ground",
@@ -1989,8 +1989,9 @@
         "en": [
           "Sift together flour, baking powder and salt.",
           "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
-          "Stir in cooked bulgur and vanilla; add ground fruit and milk alternately with dry ingredients.",
-          "Fill greased loaf pan or mould three-fourths full, cover tightly and steam for 2 hours. Serve with whipped cream."
+          "Stir in the cooked Bulgor and vanilla. Grind together the prunes, raisins, and apricots; stir into the Bulgor mixture. Add the milk alternately with the dry ingredients.",
+          "Fill greased loaf pan or mould three-fourths full (coffee or shortening cans will do), cover tightly, and steam for 2 hours. Serve with whipped cream.",
+          "Any large covered utensil with a tight cover can be used as a steamer. Place a rack in the bottom and keep the water level at about 1-1/2 inches. Keep the water boiling gently."
         ],
         "fr": [
           "Tamiser la farine, la levure et le sel.",
@@ -4943,9 +4944,9 @@
         "ar": "6 حصص",
         "hy": "6 պորցիա"
       },
-      "prepTime": "PT10M",
-      "cookTime": "PT45M",
-      "totalTime": "PT55M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "1-1/2 cups cooked Bulgor",
@@ -4954,7 +4955,7 @@
           "1 teaspoon grated lemon rind",
           "1 teaspoon vanilla",
           "1/3 cup sugar",
-          "1/8 teaspoon salt",
+          "1/8 teaspoon sugar",
           "2 cups milk",
           "2 eggs, slightly beaten",
           "1 tablespoon melted butter"
@@ -5081,8 +5082,8 @@
         "ar": "10 إلى 12 حصص",
         "hy": "10 to 12 պորցիա"
       },
-      "prepTime": "PT20M",
-      "cookTime": "PT1H15M",
+      "prepTime": "",
+      "cookTime": "PT1H35M",
       "totalTime": "PT1H35M",
       "ingredients": {
         "en": [
@@ -5147,8 +5148,8 @@
           "Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.",
           "Sift together flour, baking powder, and salt.",
           "Cream butter and sugar until light and fluffy; add eggs and beat until thick and creamy.",
-          "Blend cooked Bulgor, vanilla, mashed banana, and lemon juice into the creamed mixture; add flour mixture alternately with milk.",
-          "Turn into greased loaf pan and bake at 350°F about 1¼ hours."
+          "Blend the cooked Bulgor, vanilla, mashed banana, lemon juice, and milk. Add alternately with the dry ingredients to the creamed mixture.",
+          "Turn into greased 1-1/2 quart loaf pan and bake at 350°F about 1¼ hours."
         ],
         "fr": [
           "Combine Bulgor and water; cover and simmer about 20 minutes until most water is absorbed.",
@@ -5206,7 +5207,7 @@
       "slug": "bulgor-apricot-delight",
       "featuredRecipe": false,
       "title": {
-        "en": "Bulgor Apricot Delight with Eggnog Sauce",
+        "en": "Bulgor Apricot Delight",
         "fr": "Délice Abricot au Bulghour et Sauce Eggnog",
         "ar": "متعة البرغل بالمشمش مع صلصة ايجنوج",
         "hy": "ձավարի ցորեն Apricot Delight with ձուnog Sauce"
@@ -5235,9 +5236,9 @@
         "ar": "6 حصص",
         "hy": "6 պորցիա"
       },
-      "prepTime": "PT10M",
-      "cookTime": "PT15M",
-      "totalTime": "PT25M",
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
       "ingredients": {
         "en": [
           "1 cup apricot nectar (or juice)",
@@ -5247,7 +5248,12 @@
           "3 tablespoons sugar (for Bulgor)",
           "1 tablespoon lemon juice",
           "Apricot halves (for garnish)",
-          "Eggnog Sauce: 1 egg, 1/2 cup sugar, 1 teaspoon vanilla, 2 tablespoons sherry or rum (optional), 1/2 cup heavy cream, whipped"
+          "Eggnog Sauce:",
+          "1 egg",
+          "1/2 cup sugar",
+          "1 teaspoon vanilla",
+          "2 tablespoons sherry or rum (optional)",
+          "1/2 cup heavy cream, whipped"
         ],
         "fr": [
           "1 cup apricot nectar (or juice)",
@@ -5284,7 +5290,7 @@
         "en": [
           "Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.",
           "Stir in 3 tablespoons sugar, cover and continue cooking over low heat for 5 minutes; chill the mixture and stir in lemon juice.",
-          "Prepare Eggnog Sauce by beating the egg, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."
+          "Prepare Eggnog Sauce by beating the egg until thick and lemon coloured, gradually adding sugar and vanilla, add sherry/rum if using, then fold in whipped cream. Top each serving with Eggnog Sauce and half an apricot."
         ],
         "fr": [
           "Mix apricot nectar, water, salt, and Bulgor in saucepan. Cover and simmer (do not boil) over low heat until all juice is absorbed; stir several times.",
