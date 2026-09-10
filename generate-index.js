@@ -303,19 +303,19 @@ const productTextTranslations = {
   'Spicy Falafel Mix': { fr: 'Mélange à falafels épicé', ar: 'خليط فلافل حار', hy: 'Կծու ֆալաֆելի խառնուրդ' },
   'A zesty blend for those who love extra heat.': { fr: 'Un mélange relevé pour celles et ceux qui aiment les saveurs plus piquantes.', ar: 'خلطة منعشة لمن يحبون النكهة الحارة الإضافية.', hy: 'Համեմված խառնուրդ նրանց համար, ովքեր սիրում են ավելի կծու համ։' },
   'soft wheat fine': { fr: 'Blé tendre fin', ar: 'قمح طري ناعم', hy: 'Փափուկ ցորեն, նուրբ' },
-  'Premium fine bulgur wheat, perfect for tabbouleh and delicate dishes.': { fr: 'Boulgour fin premium, parfait pour le taboulé et les plats délicats.', ar: 'برغل ناعم ممتاز، مثالي للتبولة والأطباق الخفيفة.', hy: 'Պրեմիում նուրբ բլղուր, կատարյալ թաբուլեի և նուրբ ուտեստների համար։' },
+  'Premium fine Bulgor wheat, perfect for tabbouleh and delicate dishes.': { fr: 'Boulgour fin premium, parfait pour le taboulé et les plats délicats.', ar: 'برغل ناعم ممتاز، مثالي للتبولة والأطباق الخفيفة.', hy: 'Պրեմիում նուրբ բլղուր, կատարյալ թաբուլեի և նուրբ ուտեստների համար։' },
   'soft wheat medium': { fr: 'Blé tendre moyen', ar: 'قمح طري متوسط', hy: 'Փափուկ ցորեն, միջին' },
-  'Versatile medium bulgur wheat, ideal for pilafs and salads.': { fr: 'Boulgour moyen polyvalent, idéal pour les pilafs et les salades.', ar: 'برغل متوسط متعدد الاستخدامات، مثالي للبلاو والسلطات.', hy: 'Բազմակողմանի միջին բլղուր, հարմար փլավների և աղցանների համար։' },
+  'Versatile medium Bulgor wheat, ideal for pilafs and salads.': { fr: 'Boulgour moyen polyvalent, idéal pour les pilafs et les salades.', ar: 'برغل متوسط متعدد الاستخدامات، مثالي للبلاو والسلطات.', hy: 'Բազմակողմանի միջին բլղուր, հարմար փլավների և աղցանների համար։' },
   'soft wheat coarse': { fr: 'Blé tendre gros', ar: 'قمح طري خشن', hy: 'Փափուկ ցորեն, կոպիտ' },
-  'Hearty coarse bulgur wheat for traditional Middle Eastern recipes.': { fr: 'Boulgour gros nourrissant pour les recettes traditionnelles du Moyen-Orient.', ar: 'برغل خشن غني للوصفات الشرق أوسطية التقليدية.', hy: 'Հագեցնող կոպիտ բլղուր ավանդական Մերձավորարևելյան բաղադրատոմսերի համար։' },
+  'Hearty coarse Bulgor wheat for traditional Middle Eastern recipes.': { fr: 'Boulgour gros nourrissant pour les recettes traditionnelles du Moyen-Orient.', ar: 'برغل خشن غني للوصفات الشرق أوسطية التقليدية.', hy: 'Հագեցնող կոպիտ բլղուր ավանդական Մերձավորարևելյան բաղադրատոմսերի համար։' },
   'soft wheat extra coarse': { fr: 'Blé tendre extra gros', ar: 'قمح طري خشن جداً', hy: 'Փափուկ ցորեն, շատ կոպիտ' },
-  'Extra coarse bulgur wheat for soups and hearty main dishes.': { fr: 'Boulgour extra gros pour les soupes et les plats principaux généreux.', ar: 'برغل خشن جداً للشوربات والأطباق الرئيسية الغنية.', hy: 'Շատ կոպիտ բլղուր ապուրների և հագեցնող հիմնական ուտեստների համար։' },
+  'Extra coarse Bulgor wheat for soups and hearty main dishes.': { fr: 'Boulgour extra gros pour les soupes et les plats principaux généreux.', ar: 'برغل خشن جداً للشوربات والأطباق الرئيسية الغنية.', hy: 'Շատ կոպիտ բլղուր ապուրների և հագեցնող հիմնական ուտեստների համար։' },
   'red wheat fine': { fr: 'Blé rouge fin', ar: 'قمح أحمر ناعم', hy: 'Կարմիր ցորեն, նուրբ' },
-  'Nutritious fine red bulgur wheat with a rich, nutty flavor.': { fr: 'Boulgour fin de blé rouge nutritif au goût riche et légèrement noisetté.', ar: 'برغل أحمر ناعم مغذٍ بطعم غني ومائل إلى الجوز.', hy: 'Սննդարար նուրբ կարմիր բլղուր` հարուստ և ընկուզային համով։' },
+  'Nutritious fine red Bulgor wheat with a rich, nutty flavor.': { fr: 'Boulgour fin de blé rouge nutritif au goût riche et légèrement noisetté.', ar: 'برغل أحمر ناعم مغذٍ بطعم غني ومائل إلى الجوز.', hy: 'Սննդարար նուրբ կարմիր բլղուր` հարուստ և ընկուզային համով։' },
   'red wheat medium': { fr: 'Blé rouge moyen', ar: 'قمح أحمر متوسط', hy: 'Կարմիր ցորեն, միջին' },
-  'Medium red bulgur wheat, excellent for robust salads and sides.': { fr: 'Boulgour moyen de blé rouge, excellent pour les salades généreuses et les accompagnements.', ar: 'برغل أحمر متوسط، ممتاز للسلطات الغنية والأطباق الجانبية.', hy: 'Միջին կարմիր բլղուր` հարմար առատ աղցանների և խավարտների համար։' },
+  'Medium red Bulgor wheat, excellent for robust salads and sides.': { fr: 'Boulgour moyen de blé rouge, excellent pour les salades généreuses et les accompagnements.', ar: 'برغل أحمر متوسط، ممتاز للسلطات الغنية والأطباق الجانبية.', hy: 'Միջին կարմիր բլղուր` հարմար առատ աղցանների և խավարտների համար։' },
   'red wheat coarse': { fr: 'Blé rouge gros', ar: 'قمح أحمر خشن', hy: 'Կարմիր ցորեն, կոպիտ' },
-  'Coarse red bulgur wheat for traditional dishes with enhanced nutrition.': { fr: 'Boulgour gros de blé rouge pour des plats traditionnels à la valeur nutritive renforcée.', ar: 'برغل أحمر خشن للأطباق التقليدية مع قيمة غذائية أعلى.', hy: 'Կոպիտ կարմիր բլղուր ավանդական ուտեստների համար` ավելի բարձր սննդային արժեքով։' }
+  'Coarse red Bulgor wheat for traditional dishes with enhanced nutrition.': { fr: 'Boulgour gros de blé rouge pour des plats traditionnels à la valeur nutritive renforcée.', ar: 'برغل أحمر خشن للأطباق التقليدية مع قيمة غذائية أعلى.', hy: 'Կոպիտ կարմիր բլղուր ավանդական ուտեստների համար` ավելի բարձր սննդային արժեքով։' }
 };
 
 const productPageSources = [
