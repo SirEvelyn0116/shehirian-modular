@@ -341,7 +341,7 @@
       },
       "categoryId": "soup",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
