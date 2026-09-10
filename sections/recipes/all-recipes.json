@@ -1126,7 +1126,7 @@
     },
     {
       "slug": "scotch-broth",
-      "featuredRecipe": true,
+      "featuredRecipe": false,
       "title": {
         "en": "Scotch Broth with Bulgor Wheat",
         "fr": "Bouillon écossais au blé bulgur",
