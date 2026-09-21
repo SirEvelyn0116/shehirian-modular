@@ -1193,6 +1193,33 @@ function writeAllRecipesPages() {
       const hreflangBlock = isPublished && recipeAlternates.length ? `\n${buildRecipeHreflangHtml(recipeAlternates)}` : '';
       const jsonldScript = isPublished ? `\n  <script type="application/ld+json">${JSON.stringify(jsonld)}</script>` : '';
 
+      // Variations (e.g. the booklet's fruit substitutions). Built here, but
+      // only emitted inside the published branch below, so it is gated by
+      // isPublished exactly like ingredients/instructions. A variation renders
+      // only for a language that actually has a translated note (English-only
+      // for now) — otherwise non-English pages would show English text or a
+      // bare heading. Heading falls back to the English name(s) if the target
+      // language hasn't named the variation yet.
+      const variationList = (Array.isArray(recipe.variations) ? recipe.variations : [])
+        .map(v => {
+          const vnote = (v && v.note && v.note[lang]) ? v.note[lang] : '';
+          if (!vnote) return null;
+          const vnames = (v.name && Array.isArray(v.name[lang]) && v.name[lang].length)
+            ? v.name[lang]
+            : ((v.name && Array.isArray(v.name.en)) ? v.name.en : []);
+          return { names: vnames.join(', '), note: vnote };
+        })
+        .filter(Boolean);
+      const variationsHtml = variationList.length ? `
+
+    <section class="recipe-section recipe-variations">
+      <h2>${t('section_variations')}</h2>
+      ${variationList.map(v => `<div class="recipe-variation">${v.names ? `
+        <h3>${v.names}</h3>` : ''}
+        <p>${v.note}</p>
+      </div>`).join('\n      ')}
+    </section>` : '';
+
       // Localized recipe page using the pre-refactor layout (nav + header)
       const page = `<!doctype html>
 <html lang="${lang}" dir="${langs[lang].dir}">
@@ -1258,7 +1285,7 @@ function writeAllRecipesPages() {
       <ol>
         ${instructions.map(s => `<li>${s}</li>`).join('\n')}
       </ol>
-    </section>` : `<header class="recipe-header recipe-header-coming-soon">
+    </section>${variationsHtml}` : `<header class="recipe-header recipe-header-coming-soon">
       <h1>${title}</h1>${buildRecipeImageHtml(recipe, title)}
     </header>
 

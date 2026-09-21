@@ -38,6 +38,26 @@ export default function buildRecipePageHtml(recipe, lang, dir, labels) {
 
   const t = (key, fallback) => (labels && labels[key]) || fallback;
 
+  const variationList = (Array.isArray(recipe.variations) ? recipe.variations : [])
+    .map(v => {
+      const vnote = (v && v.note && v.note[lang]) ? v.note[lang] : '';
+      if (!vnote) return null;
+      const vnames = (v.name && Array.isArray(v.name[lang]) && v.name[lang].length)
+        ? v.name[lang]
+        : ((v.name && Array.isArray(v.name.en)) ? v.name.en : []);
+      return { names: vnames.join(', '), note: vnote };
+    })
+    .filter(Boolean);
+  const variationsHtml = variationList.length ? `
+
+    <section class="recipe-section recipe-variations">
+      <h2>${esc(t('section_variations', 'Variations'))}</h2>
+      ${variationList.map(v => `<div class="recipe-variation">${v.names ? `
+        <h3>${esc(v.names)}</h3>` : ''}
+        <p>${esc(v.note)}</p>
+      </div>`).join('\n      ')}
+    </section>` : '';
+
   return `<!doctype html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -78,7 +98,7 @@ export default function buildRecipePageHtml(recipe, lang, dir, labels) {
       <ol>
         ${instructions.map(s => `<li>${esc(s)}</li>`).join('\n')}
       </ol>
-    </section>
+    </section>${variationsHtml}
 
     <footer class="recipe-footer">
       <a class="view-all-btn" href="#" onclick="return false;">${esc(t('btn_back_to_all_recipes', '← All recipes'))}</a>

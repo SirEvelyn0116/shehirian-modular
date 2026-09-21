@@ -167,6 +167,12 @@
     "ar": "التحضير",
     "hy": "Հրահանգներ"
   },
+  "section_variations": {
+    "en": "Variations",
+    "fr": "Variantes",
+    "ar": "تنويعات",
+    "hy": "Տարբերակներ"
+  },
   "btn_back_to_all_recipes": {
     "en": "← All recipes",
     "fr": "← Toutes les recettes",
