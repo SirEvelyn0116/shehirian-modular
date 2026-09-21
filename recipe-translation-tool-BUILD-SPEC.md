@@ -786,6 +786,7 @@ Built after the Phase 0–5 core, recorded here so the reasoning survives.
 - **Published flag — per recipe, per language.** Each recipe carries `published: { en, fr, ar, hy }`. A language renders as the real recipe page only when its flag is `true`; otherwise the page shows a "translation coming soon" watermark card (`.recipe-coming-soon`, `assets/css/style.css`). It is **SEO-gated**: an unpublished language page emits `noindex`, and only published languages are written into the sitemap and the `hreflang` alternates. It is also **data-layer gated**: content for an unpublished language is not emitted into that language's `recipes.<lang>.json` build artifact, so unverified/awaiting-final content cannot leak into the shipped data even indirectly. Publish state is flipped by an approver through the admin tool, reusing the approve flow's commit-to-branch + build-hook mechanism (§6) — `netlify/functions/recipes-publish.js`, approver-gated. `scripts/migrate-add-published-flag.js` seeded the flags (all `false`) across `all-recipes.json`. Default posture is **everything unpublished until verified** — this is what lets the corrected-but-unverified content sit safely on production (§14) while English is published recipe-by-recipe.
 - **Multi-language editing.** §7 originally described an "EN reference | AR editable" two-column editor. The editor now edits all three targets (FR / AR / HY) via a language selector; `buildEditableFieldPaths(recipe, lang)` (`recipes-app/src/fieldUtils.js`) determines which fields are editable for the selected language and `<RecipeReplica>` renders reference + editable columns for that target. The API, schema, and `fieldPath` grammar were already language-agnostic (§0.5), so this was a UI change only — no data-model or endpoint change.
 - **RTL recipe-page step numbers (fix).** Ordered-list step numbers on Arabic recipe pages rendered wrong — numeral/period order reversed (".6" instead of "6.") and pushed to the wrong side. Fixed in `assets/css/recipes.css` by rendering the instruction list with Eastern Arabic-Indic numerals (`list-style-type: arabic-indic`) and removing `direction: ltr` from the `::marker` rule (that rule, confirmed in the user's real Edge/Chrome, was causing the misplacement). **The rendering authority for RTL is the real browser, not headless** — headless Chrome could not reproduce the bug at all. This is a recipe-page concern distinct from the broader `body[dir="rtl"]`-vs-`html[dir]` launch blocker still tracked in §11.
+- **Recipe variations render (feature).** The recipe-page template now emits a `recipe-section recipe-variations` block after instructions (commit `8dfa396`), gated on `isPublished`. It joins each variation's `name.{lang}` as a sub-heading and shows `note.{lang}`, rendering a variation only for a language with a translated note (skip-if-untranslated; heading falls back to the English name). Mirrored in `recipePageHtml.js`. `section_variations` was added to `ui-strings.json` and the Google Sheet. Closes the §11 pre-publish gate and frees `bulgur-cherry-custard` and `bulgur-carrot-pineapple-salad` to publish.
 
 ---
 
@@ -886,23 +887,17 @@ Built after the Phase 0–5 core, recorded here so the reasoning survives.
   watermark degrade cleanly with or without one — generate-index.js's `buildRecipeImageHtml`), so
   the rendering half is a non-issue once images exist; what's deferred is actually sourcing them
   and any per-recipe editorial work that implies. Scope separately as its own project.
-- **PRE-PUBLISH REQUIREMENT — Variations do not render on recipe pages (template gap).** The
-  `variations` field in `all-recipes.json` is read nowhere — `generate-index.js` and the
-  recipe-page template have no variations section (confirmed by grep: zero references to
-  `variations` anywhere in the codebase outside the JSON data itself; the template goes straight
-  from the instructions `<section>` to the page footer). So the carrot-raisin variation on
-  `bulgur-carrot-pineapple-salad` and the 5 custard variants on `bulgur-cherry-custard` are
-  captured in data but **invisible to visitors**. This is a template/feature gap, not a content
-  problem. **Must render variations in the template before publishing
-  `bulgur-carrot-pineapple-salad` or `bulgur-cherry-custard`**, or their variation content ships
-  invisible. Recipes without variations can publish without this. To implement (small feature
-  task, do in build/feature mode not content mode): add a `recipe-variations` section to the
-  template after instructions (gated on `isPublished` like the other sections); add a
-  `section_variations` UI-string for all 4 languages; render logic iterating
-  `recipe.variations` (each variation's `name.{lang}` as sub-heading — joined if a list, as with
-  the 5 custard names — and `note.{lang}` as body); with English-fallback / skip-if-untranslated
-  handling for fr/ar/hy (currently empty for all variations) so non-English pages don't show
-  blank sub-sections.
+- ~~**PRE-PUBLISH REQUIREMENT — Variations do not render on recipe pages (template gap)**~~ —
+  **closed (commit `8dfa396`).** The recipe-page template now renders a `recipe-section
+  recipe-variations` block after the instructions section, gated on `isPublished` like the other
+  sections (§10.1). It iterates `recipe.variations`, joins each variation's `name.{lang}` as a
+  sub-heading and shows `note.{lang}` as the body, and renders a variation only for a language that
+  has a translated `note` — so non-English pages omit it rather than show English text or a blank
+  sub-section (skip-if-untranslated; the heading falls back to the English name(s)). Mirrored in the
+  admin preview replica (`recipePageHtml.js`). The `section_variations` UI-string was added to
+  `ui-strings.json` (en/fr filled; ar/hy provisional) **and to the Google Sheet**, so the production
+  Sheet-sync build keeps it. `bulgur-carrot-pineapple-salad` and `bulgur-cherry-custard` are now
+  free to publish.
 - **DEFERRED — `formatDuration` shows English durations on FR/HY recipe pages.** The duration
   formatter (`recipes-app/src/formatDuration.js`, plus its deliberately-parallel twins in
   `generate-index.js` and `sections/recipes/render.js`) only special-cases `lang === 'ar'`; FR and
