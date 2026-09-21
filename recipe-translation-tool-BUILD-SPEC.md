@@ -118,12 +118,13 @@ recipes can't. Everything else (auth, diff UI, build trigger, deploy-poll) is sh
 ## 1. Source of truth & edit target
 
 Recipe content lives in one file: **`sections/recipes/all-recipes.json`** — `{ recipes: [ … ] }`,
-44 recipes. Every translatable field is an object keyed by language; times are language-neutral.
+41 recipes as of the 2026-09 content pass (down from 44 after the authentic-set reconciliation — §14). Every translatable field is an object keyed by language; times are language-neutral. Each recipe also carries a per-language publish gate `published: { en, fr, ar, hy }` — see §10.1.
 
 ```
 recipe = {
   slug:            "royal-soup",          // stable id
   featuredRecipe:  true,
+  published:       { en, fr, ar, hy },    // per-language publish gate (§10.1)
   categoryId:      "soup",
   title:           { en, fr, ar, hy },
   description:     { en, fr, ar, hy },
@@ -778,6 +779,14 @@ right backend for each.
   effort; doing it now would mean guessing at a unified voice before the two flows are even done
   diverging.
 
+## 10.1 Post-core features delivered (published flag, multi-language editing, RTL step numbers)
+
+Built after the Phase 0–5 core, recorded here so the reasoning survives.
+
+- **Published flag — per recipe, per language.** Each recipe carries `published: { en, fr, ar, hy }`. A language renders as the real recipe page only when its flag is `true`; otherwise the page shows a "translation coming soon" watermark card (`.recipe-coming-soon`, `assets/css/style.css`). It is **SEO-gated**: an unpublished language page emits `noindex`, and only published languages are written into the sitemap and the `hreflang` alternates. It is also **data-layer gated**: content for an unpublished language is not emitted into that language's `recipes.<lang>.json` build artifact, so unverified/awaiting-final content cannot leak into the shipped data even indirectly. Publish state is flipped by an approver through the admin tool, reusing the approve flow's commit-to-branch + build-hook mechanism (§6) — `netlify/functions/recipes-publish.js`, approver-gated. `scripts/migrate-add-published-flag.js` seeded the flags (all `false`) across `all-recipes.json`. Default posture is **everything unpublished until verified** — this is what lets the corrected-but-unverified content sit safely on production (§14) while English is published recipe-by-recipe.
+- **Multi-language editing.** §7 originally described an "EN reference | AR editable" two-column editor. The editor now edits all three targets (FR / AR / HY) via a language selector; `buildEditableFieldPaths(recipe, lang)` (`recipes-app/src/fieldUtils.js`) determines which fields are editable for the selected language and `<RecipeReplica>` renders reference + editable columns for that target. The API, schema, and `fieldPath` grammar were already language-agnostic (§0.5), so this was a UI change only — no data-model or endpoint change.
+- **RTL recipe-page step numbers (fix).** Ordered-list step numbers on Arabic recipe pages rendered wrong — numeral/period order reversed (".6" instead of "6.") and pushed to the wrong side. Fixed in `assets/css/recipes.css` by rendering the instruction list with Eastern Arabic-Indic numerals (`list-style-type: arabic-indic`) and removing `direction: ltr` from the `::marker` rule (that rule, confirmed in the user's real Edge/Chrome, was causing the misplacement). **The rendering authority for RTL is the real browser, not headless** — headless Chrome could not reproduce the bug at all. This is a recipe-page concern distinct from the broader `body[dir="rtl"]`-vs-`html[dir]` launch blocker still tracked in §11.
+
 ---
 
 ## 11. Risks & open items
@@ -803,7 +812,7 @@ right backend for each.
 - **LAUNCH BLOCKER — RTL dead on live Arabic pages** (site bug, not the admin tool): `dir` is set on
   `<html>`, never `<body>`, on deployed recipe pages, so every `body[dir="rtl"]` rule in `style.css`
   is dead — found while verifying the Preview view mode against a real page (§7). Tracked and parked
-  on `fix/rtl-dir-attribute` (off `translation-pipeline`); not fixed yet. Must resolve before launch.
+  on `fix/rtl-dir-attribute` (off `translation-pipeline`); not fixed yet. Must resolve before launch. (Distinct from the recipe-page ordered-list *step-number* RTL fix that landed this segment — §10.1 — which addressed marker/numeral rendering, a different RTL concern from these dead `body[dir="rtl"]` rules.)
 - ~~**LAUNCH GATE — developer-facing scaffolding in the approver UI**~~ — **closed by Phase 5.**
   The inert Approve button's blunt "ships in Phase 5 — not implemented yet" `title` and the static
   conflict-deferral note are both gone — replaced by the real confirm gate and the real,
@@ -894,6 +903,12 @@ right backend for each.
   the 5 custard names — and `note.{lang}` as body); with English-fallback / skip-if-untranslated
   handling for fr/ar/hy (currently empty for all variations) so non-English pages don't show
   blank sub-sections.
+- **DEFERRED — `formatDuration` shows English durations on FR/HY recipe pages.** The duration
+  formatter (`recipes-app/src/formatDuration.js`, plus its deliberately-parallel twins in
+  `generate-index.js` and `sections/recipes/render.js`) only special-cases `lang === 'ar'`; FR and
+  HY fall through to English formatting. Cosmetic while FR/HY pages are unpublished, but **must be
+  fixed before publishing any FR or HY recipe.** Fix all three copies together (the §3 "layout
+  maintained twice" tax applies to this helper too).
 
 ---
 
@@ -995,6 +1010,8 @@ un-verified content — see the flagged list in that pass's report, not duplicat
 non-English field (translation spelling is its own later question). Full per-instance detail is in
 that session's report, not the repo.
 
+**UI/chrome sweep (2026-09, `27fc4c9`).** The 2026-09-04 audit covered `all-recipes.json` only. A follow-up sweep applied the same "Bulgor" rule to public-facing site chrome outside that file: `welcome.html` (logo `alt`, footer), the four certification pages (`certifications/*.en.html` body copy), the all-recipes page intro + `meta description`, the homepage "Our Companies" blurb (`sections/ourCompanies/ourCompanies.en.json`), and the Shirag product descriptions (`shirag-products.html`). The Shirag descriptions are scraped verbatim by `generate-index.js` as **exact-match dictionary keys** (`productTextTranslations`) supplying the FR/AR/HY text, so the matching English keys in `generate-index.js` were updated in lockstep — otherwise the FR/AR/HY lookups would have silently fallen back to English. `ui-strings.json` already used "Bulgor" throughout (Sheet-synced, untouched). SEO-sensitive strings (meta/intro/product copy) were defaulted to "Bulgor" but stay flagged for the brothers' spelling decision (item 5 below). Committed on `translation-pipeline` as `27fc4c9` — **local-only, not yet pushed** at time of writing.
+
 **Slug spelling — deferred, do not change during content work.** Slugs currently mix "bulgur" and
 "bulgor" (e.g. `bulgur-salad` vs. `scalloped-bulgor-with-wieners`). Unlike prose, this is a
 URL/SEO-affecting decision, not a content-fidelity one — and the common spelling ("bulgur") is
@@ -1043,6 +1060,27 @@ reconstructions and any future instruction work.
 
 Exact per-item mechanics (why some were deletable outright and others had to stay as
 build-coherent placeholders) are in the Part 2 commit and its report.
+
+### Deep-comparison verification pass, corrections, and production merge (2026-09)
+
+After the reconciliation (Parts above) settled *which* recipes were authentic, a separate page-by-page **deep-comparison pass** verified the *content* of every recipe against the source scans. This was necessary because the entire corpus is unverified machine (Gemini) output, and spot-checks had already surfaced meaning-changing alterations on a bulgur company's own recipes: bulgur silently dropped from recipes (e.g. Royal Soup — where the bulgur is the point), lamb→beef substitutions, fabricated recipes, dropped techniques and alternative methods, fabricated Celsius conversions, fabricated prep/cook times, and silently truncated time ranges.
+
+Key finding: **triage "CLEAN" verdicts proved unreliable.** Every triage-CLEAN recipe that was then deep-checked (pages 7–9 especially) still held real corruption — dropped ingredient words, "bulgur" where the scan says "Bulgor", dropped alternative methods, a bake-time range collapsed to its low end (an under-baking risk if followed literally). So all ~41 recipes were deep-compared against the scans rather than trusting triage, and the gutted ones were reconstructed from the scans. The pass is **complete**.
+
+Correction conventions applied (all at the user's per-item direction — Claude flags candidates, the user rules on each; Claude never silently corrects):
+- **Verbatim content, relaxed punctuation** — transcribe the scan's wording; readability-only commas/colons/semicolons already present are kept and flagged, never silently added.
+- **Fabricated data removed** — Celsius conversions not in the booklet, and prep/total times invented from nothing, are cleared.
+- **Ranges preserved, never collapsed** — a stated "3/4 to 1 hour" stays a range; the structured `prepTime`/`cookTime`/`totalTime` fields are left **empty** for range-only or multi-stage timings, with the timing carried in the instruction text instead (fraction-of-hour → minutes is fine).
+- **Odd layouts normalized** to the standard ingredient/instruction structure; sequenced discrete steps preferred over compound prose (per the 2026-09-10 instruction-formatting note above).
+- **Traditional-name candidates** flagged for the brothers, never renamed (e.g. `raw-meat-platter` ≈ çiğ köfte / "Chee Kufta") — see `sections/recipes/traditional-name-candidates.md`.
+
+Supporting docs from this work live in the repo alongside the recipes: `sections/recipes/booklet-intro.md`, `sections/recipes/traditional-name-candidates.md`, `sections/recipes/altered-recipes-discrepancy-log.md`.
+
+**Merged to production, staged behind flags.** The corrected content was merged into `translation-pipeline` (`041c8a2`), but every recipe stays **unpublished** (`published` all-`false`) so corrected-but-unverified content does not surface publicly (see the published flag, §10.1). English is being published incrementally as each recipe clears final review — **published so far (English): `royal-soup`, `armenian-style-lentil-soup`** (commits `1b4242e`, `032f4e3` on `translation-pipeline`). `bulgur-cherry-custard` and `bulgur-carrot-pineapple-salad` are **held** from publishing until the variations-render template gap (§11) is closed, or their variation content would ship invisible.
+
+**Scan sources — keep all three files, do not consolidate or delete** (too risky): `ShehirianBulgorRecipes-3-6.pdf` (pp.2–6 rescans), `recipesPGs7-18.pdf` (pp.7–18, skips 13–14), `page13and14.pdf` (the only source for pp.13–14).
+
+**Re-translation still owed.** The corrections above are to the **English source only**. FR/AR/HY were machine-translated from the *old, corrupted* English and additionally carry the artifacts in the brothers' list below, so a re-translation pass (from corrected English, folding in the re-sequencing) is still outstanding for every non-English field before any FR/AR/HY recipe can publish.
 
 ### Decisions for the Shehirian brothers (brief once, comprehensively)
 
