@@ -57,7 +57,7 @@
       },
       "categoryId": "other",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -577,7 +577,7 @@
       },
       "categoryId": "salad",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -703,7 +703,7 @@
       ],
       "categoryId": "salad",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -815,7 +815,7 @@
       },
       "categoryId": "salad",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -933,7 +933,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1044,7 +1044,7 @@
       },
       "categoryId": "salad",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1118,7 +1118,7 @@
       },
       "categoryId": "salad",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1327,7 +1327,7 @@
       },
       "categoryId": "soup",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1499,7 +1499,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1641,7 +1641,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1763,7 +1763,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -1893,7 +1893,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2044,7 +2044,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2178,7 +2178,7 @@
       },
       "categoryId": "starter",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2312,7 +2312,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2438,7 +2438,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2564,7 +2564,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2710,7 +2710,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2844,7 +2844,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2981,7 +2981,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3111,7 +3111,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3224,7 +3224,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3338,7 +3338,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3464,7 +3464,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3590,7 +3590,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3712,7 +3712,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3838,7 +3838,7 @@
       },
       "categoryId": "side",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -3957,7 +3957,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4095,7 +4095,7 @@
       },
       "categoryId": "main",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4221,7 +4221,7 @@
       },
       "categoryId": "side",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4347,7 +4347,7 @@
       },
       "categoryId": "side",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4501,7 +4501,7 @@
       },
       "categoryId": "side",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4635,7 +4635,7 @@
       },
       "categoryId": "side",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4769,7 +4769,7 @@
       },
       "categoryId": "side",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -4917,7 +4917,7 @@
       },
       "categoryId": "other",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -5055,7 +5055,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -5209,7 +5209,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
@@ -5344,7 +5344,7 @@
       },
       "categoryId": "dessert",
       "published": {
-        "en": false,
+        "en": true,
         "fr": false,
         "ar": false,
         "hy": false
