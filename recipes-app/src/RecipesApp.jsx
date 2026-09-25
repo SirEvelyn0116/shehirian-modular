@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import RecipeList from './RecipeList.jsx';
 import RecipeReplica from './RecipeReplica.jsx';
 import RecipeApprovalView from './RecipeApprovalView.jsx';
+import OpsBanner from './OpsBanner.jsx';
 import { getRoles } from './api.js';
 
 // Netlify Identity restores an existing session ASYNCHRONOUSLY — it has to
@@ -86,7 +87,11 @@ export default function RecipesApp() {
         </div>
       )}
       {effectiveMode === 'review' ? (
-        <RecipeApprovalView />
+        <>
+          {/* Demo operations pulse for approvers — links to /admin/ops.html */}
+          {isApprover && <OpsBanner />}
+          <RecipeApprovalView />
+        </>
       ) : selectedSlug ? (
         <RecipeReplica slug={selectedSlug} onBack={() => setSelectedSlug(null)} />
       ) : (

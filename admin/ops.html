@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<!-- Demo operations snapshot for approvers. ALL FIGURES ARE ILLUSTRATIVE SAMPLE DATA.
+     Linked from the approver banner (recipes-app/src/OpsBanner.jsx). -->
+<title>Shehirian Ops Snapshot</title>
+<style>
+  :root{
+    color-scheme: light;
+    --page:#f4f1e9;
+    --surface:#fffefb;
+    --surface-2:#faf7f0;
+    --ink:#1a1710;
+    --ink-2:#5c574c;
+    --muted:#8a8578;
+    --grid:#e7e2d5;
+    --line:rgba(26,23,16,0.10);
+    --accent:#a86e1c;        /* wheat / amber — brand, never a data color */
+    --accent-soft:#f0e6d0;
+    --s1:#2a78d6;            /* production (validated categorical slot 1) */
+    --s2:#eb6834;            /* shipments  (slot 2) */
+    --s3:#1baf7a;            /* accounts   (slot 3) */
+    --good:#0a7a0a;
+    --shadow:0 1px 2px rgba(26,23,16,.05),0 4px 16px rgba(26,23,16,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --page:#100f0b;
+      --surface:#1b1914;
+      --surface-2:#211e18;
+      --ink:#f6f3ea;
+      --ink-2:#cbc5b5;
+      --muted:#938d7d;
+      --grid:#2c2a23;
+      --line:rgba(255,255,255,0.10);
+      --accent:#d99a3e;
+      --accent-soft:#302816;
+      --s1:#3987e5;
+      --s2:#d95926;
+      --s3:#199e70;
+      --good:#0ca30c;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --page:#100f0b; --surface:#1b1914; --surface-2:#211e18;
+    --ink:#f6f3ea; --ink-2:#cbc5b5; --muted:#938d7d;
+    --grid:#2c2a23; --line:rgba(255,255,255,0.10);
+    --accent:#d99a3e; --accent-soft:#302816;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --good:#0ca30c;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 20px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--page);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.45;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding-block:0 40px;padding-inline:20px}
+
+  /* Header */
+  header.top{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+    background:color-mix(in srgb,var(--page) 88%,transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    margin-inline:-20px;padding:14px 20px;margin-bottom:22px;
+  }
+  .top-row{max-width:1060px;margin:0 auto;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:10px;min-width:0}
+  .mark{
+    width:30px;height:30px;border-radius:7px;flex:none;
+    background:radial-gradient(circle at 32% 28%,#e7c072,var(--accent));
+    display:grid;place-items:center;color:#2a1e07;font-weight:800;font-size:15px;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+  }
+  .brand h1{font-size:16px;margin:0;letter-spacing:-.01em;font-weight:700;white-space:nowrap}
+  .brand .sub{font-size:12px;color:var(--ink-2);margin:0;font-weight:500}
+  .spacer{flex:1 1 auto}
+  .demo-chip{
+    font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);
+    border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);
+    padding:5px 9px;border-radius:999px;white-space:nowrap;
+  }
+  .period{
+    font-size:12px;color:var(--ink-2);background:var(--surface);
+    border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-weight:600;
+  }
+
+  .eyebrow{
+    font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 12px;
+  }
+
+  /* KPI row */
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:26px}
+  .kpi{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:14px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px;
+  }
+  .kpi .label{font-size:12px;color:var(--ink-2);font-weight:600;line-height:1.3}
+  .kpi .val{font-size:26px;font-weight:750;letter-spacing:-.02em;line-height:1}
+  .kpi .val .u{font-size:13px;font-weight:600;color:var(--muted);margin-left:3px}
+  .kpi .delta{font-size:12px;font-weight:650;display:inline-flex;align-items:center;gap:3px}
+  .kpi .delta.up{color:var(--good)}
+  .kpi .delta.flat{color:var(--muted)}
+  .tnum{font-variant-numeric:tabular-nums}
+
+  /* Chart grid */
+  .grid2{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin-bottom:18px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:18px;box-shadow:var(--shadow);min-width:0;
+  }
+  .card h2{font-size:14px;margin:0 0 2px;font-weight:700;letter-spacing:-.01em}
+  .card .cap{font-size:12px;color:var(--muted);margin:0 0 14px}
+
+  .legend{display:flex;gap:16px;margin:0 0 10px;flex-wrap:wrap}
+  .lg{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2);font-weight:600}
+  .lg .sw{width:11px;height:11px;border-radius:3px;flex:none}
+
+  .chartbox{position:relative}
+  svg{display:block;width:100%;height:auto}
+  .tip{
+    position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-8px);
+    background:var(--ink);color:var(--page);font-size:11.5px;line-height:1.5;
+    padding:7px 9px;border-radius:8px;white-space:nowrap;z-index:5;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);transition:opacity .12s;font-weight:600;
+  }
+  .tip b{font-weight:750}
+  .tip .r{display:flex;align-items:center;gap:6px}
+  .tip .dot{width:8px;height:8px;border-radius:2px;flex:none}
+
+  /* Horizontal bar lists */
+  .bars{display:flex;flex-direction:column;gap:13px;margin-top:4px}
+  .bar-row{display:grid;grid-template-columns:1fr;gap:5px}
+  .bar-row .rt{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .bar-row .nm{font-size:13px;font-weight:600}
+  .bar-row .vl{font-size:12px;color:var(--ink-2);font-weight:600}
+  .bar-row .vl .pct{color:var(--muted);margin-left:5px}
+  .track{height:9px;background:var(--surface-2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+  .fill{height:100%;border-radius:999px}
+
+  /* Forward panel */
+  .unlock{margin-top:18px;background:linear-gradient(180deg,var(--surface),var(--surface-2));
+    border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}
+  .unlock h2{font-size:14px;margin:0 0 14px;font-weight:700}
+  .ulist{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ucell{display:flex;flex-direction:column;gap:5px}
+  .ucell .ic{width:26px;height:26px;border-radius:7px;background:var(--accent-soft);
+    color:var(--accent);display:grid;place-items:center;font-size:14px;font-weight:800}
+  .ucell .t{font-size:13px;font-weight:700}
+  .ucell .d{font-size:12.5px;color:var(--ink-2);line-height:1.5}
+
+  footer{margin-top:26px;font-size:11.5px;color:var(--muted);line-height:1.6;
+    border-top:1px solid var(--line);padding-top:14px}
+  footer b{color:var(--ink-2);font-weight:700}
+
+  @media (max-width:760px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .grid2{grid-template-columns:1fr}
+    .ulist{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-row">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">Ş</div>
+      <div>
+        <h1>Shehirian Bulgor Inc.</h1>
+        <p class="sub">Operations Snapshot</p>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <a class="period" href="/admin/" style="text-decoration:none">← Dashboard</a>
+    <span class="period">Trailing 12 months</span>
+    <span class="demo-chip" title="Illustrative sample data, not actual company figures">Demo · sample data</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <p class="eyebrow">At a glance</p>
+  <section class="kpis" aria-label="Key metrics">
+    <div class="kpi">
+      <span class="label">Production (12&nbsp;mo)</span>
+      <span class="val tnum">8,860<span class="u">MT</span></span>
+      <span class="delta up">▲ 11% <span style="color:var(--muted);font-weight:600">YoY</span></span>
+    </div>
+    <div class="kpi">
+      <span class="label">Capacity utilization</span>
+      <span class="val tnum">78<span class="u">%</span></span>
+      <span class="delta up">▲ 6 pts YoY</span>
+    </div>
+    <div class="kpi">
+      <span class="label">On-time fulfillment</span>
+      <span class="val tnum">96.4<span class="u">%</span></span>
+      <span class="delta up">▲ 1.8 pts</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Active B2B accounts</span>
+      <span class="val tnum">34</span>
+      <span class="delta up">▲ 5 YoY</span>
+    </div>
+    <div class="kpi">
+      <span class="label">Order backlog</span>
+      <span class="val tnum">540<span class="u">MT</span></span>
+      <span class="delta flat">≈ 3 weeks of run-rate</span>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <!-- Time series -->
+    <section class="card">
+      <h2>Production vs. shipments</h2>
+      <p class="cap">Monthly, metric tonnes — the Ramadan build (Feb–Mar) and summer tabbouleh season (Jun–Jul) both show.</p>
+      <div class="legend">
+        <span class="lg"><span class="sw" style="background:var(--s1)"></span>Production</span>
+        <span class="lg"><span class="sw" style="background:var(--s2)"></span>Shipments</span>
+      </div>
+      <div class="chartbox">
+        <svg id="ts" viewBox="0 0 720 300" role="img" aria-label="Monthly production and shipments in metric tonnes"></svg>
+        <div class="tip" id="tsTip"></div>
+      </div>
+    </section>
+
+    <!-- Grade mix -->
+    <section class="card">
+      <h2>Product mix by grade</h2>
+      <p class="cap">Share of 12-month volume.</p>
+      <div class="bars" id="gradeBars"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <!-- Accounts -->
+    <section class="card">
+      <h2>Volume by account segment</h2>
+      <p class="cap">Metric tonnes shipped, trailing 12 months.</p>
+      <div class="bars" id="acctBars"></div>
+    </section>
+
+    <!-- Forward -->
+    <section class="unlock" style="margin-top:0">
+      <h2>What live data would unlock</h2>
+      <div class="ulist">
+        <div class="ucell">
+          <span class="ic" aria-hidden="true">↗</span>
+          <span class="t">Demand forecasting</span>
+          <span class="d">See the Ramadan and summer peaks forming weeks earlier, and plan runs against them.</span>
+        </div>
+        <div class="ucell">
+          <span class="ic" aria-hidden="true">◷</span>
+          <span class="t">Capacity &amp; backlog</span>
+          <span class="d">Flag automatically when the order backlog starts to outrun the current run-rate.</span>
+        </div>
+        <div class="ucell">
+          <span class="ic" aria-hidden="true">◎</span>
+          <span class="t">Market signal</span>
+          <span class="d">Tie in which recipes and languages visitors ask for on shehirian.com — where to push next.</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <b>Illustrative demonstration.</b> Every figure on this page is realistic sample data created to show what an
+    operations dashboard could look like — it is not Shehirian Bulgor Inc.'s actual production, sales, or customer data.
+    A live version would draw from the company's own order, production, and web systems.
+  </footer>
+</div>
+
+<script>
+(function(){
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+
+  /* ---------- Time series ---------- */
+  const months = ["Oct","Nov","Dec","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep"];
+  const prod = [620,580,640,700,860,900,720,760,840,880,700,660];
+  const ship = [600,560,610,680,820,880,740,730,810,860,690,650];
+
+  const svg = document.getElementById('ts');
+  const tip = document.getElementById('tsTip');
+  const box = svg.parentNode;
+  const NS = "http://www.w3.org/2000/svg";
+  const W=720,H=300, mL=44,mR=12,mT=12,mB=34;
+  const iw=W-mL-mR, ih=H-mT-mB;
+  const yMax=1000, ticks=[0,250,500,750,1000];
+  const x2=v=> mT+ih-(v/yMax)*ih;
+  const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+
+  // gridlines + y labels
+  ticks.forEach(t=>{
+    const y=x2(t);
+    svg.appendChild(mk('line',{x1:mL,y1:y,x2:mL+iw,y2:y,stroke:css('--grid'),'stroke-width':1}));
+    const lb=mk('text',{x:mL-8,y:y+4,'text-anchor':'end','font-size':11,fill:css('--muted')});
+    lb.textContent=t; lb.setAttribute('font-family','system-ui,sans-serif');
+    lb.style.fontVariantNumeric='tabular-nums'; svg.appendChild(lb);
+  });
+
+  const step=iw/months.length;
+  const bw=Math.min(15,(step-10)/2);
+  const c1=css('--s1'), c2=css('--s2');
+
+  months.forEach((m,i)=>{
+    const gx=mL+i*step+step/2;
+    const bh1=(prod[i]/yMax)*ih, bh2=(ship[i]/yMax)*ih;
+    // production bar (left)
+    const r1=mk('rect',{x:gx-bw-1,y:mT+ih-bh1,width:bw,height:bh1,rx:3,fill:c1});
+    // shipments bar (right)
+    const r2=mk('rect',{x:gx+1,y:mT+ih-bh2,width:bw,height:bh2,rx:3,fill:c2});
+    svg.appendChild(r1); svg.appendChild(r2);
+    // month label
+    const lb=mk('text',{x:gx,y:H-12,'text-anchor':'middle','font-size':11,fill:css('--muted')});
+    lb.textContent=m; lb.setAttribute('font-family','system-ui,sans-serif'); svg.appendChild(lb);
+    // hover hit target
+    const hit=mk('rect',{x:mL+i*step,y:mT,width:step,height:ih,fill:'transparent'});
+    hit.style.cursor='pointer';
+    const show=(ev)=>{
+      const pr=box.getBoundingClientRect();
+      const relx=(gx/W)*pr.width;
+      const rely=(x2(Math.max(prod[i],ship[i]))/H)*pr.height;
+      tip.innerHTML='<div style="margin-bottom:3px"><b>'+m+'</b></div>'+
+        '<div class="r"><span class="dot" style="background:'+c1+'"></span>Production <b>'+prod[i]+' MT</b></div>'+
+        '<div class="r"><span class="dot" style="background:'+c2+'"></span>Shipments <b>'+ship[i]+' MT</b></div>';
+      tip.style.left=relx+'px'; tip.style.top=rely+'px'; tip.style.opacity='1';
+    };
+    hit.addEventListener('mouseenter',show);
+    hit.addEventListener('mousemove',show);
+    hit.addEventListener('mouseleave',()=>{tip.style.opacity='0';});
+    svg.appendChild(hit);
+  });
+
+  /* ---------- Horizontal bar lists ---------- */
+  function drawBars(el, rows, color, unit){
+    const max=Math.max(...rows.map(r=>r.v));
+    rows.forEach(r=>{
+      const row=document.createElement('div'); row.className='bar-row';
+      const pctShare = r.share!=null ? '<span class="pct">'+r.share+'%</span>' : '';
+      row.innerHTML=
+        '<div class="rt"><span class="nm">'+r.n+'</span>'+
+        '<span class="vl tnum">'+r.v.toLocaleString()+' '+unit+pctShare+'</span></div>'+
+        '<div class="track"><div class="fill" style="width:'+(r.v/max*100).toFixed(1)+'%;background:'+color+'"></div></div>';
+      el.appendChild(row);
+    });
+  }
+  drawBars(document.getElementById('gradeBars'),[
+    {n:"Medium #2",v:3630,share:41},
+    {n:"Fine #1",v:3010,share:34},
+    {n:"Coarse #3",v:1595,share:18},
+    {n:"Extra-coarse #4",v:620,share:7},
+  ], css('--s1'), 'MT');
+
+  drawBars(document.getElementById('acctBars'),[
+    {n:"Regional distributors",v:2640},
+    {n:"Mr. Falafel (retail-bound)",v:2150},
+    {n:"Shirag",v:1780},
+    {n:"Private label / co-pack",v:1490},
+    {n:"Foodservice direct",v:800},
+  ], css('--s3'), 'MT');
+})();
+</script>
+
+</body>
+</html>
