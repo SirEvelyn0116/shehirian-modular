@@ -118,7 +118,7 @@ recipes can't. Everything else (auth, diff UI, build trigger, deploy-poll) is sh
 ## 1. Source of truth & edit target
 
 Recipe content lives in one file: **`sections/recipes/all-recipes.json`** — `{ recipes: [ … ] }`,
-41 recipes as of the 2026-09 content pass (down from 44 after the authentic-set reconciliation — §14). Every translatable field is an object keyed by language; times are language-neutral. Each recipe also carries a per-language publish gate `published: { en, fr, ar, hy }` — see §10.1.
+40 recipes as of the 2026-09 content pass (down from 44: three fabricated slugs removed in the authentic-set reconciliation, and the fabricated `hearty-bulgur-pilaf` dropped afterwards — §14). Every translatable field is an object keyed by language; times are language-neutral. Each recipe also carries a per-language publish gate `published: { en, fr, ar, hy }` — see §10.1.
 
 ```
 recipe = {
@@ -1040,8 +1040,8 @@ reconstructions and any future instruction work.
 
 - **Removed** (fabricated, no bulgur, no scan basis): `spiced-lentil-soup`.
 - **Removed** (fabricated/duplicate, no scan basis): `bulgur-wheat-salad`, `classic-tabbouleh`.
-- **Parked**, `published` forced to `false` on all languages, entry left in place pending the
-  Shehirian brothers' call (item (d) below): `hearty-bulgur-pilaf`.
+- **Parked**, then **dropped** (2026-09-25): `hearty-bulgur-pilaf` — see item 4 in the brothers'
+  list below.
 - **Parked as a placeholder** (`published: false`, inline "TO BE REPLACED" note), not deleted,
   because the replacement is scan-sourced content that is the user's task: `tabbouleh-salad` → to
   be replaced by a user-built `tabulee-salad` from p.5 ("TABULEE SALAD").
@@ -1071,7 +1071,7 @@ Correction conventions applied (all at the user's per-item direction — Claude 
 
 Supporting docs from this work live in the repo alongside the recipes: `sections/recipes/booklet-intro.md`, `sections/recipes/traditional-name-candidates.md`, `sections/recipes/altered-recipes-discrepancy-log.md`.
 
-**Merged to production, staged behind flags.** The corrected content was merged into `translation-pipeline` (`041c8a2`), but every recipe stays **unpublished** (`published` all-`false`) so corrected-but-unverified content does not surface publicly (see the published flag, §10.1). English is being published incrementally as each recipe clears final review — **published so far (English): `royal-soup`, `armenian-style-lentil-soup`** (commits `1b4242e`, `032f4e3` on `translation-pipeline`). `bulgur-cherry-custard` and `bulgur-carrot-pineapple-salad` are **held** from publishing until the variations-render template gap (§11) is closed, or their variation content would ship invisible.
+**Merged to production, staged behind flags.** The corrected content was merged into `translation-pipeline` (`041c8a2`), but every recipe stays **unpublished** (`published` all-`false`) so corrected-but-unverified content does not surface publicly (see the published flag, §10.1). English was then published: `royal-soup` and `armenian-style-lentil-soup` first (commits `1b4242e`, `032f4e3`), then **all remaining English recipes** once the variations-render gap closed (`8dfa396`) and a pre-publish sanity sweep came back clean (`5fe9208`, 2026-09-25) — **English is fully published (40/40)**. FR/AR/HY remain unpublished pending re-translation.
 
 **Scan sources — keep all three files, do not consolidate or delete** (too risky): `ShehirianBulgorRecipes-3-6.pdf` (pp.2–6 rescans), `recipesPGs7-18.pdf` (pp.7–18, skips 13–14), `page13and14.pdf` (the only source for pp.13–14).
 
@@ -1096,10 +1096,10 @@ Supporting docs from this work live in the repo alongside the recipes: `sections
    throughout. Unlike Arabic, Armenian typography doesn't have a live Eastern-numeral alternative
    in general use — this is very likely already correct — but get an explicit confirmation from the
    brothers rather than assuming, since it's being asked in the same breath as the Arabic question.
-4. **`hearty-bulgur-pilaf` — keep or drop?** Confirmed AI-fabricated (no scan source), but unlike
-   `spiced-lentil-soup` it does contain bulgur and is a plausible modern addition to the line, not
-   nonsense. Their call: keep it as a deliberate "modern recipe" addition to the collection, or drop
-   it entirely for collection authenticity. Parked, unpublished, pending that decision — see above.
+4. ~~**`hearty-bulgur-pilaf` — keep or drop?**~~ — **resolved: dropped (2026-09-25), not put to the
+   brothers.** It has no source in the booklet and was never published, so it isn't part of the
+   family collection and there's nothing for them to decide — asking would have meant explaining
+   where it came from. Removed from `all-recipes.json` along with its generated JSON-LD files.
 5. **"Bulgor" vs. "bulgur" for SEO/discoverability.** Recommendation: use "Bulgor" as the
    brand/heritage spelling (brand name, headings, recipe content — authenticity), **and** include
    the common "bulgur" spelling in descriptions/searchable text/meta (discoverability — "bulgur" is
