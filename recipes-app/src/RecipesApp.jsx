@@ -80,6 +80,9 @@ export default function RecipesApp() {
 
   return (
     <>
+      {/* Demo operations pulse for approvers, above both Publish and Review so it is
+          the first thing an approver sees; links to /admin/ops.html. */}
+      {isApprover && <OpsBanner />}
       {showModeTabs && (
         <div className="view-tabs recipes-mode-tabs">
           <button className={`view-tab ${mode === 'list' ? 'active' : ''}`} onClick={() => setMode('list')}>{listTabLabel}</button>
@@ -88,8 +91,6 @@ export default function RecipesApp() {
       )}
       {effectiveMode === 'review' ? (
         <>
-          {/* Demo operations pulse for approvers — links to /admin/ops.html */}
-          {isApprover && <OpsBanner />}
           <RecipeApprovalView />
         </>
       ) : selectedSlug ? (
