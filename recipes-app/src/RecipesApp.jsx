@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import RecipeList from './RecipeList.jsx';
 import RecipeReplica from './RecipeReplica.jsx';
 import RecipeApprovalView from './RecipeApprovalView.jsx';
-import OpsBanner from './OpsBanner.jsx';
 import { getRoles } from './api.js';
 
 // Netlify Identity restores an existing session ASYNCHRONOUSLY — it has to
@@ -18,7 +17,7 @@ import { getRoles } from './api.js';
 // already populated (true immediately for the local auth-stub, which sets
 // it synchronously with no async gap — see scripts/dev-server.js) or
 // because the widget's own 'init'/'login' events fired.
-function useIdentityRoles() {
+export function useIdentityRoles() {
   const [state, setState] = useState(() => {
     const widget = window.netlifyIdentity;
     const user = widget && widget.currentUser && widget.currentUser();
@@ -80,9 +79,6 @@ export default function RecipesApp() {
 
   return (
     <>
-      {/* Demo operations pulse for approvers, above both Publish and Review so it is
-          the first thing an approver sees; links to /admin/ops.html. */}
-      {isApprover && <OpsBanner />}
       {showModeTabs && (
         <div className="view-tabs recipes-mode-tabs">
           <button className={`view-tab ${mode === 'list' ? 'active' : ''}`} onClick={() => setMode('list')}>{listTabLabel}</button>
