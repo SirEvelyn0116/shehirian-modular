@@ -755,6 +755,17 @@ right backend for each.
   production. End-to-end: edit → approve (with confirm) → commit → deploy. Full detail in §6.
 - **Phase 6 — Polish.** Color-coding vs ui-strings, conflict/empty/error states, translator's
   pending list.
+  - **Recipe list grouped by category — do before the reveal.** In `RecipeList.jsx` (both the
+    translator's Translate list and the approver's Publish list), group recipes into collapsible
+    sections by `categoryId` with a count, e.g. "Soup (4)", using the native `<details>` pattern
+    `RecipeApprovalView` already uses, and labels from `sections/categories.json`. Move the
+    en/fr/ar/hy publish pills up onto the recipe's own row, where the category label sits now (the
+    label becomes redundant once grouped). Small change (one ~140-line component + CSS), but it
+    is the screen the approver (Vartan) lands on under the ops banner, where a flat 40-row list is
+    the least finished-looking part.
+  - **Translation check for the brothers' pass:** `sections/categories.json` has `hy` for
+    `dessert` as "Կրկեսային" (appears to mean "circus-related"); the usual word is "Աղանդեր".
+    Not changed — flagged for the Armenian re-translation rather than fixed unreviewed.
 - **Phase 7 (capstone, post-core) — Unify the recipe + ui-strings review into one decision
   surface.** Planned, not built, no branch yet — recorded here so the reasoning survives until it's
   reached. Present both approval flows in a single screen: collapsible groups, recipes grouped by
