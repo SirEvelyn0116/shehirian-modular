@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { apiGet, apiPost } from './api.js';
 
 const LANGS = [
@@ -7,6 +7,25 @@ const LANGS = [
   { code: 'ar', label: 'Arabic' },
   { code: 'hy', label: 'Armenian' },
 ];
+
+// Section order and English labels for the admin list — menu order, matching
+// sections/categories.json's ids. The admin UI is English-only, so no fetch.
+// Any categoryId not listed here still gets its own section, after these.
+const CATEGORY_ORDER = [
+  ['soup', 'Soup'], ['salad', 'Salad'], ['starter', 'Starter'], ['main', 'Main Dish'],
+  ['side', 'Side Dish'], ['dessert', 'Dessert'], ['other', 'Other'],
+];
+const CATEGORY_LABEL = Object.fromEntries(CATEGORY_ORDER);
+
+// Open sections survive leaving for the editor and coming back (the list
+// remounts). Per-tab convenience only — wrapped in try/catch, never required.
+const OPEN_KEY = 'recipeList.openGroups';
+function loadOpen() {
+  try { return new Set(JSON.parse(sessionStorage.getItem(OPEN_KEY) || '[]')); } catch { return new Set(); }
+}
+function saveOpen(set) {
+  try { sessionStorage.setItem(OPEN_KEY, JSON.stringify([...set])); } catch { /* ignore */ }
+}
 
 // Per-recipe, per-language publish status. Read-only pills for everyone;
 // approvers (editable) get them as clickable toggles instead — same row,
@@ -24,7 +43,7 @@ function PublishStatusRow({ slug, published, editable, pendingKey, onToggle }) {
         const pillClass = `publish-pill ${isPublished ? 'publish-pill-on' : 'publish-pill-off'}${busy ? ' publish-pill-busy' : ''}`;
 
         if (!editable) {
-          return <span key={code} className={pillClass} title={label}>{code}</span>;
+          return <span key={code} className={pillClass} title={`${label}: ${isPublished ? 'published' : 'not published'}`}>{code}</span>;
         }
 
         return (
@@ -44,6 +63,23 @@ function PublishStatusRow({ slug, published, editable, pendingKey, onToggle }) {
   );
 }
 
+// "en 3/3 · fr 0/3 …" — how much of a set is published in each language.
+function LangCounts({ recipes }) {
+  return (
+    <span className="recipe-lang-counts">
+      {LANGS.map(({ code, label }) => {
+        const n = recipes.filter(r => r.published && r.published[code]).length;
+        const full = n === recipes.length && n > 0;
+        return (
+          <span key={code} className={`recipe-lang-count${full ? ' recipe-lang-count-full' : ''}`} title={`${label}: ${n} of ${recipes.length} published`}>
+            {code} {n}/{recipes.length}
+          </span>
+        );
+      })}
+    </span>
+  );
+}
+
 export default function RecipeList({ onSelect, showPublishControls }) {
   const [recipes, setRecipes] = useState(null);
   const [error, setError] = useState(null);
@@ -53,13 +89,47 @@ export default function RecipeList({ onSelect, showPublishControls }) {
   // so there's no need for per-row concurrent-request bookkeeping.
   const [pendingKey, setPendingKey] = useState(null);
   const [toggleErrors, setToggleErrors] = useState({});
+  const [openGroups, setOpenGroups] = useState(loadOpen);
 
   useEffect(() => {
     apiGet('/api/recipes').then(setRecipes).catch(err => setError(err.message));
   }, []);
 
+  const groups = useMemo(() => {
+    if (!recipes) return [];
+    const byCat = new Map();
+    for (const r of recipes) {
+      const id = r.categoryId || 'other';
+      if (!byCat.has(id)) byCat.set(id, []);
+      byCat.get(id).push(r);
+    }
+    const known = CATEGORY_ORDER.map(([id]) => id).filter(id => byCat.has(id));
+    const extra = [...byCat.keys()].filter(id => !CATEGORY_LABEL[id]).sort();
+    return [...known, ...extra].map(id => ({
+      id,
+      label: CATEGORY_LABEL[id] || id.charAt(0).toUpperCase() + id.slice(1),
+      recipes: byCat.get(id).slice().sort((a, b) => (a.title || a.slug).localeCompare(b.title || b.slug)),
+    }));
+  }, [recipes]);
+
   if (error) return <div className="recipes-error">Couldn't load recipes: {error}</div>;
   if (!recipes) return <div className="recipes-loading">Loading recipes…</div>;
+
+  function setGroupOpen(id, isOpen) {
+    setOpenGroups(prev => {
+      if (prev.has(id) === isOpen) return prev;
+      const next = new Set(prev);
+      if (isOpen) next.add(id); else next.delete(id);
+      saveOpen(next);
+      return next;
+    });
+  }
+  const allOpen = groups.length > 0 && groups.every(g => openGroups.has(g.id));
+  function toggleAll() {
+    const next = allOpen ? new Set() : new Set(groups.map(g => g.id));
+    saveOpen(next);
+    setOpenGroups(next);
+  }
 
   // Each toggle commits straight to the repo and redeploys the live site
   // (recipes-publish.js reuses recipes-approve.js's own commit path) — a
@@ -99,40 +169,65 @@ export default function RecipeList({ onSelect, showPublishControls }) {
         </div>
       )}
 
-      <ul className="recipe-picker-list">
-        {recipes.map(r => (
-          <li key={r.slug} className="recipe-picker-row">
-            {onSelect ? (
-              <button className="recipe-picker-item" onClick={() => onSelect(r.slug)}>
-                <span className="recipe-picker-title">{r.title}</span>
-                <span className="recipe-picker-meta">
-                  {r.pendingCount > 0 && (
-                    <span className="recipe-picker-pending-badge">{r.pendingCount} pending</span>
-                  )}
-                  <span className="recipe-picker-category">{r.categoryId}</span>
-                </span>
-              </button>
-            ) : (
-              <div className="recipe-picker-item recipe-picker-item-static">
-                <span className="recipe-picker-title">{r.title}</span>
-                <span className="recipe-picker-meta">
-                  <span className="recipe-picker-category">{r.categoryId}</span>
-                </span>
-              </div>
-            )}
-            <PublishStatusRow
-              slug={r.slug}
-              published={r.published}
-              editable={!!showPublishControls}
-              pendingKey={pendingKey}
-              onToggle={handleToggle}
-            />
-            {LANGS.map(({ code }) => toggleErrors[`${r.slug}:${code}`] && (
-              <div key={code} className="publish-toggle-error">{code}: {toggleErrors[`${r.slug}:${code}`]}</div>
-            ))}
-          </li>
-        ))}
-      </ul>
+      <div className="recipe-list-summary">
+        <span className="recipe-list-total">
+          <strong>{recipes.length}</strong> recipes · {groups.length} categories
+        </span>
+        <span className="recipe-list-published">Published: <LangCounts recipes={recipes} /></span>
+        <button type="button" className="recipe-list-toggle" onClick={toggleAll}>
+          {allOpen ? 'Collapse all' : 'Expand all'}
+        </button>
+      </div>
+
+      {groups.map(g => {
+        const pending = g.recipes.reduce((n, r) => n + (r.pendingCount || 0), 0);
+        return (
+          <details
+            key={g.id}
+            className="recipe-group"
+            open={openGroups.has(g.id)}
+            onToggle={(e) => setGroupOpen(g.id, e.currentTarget.open)}
+          >
+            <summary className="recipe-group-summary">
+              <span className="recipe-group-name">{g.label}</span>
+              <span className="recipe-group-count">({g.recipes.length})</span>
+              {pending > 0 && <span className="recipe-picker-pending-badge">{pending} pending</span>}
+              <LangCounts recipes={g.recipes} />
+            </summary>
+
+            <ul className="recipe-picker-list">
+              {g.recipes.map(r => (
+                <li key={r.slug} className="recipe-picker-row">
+                  <div className={`recipe-picker-line${onSelect ? ' recipe-picker-line-clickable' : ''}`}>
+                    {onSelect ? (
+                      <button className="recipe-picker-item" onClick={() => onSelect(r.slug)}>
+                        <span className="recipe-picker-title">{r.title}</span>
+                        {r.pendingCount > 0 && (
+                          <span className="recipe-picker-pending-badge">{r.pendingCount} pending</span>
+                        )}
+                      </button>
+                    ) : (
+                      <div className="recipe-picker-item recipe-picker-item-static">
+                        <span className="recipe-picker-title">{r.title}</span>
+                      </div>
+                    )}
+                    <PublishStatusRow
+                      slug={r.slug}
+                      published={r.published}
+                      editable={!!showPublishControls}
+                      pendingKey={pendingKey}
+                      onToggle={handleToggle}
+                    />
+                  </div>
+                  {LANGS.map(({ code }) => toggleErrors[`${r.slug}:${code}`] && (
+                    <div key={code} className="publish-toggle-error">{code}: {toggleErrors[`${r.slug}:${code}`]}</div>
+                  ))}
+                </li>
+              ))}
+            </ul>
+          </details>
+        );
+      })}
     </>
   );
 }

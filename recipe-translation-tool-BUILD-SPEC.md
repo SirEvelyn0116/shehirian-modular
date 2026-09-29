@@ -755,7 +755,10 @@ right backend for each.
   production. End-to-end: edit → approve (with confirm) → commit → deploy. Full detail in §6.
 - **Phase 6 — Polish.** Color-coding vs ui-strings, conflict/empty/error states, translator's
   pending list.
-  - **Recipe list grouped by category — do before the reveal.** In `RecipeList.jsx` (both the
+  - ~~**Recipe list grouped by category — do before the reveal.**~~ **Done:** a summary line (total
+    recipes, categories, published counts per language, Expand/Collapse all), one collapsible
+    section per category in menu order with per-language published counts, pills on each
+    recipe's row; open sections remembered per tab (sessionStorage). In `RecipeList.jsx` (both the
     translator's Translate list and the approver's Publish list), group recipes into collapsible
     sections by `categoryId` with a count, e.g. "Soup (4)", using the native `<details>` pattern
     `RecipeApprovalView` already uses, and labels from `sections/categories.json`. Move the
