@@ -95,6 +95,35 @@ function buildRecipeHreflangHtml(alternates) {
 // must degrade cleanly without it: this returns '' when absent, so callers
 // that splice it directly after the <h1> never leave a broken/empty <img>
 // or a stray gap where one would have been.
+// Optional step photos (`recipe.stepImages`, { "<step index>": "site-root path" }).
+// Indexes follow the English instruction list; translations keep the same
+// step count, so the same photo sits under the same step in every language.
+function buildStepImageHtml(recipe, index, title) {
+  const src = recipe.stepImages && recipe.stepImages[index];
+  if (!src) return '';
+  return `<img class="recipe-step-image" src="../../${escapeHtml(src)}" alt="${escapeHtml(title)} — ${index + 1}" loading="lazy">`;
+}
+
+// Recipe-page meta lines. Only filled values are shown, so a recipe with no
+// known prep or total time doesn't print an empty "Prep Time:" label.
+function buildRecipeMetaHtml(recipe, lang, t) {
+  const sep = '\n        &nbsp; | &nbsp;\n        ';
+  const item = (label, value) => value ? `<strong>${label}:</strong> ${value}` : '';
+  const dur = iso => (iso && !/^PT0+M$/.test(iso)) ? formatDuration(iso, lang) : '';
+  const line1 = [
+    item(t('meta_category'), recipe.recipeCategory && recipe.recipeCategory[lang]),
+    item(t('meta_cuisine'), recipe.recipeCuisine && recipe.recipeCuisine[lang])
+  ].filter(Boolean);
+  const line2 = [
+    item(t('meta_prep_time'), dur(recipe.prepTime)),
+    item(t('meta_cook_time'), dur(recipe.cookTime)),
+    item(t('meta_total_time'), dur(recipe.totalTime)),
+    item(t('meta_yield'), recipe.recipeYield && recipe.recipeYield[lang])
+  ].filter(Boolean);
+  return [line1, line2].filter(l => l.length)
+    .map(l => `      <p>\n        ${l.join(sep)}\n      </p>`).join('\n');
+}
+
 function buildRecipeImageHtml(recipe, title) {
   if (!recipe.image) return '';
   return `\n      <img class="recipe-image" src="../../${escapeHtml(recipe.image)}" alt="${escapeHtml(title)}">`;
@@ -869,12 +898,15 @@ function buildRecipeCardHTML(recipe, lang) {
   // depth than the all-recipes list page — an absolute path is correct at
   // either depth, a relative one would only be correct at one.
   const imageHtml = recipe.image ? `<img class="recipe-card-image" src="${withBaseUrl('/' + recipe.image.replace(/^\/+/, ''))}" alt="${recipe.title}">` : '';
-  const cardClass = recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card';
+  const cardClass = (recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card') + (recipe.cardImage ? ' recipe-card-photo' : '');
+  // Optional card backing photo (recipe.cardImage): shown behind the title
+  // band instead of the separate <img> above it.
+  const infoStyle = recipe.cardImage ? ` style="background-image: url('${withBaseUrl('/' + recipe.cardImage.replace(/^\/+/, ''))}')"` : '';
 
   return `
     <a href="${href}" class="${cardClass}">
-      ${imageHtml}
-      <div class="recipe-info">
+      ${recipe.cardImage ? '' : imageHtml}
+      <div class="recipe-info"${infoStyle}>
         <h3>${recipe.title}</h3>
       </div>
       <div class="recipe-meta">
@@ -1006,6 +1038,7 @@ function writeAllRecipesPages() {
         cookTime: isPublished ? (r.cookTime || '') : '',
         yield: isPublished ? ((r.recipeYield && (r.recipeYield[lang] || r.recipeYield.en)) || '') : '',
         image: r.image || '',
+        cardImage: r.cardImage || '',
         comingSoon: !isPublished
       });
       return acc;
@@ -1040,6 +1073,7 @@ function writeAllRecipesPages() {
         totalTime: isPublished ? (r.totalTime || '') : '',
         yield: isPublished ? ((r.recipeYield && (r.recipeYield[lang] || r.recipeYield.en)) || '') : '',
         image: r.image || '',
+        cardImage: r.cardImage || '',
         comingSoon: !isPublished
       });
       return acc;
@@ -1311,18 +1345,7 @@ function writeAllRecipesPages() {
     ${isPublished ? `<header class="recipe-header">
       <h1>${title}</h1>${buildRecipeImageHtml(recipe, title)}
       <p class="recipe-description">${description}</p>
-      <p>
-        <strong>${t('meta_category')}:</strong> ${(recipe.recipeCategory && recipe.recipeCategory[lang]) || ''}
-        &nbsp; | &nbsp;
-        <strong>${t('meta_cuisine')}:</strong> ${(recipe.recipeCuisine && recipe.recipeCuisine[lang]) || ''}
-      </p>
-      <p>
-        <strong>${t('meta_prep_time')}:</strong> ${formatDuration(recipe.prepTime, lang) || ''}
-        &nbsp; | &nbsp;
-        <strong>${t('meta_cook_time')}:</strong> ${formatDuration(recipe.cookTime, lang) || ''}
-        &nbsp; | &nbsp;
-        <strong>${t('meta_total_time')}:</strong> ${formatDuration(recipe.totalTime, lang) || ''}
-      </p>
+${buildRecipeMetaHtml(recipe, lang, t)}
     </header>
 
     <section class="recipe-section recipe-ingredients">
@@ -1335,7 +1358,7 @@ function writeAllRecipesPages() {
     <section class="recipe-section recipe-steps recipe-instructions">
       <h2>${t('section_instructions')}</h2>
       <ol>
-        ${instructions.map(s => `<li>${s}</li>`).join('\n')}
+        ${instructions.map((s, i) => `<li>${s}${buildStepImageHtml(recipe, i, title)}</li>`).join('\n')}
       </ol>
     </section>${variationsHtml}` : `<header class="recipe-header recipe-header-coming-soon">
       <h1>${title}</h1>${buildRecipeImageHtml(recipe, title)}

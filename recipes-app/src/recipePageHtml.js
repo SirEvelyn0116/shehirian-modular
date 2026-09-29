@@ -37,6 +37,8 @@ export default function buildRecipePageHtml(recipe, lang, dir, labels) {
   const instructions = (recipe.instructions && recipe.instructions[lang]) || [];
 
   const t = (key, fallback) => (labels && labels[key]) || fallback;
+  const yieldText = (recipe.recipeYield && recipe.recipeYield[lang]) || '';
+  const dur = iso => (iso && !/^PT0+M$/.test(iso)) ? formatDuration(iso, lang) : '';
 
   const variationList = (Array.isArray(recipe.variations) ? recipe.variations : [])
     .map(v => {
@@ -72,18 +74,13 @@ export default function buildRecipePageHtml(recipe, lang, dir, labels) {
     <header class="recipe-header">
       <h1>${esc(title)}</h1>
       <p class="recipe-description">${esc(description)}</p>
-      <p>
-        <strong>${esc(t('meta_category', 'Category'))}:</strong> ${esc(category)}
-        &nbsp; | &nbsp;
-        <strong>${esc(t('meta_cuisine', 'Cuisine'))}:</strong> ${esc(cuisine)}
-      </p>
-      <p>
-        <strong>${esc(t('meta_prep_time', 'Prep Time'))}:</strong> ${esc(formatDuration(recipe.prepTime, lang))}
-        &nbsp; | &nbsp;
-        <strong>${esc(t('meta_cook_time', 'Cook Time'))}:</strong> ${esc(formatDuration(recipe.cookTime, lang))}
-        &nbsp; | &nbsp;
-        <strong>${esc(t('meta_total_time', 'Total'))}:</strong> ${esc(formatDuration(recipe.totalTime, lang))}
-      </p>
+${[
+        [[t('meta_category', 'Category'), category], [t('meta_cuisine', 'Cuisine'), cuisine]],
+        [[t('meta_prep_time', 'Prep Time'), dur(recipe.prepTime)], [t('meta_cook_time', 'Cook Time'), dur(recipe.cookTime)],
+         [t('meta_total_time', 'Total'), dur(recipe.totalTime)], [t('meta_yield', 'Yield'), yieldText]]
+      ].map(line => line.filter(([, v]) => v).map(([l, v]) => `<strong>${esc(l)}:</strong> ${esc(v)}`))
+        .filter(line => line.length)
+        .map(line => `<p>\n        ${line.join('\n        &nbsp; | &nbsp;\n        ')}\n      </p>`).join('\n      ')}
     </header>
 
     <section class="recipe-section recipe-ingredients">

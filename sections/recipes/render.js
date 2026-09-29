@@ -98,13 +98,13 @@ function buildRecipeCard(recipe, lang = 'en') {
   const siteBaseUrl = window.__siteBaseUrl || '';
   const slug = recipe.slug || recipe.id || recipe.name || 'recipe';
   card.href = `${siteBaseUrl}/${lang}/recipes/${slug}.html`;
-  card.className = recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card';
+  card.className = (recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card') + (recipe.cardImage ? ' recipe-card-photo' : '');
 
   // Optional image (recipe.image — no recipe has one yet, build spec §11).
   // Absolute site-root path via siteBaseUrl, matching how card.href above
   // is already built, so this renders correctly regardless of which page
   // depth mounted this card (homepage vs. the all-recipes list fallback).
-  if (recipe.image) {
+  if (recipe.image && !recipe.cardImage) {
     const img = document.createElement('img');
     img.className = 'recipe-card-image';
     img.src = `${siteBaseUrl}/${String(recipe.image).replace(/^\/+/, '')}`;
@@ -115,6 +115,10 @@ function buildRecipeCard(recipe, lang = 'en') {
   // Top div: Title only (wheat background)
   const infoDiv = document.createElement('div');
   infoDiv.className = 'recipe-info';
+  // Optional card backing photo (recipe.cardImage) behind the title band.
+  if (recipe.cardImage) {
+    infoDiv.style.backgroundImage = `url('${siteBaseUrl}/${String(recipe.cardImage).replace(/^\/+/, '')}')`;
+  }
   const recipeTitle = document.createElement('h3');
   recipeTitle.textContent = recipe.title;
   infoDiv.appendChild(recipeTitle);

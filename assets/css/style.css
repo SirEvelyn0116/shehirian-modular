@@ -924,6 +924,49 @@ body[dir="rtl"] .cert-item {
   display: block;
 }
 
+/* Card with a backing photo (recipe.cardImage): the title band becomes a
+   photo panel, title set in white over a dark gradient for legibility. */
+.recipe-card.recipe-card-photo .recipe-info {
+  position: relative;
+  min-height: 190px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: #5a6345;
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+
+.recipe-card.recipe-card-photo .recipe-info::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to top, rgba(30, 24, 16, 0.78) 0%, rgba(30, 24, 16, 0.25) 55%, rgba(30, 24, 16, 0.05) 100%);
+  transition: background 0.3s;
+}
+
+.recipe-card.recipe-card-photo:hover .recipe-info::before {
+  background: linear-gradient(to top, rgba(90, 99, 69, 0.9) 0%, rgba(90, 99, 69, 0.45) 60%, rgba(90, 99, 69, 0.15) 100%);
+}
+
+.recipe-card.recipe-card-photo h3 {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Step photos on the recipe page (recipe.stepImages). */
+.recipe-step-image {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: 0.6rem 0 0.4rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
 /* Coming-soon card (published-flag feature) -- a recipe unpublished in the
    current language shows this instead of its normal preview, matching the
    full page's coming-soon watermark rather than showing unverified
