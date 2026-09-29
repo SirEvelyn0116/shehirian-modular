@@ -84,6 +84,13 @@
   to = "/.netlify/functions/recipe-detail"
   status = 200
 
+# Ops dashboard: in-store sales summary from Clover (approver-only; role gate
+# enforced inside the function). Used by admin/ops.html.
+[[redirects]]
+  from = "/api/ops/clover-sales"
+  to = "/.netlify/functions/clover-sales"
+  status = 200
+
 # Pending-edits API (role gate enforced inside each function, not here).
 # Same first-match-wins ordering lesson as /api/recipes: /api/edits/mine
 # would otherwise get caught by /api/edits/* and treated as an edit id to

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <!-- Demo operations snapshot for approvers. ALL FIGURES ARE ILLUSTRATIVE SAMPLE DATA.
      Linked from the approver banner (recipes-app/src/OpsBanner.jsx). -->
 <title>Shehirian Ops Snapshot</title>
@@ -169,6 +170,21 @@
     .ulist{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  /* In-store sales (Clover) */
+  .clover{margin-bottom:18px}
+  .clover-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .clover-head h2{margin:0 0 2px}
+  .live-chip{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--good);
+    border:1px solid color-mix(in srgb,var(--good) 35%,transparent);background:color-mix(in srgb,var(--good) 10%,transparent);
+    padding:5px 9px;border-radius:999px;white-space:nowrap}
+  .ckpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0 16px}
+  .ckpi{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+  .ckpi .l{font-size:11.5px;color:var(--ink-2);font-weight:600}
+  .ckpi .v{font-size:20px;font-weight:750;letter-spacing:-.02em}
+  .cgrid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+  .cgrid h3{font-size:12.5px;margin:0 0 8px;color:var(--ink-2);font-weight:700}
+  .cnote{font-size:12px;color:var(--muted);margin:12px 0 0}
+  @media (max-width:760px){.ckpis{grid-template-columns:repeat(2,1fr)}.cgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -217,6 +233,35 @@
       <span class="label">Order backlog</span>
       <span class="val tnum">540<span class="u">MT</span></span>
       <span class="delta flat">≈ 3 weeks of run-rate</span>
+    </div>
+  </section>
+
+  <section class="card clover" id="clover" aria-label="In-store sales from Clover">
+    <div class="clover-head">
+      <div>
+        <h2>In-store sales · Clover</h2>
+        <p class="cap" id="cloverCap" style="margin:0">Loading from Clover…</p>
+      </div>
+      <span id="cloverChip" hidden></span>
+    </div>
+    <div id="cloverBody" hidden>
+      <div class="ckpis">
+        <div class="ckpi"><span class="l">Revenue</span><span class="v tnum" id="ckRev"></span></div>
+        <div class="ckpi"><span class="l">Orders</span><span class="v tnum" id="ckOrd"></span></div>
+        <div class="ckpi"><span class="l">Average basket</span><span class="v tnum" id="ckAvg"></span></div>
+        <div class="ckpi"><span class="l">Units sold</span><span class="v tnum" id="ckUnits"></span></div>
+      </div>
+      <div class="cgrid">
+        <div>
+          <h3>Revenue by week</h3>
+          <div class="chartbox"><svg id="cloverWeeks" viewBox="0 0 520 210" role="img" aria-label="Weekly in-store revenue"></svg></div>
+        </div>
+        <div>
+          <h3>Top products by revenue</h3>
+          <div class="bars" id="cloverTop"></div>
+        </div>
+      </div>
+      <p class="cnote" id="cloverNote"></p>
     </div>
   </section>
 
@@ -275,9 +320,11 @@
   </div>
 
   <footer>
-    <b>Illustrative demonstration.</b> Every figure on this page is realistic sample data created to show what an
-    operations dashboard could look like — it is not Shehirian Bulgor Inc.'s actual production, sales, or customer data.
-    A live version would draw from the company's own order, production, and web systems.
+    <b>Illustrative demonstration.</b> Apart from the In-store sales panel, every figure on this page is realistic sample
+    data created to show what an operations dashboard could look like — it is not Shehirian Bulgor Inc.'s actual production,
+    sales, or customer data. The In-store sales panel reads from Clover: it shows demo orders from Clover's sandbox (labelled
+    as such) until the store's own Clover account is connected. A live version would draw from the company's own order,
+    production, and web systems.
   </footer>
 </div>
 
@@ -372,5 +419,83 @@
 })();
 </script>
 
+<script>
+// In-store sales panel: reads /api/ops/clover-sales (approver-only; the Clover
+// token stays on the server). Signed-in state comes from the same Netlify
+// Identity session as the /admin/ dashboard.
+(async function () {
+  const $ = id => document.getElementById(id);
+  const cap = $('cloverCap');
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  const money = c => '$' + (c / 100).toLocaleString('en-CA', { maximumFractionDigits: 0 });
+  const money2 = c => '$' + (c / 100).toLocaleString('en-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const shortDate = iso => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-CA', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const DAYS = { Mon: 'Monday', Tue: 'Tuesday', Wed: 'Wednesday', Thu: 'Thursday', Fri: 'Friday', Sat: 'Saturday', Sun: 'Sunday' };
+
+  let token = null;
+  try {
+    const id = window.netlifyIdentity;
+    if (id) {
+      if (!id.currentUser()) await new Promise(r => { id.on('init', r); setTimeout(r, 3000); });
+      const u = id.currentUser();
+      if (u) token = await u.jwt();
+    }
+  } catch (e) { /* fall through: the server decides */ }
+
+  let res, data;
+  try {
+    res = await fetch('/api/ops/clover-sales', { headers: token ? { Authorization: 'Bearer ' + token } : {} });
+    data = await res.json().catch(() => null);
+  } catch (e) { cap.textContent = 'Couldn’t reach the server — check your connection and reload.'; return; }
+  if (res.status === 401 || res.status === 403) { cap.innerHTML = 'Sign in on the <a href="/admin/">dashboard</a> with an approver account to load in-store sales.'; return; }
+  if (res.status === 503) { cap.textContent = 'Clover isn’t connected yet.'; return; }
+  if (!res.ok || !data) { cap.textContent = (data && data.error) || 'Couldn’t load in-store sales.'; return; }
+
+  const chip = $('cloverChip');
+  chip.className = data.mode === 'live' ? 'live-chip' : 'demo-chip';
+  chip.textContent = data.mode === 'live' ? 'Live' : 'Sandbox · demo data';
+  chip.title = data.mode === 'live' ? 'Real orders from the store’s Clover account' : 'Demo orders in Clover’s sandbox — not the store’s real sales';
+  chip.hidden = false;
+
+  const t = data.totals;
+  cap.textContent = `Last ${data.period.weeks} weeks · ${t.orders.toLocaleString('en-CA')} orders · ${data.productCount} products sold`;
+  $('ckRev').textContent = money(t.revenueCents);
+  $('ckOrd').textContent = t.orders.toLocaleString('en-CA');
+  $('ckAvg').textContent = money2(t.avgBasketCents);
+  $('ckUnits').textContent = Math.round(t.units).toLocaleString('en-CA');
+
+  // Weekly revenue bars — direct value labels; the current week is marked "to date".
+  const svg = $('cloverWeeks'), NS = 'http://www.w3.org/2000/svg';
+  const mk = (n, a, txt) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; return e; };
+  const W = 520, H = 210, mT = 24, mB = 30, ih = H - mT - mB;
+  const max = Math.max(1, ...data.weeks.map(w => w.revenueCents));
+  const step = W / data.weeks.length, bw = Math.min(56, step - 18);
+  svg.appendChild(mk('line', { x1: 0, y1: mT + ih, x2: W, y2: mT + ih, stroke: css('--grid'), 'stroke-width': 1 }));
+  data.weeks.forEach((w, i) => {
+    const h = Math.max(2, (w.revenueCents / max) * ih), x = i * step + (step - bw) / 2, y = mT + ih - h;
+    const bar = mk('rect', { x, y, width: bw, height: h, rx: 4, fill: css('--s1'), opacity: w.current ? 0.45 : 1 });
+    bar.appendChild(mk('title', {}, `Week of ${shortDate(w.weekStart)}${w.current ? ' (to date)' : ''}: ${money2(w.revenueCents)} · ${w.orders} orders`));
+    svg.appendChild(bar);
+    svg.appendChild(mk('text', { x: x + bw / 2, y: y - 6, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 600, fill: css('--ink-2') }, money(w.revenueCents)));
+    svg.appendChild(mk('text', { x: x + bw / 2, y: H - 12, 'text-anchor': 'middle', 'font-size': 11, fill: css('--muted') }, w.current ? 'This wk' : shortDate(w.weekStart)));
+  });
+
+  // Top products
+  const top = $('cloverTop'), tmax = Math.max(1, ...data.topProducts.map(p => p.revenueCents));
+  data.topProducts.forEach(p => {
+    const row = document.createElement('div'); row.className = 'bar-row';
+    const units = Math.round(p.units * 10) / 10;
+    row.innerHTML = '<div class="rt"><span class="nm"></span><span class="vl tnum"></span></div><div class="track"><div class="fill"></div></div>';
+    row.querySelector('.nm').textContent = p.name;
+    row.querySelector('.vl').textContent = `${money(p.revenueCents)} · ${units} unit${units === 1 ? '' : 's'}`;
+    const fill = row.querySelector('.fill'); fill.style.width = (p.revenueCents / tmax * 100).toFixed(1) + '%'; fill.style.background = css('--s3');
+    top.appendChild(row);
+  });
+
+  $('cloverNote').textContent = (data.busiestDay ? `Busiest day: ${DAYS[data.busiestDay]}. ` : '') +
+    (data.mode === 'live' ? 'Paid orders only.' : 'Demo orders seeded into Clover’s sandbox, dated by the day each represents.');
+  $('cloverBody').hidden = false;
+})();
+</script>
 </body>
 </html>

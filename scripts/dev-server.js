@@ -17,8 +17,10 @@
 // by hand — there's no shared source between them.
 //
 // Run via `npm run dev:auth-stub` (wraps `netlify dev:exec`, which injects
-// DATABASE_URL and friends from the linked Netlify site — this script does
-// not read .env itself and will not have DATABASE_URL without it).
+// DATABASE_URL and friends from the linked Netlify site; DATABASE_URL must come
+// from there). It also reads the local .env for dev-only values that aren't
+// set on the Netlify site yet (e.g. CLOVER_API_TOKEN / CLOVER_MERCHANT_ID) —
+// dotenv never overrides a variable that's already set.
 
 const http = require('http');
 const fs = require('fs');
@@ -26,6 +28,7 @@ const path = require('path');
 const url = require('url');
 
 const ROOT = path.resolve(__dirname, '..');
+require('dotenv').config({ path: path.join(ROOT, '.env') });
 const distDir = path.join(ROOT, 'dist');
 const PORT = 8888;
 
@@ -59,6 +62,7 @@ const editsMine = require(path.join(ROOT, 'netlify/functions/edits-mine.js'));
 const editDelete = require(path.join(ROOT, 'netlify/functions/edit-delete.js'));
 const recipesApprove = require(path.join(ROOT, 'netlify/functions/recipes-approve.js'));
 const recipesPublish = require(path.join(ROOT, 'netlify/functions/recipes-publish.js'));
+const cloverSales = require(path.join(ROOT, 'netlify/functions/clover-sales.js'));
 
 // The stub identity. requireRole() reads context.clientContext.user exactly
 // like it would from a real validated JWT's claims — this is a fake claims
@@ -139,6 +143,9 @@ const server = http.createServer(async (req, res) => {
   }
   if (/^\/api\/edits\/[^/]+$/.test(parsed.pathname) && req.method === 'DELETE') {
     return sendJson(res, await editDelete.handler({ path: parsed.pathname }, fakeCtx));
+  }
+  if (parsed.pathname === '/api/ops/clover-sales' && req.method === 'GET') {
+    return sendJson(res, await cloverSales.handler({}, fakeCtx));
   }
   if (parsed.pathname === '/api/recipes/preview' && req.method === 'GET') {
     return sendJson(res, await recipesPreview.handler({}, fakeCtx));
