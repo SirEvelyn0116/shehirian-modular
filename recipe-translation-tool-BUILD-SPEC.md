@@ -118,7 +118,7 @@ recipes can't. Everything else (auth, diff UI, build trigger, deploy-poll) is sh
 ## 1. Source of truth & edit target
 
 Recipe content lives in one file: **`sections/recipes/all-recipes.json`** — `{ recipes: [ … ] }`,
-40 recipes as of the 2026-09 content pass (down from 44: three fabricated slugs removed in the authentic-set reconciliation, and the fabricated `hearty-bulgur-pilaf` dropped afterwards — §14). Every translatable field is an object keyed by language; times are language-neutral. Each recipe also carries a per-language publish gate `published: { en, fr, ar, hy }` — see §10.1.
+43 recipes (2026-09-29): 40 after the 2026-09 content pass (down from 44: three fabricated slugs removed in the authentic-set reconciliation, and the fabricated `hearty-bulgur-pilaf` dropped afterwards — §14), plus three from the original shehirian.com added 2026-09-29 (§10.1). Every translatable field is an object keyed by language; times are language-neutral. Each recipe also carries a per-language publish gate `published: { en, fr, ar, hy }` — see §10.1.
 
 ```
 recipe = {
@@ -809,6 +809,9 @@ Built after the Phase 0–5 core, recorded here so the reasoning survives.
 - **Demo certifications removed (2026-09-29).** The homepage "Our Certifications" section, the hero badges and nav link, the four `/<lang>/certifications/*.html` pages and the certifications JSON-LD (which told search engines the company was *Certified Organic* and *Halal Certified*) are no longer built. Only one real certification is believed to exist. Source files stay in the repo; `SHOW_CERTIFICATIONS=true` builds them again. Old URLs 301 to the language home page (`netlify.toml`).
 - **About sections on the brand product pages (2026-09-29).** `/<lang>/products/shirag.html` gets *About Bulgor* and `/<lang>/products/mr-falafel.html` gets *About Falafel*, each with a Nutrition Facts panel. Content lives in `sections/productAbout/productAbout.json`; text and values are from the original shehirian.com (About Bulgor, About the Company, Products, NutFactBulgor, NutFactFalafel). "Hitittes" on the old site corrected to "Hittites". The one-line falafel description is general wording, not from the old site (it had no falafel text). fr/ar/hy are our translations.
 
+- **Three recipes from the original shehirian.com (2026-09-29).** `basic-bulgor-pilaf` (side), `shirag-tabulee-salad` (salad) and `seenee-quefteah` (main, **third featured recipe**). Text follows the old site with light copy-editing; fractions recovered by decoding the pages as Windows-1252. English published; fr/ar/hy empty, for the translation tool. Photos (19) in `assets/img/recipes/<slug>/`; Seenee Quefteah's card uses `card.jpg`, a centred zoom of the finished tray. How they relate to existing recipes: Basic Pilaf sits between `how-to-cook-bulgor` and `armenian-pilaf`; the website Tabulee differs from the booklet `tabulee-salad` (fine Bulgor, 1 cup parsley, lemon, no radish); Seenee Quefteah is the baked tray dish and is distinct from `raw-meat-platter` (chi kufta), though both use the same kneaded meat-and-Bulgor mixture. Two items in the Seenee ingredient list come from its steps with no amount given on the old site: olive oil for the pan and butter for the top.
+- **Recipe-page meta (2026-09-29).** Only filled values are shown (no empty "Prep Time:" labels), yield added; same in the admin preview (`recipePageHtml.js`).
+
 ---
 
 ## 11. Risks & open items
@@ -908,6 +911,9 @@ Built after the Phase 0–5 core, recorded here so the reasoning survives.
   watermark degrade cleanly with or without one — generate-index.js's `buildRecipeImageHtml`), so
   the rendering half is a non-issue once images exist; what's deferred is actually sourcing them
   and any per-recipe editorial work that implies. Scope separately as its own project.
+  **Update 2026-09-29:** the three recipes from the original shehirian.com now carry its photos
+  (300×200, the only size on the old site; Vartan's originals not located). Added `stepImages`
+  (photo under a step) and `cardImage` (card title-band background). The other 40 still have none.
 - ~~**PRE-PUBLISH REQUIREMENT — Variations do not render on recipe pages (template gap)**~~ —
   **closed (commit `8dfa396`).** The recipe-page template now renders a `recipe-section
   recipe-variations` block after the instructions section, gated on `isPublished` like the other
@@ -1166,3 +1172,8 @@ Supporting docs from this work live in the repo alongside the recipes: `sections
    today. Also ask what the Mr. Falafel range actually is: the new page lists six mixes (Small 1 lb,
    Medium 3 lb, Large 5 lb, Bulk 10 lb, Premium 2 lb, Spicy 2 lb) that don't trace to any source;
    the only confirmed pack is the box in the photo.
+11. **The three recipes from the old website.** They're now on the new site with the original photos.
+   Confirm: how much butter goes on top of the Seenee Quefteah; what's in the "seven spices"; and the
+   two Tabulee recipes — the old website's (now "Shirag Tabulee Salad") and the booklet's — which one
+   is the family's, and what each should be called. If the original full-size photos still exist,
+   they'd look much better than the 300-pixel web copies.
