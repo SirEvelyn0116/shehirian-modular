@@ -1,7 +1,8 @@
 /**
  * Seed the Clover SANDBOX test merchant with storefront-like demo data for the
- * ops dashboard: the Shirag Bulgor line as inventory items, plus ~6 weeks of
- * realistic storefront orders.
+ * ops dashboard: their product line as inventory items (the two Bulgor types,
+ * each grade in each bag size, named as on shehirian.com/Products), plus ~6 weeks
+ * of realistic storefront orders.
  *
  * DEMO DATA ONLY. Prices are placeholders, not Shehirian's real prices.
  *
@@ -26,16 +27,21 @@ const DRY = process.argv.includes('--dry-run');
 const RESET = process.argv.includes('--reset');
 const DAYS = 42;
 
-// Their real product line (shirag-products.html); prices are demo placeholders, in cents.
-const PRODUCTS = [
-  { name: 'Shirag Bulgor — Soft Wheat Fine',          sku: 'SHR-SW-F',  price: 449, weight: 22 },
-  { name: 'Shirag Bulgor — Soft Wheat Medium',        sku: 'SHR-SW-M',  price: 449, weight: 30 },
-  { name: 'Shirag Bulgor — Soft Wheat Coarse',        sku: 'SHR-SW-C',  price: 479, weight: 14 },
-  { name: 'Shirag Bulgor — Soft Wheat Extra Coarse',  sku: 'SHR-SW-XC', price: 499, weight: 8 },
-  { name: 'Shirag Bulgor — Red Wheat Fine',           sku: 'SHR-RW-F',  price: 529, weight: 10 },
-  { name: 'Shirag Bulgor — Red Wheat Medium',         sku: 'SHR-RW-M',  price: 529, weight: 10 },
-  { name: 'Shirag Bulgor — Red Wheat Coarse',         sku: 'SHR-RW-C',  price: 549, weight: 6 },
+// Their real product line, named as on shehirian.com/Products: two types of Bulgor,
+// each grade in the four bag sizes the site lists. Prices are demo placeholders (cents).
+const TYPES = [
+  { type: 'Soft Wheat Bulgor', code: 'SW', grades: [['Fine', 'F', 22], ['Medium', 'M', 30], ['Coarse', 'C', 14], ['Extra Coarse', 'XC', 8]],
+    prices: { '1Kg': 349, '2Kg': 599, '5Kg': 1299, '25Kg': 4999 } },
+  { type: 'Red Wheat Bulgor', code: 'RW', grades: [['Fine', 'F', 10], ['Medium', 'M', 10], ['Coarse', 'C', 6]],
+    prices: { '1Kg': 399, '2Kg': 699, '5Kg': 1499, '25Kg': 5799 } },
 ];
+const SIZES = [['1Kg', 40], ['2Kg', 30], ['5Kg', 20], ['25Kg', 10]]; // walk-ins mostly buy small bags
+const PRODUCTS = [];
+for (const t of TYPES) for (const [grade, g, gw] of t.grades) for (const [size, sw] of SIZES) {
+  PRODUCTS.push({ name: `${t.type} — ${grade} ${size}`, sku: `${t.code}-${g}-${size.replace('Kg', '')}`, price: t.prices[size], size, weight: gw * sw });
+}
+// Items from earlier versions of this script (one item per grade, "Shirag" prefix) — removed on re-seed.
+const OBSOLETE_ITEM_PREFIXES = ['Shirag Bulgor —', 'Shirag Bulgur —'];
 const CLOVER_DEFAULT_ITEMS = ['Kiwi', 'Banana', 'Pear', 'Apple']; // placeholder fruit on new test merchants
 
 // ---------- deterministic demo data ----------
@@ -56,7 +62,7 @@ function planOrders() {
       const lines = []; const nLines = pick([1, 2, 3], [55, 32, 13]);
       const chosen = new Set();
       while (chosen.size < nLines) chosen.add(pick(PRODUCTS, PRODUCTS.map(p => p.weight)));
-      for (const p of chosen) lines.push({ product: p, qty: pick([1, 2, 3], [70, 24, 6]) });
+      for (const p of chosen) lines.push({ product: p, qty: p.size === '25Kg' ? 1 : pick([1, 2, 3], [70, 24, 6]) });
       orders.push({ date: ymd(d), lines, total: lines.reduce((s, l) => s + l.product.price * l.qty, 0) });
     }
   }
@@ -125,20 +131,13 @@ async function getAll(path) {
 
   // Inventory: remove Clover's placeholder fruit, create/reuse the Shirag items
   const items = await getAll(`/v3/merchants/${MID}/items`);
-  for (const it of items.filter(i => CLOVER_DEFAULT_ITEMS.includes(i.name))) {
-    await api('DELETE', `/v3/merchants/${MID}/items/${it.id}`); console.log(`  removed placeholder item: ${it.name}`);
+  for (const it of items.filter(i => CLOVER_DEFAULT_ITEMS.includes(i.name) || OBSOLETE_ITEM_PREFIXES.some(p => (i.name || '').startsWith(p)))) {
+    await api('DELETE', `/v3/merchants/${MID}/items/${it.id}`); console.log(`  removed old item: ${it.name}`);
   }
   const idByName = {};
   for (const p of PRODUCTS) {
     const found = items.find(i => i.name === p.name);
     if (found) { idByName[p.name] = found.id; continue; }
-    // Brand spelling is "Bulgor". An earlier version of this script used the common
-    // spelling; rename any such item in place rather than creating a duplicate.
-    const legacy = items.find(i => i.name === p.name.replace("Bulgor", "Bulgur"));
-    if (legacy) {
-      await api('POST', `/v3/merchants/${MID}/items/${legacy.id}`, { name: p.name });
-      idByName[p.name] = legacy.id; console.log(`  renamed item: ${legacy.name} → ${p.name}`); continue;
-    }
     const created = await api('POST', `/v3/merchants/${MID}/items`, { name: p.name, sku: p.sku, price: p.price, priceType: 'FIXED' });
     idByName[p.name] = created.id; console.log(`  created item: ${p.name}`);
   }
