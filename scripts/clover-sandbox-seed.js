@@ -31,7 +31,8 @@ const DAYS = 42;
 // Their real product line. Sources: shehirian.com/Products (two wheat types,
 // grades, bag sizes 1/2/5/25Kg) and the site's product photo (bags branded
 // "Shirag ... Bulgor Wheat-Blé"; Mr. Falafel mix shipped as a 5 x 10 lb case).
-// The smaller Mr. Falafel bag's size isn't legible anywhere, so it's left out.
+// The smaller Mr. Falafel bag's size isn't legible anywhere; 5 lb is an estimate
+// (from its size next to the 2Kg bags), not a confirmed spec.
 // Prices are demo placeholders (cents).
 const TYPES = [
   { type: 'Soft Wheat', code: 'SW', grades: [['Fine', 'F', 22], ['Medium', 'M', 30], ['Coarse', 'C', 14], ['Extra Coarse', 'XC', 8]],
@@ -46,6 +47,7 @@ for (const t of TYPES) for (const [grade, g, gw] of t.grades) for (const [size, 
     price: t.prices[size], single: size === '25Kg', weight: gw * sw });
 }
 PRODUCTS.push(
+  { name: 'Mr. Falafel Mix — 5 lb',             sku: 'MF-5LB',  price: 1199, single: false, weight: 800 },
   { name: 'Mr. Falafel Mix — 10 lb',            sku: 'MF-10LB', price: 2199, single: false, weight: 900 },
   { name: 'Mr. Falafel Mix — Case (5 × 10 lb)', sku: 'MF-CASE', price: 9999, single: true,  weight: 150 },
 );
