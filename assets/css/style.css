@@ -924,36 +924,37 @@ body[dir="rtl"] .cert-item {
   display: block;
 }
 
-/* Card with a backing photo (recipe.cardImage): the title band becomes a
-   photo panel, title set in white over a dark gradient for legibility. */
-.recipe-card.recipe-card-photo .recipe-info {
+/* Card with a backing photo (recipe.cardImage): the title band stays as is;
+   the photo sits behind the description and details, which switch to white
+   over a dark overlay for legibility. */
+.recipe-card.recipe-card-photo .recipe-meta {
   position: relative;
-  min-height: 190px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  background-color: #5a6345;
+  flex: 1;
+  background-color: #3b3024;
   background-size: cover;
   background-position: center;
   isolation: isolate;
+  color: #fff;
 }
 
-.recipe-card.recipe-card-photo .recipe-info::before {
+.recipe-card.recipe-card-photo .recipe-meta::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(to top, rgba(30, 24, 16, 0.78) 0%, rgba(30, 24, 16, 0.25) 55%, rgba(30, 24, 16, 0.05) 100%);
+  background: rgba(30, 24, 16, 0.52);
   transition: background 0.3s;
 }
 
-.recipe-card.recipe-card-photo:hover .recipe-info::before {
-  background: linear-gradient(to top, rgba(90, 99, 69, 0.9) 0%, rgba(90, 99, 69, 0.45) 60%, rgba(90, 99, 69, 0.15) 100%);
+.recipe-card.recipe-card-photo:hover .recipe-meta::before {
+  background: rgba(30, 24, 16, 0.42);
 }
 
-.recipe-card.recipe-card-photo h3 {
+.recipe-card.recipe-card-photo .recipe-description,
+.recipe-card.recipe-card-photo .recipe-meta-info,
+.recipe-card.recipe-card-photo .recipe-meta-info strong {
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 /* Step photos on the recipe page (recipe.stepImages). */

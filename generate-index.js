@@ -899,17 +899,18 @@ function buildRecipeCardHTML(recipe, lang) {
   // either depth, a relative one would only be correct at one.
   const imageHtml = recipe.image ? `<img class="recipe-card-image" src="${withBaseUrl('/' + recipe.image.replace(/^\/+/, ''))}" alt="${recipe.title}">` : '';
   const cardClass = (recipe.comingSoon ? 'recipe-card recipe-card-coming-soon' : 'recipe-card') + (recipe.cardImage ? ' recipe-card-photo' : '');
-  // Optional card backing photo (recipe.cardImage): shown behind the title
-  // band instead of the separate <img> above it.
-  const infoStyle = recipe.cardImage ? ` style="background-image: url('${withBaseUrl('/' + recipe.cardImage.replace(/^\/+/, ''))}')"` : '';
+  // Optional card backing photo (recipe.cardImage): shown behind the card's
+  // description and details (the title band stays as is), instead of the
+  // separate <img> above it.
+  const metaStyle = recipe.cardImage ? ` style="background-image: url('${withBaseUrl('/' + recipe.cardImage.replace(/^\/+/, ''))}')"` : '';
 
   return `
     <a href="${href}" class="${cardClass}">
       ${recipe.cardImage ? '' : imageHtml}
-      <div class="recipe-info"${infoStyle}>
+      <div class="recipe-info">
         <h3>${recipe.title}</h3>
       </div>
-      <div class="recipe-meta">
+      <div class="recipe-meta"${metaStyle}>
         ${desc}
         <div class="recipe-meta-info">${meta.join(' | ')}</div>
       </div>

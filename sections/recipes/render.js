@@ -115,10 +115,6 @@ function buildRecipeCard(recipe, lang = 'en') {
   // Top div: Title only (wheat background)
   const infoDiv = document.createElement('div');
   infoDiv.className = 'recipe-info';
-  // Optional card backing photo (recipe.cardImage) behind the title band.
-  if (recipe.cardImage) {
-    infoDiv.style.backgroundImage = `url('${siteBaseUrl}/${String(recipe.cardImage).replace(/^\/+/, '')}')`;
-  }
   const recipeTitle = document.createElement('h3');
   recipeTitle.textContent = recipe.title;
   infoDiv.appendChild(recipeTitle);
@@ -127,6 +123,11 @@ function buildRecipeCard(recipe, lang = 'en') {
   // Bottom div: Description and Meta Information
   const metaDiv = document.createElement('div');
   metaDiv.className = 'recipe-meta';
+  // Optional card backing photo (recipe.cardImage) behind the description
+  // and details; the title band stays as is.
+  if (recipe.cardImage) {
+    metaDiv.style.backgroundImage = `url('${siteBaseUrl}/${String(recipe.cardImage).replace(/^\/+/, '')}')`;
+  }
 
   if (recipe.description) {
     const description = document.createElement('p');
