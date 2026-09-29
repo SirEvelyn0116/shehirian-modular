@@ -65,9 +65,11 @@ async function get(path, label) {
 }
 
 (async () => {
-  const merchant = await get(`/v3/merchants/${MID}`, 'Merchant');
+  const merchant = await get(`/v3/merchants/${MID}?expand=address`, 'Merchant');
   if (!merchant) process.exit(1);
-  console.log(`\n✓ Connected — merchant: "${merchant.name || '(unnamed)'}"`);
+  const country = (merchant.address && merchant.address.country) || 'unknown';
+  console.log(`\n✓ Connected — merchant: "${merchant.name || '(unnamed)'}", country: ${country}`);
+  if (country !== 'CA') console.log('  ⚠ This is not the Canadian test merchant — use the CA one so the data matches their real storefront.');
 
   const items = await get(`/v3/merchants/${MID}/items?limit=5`, 'Inventory items');
   if (items) {
