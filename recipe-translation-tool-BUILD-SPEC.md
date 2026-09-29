@@ -806,6 +806,9 @@ Built after the Phase 0–5 core, recorded here so the reasoning survives.
   - **Sandbox tooling (run on a machine that can reach Clover):** `scripts/clover-sandbox-check.js` (read-only connection check; prints merchant name and country — use the **CA** test merchant so behaviour matches the real storefront), `scripts/clover-sandbox-seed.js` (populates the sandbox; `--dry-run`, `--reset`; refuses any non-sandbox base), `scripts/clover-checkout-test.js` (Hosted Checkout test, see §11). The old `unstyled-payment-integration` prototype pointed at `sandbox.dev.clover.com` — the dashboard website, not the API — which is why it never connected.
   - **Demo catalogue and dates.** Seeded products follow the real line: *Shirag Bulgor* (brand on the bags) × Soft Wheat Fine/Medium/Coarse/Extra Coarse and Red Wheat Fine/Medium/Coarse (shehirian.com/Products) × 1Kg/2Kg/5Kg/25Kg, plus *Mr. Falafel Mix* 10 lb and case of 5 × 10 lb (read off the site's product photo) and a 5 lb bag (**size estimated**, not confirmed). Prices are placeholders. Clover can't backdate orders through its API, so each demo order's title carries the day it represents (`demo:YYYY-MM-DD`); sandbox mode buckets by that tag, live mode ignores it.
 
+- **Demo certifications removed (2026-09-29).** The homepage "Our Certifications" section, the hero badges and nav link, the four `/<lang>/certifications/*.html` pages and the certifications JSON-LD (which told search engines the company was *Certified Organic* and *Halal Certified*) are no longer built. Only one real certification is believed to exist. Source files stay in the repo; `SHOW_CERTIFICATIONS=true` builds them again. Old URLs 301 to the language home page (`netlify.toml`).
+- **About sections on the brand product pages (2026-09-29).** `/<lang>/products/shirag.html` gets *About Bulgor* and `/<lang>/products/mr-falafel.html` gets *About Falafel*, each with a Nutrition Facts panel. Content lives in `sections/productAbout/productAbout.json`; text and values are from the original shehirian.com (About Bulgor, About the Company, Products, NutFactBulgor, NutFactFalafel). "Hitittes" on the old site corrected to "Hittites". The one-line falafel description is general wording, not from the old site (it had no falafel text). fr/ar/hy are our translations.
+
 ---
 
 ## 11. Risks & open items
@@ -1158,3 +1161,8 @@ Supporting docs from this work live in the repo alongside the recipes: `sections
    The practice account is a test merchant under Laurence's own Clover developer login — not
    theirs. If the rep says no, the fallback is a separate payment processor feeding orders into
    Clover (§11).
+10. **Nutrition facts and the falafel range.** The nutrition panels now on the Shirag and Mr. Falafel
+   pages are copied from the old website. Ask whether they still match what's printed on the bags
+   today. Also ask what the Mr. Falafel range actually is: the new page lists six mixes (Small 1 lb,
+   Medium 3 lb, Large 5 lb, Bulk 10 lb, Premium 2 lb, Spicy 2 lb) that don't trace to any source;
+   the only confirmed pack is the box in the photo.
