@@ -113,6 +113,12 @@
   to = "/.netlify/functions/edit-delete"
   status = 200
 
+# Certifications pages were removed (demo content). Send any old links home.
+[[redirects]]
+  from = "/:lang/certifications/*"
+  to = "/:lang/index.html"
+  status = 301
+
 # trigger-sync.js already checks for the 'translator' role
 #  conditions = {Role = ["translator", "admin"]}
 

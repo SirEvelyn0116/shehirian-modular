@@ -18,7 +18,6 @@ Promise.all([
   renderAboutUs(lang).catch(err => { console.error('Failed to load aboutUs:', err); return null; }),
   renderOurCompanies(lang).catch(err => { console.error('Failed to load ourCompanies:', err); return null; }),
   renderRecipes(lang).catch(err => { console.error('Failed to load recipes:', err); return null; }),
-  renderCertifications(lang).catch(err => { console.error('Failed to load certifications:', err); return null; }),
   renderContactUs(lang).catch(err => { console.error('Failed to load contactUs:', err); return null; })
 ]).then(sections => {
   sections.forEach(section => {

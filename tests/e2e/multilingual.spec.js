@@ -18,7 +18,6 @@ const LOCALIZED_CONTENT = {
       aboutUs: { selector: 'section#about-us', textIncludes: 'Family owned' },
       ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
       recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
-      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -31,7 +30,6 @@ const LOCALIZED_CONTENT = {
       aboutUs: { selector: 'section#about-us', textIncludes: 'familiale depuis 1958' },
       ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
       recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
-      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -44,7 +42,6 @@ const LOCALIZED_CONTENT = {
       aboutUs: { selector: 'section#about-us', textIncludes: 'عائلياً منذ 1958' },
       ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
       recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
-      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -57,7 +54,6 @@ const LOCALIZED_CONTENT = {
       aboutUs: { selector: 'section#about-us', textIncludes: '' },
       ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
       recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
-      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -70,7 +66,6 @@ const LOCALIZED_CONTENT = {
       aboutUs: { selector: 'section#about-us', textIncludes: 'عائلياً منذ 1958' },
       ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
       recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
-      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   },
@@ -83,7 +78,6 @@ const LOCALIZED_CONTENT = {
       aboutUs: { selector: 'section#about-us', textIncludes: '' },
       ourCompanies: { selector: '#products-carousel, .companies-section', textIncludes: '' },
       recipes: { selector: '#recipes, .section-recipes', textIncludes: '' },
-      certifications: { selector: '#certifications, .certifications-section', textIncludes: '' },
       contactUs: { selector: 'section#contact, section.contact-section, .contact-section', textIncludes: '' }
     }
   }
@@ -441,7 +435,8 @@ test.describe('Multilingual Static Site - E2E Tests', () => {
     });
   });
 
-  test.describe('Certification Pages', () => {
+  // Certifications removed from the site (demo content) — re-enable with SHOW_CERTIFICATIONS.
+  test.describe.skip('Certification Pages', () => {
 
     ['brc', 'sqf', 'fssc-22000', 'ifs'].forEach(certification => {
       test(`should load ${certification} certification pages for all languages`, async ({ page }) => {

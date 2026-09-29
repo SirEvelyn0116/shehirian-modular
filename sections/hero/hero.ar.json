@@ -5,7 +5,6 @@
     { "label": "معلومات عنا", "section": "about-us" },
     { "label": "المنتجات", "section": "products-carousel" },
     { "label": "وصفات", "section": "recipes" },
-    { "label": "الشهادات", "section": "certifications" },
     { "label": "اتصل بنا", "section": "contact" }
   ]
 }

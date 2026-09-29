@@ -5,7 +5,6 @@
     { "label": "About", "section": "about-us" },
     { "label": "Products", "section": "products-carousel" },
     { "label": "Recipes", "section": "recipes" },
-    { "label": "Certifications", "section": "certifications" },
     { "label": "Contact us", "section": "contact" }
   ]
 }

@@ -514,6 +514,54 @@ function buildProductCardsHtml(products, lang, imageFallback) {
   }).join('\n');
 }
 
+// "About" block with nutrition facts for each brand page. Content lives in
+// sections/productAbout/productAbout.json (sourced from the original shehirian.com).
+function loadProductAbout() {
+  const aboutPath = path.join(__dirname, 'sections', 'productAbout', 'productAbout.json');
+  if (!fs.existsSync(aboutPath)) return null;
+  try { return JSON.parse(fs.readFileSync(aboutPath, 'utf8')); } catch (err) {
+    console.warn('⚠ Failed to parse productAbout.json:', err.message);
+    return null;
+  }
+}
+const productAbout = loadProductAbout();
+
+function buildProductAboutHtml(brandSlug, lang) {
+  const brand = productAbout && productAbout.brands && productAbout.brands[brandSlug];
+  if (!brand) return '';
+  const pick = obj => (obj && (obj[lang] || obj.en)) || '';
+  const label = key => pick(productAbout.labels[key]);
+  const nutrient = key => pick(productAbout.nutrients[key]) || key;
+  const paragraphs = (brand.paragraphs[lang] || brand.paragraphs.en || [])
+    .map(text => `<p>${escapeHtml(text)}</p>`).join('\n        ');
+  const n = brand.nutrition;
+  let nutritionHtml = '';
+  if (n) {
+    const rows = n.rows.map(([key, amount, dv, indent]) => `
+            <tr class="${indent ? 'nf-sub' : 'nf-main'}${key === 'calories' ? ' nf-calories' : ''}"><th scope="row">${escapeHtml(nutrient(key))} <span class="nf-amount">${escapeHtml(amount)}</span></th><td>${dv ? escapeHtml(dv) : ''}</td></tr>`).join('');
+    const micros = n.micros.map(([key, dv], i) => `
+            <tr class="nf-micro${i === 0 ? ' nf-micro-first' : ''}"><th scope="row">${escapeHtml(nutrient(key))}</th><td>${escapeHtml(dv)}</td></tr>`).join('');
+    nutritionHtml = `
+      <figure class="nutrition-facts" aria-labelledby="nf-title-${brandSlug}">
+        <figcaption id="nf-title-${brandSlug}" class="nf-title">${escapeHtml(label('nutrition_facts'))}</figcaption>
+        <p class="nf-serving">${escapeHtml(label('per'))} ${escapeHtml(pick(n.serving))}</p>
+        <table>
+          <thead><tr><th scope="col">${escapeHtml(label('amount'))}</th><th scope="col">${escapeHtml(label('dv'))}</th></tr></thead>
+          <tbody>${rows}${micros}
+          </tbody>
+        </table>
+        <p class="nf-footnote">${escapeHtml(label('footnote'))}</p>
+      </figure>`;
+  }
+  return `
+    <section class="product-about" id="about-${brandSlug}">
+      <div class="product-about-text">
+        <h2>${escapeHtml(pick(brand.heading))}</h2>
+        ${paragraphs}
+      </div>${nutritionHtml}
+    </section>`;
+}
+
 function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, imageFallback) {
   const t = getTranslator(lang);
   const pageTitle = translateProductText(englishPageTitle, lang);
@@ -546,6 +594,7 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
     <section class="product-grid">
       ${cardsHtml}
     </section>
+${buildProductAboutHtml(brandSlug, lang)}
 
     <footer class="products-footer">
       <a class="view-all-btn" href="${homePagePath(lang)}#products-carousel">← ${escapeHtml(t('btn_back_to_products'))}</a>
@@ -655,7 +704,10 @@ function normalizeCategory(cat, lang) {
 function loadJSONLD(lang) {
   const sectionsDir = path.join(__dirname, 'sections');
   const sections = fs.readdirSync(sectionsDir)
-    .filter(item => fs.statSync(path.join(sectionsDir, item)).isDirectory());
+    .filter(item => fs.statSync(path.join(sectionsDir, item)).isDirectory())
+    // Certifications JSON-LD held unverified claims (organic, halal) — keep it
+    // out of the page unless SHOW_CERTIFICATIONS is set.
+    .filter(item => item !== 'certifications' || process.env.SHOW_CERTIFICATIONS === 'true');
   
   return sections
     .map(section => {
@@ -1350,7 +1402,10 @@ function writeSitemap(master) {
 }
 
 writeAllRecipesPages();
-writeCertificationPages();
+// Certifications were placeholder demo content (the four GFSI badges were not
+// verified). Pages are no longer generated; set SHOW_CERTIFICATIONS=true to
+// build them again once real certification details are confirmed.
+if (process.env.SHOW_CERTIFICATIONS === 'true') writeCertificationPages();
 writeProductPages();
 
 // Copy redirect.html to dist/index.html (root redirect)

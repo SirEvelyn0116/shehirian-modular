@@ -5,7 +5,6 @@
     { "label": "Մեր մասին", "section": "about-us" },
     { "label": "Արտադրանք", "section": "products-carousel" },
     { "label": "Բաղադրատոմսեր", "section": "recipes" },
-    { "label": "Սերտիֆիկացումներ", "section": "certifications" },
     { "label": "Կապ մեզ հետ", "section": "contact" }
   ]
 }

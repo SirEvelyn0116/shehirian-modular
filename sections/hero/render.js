@@ -1,4 +1,4 @@
-// Hero/Home section renderer with title bar, nav, and certifications preview
+// Hero/Home section renderer with title bar and nav
 function renderHero(lang = 'en') {
   const prefix = window.__sitePathPrefix || '';
   return fetch(`${prefix}sections/hero/hero.${lang}.json`)
@@ -15,25 +15,6 @@ function renderHero(lang = 'en') {
       title.textContent = data.title || 'shehirian bulgor inc.';
       section.appendChild(title);
       
-      // Certifications Preview - Bottom Left
-      const certPreview = document.createElement('div');
-      certPreview.className = 'certifications-preview';
-      certPreview.innerHTML = `
-        <a href="#certifications" class="cert-badge-small" title="BRC Global Standard">
-          <img src="${prefix}assets/img/cert-brc.svg" alt="BRC Certification">
-        </a>
-        <a href="#certifications" class="cert-badge-small" title="Safe Quality Food">
-          <img src="${prefix}assets/img/cert-sqf.svg" alt="SQF Certification">
-        </a>
-        <a href="#certifications" class="cert-badge-small" title="FSSC 22000">
-          <img src="${prefix}assets/img/cert-fssc.svg" alt="FSSC 22000">
-        </a>
-        <a href="#certifications" class="cert-badge-small" title="IFS Food Standard">
-          <img src="${prefix}assets/img/cert-ifs.svg" alt="IFS Certification">
-        </a>
-      `;
-      section.appendChild(certPreview);
-      
       // Mid-spacer
       const midSpacer = document.createElement('div');
       midSpacer.className = 'mid-spacer';
@@ -49,7 +30,6 @@ function renderHero(lang = 'en') {
         { label: 'About', section: 'about-us' },
         { label: 'Products', section: 'products-carousel' },
         { label: 'Recipes', section: 'recipes' },
-        { label: 'Certifications', section: 'certifications' },
         { label: 'Contact us', section: 'contact' }
       ];
       
