@@ -1,6 +1,6 @@
 /**
  * Seed the Clover SANDBOX test merchant with storefront-like demo data for the
- * ops dashboard: the Shirag bulgur line as inventory items, plus ~6 weeks of
+ * ops dashboard: the Shirag Bulgor line as inventory items, plus ~6 weeks of
  * realistic storefront orders.
  *
  * DEMO DATA ONLY. Prices are placeholders, not Shehirian's real prices.
@@ -28,13 +28,13 @@ const DAYS = 42;
 
 // Their real product line (shirag-products.html); prices are demo placeholders, in cents.
 const PRODUCTS = [
-  { name: 'Shirag Bulgur — Soft Wheat Fine',          sku: 'SHR-SW-F',  price: 449, weight: 22 },
-  { name: 'Shirag Bulgur — Soft Wheat Medium',        sku: 'SHR-SW-M',  price: 449, weight: 30 },
-  { name: 'Shirag Bulgur — Soft Wheat Coarse',        sku: 'SHR-SW-C',  price: 479, weight: 14 },
-  { name: 'Shirag Bulgur — Soft Wheat Extra Coarse',  sku: 'SHR-SW-XC', price: 499, weight: 8 },
-  { name: 'Shirag Bulgur — Red Wheat Fine',           sku: 'SHR-RW-F',  price: 529, weight: 10 },
-  { name: 'Shirag Bulgur — Red Wheat Medium',         sku: 'SHR-RW-M',  price: 529, weight: 10 },
-  { name: 'Shirag Bulgur — Red Wheat Coarse',         sku: 'SHR-RW-C',  price: 549, weight: 6 },
+  { name: 'Shirag Bulgor — Soft Wheat Fine',          sku: 'SHR-SW-F',  price: 449, weight: 22 },
+  { name: 'Shirag Bulgor — Soft Wheat Medium',        sku: 'SHR-SW-M',  price: 449, weight: 30 },
+  { name: 'Shirag Bulgor — Soft Wheat Coarse',        sku: 'SHR-SW-C',  price: 479, weight: 14 },
+  { name: 'Shirag Bulgor — Soft Wheat Extra Coarse',  sku: 'SHR-SW-XC', price: 499, weight: 8 },
+  { name: 'Shirag Bulgor — Red Wheat Fine',           sku: 'SHR-RW-F',  price: 529, weight: 10 },
+  { name: 'Shirag Bulgor — Red Wheat Medium',         sku: 'SHR-RW-M',  price: 529, weight: 10 },
+  { name: 'Shirag Bulgor — Red Wheat Coarse',         sku: 'SHR-RW-C',  price: 549, weight: 6 },
 ];
 const CLOVER_DEFAULT_ITEMS = ['Kiwi', 'Banana', 'Pear', 'Apple']; // placeholder fruit on new test merchants
 
@@ -132,6 +132,13 @@ async function getAll(path) {
   for (const p of PRODUCTS) {
     const found = items.find(i => i.name === p.name);
     if (found) { idByName[p.name] = found.id; continue; }
+    // Brand spelling is "Bulgor". An earlier version of this script used the common
+    // spelling; rename any such item in place rather than creating a duplicate.
+    const legacy = items.find(i => i.name === p.name.replace("Bulgor", "Bulgur"));
+    if (legacy) {
+      await api('POST', `/v3/merchants/${MID}/items/${legacy.id}`, { name: p.name });
+      idByName[p.name] = legacy.id; console.log(`  renamed item: ${legacy.name} → ${p.name}`); continue;
+    }
     const created = await api('POST', `/v3/merchants/${MID}/items`, { name: p.name, sku: p.sku, price: p.price, priceType: 'FIXED' });
     idByName[p.name] = created.id; console.log(`  created item: ${p.name}`);
   }
