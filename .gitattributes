@@ -1,0 +1,7 @@
+# Machine-written files: always check out with LF line endings, matching what
+# generate-index.js and the admin tool's GitHub commits write. Without this,
+# a Windows checkout (CRLF) differs byte-for-byte from what every local build
+# writes (LF), so ~160 JSON-LD files show up as "modified" after each build
+# even though their content is identical.
+*.jsonld              text eol=lf
+sections/**/*.json    text eol=lf
