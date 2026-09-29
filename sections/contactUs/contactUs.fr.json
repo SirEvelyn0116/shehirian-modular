@@ -4,10 +4,12 @@
   "addressLabel": "Adresse",
   "phoneLabel": "Téléphone",
   "faxLabel": "Fax",
+  "hoursLabel": "Heures d’ouverture",
   "emailLabel": "Courriel",
   "address": "375 chemin Midwest, Toronto, ON",
   "phone": "(416) 757-9495",
   "fax": "(416) 752-9248",
+  "hours": "Du lundi au vendredi, de 9 h à 16 h (fermé les jours fériés)",
   "email": "info@shehirian.com",
   "form": {
     "labelName": "Nom",

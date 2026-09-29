@@ -15,6 +15,7 @@ function renderContactUs(lang = 'en') {
             <p><strong>${data.addressLabel || 'Address'}:</strong> ${data.address || 'N/A'}</p>
             <p><strong>${data.phoneLabel || 'Phone'}:</strong> ${data.phone || 'N/A'}</p>
             <p><strong>${data.faxLabel || 'Fax'}:</strong> ${data.fax || 'N/A'}</p>
+            ${data.hours ? `<p><strong>${data.hoursLabel || 'Hours'}:</strong> ${data.hours}</p>` : ''}
             <p><strong>${data.emailLabel || 'Email'}:</strong> <a href="mailto:${data.email || 'info@example.com'}">${data.email || 'N/A'}</a></p>
           </div>
           <form class="contact-form">

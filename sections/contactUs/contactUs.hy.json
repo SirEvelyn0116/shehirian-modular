@@ -4,10 +4,12 @@
   "addressLabel": "Հասցե",
   "phoneLabel": "Հեռախոս",
   "faxLabel": "Ֆաքս",
+  "hoursLabel": "Աշխատանքային ժամեր",
   "emailLabel": "Էլ. փոստ",
   "address": "375 Midwest Rd., Toronto, ON",
   "phone": "(416) 757-9495",
   "fax": "(416) 752-9248",
+  "hours": "Երկուշաբթիից ուրբաթ, 9:00–16:00 (բացի տոն օրերից)",
   "email": "info@shehirian.com",
   "form": {
     "labelName": "Անուն",
