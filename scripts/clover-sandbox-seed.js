@@ -1,8 +1,9 @@
 /**
  * Seed the Clover SANDBOX test merchant with storefront-like demo data for the
- * ops dashboard: their product line as inventory items (the two Bulgor types,
- * each grade in each bag size, named as on shehirian.com/Products), plus ~6 weeks
- * of realistic storefront orders.
+ * ops dashboard: their product line as inventory items — Shirag Bulgor (both
+ * wheat types, every grade, every bag size) and Mr. Falafel mix — plus ~6 weeks of
+ * realistic storefront orders. Names, grades and sizes come from shehirian.com
+ * (Products page, and the product photo: bag labels and the falafel case label).
  *
  * DEMO DATA ONLY. Prices are placeholders, not Shehirian's real prices.
  *
@@ -27,21 +28,30 @@ const DRY = process.argv.includes('--dry-run');
 const RESET = process.argv.includes('--reset');
 const DAYS = 42;
 
-// Their real product line, named as on shehirian.com/Products: two types of Bulgor,
-// each grade in the four bag sizes the site lists. Prices are demo placeholders (cents).
+// Their real product line. Sources: shehirian.com/Products (two wheat types,
+// grades, bag sizes 1/2/5/25Kg) and the site's product photo (bags branded
+// "Shirag ... Bulgor Wheat-Blé"; Mr. Falafel mix shipped as a 5 x 10 lb case).
+// The smaller Mr. Falafel bag's size isn't legible anywhere, so it's left out.
+// Prices are demo placeholders (cents).
 const TYPES = [
-  { type: 'Soft Wheat Bulgor', code: 'SW', grades: [['Fine', 'F', 22], ['Medium', 'M', 30], ['Coarse', 'C', 14], ['Extra Coarse', 'XC', 8]],
+  { type: 'Soft Wheat', code: 'SW', grades: [['Fine', 'F', 22], ['Medium', 'M', 30], ['Coarse', 'C', 14], ['Extra Coarse', 'XC', 8]],
     prices: { '1Kg': 349, '2Kg': 599, '5Kg': 1299, '25Kg': 4999 } },
-  { type: 'Red Wheat Bulgor', code: 'RW', grades: [['Fine', 'F', 10], ['Medium', 'M', 10], ['Coarse', 'C', 6]],
+  { type: 'Red Wheat', code: 'RW', grades: [['Fine', 'F', 10], ['Medium', 'M', 10], ['Coarse', 'C', 6]],
     prices: { '1Kg': 399, '2Kg': 699, '5Kg': 1499, '25Kg': 5799 } },
 ];
 const SIZES = [['1Kg', 40], ['2Kg', 30], ['5Kg', 20], ['25Kg', 10]]; // walk-ins mostly buy small bags
 const PRODUCTS = [];
 for (const t of TYPES) for (const [grade, g, gw] of t.grades) for (const [size, sw] of SIZES) {
-  PRODUCTS.push({ name: `${t.type} — ${grade} ${size}`, sku: `${t.code}-${g}-${size.replace('Kg', '')}`, price: t.prices[size], size, weight: gw * sw });
+  PRODUCTS.push({ name: `Shirag Bulgor — ${t.type} ${grade} ${size}`, sku: `${t.code}-${g}-${size.replace('Kg', '')}`,
+    price: t.prices[size], single: size === '25Kg', weight: gw * sw });
 }
-// Items from earlier versions of this script (one item per grade, "Shirag" prefix) — removed on re-seed.
-const OBSOLETE_ITEM_PREFIXES = ['Shirag Bulgor —', 'Shirag Bulgur —'];
+PRODUCTS.push(
+  { name: 'Mr. Falafel Mix — 10 lb',            sku: 'MF-10LB', price: 2199, single: false, weight: 900 },
+  { name: 'Mr. Falafel Mix — Case (5 × 10 lb)', sku: 'MF-CASE', price: 9999, single: true,  weight: 150 },
+);
+// Items this script manages. Anything with one of these prefixes that isn't in
+// PRODUCTS (e.g. from an earlier version of this script) is removed on re-seed.
+const MANAGED_ITEM_PREFIXES = ['Shirag Bulgor —', 'Shirag Bulgur —', 'Soft Wheat Bulgor —', 'Red Wheat Bulgor —', 'Mr. Falafel Mix —'];
 const CLOVER_DEFAULT_ITEMS = ['Kiwi', 'Banana', 'Pear', 'Apple']; // placeholder fruit on new test merchants
 
 // ---------- deterministic demo data ----------
@@ -62,7 +72,7 @@ function planOrders() {
       const lines = []; const nLines = pick([1, 2, 3], [55, 32, 13]);
       const chosen = new Set();
       while (chosen.size < nLines) chosen.add(pick(PRODUCTS, PRODUCTS.map(p => p.weight)));
-      for (const p of chosen) lines.push({ product: p, qty: p.size === '25Kg' ? 1 : pick([1, 2, 3], [70, 24, 6]) });
+      for (const p of chosen) lines.push({ product: p, qty: p.single ? 1 : pick([1, 2, 3], [70, 24, 6]) });
       orders.push({ date: ymd(d), lines, total: lines.reduce((s, l) => s + l.product.price * l.qty, 0) });
     }
   }
@@ -131,7 +141,7 @@ async function getAll(path) {
 
   // Inventory: remove Clover's placeholder fruit, create/reuse the Shirag items
   const items = await getAll(`/v3/merchants/${MID}/items`);
-  for (const it of items.filter(i => CLOVER_DEFAULT_ITEMS.includes(i.name) || OBSOLETE_ITEM_PREFIXES.some(p => (i.name || '').startsWith(p)))) {
+  for (const it of items.filter(i => CLOVER_DEFAULT_ITEMS.includes(i.name) || (MANAGED_ITEM_PREFIXES.some(p => (i.name || '').startsWith(p)) && !PRODUCTS.some(p => p.name === i.name)))) {
     await api('DELETE', `/v3/merchants/${MID}/items/${it.id}`); console.log(`  removed old item: ${it.name}`);
   }
   const idByName = {};
