@@ -139,6 +139,7 @@
         "hy": false
       },
       "image": "assets/img/recipes/basic-bulgor-pilaf/3-done.jpg",
+      "cardImage": "assets/img/recipes/basic-bulgor-pilaf/card.jpg",
       "stepImages": {
         "0": "assets/img/recipes/basic-bulgor-pilaf/1-ingredients.jpg",
         "2": "assets/img/recipes/basic-bulgor-pilaf/2-simmering.jpg"
@@ -584,6 +585,7 @@
         "hy": false
       },
       "image": "assets/img/recipes/shirag-tabulee-salad/2-done.jpg",
+      "cardImage": "assets/img/recipes/shirag-tabulee-salad/card.jpg",
       "stepImages": {
         "0": "assets/img/recipes/shirag-tabulee-salad/1-ingredients.jpg"
       }
