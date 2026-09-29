@@ -1147,3 +1147,14 @@ Supporting docs from this work live in the repo alongside the recipes: `sections
    our reading of an ambiguous terse layout (the conventional bread sequence, and the one internally
    consistent with reserving dry flour). The brothers may not have made this specific recipe, but if
    they have, confirm this matches the family's intended method.
+
+9. **Online ordering with in-store pickup (for Vartan).** Suggested wording: *"I know you're still
+   weighing whether online orders are worth it. There's a middle ground that avoids shipping
+   altogether: customers order and pay on the website, then pick up at the store. It runs through
+   the Clover system you already have — online orders land in Clover like any other sale. I've
+   tested it on a Clover practice account set up like your store, and it works. All it would take
+   is asking your Clover rep whether online payments ('Hosted Checkout') can be turned on for your
+   account, and what the fees would be."* Basis: the Canadian sandbox test in §11 (2026-09-29).
+   The practice account is a test merchant under Laurence's own Clover developer login — not
+   theirs. If the rep says no, the fallback is a separate payment processor feeding orders into
+   Clover (§11).
