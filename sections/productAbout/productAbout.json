@@ -1,0 +1,109 @@
+{
+  "_source": "Text and nutrition values from the original shehirian.com (about_bulgor-short.html, about_company-short.html, Products/Products.html, Products/NutFactBulgor.html, Products/NutFactFalafel.html). Nutrition values to be confirmed against current packaging before launch.",
+  "labels": {
+    "nutrition_facts": { "en": "Nutrition Facts", "fr": "Valeur nutritive", "ar": "القيمة الغذائية", "hy": "Սննդային արժեք" },
+    "per": { "en": "Per", "fr": "Pour", "ar": "لكل", "hy": "Յուրաքանչյուր" },
+    "amount": { "en": "Amount", "fr": "Teneur", "ar": "الكمية", "hy": "Քանակ" },
+    "dv": { "en": "% Daily Value*", "fr": "% valeur quotidienne*", "ar": "% من القيمة اليومية*", "hy": "% օրական արժեք*" },
+    "footnote": {
+      "en": "* Percent Daily Values are based on a 2,000 calorie diet. Your daily values may be higher or lower depending on your calorie needs.",
+      "fr": "* Les pourcentages de la valeur quotidienne sont fondés sur un régime de 2 000 calories. Vos valeurs quotidiennes peuvent être plus élevées ou plus basses selon vos besoins caloriques.",
+      "ar": "* تستند النسب المئوية للقيمة اليومية إلى نظام غذائي يحتوي على 2000 سعرة حرارية. قد تكون قيمك اليومية أعلى أو أقل حسب احتياجاتك من السعرات.",
+      "hy": "* Օրական արժեքի տոկոսները հիմնված են 2000 կալորիա պարունակող սննդակարգի վրա։ Ձեր օրական արժեքները կարող են լինել ավելի բարձր կամ ցածր՝ կախված ձեր կալորիական կարիքներից։"
+    }
+  },
+  "nutrients": {
+    "calories": { "en": "Calories", "fr": "Calories", "ar": "السعرات الحرارية", "hy": "Կալորիաներ" },
+    "calories_fat": { "en": "Calories from fat", "fr": "Calories provenant des lipides", "ar": "سعرات من الدهون", "hy": "Կալորիաներ ճարպերից" },
+    "fat": { "en": "Fat", "fr": "Lipides", "ar": "الدهون", "hy": "Ճարպեր" },
+    "saturated": { "en": "Saturated", "fr": "Saturés", "ar": "مشبعة", "hy": "Հագեցած" },
+    "trans": { "en": "Trans", "fr": "Trans", "ar": "متحولة", "hy": "Տրանս" },
+    "cholesterol": { "en": "Cholesterol", "fr": "Cholestérol", "ar": "الكوليسترول", "hy": "Խոլեստերին" },
+    "sodium": { "en": "Sodium", "fr": "Sodium", "ar": "الصوديوم", "hy": "Նատրիում" },
+    "carbohydrate": { "en": "Carbohydrate", "fr": "Glucides", "ar": "الكربوهيدرات", "hy": "Ածխաջրեր" },
+    "fibre": { "en": "Fibre", "fr": "Fibres", "ar": "الألياف", "hy": "Բջջանյութ" },
+    "sugars": { "en": "Sugars", "fr": "Sucres", "ar": "السكريات", "hy": "Շաքարներ" },
+    "protein": { "en": "Protein", "fr": "Protéines", "ar": "البروتين", "hy": "Սպիտակուցներ" },
+    "vit_a": { "en": "Vitamin A", "fr": "Vitamine A", "ar": "فيتامين أ", "hy": "Վիտամին A" },
+    "vit_c": { "en": "Vitamin C", "fr": "Vitamine C", "ar": "فيتامين ج", "hy": "Վիտամին C" },
+    "calcium": { "en": "Calcium", "fr": "Calcium", "ar": "الكالسيوم", "hy": "Կալցիում" },
+    "iron": { "en": "Iron", "fr": "Fer", "ar": "الحديد", "hy": "Երկաթ" },
+    "zinc": { "en": "Zinc", "fr": "Zinc", "ar": "الزنك", "hy": "Ցինկ" },
+    "thiamin": { "en": "Thiamin", "fr": "Thiamine", "ar": "الثيامين", "hy": "Թիամին" },
+    "riboflavin": { "en": "Riboflavin", "fr": "Riboflavine", "ar": "الريبوفلافين", "hy": "Ռիբոֆլավին" },
+    "niacin": { "en": "Niacin", "fr": "Niacine", "ar": "النياسين", "hy": "Նիացին" },
+    "vit_b6": { "en": "Vitamin B6", "fr": "Vitamine B6", "ar": "فيتامين ب6", "hy": "Վիտամին B6" },
+    "folate": { "en": "Folate", "fr": "Folate", "ar": "الفولات", "hy": "Ֆոլատ" },
+    "vit_b12": { "en": "Vitamin B12", "fr": "Vitamine B12", "ar": "فيتامين ب12", "hy": "Վիտամին B12" },
+    "phosphorus": { "en": "Phosphorus", "fr": "Phosphore", "ar": "الفوسفور", "hy": "Ֆոսֆոր" },
+    "magnesium": { "en": "Magnesium", "fr": "Magnésium", "ar": "المغنيسيوم", "hy": "Մագնեզիում" },
+    "vit_d": { "en": "Vitamin D", "fr": "Vitamine D", "ar": "فيتامين د", "hy": "Վիտամին D" }
+  },
+  "brands": {
+    "shirag": {
+      "heading": { "en": "About Bulgor", "fr": "À propos du boulgour", "ar": "عن البرغل", "hy": "Բլղուրի մասին" },
+      "paragraphs": {
+        "en": [
+          "Bulgor is a wheat product developed by the ancient Hittites as a method to preserve wheat for long periods of time.",
+          "Shehirian Bulgor Inc. was the first company in Canada to produce Bulgor. We produce two types, soft wheat and red wheat, in fine, medium and coarse grades, with an extra coarse grade in soft wheat.",
+          "Package sizes: 1 kg, 2 kg, 5 kg and 25 kg."
+        ],
+        "fr": [
+          "Le boulgour est un produit du blé mis au point par les anciens Hittites pour conserver le blé pendant de longues périodes.",
+          "Shehirian Bulgor Inc. a été la première entreprise au Canada à produire du boulgour. Nous produisons deux types, blé tendre et blé rouge, en mouture fine, moyenne et grosse, ainsi qu’une mouture extra grosse en blé tendre.",
+          "Formats : 1 kg, 2 kg, 5 kg et 25 kg."
+        ],
+        "ar": [
+          "البرغل منتج من القمح طوّره الحيثيون القدماء كوسيلة لحفظ القمح لفترات طويلة.",
+          "كانت شركة شيهريان للبرغل أول شركة في كندا تنتج البرغل. ننتج نوعين، القمح الطري والقمح الأحمر، بدرجات ناعمة ومتوسطة وخشنة، مع درجة خشنة جداً من القمح الطري.",
+          "أحجام العبوات: 1 كغ و2 كغ و5 كغ و25 كغ."
+        ],
+        "hy": [
+          "Բլղուրը ցորենից պատրաստվող մթերք է, որը ստեղծել են հին խեթերը՝ ցորենը երկար ժամանակ պահպանելու համար։",
+          "Shehirian Bulgor Inc.-ը Կանադայում բլղուր արտադրող առաջին ընկերությունն էր։ Մենք արտադրում ենք երկու տեսակ՝ փափուկ և կարմիր ցորենից, նուրբ, միջին և կոպիտ մանրացմամբ, իսկ փափուկ ցորենից՝ նաև շատ կոպիտ։",
+          "Փաթեթավորում՝ 1 կգ, 2 կգ, 5 կգ և 25 կգ։"
+        ]
+      },
+      "nutrition": {
+        "serving": { "en": "42 g (dry Bulgor)", "fr": "42 g (boulgour sec)", "ar": "42 غ (برغل جاف)", "hy": "42 գ (չոր բլղուր)" },
+        "rows": [
+          ["calories", "140", null, 0],
+          ["calories_fat", "5", null, 1],
+          ["fat", "0 g", "0 %", 0],
+          ["saturated", "0 g", "0 %", 1],
+          ["cholesterol", "0 mg", "0 %", 0],
+          ["sodium", "5 mg", "0 %", 0],
+          ["carbohydrate", "30 g", "11 %", 0],
+          ["fibre", "8 g", "30 %", 1],
+          ["protein", "5 g", "10 %", 0]
+        ],
+        "micros": [["vit_a","0 %"],["vit_c","0 %"],["calcium","0 %"],["iron","6 %"],["zinc","6 %"],["thiamin","6 %"],["riboflavin","4 %"],["niacin","10 %"],["vit_b6","8 %"],["folate","4 %"],["vit_b12","0 %"],["phosphorus","15 %"],["magnesium","15 %"],["vit_d","0 %"]]
+      }
+    },
+    "mr-falafel": {
+      "heading": { "en": "About Falafel", "fr": "À propos du falafel", "ar": "عن الفلافل", "hy": "Ֆալաֆելի մասին" },
+      "paragraphs": {
+        "en": ["Falafel is a traditional Middle Eastern dish of seasoned ground legumes, shaped into balls or patties and fried."],
+        "fr": ["Le falafel est un plat traditionnel du Moyen-Orient à base de légumineuses moulues et assaisonnées, façonnées en boulettes ou en galettes puis frites."],
+        "ar": ["الفلافل طبق شرق أوسطي تقليدي يُحضَّر من البقوليات المطحونة والمتبّلة، ويُشكَّل على هيئة كرات أو أقراص ثم يُقلى."],
+        "hy": ["Ֆալաֆելը ավանդական մերձավորարևելյան ուտեստ է՝ համեմված աղացած հատիկաընդեղենից, որը ձևավորում են գնդիկներով կամ կարկանդակներով և տապակում։"]
+      },
+      "nutrition": {
+        "serving": { "en": "100 g", "fr": "100 g", "ar": "100 غ", "hy": "100 գ" },
+        "rows": [
+          ["calories", "350", null, 0],
+          ["fat", "2.5 g", "4 %", 0],
+          ["saturated", "0.5 g", "3 %", 1],
+          ["trans", "0 g", "0 %", 1],
+          ["cholesterol", "0 mg", "0 %", 0],
+          ["sodium", "1780 mg", "74 %", 0],
+          ["carbohydrate", "58 g", "19 %", 0],
+          ["fibre", "15 g", "60 %", 1],
+          ["sugars", "3 g", null, 1],
+          ["protein", "23 g", null, 0]
+        ],
+        "micros": [["vit_a","0 %"],["vit_c","0 %"],["calcium","10 %"],["iron","30 %"]]
+      }
+    }
+  }
+}
