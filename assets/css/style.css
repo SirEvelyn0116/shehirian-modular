@@ -1293,7 +1293,7 @@ body[dir="rtl"] .contact-info {
 
 /* === PRODUCT PAGE: ABOUT + NUTRITION FACTS === */
 .product-about {
-  margin-top: 3rem;
+  margin-bottom: 3rem;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
   gap: 2.5rem;
@@ -1314,6 +1314,23 @@ body[dir="rtl"] .contact-info {
   margin: 0 0 1rem;
   line-height: 1.7;
   color: #2a241b;
+}
+
+.product-about-link a {
+  display: inline-block;
+  margin-top: 0.25rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  background: #5a6345;
+  color: #f8f6f2;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.product-about-link a:hover,
+.product-about-link a:focus-visible {
+  background: #a36b1b;
 }
 
 .nutrition-facts {

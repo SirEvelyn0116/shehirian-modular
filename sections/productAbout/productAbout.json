@@ -64,6 +64,10 @@
           "Փաթեթավորում՝ 1 կգ, 2 կգ, 5 կգ և 25 կգ։"
         ]
       },
+      "recipeLink": {
+        "slug": "how-to-cook-bulgor",
+        "label": { "en": "How to cook Bulgor →", "fr": "Comment cuire le boulgour →", "ar": "طريقة طهي البرغل ←", "hy": "Ինչպես եփել բլղուրը →" }
+      },
       "nutrition": {
         "serving": { "en": "42 g (dry Bulgor)", "fr": "42 g (boulgour sec)", "ar": "42 غ (برغل جاف)", "hy": "42 գ (չոր բլղուր)" },
         "rows": [

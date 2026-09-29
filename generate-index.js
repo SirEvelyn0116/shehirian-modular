@@ -582,11 +582,14 @@ function buildProductAboutHtml(brandSlug, lang) {
         <p class="nf-footnote">${escapeHtml(label('footnote'))}</p>
       </figure>`;
   }
+  const linkHtml = brand.recipeLink
+    ? `\n        <p class="product-about-link"><a href="${recipePagePath(lang, brand.recipeLink.slug)}">${escapeHtml(pick(brand.recipeLink.label))}</a></p>`
+    : '';
   return `
     <section class="product-about" id="about-${brandSlug}">
       <div class="product-about-text">
         <h2>${escapeHtml(pick(brand.heading))}</h2>
-        ${paragraphs}
+        ${paragraphs}${linkHtml}
       </div>${nutritionHtml}
     </section>`;
 }
@@ -620,10 +623,10 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
 
   <main class="products-container">
     <h1>${breadcrumbsTitle}</h1>
+${buildProductAboutHtml(brandSlug, lang)}
     <section class="product-grid">
       ${cardsHtml}
     </section>
-${buildProductAboutHtml(brandSlug, lang)}
 
     <footer class="products-footer">
       <a class="view-all-btn" href="${homePagePath(lang)}#products-carousel">← ${escapeHtml(t('btn_back_to_products'))}</a>
