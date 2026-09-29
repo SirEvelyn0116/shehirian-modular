@@ -1,0 +1,103 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Seenee Quefteah",
+  "author": "Shehirian family",
+  "description": "Baked tray quefteah: a spiced filling of beef, onion, pistachios, walnuts and pine nuts between two layers of Fine Shirag Bulgor and steak, cut into diamonds.",
+  "recipeCategory": "Main Dish",
+  "recipeCuisine": "Middle Eastern",
+  "recipeYield": "8 servings",
+  "prepTime": "",
+  "cookTime": "PT1H",
+  "totalTime": "",
+  "recipeIngredient": [
+    "2 cups Fine Shirag Bulgor",
+    "1 lb. flank steak",
+    "2 cups water",
+    "1/2 tbsp salt",
+    "1/4 tsp cumin",
+    "1 lb. extra lean ground beef",
+    "1 cup onions, finely chopped",
+    "1/2 cup coarse ground pistachios",
+    "1/2 cup coarse ground walnuts",
+    "1/4 cup pine nuts",
+    "1 tsp salt",
+    "1 tsp seven spices",
+    "1/2 tsp red pepper",
+    "1/4 tsp black pepper",
+    "1/4 tsp allspice",
+    "1/4 tsp cumin",
+    "Olive oil, for the pan",
+    "Butter, a small piece for each cut piece"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "Filling: at medium heat, put a small amount of water (1/4 cup) in a pan and add the ground beef slowly, mixing constantly so the beef cooks evenly and no lumps appear."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the onions and salt, mix thoroughly, lower the heat and let simmer for 20 minutes or until the water is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the nuts and mix. Cook for another 8 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the spices and mix thoroughly. Cook for another 2 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Outer layer: mix the Fine Shirag Bulgor in 1 cup of water and let stand until the water is absorbed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Dice the flank steak, then process it in a food processor until it is fluffy."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "In a mixer, combine the Fine Shirag Bulgor, salt and cumin."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Slowly add the steak, and the remaining water as needed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Lightly coat an 11-inch round pan with olive oil."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Divide the outer layer mixture into two equal portions."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Use one portion to make a flat layer in the pan (tip: keep a small bowl of water close by to dip your fingers into, so the mixture doesn’t stick)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Add the filling as a middle layer."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Use the second portion to add the top layer."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cut into shapes (squares or diamonds)."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Place a small piece of butter on each piece."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Bake at 350°F for 30 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Let cool and serve."
+    }
+  ]
+}

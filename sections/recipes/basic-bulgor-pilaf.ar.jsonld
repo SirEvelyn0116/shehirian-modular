@@ -1,0 +1,15 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Basic Bulgor Pilaf",
+  "author": "عائلة شيهريان",
+  "description": "",
+  "recipeCategory": "",
+  "recipeCuisine": "",
+  "recipeYield": "",
+  "prepTime": "",
+  "cookTime": "PT20M",
+  "totalTime": "",
+  "recipeIngredient": [],
+  "recipeInstructions": []
+}

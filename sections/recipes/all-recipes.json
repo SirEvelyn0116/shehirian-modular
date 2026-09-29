@@ -64,6 +64,87 @@
       }
     },
     {
+      "slug": "basic-bulgor-pilaf",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Basic Bulgor Pilaf",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "description": {
+        "en": "The simplest Bulgor pilaf: Shirag Coarse Bulgor simmered in water and butter, or in broth.",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCategory": {
+        "en": "Side Dish",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCuisine": {
+        "en": "",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeYield": {
+        "en": "3 servings",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "prepTime": "",
+      "cookTime": "PT20M",
+      "totalTime": "",
+      "ingredients": {
+        "en": [
+          "1 cup Shirag Coarse Bulgor",
+          "2 cups water",
+          "1/4 cup butter or margarine",
+          "Instead of the water and butter, you may use 2 cups chicken, beef or lamb broth"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "instructions": {
+        "en": [
+          "In a saucepan, bring the liquid to a boil, adding the butter or margarine if using.",
+          "Reduce the heat and thoroughly mix in the Shirag Coarse Bulgor.",
+          "Let it simmer until all the liquid is absorbed, about 15 to 20 minutes.",
+          "Remove from the heat and let stand for 10 to 15 minutes before serving."
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "keywords": {
+        "en": [
+          "pilaf",
+          "Bulgor",
+          "side dish"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "categoryId": "side",
+      "published": {
+        "en": true,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      },
+      "image": "assets/img/recipes/basic-bulgor-pilaf/3-done.jpg",
+      "stepImages": {
+        "0": "assets/img/recipes/basic-bulgor-pilaf/1-ingredients.jpg",
+        "2": "assets/img/recipes/basic-bulgor-pilaf/2-simmering.jpg"
+      }
+    },
+    {
       "slug": "royal-soup",
       "featuredRecipe": true,
       "title": {
@@ -419,6 +500,92 @@
         "fr": false,
         "ar": false,
         "hy": false
+      }
+    },
+    {
+      "slug": "shirag-tabulee-salad",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Shirag Tabulee Salad",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "description": {
+        "en": "A parsley-rich Tabulee with Shirag Fine Bulgor, tomato, cucumber and green pepper, dressed with olive oil and lemon.",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCategory": {
+        "en": "Salad",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCuisine": {
+        "en": "",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeYield": {
+        "en": "3 servings",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "prepTime": "",
+      "cookTime": "",
+      "totalTime": "",
+      "ingredients": {
+        "en": [
+          "1 cup Shirag Fine Bulgor",
+          "3/4 cup water",
+          "1 cup finely chopped parsley",
+          "1 cup diced tomatoes",
+          "1/2 cup peeled and diced cucumber",
+          "1/4 cup diced green bell pepper",
+          "1/2 cup olive oil",
+          "1/4 cup lemon juice",
+          "1 tbsp finely chopped mint",
+          "1 tsp salt"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "instructions": {
+        "en": [
+          "In a bowl, combine the water and Shirag Fine Bulgor. Let stand until the water is absorbed, about 20 minutes.",
+          "In a salad bowl, mix all the ingredients until the dressing is well distributed.",
+          "Allow 15 minutes before serving."
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "keywords": {
+        "en": [
+          "tabulee",
+          "salad",
+          "Bulgor",
+          "parsley"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "categoryId": "salad",
+      "published": {
+        "en": true,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      },
+      "image": "assets/img/recipes/shirag-tabulee-salad/2-done.jpg",
+      "stepImages": {
+        "0": "assets/img/recipes/shirag-tabulee-salad/1-ingredients.jpg"
       }
     },
     {
@@ -2020,6 +2187,128 @@
         "fr": false,
         "ar": false,
         "hy": false
+      }
+    },
+    {
+      "slug": "seenee-quefteah",
+      "featuredRecipe": true,
+      "title": {
+        "en": "Seenee Quefteah",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "description": {
+        "en": "Baked tray quefteah: a spiced filling of beef, onion, pistachios, walnuts and pine nuts between two layers of Fine Shirag Bulgor and steak, cut into diamonds.",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCategory": {
+        "en": "Main Dish",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeCuisine": {
+        "en": "Middle Eastern",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "recipeYield": {
+        "en": "8 servings",
+        "fr": "",
+        "ar": "",
+        "hy": ""
+      },
+      "prepTime": "",
+      "cookTime": "PT1H",
+      "totalTime": "",
+      "ingredients": {
+        "en": [
+          "2 cups Fine Shirag Bulgor",
+          "1 lb. flank steak",
+          "2 cups water",
+          "1/2 tbsp salt",
+          "1/4 tsp cumin",
+          "1 lb. extra lean ground beef",
+          "1 cup onions, finely chopped",
+          "1/2 cup coarse ground pistachios",
+          "1/2 cup coarse ground walnuts",
+          "1/4 cup pine nuts",
+          "1 tsp salt",
+          "1 tsp seven spices",
+          "1/2 tsp red pepper",
+          "1/4 tsp black pepper",
+          "1/4 tsp allspice",
+          "1/4 tsp cumin",
+          "Olive oil, for the pan",
+          "Butter, a small piece for each cut piece"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "instructions": {
+        "en": [
+          "Filling: at medium heat, put a small amount of water (1/4 cup) in a pan and add the ground beef slowly, mixing constantly so the beef cooks evenly and no lumps appear.",
+          "Add the onions and salt, mix thoroughly, lower the heat and let simmer for 20 minutes or until the water is absorbed.",
+          "Add the nuts and mix. Cook for another 8 minutes.",
+          "Add the spices and mix thoroughly. Cook for another 2 minutes.",
+          "Outer layer: mix the Fine Shirag Bulgor in 1 cup of water and let stand until the water is absorbed.",
+          "Dice the flank steak, then process it in a food processor until it is fluffy.",
+          "In a mixer, combine the Fine Shirag Bulgor, salt and cumin.",
+          "Slowly add the steak, and the remaining water as needed.",
+          "Lightly coat an 11-inch round pan with olive oil.",
+          "Divide the outer layer mixture into two equal portions.",
+          "Use one portion to make a flat layer in the pan (tip: keep a small bowl of water close by to dip your fingers into, so the mixture doesn’t stick).",
+          "Add the filling as a middle layer.",
+          "Use the second portion to add the top layer.",
+          "Cut into shapes (squares or diamonds).",
+          "Place a small piece of butter on each piece.",
+          "Bake at 350°F for 30 minutes.",
+          "Let cool and serve."
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "keywords": {
+        "en": [
+          "quefteah",
+          "kibbeh",
+          "baked",
+          "Bulgor",
+          "pistachio",
+          "pine nuts"
+        ],
+        "fr": [],
+        "ar": [],
+        "hy": []
+      },
+      "categoryId": "main",
+      "published": {
+        "en": true,
+        "fr": false,
+        "ar": false,
+        "hy": false
+      },
+      "image": "assets/img/recipes/seenee-quefteah/13-done.jpg",
+      "cardImage": "assets/img/recipes/seenee-quefteah/card.jpg",
+      "stepImages": {
+        "0": "assets/img/recipes/seenee-quefteah/02-filling-ingredients.jpg",
+        "1": "assets/img/recipes/seenee-quefteah/04-filling-cooked.jpg",
+        "2": "assets/img/recipes/seenee-quefteah/05-filling-nuts.jpg",
+        "4": "assets/img/recipes/seenee-quefteah/14-water.jpg",
+        "5": "assets/img/recipes/seenee-quefteah/06-steak.jpg",
+        "7": "assets/img/recipes/seenee-quefteah/07-mixed.jpg",
+        "9": "assets/img/recipes/seenee-quefteah/08-top-bottom.jpg",
+        "11": "assets/img/recipes/seenee-quefteah/09-filling-added.jpg",
+        "12": "assets/img/recipes/seenee-quefteah/10-assembled.jpg",
+        "13": "assets/img/recipes/seenee-quefteah/11-cut.jpg",
+        "14": "assets/img/recipes/seenee-quefteah/12-butter.jpg",
+        "15": "assets/img/recipes/seenee-quefteah/13-done.jpg"
       }
     },
     {

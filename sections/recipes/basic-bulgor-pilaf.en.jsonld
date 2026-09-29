@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Basic Bulgor Pilaf",
+  "author": "Shehirian family",
+  "description": "The simplest Bulgor pilaf: Shirag Coarse Bulgor simmered in water and butter, or in broth.",
+  "recipeCategory": "Side Dish",
+  "recipeCuisine": "",
+  "recipeYield": "3 servings",
+  "prepTime": "",
+  "cookTime": "PT20M",
+  "totalTime": "",
+  "recipeIngredient": [
+    "1 cup Shirag Coarse Bulgor",
+    "2 cups water",
+    "1/4 cup butter or margarine",
+    "Instead of the water and butter, you may use 2 cups chicken, beef or lamb broth"
+  ],
+  "recipeInstructions": [
+    {
+      "@type": "HowToStep",
+      "text": "In a saucepan, bring the liquid to a boil, adding the butter or margarine if using."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Reduce the heat and thoroughly mix in the Shirag Coarse Bulgor."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Let it simmer until all the liquid is absorbed, about 15 to 20 minutes."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove from the heat and let stand for 10 to 15 minutes before serving."
+    }
+  ]
+}
