@@ -685,3 +685,32 @@ tr.row-publish .key-cell { font-weight: 600; }
 /* Queued publish requests on the recipe list (2026-10) */
 .publish-pill-queued { border-style: dashed; border-width: 2px; }
 .recipe-publish-hint { margin: 8px 0 12px; padding: 8px 12px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; font-size: 0.9em; color: #78350f; }
+
+/* Rejections shown to translators (2026-10) */
+.editable-field-rejected { border-bottom: 1px dashed #f87171; }
+.editable-field-rejection {
+    display: block;
+    margin: 0.3rem 0 0.5rem;
+    padding: 0.35rem 0.6rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    font-weight: normal;
+    color: #7f1d1d;
+    background: #fef2f2;
+    border-inline-start: 3px solid #f87171;
+    border-radius: 3px;
+}
+.editable-field-rejection-head { font-weight: 700; }
+.editable-field-rejection-value { display: block; color: #991b1b; opacity: 0.85; }
+.rejected-count-badge {
+    font-size: 0.8rem; font-weight: 600; color: #b91c1c; background: #fef2f2;
+    border: 1px solid #fecaca; padding: 0.3rem 0.7rem; border-radius: 99px; white-space: nowrap;
+}
+.recipe-picker-rejected-badge {
+    font-size: 0.7rem; font-weight: 700; color: #b91c1c; background: #fee2e2;
+    padding: 0.15rem 0.55rem; border-radius: 99px; white-space: nowrap; margin-inline-start: 0.35rem;
+}
+.recipe-reject-reason { display: block; margin: 0 0 0.6rem; font-size: 0.88rem; }
+.recipe-reject-reason span { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+.recipe-reject-reason textarea { width: 100%; box-sizing: border-box; font: inherit; padding: 0.4rem 0.5rem; border: 1px solid #d1d5db; border-radius: 4px; }
+.recipe-reject-hint { font-size: 0.82rem; color: #6b7280; }

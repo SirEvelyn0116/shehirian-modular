@@ -46,6 +46,7 @@ export default function RecipeApprovalView() {
   // automatically left out of the approve batch.
   const [rejected, setRejected] = useState(() => new Set());
   const [rejectResult, setRejectResult] = useState(null);
+  const [rejectReason, setRejectReason] = useState('');
 
   // phase: 'idle' | 'confirming' | 'submitting' | 'polling' | 'done' | 'timeout' | 'error'
   const [phase, setPhase] = useState('idle');
@@ -96,9 +97,10 @@ export default function RecipeApprovalView() {
   async function confirmReject() {
     setPhase('submitting');
     try {
-      const res = await apiPost('/api/recipes/reject', { editIds: rejectedIds });
+      const res = await apiPost('/api/recipes/reject', { editIds: rejectedIds, reason: rejectReason });
       setRejectResult(res);
       setRejected(new Set());
+      setRejectReason('');
       await loadPreview();
       setPhase('rejected');
     } catch (err) {
@@ -295,7 +297,17 @@ export default function RecipeApprovalView() {
             Reject <strong>{rejectedIds.length}</strong> pending change{rejectedIds.length === 1 ? '' : 's'}?
             {' '}{rejectedIds.length === 1 ? 'It' : 'They'} will be removed from this list. Nothing on the live site changes.
           </p>
-          <p>A translator can still resubmit a rejected field by editing it again.</p>
+          <label className="recipe-reject-reason">
+            <span>Reason for the translator (optional)</span>
+            <textarea
+              value={rejectReason}
+              onChange={(e) => setRejectReason(e.target.value)}
+              maxLength={500}
+              rows={2}
+              placeholder="e.g. Use Western Armenian spelling"
+            />
+          </label>
+          <p className="recipe-reject-hint">The translator will see this note and the rejected wording next to the field, until they submit a new version.</p>
           <div className="btn-row">
             <button className="recipe-reject-confirm-yes" onClick={confirmReject}>Yes, reject</button>
             <button className="recipe-approve-confirm-cancel" onClick={cancelApprove}>Cancel</button>

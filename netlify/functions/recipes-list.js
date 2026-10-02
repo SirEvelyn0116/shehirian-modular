@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
     const sql = getSql();
     const [master, pendingCounts] = await Promise.all([
       fetchAllRecipes(),
-      sql`select recipe_slug, field_path, lang, new_value from edits where status = 'pending'`,
+      sql`select recipe_slug, field_path, lang, new_value, status from edits where status in ('pending', 'rejected')`,
     ]);
 
     // pendingCount reflects durable, saved (pending) edits only — grouped
@@ -52,8 +52,13 @@ exports.handler = async (event, context) => {
     // and shouldn't inflate a translator's "N pending" badge.
     const pendingBySlug = {};
     const pendingPublishBySlug = {};
+    const rejectedBySlug = {};
     pendingCounts.forEach(row => {
-      if (row.field_path === 'published') {
+      if (row.status === 'rejected') {
+        // Rejected translations only — a rejected publish request has
+        // nothing for a translator to act on.
+        if (row.field_path !== 'published') rejectedBySlug[row.recipe_slug] = (rejectedBySlug[row.recipe_slug] || 0) + 1;
+      } else if (row.field_path === 'published') {
         (pendingPublishBySlug[row.recipe_slug] ||= {})[row.lang] = row.new_value === 'true';
       } else {
         pendingBySlug[row.recipe_slug] = (pendingBySlug[row.recipe_slug] || 0) + 1;
@@ -65,6 +70,7 @@ exports.handler = async (event, context) => {
       title: r.title && r.title.en,
       categoryId: r.categoryId,
       pendingCount: pendingBySlug[r.slug] || 0,
+      rejectedCount: rejectedBySlug[r.slug] || 0,
       // { fr: true } = "publish fr" is queued for approval; false = unpublish.
       pendingPublish: pendingPublishBySlug[r.slug] || {},
       // Per-language publish status for the admin list's status pills

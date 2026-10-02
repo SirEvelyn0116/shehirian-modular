@@ -11,7 +11,28 @@ const STATUS_CLASS = {
 // (this component never calls the API itself). Escape reverts without
 // committing — not explicitly speced, but standard for this interaction and
 // cheap to include as a safety net; drop it if unwanted.
-export default function EditableField({ value, status, dir, onCommit }) {
+// `rejection` (optional): an earlier submission for this field that an
+// approver turned down — { value, reason, by }. Shown under the field so the
+// translator doesn't resubmit the same wording. It stays visible while they
+// rework the field and disappears once a new version is saved.
+function RejectionNote({ rejection, dir }) {
+  return (
+    // The note's labels are English (the admin UI is English-only), so the
+    // note itself is always LTR; only the rejected wording keeps the
+    // field's direction, isolated in <bdi> so it can't reorder the labels.
+    <span className="editable-field-rejection" dir="ltr">
+      <span className="editable-field-rejection-head">
+        ✖ Rejected{rejection.by ? ` by ${rejection.by}` : ''}{rejection.reason ? ':' : ''}
+      </span>
+      {rejection.reason && <span className="editable-field-rejection-reason"> <bdi>{rejection.reason}</bdi></span>}
+      <span className="editable-field-rejection-value">
+        Rejected wording: {rejection.value ? <q><bdi dir={dir}>{rejection.value}</bdi></q> : <em>(empty)</em>}
+      </span>
+    </span>
+  );
+}
+
+export default function EditableField({ value, status, dir, onCommit, rejection }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value);
   const inputRef = useRef(null);
@@ -37,8 +58,11 @@ export default function EditableField({ value, status, dir, onCommit }) {
     setEditing(false);
   }
 
+  const note = rejection && status !== 'pending' ? <RejectionNote rejection={rejection} dir={dir} /> : null;
+
   if (editing) {
     return (
+      <>
       <input
         ref={inputRef}
         className="editable-field-input"
@@ -51,12 +75,15 @@ export default function EditableField({ value, status, dir, onCommit }) {
           else if (e.key === 'Escape') { e.preventDefault(); cancel(); }
         }}
       />
+      {note}
+      </>
     );
   }
 
   return (
+    <>
     <span
-      className={`editable-field ${STATUS_CLASS[status] || STATUS_CLASS.clean}`}
+      className={`editable-field ${STATUS_CLASS[status] || STATUS_CLASS.clean}${note && status === 'clean' ? ' editable-field-rejected' : ''}`}
       dir={dir}
       role="button"
       tabIndex={0}
@@ -65,5 +92,7 @@ export default function EditableField({ value, status, dir, onCommit }) {
     >
       {value ? value : <span className="editable-field-empty">(empty)</span>}
     </span>
+    {note}
+    </>
   );
 }

@@ -66,6 +66,7 @@ function EditableRecipeColumn({ recipe, lang, dir, fieldStates, onCommit }) {
       <EditableField
         value={state.value}
         status={state.status}
+        rejection={state.rejection}
         dir={dir}
         onCommit={newValue => onCommit(fieldPath, newValue)}
       />
@@ -144,10 +145,20 @@ export default function RecipeReplica({ slug, onBack }) {
     if (!recipe) return;
     const initial = {};
     buildEditableFieldPaths(recipe, lang).forEach(fieldPath => {
+      // One edits row per field (unique key), so it's either the caller's
+      // pending edit or a rejected one (anyone's — see edits-mine.js).
       const existing = myEditsRef.current.find(e => e.recipe_slug === slug && e.lang === lang && e.field_path === fieldPath);
-      initial[fieldPath] = existing
-        ? { value: existing.new_value, status: 'pending' }
-        : { value: getFieldValue(recipe, fieldPath, lang), status: 'clean' };
+      if (existing && existing.status !== 'rejected') {
+        initial[fieldPath] = { value: existing.new_value, status: 'pending' };
+      } else {
+        initial[fieldPath] = {
+          value: getFieldValue(recipe, fieldPath, lang),
+          status: 'clean',
+          rejection: existing
+            ? { value: existing.new_value, reason: existing.reject_reason, by: existing.resolved_by }
+            : null,
+        };
+      }
     });
     setFieldStates(initial);
   }, [recipe, lang, slug]);
@@ -155,6 +166,7 @@ export default function RecipeReplica({ slug, onBack }) {
   const dir = dirFor(lang);
   const hasDirty = Object.values(fieldStates).some(s => s.status === 'dirty');
   const pendingCount = Object.values(fieldStates).filter(s => s.status === 'pending').length;
+  const rejectedCount = Object.values(fieldStates).filter(s => s.rejection && s.status !== 'pending').length;
 
   // Shared unsaved-changes guard — same check/prompt used for in-app "Back"
   // and, now, for switching the editable column's language. Only one
@@ -217,7 +229,8 @@ export default function RecipeReplica({ slug, onBack }) {
       results.forEach((r, i) => {
         if (r.status === 'fulfilled') {
           const { fieldPath, edit } = r.value;
-          next[fieldPath] = { ...next[fieldPath], status: 'pending', value: edit.new_value };
+          // Saved = a fresh submission, so the old rejection note goes.
+          next[fieldPath] = { ...next[fieldPath], status: 'pending', value: edit.new_value, rejection: null };
         }
         // rejected -> leave as 'dirty', nothing lost, retry via Save again
       });
@@ -259,6 +272,11 @@ export default function RecipeReplica({ slug, onBack }) {
               <button className={`view-tab ${viewMode === 'preview' ? 'active' : ''}`} onClick={() => setViewMode('preview')}>Preview</button>
             </div>
             <div className="recipe-replica-status">
+              {rejectedCount > 0 && (
+                <span className="rejected-count-badge" title="Fields with a rejected submission — see the note under each one">
+                  {rejectedCount} rejected
+                </span>
+              )}
               <span className="pending-count-badge">{pendingCount} pending edit{pendingCount === 1 ? '' : 's'}</span>
               {viewMode === 'edit' && (
                 <button className="recipe-save-btn" onClick={handleSave} disabled={!hasDirty || saving}>

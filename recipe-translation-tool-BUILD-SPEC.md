@@ -1240,5 +1240,15 @@ Requested by Laurence and Hrach after using the admin tool:
   same single commit and deploy as the rest of the batch, through the existing conflict guard and
   audit trail. `fieldPath.js` reads `published` as the string `'true'`/`'false'` and writes it
   back as a real boolean.
-- **Schema change (must run before deploying):** `edit_log.commit_sha` is now nullable so
-  rejections can be logged. Run `netlify dev:exec node db/migrate.js` once; it's idempotent.
+- **Rejections shown to translators.** The Reject confirmation has an optional *Reason for the
+  translator* box (one reason per batch, up to 500 characters), stored in `edits.reject_reason`
+  and in `edit_log.note`. The rejected row stays in `edits`, and `GET /api/edits/mine` now also
+  returns rejected rows — **every translator's**, not just the author's, since the point is that
+  nobody resubmits the same thing. In the editor the field shows the live value with a red note
+  underneath: who rejected it, the reason, and the rejected wording. The toolbar and the recipe
+  list show an "N rejected" badge. Saving a new version of the field resets the row to pending
+  and clears the reason; the history stays in `edit_log`. Rejected publish requests aren't shown
+  to translators.
+- **Schema change (must run before deploying):** `edit_log.commit_sha` is now nullable,
+  `edit_log.note` and `edits.reject_reason` are new. Run `netlify dev:exec node db/migrate.js`
+  once; it's idempotent.

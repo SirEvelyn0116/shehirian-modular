@@ -100,7 +100,8 @@ exports.handler = async (event, context) => {
         status = 'pending',
         updated_at = now(),
         resolved_at = null,
-        resolved_by = null
+        resolved_by = null,
+        reject_reason = null
       returning id
     `;
 

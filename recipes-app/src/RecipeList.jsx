@@ -229,6 +229,9 @@ export default function RecipeList({ onSelect, showPublishControls }) {
                         {r.pendingCount > 0 && (
                           <span className="recipe-picker-pending-badge">{r.pendingCount} pending</span>
                         )}
+                        {r.rejectedCount > 0 && (
+                          <span className="recipe-picker-rejected-badge">{r.rejectedCount} rejected</span>
+                        )}
                       </button>
                     ) : (
                       <div className="recipe-picker-item recipe-picker-item-static">

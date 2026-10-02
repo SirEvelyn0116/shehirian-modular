@@ -80,15 +80,21 @@ async function main() {
 
     // --- Reject: queued request leaves the queue, nothing committed ---
     const q2 = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue })).body);
-    const rej = JSON.parse((await post(editsReject, { editIds: [q2.editId] })).body);
+    check('non-string reason is rejected (400)', (await post(editsReject, { editIds: [q2.editId], reason: 42 })).statusCode === 400);
+    const rej = JSON.parse((await post(editsReject, { editIds: [q2.editId], reason: '  integration test reason  ' })).body);
     check('reject resolves the request', rej.totalRejected === 1);
-    const [rejRow] = await sql`select status from edits where id = ${q2.editId}`;
+    const [rejRow] = await sql`select status, reject_reason from edits where id = ${q2.editId}`;
     check("row status is 'rejected'", rejRow.status === 'rejected');
+    check('reason is stored, trimmed', rejRow.reject_reason === 'integration test reason');
+    const [rejLog] = await sql`select note, commit_sha from edit_log where action = 'rejected' and resolved_by = ${fakeApprover.clientContext.user.email} order by created_at desc limit 1`;
+    check('edit_log carries the reason as its note, with no commit', rejLog && rejLog.note === 'integration test reason' && rejLog.commit_sha === null);
     check('rejecting commits nothing', (await read(SCRATCH_BRANCH)).sha === before.sha);
 
     // --- Approve: re-queue (resets the rejected row to pending), then ship ---
     const q3 = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue })).body);
     check('re-queueing a rejected request reuses the row as pending', q3.editId === q2.editId);
+    const [requeued] = await sql`select status, reject_reason from edits where id = ${q3.editId}`;
+    check('re-queueing clears the old reason', requeued.status === 'pending' && requeued.reject_reason === null);
     const ap = JSON.parse((await post(recipesApprove, { editIds: [q3.editId], confirmed: true })).body);
     check('approve commits', ap.committed === true && typeof ap.commitSha === 'string');
     const after = await read(SCRATCH_BRANCH);

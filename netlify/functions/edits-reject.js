@@ -7,9 +7,11 @@ const { getSql } = require('./_shared/db');
 // recorded in edit_log (action 'rejected', commit_sha null) so the history
 // shows who turned down what.
 //
-// A rejected edit isn't gone for good: if the translator saves that field
-// again, edit-create.js's upsert resets the row to 'pending' and it comes
-// back to the Review page as a fresh submission.
+// The rejected row stays in `edits` (with the optional reason) so the
+// translator's editor can show it next to the field — see edits-mine.js.
+// It isn't gone for good: if anyone saves that field again, the upsert in
+// edit-create.js resets the row to 'pending' (clearing the reason) and it
+// comes back to the Review page as a fresh submission.
 //
 // Status flip and log rows go in one transaction, same as the approve
 // action's steps 4+5, so a rejection can't land without its audit row.
@@ -34,6 +36,12 @@ exports.handler = async (event, context) => {
   if (!Array.isArray(editIds) || editIds.length === 0) {
     return { statusCode: 400, body: JSON.stringify({ error: 'editIds must be a non-empty array.' }) };
   }
+  // Optional note to the translator ("use Western Armenian spelling").
+  // One reason covers the whole batch being rejected.
+  if (body.reason != null && typeof body.reason !== 'string') {
+    return { statusCode: 400, body: JSON.stringify({ error: 'reason must be a string.' }) };
+  }
+  const reason = (body.reason || '').trim().slice(0, 500) || null;
 
   const approverEmail = gate.user.email;
 
@@ -49,10 +57,10 @@ exports.handler = async (event, context) => {
 
     const ids = selected.map((e) => e.id);
     await sql.transaction([
-      sql`update edits set status = 'rejected', resolved_at = now(), resolved_by = ${approverEmail} where id = any(${ids}) and status = 'pending'`,
+      sql`update edits set status = 'rejected', resolved_at = now(), resolved_by = ${approverEmail}, reject_reason = ${reason} where id = any(${ids}) and status = 'pending'`,
       ...selected.map((edit) => sql`
-        insert into edit_log (recipe_slug, lang, field_path, old_value, new_value, action, editor_email, resolved_by, commit_sha)
-        values (${edit.recipe_slug}, ${edit.lang}, ${edit.field_path}, ${edit.old_value}, ${edit.new_value}, 'rejected', ${edit.editor_email}, ${approverEmail}, null)
+        insert into edit_log (recipe_slug, lang, field_path, old_value, new_value, action, editor_email, resolved_by, commit_sha, note)
+        values (${edit.recipe_slug}, ${edit.lang}, ${edit.field_path}, ${edit.old_value}, ${edit.new_value}, 'rejected', ${edit.editor_email}, ${approverEmail}, null, ${reason})
       `),
     ]);
 

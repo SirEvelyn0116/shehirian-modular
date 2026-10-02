@@ -18,6 +18,10 @@ create table if not exists edits (
   unique (recipe_slug, lang, field_path)       -- upsert target — one pending edit per field
 );
 
+-- The approver's optional note when rejecting (2026-10). Shown to the
+-- translator next to the field; cleared when the field is resubmitted.
+alter table edits add column if not exists reject_reason text;
+
 create index if not exists edits_status_idx on edits (status);
 create index if not exists edits_editor_idx on edits (editor_email);
 
@@ -47,6 +51,8 @@ create table if not exists edit_log (
 -- so commit_sha is nullable from here on. Re-runnable: dropping NOT NULL
 -- on a column that already allows nulls is a no-op.
 alter table edit_log alter column commit_sha drop not null;
+-- Free-text note carried with a log row — today, the rejection reason.
+alter table edit_log add column if not exists note text;
 
 create index if not exists edit_log_recipe_idx on edit_log (recipe_slug);
 create index if not exists edit_log_commit_idx on edit_log (commit_sha);
