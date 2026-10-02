@@ -497,7 +497,7 @@
       },
       "categoryId": "salad",
       "published": {
-        "en": true,
+        "en": false,
         "fr": false,
         "ar": false,
         "hy": false
@@ -2240,13 +2240,13 @@
           "1/2 cup coarse ground walnuts",
           "1/4 cup pine nuts",
           "1 tsp salt",
-          "1 tsp seven spices",
+          "1 tsp 7 Spices (spice blend)",
           "1/2 tsp red pepper",
           "1/4 tsp black pepper",
           "1/4 tsp allspice",
           "1/4 tsp cumin",
           "Olive oil, for the pan",
-          "Butter, a small piece for each cut piece"
+          "Butter, a dollop for each cut piece"
         ],
         "fr": [],
         "ar": [],
@@ -2268,7 +2268,7 @@
           "Add the filling as a middle layer.",
           "Use the second portion to add the top layer.",
           "Cut into shapes (squares or diamonds).",
-          "Place a small piece of butter on each piece.",
+          "Place a dollop of butter on each piece.",
           "Bake at 350°F for 30 minutes.",
           "Let cool and serve."
         ],
@@ -3159,7 +3159,7 @@
           "1/2 cup chopped fresh tomatoes or 1/2 cup solid-pack canned tomatoes",
           "2 cups Bulgor wheat",
           "4 tablespoons butter (2 ozs.)",
-          "Broth or water",
+          "3 cups broth or water (2 cups for the Bulgor, 1 cup for baking)",
           "Salt and pepper to taste"
         ],
         "fr": [
@@ -3195,7 +3195,7 @@
           "Have the butcher cut the shoulder of lamb into inch cubes; braise well in a pot.",
           "Add the chopped onions and brown lightly with the meat.",
           "Add the tomatoes and cook 15 minutes.",
-          "Meanwhile, put the Bulgor in boiling broth and cook 7 minutes; drain and put over the top of the meat in the pot.",
+          "Meanwhile, put the Bulgor in 2 cups of boiling broth (1 cup of broth for each cup of Bulgor) and cook 7 minutes; drain and put over the top of the meat in the pot.",
           "Place the butter in the centre of the Bulgor.",
           "Pour 1 cup of broth or water around the edges of the meat, and bake in a moderate oven about 1 hour.",
           "Turn onto a platter and serve unmixed and very hot."
@@ -3549,7 +3549,7 @@
       },
       "instructions": {
         "en": [
-          "Blend cooked Bulgor, mushrooms, green peppers, onion, salt and pepper.",
+          "Blend cooked Bulgor, tomatoes, mushrooms, green peppers, onion, salt and pepper.",
           "Place half of the mixture in a shallow casserole, cover with half the cheese slices.",
           "Then the rest of the Bulgor mixture. Cut the remaining cheese slices diagonally in half; arrange on the Bulgor mixture. Bake in a preheated moderate oven, 350°F., for 30 minutes."
         ],

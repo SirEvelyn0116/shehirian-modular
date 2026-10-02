@@ -58,8 +58,12 @@ implemented here.
    rather than a requirement. Don't build it speculatively ahead of that
    read.
 
-3. Open localization question — numerals (needs a human answer; do NOT
-   implement anything for this without one):
+3. ANSWERED (2026-10-02, Hrach): use Western digits (0-9) for Arabic, and
+   for Armenian too — "Western Arabic is good for Armenian as well."
+   That matches what the site already renders, so nothing to build.
+   Original question kept below for context.
+
+   Localization question — numerals:
 
    Arabic traditionally uses Eastern Arabic numerals (٠١٢٣٤٥٦٧٨٩) rather
    than Western (0123456789). Generated step numbers are currently Western
@@ -225,9 +229,7 @@ would have produced false readings).
        step text) actually *reads* correctly line-by-line — right
        alignment being correct doesn't guarantee word order/line-break
        points feel natural to a reader.
-     - The numerals question already flagged in item 3 above (Eastern
-       vs. Western digits) — still open, still needs her answer before
-       anyone touches numeral rendering.
+     - (Numerals: answered 2026-10-02 — Western digits; see item 3.)
      - A final visual sign-off on a real recipe page (ideally
        bulgor-wheat-biscuits.html or similar, once retranslated — note:
        while checking steps for this diagnosis, `bulgor-wheat-biscuits`

@@ -311,9 +311,24 @@ function formatDuration(iso, lang) {
   return `${mins} minutes`;
 }
 
+// "Bulgor" is the brand spelling and is what visitors see everywhere. The
+// common spelling "bulgur" (what people actually search for) lives only in
+// page metadata, never in visible text — the brothers' call (2026-10, Q9).
+const SEO_KEYWORDS = ['Bulgor', 'bulgur', 'bulgur wheat', 'Shirag', 'Mr. Falafel', 'falafel mix', 'Shehirian'];
+const seoKeywordsMeta = `\n  <meta name="keywords" content="${SEO_KEYWORDS.join(', ')}">`;
+
+// A recipe's own keywords, per language with English as the fallback.
+function recipeKeywords(recipe, lang) {
+  const k = recipe.keywords;
+  if (Array.isArray(k)) return k;
+  if (k && Array.isArray(k[lang]) && k[lang].length) return k[lang];
+  return (k && Array.isArray(k.en)) ? k.en : [];
+}
+
 const productTextTranslations = {
   'Mr. Falafel Products': { fr: 'Produits Mr. Falafel', ar: 'منتجات مستر فلافل', hy: 'Պարոն Ֆալաֆելի արտադրանք' },
   'Shirag Bulgor Products': { fr: 'Produits de boulgour Shirag', ar: 'منتجات برغل شيراغ', hy: 'Շիրագ բլղուրի արտադրանք' },
+  'Falafel Mix': { fr: 'Mélange à falafels', ar: 'خليط فلافل', hy: 'Ֆալաֆելի խառնուրդ' },
   'Falafel Mix - Small': { fr: 'Mélange à falafels - Petit', ar: 'خليط فلافل - صغير', hy: 'Ֆալաֆելի խառնուրդ - փոքր' },
   'Perfect for home cooking and small gatherings.': { fr: 'Parfait pour la cuisine maison et les petites réunions.', ar: 'مثالي للطبخ المنزلي والتجمعات الصغيرة.', hy: 'Հիանալի է տնային պատրաստման և փոքր հավաքների համար։' },
   '1 lb bag': { fr: 'Sac de 1 lb', ar: 'كيس 1 رطل', hy: '1 ֆունտ տոպրակ' },
@@ -606,7 +621,7 @@ function buildProductPageHtml(brandSlug, englishPageTitle, products, lang, image
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${escapeHtml(pageTitle)} | ${escapeHtml(t('page_suffix_product'))}</title>
+  <title>${escapeHtml(pageTitle)} | ${escapeHtml(t('page_suffix_product'))}</title>${seoKeywordsMeta}
   <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body class="product-page-body">
@@ -1257,7 +1272,9 @@ function writeAllRecipesPages() {
         cookTime: recipe.cookTime || '',
         totalTime: recipe.totalTime || '',
         recipeIngredient: ingredients,
-        recipeInstructions: instructions.map(s => ({ '@type': 'HowToStep', text: s }))
+        recipeInstructions: instructions.map(s => ({ '@type': 'HowToStep', text: s })),
+        // Hidden-only home for the common "bulgur" spelling (see SEO_KEYWORDS).
+        keywords: [...new Set([...recipeKeywords(recipe, lang), 'bulgur', 'bulgur wheat'])].join(', ')
       };
 
       // Write localized JSON-LD into `sections/recipes/` so source JSON-LD files
@@ -1316,7 +1333,7 @@ function writeAllRecipesPages() {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>${title}</title>${robotsMetaTag}
+  <title>${title}</title>${robotsMetaTag}${seoKeywordsMeta}
   <link rel="stylesheet" href="../../assets/css/style.css">
   <link rel="stylesheet" href="../../assets/css/recipes.css">${hreflangBlock}${jsonldScript}
 </head>

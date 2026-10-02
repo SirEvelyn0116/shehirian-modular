@@ -1177,3 +1177,68 @@ Supporting docs from this work live in the repo alongside the recipes: `sections
    two Tabulee recipes — the old website's (now "Shirag Tabulee Salad") and the booklet's — which one
    is the family's, and what each should be called. If the original full-size photos still exist,
    they'd look much better than the 300-pixel web copies.
+
+### Answers from the brothers (2026-10-02)
+
+Laurence's "Website questions" email to Hrach (2026-09-29) re-numbered the list above into 13
+questions. Answers as relayed by Laurence, keyed to that email's numbering, with what was done:
+
+1. **Seenee Quefteah** — butter is "a dollop" per piece; "7 Spices" is the *name* of a ready-made
+   spice blend, not a list to spell out. Ingredient now reads "1 tsp 7 Spices (spice blend)";
+   butter line and step now say "a dollop". *(Done.)*
+2. **Tabulee** — the old website's recipe ("Shirag Tabulee Salad") is the family's; the booklet's
+   `tabulee-salad` is **unpublished** (`published.en = false`). Keep the "Tabulee" spelling, not
+   "Tabbouleh". *(Done.)*
+3. **Full-size photos** — Vartan is looking for them. *(Waiting.)*
+4. **Cheese Casserole tomatoes** — Hrach assumes they go in "with everything else"; step 1 now
+   blends the tomatoes with the Bulgor, mushrooms, peppers and onion. This is the family's best
+   guess, not something the booklet states. *(Done — closes brothers' item 6.)*
+5. **Persian Pilaf broth** — equal parts: 1 cup Bulgor to 1 cup broth. Recipe now cooks the
+   2 cups Bulgor in 2 cups boiling broth, and the ingredient line totals 3 cups (2 for the Bulgor,
+   1 poured around the meat before baking — so that 1 cup is fresh, not reserved). The booklet's
+   "drain" is kept verbatim; at 1:1 there may be little or nothing to drain. *(Done — closes item 7.)*
+6. **White Bread sequence** — doesn't know. Our reading stands. *(Item 8 stays as-is.)*
+7. **Armenian** — the family uses **Western Armenian**; the language of Armenia (and of Google
+   Translate's `hy`) is **Eastern Armenian**. So re-running Google Translate would produce the
+   wrong dialect. Western Armenian has its own language code (`hyw`), so carrying both is
+   technically possible (a fifth language), but it doubles the Armenian translation work; the
+   practical path is to make the site's one Armenian version Western, translated by a person
+   (e.g. Hrach with the translator role). *(Decision pending — see item 1 above: still a full
+   retranslation, now specifically into Western Armenian.)*
+8. **Numerals** — Western digits for Arabic, and for Armenian as well. Already what the site
+   renders; nothing to change. *(Closes items 2 and 3; TODO.md item 3 marked answered.)*
+9. **"Bulgor" vs "bulgur"** — option (b): visible text always says "Bulgor"; "bulgur" lives only
+   in the background. Implemented as a `<meta name="keywords">` tag on the home, product and
+   recipe pages, and a `keywords` field in each recipe's JSON-LD (the recipe's own keywords plus
+   "bulgur, bulgur wheat"). Note: Google ignores the meta keywords tag, so on its own this is a
+   weak signal; the slug spellings (`bulgur-…`) remain the strongest hidden "bulgur" signal, which
+   argues for leaving them as-is. *(Done — closes item 5.)*
+10. **Nutrition facts** — still match the bags. *(Closes item 10, first half.)*
+11. **Mr. Falafel range** — falafel mix in **2 lb and 10 lb bags**. The six placeholder products
+   are replaced with those two. *(Done — closes item 10, second half.)*
+12. **Certifications** — CFIA and HACCP. The certifications section stays off the site until it's
+   confirmed which of these is held today vs. in progress, and what can be shown for each (e.g. a
+   CFIA Safe Food for Canadians licence number, a HACCP certificate and its issuer). *(Follow-up.)*
+13. **Online orders** — stay parked. *(Item 9 parked.)*
+
+### Admin: Reject, and queued publishing (2026-10-02)
+
+Requested by Laurence and Hrach after using the admin tool:
+
+- **Reject.** The Review table has a **Reject** column beside **Include**. Ticking it strikes the
+  row through and leaves it out of the approve batch; the red **Reject (N selected)** button,
+  after a confirm, sets those edits to `status = 'rejected'` and writes an `edit_log` row each
+  (`action = 'rejected'`, `commit_sha = null`). Nothing is committed or deployed. A translator can
+  resubmit a rejected field by editing it again (the upsert resets it to pending). Endpoint:
+  `POST /api/recipes/reject` → `edits-reject.js`. "Reject" was the wording both preferred over
+  delete/disapprove.
+- **Queued publishing.** Clicking a language pill on the Publish list no longer commits and
+  redeploys. It queues a request — a row in `edits` with `field_path = 'published'` and
+  `'true'`/`'false'` as the value — shown on the list as a dashed pill with an arrow. Clicking it
+  again withdraws the request. Queued requests appear on the Review page (field "Visibility",
+  Published / Not published) alongside translations and go live only when approved there, in the
+  same single commit and deploy as the rest of the batch, through the existing conflict guard and
+  audit trail. `fieldPath.js` reads `published` as the string `'true'`/`'false'` and writes it
+  back as a real boolean.
+- **Schema change (must run before deploying):** `edit_log.commit_sha` is now nullable so
+  rejections can be logged. Run `netlify dev:exec node db/migrate.js` once; it's idempotent.
