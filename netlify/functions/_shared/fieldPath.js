@@ -8,7 +8,19 @@ function parseFieldPath(fieldPath) {
   return { key: fieldPath, index: null };
 }
 
+// 'published' is the one non-text field that travels through the edits
+// pipeline (queued publish/unpublish requests — see recipes-publish.js).
+// In the JSON it's a real boolean per language; in the edits table every
+// value is text. So it reads as the string 'true'/'false' (missing counts
+// as 'false', same default as generate-index.js's isRecipePublished) and
+// writes back as a boolean — that keeps classifyEdits' plain string
+// comparison working unchanged for it.
+const PUBLISHED = 'published';
+
 function getFieldValue(recipe, fieldPath, lang) {
+  if (fieldPath === PUBLISHED) {
+    return String(!!(recipe.published && recipe.published[lang] === true));
+  }
   const { key, index } = parseFieldPath(fieldPath);
   const field = recipe[key];
   if (!field) return '';
@@ -21,6 +33,11 @@ function getFieldValue(recipe, fieldPath, lang) {
 // applyEditsToJson) deep-clone first, same pattern as the frontend's
 // applyCurrentEdits in fieldUtils.js.
 function setFieldValue(recipe, fieldPath, lang, value) {
+  if (fieldPath === PUBLISHED) {
+    if (!recipe.published) recipe.published = {};
+    recipe.published[lang] = value === true || value === 'true';
+    return;
+  }
   const { key, index } = parseFieldPath(fieldPath);
   if (!recipe[key]) recipe[key] = {};
   if (index !== null) {
@@ -31,4 +48,4 @@ function setFieldValue(recipe, fieldPath, lang, value) {
   }
 }
 
-module.exports = { parseFieldPath, getFieldValue, setFieldValue };
+module.exports = { PUBLISHED, parseFieldPath, getFieldValue, setFieldValue };

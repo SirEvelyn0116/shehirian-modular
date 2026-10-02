@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { apiGet, apiPost } from './api.js';
 
 const LANGS = [
+  { code: 'en', label: 'English' },
   { code: 'fr', label: 'French' },
   { code: 'ar', label: 'Arabic' },
   { code: 'hy', label: 'Armenian' },
@@ -13,6 +14,12 @@ const LANGS = [
 // identical without either one hardcoding a different answer.
 const POLL_INTERVAL_MS = 10000;
 const POLL_MAX_ATTEMPTS = 24;
+
+// Queued publish/unpublish requests (field 'published', values 'true' /
+// 'false') come through the same pending queue as translations — shown in
+// words rather than as raw booleans.
+const isPublishEdit = (edit) => edit.fieldPath === 'published';
+const visibilityLabel = (value) => (value === 'true' ? 'Published' : 'Not published');
 
 async function fetchLastBuild() {
   const res = await fetch('/metadata.json?t=' + Date.now());
@@ -34,6 +41,11 @@ export default function RecipeApprovalView() {
   // checked"). Unchecking never touches the database — it's purely local
   // selection state for the batch.
   const [excluded, setExcluded] = useState(() => new Set());
+  // Edit ids ticked in the Reject column. Also purely local until the
+  // approver clicks "Reject" and confirms. A row marked for rejection is
+  // automatically left out of the approve batch.
+  const [rejected, setRejected] = useState(() => new Set());
+  const [rejectResult, setRejectResult] = useState(null);
 
   // phase: 'idle' | 'confirming' | 'submitting' | 'polling' | 'done' | 'timeout' | 'error'
   const [phase, setPhase] = useState('idle');
@@ -59,11 +71,41 @@ export default function RecipeApprovalView() {
     });
   }
 
+  function toggleReject(editId) {
+    setRejected((prev) => {
+      const next = new Set(prev);
+      if (next.has(editId)) next.delete(editId); else next.add(editId);
+      return next;
+    });
+  }
+
   if (error) return <div className="recipes-error">Couldn't load pending edits: {error}</div>;
   if (!preview) return <div className="recipes-loading">Loading pending edits…</div>;
 
   const allEdits = preview.recipes.flatMap((g) => g.edits);
-  const includedIds = allEdits.filter((e) => !excluded.has(e.id)).map((e) => e.id);
+  const includedIds = allEdits.filter((e) => !excluded.has(e.id) && !rejected.has(e.id)).map((e) => e.id);
+  const rejectedIds = allEdits.filter((e) => rejected.has(e.id)).map((e) => e.id);
+
+  // Reject: nothing is committed or deployed, so a single in-page confirm
+  // is enough — no dry run needed.
+  function startReject() {
+    setActionError(null);
+    setPhase('confirmingReject');
+  }
+
+  async function confirmReject() {
+    setPhase('submitting');
+    try {
+      const res = await apiPost('/api/recipes/reject', { editIds: rejectedIds });
+      setRejectResult(res);
+      setRejected(new Set());
+      await loadPreview();
+      setPhase('rejected');
+    } catch (err) {
+      setActionError(err.message);
+      setPhase('error');
+    }
+  }
 
   // Step 1 of the confirm gate: a dry run does only the read-only conflict
   // + idempotency checks server-side (recipes-approve.js) and writes
@@ -100,6 +142,7 @@ export default function RecipeApprovalView() {
       const approveResult = await apiPost('/api/recipes/approve', { editIds: includedIds, confirmed: true });
       setResult(approveResult);
       setExcluded(new Set());
+      setRejected(new Set());
       await loadPreview();
 
       if (approveResult.committed) {
@@ -139,6 +182,7 @@ export default function RecipeApprovalView() {
     setPhase('idle');
     setConfirmInfo(null);
     setResult(null);
+    setRejectResult(null);
     setActionError(null);
   }
 
@@ -153,6 +197,9 @@ export default function RecipeApprovalView() {
             {LANGS.filter((l) => preview.changesByLang[l.code] > 0).map((l) => (
               <span key={l.code} className="chip chip-lang">{l.label}: {preview.changesByLang[l.code]}</span>
             ))}
+            {preview.publishRequests > 0 && (
+              <span className="chip chip-lang">Publish requests: {preview.publishRequests}</span>
+            )}
           </>
         )}
       </div>
@@ -167,6 +214,7 @@ export default function RecipeApprovalView() {
               <thead>
                 <tr>
                   <th>Include</th>
+                  <th>Reject</th>
                   <th>Lang</th>
                   <th>Field</th>
                   <th>Old</th>
@@ -175,28 +223,47 @@ export default function RecipeApprovalView() {
                 </tr>
               </thead>
               <tbody>
-                {group.edits.map((edit) => (
-                  <tr key={edit.id} className="row-changed">
-                    <td>
-                      <input
-                        type="checkbox"
-                        checked={!excluded.has(edit.id)}
-                        onChange={() => toggle(edit.id)}
-                        disabled={phase !== 'idle'}
-                        aria-label={`Include ${group.slug} ${edit.lang} ${edit.fieldPath} in this batch`}
-                      />
-                    </td>
-                    <td className="lang-cell">{edit.lang}</td>
-                    <td className="key-cell" title={edit.fieldPath}>{edit.fieldPath}</td>
-                    <td dir={edit.lang === 'ar' ? 'rtl' : 'ltr'} className={edit.lang === 'ar' ? 'val-cell-rtl' : undefined}>
-                      {edit.oldValue ? <span className="val-old">{edit.oldValue}</span> : <span className="val-empty">(empty)</span>}
-                    </td>
-                    <td dir={edit.lang === 'ar' ? 'rtl' : 'ltr'} className={edit.lang === 'ar' ? 'val-cell-rtl' : undefined}>
-                      {edit.newValue ? <span className="val-new">{edit.newValue}</span> : <span className="val-empty">(empty)</span>}
-                    </td>
-                    <td className="recipe-approval-editor">{edit.editorEmail}</td>
-                  </tr>
-                ))}
+                {group.edits.map((edit) => {
+                  const isRejected = rejected.has(edit.id);
+                  const isPublish = isPublishEdit(edit);
+                  const rtl = !isPublish && edit.lang === 'ar';
+                  return (
+                    <tr key={edit.id} className={`row-changed${isRejected ? ' row-rejected' : ''}${isPublish ? ' row-publish' : ''}`}>
+                      <td>
+                        <input
+                          type="checkbox"
+                          checked={!excluded.has(edit.id) && !isRejected}
+                          onChange={() => toggle(edit.id)}
+                          disabled={phase !== 'idle' || isRejected}
+                          aria-label={`Include ${group.slug} ${edit.lang} ${edit.fieldPath} in this batch`}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="checkbox"
+                          className="reject-checkbox"
+                          checked={isRejected}
+                          onChange={() => toggleReject(edit.id)}
+                          disabled={phase !== 'idle'}
+                          aria-label={`Reject ${group.slug} ${edit.lang} ${edit.fieldPath}`}
+                        />
+                      </td>
+                      <td className="lang-cell">{edit.lang}</td>
+                      <td className="key-cell" title={edit.fieldPath}>{isPublish ? 'Visibility' : edit.fieldPath}</td>
+                      <td dir={rtl ? 'rtl' : 'ltr'} className={rtl ? 'val-cell-rtl' : undefined}>
+                        {isPublish
+                          ? <span className="val-old">{visibilityLabel(edit.oldValue)}</span>
+                          : edit.oldValue ? <span className="val-old">{edit.oldValue}</span> : <span className="val-empty">(empty)</span>}
+                      </td>
+                      <td dir={rtl ? 'rtl' : 'ltr'} className={rtl ? 'val-cell-rtl' : undefined}>
+                        {isPublish
+                          ? <span className="val-new">{visibilityLabel(edit.newValue)}</span>
+                          : edit.newValue ? <span className="val-new">{edit.newValue}</span> : <span className="val-empty">(empty)</span>}
+                      </td>
+                      <td className="recipe-approval-editor">{edit.editorEmail}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -212,6 +279,34 @@ export default function RecipeApprovalView() {
           >
             🚀 Approve &amp; Deploy ({includedIds.length} selected)
           </button>
+          <button
+            className="recipe-approval-reject-btn"
+            disabled={rejectedIds.length === 0 || phase !== 'idle'}
+            onClick={startReject}
+          >
+            ✖ Reject ({rejectedIds.length} selected)
+          </button>
+        </div>
+      )}
+
+      {phase === 'confirmingReject' && (
+        <div className="recipe-approve-confirm-panel" role="alertdialog" aria-label="Confirm reject">
+          <p>
+            Reject <strong>{rejectedIds.length}</strong> pending change{rejectedIds.length === 1 ? '' : 's'}?
+            {' '}{rejectedIds.length === 1 ? 'It' : 'They'} will be removed from this list. Nothing on the live site changes.
+          </p>
+          <p>A translator can still resubmit a rejected field by editing it again.</p>
+          <div className="btn-row">
+            <button className="recipe-reject-confirm-yes" onClick={confirmReject}>Yes, reject</button>
+            <button className="recipe-approve-confirm-cancel" onClick={cancelApprove}>Cancel</button>
+          </div>
+        </div>
+      )}
+
+      {phase === 'rejected' && rejectResult && (
+        <div className="recipe-approve-result">
+          <p>✖ Rejected {rejectResult.totalRejected} change{rejectResult.totalRejected === 1 ? '' : 's'}.</p>
+          <button className="recipe-approve-dismiss" onClick={dismissResult}>OK</button>
         </div>
       )}
 
@@ -219,6 +314,10 @@ export default function RecipeApprovalView() {
         <div className="recipe-approve-confirm-panel" role="alertdialog" aria-label="Confirm publish">
           <p>
             You're about to publish <strong>{confirmInfo.totalApplied}</strong> change{confirmInfo.totalApplied === 1 ? '' : 's'} to the live site.
+            {(() => {
+              const n = confirmInfo.applied.filter((a) => a.fieldPath === 'published').length;
+              return n > 0 ? <> This includes <strong>{n}</strong> recipe{n === 1 ? '' : 's'} going live or coming down.</> : null;
+            })()}
             {confirmInfo.totalConflicts > 0 && (
               <> <strong>{confirmInfo.totalConflicts}</strong> conflicting edit{confirmInfo.totalConflicts === 1 ? '' : 's'} will be skipped (the live value changed since staging).</>
             )}

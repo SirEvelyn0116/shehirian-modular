@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
     const sql = getSql();
     const [master, pendingCounts] = await Promise.all([
       fetchAllRecipes(),
-      sql`select recipe_slug, count(*)::int as count from edits where status = 'pending' group by recipe_slug`,
+      sql`select recipe_slug, field_path, lang, new_value from edits where status = 'pending'`,
     ]);
 
     // pendingCount reflects durable, saved (pending) edits only — grouped
@@ -47,14 +47,26 @@ exports.handler = async (event, context) => {
     // browser tab's React state and are intentionally lost on navigating
     // away (build spec §7's confirmed v1 design) — there is nothing in the
     // database for a list view, here or anywhere else, to show for them.
+    // Queued publish requests (field_path 'published') are reported apart
+    // from translation edits: they drive the list's "queued" pill state,
+    // and shouldn't inflate a translator's "N pending" badge.
     const pendingBySlug = {};
-    pendingCounts.forEach(row => { pendingBySlug[row.recipe_slug] = row.count; });
+    const pendingPublishBySlug = {};
+    pendingCounts.forEach(row => {
+      if (row.field_path === 'published') {
+        (pendingPublishBySlug[row.recipe_slug] ||= {})[row.lang] = row.new_value === 'true';
+      } else {
+        pendingBySlug[row.recipe_slug] = (pendingBySlug[row.recipe_slug] || 0) + 1;
+      }
+    });
 
     const list = (master.recipes || []).map(r => ({
       slug: r.slug,
       title: r.title && r.title.en,
       categoryId: r.categoryId,
       pendingCount: pendingBySlug[r.slug] || 0,
+      // { fr: true } = "publish fr" is queued for approval; false = unpublish.
+      pendingPublish: pendingPublishBySlug[r.slug] || {},
       // Per-language publish status for the admin list's status pills
       // (stage 3). Same default-false-on-missing-data reasoning as
       // generate-index.js's isRecipePublished: a recipe with no `published`

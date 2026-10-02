@@ -75,6 +75,13 @@
   to = "/.netlify/functions/recipes-publish"
   status = 200
 
+# Approver-only (2026-10): reject pending edits / queued publish requests.
+# Same wildcard-shadowing reasoning as the routes above.
+[[redirects]]
+  from = "/api/recipes/reject"
+  to = "/.netlify/functions/edits-reject"
+  status = 200
+
 # recipe-detail.js reads the slug from event.path, not a query param —
 # the named-placeholder-into-query-string form (?slug=:slug) matches
 # locally under netlify dev but the real edge never substitutes it,

@@ -670,3 +670,18 @@ button.publish-pill:disabled { opacity: 0.6; cursor: default; }
     .ops-gauge { max-width: 45%; }
 }
 @media (prefers-reduced-motion: reduce) { .ops-needle { transition: none; } }
+
+/* Reject (2026-10) — rows ticked for rejection, and the Reject button */
+.recipe-approval-reject-btn { background: #dc2626; color: white; }
+.recipe-approval-reject-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.recipe-approval-reject-btn:hover:not(:disabled) { opacity: 0.88; }
+.recipe-reject-confirm-yes { background: #dc2626; color: white; }
+.recipe-reject-confirm-yes:hover:not(:disabled) { opacity: 0.88; }
+tr.row-rejected td { opacity: 0.55; text-decoration: line-through; }
+tr.row-rejected td:first-child, tr.row-rejected td:nth-child(2) { opacity: 1; text-decoration: none; }
+.reject-checkbox { accent-color: #dc2626; }
+tr.row-publish .key-cell { font-weight: 600; }
+
+/* Queued publish requests on the recipe list (2026-10) */
+.publish-pill-queued { border-style: dashed; border-width: 2px; }
+.recipe-publish-hint { margin: 8px 0 12px; padding: 8px 12px; background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; font-size: 0.9em; color: #78350f; }

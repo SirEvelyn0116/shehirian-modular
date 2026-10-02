@@ -3,6 +3,7 @@ const { getSql } = require('./_shared/db');
 const { getFile, putFile, getBranchHeadSha } = require('./_shared/github');
 const { classifyEdits, applyEditsToJson, filterAlreadyLogged } = require('./_shared/approveLogic');
 const { fireBuildHook } = require('./_shared/buildHook');
+const { PUBLISHED } = require('./_shared/fieldPath');
 
 // Config-driven — HARD requirement, not a convenience default. Every one of
 // these is read from env, same pattern the read-only recipe functions
@@ -212,8 +213,20 @@ exports.handler = async (event, context) => {
       // actual committed bytes (verified against `git show HEAD:...`) —
       // keeps the diff to the fields that actually changed.
       const newContent = JSON.stringify(updatedJson, null, 2);
+      // Queued publish/unpublish requests (recipes-publish.js) ride in the
+      // same batch as translations — named separately in the message so
+      // the git history still says plainly when something went live.
       const recipeCount = new Set(toCommit.map((e) => e.recipe_slug)).size;
-      const message = `i18n: approve batch — ${toCommit.length} field(s) across ${recipeCount} recipe(s)`;
+      const publishEdits = toCommit.filter((e) => e.field_path === PUBLISHED);
+      const textCount = toCommit.length - publishEdits.length;
+      const parts = [];
+      if (textCount > 0) parts.push(`${textCount} field(s)`);
+      if (publishEdits.length > 0) {
+        parts.push(publishEdits
+          .map((e) => `${e.new_value === 'true' ? 'publish' : 'unpublish'} ${e.recipe_slug} [${e.lang}]`)
+          .join(', '));
+      }
+      const message = `i18n: approve batch — ${parts.join('; ')} across ${recipeCount} recipe(s)`;
       const commitResult = await putFile({
         repo: GITHUB_REPO, branch: GITHUB_BRANCH, path: GITHUB_RECIPES_PATH,
         token: GITHUB_TOKEN, content: newContent, sha: file.sha, message,
@@ -234,7 +247,7 @@ exports.handler = async (event, context) => {
       sql`update edits set status = 'approved', resolved_at = now(), resolved_by = ${approverEmail} where id = any(${appliedIds})`,
       ...needsLogging.map((edit) => sql`
         insert into edit_log (recipe_slug, lang, field_path, old_value, new_value, action, editor_email, resolved_by, commit_sha)
-        values (${edit.recipe_slug}, ${edit.lang}, ${edit.field_path}, ${edit.old_value}, ${edit.new_value}, 'approved', ${edit.editor_email}, ${approverEmail}, ${commitShaFor(edit)})
+        values (${edit.recipe_slug}, ${edit.lang}, ${edit.field_path}, ${edit.old_value}, ${edit.new_value}, ${edit.field_path === PUBLISHED ? 'published' : 'approved'}, ${edit.editor_email}, ${approverEmail}, ${commitShaFor(edit)})
       `),
     ];
     await sql.transaction(queries);

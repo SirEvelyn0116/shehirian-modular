@@ -12,6 +12,7 @@ exports.handler = async (event, context) => {
     const rows = await sql`
       select * from edits
       where editor_email = ${gate.user.email} and status = 'pending'
+        and field_path <> 'published'  -- queued publish requests aren't translator edits
       order by updated_at desc
     `;
 

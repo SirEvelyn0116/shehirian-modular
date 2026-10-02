@@ -62,6 +62,7 @@ const editsMine = require(path.join(ROOT, 'netlify/functions/edits-mine.js'));
 const editDelete = require(path.join(ROOT, 'netlify/functions/edit-delete.js'));
 const recipesApprove = require(path.join(ROOT, 'netlify/functions/recipes-approve.js'));
 const recipesPublish = require(path.join(ROOT, 'netlify/functions/recipes-publish.js'));
+const editsReject = require(path.join(ROOT, 'netlify/functions/edits-reject.js'));
 const cloverSales = require(path.join(ROOT, 'netlify/functions/clover-sales.js'));
 
 // The stub identity. requireRole() reads context.clientContext.user exactly
@@ -153,6 +154,10 @@ const server = http.createServer(async (req, res) => {
   if (parsed.pathname === '/api/recipes/approve' && req.method === 'POST') {
     const body = await readBody(req);
     return sendJson(res, await recipesApprove.handler({ body, httpMethod: 'POST' }, fakeCtx));
+  }
+  if (parsed.pathname === '/api/recipes/reject' && req.method === 'POST') {
+    const body = await readBody(req);
+    return sendJson(res, await editsReject.handler({ body, httpMethod: 'POST' }, fakeCtx));
   }
   if (parsed.pathname === '/api/recipes/publish' && req.method === 'POST') {
     const body = await readBody(req);

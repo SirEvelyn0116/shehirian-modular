@@ -4,13 +4,13 @@
 create table if not exists edits (
   id           uuid primary key default gen_random_uuid(),
   recipe_slug  text        not null,
-  lang         text        not null,          -- target language: 'fr' | 'ar' | 'hy'
-  field_path   text        not null,          -- 'title' | 'ingredients[2]' | 'instructions[0]'
+  lang         text        not null,          -- 'fr' | 'ar' | 'hy' for translations; also 'en' for publish requests
+  field_path   text        not null,          -- 'title' | 'ingredients[2]' | 'instructions[0]' | 'published'
   ref_value    text,                          -- EN reference at edit time
   old_value    text,                          -- target value at edit time (conflict guard)
   new_value    text        not null,
   editor_email text        not null,
-  status       text        not null default 'pending',  -- pending|approved|conflict
+  status       text        not null default 'pending',  -- pending|approved|conflict|rejected
   created_at   timestamptz not null default now(),
   updated_at   timestamptz not null default now(),
   resolved_at  timestamptz,
@@ -36,12 +36,17 @@ create table if not exists edit_log (
   field_path   text        not null,
   old_value    text,
   new_value    text        not null,
-  action       text        not null default 'approved',  -- room for future action types
+  action       text        not null default 'approved',  -- approved | published | rejected
   editor_email text        not null,          -- translator who authored the edit
   resolved_by  text        not null,          -- approver who shipped it
-  commit_sha   text        not null,          -- git commit this batch produced
+  commit_sha   text,                          -- git commit this batch produced (null for 'rejected')
   created_at   timestamptz not null default now()
 );
+
+-- Rejections (2026-10) are logged too, and a rejection ships no commit,
+-- so commit_sha is nullable from here on. Re-runnable: dropping NOT NULL
+-- on a column that already allows nulls is a no-op.
+alter table edit_log alter column commit_sha drop not null;
 
 create index if not exists edit_log_recipe_idx on edit_log (recipe_slug);
 create index if not exists edit_log_commit_idx on edit_log (commit_sha);

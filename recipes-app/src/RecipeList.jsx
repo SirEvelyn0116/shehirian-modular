@@ -33,29 +33,43 @@ function saveOpen(set) {
 // tracks its own in-flight/error state locally (keyed off the recipe's
 // slug+lang) so one language's toggle failing doesn't block or hide the
 // others.
-function PublishStatusRow({ slug, published, editable, pendingKey, onToggle }) {
+//
+// Clicking a pill no longer publishes anything (2026-10). It QUEUES a
+// publish/unpublish request, which goes live only when it's approved on the
+// Review tab, batched with everything else. A queued pill shows the state
+// it's heading to, dashed, with an arrow; clicking it again withdraws the
+// request.
+function PublishStatusRow({ slug, published, pendingPublish, editable, pendingKey, onToggle }) {
   return (
     <div className="recipe-publish-status">
       {LANGS.map(({ code, label }) => {
         const isPublished = !!(published && published[code]);
+        const queued = pendingPublish && code in pendingPublish ? pendingPublish[code] : null;
+        const shown = queued === null ? isPublished : queued;
         const key = `${slug}:${code}`;
         const busy = pendingKey === key;
-        const pillClass = `publish-pill ${isPublished ? 'publish-pill-on' : 'publish-pill-off'}${busy ? ' publish-pill-busy' : ''}`;
+        const pillClass = `publish-pill ${shown ? 'publish-pill-on' : 'publish-pill-off'}${queued !== null ? ' publish-pill-queued' : ''}${busy ? ' publish-pill-busy' : ''}`;
+        const status = queued === null
+          ? (isPublished ? 'published' : 'not published')
+          : `${isPublished ? 'published' : 'not published'}, ${queued ? 'publish' : 'unpublish'} queued for approval`;
 
         if (!editable) {
-          return <span key={code} className={pillClass} title={`${label}: ${isPublished ? 'published' : 'not published'}`}>{code}</span>;
+          return <span key={code} className={pillClass} title={`${label}: ${status}`}>{queued !== null ? '→' : ''}{code}</span>;
         }
 
+        const action = queued !== null
+          ? 'withdraw the request'
+          : `queue a request to ${isPublished ? 'unpublish' : 'publish'} (approve it on the Review tab)`;
         return (
           <button
             key={code}
             type="button"
             className={pillClass}
-            title={`${label}: ${isPublished ? 'published' : 'not published'} — click to ${isPublished ? 'unpublish' : 'publish'}`}
+            title={`${label}: ${status} — click to ${action}`}
             disabled={busy}
-            onClick={(e) => { e.stopPropagation(); onToggle(slug, code, !isPublished, label); }}
+            onClick={(e) => { e.stopPropagation(); onToggle(slug, code, queued !== null ? isPublished : !isPublished); }}
           >
-            {code}{busy ? '…' : ''}
+            {queued !== null ? '→' : ''}{code}{busy ? '…' : ''}
           </button>
         );
       })}
@@ -131,21 +145,21 @@ export default function RecipeList({ onSelect, showPublishControls }) {
     setOpenGroups(next);
   }
 
-  // Each toggle commits straight to the repo and redeploys the live site
-  // (recipes-publish.js reuses recipes-approve.js's own commit path) — a
-  // lightweight confirm here is a cheap safety net against a stray click on
-  // a production-writing control, same spirit as EditableField's Escape-to-
-  // cancel: not explicitly speced, easy to drop if unwanted.
-  async function handleToggle(slug, lang, nextValue, langLabel) {
-    if (!window.confirm(`${nextValue ? 'Publish' : 'Unpublish'} the ${langLabel} version of this recipe? This commits to the repo and deploys the live site.`)) {
-      return;
-    }
+  // A toggle only queues (or withdraws) a request — nothing reaches the
+  // live site until it's approved on the Review tab — so no confirm dialog.
+  async function handleToggle(slug, lang, nextValue) {
     const key = `${slug}:${lang}`;
     setPendingKey(key);
     setToggleErrors(prev => { const next = { ...prev }; delete next[key]; return next; });
     try {
       const result = await apiPost('/api/recipes/publish', { recipeSlug: slug, lang, published: nextValue });
-      setRecipes(prev => prev.map(r => r.slug === slug ? { ...r, published: { ...r.published, [lang]: result.published } } : r));
+      setRecipes(prev => prev.map(r => {
+        if (r.slug !== slug) return r;
+        const pendingPublish = { ...(r.pendingPublish || {}) };
+        if (result.pendingPublish === null) delete pendingPublish[lang];
+        else pendingPublish[lang] = result.pendingPublish;
+        return { ...r, published: { ...r.published, [lang]: result.published }, pendingPublish };
+      }));
     } catch (err) {
       setToggleErrors(prev => ({ ...prev, [key]: err.message }));
     } finally {
@@ -168,6 +182,16 @@ export default function RecipeList({ onSelect, showPublishControls }) {
           <div className="step"><strong>Step 3</strong> Save to submit for approval</div>
         </div>
       )}
+
+      {showPublishControls && (() => {
+        const queued = recipes.reduce((n, r) => n + Object.keys(r.pendingPublish || {}).length, 0);
+        return (
+          <div className="recipe-publish-hint">
+            Clicking a language pill queues a publish or unpublish request. Nothing goes live until you approve it on the Review tab.
+            {queued > 0 && <strong> {queued} request{queued === 1 ? '' : 's'} waiting.</strong>}
+          </div>
+        );
+      })()}
 
       <div className="recipe-list-summary">
         <span className="recipe-list-total">
@@ -214,6 +238,7 @@ export default function RecipeList({ onSelect, showPublishControls }) {
                     <PublishStatusRow
                       slug={r.slug}
                       published={r.published}
+                      pendingPublish={r.pendingPublish}
                       editable={!!showPublishControls}
                       pendingKey={pendingKey}
                       onToggle={handleToggle}

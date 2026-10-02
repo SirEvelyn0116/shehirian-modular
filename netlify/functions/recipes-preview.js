@@ -5,7 +5,7 @@ const { getFieldValue } = require('./_shared/fieldPath');
 
 const GITHUB_REPO = process.env.GITHUB_REPO || 'SirEvelyn0116/shehirian-modular';
 const GITHUB_BRANCH = process.env.GITHUB_BRANCH || 'translation-pipeline';
-const TARGET_LANGS = ['fr', 'ar', 'hy'];
+const TARGET_LANGS = ['en', 'fr', 'ar', 'hy']; // 'en' only ever appears as a queued publish request
 
 // Source of truth is the committed JSON, not the deployed site — same
 // reasoning as recipes-list.js / recipe-detail.js.
@@ -46,7 +46,8 @@ exports.handler = async (event, context) => {
     // itself is deferred to Phase 5 entirely; this is a plain live-vs-
     // proposed diff, same vocabulary as ui-strings' fetch-preview.
     const groups = {};
-    const changesByLang = { fr: 0, ar: 0, hy: 0 };
+    const changesByLang = { en: 0, fr: 0, ar: 0, hy: 0 };
+    let publishRequests = 0;
     let totalChanges = 0;
 
     pending.forEach(edit => {
@@ -72,6 +73,7 @@ exports.handler = async (event, context) => {
       });
 
       totalChanges++;
+      if (edit.field_path === 'published') publishRequests++;
       if (TARGET_LANGS.includes(edit.lang)) changesByLang[edit.lang]++;
     });
 
@@ -80,7 +82,7 @@ exports.handler = async (event, context) => {
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ totalChanges, changesByLang, recipes }),
+      body: JSON.stringify({ totalChanges, changesByLang, publishRequests, recipes }),
     };
   } catch (err) {
     return { statusCode: 500, body: JSON.stringify({ error: err.message }) };

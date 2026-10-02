@@ -174,3 +174,46 @@ test('filterAlreadyLogged: matches independently per edit in a mixed batch', () 
   assert.deepEqual(needsLogging.map((e) => e.id), ['not-logged']);
   assert.deepEqual(alreadyLogged.map((e) => e.id), ['logged']);
 });
+
+// --- Queued publish requests (2026-10) -------------------------------------
+// field_path 'published' carries the per-language boolean through the same
+// text-valued pipeline: read as 'true'/'false', written back as a boolean.
+
+test('publish request: missing published object reads as "false" and is clean to apply', () => {
+  const json = fixtureRecipes(); // royal-soup has no `published` object at all
+  const e = edit({ lang: 'en', field_path: 'published', old_value: 'false', new_value: 'true' });
+  const { toApply, conflicts, alreadyAppliedInFile } = classifyEdits(json, [e]);
+  assert.equal(toApply.length, 1);
+  assert.equal(conflicts.length, 0);
+  assert.equal(alreadyAppliedInFile.length, 0);
+});
+
+test('publish request: applies as a real boolean, other languages untouched', () => {
+  const json = fixtureRecipes();
+  json.recipes[0].published = { en: false, fr: true };
+  const e = edit({ lang: 'en', field_path: 'published', old_value: 'false', new_value: 'true' });
+  const out = applyEditsToJson(json, [e]);
+  assert.strictEqual(out.recipes[0].published.en, true);
+  assert.strictEqual(out.recipes[0].published.fr, true);
+  assert.strictEqual(json.recipes[0].published.en, false, 'input not mutated');
+});
+
+test('unpublish request applies false, not the string "false"', () => {
+  const json = fixtureRecipes();
+  json.recipes[0].published = { en: true };
+  const e = edit({ lang: 'en', field_path: 'published', old_value: 'true', new_value: 'false' });
+  const out = applyEditsToJson(json, [e]);
+  assert.strictEqual(out.recipes[0].published.en, false);
+});
+
+test('publish request that is already live counts as applied, not a conflict', () => {
+  // A boolean can only be the old value or the new one, so a queued
+  // publish request never conflicts: if the flag was flipped some other
+  // way in the meantime, it's simply already done.
+  const json = fixtureRecipes();
+  json.recipes[0].published = { en: true };
+  const e = edit({ lang: 'en', field_path: 'published', old_value: 'false', new_value: 'true' });
+  const { toApply, conflicts, alreadyAppliedInFile } = classifyEdits(json, [e]);
+  assert.equal(alreadyAppliedInFile.length, 1);
+  assert.equal(toApply.length + conflicts.length, 0);
+});

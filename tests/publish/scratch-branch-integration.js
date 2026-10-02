@@ -1,189 +1,116 @@
-// Integration test for the REAL commit path behind the published-flag
-// admin toggle — real recipes-publish.js handler, real GitHub commit — but
-// pointed at test/phase5-scratch instead of translation-pipeline via
-// GITHUB_BRANCH. Same safety reasoning as
-// tests/phase5/scratch-branch-integration.js (which this file deliberately
-// mirrors): Netlify only builds translation-pipeline (netlify.toml
-// [build]), so a commit to any other branch triggers no deploy regardless
-// of whether the build hook also fires.
+// Integration test for the QUEUED publish flow (2026-10): a pill click
+// stages a request (recipes-publish.js, no commit), and the request goes
+// live only through recipes-approve.js. Real handlers, real GitHub commit,
+// real database — but pointed at test/phase5-scratch instead of
+// translation-pipeline via GITHUB_BRANCH. Netlify only builds
+// translation-pipeline (netlify.toml [build]), so nothing here deploys.
 //
-// GITHUB_BRANCH must be overridden BEFORE requiring recipes-publish.js —
-// that module reads process.env.GITHUB_BRANCH once, at require time, into
-// a top-level const, same pattern every other recipe function in this repo
-// uses.
+// GITHUB_BRANCH must be overridden BEFORE requiring the handlers — each
+// reads it once, at require time, into a top-level const.
 //
 // Run via `npm run test:publish:integration` (wraps `netlify dev:exec` for
-// GITHUB_TOKEN — this script does not read .env itself). Uses DATABASE_URL
-// only to verify/clean up the best-effort edit_log audit row; the publish
-// action itself has no `edits`-table staging step to seed or clean.
+// GITHUB_TOKEN and DATABASE_URL).
 process.env.GITHUB_BRANCH = 'test/phase5-scratch';
+// The approve step would otherwise fire the production build hook (a harmless
+// but pointless rebuild of unchanged content). Removed before require, too.
+delete process.env.NETLIFY_BUILD_HOOK_ID;
 
 const assert = require('node:assert/strict');
 const { getSql } = require('../../netlify/functions/_shared/db');
 const { getFile, ensureBranchExists } = require('../../netlify/functions/_shared/github');
 const recipesPublish = require('../../netlify/functions/recipes-publish');
+const recipesApprove = require('../../netlify/functions/recipes-approve');
+const editsReject = require('../../netlify/functions/edits-reject');
 
 const GITHUB_REPO = process.env.GITHUB_REPO || 'SirEvelyn0116/shehirian-modular';
 const PRODUCTION_BRANCH = 'translation-pipeline';
-const SCRATCH_BRANCH = process.env.GITHUB_BRANCH; // 'test/phase5-scratch', set above
+const SCRATCH_BRANCH = process.env.GITHUB_BRANCH;
 const RECIPES_PATH = process.env.GITHUB_RECIPES_PATH || 'sections/recipes/all-recipes.json';
+const TOKEN = process.env.GITHUB_TOKEN;
 
 const TEST_RECIPE_SLUG = 'royal-soup';
-// 'en' deliberately -- unlike translation edits (fr/ar/hy only, see
-// edit-create.js's TARGET_LANGS), the publish toggle must also support
-// English, since an English recipe can be unpublished too. Exercising 'en'
-// here is what actually proves that grammar difference, not just asserts it.
-const TEST_LANG = 'en';
+const TEST_LANG = 'en'; // publish requests, unlike translations, also cover English
 
-const fakeApprover = {
-  clientContext: {
-    user: {
-      email: 'publish-integration-test@example.com',
-      app_metadata: { roles: ['approver'] },
-    },
-  },
-};
-const fakeTranslator = {
-  clientContext: {
-    user: {
-      email: 'publish-integration-translator@example.com',
-      app_metadata: { roles: ['translator'] },
-    },
-  },
-};
+const fakeApprover = { clientContext: { user: { email: 'publish-integration-test@example.com', app_metadata: { roles: ['approver'] } } } };
+const fakeTranslator = { clientContext: { user: { email: 'publish-integration-translator@example.com', app_metadata: { roles: ['translator'] } } } };
 
 function check(label, condition) {
   assert.ok(condition, label);
   console.log(`  ✓ ${label}`);
 }
+const post = (handler, body, ctx = fakeApprover) => handler({ httpMethod: 'POST', body: JSON.stringify(body) }, ctx);
+const read = (branch) => getFile({ repo: GITHUB_REPO, branch, path: RECIPES_PATH, token: TOKEN });
 
 async function main() {
-  if (!process.env.GITHUB_TOKEN) {
-    throw new Error('GITHUB_TOKEN is not set — run via `npm run test:publish:integration`, not `node` directly.');
-  }
+  if (!TOKEN) throw new Error('GITHUB_TOKEN is not set — run via `npm run test:publish:integration`.');
+  console.log(`Target branch: ${SCRATCH_BRANCH} (production ${PRODUCTION_BRANCH} is never touched)`);
 
-  console.log(`Target branch for this run: ${SCRATCH_BRANCH} (production is ${PRODUCTION_BRANCH} — this test never touches it)`);
+  const beforeProd = await read(PRODUCTION_BRANCH);
+  const branchResult = await ensureBranchExists({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, fromBranch: PRODUCTION_BRANCH, token: TOKEN });
+  console.log(branchResult.created ? `Created ${SCRATCH_BRANCH}.` : `Reusing ${SCRATCH_BRANCH}.`);
 
-  // --- Safety check 0: capture production's current state BEFORE doing
-  // anything, so we can prove afterward it never moved. ---
-  const beforeProd = await getFile({ repo: GITHUB_REPO, branch: PRODUCTION_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-  console.log(`${PRODUCTION_BRANCH} blob sha before test: ${beforeProd.sha}`);
+  check('translator role is rejected (403)', (await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: true }, fakeTranslator)).statusCode === 403);
+  check('unsupported lang is rejected (400)', (await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: 'de', published: true })).statusCode === 400);
+  check('non-boolean published is rejected (400)', (await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: 'true' })).statusCode === 400);
 
-  // --- Setup: ensure the scratch branch exists (same helper/branch phase5's test uses) ---
-  const branchResult = await ensureBranchExists({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, fromBranch: PRODUCTION_BRANCH, token: process.env.GITHUB_TOKEN });
-  console.log(branchResult.created ? `Created ${SCRATCH_BRANCH} off ${PRODUCTION_BRANCH}.` : `${SCRATCH_BRANCH} already exists — reusing it.`);
-
-  // --- Role gate: a translator identity must be rejected, no network/commit side effects ---
-  const roleGateRes = await recipesPublish.handler(
-    { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: true }) },
-    fakeTranslator,
-  );
-  check('translator role is rejected (403), not just left unauthenticated', roleGateRes.statusCode === 403);
-
-  // --- Validation: bad lang / bad type must 400 before any GitHub call ---
-  const badLangRes = await recipesPublish.handler(
-    { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: 'de', published: true }) },
-    fakeApprover,
-  );
-  check('an unsupported lang is rejected (400)', badLangRes.statusCode === 400);
-
-  const badTypeRes = await recipesPublish.handler(
-    { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: 'true' }) },
-    fakeApprover,
-  );
-  check('a non-boolean published value is rejected (400)', badTypeRes.statusCode === 400);
-
-  // Read the CURRENT value on the scratch branch (not assumed), so this
-  // test is safely re-runnable regardless of what an earlier run left the
-  // flag set to.
-  const before = await getFile({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
+  const before = await read(SCRATCH_BRANCH);
   const recipe = before.json.recipes.find((r) => r.slug === TEST_RECIPE_SLUG);
-  if (!recipe) throw new Error(`Fixture recipe '${TEST_RECIPE_SLUG}' not found on ${SCRATCH_BRANCH} — has all-recipes.json's shape changed?`);
+  if (!recipe) throw new Error(`Fixture recipe '${TEST_RECIPE_SLUG}' not found on ${SCRATCH_BRANCH}.`);
   const startValue = !!(recipe.published && recipe.published[TEST_LANG] === true);
   const targetValue = !startValue;
-  console.log(`${TEST_RECIPE_SLUG}.published.${TEST_LANG} on ${SCRATCH_BRANCH}: currently ${startValue}, toggling to ${targetValue}`);
+  console.log(`${TEST_RECIPE_SLUG}.published.${TEST_LANG}: currently ${startValue}, will queue ${targetValue}`);
 
   const sql = getSql();
+  const cleanup = () => sql`delete from edits where editor_email = ${fakeApprover.clientContext.user.email}`;
+  await cleanup();
 
   try {
-    // --- No-op idempotency check FIRST: requesting the value already in
-    // effect must not commit. ---
-    const noopRes = await recipesPublish.handler(
-      { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: startValue }) },
-      fakeApprover,
-    );
-    const noopBody = JSON.parse(noopRes.body);
-    check('requesting the already-current value is a no-op (committed: false)', noopBody.committed === false && noopBody.commitSha === null);
-    const afterNoop = await getFile({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-    check('no-op request wrote nothing (blob sha unchanged)', afterNoop.sha === before.sha);
+    // --- Queue: no commit, one pending row ---
+    const q = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue })).body);
+    check('click queues a request (queued: true)', q.queued === true && typeof q.editId === 'string');
+    check('response still reports the live value', q.published === startValue && q.pendingPublish === targetValue);
+    check('queueing commits nothing (blob sha unchanged)', (await read(SCRATCH_BRANCH)).sha === before.sha);
+    const [row] = await sql`select * from edits where id = ${q.editId}`;
+    check('pending row has field_path published and stringified values', row.status === 'pending' && row.field_path === 'published' && row.old_value === String(startValue) && row.new_value === String(targetValue));
 
-    // --- The real toggle ---
-    const toggleRes = await recipesPublish.handler(
-      { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue }) },
-      fakeApprover,
-    );
-    const toggleBody = JSON.parse(toggleRes.body);
-    console.log('publish response:', JSON.stringify(toggleBody, null, 2));
+    // --- Withdraw: clicking back to the live value deletes the request ---
+    const w = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: startValue })).body);
+    check('clicking back withdraws the request', w.queued === false && w.cancelled === true);
+    check('no pending row left', (await sql`select 1 from edits where id = ${q.editId}`).length === 0);
 
-    check('toggle returns 200', toggleRes.statusCode === 200);
-    check('toggle reports committed: true', toggleBody.committed === true);
-    check('toggle returns a commit sha', typeof toggleBody.commitSha === 'string' && toggleBody.commitSha.length === 40);
-    check('toggle response reflects the requested value', toggleBody.published === targetValue);
+    // --- Reject: queued request leaves the queue, nothing committed ---
+    const q2 = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue })).body);
+    const rej = JSON.parse((await post(editsReject, { editIds: [q2.editId] })).body);
+    check('reject resolves the request', rej.totalRejected === 1);
+    const [rejRow] = await sql`select status from edits where id = ${q2.editId}`;
+    check("row status is 'rejected'", rejRow.status === 'rejected');
+    check('rejecting commits nothing', (await read(SCRATCH_BRANCH)).sha === before.sha);
 
-    // --- Verify the commit actually landed on the scratch branch with the right content ---
-    const afterToggle = await getFile({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-    const updatedRecipe = afterToggle.json.recipes.find((r) => r.slug === TEST_RECIPE_SLUG);
-    check('scratch branch content now has the new published value', updatedRecipe.published[TEST_LANG] === targetValue);
-    check('scratch branch blob sha changed', afterToggle.sha !== before.sha);
-    // Only the one field changed -- same "confined diff" property the
-    // approve pipeline's commit has, just checked from the other direction
-    // here (recipe count + every other field on this recipe untouched).
-    check('every other field on the recipe is untouched', JSON.stringify({ ...updatedRecipe, published: null }) === JSON.stringify({ ...recipe, published: null }));
+    // --- Approve: re-queue (resets the rejected row to pending), then ship ---
+    const q3 = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue })).body);
+    check('re-queueing a rejected request reuses the row as pending', q3.editId === q2.editId);
+    const ap = JSON.parse((await post(recipesApprove, { editIds: [q3.editId], confirmed: true })).body);
+    check('approve commits', ap.committed === true && typeof ap.commitSha === 'string');
+    const after = await read(SCRATCH_BRANCH);
+    const updated = after.json.recipes.find((r) => r.slug === TEST_RECIPE_SLUG);
+    check('flag is now a real boolean with the new value', updated.published[TEST_LANG] === targetValue);
+    check('every other field untouched', JSON.stringify({ ...updated, published: null }) === JSON.stringify({ ...recipe, published: null }));
+    const [log] = await sql`select * from edit_log where commit_sha = ${ap.commitSha} and field_path = 'published'`;
+    check("edit_log row has action 'published'", log && log.action === 'published');
 
-    // --- THE critical safety check: production was never touched ---
-    const afterProd = await getFile({ repo: GITHUB_REPO, branch: PRODUCTION_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-    check(`${PRODUCTION_BRANCH} blob sha is UNCHANGED (still ${afterProd.sha})`, afterProd.sha === beforeProd.sha);
+    // --- Revert the same way, leaving the scratch branch as found ---
+    const q4 = JSON.parse((await post(recipesPublish, { recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: startValue })).body);
+    const ap2 = JSON.parse((await post(recipesApprove, { editIds: [q4.editId], confirmed: true })).body);
+    check('revert approve commits', ap2.committed === true);
+    const reverted = (await read(SCRATCH_BRANCH)).json.recipes.find((r) => r.slug === TEST_RECIPE_SLUG);
+    check('scratch branch back to the original value', reverted.published[TEST_LANG] === startValue);
 
-    // --- Audit row: best-effort edit_log insert (action='published') ---
-    const [logRow] = await sql`select * from edit_log where recipe_slug = ${TEST_RECIPE_SLUG} and lang = ${TEST_LANG} and field_path = 'published' and commit_sha = ${toggleBody.commitSha}`;
-    check('edit_log row was written for the publish flip', !!logRow);
-    check("edit_log.action is 'published'", logRow.action === 'published');
-    check('edit_log records the approver as both editor_email and resolved_by (no separate translator for this action)', logRow.editor_email === fakeApprover.clientContext.user.email && logRow.resolved_by === fakeApprover.clientContext.user.email);
-    check('edit_log old/new values are the stringified booleans', logRow.old_value === String(startValue) && logRow.new_value === String(targetValue));
-
-    // --- Idempotency: re-requesting the SAME (now-current) value must not make a second commit ---
-    const secondCall = await recipesPublish.handler(
-      { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: targetValue }) },
-      fakeApprover,
-    );
-    const secondBody = JSON.parse(secondCall.body);
-    check('re-requesting the same value is a no-op (no second commit)', secondBody.committed === false && secondBody.commitSha === null);
-    const afterSecond = await getFile({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-    check('blob sha unchanged after the redundant call', afterSecond.sha === afterToggle.sha);
-
-    // --- Toggle back to the original value -- proves publish -> unpublish
-    // -> publish (or the reverse) round-trips cleanly with no corruption,
-    // and leaves the scratch branch as it found it for this field. ---
-    const revertRes = await recipesPublish.handler(
-      { httpMethod: 'POST', body: JSON.stringify({ recipeSlug: TEST_RECIPE_SLUG, lang: TEST_LANG, published: startValue }) },
-      fakeApprover,
-    );
-    const revertBody = JSON.parse(revertRes.body);
-    check('reverting to the original value commits again', revertBody.committed === true && typeof revertBody.commitSha === 'string');
-    const afterRevert = await getFile({ repo: GITHUB_REPO, branch: SCRATCH_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-    const revertedRecipe = afterRevert.json.recipes.find((r) => r.slug === TEST_RECIPE_SLUG);
-    check('scratch branch is back to the original published value', revertedRecipe.published[TEST_LANG] === startValue);
-    check('the rest of the recipe is still untouched after the round trip', JSON.stringify({ ...revertedRecipe, published: null }) === JSON.stringify({ ...recipe, published: null }));
-
-    const afterProdFinal = await getFile({ repo: GITHUB_REPO, branch: PRODUCTION_BRANCH, path: RECIPES_PATH, token: process.env.GITHUB_TOKEN });
-    check(`${PRODUCTION_BRANCH} blob sha is STILL unchanged after the full round trip (still ${afterProdFinal.sha})`, afterProdFinal.sha === beforeProd.sha);
-
-    console.log('\n✅ All publish scratch-branch integration checks passed.');
-    console.log(`   Toggle commit:  https://github.com/${GITHUB_REPO}/commit/${toggleBody.commitSha}`);
-    console.log(`   Revert commit:  https://github.com/${GITHUB_REPO}/commit/${revertBody.commitSha}`);
+    check(`${PRODUCTION_BRANCH} is UNCHANGED`, (await read(PRODUCTION_BRANCH)).sha === beforeProd.sha);
+    console.log('\n✅ All queued-publish integration checks passed.');
   } finally {
-    await sql`delete from edit_log where editor_email = ${fakeApprover.clientContext.user.email}`;
-    console.log('Cleaned up test edit_log rows.');
+    await cleanup();
+    await sql`delete from edit_log where resolved_by = ${fakeApprover.clientContext.user.email}`;
+    console.log('Cleaned up test rows.');
   }
 }
 
