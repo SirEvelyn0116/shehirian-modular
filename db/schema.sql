@@ -1,10 +1,11 @@
 -- Recipe translation tool — pending edits store (build spec §5).
 -- Idempotent: safe to re-run against a fresh or existing database.
+-- Keep semicolons out of end-of-line comments: db/migrate.js splits this file on ';'.
 
 create table if not exists edits (
   id           uuid primary key default gen_random_uuid(),
   recipe_slug  text        not null,
-  lang         text        not null,          -- 'fr' | 'ar' | 'hy' for translations; also 'en' for publish requests
+  lang         text        not null,          -- 'fr' | 'ar' | 'hy' for translations, also 'en' for publish requests
   field_path   text        not null,          -- 'title' | 'ingredients[2]' | 'instructions[0]' | 'published'
   ref_value    text,                          -- EN reference at edit time
   old_value    text,                          -- target value at edit time (conflict guard)
