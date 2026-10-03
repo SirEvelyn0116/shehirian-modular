@@ -477,8 +477,8 @@ function rewriteCertificationPagePaths(pageHtml, lang, certSlug) {
     })
     .replace(/href="\.\.\/assets\//g, 'href="../../assets/')
     .replace(/src="\.\.\/assets\//g, 'src="../../assets/')
-    .replace(new RegExp(`href="\.\.\/index\\.${sourceLang}\\.html#certifications"`, 'gi'), `href="${homePagePath(lang)}#certifications"`)
-    .replace(new RegExp(`href="\.\.\/index\\.${sourceLang}\\.html"`, 'gi'), `href="${homePagePath(lang)}"`)
+    .replace(new RegExp(`href="\\.\\./index\\.${sourceLang}\\.html#certifications"`, 'gi'), `href="${homePagePath(lang)}#certifications"`)
+    .replace(new RegExp(`href="\\.\\./index\\.${sourceLang}\\.html"`, 'gi'), `href="${homePagePath(lang)}"`)
     .replace(/<script src="\.\.\/assets\/js\/lang-switcher\.js"><\/script>\s*/i, '');
 
   if (rewritten.includes('id="language-switcher"')) {

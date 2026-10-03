@@ -38,7 +38,7 @@ exports.handler = async (event, context) => {
       headers: { 'Content-Type': 'application/json', 'Content-Length': 2 },
     };
 
-    const req = https.request(options, (res) => {
+    const req = https.request(options, () => {
       resolve({ statusCode: 200, body: message });
     });
 
