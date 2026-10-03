@@ -5,6 +5,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { neon } = require('@neondatabase/serverless');
+const { splitSchema } = require('./splitSchema');
 
 async function main() {
   if (!process.env.DATABASE_URL) {
@@ -12,13 +13,7 @@ async function main() {
   }
   const sql = neon(process.env.DATABASE_URL);
   const schema = fs.readFileSync(path.join(__dirname, 'schema.sql'), 'utf8');
-  const statements = schema
-    .split('\n')
-    .filter(line => !line.trim().startsWith('--'))
-    .join('\n')
-    .split(';')
-    .map(s => s.trim())
-    .filter(Boolean);
+  const statements = splitSchema(schema);
 
   // Each statement is idempotent (IF NOT EXISTS) — run sequentially rather
   // than in one transaction, so a partial re-run is always safe to retry.

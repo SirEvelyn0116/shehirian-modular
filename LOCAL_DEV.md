@@ -154,12 +154,13 @@ If you ever want to double check this yourself after future changes: `grep -rn "
 
 ## 6. Automated tests
 
-Phase 4's approver-review behavior (checkbox non-destructiveness, role routing, the empty state)
-has a Playwright suite in `tests/phase4/`, run via `npm run test:phase4` against a `dev:auth-stub*`
-server you start separately. See [`TESTING.md`](TESTING.md) for the full behavioral matrix and
-which rows are automated vs. manual-only.
+The automated suite (unit, API, build-output and browser tests) runs in GitHub Actions on every pull
+request into `translation-pipeline`, and locally with `npm test`. It needs no Netlify, Neon or GitHub
+credentials: API and browser tests run the real function handlers against a local throwaway
+Postgres with GitHub and the build hook faked. See [`TESTING.md`](TESTING.md).
 
-Phase 5's approve action (the real commit) has its own, separate two-tier test setup — see §7.
+Phase 5's approve action also has a manual integration test that makes a real commit to a scratch
+branch — see §7.
 
 ## 7. Testing Phase 5's approve action safely
 
@@ -170,10 +171,10 @@ against a scratch branch that can never trigger a real deploy.
 ### Unit tests (no DB, no GitHub, no server)
 
 ```bash
-npm run test:phase5:unit
+npm run test:unit
 ```
 
-Runs `tests/phase5/approveLogic.test.js` (Node's built-in test runner — no extra dependency) against
+Runs `tests/unit/approveLogic.test.js` (Node's built-in test runner — no extra dependency) against
 `netlify/functions/_shared/approveLogic.js`'s pure functions: the conflict-guard comparison, the
 apply-edits-to-JSON transform, and the idempotency filter. Fixture `all-recipes.json` + fixture edit
 rows in, plain data out — this is where most of the approve action's correctness risk actually
@@ -185,7 +186,7 @@ lives, and none of it needs real infrastructure to verify.
 npm run test:phase5:integration
 ```
 
-Runs `tests/phase5/scratch-branch-integration.js`, which calls the **real** `recipes-approve.js`
+Runs `tests/integration/approve-scratch-branch.js` (manual only — not run in CI), which calls the **real** `recipes-approve.js`
 handler — same file that deploys — with `GITHUB_BRANCH` overridden to `test/phase5-scratch` instead
 of `translation-pipeline`. This is exactly the config-driven design build spec §6 requires: the
 commit target branch is read from env everywhere in `recipes-approve.js`, never hardcoded, so
@@ -205,7 +206,7 @@ What the script does, in order:
    GitHub API — `git/refs`, not a local `git push`).
 2. Seeds one real pending edit in Postgres, scoped to its own test identity
    (`phase5-integration-test@example.com`, distinct from every other test email in this repo —
-   `local-dev@example.com` for the auth-stub, `playwright-test@example.com` for Phase 4's suite —
+   `local-dev@example.com` for the auth-stub; the automated suite uses `@example.test` addresses and only ever a local database —
    so none of their cleanup scripts can ever touch each other's data).
 3. Runs a `dryRun` call first and asserts it wrote nothing (blob SHA unchanged).
 4. Runs the real `confirmed: true` call and asserts: a commit actually landed on

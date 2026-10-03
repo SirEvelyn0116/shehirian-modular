@@ -514,9 +514,9 @@ everything into a single push.
 - **Pure logic, unit-tested, no I/O:** the conflict-guard comparison, the apply-edits-to-JSON
   transform, and the idempotency filter all live in `netlify/functions/_shared/approveLogic.js` as
   plain functions with no DB/GitHub/env access — fixture data in, plain data out. Covered by
-  `tests/phase5/approveLogic.test.js` (`node --test`, no extra dependency). This is where most of
+  `tests/unit/approveLogic.test.js` (`node --test`, no extra dependency). This is where most of
   the correctness risk in this action actually lives, and it's fully testable offline.
-- **Real-commit integration test:** `tests/phase5/scratch-branch-integration.js` runs the real
+- **Real-commit integration test:** `tests/integration/approve-scratch-branch.js` runs the real
   `recipes-approve.js` handler against a real database and a real GitHub commit, with
   `GITHUB_BRANCH` overridden to `test/phase5-scratch` (created off `translation-pipeline` on first
   run if it doesn't exist yet). Seeds a real pending edit, exercises the dry run, the real approve

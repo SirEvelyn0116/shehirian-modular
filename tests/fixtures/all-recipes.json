@@ -1,0 +1,71 @@
+{
+  "recipes": [
+    {
+      "slug": "fixture-lentil-soup",
+      "featuredRecipe": false,
+      "title": {
+        "en": "Fixture Lentil Soup",
+        "fr": "Soupe test aux lentilles",
+        "ar": "شوربة عدس تجريبية",
+        "hy": "Փորձնական ոսպով ապուր"
+      },
+      "description": {
+        "en": "A test recipe used only by the automated tests.",
+        "fr": "Une recette de test.",
+        "ar": "وصفة للاختبار فقط.",
+        "hy": "Փորձնական բաղադրատոմս։"
+      },
+      "recipeCategory": { "en": "Soup", "fr": "Soupe", "ar": "شوربة", "hy": "Ապուր" },
+      "recipeCuisine": { "en": "Test", "fr": "Test", "ar": "اختبار", "hy": "Փորձ" },
+      "prepTime": "PT10M",
+      "cookTime": "PT30M",
+      "totalTime": "PT40M",
+      "recipeYield": { "en": "4 servings", "fr": "4 portions", "ar": "٤ حصص", "hy": "4 բաժին" },
+      "ingredients": {
+        "en": ["1 cup test lentils", "2 cups test water"],
+        "fr": ["1 tasse de lentilles test", "2 tasses d'eau test"],
+        "ar": ["كوب عدس", "كوبان ماء"],
+        "hy": ["1 բաժակ ոսպ", "2 բաժակ ջուր"]
+      },
+      "instructions": {
+        "en": ["Rinse the test lentils.", "Simmer for 30 minutes."],
+        "fr": ["Rincer les lentilles.", "Mijoter 30 minutes."],
+        "ar": ["اغسل العدس.", "اطبخ لمدة ٣٠ دقيقة."],
+        "hy": ["Լվանալ ոսպը։", "Եփել 30 րոպե։"]
+      },
+      "categoryId": "soup",
+      "published": { "en": true, "fr": true, "ar": false, "hy": false }
+    },
+    {
+      "slug": "fixture-pilaf",
+      "featuredRecipe": false,
+      "title": { "en": "Fixture Pilaf", "fr": "Pilaf test", "ar": "برغل تجريبي", "hy": "Փորձնական փլավ" },
+      "description": {
+        "en": "Second test recipe.",
+        "fr": "Deuxième recette de test.",
+        "ar": "وصفة اختبار ثانية.",
+        "hy": "Երկրորդ փորձնական բաղադրատոմս։"
+      },
+      "recipeCategory": { "en": "Main Dish", "fr": "Plat principal", "ar": "طبق رئيسي", "hy": "Հիմնական ուտեստ" },
+      "recipeCuisine": { "en": "Test", "fr": "Test", "ar": "اختبار", "hy": "Փորձ" },
+      "prepTime": "PT5M",
+      "cookTime": "PT20M",
+      "totalTime": "PT25M",
+      "recipeYield": { "en": "2 servings", "fr": "2 portions", "ar": "حصتان", "hy": "2 բաժին" },
+      "ingredients": {
+        "en": ["1 cup test grain"],
+        "fr": ["1 tasse de grain test"],
+        "ar": ["كوب حبوب"],
+        "hy": ["1 բաժակ հացահատիկ"]
+      },
+      "instructions": {
+        "en": ["Cook the test grain."],
+        "fr": ["Cuire le grain."],
+        "ar": ["اطبخ الحبوب."],
+        "hy": ["Եփել հացահատիկը։"]
+      },
+      "categoryId": "main",
+      "published": { "en": true, "fr": false, "ar": false, "hy": false }
+    }
+  ]
+}
