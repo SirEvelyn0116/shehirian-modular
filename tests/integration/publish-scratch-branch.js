@@ -38,7 +38,7 @@ function check(label, condition) {
   assert.ok(condition, label);
   console.log(`  ✓ ${label}`);
 }
-const post = (handler, body, ctx = fakeApprover) => handler({ httpMethod: 'POST', body: JSON.stringify(body) }, ctx);
+const post = (fn, body, ctx = fakeApprover) => fn.handler({ httpMethod: 'POST', body: JSON.stringify(body) }, ctx);
 const read = (branch) => getFile({ repo: GITHUB_REPO, branch, path: RECIPES_PATH, token: TOKEN });
 
 async function main() {
