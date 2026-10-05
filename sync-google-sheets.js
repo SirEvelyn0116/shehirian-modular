@@ -2,6 +2,7 @@ require('dotenv').config();
 const { google } = require('googleapis');
 const fs = require('fs');
 const path = require('path');
+const { fillMissingStrings } = require('./scripts/ui-strings-fill');
 
 // ─── Safety threshold ────────────────────────────────────────────────────────
 // If the Sheet returns fewer than this many keys it is considered incomplete.
@@ -58,8 +59,9 @@ async function syncTranslations() {
       return;
     }
 
-    // Sheet looks healthy — pull it down and overwrite the local file
-    await pullFromSheet(rows, uiStringsPath);
+    // Sheet looks healthy — pull it down and overwrite the local file,
+    // filling any missing row or blank cell from the repo backup.
+    await pullFromSheet(rows, uiStringsPath, localData);
 
   } catch (err) {
     console.error('❌ Sync failed:', err.message);
@@ -94,7 +96,7 @@ async function seedSheet(sheets, spreadsheetId, jsonData) {
 }
 
 // ── Pull: overwrite local ui-strings.json from a healthy Sheet ───────────────
-async function pullFromSheet(rows, filePath) {
+async function pullFromSheet(rows, filePath, backup) {
   const headers = rows[0]; // ['Key', 'en', 'fr', 'ar', 'hy']
   const jsonData = {};
 
@@ -107,8 +109,22 @@ async function pullFromSheet(rows, filePath) {
     });
   });
 
-  fs.writeFileSync(filePath, JSON.stringify(jsonData, null, 2), 'utf8');
-  console.log(`✅ ui-strings.json updated from Google Sheets (${Object.keys(jsonData).length} keys).`);
+  // A deleted row or a blank cell in the Sheet would otherwise ship as a
+  // missing label (the site falls back to English, or to the raw key name).
+  // Fill each gap from the last committed copy and say so in the build log;
+  // the build carries on either way.
+  const { merged, filled, unfillable } = fillMissingStrings(jsonData, backup);
+  if (filled.length > 0) {
+    console.warn(`⚠️  ${filled.length} UI string(s) missing or blank in the Sheet — kept the repo backup value:`);
+    filled.forEach(({ key, lang }) => console.warn(`     ${key} [${lang}]`));
+  }
+  if (unfillable.length > 0) {
+    console.warn(`⚠️  ${unfillable.length} UI string(s) blank in the Sheet with no backup value (will show English or the key name):`);
+    unfillable.forEach(({ key, lang }) => console.warn(`     ${key} [${lang}]`));
+  }
+
+  fs.writeFileSync(filePath, JSON.stringify(merged, null, 2), 'utf8');
+  console.log(`✅ ui-strings.json updated from Google Sheets (${Object.keys(merged).length} keys).`);
 }
 
 syncTranslations();

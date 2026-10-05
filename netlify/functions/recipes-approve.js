@@ -131,7 +131,7 @@ exports.handler = async (event, context) => {
     const nonConflicting = [...toApply, ...alreadyAppliedInFile];
     const candidateSlugs = [...new Set(nonConflicting.map((e) => e.recipe_slug))];
     const editLogRows = candidateSlugs.length
-      ? await sql`select recipe_slug, lang, field_path, new_value, commit_sha from edit_log where recipe_slug = any(${candidateSlugs})`
+      ? await sql`select recipe_slug, lang, field_path, new_value, commit_sha, created_at from edit_log where recipe_slug = any(${candidateSlugs}) and commit_sha is not null`
       : [];
     const { needsLogging, alreadyLogged } = filterAlreadyLogged(nonConflicting, editLogRows);
     const alreadyLoggedIds = new Set(alreadyLogged.map((e) => e.id));

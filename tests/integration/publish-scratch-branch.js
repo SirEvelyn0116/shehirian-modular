@@ -38,7 +38,7 @@ function check(label, condition) {
   assert.ok(condition, label);
   console.log(`  ✓ ${label}`);
 }
-const post = (handler, body, ctx = fakeApprover) => handler({ httpMethod: 'POST', body: JSON.stringify(body) }, ctx);
+const post = (fn, body, ctx = fakeApprover) => fn.handler({ httpMethod: 'POST', body: JSON.stringify(body) }, ctx);
 const read = (branch) => getFile({ repo: GITHUB_REPO, branch, path: RECIPES_PATH, token: TOKEN });
 
 async function main() {
@@ -96,6 +96,7 @@ async function main() {
     const [requeued] = await sql`select status, reject_reason from edits where id = ${q3.editId}`;
     check('re-queueing clears the old reason', requeued.status === 'pending' && requeued.reject_reason === null);
     const ap = JSON.parse((await post(recipesApprove, { editIds: [q3.editId], confirmed: true })).body);
+    if (ap.committed !== true) console.error('  approve response:', JSON.stringify(ap));
     check('approve commits', ap.committed === true && typeof ap.commitSha === 'string');
     const after = await read(SCRATCH_BRANCH);
     const updated = after.json.recipes.find((r) => r.slug === TEST_RECIPE_SLUG);

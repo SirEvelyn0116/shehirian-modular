@@ -226,7 +226,7 @@ export default function RecipeReplica({ slug, onBack }) {
 
     setFieldStates(prev => {
       const next = { ...prev };
-      results.forEach((r, i) => {
+      results.forEach((r) => {
         if (r.status === 'fulfilled') {
           const { fieldPath, edit } = r.value;
           // Saved = a fresh submission, so the old rejection note goes.

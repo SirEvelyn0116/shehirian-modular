@@ -1,103 +1,36 @@
+// Browser tests: the admin tool (React bundle from recipes-app) and the
+// public site, both served from the built dist/ by tests/support/ui-server.js,
+// which also runs the real Netlify Function handlers against a local
+// Postgres. Run `npm run build` first. See TESTING.md.
 const { defineConfig, devices } = require('@playwright/test');
 
-/**
- * Playwright Configuration for Multilingual Static Site Testing
- * @see https://playwright.dev/docs/test-configuration
- */
+const PORT = Number(process.env.UI_TEST_PORT || 4173);
+
 module.exports = defineConfig({
-  testDir: './tests/e2e',
-  
-  // Maximum time one test can run
-  timeout: 30 * 1000,
-  
-  // Maximum time for expect() assertions
-  expect: {
-    timeout: 5000
-  },
-  
-  // Run tests in files in parallel
-  fullyParallel: true,
-  
-  // Fail the build on CI if you accidentally left test.only in the source code
+  testDir: './tests/ui',
+  // One shared database: run tests one at a time.
+  workers: 1,
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  
-  // Retry on CI only
-  retries: process.env.CI ? 2 : 0,
-  
-  // Opt out of parallel tests on CI
-  workers: process.env.CI ? 1 : undefined,
-  
-  // Reporter to use
-  reporter: [
-    ['html', { outputFolder: 'playwright-report' }],
-    ['json', { outputFile: 'test-results/results.json' }],
-    ['list']
-  ],
-  
-  // Shared settings for all the projects below
+  // No retries: a test that only passes on a second try is reported as a
+  // failure, not hidden.
+  retries: 0,
+  timeout: 30_000,
+  expect: { timeout: 5_000 },
+  reporter: process.env.CI
+    ? [['list'], ['html', { open: 'never' }], ['github']]
+    : [['list'], ['html', { open: 'never' }]],
   use: {
-    // Base URL to use in actions like `await page.goto('/')`
-    baseURL: process.env.BASE_URL || 'https://sirevelyn0116.github.io/shehirian-modular',
-    
-    // Collect trace when retrying the failed test
-    trace: 'on-first-retry',
-    
-    // Screenshot on failure
+    baseURL: `http://127.0.0.1:${PORT}`,
+    trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
-    
-    // Video on failure
-    video: 'retain-on-failure',
-    
-    // Default timeout for actions
-    actionTimeout: 10000,
-    
-    // Default timeout for page navigation
-    navigationTimeout: 15000,
   },
-
-  // Configure projects for major browsers
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-
-    // Test against mobile viewports
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
-    {
-      name: 'Mobile Safari',
-      use: { ...devices['iPhone 12'] },
-    },
-
-    // Test against branded browsers
-    {
-      name: 'Microsoft Edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
-    {
-      name: 'Google Chrome',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    },
-  ],
-
-  // Run your local dev server before starting the tests
-  // Uncomment if testing locally with http-server
-  // webServer: {
-  //   command: 'npx http-server dist -p 8080',
-  //   port: 8080,
-  //   reuseExistingServer: !process.env.CI,
-  // },
+  projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
+  webServer: {
+    command: 'node tests/support/ui-server.js',
+    url: `http://127.0.0.1:${PORT}/__test/health`,
+    reuseExistingServer: !process.env.CI,
+    stdout: 'pipe',
+    timeout: 30_000,
+  },
 });

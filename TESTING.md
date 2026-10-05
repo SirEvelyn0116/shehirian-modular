@@ -1,211 +1,136 @@
-# Quick Start Guide: E2E Testing
+# Testing
 
-## Installation
+Four automated suites, all run by `.github/workflows/ci.yml` on every pull request into
+`translation-pipeline`. None of them need Netlify, Neon, Google or GitHub credentials, and none of
+them can reach those services: outbound network from the API and browser tests is blocked except
+to the local test server.
 
-```bash
-# Install Playwright
-npm install --save-dev @playwright/test
-
-# Install browser binaries
-npx playwright install
-```
-
-## Running Tests
-
-### Against GitHub Pages (Deployed Site)
-
-```bash
-# All tests, all browsers
-npm test
-
-# Single browser
-npm run test:chromium
-npm run test:firefox
-npm run test:webkit
-
-# Headed mode (see browser)
-npm run test:headed
-
-# Debug mode (step through)
-npm run test:debug
-```
-
-### Against Local Build
-
-```bash
-# Build the site
-npm run build
-
-# Serve locally in one terminal
-npm run preview
-
-# Run tests in another terminal
-BASE_URL=http://localhost:8080 npm test
-```
-
-## View Test Reports
-
-```bash
-# Open HTML report
-npm run test:report
-```
-
-## What Gets Tested
-
-✅ **All 3 Languages** (EN, FR, AR)
-- Page loads successfully
-- Correct HTML `lang` and `dir` attributes
-- Localized titles
-- JSON-LD structured data
-- Language switcher functionality
-- localStorage language preference
-
-✅ **All 6 Sections**
-- Hero
-- About Us
-- Our Companies
-- Recipes
-- Certifications
-- Contact Us
-
-✅ **Navigation**
-- Cross-language switching
-- URL updates
-- Content changes
-
-✅ **SEO**
-- hreflang tags
-- x-default language
-- JSON-LD validation
-
-✅ **Accessibility**
-- RTL support for Arabic
-- Keyboard navigation
-- Mobile responsiveness
-
-✅ **Performance**
-- Load time < 5 seconds
-- No console errors
-- All sections render
-
-## CI/CD
-
-Tests run automatically on:
-- Every push to main
-- Every pull request
-- Weekly (Sundays at midnight)
-- Manual trigger via Actions tab
-
-View test reports in GitHub Actions artifacts.
-
-## Debugging Failed Tests
-
-```bash
-# See what's happening
-npm run test:headed
-
-# Step through test
-npm run test:debug
-
-# Run single test
-npx playwright test -g "should have correct title"
-```
-
-## Configuration
-
-- **Test file**: `tests/e2e/multilingual.spec.js`
-- **Config**: `playwright.config.js`
-- **Update BASE_URL**: Edit config or use environment variable
-
-## Support
-
-See `tests/README.md` for comprehensive documentation.
-
----
-
-# Recipes admin tool (Phase 4) — behavioral matrix
-
-Separate suite, separate config, separate concern from the multilingual E2E tests above: this one
-covers the Phase 4 approver-review feature in the Recipes admin tool, not the public site. Split
-into what `tests/phase4/`'s Playwright suite verifies automatically and what stays a manual check.
-For how to run the app locally at all (auth-stub modes, cleanup, what the stub does/doesn't prove
-about real auth), see [`LOCAL_DEV.md`](LOCAL_DEV.md) — this section assumes you've read that one.
-
-## Running the automated suite
-
-```bash
-npm run build
-npm run dev:auth-stub            # or :translator / :approver — see below
-npm run test:phase4              # in a second terminal, same server still running
-```
-
-`test:phase4` wraps `netlify dev:exec` so the DB-seeding/cleanup helpers in `tests/phase4/db-helpers.js`
-get `DATABASE_URL` directly, the same way the app server does. It does **not** start the
-`dev:auth-stub*` server for you — start that first, in its own terminal, and leave it running.
-
-The suite runs against the real Neon database (same one `dev:auth-stub` writes to), seeding and
-cleaning up rows under its own identity, `playwright-test@example.com` — distinct from the stub's
-own `local-dev@example.com`, so automated runs and manual dev-testing cleanup (`npm run
-db:clean-test-edits`) never collide. Tests run serially (`workers: 1`), not in parallel, because
-they share that one external database.
-
-`role-routing.spec.js` self-detects whichever stub role is currently active by reading the
-dashboard's role-badge text, so the *same file* covers all three role-routing matrix rows — you
-just run it three times, once per server variant:
-
-```bash
-# with dev:auth-stub:translator running:
-netlify dev:exec -- npx playwright test --config=tests/phase4/playwright.config.js role-routing.spec.js
-# repeat with dev:auth-stub:approver, then with plain dev:auth-stub (both roles)
-```
-
-The other three spec files (`checkbox-safety`, `approve-button`, `empty-state`) don't depend on
-role, so a plain `npm run test:phase4` against any running variant covers them.
-
-**Scope caveat**, repeated from each spec file's header comment: this all runs against
-`scripts/stub-identity.js`'s hand-built identity, not a real Netlify Identity JWT. It proves the
-app's own role-gating and UI logic are correct; it does not prove JWT signature/expiry validation
-or that a real Identity account's roles land where the app expects. That boundary is manual/
-post-deploy only — see `LOCAL_DEV.md` §4.
-
-## The matrix
-
-| # | Behavior | Covered by | Notes |
+| Suite | Command | Runner | Needs |
 |---|---|---|---|
-| 1 | Translator-only account: no Review tab, lands on picker | `role-routing.spec.js` (run against `:translator`) | Automated |
-| 2 | Approver-only account: no Translate flow, lands directly on Review, no 403 dead-end | `role-routing.spec.js` (run against `:approver`) | Automated |
-| 3 | Dual-role account: mode toggle appears, both flows reachable | `role-routing.spec.js` (run against default `dev:auth-stub`) | Automated |
-| 4 | Approver first load renders cleanly, no error state | `role-routing.spec.js` (all three variants — asserts `.recipes-error` absent) | Automated. See Fix 2 below for the underlying bug this guards against. |
-| 5 | Review checkbox is checked by default | `checkbox-safety.spec.js` | Automated |
-| 6 | Unchecking a row decrements the selected count but the row stays visible in the diff | `checkbox-safety.spec.js` | Automated |
-| 7 | Uncheck → reload: edit is still shown and still `pending` in the DB | `checkbox-safety.spec.js` | **Automated — the core non-destructive guarantee.** Proves unchecking never reaches the API at all, not just that the UI looks right. |
-| 8 | No delete/reject/discard control exists anywhere in the approval view's DOM | `checkbox-safety.spec.js` | Automated |
-| 9 | Approve & Deploy button is disabled | `approve-button.spec.js` | Automated |
-| 10 | Forcing a click on the disabled Approve button causes no DB change | `approve-button.spec.js` | Automated |
-| 11 | Empty state shows the friendly "Nothing to approve right now" message | `empty-state.spec.js` | Automated |
-| 12 | Role indicator text is present and correct per role ("Translator view" / "Approver view" / "Translator & Approver view") | `role-routing.spec.js` (all three variants read this text directly) | Automated |
-| 13 | Role indicator is visually distinguishable at a glance (contrast, tint, not relying on color alone) | — | **Manual.** A test can assert the text and CSS class are correct (#12 does); it can't judge whether the result actually reads clearly to a human. |
-| 14 | Arabic (RTL) fields render correctly in the approval diff and picker | — | **Manual.** Visual/typographic judgment — layout direction, glyph shaping, mixed-direction text — not something a DOM assertion catches. Also the subject of the existing RTL launch-blocker (see spec §11). |
-| 15 | Recipe grouping in the approval view (`<details>` per recipe) is readable — sensible ordering, disclosure affordance is obvious | — | **Manual.** Same category as #14: renders "correctly" by any DOM check while still being confusing to look at. |
-| 16 | Pending-edit badge count on the recipe picker matches actual pending rows, per recipe | — | **Manual.** Verified by hand this session against the real DB across all three stub variants (seed edits, confirm badge count, cleanup); not yet in the automated suite — wasn't in the required matrix for this pass. Structurally can only ever reflect durable `edits` rows (see Fix 4 note below), so there's no dirty-state leak to test for even manually. |
-| 17 | Recipes-tab usage instructions are present and minimal (Fix 1) | — | **Manual.** Content/copy check, not behavior. |
-| 18 | Real Netlify Identity JWT validation; roles actually landing correctly from a real Identity account | — | **Out of scope for this suite by design**, not just unautomated — see the scope caveat above and `LOCAL_DEV.md` §4. Only checkable against a real deploy with a real logged-in session. |
+| Unit | `npm run test:unit` | `node:test` | nothing |
+| API | `npm run test:api` | `node:test` | `TEST_DATABASE_URL` |
+| Build output | `npm run test:build` | `node:test` | `npm run build` first |
+| Browser | `npm run test:ui` | Playwright (Chromium) | `npm run build` first, `TEST_DATABASE_URL` |
 
-## Notes on two fixes from this pass
+`npm test` runs all four in that order.
 
-**Fix 2 (approver first-load bug):** root-caused via code analysis, not reproduction — the stub
-server is synchronous and structurally can't reproduce the race. `RecipesApp.jsx` originally read
-`netlifyIdentity.currentUser()` synchronously at render time; real Netlify Identity restores an
-existing session *asynchronously*, so a fast mount could see `roles=[]` before the real session
-resolved, defaulting to the wrong view and firing an unauthenticated request — which also explains
-why a reload "fixed" it (more wall-clock time had passed before the second render). Fixed with a
-`useIdentityRoles()` hook that waits for a definitive answer (`'init'`/`'login'` events) before
-rendering anything role-dependent. Row 4 above guards the fixed behavior, but can't prove the race
-itself is gone, since the stub was never able to exhibit it — real-deploy verification is still
-worth doing once this ships.
+## Running locally
 
-**Fix 4 (pending-edit badges):** counts come from a direct SQL query against the `edits` table
-(`netlify/functions/recipes-list.js`), grouped by `recipe_slug`. Dirty (unsaved, in-memory-only)
-edits never reach that table until Save, so there is no code path by which a badge could reflect
-anything other than durable, saved, pending work — this is a structural guarantee, not a runtime
-check that happens to pass today.
+The API and browser tests need a throwaway Postgres. They truncate the `edits` and `edit_log`
+tables, so `tests/support/db.js` refuses any `TEST_DATABASE_URL` whose host is not local.
+
+```bash
+docker run -d --name shehirian-test-db -p 5432:5432 \
+  -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=shehirian_test postgres:16
+export TEST_DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/shehirian_test
+
+npm ci
+npx playwright install chromium   # once
+npm run build
+npm test
+```
+
+(PowerShell: `$env:TEST_DATABASE_URL = "postgres://..."`.)
+
+## What runs for real and what is faked
+
+API and browser tests go through `tests/support/server.js`:
+
+- **Real:** every handler in `netlify/functions/`, unmodified, including the role checks inside them;
+  the SQL they run, against Postgres 16 with `db/schema.sql` applied by the same splitter
+  `db/migrate.js` uses; the GitHub and build-hook client code in `netlify/functions/_shared/`; the
+  route table, read from `netlify.toml`'s `[[redirects]]` and applied in file order.
+- **Faked:** `raw.githubusercontent.com`, the GitHub Contents API and the Netlify build hook are
+  answered by an in-memory fake (`tests/support/fake-github.js`, using `nock`). The fake enforces
+  the same "PUT must name the current blob SHA" rule GitHub does and records every commit and build
+  hook call, which the tests inspect.
+- **Not covered:** Netlify Identity. In production Netlify validates the JWT and puts the user on
+  `context.clientContext.user`; here a fixed bearer token is mapped to a test user. In the browser
+  tests the Identity widget script is replaced by `tests/support/fake-identity-widget.js`. JWT
+  validation, and roles arriving correctly from a real Identity account, can only be checked on a
+  real deploy.
+- The route table is matched by `tests/support/routes.js`, a re-implementation of the subset of
+  Netlify's redirect rules this site uses, not Netlify's own engine.
+
+Recipe data in these tests is `tests/fixtures/all-recipes.json`: two invented recipes, not client
+content. The build-output tests read the real build of the committed content.
+
+## What each suite checks
+
+**Unit** (`tests/unit/`): the approve action's conflict guard, apply-to-JSON transform and
+idempotency filter (`approveLogic.js`); the Clover sales summary (`cloverSales.js`).
+
+**API** (`tests/api/`):
+- Role checks: every admin endpoint refuses anonymous callers (401), signed-in users without a role
+  (403) and the wrong role (403), and each refusal is followed by a check that the database, the
+  fake GitHub and the build hook are unchanged. A translator cannot approve, reject, publish or
+  read the review queue; an approver-only account cannot submit, delete or open translations.
+- Translator writes: edits are attributed to the signed-in user (not to anything in the request
+  body), re-saving a field updates one row, re-saving a rejected field makes it pending again,
+  invalid input is refused, translators can only withdraw their own pending edits.
+- Review and approve: the review payload shows the live value, not the stored snapshot; approving
+  makes exactly one commit with the selected values applied and nothing else changed, marks the
+  edits approved, writes the audit log and fires one deploy; dry runs and unconfirmed calls write
+  nothing; stale edits are marked conflict and not committed; repeating an approval does not commit
+  twice; if the commit fails nothing is marked approved; the crash-recovery path logs against the
+  branch head without a new commit or deploy.
+- Publish requests are queued, never committed directly, and a second click withdraws them;
+  approving one sets a real boolean in the committed JSON. Rejections keep the row with the reason
+  (trimmed, capped at 500 characters), log it with no commit, and show it to translators.
+- `netlify.toml`: every redirect points at an existing function, exact paths are matched before the
+  wildcards that would swallow them, and old certification URLs 301 to the language home page.
+- `db/schema.sql` splits into complete statements.
+
+**Build output** (`tests/build/`):
+- Every language has its home, recipe index and product pages, with the right `lang` and `dir`.
+- Every internal link and asset reference on every public page resolves to a file in `dist/`.
+- Every JSON-LD block and generated data file parses.
+- Publish gate: an unpublished language version is `noindex`, absent from the sitemap and from
+  every hreflang list, has no structured data and does not contain that language's unreviewed
+  ingredients or steps; a published one is indexable, in the sitemap and has `Recipe` structured
+  data in its language.
+- Client content rules: no certification claims on any page or in the generated data (unless
+  `SHOW_CERTIFICATIONS=true`); English visible text says "Bulgor", never "bulgur"; Arabic and
+  Armenian pages use Western digits; every UI string has all four languages.
+
+**Browser** (`tests/ui/`), against the built `dist/` including the React admin bundle:
+- What translator, approver and dual-role accounts see.
+- Translator: edit a field, save, and the row lands in the database as pending; Escape cancels;
+  Preview shows unsaved changes in the recipe-page layout; an approver's rejection appears under
+  the field with its reason.
+- Approver: Review shows live vs. proposed values; Approve commits the ticked edits in one commit
+  and triggers one deploy; unticked edits stay pending; Cancel commits nothing; conflicts are
+  reported before confirming; Reject stores the reason without committing; publish pills queue a
+  request instead of publishing.
+- Public site: each language's home page renders its five client-side sections with no console
+  errors, the language switcher works, recipe cards open recipe pages.
+
+Any browser console error or uncaught exception fails a browser test. Playwright retries are off.
+
+## Known gaps
+
+- `tests/build/site.test.js` has one test marked `todo` (reported, not failing): the build copies
+  the whole `sections/` source folder into `dist/`, so files no page uses are publicly downloadable,
+  including the old certification data (one JSON-LD file there claims "Organic"), unparseable
+  scan-extraction files and internal notes. Fixing it changes what production publishes.
+- French pages still use "bulgur" in visible text; the spelling rule is only enforced for English.
+- Browser tests run in Chromium only. Arabic right-to-left layout is checked by attributes, not by
+  looking at it.
+
+## Manual integration tests (not in CI)
+
+`npm run test:phase5:integration` and `npm run test:publish:integration` call the real approve and
+publish handlers against the real database and make real commits to the `test/phase5-scratch`
+branch (never `translation-pipeline`). They need `DATABASE_URL` and `GITHUB_TOKEN` via
+`netlify dev:exec`. See `LOCAL_DEV.md` §7.
+
+## CI and deploys
+
+`ci.yml` has five jobs: `Lint and format`, `Unit and API tests`, `Build and build-output tests`,
+`Browser tests`, `Dependency audit`. It only reports. Netlify's build does not run any tests, so CI
+results never block a deploy, and the admin tool's approve commits (pushed straight to
+`translation-pipeline` by the GitHub API) are deployed whatever CI says.
+
+Lint: ESLint `recommended` plus `react-hooks/recommended` for `recipes-app/src` (`eslint.config.js`).
+Formatting: Prettier, for the files listed in the `format:check` script only.
+Dependencies: `npm audit --omit=dev --audit-level=high` in CI, and `.github/dependabot.yml`.
