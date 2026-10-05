@@ -217,3 +217,28 @@ test('publish request that is already live counts as applied, not a conflict', (
   assert.equal(alreadyAppliedInFile.length, 1);
   assert.equal(toApply.length + conflicts.length, 0);
 });
+
+// --- filterAlreadyLogged: history that must NOT count as "already shipped" ---
+
+test('filterAlreadyLogged: a rejection row (no commit_sha) does not count as shipped', () => {
+  const rejected = { recipe_slug: 'royal-soup', lang: 'ar', field_path: 'title', new_value: 'حساء ملكي جديد', commit_sha: null };
+  const { needsLogging, alreadyLogged } = filterAlreadyLogged([edit()], [rejected]);
+  assert.equal(needsLogging.length, 1);
+  assert.equal(alreadyLogged.length, 0);
+});
+
+test('filterAlreadyLogged: a row logged before the edit was last saved is history, not this save', () => {
+  const saved = edit({ updated_at: new Date('2026-10-05T12:00:00Z') });
+  const older = { recipe_slug: 'royal-soup', lang: 'ar', field_path: 'title', new_value: 'حساء ملكي جديد', commit_sha: 'old111', created_at: new Date('2026-09-01T09:00:00Z') };
+  const { needsLogging, alreadyLogged } = filterAlreadyLogged([saved], [older]);
+  assert.equal(needsLogging.length, 1);
+  assert.equal(alreadyLogged.length, 0);
+});
+
+test('filterAlreadyLogged: a committed row logged after the edit was saved is this save (crash recovery)', () => {
+  const saved = edit({ updated_at: new Date('2026-10-05T12:00:00Z') });
+  const newer = { recipe_slug: 'royal-soup', lang: 'ar', field_path: 'title', new_value: 'حساء ملكي جديد', commit_sha: 'new222', created_at: new Date('2026-10-05T12:00:05Z') };
+  const { needsLogging, alreadyLogged } = filterAlreadyLogged([saved], [newer]);
+  assert.equal(needsLogging.length, 0);
+  assert.equal(alreadyLogged[0].commitSha, 'new222');
+});
