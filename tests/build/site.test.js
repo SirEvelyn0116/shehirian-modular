@@ -26,9 +26,9 @@ const distPath = (urlPath) => path.join(DIST, decodeURIComponent(urlPath.replace
 // Text a visitor can read: the <body> without scripts, styles or tags.
 function visibleText(html) {
   return html
-    .replace(/<head[\s\S]*?<\/head>/i, ' ')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<head\b[\s\S]*?<\/head[^>]*>/i, ' ')
+    .replace(/<script\b[\s\S]*?<\/script[^>]*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style[^>]*>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[#a-z0-9]+;/gi, ' ');
 }

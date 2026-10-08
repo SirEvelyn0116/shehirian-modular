@@ -375,17 +375,30 @@ function translateProductText(text, lang) {
 function decodeHtmlText(value) {
   return String(value || '')
     .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
+    // &amp; last: decoding it first would turn '&amp;lt;' into '<'.
+    .replace(/&amp;/g, '&')
     .trim();
+}
+
+// Plain text from an HTML fragment. Strips tags repeatedly (a single pass
+// leaves e.g. '<<b>i>' behind as '<i>'), then removes any stray brackets.
+function stripTags(fragment) {
+  let text = String(fragment || '');
+  let previous;
+  do {
+    previous = text;
+    text = text.replace(/<[^<>]*>/g, '');
+  } while (text !== previous);
+  return text.replace(/[<>]/g, '');
 }
 
 function normalizeProductImageSource(rawSource) {
   if (!rawSource) return '';
-  return rawSource.replace(/^\.\//, '').replace(/^img\//, 'assets/img/').replace(/^assets\/img\//, 'assets/img/');
+  return rawSource.replace(/^\.\//, '').replace(/^img\//, 'assets/img/');
 }
 
 function extractLegacyProductCards(sourceFile) {
@@ -405,7 +418,7 @@ function extractLegacyProductCards(sourceFile) {
       const imageContainerMatch = chunk.match(/<div class="product-image-container">([\s\S]*?)<\/div>/i);
       const emoji = imageMatch || !imageContainerMatch
         ? ''
-        : decodeHtmlText(imageContainerMatch[1].replace(/<[^>]+>/g, ''));
+        : decodeHtmlText(stripTags(imageContainerMatch[1]));
 
       return {
         title: decodeHtmlText(titleMatch ? titleMatch[1] : ''),
