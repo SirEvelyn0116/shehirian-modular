@@ -25,7 +25,7 @@ function bail(msg) { console.error('\n✗ ' + msg + '\n'); process.exit(1); }
 console.log('Clover sandbox check');
 console.log('  API base:    ' + BASE);
 console.log('  Merchant ID: ' + (MID || '(missing)'));
-console.log('  API token:   ' + (TOKEN ? `set (${TOKEN.length} chars)` : '(missing)'));
+console.log('  API token:   ' + (TOKEN ? 'set' : '(missing)'));
 
 if (!TOKEN || !MID) bail('CLOVER_API_TOKEN and CLOVER_MERCHANT_ID must both be set in .env (see the header of this file).');
 if (/\/\/(www\.)?sandbox\.dev\.clover\.com/.test(BASE)) {

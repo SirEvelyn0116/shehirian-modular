@@ -168,10 +168,23 @@ const server = http.createServer(async (req, res) => {
   }
 
   // --- Static files, with the auth stub injected into admin/index.html only ---
-  let filePath = path.join(distDir, decodeURIComponent(parsed.pathname));
-  if (parsed.pathname.endsWith('/')) filePath = path.join(filePath, 'index.html');
+  // Resolve inside dist/ and refuse anything that escapes it (e.g. /../.env).
+  const insideDist = (p) => p === distDir || p.startsWith(distDir + path.sep);
+  let requested;
+  try {
+    requested = decodeURIComponent(parsed.pathname);
+  } catch {
+    res.writeHead(400);
+    return res.end('Bad request');
+  }
+  let filePath = path.resolve(distDir, '.' + path.posix.normalize('/' + requested));
+  if (!insideDist(filePath)) {
+    res.writeHead(403);
+    return res.end('Forbidden');
+  }
+  if (requested.endsWith('/')) filePath = path.join(filePath, 'index.html');
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-    filePath = path.join(distDir, parsed.pathname, 'index.html');
+    filePath = path.join(filePath.replace(/[\\/]index\.html$/, ''), 'index.html');
   }
   if (!fs.existsSync(filePath)) {
     res.writeHead(404);

@@ -35,7 +35,7 @@ test('a recipe card on the English recipe index opens the recipe page', async ({
   const card = page.locator('a.recipe-card:not(.recipe-card-coming-soon)').first();
   const href = await card.getAttribute('href');
   await card.click();
-  await expect(page).toHaveURL(new RegExp(`${href.replace(/[.]/g, '\\.')}$`));
+  await expect.poll(() => new URL(page.url()).pathname).toBe(href);
   await expect(page.locator('h1')).not.toBeEmpty();
   expect(await page.locator('ul li, ol li').count()).toBeGreaterThan(2);
 });
