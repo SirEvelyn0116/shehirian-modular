@@ -27,6 +27,11 @@ netlifyIdentity.on('login', () => {
     const roles = getRoles(netlifyIdentity.currentUser());
     if (roles.includes('translator') || roles.includes('approver')) {
         document.getElementById('tab-recipes').classList.remove('hidden');
+        // Deep link (?recipe=<slug>): open the Recipes tab straight away so
+        // RecipesApp can show that recipe's editor.
+        if (new URLSearchParams(window.location.search).has('recipe')) {
+            switchView('recipes');
+        }
     }
 
     // Text is the primary signal for which role is active — translator and

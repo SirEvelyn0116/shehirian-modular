@@ -101,11 +101,17 @@ function EditableRecipeColumn({ recipe, lang, dir, fieldStates, onCommit }) {
   );
 }
 
-export default function RecipeReplica({ slug, onBack }) {
+export default function RecipeReplica({ slug, onBack, initialLang, onLangChange }) {
+  // Language to open on: a deep link's ?lang= if it names a target language,
+  // otherwise Arabic. Read through a ref in the load effect below so a lang
+  // switch (which updates the URL, and so initialLang) doesn't refetch.
+  const startLang = TARGET_LANGS.some(l => l.code === initialLang) ? initialLang : 'ar';
+  const startLangRef = useRef(startLang);
+  startLangRef.current = startLang;
   const [recipe, setRecipe] = useState(null);
   const [myEdits, setMyEdits] = useState([]);
   const [fieldStates, setFieldStates] = useState({});
-  const [lang, setLang] = useState('ar');
+  const [lang, setLang] = useState(startLang);
   const [error, setError] = useState(null);
   const [viewMode, setViewMode] = useState('edit'); // 'edit' | 'preview'
   const [saving, setSaving] = useState(false);
@@ -115,7 +121,7 @@ export default function RecipeReplica({ slug, onBack }) {
     setRecipe(null);
     setMyEdits([]);
     setFieldStates({});
-    setLang('ar');
+    setLang(startLangRef.current);
     setError(null);
     setViewMode('edit');
     setSaveError(null);
@@ -181,6 +187,7 @@ export default function RecipeReplica({ slug, onBack }) {
     if (newLang === lang) return;
     if (!confirmLeaveIfDirty()) return;
     setLang(newLang);
+    if (onLangChange) onLangChange(newLang);
   }
 
   // Browser-level nav/close/reload guard. In-app "Back" is guarded
