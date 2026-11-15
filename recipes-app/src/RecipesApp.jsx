@@ -46,8 +46,45 @@ export function useIdentityRoles() {
   return state;
 }
 
+// Deep link: /admin/?recipe=<slug>&lang=<fr|ar|hy> opens that recipe's
+// editor directly (used by per-recipe tasks in Laurence's Daily Planner, so
+// each one is a single tap from a phone). The URL is kept in step with the
+// open recipe so a reload lands back on it; Back clears it.
+const LINK_LANGS = ['ar', 'hy', 'fr'];
+function readDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('recipe');
+  const lang = params.get('lang');
+  return { slug: slug || null, lang: LINK_LANGS.includes(lang) ? lang : null };
+}
+function writeDeepLink(slug, lang) {
+  const params = new URLSearchParams(window.location.search);
+  params.delete('recipe');
+  params.delete('lang');
+  if (slug) params.set('recipe', slug);
+  if (slug && lang) params.set('lang', lang);
+  const query = params.toString();
+  history.replaceState(null, '', window.location.pathname + (query ? `?${query}` : '') + window.location.hash);
+}
+
 export default function RecipesApp() {
-  const [selectedSlug, setSelectedSlug] = useState(null);
+  const [deepLink] = useState(readDeepLink);
+  const [selectedSlug, setSelectedSlug] = useState(deepLink.slug);
+  const [linkLang, setLinkLang] = useState(deepLink.lang);
+
+  function openRecipe(slug) {
+    setSelectedSlug(slug);
+    writeDeepLink(slug, linkLang);
+  }
+  function closeRecipe() {
+    setSelectedSlug(null);
+    setLinkLang(null);
+    writeDeepLink(null, null);
+  }
+  function changeLang(lang) {
+    setLinkLang(lang);
+    writeDeepLink(selectedSlug, lang);
+  }
   const { ready, roles } = useIdentityRoles();
 
   const isTranslator = roles.includes('translator');
@@ -89,10 +126,12 @@ export default function RecipesApp() {
         <>
           <RecipeApprovalView />
         </>
-      ) : selectedSlug ? (
-        <RecipeReplica slug={selectedSlug} onBack={() => setSelectedSlug(null)} />
+      ) : selectedSlug && isTranslator ? (
+        // isTranslator guard: an approver-only account following a deep
+        // link would otherwise hit the translator-only detail endpoint (403).
+        <RecipeReplica slug={selectedSlug} initialLang={linkLang} onLangChange={changeLang} onBack={closeRecipe} />
       ) : (
-        <RecipeList onSelect={isTranslator ? setSelectedSlug : undefined} showPublishControls={isApprover} />
+        <RecipeList onSelect={isTranslator ? openRecipe : undefined} showPublishControls={isApprover} />
       )}
     </>
   );
